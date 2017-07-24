@@ -1,0 +1,14 @@
+.sidebar {
+	@include breakpoint(small) {
+    	@include grid-column(12);
+  	}
+
+  	@include breakpoint(medium) {
+    	@include grid-column(4);
+		margin-top: 1rem;
+  	}
+
+  	input[type="text"], input[type="search"], input[type="password"], input[type="number"], input[type="email"], input[type="url"], input[type="tel"], input[type="file"], select {
+		height: 58px;
+  	}
+}

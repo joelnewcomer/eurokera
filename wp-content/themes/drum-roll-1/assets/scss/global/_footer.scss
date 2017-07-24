@@ -1,0 +1,17 @@
+#footer-container {
+	display: block;
+	float: left;
+	width: 100%;
+	background: #ccc;
+	padding-top: 25px;
+}
+
+.social {
+	svg {
+		margin: 0 5px;
+		max-height: 20px;
+		max-width: 25px;
+		fill: $primary-color;
+		vertical-align: middle;
+	}
+}

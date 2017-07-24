@@ -1,0 +1,187 @@
+/****************************************/
+/*             Drum Classes             */
+/****************************************/
+
+body, .animsition {
+	display: block;
+	float: left;
+	width: 100%;
+	min-height: 100vh;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+
+.no-padding {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+
+.no-border {
+	border: none !important;
+}
+
+a.read-more, .no-wrap, .no-break {
+	white-space: nowrap;
+}
+
+.logged-in .hide-logged-in {
+	display: none;
+}
+
+.clear {
+	clear: left;
+}
+
+.transition, a, input.button {
+	transition: all .5s;
+	-moz-transition: all .5s;
+	-webkit-transition: all .5s;
+	-o-transition: all .5s;
+}
+
+/* This is required to pass Theme Check */
+.sticky, .wp-caption-text, .bypostauthor {}
+
+@media only screen and (max-width: 40.063em) {
+	.hide-for-small, .hide-inline-small  {
+		display: none !important;
+	}
+	.small-text-center {
+		text-align: center;
+	}
+}
+
+@media only screen and (min-width: 40.063em) {
+	.show-for-small {
+		display: none !important;
+	}
+}
+
+// Safari bug fix
+body.safari a.logo {
+	transition: none;
+	-webkit-transition: none;
+	-ms-transition: none;
+}
+
+blockquote {
+	margin: $blockquote-margin;
+	font-style: italic;
+}
+blockquote p {
+	border-bottom: 0;
+	font-size: 31px;
+}
+
+.parallax-window {
+    h1, h2, h3, h4, p {
+	    color: #fff;
+	    text-shadow: 2px 2px 6px rgba(0,0,0,.2);
+	    -webkit-text-shadow: 2px 2px 6px rgba(0,0,0,.2);
+	    -moz-text-shadow: 2px 2px 6px rgba(0,0,0,.2);
+    }
+    & > .row {
+	 	padding: 40px 0 20px 0;
+	}
+}
+
+.entry-content section {
+	padding: 30px 0 15px 0;
+}
+
+.entry-content section, .parallax-container, section.container {
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+section.default-background {
+	background:$default-section;
+}
+
+section.primary-background {
+	background:$primary-section;
+}
+
+section.secondary-background {
+	background: $secondary-section;
+}
+
+.featured-image img {
+	width: 100%;
+}
+
+.slider-container {
+	overflow: hidden;
+}
+
+.error404 article {
+	padding: 40px 0;
+}
+
+section.container > section {
+	background: #fff;
+}
+
+#page, #single-post {
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+#single-post {
+	background: #fff;	
+}
+
+.entry-content > section {
+	background: #fff;
+}
+
+.password-protected-page #page > article {
+	padding: 40px 0;
+}
+
+.widget #searchsubmit {
+	padding: 16px 20px 15px 20px;
+}
+
+.white-bg {
+	background: #fff;
+}
+
+.featured-image, .parallax-window {
+	background-size: 100% auto !important;
+}
+
+// Animsition logo and loading spinner
+.loading-inner {
+	background: #ccc;
+	width: 100%;
+	height: 100vh;
+	img {
+		position: absolute;
+		bottom: 50%;
+		left: 50%;
+		margin-left: -86px;
+	}
+	.load-awesome {
+		position: absolute;
+		top: 55%;
+		left: 50%;
+		margin-top: -16px;
+		margin-left: -16px;
+	}
+}
+
+p {
+	color: #595959;
+}

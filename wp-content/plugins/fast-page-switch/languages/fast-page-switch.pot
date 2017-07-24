@@ -1,0 +1,75 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-11 21:25+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: fast-page-switch.php:38 fast-page-switch.php:362
+msgid "Settings"
+msgstr ""
+
+#. Name of the plugin
+#: fast-page-switch.php:156
+msgid "Fast Page Switch"
+msgstr ""
+
+#: fast-page-switch.php:211
+msgid "Switch"
+msgstr ""
+
+#: fps-admin.php:38
+msgid "Minimum Capability"
+msgstr ""
+
+#: fps-admin.php:46
+msgid "Post Types Shown"
+msgstr ""
+
+#: fps-admin.php:54
+msgid "Posts Statuses Shown"
+msgstr ""
+
+#: fps-admin.php:112
+msgid ""
+"The metabox only shows posts the current user is allowed to edit and hides "
+"itself if there aren't any posts."
+msgstr ""
+
+#. translators: %s: the url for the link
+#: fps-admin.php:128
+msgid ""
+"If this plugin saves you time, please <a target=\"_blank\" href=\"%s\">"
+"consider supporting it</a> with a good rating."
+msgstr ""
+
+#. translators: %s: the url for the link
+#: fps-admin.php:140
+msgid ""
+"Please do not use the rating system for your support requests. I work "
+"diligently to maintain a great plugin. For support and feedback simply leave "
+"a message in the <a target=\"_blank\" href=\"%s\">support forum</a> and I "
+"will get back to you right away."
+msgstr ""
+
+#. Description of the plugin
+msgid "Save time switching between posts of any post-type in wp-admin."
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://marcwiest.com"
+msgstr ""
+
+#. Author of the plugin
+msgid "Marc Wiest"
+msgstr ""

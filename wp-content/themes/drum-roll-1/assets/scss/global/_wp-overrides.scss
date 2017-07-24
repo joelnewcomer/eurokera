@@ -1,0 +1,42 @@
+.wp-caption > figcaption {
+	display:table-caption;
+	caption-side:bottom;
+	max-width: 100%;
+	font-size: 0.8rem;
+	color: #999;
+	padding: 0.25rem 0;
+}
+
+p.wp-caption-text{
+	font-size:90%;
+	color: $dark-gray;
+	padding:rem-calc(10) 0;
+}
+
+.alignleft {
+	display:table;
+	float: left;
+	padding-right: 1rem;
+	margin: 1rem 0 !important;;
+	margin: 0;
+	figcaption {
+		margin-right: 1rem;
+	}
+}
+
+.alignright {
+	display:table;
+	float: right;
+	padding-left: 1rem;
+	margin: 1rem 0!important;
+	margin: 0;
+	figcaption {
+		margin-left: 1rem;
+	}
+}
+
+.aligncenter {
+    display:table;
+	margin-left: auto;
+	margin-right: auto;
+}

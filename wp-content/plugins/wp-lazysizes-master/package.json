@@ -1,0 +1,31 @@
+{
+  "name": "wp-lazysizes",
+  "description": "Lazyload responsive images with automatic sizes calculation",
+  "version": "0.9.4",
+  "author": "Alexander Farkas <info@corrupt-system.de>",
+  "contributors": [
+    {
+      "name": "Viktor Szépe",
+      "email": "viktor@szepe.net"
+    },
+    {
+      "name": "Joel Birch",
+      "email": "joeldbirch@gmail.com"
+    },
+    {
+      "name": "Vitaly Nikolaev",
+      "email": "trilliput@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aFarkas/wp-lazysizes.git"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "lazysizes": ">=1.3.1",
+    "testem": "^1.7.4"
+  }
+}
