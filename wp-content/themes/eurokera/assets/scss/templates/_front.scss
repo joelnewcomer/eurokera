@@ -1,0 +1,82 @@
+.home-banner {
+	display: block;
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	background-size: cover !important;
+	padding: 15% 20px;
+	svg {
+		width: 155px;
+		height: 62px;
+		margin-bottom: 15px;
+	}
+	h1 {
+		color: #fff;
+		font-weight: 300;
+		margin-bottom: 35px;
+	}
+	.button {
+		display: inline-block;
+		margin: 0 8px;
+		a {
+			min-width: 262px;
+		}
+	}
+	.down-arrow {
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		margin-left: -15px;		
+		svg {
+			width: 29px;
+			height: 20px;
+			-ms-transform: rotate(180deg); /* IE 9 */
+			-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+			transform: rotate(180deg);
+		}
+	}
+}
+
+.bounce {
+	-webkit-animation-name: bounce;
+	-moz-animation-name: bounce;
+	-o-animation-name: bounce;
+	animation-name: bounce;
+}
+.animated{
+	animation-fill-mode:both;
+	-webkit-animation-fill-mode:both;
+	-moz-animation-fill-mode:both;
+	-ms-animation-fill-mode:both;
+	-o-animation-fill-mode:both;
+    animation-iteration-count: 3;
+    -moz-animation-iteration-count: 3;
+    -webkit-animation-iteration-count: 3;
+	-webkit-animation-duration:2s;
+	-moz-animation-duration:2s;
+	-ms-animation-duration:2s;
+	-o-animation-duration:2s;
+	animation-duration:2s;
+}
+
+@-webkit-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}	40% {-webkit-transform: translateY(-30px);}
+	60% {-webkit-transform: translateY(-15px);}
+}
+
+@-moz-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0);}
+	40% {-moz-transform: translateY(-30px);}
+	60% {-moz-transform: translateY(-15px);}
+}
+
+@-o-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-o-transform: translateY(0);}
+	40% {-o-transform: translateY(-30px);}
+	60% {-o-transform: translateY(-15px);}
+}
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-30px);}
+	60% {transform: translateY(-15px);}
+}
