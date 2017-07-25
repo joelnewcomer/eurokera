@@ -2210,6 +2210,9 @@ body > section.container > header,
 .header-wrapper {
   z-index: 11; }
 
+#site-navigation {
+  position: relative; }
+
 #footer-container {
   display: block;
   float: left;

@@ -65,7 +65,11 @@
 		<script>
 			jQuery( document ).ready(function() {
 				jQuery(".header-wrapper").pin();
-			});
+
+				jQuery('.home-banner .down-arrow').click(function() {
+				    jQuery('html, body').animate({ scrollTop: jQuery('#masthead').offset().top - 70}, 1000);
+				});
+    		});			
 		</script>
 	<?php endif; ?>
 
