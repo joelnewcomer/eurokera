@@ -15,15 +15,9 @@
 		font-weight: 300;
 		margin-bottom: 35px;
 	}
-	.button {
-		display: inline-block;
-		margin: 0 8px;
-		a {
-			min-width: 262px;
-		}
-	}
 	.down-arrow {
 		position: absolute;
+		cursor: pointer;
 		bottom: 10px;
 		left: 50%;
 		margin-left: -15px;		
@@ -35,6 +29,16 @@
 			transform: rotate(180deg);
 		}
 	}
+}
+
+.site-links {
+	.button {
+		display: inline-block;
+		margin: 0 8px;
+		a {
+			min-width: 262px;
+		}
+	}	
 }
 
 .bounce {
@@ -79,4 +83,127 @@
 	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
 	40% {transform: translateY(-30px);}
 	60% {transform: translateY(-15px);}
+}
+
+section.ceo {
+	svg {
+		width: 31px;
+		height: 25px;
+	}
+	h2 {
+		max-width: 35%;
+		display: inline-block;
+		font-size: 34px;
+		color: #5e6367;
+		font-weight: 400;
+	}
+	.ceo-photo {
+		padding: 160px 24px 24px 24px;
+		background-size: cover;
+		background-position: center center;
+		svg {
+			margin-bottom: 25px;
+		}
+	}
+	.long-quote {
+		padding: 90px 40px 48px 40px;
+		background: #5e6367;
+		p {
+			color: #fff;
+			font-size: 23px;
+			line-height: 1.4;
+			max-width: 515px;
+			margin-bottom: 30px;
+		}
+		p.ceo-name {
+			font-size: 16px;
+			text-transform: uppercase;
+			margin: 0;
+		}
+		svg {
+			margin-bottom: 25px;
+			path {
+				fill: #fff;
+			}
+		}
+	}
+}
+
+section.numbers {
+	background: #fef4e9;
+	padding: 90px 0 80px;
+	h2,h3,.partner,.plus {
+		color: #5e6367;
+	}
+	h2 {
+		font-size: 60px;
+		margin-bottom: 0;
+	}
+	h3 {
+		font-size: 42px;
+		margin-bottom: 25px;
+	}
+	.partner {
+		font-size: 30px;
+		display: inline-block;
+		margin-bottom: 30px;
+	}
+	.plus {
+		font-size: 48px;
+		display: inline-block;
+		margin: 0 40px;
+	}
+	.eurokera-logo-1 {
+		fill: #251a06;
+	}
+	.saint-gobain svg {
+		width: 211px;
+		height: 88px;
+	}
+	.corning svg {
+		width: 229px;
+		height: 34px;
+	}
+	.num-one svg {
+		width: 183px;
+		height: 72px;
+	}
+}
+
+section.about {
+	padding: 90px 0 80px 0;
+	background: url(../images/about-bg.jpg) center center no-repeat;
+	background-size: cover;
+	.row {
+		max-width: 920px;
+	}
+	h2, p {
+		color: #fff;
+	}
+	h2 {
+		font-size: 46px;
+		margin-bottom: 35px;
+	}
+	p {
+		font-size: 22px;
+		margin-bottom: 25px;
+	}
+}
+
+a.home-video {
+	display: block;
+	float: left;
+	width: 100%;
+	font-size: 44px;
+	padding: 145px 0 85px;
+	color: #fff;
+	background-size: cover;
+	svg {
+		width: 103px;
+		height: 103px;
+	}
+}
+
+section.site-links {
+	padding: 90px 0;
 }

@@ -83,6 +83,39 @@
 	}
 }
 
+.button.reverse a {
+	background-color: #fff;
+	border-color: #fff;
+	color: $primary-color;
+	&:hover {
+		background: transparent;
+		color: #fff;
+	}
+	&:after {
+		background: #fff;
+	}
+	&:before {
+		border: 2px solid #fff;
+	}
+}
+
+.button.outline.white a {
+	background: transparent;
+	border: solid 1px #fff;
+	color: #fff;
+	&:hover {
+		background: transparent;
+		color: $primary-color;
+	}
+	&:after {
+		background: transparent;
+	}
+	&:before {
+		background: #fff;
+		border: 2px solid #fff;
+	}
+}
+
 .button.full-width a {
 	width: 100%;
 	margin: 0 auto;

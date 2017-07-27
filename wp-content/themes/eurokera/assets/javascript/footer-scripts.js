@@ -25,7 +25,153 @@ this},r._applyDataApi=function(){var e={};t("[data-match-height], [data-mh]").ea
  * Copyright 2013-2015, Adnan Topal (adnan.co)
  * Licensed under the MIT license.
  */
-!function(e,n,i,s){"use strict";function t(n,i){this.element=n,this.$elem=e(this.element),this.options=e.extend(d,i),this.init()}var l="slimmenu",a=0,d={resizeWidth:"767",initiallyVisible:!1,collapserTitle:"Main Menu",animSpeed:"medium",easingEffect:null,indentChildren:!1,childrenIndenter:"&nbsp;&nbsp;",expandIcon:"<i>&#9660;</i>",collapseIcon:"<i>&#9650;</i>"};t.prototype={init:function(){var i,s=e(n),t=this.options,l=this.$elem,a='<div class="menu-collapser">'+t.collapserTitle+'<div class="collapse-button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div></div>';l.before(a),i=l.prev(".menu-collapser"),l.on("click",".sub-toggle",function(n){n.preventDefault(),n.stopPropagation();var i=e(this).closest("li");e(this).hasClass("expanded")?(e(this).removeClass("expanded").html(t.expandIcon),i.find(">ul").slideUp(t.animSpeed,t.easingEffect)):(e(this).addClass("expanded").html(t.collapseIcon),i.find(">ul").slideDown(t.animSpeed,t.easingEffect))}),i.on("click",".collapse-button",function(e){e.preventDefault(),l.slideToggle(t.animSpeed,t.easingEffect)}),this.resizeMenu(),s.on("resize",this.resizeMenu.bind(this)),s.trigger("resize")},resizeMenu:function(){var i=this,t=e(n),l=t.width(),d=this.options,o=e(this.element),h=e("body").find(".menu-collapser");n.innerWidth!==s&&n.innerWidth>l&&(l=n.innerWidth),l!=a&&(a=l,o.find("li").each(function(){e(this).has("ul").length&&(e(this).addClass("has-submenu").has(".sub-toggle").length?e(this).children(".sub-toggle").html(d.expandIcon):e(this).addClass("has-submenu").append('<span class="sub-toggle">'+d.expandIcon+"</span>")),e(this).children("ul").hide().end().find(".sub-toggle").removeClass("expanded").html(d.expandIcon)}),d.resizeWidth>=l?(d.indentChildren&&o.find("ul").each(function(){var n=e(this).parents("ul").length;e(this).children("li").children("a").has("i").length||e(this).children("li").children("a").prepend(i.indent(n,d))}),o.addClass("collapsed").find("li").has("ul").off("mouseenter mouseleave"),h.show(),d.initiallyVisible||o.hide()):(o.find("li").has("ul").on("mouseenter",function(){e(this).find(">ul").stop().slideDown(d.animSpeed,d.easingEffect)}).on("mouseleave",function(){e(this).find(">ul").stop().slideUp(d.animSpeed,d.easingEffect)}),o.find("li > a > i").remove(),o.removeClass("collapsed").show(),h.hide()))},indent:function(e,n){for(var i=0,s="";e>i;i++)s+=n.childrenIndenter;return"<i>"+s+"</i> "}},e.fn[l]=function(n){return this.each(function(){e.data(this,"plugin_"+l)||e.data(this,"plugin_"+l,new t(this,n))})}}(jQuery,window,document);
+(function ($, window, document, undefined) {
+    "use strict";
+
+    var pluginName = 'slimmenu',
+        oldWindowWidth = 0,
+        defaults = {
+            resizeWidth: '767',
+            initiallyVisible: false,
+            collapserTitle: 'Main Menu',
+            animSpeed: 'medium',
+            easingEffect: null,
+            indentChildren: false,
+            childrenIndenter: '&nbsp;&nbsp;',
+            expandIcon: '<i>&#9660;</i>',
+            collapseIcon: '<i>&#9650;</i>'
+        };
+
+    function Plugin(element, options) {
+        this.element = element;
+        this.$elem = $(this.element);
+        this.options = $.extend(defaults, options);
+        this.init();
+    }
+
+    Plugin.prototype = {
+
+        init: function () {
+            var $window = $(window),
+                options = this.options,
+                $menu = this.$elem,
+                $collapser = '<div class="menu-collapser">' + options.collapserTitle + '<div class="collapse-button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div></div>',
+                $menuCollapser;
+                
+            $menu.before($collapser);
+            $menuCollapser = $menu.prev('.menu-collapser');
+
+            $menu.on('click', '.sub-toggle', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                var $parentLi = $(this).closest('li');
+
+                if ($(this).hasClass('expanded')) {
+                    $(this).removeClass('expanded').html(options.expandIcon);
+                    $parentLi.find('>ul').slideUp(options.animSpeed, options.easingEffect);
+                } else {
+                    $(this).addClass('expanded').html(options.collapseIcon);
+                    $parentLi.find('>ul').slideDown(options.animSpeed, options.easingEffect);
+                }
+            });
+
+            $menuCollapser.on('click', '.collapse-button', function (e) {
+                e.preventDefault();
+                $menu.slideToggle(options.animSpeed, options.easingEffect);
+            });
+
+            this.resizeMenu();
+            $window.on('resize', this.resizeMenu.bind(this));
+            $window.trigger('resize');
+        },
+
+        resizeMenu: function () {
+            var self = this,
+                $window = $(window),
+                windowWidth = $window.width(),
+                $options = this.options,
+                $menu = $(this.element),
+                $menuCollapser = $('body').find('.menu-collapser'),
+                unHover;
+
+            if (window['innerWidth'] !== undefined) {
+                if (window['innerWidth'] > windowWidth) {
+                    windowWidth = window['innerWidth'];
+                }
+            }
+
+            if (windowWidth != oldWindowWidth) {
+                oldWindowWidth = windowWidth;
+
+                $menu.find('li').each(function () {
+                    if ($(this).has('ul').length) {
+                        if ($(this).addClass('has-submenu').has('.sub-toggle').length) {
+                            $(this).children('.sub-toggle').html($options.expandIcon);
+                        } else {
+                            $(this).addClass('has-submenu').append('<span class="sub-toggle">' + $options.expandIcon + '</span>');
+                        }
+                    }
+
+                    $(this).children('ul').removeClass('active').end().find('.sub-toggle').removeClass('expanded').html($options.expandIcon);
+                });
+
+                if ($options.resizeWidth >= windowWidth) {
+                    if ($options.indentChildren) {
+                        $menu.find('ul').each(function () {
+                            var $depth = $(this).parents('ul').length;
+                            if (!$(this).children('li').children('a').has('i').length) {
+                                $(this).children('li').children('a').prepend(self.indent($depth, $options));
+                            }
+                        });
+                    }
+
+                    $menu.addClass('collapsed').find('li').has('ul').off('mouseenter mouseleave');
+                    $menuCollapser.show();
+
+                    if (!$options.initiallyVisible) {
+                        $menu.hide();
+                    }
+                } else {
+                    $menu.find('li').has('ul')
+                        .on('mouseenter', function () {
+	                        clearTimeout(unHover);
+		                    $(this).find('>ul').stop().addClass('active');
+                        })
+                        .on('mouseleave', function () {
+	                        var myMenu = $(this);
+	                        unHover = setTimeout( function(){
+		                        myMenu.find('>ul').stop().removeClass('active');
+		                    }, 500 );
+                        });
+
+                    $menu.find('li > a > i').remove();
+                    $menu.removeClass('collapsed').show();
+                    $menuCollapser.hide();
+                }
+            }
+        },
+
+        indent: function (num, options) {
+            var i = 0,
+                $indent = '';
+            for (; i < num; i++) {
+                $indent += options.childrenIndenter;
+            }
+            return '<i>' + $indent + '</i> ';
+        }
+    };
+
+    $.fn[pluginName] = function (options) {
+        return this.each(function () {
+            if (!$.data(this, 'plugin_' + pluginName)) {
+                $.data(this, 'plugin_' + pluginName,
+                    new Plugin(this, options));
+            }
+        });
+    };
+
+}(jQuery, window, document));
 
 /**
  * ScrollReveal
@@ -135,7 +281,7 @@ jQuery( document ).ready(function() {
 			// http://github.danielcardoso.net/load-awesome/animations.html
 			// https://connoratherton.com/loaders
 			// https://codepen.io/patrikhjelm/details/hItqn
-			loadingInner: '<div class="loading-inner"><img src="http://localhost:8888/drumstarter/wp-content/themes/drum-roll-1/assets/images/logo@2x.png" alt="Drum Starter Theme Logo"/><div class="load-awesome la-timer"><div></div></div></div>',
+			loadingInner: '<div class="loading-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1714.8 680.63"><defs><style>.eurokera-logo-1{fill:#fff;}.eurokera-logo-2{fill:#f89728;}.eurokera-logo-3{fill:#fff;}</style></defs><title>eurokera-logo</title><g id="Layer_2" data-name="Layer 2"><g id="Calque_1" data-name="Calque 1"><rect class="eurokera-logo-3" x="1132.99" y="5.13" width="581.82" height="675.5"/><polygon class="eurokera-logo-2" points="1054.88 351.6 0 351.6 0.11 334.15 1054.88 334.15 1054.88 351.6 1054.88 351.6"/><polygon class="eurokera-logo-2" points="1318.4 5.13 1318.4 497.63 1209.45 497.63 1209.45 497.14 1209.45 5.13 1132.99 5.13 1132.99 680.63 1714.8 680.63 1714.8 5.13 1318.4 5.13"/><polygon class="eurokera-logo-2" points="1622.22 667.68 1343.02 340.49 1606.42 136.68 1634.4 170.33 1452.62 313.57 1701.03 610.99 1622.22 667.68"/><polygon class="eurokera-logo-3" points="1634.4 170.33 1606.42 136.68 1343.02 340.49 1622.22 667.68 1701.03 610.99 1452.62 313.57 1634.4 170.33"/><path class="eurokera-logo-1" d="M187.55,301.38H0V5.13H168.79V44.86H63v80.86H166.56v40.63H63v95.24H187.55Z"/><path class="eurokera-logo-1" d="M467.73,167.62c0,42-1.87,63.3-18.75,89.3-21.74,33-56.93,49.53-108.12,49.53-52.1,0-89.83-16.5-110.66-49.53-15.36-24.43-16.07-53-16.07-89.3V5.13h63V162.54c0,19.19-.63,42.06,6.39,62.9,10.4,30.81,35.44,39.12,59.47,39.12q46.28,0,61.86-39c4.75-11.85,7.12-32.14,7.12-63.18V5.13h55.81Z"/><path class="eurokera-logo-1" d="M750.18,300.9H679L617.38,181.17H580V301.38H517V5.13h91.53c34.93,0,63.62,2.22,84.39,16.45q31.69,22,31.7,63.5,0,53.75-54.48,83.8ZM661.67,89.31c0-36-21-46.14-57.85-46.14H580V144.33h18.55C643.82,144.33,661.67,122.87,661.67,89.31Z"/><path class="eurokera-logo-1" d="M1055.15,150.27q0,66.89-41.72,110.91-42.61,45.3-111.53,45.29-68.39,0-111.46-44.87Q748.71,218,748.71,151.12q0-66.46,43.93-108.8T905,0q64.1,0,107.14,43T1055.15,150.27Zm-66.31,3.81q0-52.89-23.49-82.54T900.59,41.9q-43,0-66.23,36.42-19.77,30.91-19.76,74.9,0,45.32,19.76,75.36,23.7,36,67.55,36,39.94,0,63.45-29.86T988.84,154.07Z"/><path class="eurokera-logo-1" d="M750.18,680.63H679L617.38,560.56H580V680.63H517V384.48h91.53c34.93,0,63.62,2.27,84.39,16.5q31.69,22,31.7,63.5,0,53.75-54.48,83.81ZM661.67,468.71c0-36-21-46.14-57.85-46.14H580V523.73h18.55C643.82,523.73,661.67,502.27,661.67,468.71Z"/><path class="eurokera-logo-1" d="M269.15,680.63H191L63,530.92V680.63H0V384.48H63V513.16L173.68,384.1h64L120.13,517Z"/><path class="eurokera-logo-1" d="M476.19,680.63H288.66V384.48H457.43v39.78H351.62v80.85H455.2v40.63H351.62V641H476.19Z"/><path class="eurokera-logo-1" d="M1054.32,680.63H986.9l-29-80.7H845.46l-32.59,80.7H761.07L888.7,384.48h48.19ZM945.37,563.94,904.3,449.66,858.84,563.94Z"/></g></g></svg><div class="load-awesome la-timer"><div></div></div></div>',
 			timeout: false,
 			timeoutCountdown: 5000,
 			onLoadEvent: true,

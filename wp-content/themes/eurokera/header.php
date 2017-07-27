@@ -56,18 +56,28 @@
 	
 	<?php if (is_front_page()) : ?>
 		<section class="home-banner text-center" data-paroller-factor="0.3" style="background: url('<?php the_post_thumbnail_url('full'); ?>') center center no-repeat;">
-			<?php get_template_part('template-parts/header-icon'); ?><br />
+			<div class="hide-for-small"><?php get_template_part('template-parts/header-icon'); ?><br /></div>
 			<h1><?php bloginfo('description'); ?></h1>
-			<div class="button"><a href="<?php echo get_site_url(); ?>/cooktop-makers">Cooktop Makers</div><div class="button blue"><a href="<?php echo get_site_url(); ?>/cooktop-users">Cooktop Users</a></div>
+			<?php get_template_part('template-parts/content','site-links'); ?>
 			<div class="down-arrow bounce animated"><?php get_template_part('assets/images/acc', 'arrow.svg'); ?></div>
 		</section>
 	
 		<script>
 			jQuery( document ).ready(function() {
-				jQuery(".header-wrapper").pin();
+				var nav = jQuery('.header-wrapper').offset();
+				var $window = jQuery(window);
+
+				$window.scroll(function () {
+				    if ($window.scrollTop() >= nav.top) {
+				        jQuery(".header-wrapper").addClass("stuck");
+				    } else {
+					    jQuery(".header-wrapper").removeClass("stuck");
+				    }
+				});
+
 
 				jQuery('.home-banner .down-arrow').click(function() {
-				    jQuery('html, body').animate({ scrollTop: jQuery('#masthead').offset().top - 70}, 1000);
+				    jQuery('html, body').animate({ scrollTop: jQuery('#masthead').offset().top}, 1000);
 				});
     		});			
 		</script>

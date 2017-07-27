@@ -101,13 +101,39 @@ ul.slimmenu li ul {
 }
 
 ul.slimmenu li>ul {
+	background: $primary-color;
     position: absolute;
-    left: 0;
-    top: 100%;
+    left: -150%;
     z-index: 999;
-    display: none;
     width: auto;
-    background: #ccc;
+    transition: all .5;
+    -webkit-transition: all .5s; /* Safari and Chrome */
+    -ms-transition: all .5s; /* Opera */
+    &:before, &:after {
+	    content: "";
+	    position: absolute;
+	    height: 100%;
+	    display: block;
+	    width: 100%;	    
+	    background: $primary-color;
+	    transition: all .5s;
+	    -webkit-transition: all .5s; /* Safari and Chrome */
+	    -ms-transition: all .5s; /* Opera */
+    }
+    &:before {
+	    left: -100%;
+    }
+    &:after {
+		left: 100%;
+		width: 0;
+    }
+}
+
+ul.slimmenu ul.active {
+	left: 0;
+	&:after {
+		width: 100%;
+	}
 }
 
 ul.slimmenu li>ul>li ul {
@@ -124,7 +150,6 @@ ul.slimmenu li a {
     white-space: nowrap;
     padding: 12px 0;
     position: relative;
-    color: $primary-color;
     font-size: 16px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -159,6 +184,23 @@ ul.slimmenu li a {
 		-webkit-transform: scale3d(1, 1, 1);
 		transform: scale3d(1, 1, 1);
 	}
+}
+
+ul.slimmenu .sub-menu li a:before {
+	border-color: #fff;
+	top: -12px;
+}
+
+ul.slimmenu > li > a {
+	padding-bottom: 45px;
+	&:before {
+		top: -35px;	
+	}
+}
+
+ul.slimmenu ul.sub-menu li a {
+	color: #fff;
+	padding: 24px 0;
 }
 
 @media only screen and (max-width: 40.062em) {

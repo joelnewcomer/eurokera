@@ -1,6 +1,6 @@
 .top-bar-right {
 	@media only screen and (min-width: 40.063em) {
-		margin-top: 27px;
+		margin-top: 33px;
 	}
 	.search-button  {
 		display: inline-block;
@@ -30,8 +30,9 @@
 
 .top-bar-left a.logo {
 	display: inline-block;
-	margin: 15px;
+	margin: 27px 15px 18px 15px;
 	svg {
+		display: block;
 		width: 154px;
 		height: 61px;
 	}
@@ -142,11 +143,41 @@ body > section.container > header,
 .header-wrapper {
 	z-index: 1;
 	position: relative;
-	background: #fff;
 }
 
 .header-wrapper {
 	z-index: 11;
+	background: #fff;
+	width: 100%;
+	&.stuck {
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+}
+
+.admin-bar .header-wrapper.stuck {
+	top: 32px;
+}
+
+@media only screen and (max-width: 40.063em) {
+	.header-wrapper {
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+	.admin-bar .header-wrapper {
+		top: 32px;	
+	}
+	body:not(.home) section.container, .home-banner {
+		margin-top: 64px;
+	}
+}
+
+@media only screen and (min-width: 40.063em) {
+	.header-wrapper.stuck + section.container {
+		margin-top: 113px;
+	}
 }
 
 #site-navigation {

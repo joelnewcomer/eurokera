@@ -129,7 +129,9 @@ section.secondary-background {
 }
 
 section.container > section {
-	background: #fff;
+	display: block;
+	float: left;
+	width: 100%;
 }
 
 #page, #single-post {

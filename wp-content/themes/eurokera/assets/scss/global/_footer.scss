@@ -2,8 +2,45 @@
 	display: block;
 	float: left;
 	width: 100%;
-	background: #ccc;
-	padding-top: 25px;
+	background: #30302f;
+	padding-top: 60px;
+	padding-bottom: 15px;
+	h2 {
+		color: $primary-color;
+		font-size: 34px;
+	}
+	a.home-blog-link {
+		color: #fff;
+		font-size: 22px;
+		margin-bottom: 15px;
+		display: inline-block;
+		line-height: 1.2;
+		span.title {
+			font-size: 24px;
+			text-transform: uppercase;
+		}
+	}
+	svg {
+		max-width: 147px;
+		margin-top: 51px;
+	}
+	.button {
+		margin-bottom: 25px;
+		a {
+			min-width: 169px;
+		}
+	}
+	.copyright p {
+		font-size: 14px;
+		color: #fff;
+		a {
+			color: #fff;
+		}
+	}
+	.drum a {
+		font-size: 14px;
+		color: #848484;
+	}
 }
 
 .social {
