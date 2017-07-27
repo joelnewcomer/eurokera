@@ -7,16 +7,19 @@ get_header(); ?>
 <?php do_action( 'foundationpress_before_content' ); ?>
 
 <section class="ceo">
-	<div class="large-6 columns ceo-photo text-right match-quote" style="background-image: url(<?php echo get_field('ceo_photo'); ?>);">
+	<div class="large-6 medium-6 columns ceo-photo text-right match-quote" style="background-image: url(<?php echo get_field('ceo_photo'); ?>);">
 		<div class="short-quote">
 			<?php get_template_part('assets/images/quote.svg'); ?><br />
 			<h2><?php echo get_field('short_quote'); ?></h2>
+			<p class="ceo-name show-for-small"><?php echo get_field('ceo_name'); ?>, CEO</p>
 		</div>
 	</div>
 	<div class="large-6 medium-6 columns long-quote match-quote">
 		<p><?php echo get_field('long_quote'); ?></p>
-		<?php get_template_part('assets/images/quote.svg'); ?><br />
-		<p class="ceo-name"><?php echo get_field('ceo_name'); ?>, CEO</p>
+		<div class="hide-for-small">
+			<?php get_template_part('assets/images/quote.svg'); ?><br />	
+			<p class="ceo-name"><?php echo get_field('ceo_name'); ?>, CEO</p>
+		</div>
 	</div>
 </section>
 
@@ -48,7 +51,9 @@ get_header(); ?>
 			<div class="text-center">
 				<h2><?php echo get_field('about_title'); ?></h2>
 			</div>
-			<p><?php echo get_field('about_us_content'); ?></p>
+			<div class="small-text-center">
+				<p><?php echo get_field('about_us_content'); ?></p>
+			</div>
 			<div class="text-center">
 				<div class="button reverse"><a href="<?php echo get_field('about_us_page'); ?>">About Us</a></div>
 			</div>

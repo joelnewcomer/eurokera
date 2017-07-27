@@ -90,15 +90,29 @@ section.ceo {
 		width: 31px;
 		height: 25px;
 	}
+	p.ceo-name {
+		font-size: 16px !important;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 14px !important;	
+		}
+		text-transform: uppercase;
+		margin: 0;
+	}	
 	h2 {
 		max-width: 35%;
 		display: inline-block;
 		font-size: 34px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 28px;	
+		}
 		color: #5e6367;
 		font-weight: 400;
 	}
 	.ceo-photo {
 		padding: 160px 24px 24px 24px;
+		@media only screen and (max-width: 40.063em) {
+			padding: 46px 20px 10px 0; 	
+		}
 		background-size: cover;
 		background-position: center center;
 		svg {
@@ -108,17 +122,20 @@ section.ceo {
 	.long-quote {
 		padding: 90px 40px 48px 40px;
 		background: #5e6367;
+		@media only screen and (max-width: 40.063em) {
+			background: #fff;
+			padding: 30px 20px 4px 20px;
+		}
 		p {
 			color: #fff;
 			font-size: 23px;
+			@media only screen and (max-width: 40.063em) {
+				color: #626260;
+				font-size: 20px;	
+			}
 			line-height: 1.4;
 			max-width: 515px;
 			margin-bottom: 30px;
-		}
-		p.ceo-name {
-			font-size: 16px;
-			text-transform: uppercase;
-			margin: 0;
 		}
 		svg {
 			margin-bottom: 25px;
@@ -132,19 +149,34 @@ section.ceo {
 section.numbers {
 	background: #fef4e9;
 	padding: 90px 0 80px;
+	@media only screen and (max-width: 40.063em) {
+		padding: 50px 0 20px 0;	
+	}
 	h2,h3,.partner,.plus {
 		color: #5e6367;
 	}
+	svg {
+		max-width: 100%;
+	}
 	h2 {
 		font-size: 60px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 36px;	
+		}
 		margin-bottom: 0;
 	}
 	h3 {
 		font-size: 42px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 30px;	
+		}
 		margin-bottom: 25px;
 	}
 	.partner {
 		font-size: 30px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 26px;	
+		}
 		display: inline-block;
 		margin-bottom: 30px;
 	}
@@ -152,26 +184,49 @@ section.numbers {
 		font-size: 48px;
 		display: inline-block;
 		margin: 0 40px;
+		@media only screen and (max-width: 40.063em) {
+			margin: 0;
+			padding: 0 5px;
+			max-width: 10%;	
+		}
 	}
 	.eurokera-logo-1 {
 		fill: #251a06;
 	}
+	@media only screen and (max-width: 40.063em) {
+		.saint-gobain, .corning {
+			max-width: 40%;	
+		}
+	}
 	.saint-gobain svg {
 		width: 211px;
-		height: 88px;
+		max-height: 88px;
 	}
 	.corning svg {
 		width: 229px;
-		height: 34px;
+		max-height: 34px;
+	}
+	.num-one {
+		@media only screen and (max-width: 40.063em) {
+			line-height: 1.2;
+			max-width: 192px;
+		}	
 	}
 	.num-one svg {
 		width: 183px;
-		height: 72px;
+		max-height: 72px;
+		@media only screen and (max-width: 40.063em) {
+			width: 118px;
+			height: 47px;	
+		}
 	}
 }
 
 section.about {
 	padding: 90px 0 80px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 40px 15px 45px 15px;	
+	}
 	background: url(../images/about-bg.jpg) center center no-repeat;
 	background-size: cover;
 	.row {
@@ -183,9 +238,16 @@ section.about {
 	h2 {
 		font-size: 46px;
 		margin-bottom: 35px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 30px;
+			margin-bottom: 10px;	
+		}
 	}
 	p {
 		font-size: 22px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 20px;	
+		}
 		margin-bottom: 25px;
 	}
 }
@@ -196,14 +258,25 @@ a.home-video {
 	width: 100%;
 	font-size: 44px;
 	padding: 145px 0 85px;
+	@media only screen and (max-width: 40.063em) {
+		font-size: 30px;
+		padding: 90px 0 50px;	
+	}
 	color: #fff;
 	background-size: cover;
 	svg {
 		width: 103px;
 		height: 103px;
+		@media only screen and (max-width: 40.063em) {
+			width: 44px;
+			height: 44px;	
+		}
 	}
 }
 
 section.site-links {
 	padding: 90px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 30px 0 20px 0;	
+	}
 }

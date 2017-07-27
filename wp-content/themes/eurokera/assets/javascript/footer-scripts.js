@@ -250,7 +250,7 @@ jQuery( document ).ready(function() {
 			jQuery(this).floatlabel();
 		}
 	});
-	jQuery('.match-header').matchHeight();
+	// jQuery('.match-header').matchHeight();
 	if (!jQuery( "body" ).hasClass( "no-sr" ) && !jQuery("body").hasClass("ie9")) {
 		window.sr = ScrollReveal().reveal('.sr', { viewFactor: 0.05 });
 	}

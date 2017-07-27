@@ -91,7 +91,7 @@
 			</div> <!-- top-bar-left -->
 			<div class="top-bar-right">
 				<?php foundationpress_main_menu(); ?>
-				<div class="icon-wrapper">
+				<div class="icon-wrapper hide-for-small">
 					<?php
 					// Search Icon
 					get_template_part('assets/images/search.svg');

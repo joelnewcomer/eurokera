@@ -1,41 +1,28 @@
-12.menu-collapser {
+.menu-collapser {
     position: relative;
 	display: block;
     float: left;
+    width: 100%;
 }
 
 div.collapse-button {
-	background: $primary-color;
     padding: 0 15px;
     color: #fff;
     font-size: 14px;
-    height: 64px;
     text-align: center;
     cursor: pointer;
-    position: relative;
+    position: absolute;
+    right: 0px;
+    top: 19px;
 }
 
-div.collapse-button:before {
-    content: 'Menu';
-    display: block;
-    line-height: 64px;
-}
-
-.collapse-button:hover,
-.collapse-button:focus {
-    background-color: $secondary-color;
-}
-
-/*.collapse-button .icon-bar {
+.collapse-button .icon-bar {
     display: block;
     height: 2px;
-    width: 18px;
-    margin: 2px 0;
-    background-color: #F5F5F5;
+    width: 30px;
+    margin: 5px 0;
+    background-color: $primary-color;
     border-radius: 1px
-}*/
-.collapse-button .icon-bar {
-	display: none;
 }
 
 ul.slimmenu {
@@ -80,12 +67,6 @@ ul.slimmenu.collapsed li .sub-toggle {
     width: 40px;
 }
 
-ul.slimmenu li {
-    float: left;
-    display: inline-block;
-	margin: 0 16px;    
-}
-
 ul.slimmenu li ul {
     margin: 0;
     list-style-type: none
@@ -97,6 +78,8 @@ ul.slimmenu li ul {
 	}
 	ul.slimmenu {
 		width: 100%;
+		top: 64px;
+		position: absolute;
 	}
 }
 
@@ -145,13 +128,50 @@ ul.slimmenu li>ul>li ul {
     width: 100%
 }
 
+ul.slimmenu li {
+    float: left;
+    display: inline-block;
+    @media only screen and (min-width: 40.063em) {
+		margin: 0 16px;
+	}
+	@media only screen and (max-width: 1020px) and (min-width: 40.063em) {
+		margin: 0 10px;	
+	}
+	@media only screen and (max-width: 860px) and (min-width: 40.063em) {
+		margin: 0 7px;	
+	}	
+}
+
+@media only screen and (max-width: 785px) and (min-width: 40.063em) {
+	.top-bar-left {
+		display: none;
+	}
+	.top-bar-right {
+		width: 100%;
+		text-align: center;
+	}
+}
+
 ul.slimmenu li a {
     display: block;
+    position: relative;
     white-space: nowrap;
     padding: 12px 0;
-    position: relative;
+    @media only screen and (max-width: 40.063em) {
+	 	padding: 12px;   
+	}
     font-size: 16px;
     letter-spacing: 1px;
+     @media only screen and (max-width: 1020px) and (min-width: 40.063em) {
+	 	padding: 7px 0;
+	 	font-size: 15px;
+	 	letter-spacing: 0;
+	}
+    @media only screen and (max-width: 860px) and (min-width: 40.063em) {
+	 	padding: 5px 0;
+	 	font-size: 14px;
+	 	letter-spacing: 0;
+	}
     text-transform: uppercase;
     color: #5e6367;
     font-weight: 400;
@@ -191,16 +211,17 @@ ul.slimmenu .sub-menu li a:before {
 	top: -12px;
 }
 
-ul.slimmenu > li > a {
-	padding-bottom: 45px;
-	&:before {
-		top: -35px;	
+@media only screen and (min-width: 40.063em) {
+	ul.slimmenu > li > a {
+		padding-bottom: 45px;
+		&:before {
+			top: -35px;	
+		}
 	}
-}
-
-ul.slimmenu ul.sub-menu li a {
-	color: #fff;
-	padding: 24px 0;
+	ul.slimmenu ul.sub-menu li a {
+		color: #fff;
+		padding: 24px 0;
+	}
 }
 
 @media only screen and (max-width: 40.062em) {

@@ -35,6 +35,10 @@
 		display: block;
 		width: 154px;
 		height: 61px;
+		@media only screen and (max-width: 40.063em) {
+			width: 111px;
+			height: 44px;	
+		}
 	}
 	.eurokera-logo-1 {
 		fill: #251a06;
@@ -105,20 +109,18 @@ header#masthead {
 
 .icon-wrapper {
 	display: inline-block;
+	vertical-align: top;
 }
 
 // Mobile Stuff
 @media only screen and (max-width: 40em) {
 	.top-bar-left {
-		text-align: center;
 		a.logo {
 			z-index: 9999;
 			position: relative;
-			margin: 7px;
-			height: 50px;
-			img {
-				max-height: 100%;
-			}
+			margin: 11px 10px;
+			display: block;
+			float: left;
 		}
 	}
 	.top-bar-right {
@@ -167,7 +169,7 @@ body > section.container > header,
 		left: 0;
 	}
 	.admin-bar .header-wrapper {
-		top: 32px;	
+		top: 46px;	
 	}
 	body:not(.home) section.container, .home-banner {
 		margin-top: 64px;

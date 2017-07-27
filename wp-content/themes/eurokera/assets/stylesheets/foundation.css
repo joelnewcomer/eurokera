@@ -2125,6 +2125,10 @@ p {
     display: block;
     width: 154px;
     height: 61px; }
+    @media only screen and (max-width: 40.063em) {
+      .top-bar-left a.logo svg {
+        width: 111px;
+        height: 44px; } }
   .top-bar-left a.logo .eurokera-logo-1 {
     fill: #251a06; }
 
@@ -2177,18 +2181,16 @@ header#masthead {
     top: -24px; } }
 
 .icon-wrapper {
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: top; }
 
 @media only screen and (max-width: 40em) {
-  .top-bar-left {
-    text-align: center; }
-    .top-bar-left a.logo {
-      z-index: 9999;
-      position: relative;
-      margin: 7px;
-      height: 50px; }
-      .top-bar-left a.logo img {
-        max-height: 100%; }
+  .top-bar-left a.logo {
+    z-index: 9999;
+    position: relative;
+    margin: 11px 10px;
+    display: block;
+    float: left; }
   .top-bar-right {
     position: absolute;
     top: 0;
@@ -2227,7 +2229,7 @@ body > section.container > header,
     top: 0;
     left: 0; }
   .admin-bar .header-wrapper {
-    top: 32px; }
+    top: 46px; }
   body:not(.home) section.container, .home-banner {
     margin-top: 64px; } }
 
@@ -2241,25 +2243,50 @@ body > section.container > header,
 #footer-container {
   display: block;
   float: left;
+  padding-left: 10px;
+  padding-right: 10px;
   width: 100%;
+  overflow: hidden;
   background: #30302f;
   padding-top: 60px;
   padding-bottom: 15px; }
+  @media only screen and (max-width: 40.063em) {
+    #footer-container {
+      padding-top: 40px; } }
   #footer-container h2 {
     color: #f89828;
     font-size: 34px; }
+    @media only screen and (max-width: 40.063em) {
+      #footer-container h2 {
+        margin-bottom: 16px; } }
   #footer-container a.home-blog-link {
     color: #fff;
     font-size: 22px;
     margin-bottom: 15px;
     display: inline-block;
     line-height: 1.2; }
+    @media only screen and (max-width: 40.063em) {
+      #footer-container a.home-blog-link {
+        font-size: 20px; } }
     #footer-container a.home-blog-link span.title {
       font-size: 24px;
       text-transform: uppercase; }
+      @media only screen and (max-width: 40.063em) {
+        #footer-container a.home-blog-link span.title {
+          display: inline-block;
+          width: 100%;
+          margin-bottom: 15px;
+          text-align: center;
+          text-transform: none; } }
   #footer-container svg {
     max-width: 147px;
     margin-top: 51px; }
+    @media only screen and (max-width: 40.063em) {
+      #footer-container svg {
+        margin-top: 0;
+        width: 114px;
+        height: 45px;
+        margin-bottom: 8px; } }
   #footer-container .button {
     margin-bottom: 25px; }
     #footer-container .button a {
@@ -2366,9 +2393,6 @@ body#tinymce {
   transition: color 0.3s;
   -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
   transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1); }
-  @media screen and (max-width: 39.9375em) {
-    .button a, input.button {
-      width: 100%; } }
   @media screen and (min-width: 40em) {
     .button a, input.button {
       margin-right: 15px; } }
@@ -2992,34 +3016,52 @@ section.ceo svg {
   width: 31px;
   height: 25px; }
 
+section.ceo p.ceo-name {
+  font-size: 16px !important;
+  text-transform: uppercase;
+  margin: 0; }
+  @media only screen and (max-width: 40.063em) {
+    section.ceo p.ceo-name {
+      font-size: 14px !important; } }
+
 section.ceo h2 {
   max-width: 35%;
   display: inline-block;
   font-size: 34px;
   color: #5e6367;
   font-weight: 400; }
+  @media only screen and (max-width: 40.063em) {
+    section.ceo h2 {
+      font-size: 28px; } }
 
 section.ceo .ceo-photo {
   padding: 160px 24px 24px 24px;
   -webkit-background-size: cover;
           background-size: cover;
   background-position: center center; }
+  @media only screen and (max-width: 40.063em) {
+    section.ceo .ceo-photo {
+      padding: 46px 20px 10px 0; } }
   section.ceo .ceo-photo svg {
     margin-bottom: 25px; }
 
 section.ceo .long-quote {
   padding: 90px 40px 48px 40px;
   background: #5e6367; }
+  @media only screen and (max-width: 40.063em) {
+    section.ceo .long-quote {
+      background: #fff;
+      padding: 30px 20px 4px 20px; } }
   section.ceo .long-quote p {
     color: #fff;
     font-size: 23px;
     line-height: 1.4;
     max-width: 515px;
     margin-bottom: 30px; }
-  section.ceo .long-quote p.ceo-name {
-    font-size: 16px;
-    text-transform: uppercase;
-    margin: 0; }
+    @media only screen and (max-width: 40.063em) {
+      section.ceo .long-quote p {
+        color: #626260;
+        font-size: 20px; } }
   section.ceo .long-quote svg {
     margin-bottom: 25px; }
     section.ceo .long-quote svg path {
@@ -3028,39 +3070,72 @@ section.ceo .long-quote {
 section.numbers {
   background: #fef4e9;
   padding: 90px 0 80px; }
+  @media only screen and (max-width: 40.063em) {
+    section.numbers {
+      padding: 50px 0 20px 0; } }
   section.numbers h2, section.numbers h3, section.numbers .partner, section.numbers .plus {
     color: #5e6367; }
+  section.numbers svg {
+    max-width: 100%; }
   section.numbers h2 {
     font-size: 60px;
     margin-bottom: 0; }
+    @media only screen and (max-width: 40.063em) {
+      section.numbers h2 {
+        font-size: 36px; } }
   section.numbers h3 {
     font-size: 42px;
     margin-bottom: 25px; }
+    @media only screen and (max-width: 40.063em) {
+      section.numbers h3 {
+        font-size: 30px; } }
   section.numbers .partner {
     font-size: 30px;
     display: inline-block;
     margin-bottom: 30px; }
+    @media only screen and (max-width: 40.063em) {
+      section.numbers .partner {
+        font-size: 26px; } }
   section.numbers .plus {
     font-size: 48px;
     display: inline-block;
     margin: 0 40px; }
+    @media only screen and (max-width: 40.063em) {
+      section.numbers .plus {
+        margin: 0;
+        padding: 0 5px;
+        max-width: 10%; } }
   section.numbers .eurokera-logo-1 {
     fill: #251a06; }
+  @media only screen and (max-width: 40.063em) {
+    section.numbers .saint-gobain, section.numbers .corning {
+      max-width: 40%; } }
   section.numbers .saint-gobain svg {
     width: 211px;
-    height: 88px; }
+    max-height: 88px; }
   section.numbers .corning svg {
     width: 229px;
-    height: 34px; }
+    max-height: 34px; }
+  @media only screen and (max-width: 40.063em) {
+    section.numbers .num-one {
+      line-height: 1.2;
+      max-width: 192px; } }
   section.numbers .num-one svg {
     width: 183px;
-    height: 72px; }
+    max-height: 72px; }
+    @media only screen and (max-width: 40.063em) {
+      section.numbers .num-one svg {
+        width: 118px;
+        height: 47px; } }
 
 section.about {
   padding: 90px 0 80px 0;
   background: url(../images/about-bg.jpg) center center no-repeat;
   -webkit-background-size: cover;
           background-size: cover; }
+  @media only screen and (max-width: 40.063em) {
+    section.about {
+      padding: 40px 15px 45px 15px; } }
   section.about .row {
     max-width: 920px; }
   section.about h2, section.about p {
@@ -3068,9 +3143,16 @@ section.about {
   section.about h2 {
     font-size: 46px;
     margin-bottom: 35px; }
+    @media only screen and (max-width: 40.063em) {
+      section.about h2 {
+        font-size: 30px;
+        margin-bottom: 10px; } }
   section.about p {
     font-size: 22px;
     margin-bottom: 25px; }
+    @media only screen and (max-width: 40.063em) {
+      section.about p {
+        font-size: 20px; } }
 
 a.home-video {
   display: block;
@@ -3081,12 +3163,23 @@ a.home-video {
   color: #fff;
   -webkit-background-size: cover;
           background-size: cover; }
+  @media only screen and (max-width: 40.063em) {
+    a.home-video {
+      font-size: 30px;
+      padding: 90px 0 50px; } }
   a.home-video svg {
     width: 103px;
     height: 103px; }
+    @media only screen and (max-width: 40.063em) {
+      a.home-video svg {
+        width: 44px;
+        height: 44px; } }
 
 section.site-links {
   padding: 90px 0; }
+  @media only screen and (max-width: 40.063em) {
+    section.site-links {
+      padding: 30px 0 20px 0; } }
 
 #single-post > article {
   padding-bottom: 40px; }
@@ -4556,40 +4649,29 @@ section.breadcrumbs {
   -webkit-animation-name: overlay-slide-out-right;
   animation-name: overlay-slide-out-right; }
 
-12.menu-collapser {
+.menu-collapser {
   position: relative;
   display: block;
-  float: left; }
+  float: left;
+  width: 100%; }
 
 div.collapse-button {
-  background: #f89828;
   padding: 0 15px;
   color: #fff;
   font-size: 14px;
-  height: 64px;
   text-align: center;
   cursor: pointer;
-  position: relative; }
+  position: absolute;
+  right: 0px;
+  top: 19px; }
 
-div.collapse-button:before {
-  content: 'Menu';
-  display: block;
-  line-height: 64px; }
-
-.collapse-button:hover,
-.collapse-button:focus {
-  background-color: #0a948f; }
-
-/*.collapse-button .icon-bar {
-    display: block;
-    height: 2px;
-    width: 18px;
-    margin: 2px 0;
-    background-color: #F5F5F5;
-    border-radius: 1px
-}*/
 .collapse-button .icon-bar {
-  display: none; }
+  display: block;
+  height: 2px;
+  width: 30px;
+  margin: 5px 0;
+  background-color: #f89828;
+  border-radius: 1px; }
 
 ul.slimmenu {
   margin: 0;
@@ -4626,11 +4708,6 @@ ul.slimmenu.collapsed li .sub-toggle {
   height: 46px;
   width: 40px; }
 
-ul.slimmenu li {
-  float: left;
-  display: inline-block;
-  margin: 0 16px; }
-
 ul.slimmenu li ul {
   margin: 0;
   list-style-type: none; }
@@ -4639,7 +4716,9 @@ ul.slimmenu li ul {
   ul.slimmenu li ul li {
     background: #f1f1f1; }
   ul.slimmenu {
-    width: 100%; } }
+    width: 100%;
+    top: 64px;
+    position: absolute; } }
 
 ul.slimmenu li > ul {
   background: #f89828;
@@ -4684,11 +4763,31 @@ ul.slimmenu li > ul > li ul {
   display: none;
   width: 100%; }
 
+ul.slimmenu li {
+  float: left;
+  display: inline-block; }
+  @media only screen and (min-width: 40.063em) {
+    ul.slimmenu li {
+      margin: 0 16px; } }
+  @media only screen and (max-width: 1020px) and (min-width: 40.063em) {
+    ul.slimmenu li {
+      margin: 0 10px; } }
+  @media only screen and (max-width: 860px) and (min-width: 40.063em) {
+    ul.slimmenu li {
+      margin: 0 7px; } }
+
+@media only screen and (max-width: 785px) and (min-width: 40.063em) {
+  .top-bar-left {
+    display: none; }
+  .top-bar-right {
+    width: 100%;
+    text-align: center; } }
+
 ul.slimmenu li a {
   display: block;
+  position: relative;
   white-space: nowrap;
   padding: 12px 0;
-  position: relative;
   font-size: 16px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -4698,6 +4797,19 @@ ul.slimmenu li a {
   -o-transition: color 0.5s ease-out;
   -moz-transition: color 0.5s ease-out;
   -webkit-transition: color 0.5s ease-out; }
+  @media only screen and (max-width: 40.063em) {
+    ul.slimmenu li a {
+      padding: 12px; } }
+  @media only screen and (max-width: 1020px) and (min-width: 40.063em) {
+    ul.slimmenu li a {
+      padding: 7px 0;
+      font-size: 15px;
+      letter-spacing: 0; } }
+  @media only screen and (max-width: 860px) and (min-width: 40.063em) {
+    ul.slimmenu li a {
+      padding: 5px 0;
+      font-size: 14px;
+      letter-spacing: 0; } }
   ul.slimmenu li a:before {
     content: '';
     z-index: -1;
@@ -4729,14 +4841,14 @@ ul.slimmenu .sub-menu li a:before {
   border-color: #fff;
   top: -12px; }
 
-ul.slimmenu > li > a {
-  padding-bottom: 45px; }
-  ul.slimmenu > li > a:before {
-    top: -35px; }
-
-ul.slimmenu ul.sub-menu li a {
-  color: #fff;
-  padding: 24px 0; }
+@media only screen and (min-width: 40.063em) {
+  ul.slimmenu > li > a {
+    padding-bottom: 45px; }
+    ul.slimmenu > li > a:before {
+      top: -35px; }
+  ul.slimmenu ul.sub-menu li a {
+    color: #fff;
+    padding: 24px 0; } }
 
 @media only screen and (max-width: 40.062em) {
   ul.slimmenu ul.sub-menu li a {
