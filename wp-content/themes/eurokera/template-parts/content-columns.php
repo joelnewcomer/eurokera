@@ -59,9 +59,15 @@ function drum_animate($column, $row, $script = false) {
 
 			// One Column
 	        if( get_row_layout() == 'one_column' ): ?>
-	        	<?php $background = get_sub_field('background_color'); ?>
-	        	<?php $section_id = get_sub_field('section_id'); ?>
-	        	<?php $section_header = get_sub_field('section_header'); ?>
+	        	<?php
+		        if (get_sub_field('advanced')) {
+		        	$background = get_sub_field('background_color'); 
+	        		$section_id = get_sub_field('section_id');
+	        		$section_header = get_sub_field('section_header');
+	        	} else {
+		        	$background = 'default-background';
+	        	}
+	        	?>
 				<!-- One Column Parallax -->
 	        	<?php if (get_sub_field('parallax') ) : ?>
 	        		<?php echo $before_parallax_prepend; ?><div <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="parallax-window" data-paroller-factor="0.5" style="background: url('<?php echo wp_get_attachment_image_url(get_sub_field("parallax_image"), $size = "full"); ?>');"><?php echo $before_parallax_append; ?>
@@ -86,9 +92,15 @@ function drum_animate($column, $row, $script = false) {
 
 	        <!-- Two Columns -->
 	        <?php elseif( get_row_layout() == 'two_columns' ): ?>
-	        	<?php $background = get_sub_field('background_color'); ?>
-	        	<?php $section_id = get_sub_field('section_id'); ?>
-	        	<?php $section_header = get_sub_field('section_header'); ?>
+	        	<?php
+		        if (get_sub_field('advanced')) {
+		        	$background = get_sub_field('background_color'); 
+	        		$section_id = get_sub_field('section_id');
+	        		$section_header = get_sub_field('section_header');
+	        	} else {
+		        	$background = 'default-background';
+	        	}
+	        	?>
 
 	        	<!-- Two Columns Parallax -->
 	        	<?php if (get_sub_field('parallax') ) : ?>
@@ -133,9 +145,17 @@ function drum_animate($column, $row, $script = false) {
 
 	        <!-- Three Columns -->
 	        <?php elseif( get_row_layout() == 'three_columns' ): ?>
-	        	<?php $background = get_sub_field('background_color'); ?>
-	        	<?php $section_id = get_sub_field('section_id'); ?>
-	        	<?php $section_header = get_sub_field('section_header'); ?>
+	        	<?php
+		        if (get_sub_field('advanced')) {
+		        	$background = get_sub_field('background_color'); 
+	        		$section_id = get_sub_field('section_id');
+	        		$section_header = get_sub_field('section_header');
+	        	} else {
+		        	$background = 'default-background';
+					$section_id = '';
+					$section_header = '';
+	        	}
+	        	?>
 				<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 					<div class="row">
 						<?php if ($section_header != null) : ?>
@@ -158,9 +178,17 @@ function drum_animate($column, $row, $script = false) {
 					</div> <!-- row -->
 				</section>
 	        <?php elseif( get_row_layout() == 'four_columns' ): ?>
-	        	<?php $background = get_sub_field('background_color'); ?>
-	        	<?php $section_id = get_sub_field('section_id'); ?>
-	        	<?php $section_header = get_sub_field('section_header'); ?>
+	        	<?php
+		        if (get_sub_field('advanced')) {
+		        	$background = get_sub_field('background_color'); 
+	        		$section_id = get_sub_field('section_id');
+	        		$section_header = get_sub_field('section_header');
+	        	} else {
+		        	$background = 'default-background';
+					$section_id = '';
+					$section_header = '';
+	        	}
+	        	?>
 	        	<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 		        	<div class="row">
 						<?php if ($section_header != null) : ?>
@@ -187,9 +215,17 @@ function drum_animate($column, $row, $script = false) {
 		        	</div> <!-- row -->
 	        	</section>
 	        <?php elseif( get_row_layout() == 'right_sidebar' ): ?>
-	        	<?php $background = get_sub_field('background_color'); ?>
-	        	<?php $section_id = get_sub_field('section_id'); ?>
-	        	<?php $section_header = get_sub_field('section_header'); ?>
+	        	<?php
+		        if (get_sub_field('advanced')) {
+		        	$background = get_sub_field('background_color'); 
+	        		$section_id = get_sub_field('section_id');
+	        		$section_header = get_sub_field('section_header');
+	        	} else {
+		        	$background = 'default-background';
+					$section_id = '';
+					$section_header = '';
+	        	}
+	        	?>
 	        	<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 		        	<div class="row">
 						<?php if ($section_header != null) : ?>
@@ -208,9 +244,17 @@ function drum_animate($column, $row, $script = false) {
 		        	</div> <!-- row -->
 	        	</section>
 	        <?php elseif( get_row_layout() == 'left_sidebar' ): ?>
-	        	<?php $background = get_sub_field('background_color'); ?>
-	        	<?php $section_id = get_sub_field('section_id'); ?>
-	        	<?php $section_header = get_sub_field('section_header'); ?>
+	        	<?php
+		        if (get_sub_field('advanced')) {
+		        	$background = get_sub_field('background_color'); 
+	        		$section_id = get_sub_field('section_id');
+	        		$section_header = get_sub_field('section_header');
+	        	} else {
+		        	$background = 'default-background';
+					$section_id = '';
+					$section_header = '';
+	        	}
+	        	?>
 				<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 					<div class="row">
 						<?php if ($section_header != null) : ?>
@@ -231,9 +275,15 @@ function drum_animate($column, $row, $script = false) {
 			<!-- SEPARATE ACCORDION SECTION DEPRECATED 7/20/17 - KEPT FOR BACKWARDS COMPATIBILITY -->
 	        <?php elseif( get_row_layout() == 'accordion' ): ?>
 	        	<?php
-		        $background = get_sub_field('background_color');
-	        	$section_id = get_sub_field('section_id');
-	        	$section_header = get_sub_field('section_header');
+		        if (get_sub_field('advanced')) {
+		        	$background = get_sub_field('background_color'); 
+	        		$section_id = get_sub_field('section_id');
+	        		$section_header = get_sub_field('section_header');
+	        	} else {
+		        	$background = 'default-background';
+					$section_id = '';
+					$section_header = '';
+	        	}
 	        	?>
 				<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 					<div class="row">
@@ -274,9 +324,15 @@ function drum_animate($column, $row, $script = false) {
 				<?php $tabs_counter++; ?>
 	        <?php elseif( get_row_layout() == 'tabs' ): ?>
 	        	<?php
-		        $background = get_sub_field('background_color');
-	        	$section_id = get_sub_field('section_id');
-	        	$section_header = get_sub_field('section_header');
+		        if (get_sub_field('advanced')) {
+		        	$background = get_sub_field('background_color'); 
+	        		$section_id = get_sub_field('section_id');
+	        		$section_header = get_sub_field('section_header');
+	        	} else {
+		        	$background = 'default-background';
+					$section_id = '';
+					$section_header = '';
+	        	}
 	        	$type = get_sub_field('type');
 	        	?>
 				<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">

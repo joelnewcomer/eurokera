@@ -89,7 +89,7 @@
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #5e6367;
-$black: #0a0a0a;
+$black: #625f5b;
 $white: #fff;
 
 
@@ -109,8 +109,8 @@ $foundation-palette: (
 // Layout Section Color
 
 $default-section:$white;
-$primary-section: lighten($primary-color, 25%);
-$secondary-section: lighten($secondary-color, 25%);;
+$primary-section: #fff;
+$secondary-section: #f2f2f2;
 
 $body-background: none;
 $body-font-color: $black;
@@ -399,15 +399,15 @@ $form-label-line-height: 1.8;
 $select-background: $white;
 $select-triangle-color: #333;
 $select-radius: $global-radius;
-$input-color: blue;
+$input-color: $dark-gray;
 $input-placeholder-color: $medium-gray;
 $input-font-family: inherit;
 $input-font-size: rem-calc(16);
 $input-background: $white;
-$input-background-focus: blue;
+$input-background-focus: #f1f1f1;
 $input-background-disabled: $light-gray;
-$input-border: 2px solid $medium-gray;
-$input-border-focus: 2px solid $dark-gray;
+$input-border: 2px solid #625f5b;
+$input-border-focus: 2px solid $primary-color;
 $input-shadow: inset 0 1px 2px rgba($black, 0.1);
 $input-shadow-focus: 0 0 5px $medium-gray;
 $input-cursor-disabled: default;
@@ -419,7 +419,7 @@ $input-radius: $global-radius;
 // ---------
 
 $label-background: $primary-color;
-$label-color: foreground($label-background);
+$label-color: #9a9c99;
 $label-font-size: 0.8rem;
 $label-padding: 0.33333rem 0.5rem;
 $label-radius: $global-radius;

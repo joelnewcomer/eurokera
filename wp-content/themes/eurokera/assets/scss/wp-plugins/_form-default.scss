@@ -17,7 +17,7 @@ $field-border: solid 2px #848484;
 
 .gfield_label, h2.gsection_title {
   font-size: 22px;
-  color: $primary-color;
+  color: #9a9c99;
   padding: 5px 0;
   font-weight: normal !important;
 }
@@ -296,6 +296,10 @@ body .gform_wrapper .top_label div.ginput_container {
     margin-top: 8px;
     padding-right: 16px!important
 }
+
+.ginput_container_radio {
+	margin-top: 0 !important;
+}
 .ginput_container.ginput_container_select {
     margin-right: 0!important;
 }
@@ -341,4 +345,13 @@ div.ginput_complex.ginput_container.gf_name_has_3 span.name_last {
 
 .gform_wrapper ul.gform_fields li.gfield {
 	padding-right: 0 !important;
+}
+
+legend.gfield_label {
+	margin-bottom: 0;
+	padding: 0;
+}
+
+.gfield_address input {
+	margin-bottom: 20px;
 }

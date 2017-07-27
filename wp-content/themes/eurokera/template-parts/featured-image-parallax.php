@@ -14,15 +14,20 @@ if ($image_url == null) {
 }
 ?>
 <div class="featured-image" data-paroller-factor="0.5" style="background: url(<?php echo $image_url; ?>) center center no-repeat;">
-	<div class="row">
-		<div class="large-12 columns text-center">
-			<h1 class="entry-title"><?php echo $title; ?></h1>
-		</div>
-	</div>
+			<div style="display:table;width:100%;height:100%;">
+			  <div style="display:table-cell;vertical-align:middle;">
+			    <div style="text-align:center;"><h1 class="entry-title"><?php echo $title; ?></h1></div>
+			  </div>
+			</div>
+	<div class="down-arrow bounce animated"><?php get_template_part('assets/images/acc', 'arrow.svg'); ?></div>
 </div>
 
 <script>
 jQuery( document ).ready(function() {
 	jQuery(window).paroller();
+});
+
+jQuery('.down-arrow').click(function() {
+	jQuery('html, body').animate({ scrollTop: jQuery('#page').offset().top}, 1000);
 });
 </script>

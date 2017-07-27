@@ -22,17 +22,6 @@ get_header(); ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 		<article <?php post_class(array('main-content')) ?> id="post-<?php the_ID(); ?>">
 			<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-				<section class="breadcrumbs">
-					<div class="row">
-						<div class="large-12 columns">
-							<?php
-							if ( function_exists('yoast_breadcrumb') ) {
-								yoast_breadcrumb('<p id="breadcrumbs">','</p>');
-							}
-							?>
-						</div>
-					</div>
-				</section>
 			<div class="entry-content">
 				<?php if ( post_password_required() ) : ?>
 					<div class="row password-protected-row">

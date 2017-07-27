@@ -2,5 +2,5 @@
 	<?php
 	$logo = str_replace( site_url() . '/', '', get_theme_mod( 'drum_logo' ));
 	echo file_get_contents(ABSPATH . $logo);
-	?>    
+	?>
 </a>

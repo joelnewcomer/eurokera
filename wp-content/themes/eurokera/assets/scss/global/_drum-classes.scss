@@ -9,7 +9,7 @@ body, .animsition {
 	min-height: 100vh;
 }
 
-.sr-only {
+.sr-only, .floatlabel-wrapper + label, .ginput_container select + label, .gfield > label, .gfield_address legend, .gfield_name legend {
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -112,7 +112,7 @@ section.primary-background {
 	background:$primary-section;
 }
 
-section.secondary-background {
+section.secondary-background, .entry-content section:nth-child(even) {
 	background: $secondary-section;
 }
 
@@ -162,6 +162,10 @@ section.container > section {
 
 .featured-image, .parallax-window {
 	background-size: 100% auto !important;
+	h1 {
+		color: #fff;
+		font-size: 52px;
+	}
 }
 
 // Animsition logo and loading spinner
@@ -186,4 +190,11 @@ section.container > section {
 
 p {
 	color: #595959;
+	font-size: 20px;
+}
+
+.entry-content {
+	h1,h2,h3,h4 {
+		color: $primary-color;
+	}
 }

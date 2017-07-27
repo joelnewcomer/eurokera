@@ -212,20 +212,3 @@ h2.resp-accordion {
 .resp-tab-content {
 	margin-bottom: 2px;
 }
-
-@media only screen and (min-width: 769px) {
-	.resp-tab-content .tab-content-inner {
-		opacity: 0;
-		height: 0;
-		width: 0;
-		overflow: hidden;
-		transition: opacity .5s;
-		-webkit-transition: opacity .5s; /* Safari and Chrome */
-		-ms-transition: opacity .5s; /* Opera */
-	}
-	.resp-tab-content.resp-tab-content-active .tab-content-inner {
-		opacity: 1;
-		height: auto;
-		width: auto;
-	}
-}

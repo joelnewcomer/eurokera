@@ -1,4 +1,8 @@
-section.breadcrumbs {
-	background: $medium-gray;
-	padding: 14px 0 1px 0;
+.featured-image {
+	height: calc(100vh - 112px);
+	position: relative;
+}
+
+.entry-content section:first-child p:first-of-type {
+	font-size: 24px;
 }

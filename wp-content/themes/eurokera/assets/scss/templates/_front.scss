@@ -15,19 +15,20 @@
 		font-weight: 300;
 		margin-bottom: 35px;
 	}
-	.down-arrow {
-		position: absolute;
-		cursor: pointer;
-		bottom: 10px;
-		left: 50%;
-		margin-left: -15px;		
-		svg {
-			width: 29px;
-			height: 20px;
-			-ms-transform: rotate(180deg); /* IE 9 */
-			-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-			transform: rotate(180deg);
-		}
+}
+
+.down-arrow {
+	position: absolute;
+	cursor: pointer;
+	bottom: 10px;
+	left: 50%;
+	margin-left: -15px;		
+	svg {
+		width: 29px;
+		height: 20px;
+		-ms-transform: rotate(180deg); /* IE 9 */
+		-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+		transform: rotate(180deg);
 	}
 }
 
