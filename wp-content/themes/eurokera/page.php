@@ -1,7 +1,3 @@
-<script>
-	var isReadingTime = false;
-	var isUnslider = false;
-</script>
 <?php
 /**
 * The template for displaying pages

@@ -112,6 +112,13 @@ ul.slimmenu li>ul {
     }
 }
 
+ul.slimmenu li.blue>ul {
+	background: $secondary-color;
+	&:before, &:after {
+		background: $secondary-color;
+	}
+}
+
 ul.slimmenu ul.active {
 	left: 0;
 	&:after {

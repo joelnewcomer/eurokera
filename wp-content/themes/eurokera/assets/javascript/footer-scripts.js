@@ -93,7 +93,7 @@ this},r._applyDataApi=function(){var e={};t("[data-match-height], [data-mh]").ea
                 $options = this.options,
                 $menu = $(this.element),
                 $menuCollapser = $('body').find('.menu-collapser'),
-                unHover;
+                menuTimeouts = {};
 
             if (window['innerWidth'] !== undefined) {
                 if (window['innerWidth'] > windowWidth) {
@@ -135,13 +135,16 @@ this},r._applyDataApi=function(){var e={};t("[data-match-height], [data-mh]").ea
                 } else {
                     $menu.find('li').has('ul')
                         .on('mouseenter', function () {
-	                        clearTimeout(unHover);
-		                    $(this).find('>ul').stop().addClass('active');
+							var thisSubmenu = $(this);
+							var menuID = thisSubmenu.attr('id');
+	                        clearTimeout(menuTimeouts[menuID]);
+		                    thisSubmenu.find('>ul').stop().addClass('active');
                         })
                         .on('mouseleave', function () {
-	                        var myMenu = $(this);
-	                        unHover = setTimeout( function(){
-		                        myMenu.find('>ul').stop().removeClass('active');
+							var thisSubmenu = $(this);
+							var menuID = thisSubmenu.attr('id');	                        
+	                        menuTimeouts[menuID] = setTimeout( function(){
+		                        thisSubmenu.find('>ul').stop().removeClass('active');
 		                    }, 500 );
                         });
 
