@@ -69,13 +69,14 @@
 @import "templates/front";
 @import "templates/single-post";
 @import "templates/page";
+@import "templates/about";
 
 // jQuery Plugins
 @import "jquery-plugins/animsition";
 @import "jquery-plugins/slimmenu";
 @import "jquery-plugins/featherlight";
-@import "jquery-plugins/unslider";
-@import "jquery-plugins/unslider-dots";
+// @import "jquery-plugins/unslider";
+// @import "jquery-plugins/unslider-dots";
 @import "jquery-plugins/easy-responsive-tabs";
 
 // Loader
@@ -83,5 +84,5 @@
 
 // Wordpress Plugins
 @import "wp-plugins/form-default";
-@import "wp-plugins/login-signup";
-@import "wp-plugins/woocommerce";
+// @import "wp-plugins/login-signup";
+// @import "wp-plugins/woocommerce";
