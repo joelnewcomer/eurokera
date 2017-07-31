@@ -18,7 +18,7 @@ get_header(); ?>
 			<div class="corning history-logo">
 				<?php get_template_part('assets/images/corning', 'logo.svg'); ?><br />
 			</div>
-			<div class="equals">=</div>
+			<div class="equals hide-for-small">=</div>
 			<div class="num-one history-logo">
 				<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?><br />
 			</div>
@@ -91,10 +91,10 @@ get_header(); ?>
 </section> <!-- timeline -->
 
 <section class="about-intro">
+	<div class="about-photo match-intro" style="background-image: url(<?php echo get_field('intro_photo'); ?>);"></div>
 	<div class="about-content match-intro">
 		<?php echo get_field('intro'); ?>
 	</div>
-	<div class="about-photo match-intro" style="background-image: url(<?php echo get_field('intro_photo'); ?>);"></div>
 </section>
 
 <section class="facts">
@@ -118,14 +118,37 @@ get_header(); ?>
 
 <section class="reach text-center">
 	<h2>Global Reach</h2>
+	<div class="global-locations show-for-small text-center">
+		<p>
+			Fountain Inn, SC, USA<br />
+			Bagneaux-sur-Loing, France<br />
+			Château-Thierry, France<br />
+			Guangzhou, China<br />
+			Rayong, Thailand
+		</p>
+	</div>
 	<div class="button gray"><a href="<?php echo get_field('wm_page'); ?>">Worldwide Manufacturing</a></div>
 </section>
 
-<section class="enviro">
-	<div class="row">
+<section class="enviro text-center">
+	<div class="row enviro-intro">
 		<div class="large-8 medium-10 columns large-offset-2 medium-offset-1">
-			
+			<?php echo get_field('enviro_content'); ?>
 		</div>
+	</div>
+	<div class="row enviro-facts">
+		<div class="recycled fact">
+			<h2>600</h2>
+			<p>Tons of Glass Recycled</p>
+		</div>
+		<div class="substrates fact large">
+			<?php get_template_part('assets/images/eurokera-enviro', 'logo.svg'); ?><br />
+			<p><strong><span class="caps">All</span> of EuroKera’s black substrates</strong> are arsenic- and antimony-free. All of our glass-ceramic is fully recyclable.</p>
+		</div>		
+		<div class="landfill fact">
+			<h2>80%</h2>
+			<p>Reduction in Landfill Waste Since 2010</p>
+		</div>		
 	</div>
 </section>
 

@@ -5,14 +5,23 @@ section.timeline {
 	.saint-gobain svg {
 		width: 211px;
 		height: 88px;
+		max-width: 100%;
 	}
 	.corning svg {
 		width: 229px;
 		height: 34px;
+		max-width: 100%;
+	}
+	.saint-gobain, .corning {
+		max-width: 40%;
 	}
 	.num-one svg {
 		width: 161px;
 		height: 63px;
+		@media only screen and (max-width: 40.063em) {
+			width: 119px;
+			height: 47px;	
+		}
 	}
 	.history-logo {
 		display: inline-block;
@@ -24,6 +33,10 @@ section.timeline {
 		color: #5e6367;
 		margin: 0 40px;
 		vertical-align: middle;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 30px;
+			margin: 0 20px;	
+		}		
 	}
 	.eurokera-logo-1 {
 		fill: #251a06;
@@ -93,6 +106,9 @@ section.timeline {
 
 .about-logos {
 	margin-bottom: 70px;
+	@media only screen and (max-width: 40.063em) {
+		margin-bottom: 35px;	
+	}
 }
 
 .about-intro {
@@ -103,16 +119,26 @@ section.timeline {
 	}
 	.about-content {
 		position: relative;
+		float: left;
 		width: 55%;
 		padding: 80px 10% 80px 15%;
+		@media only screen and (max-width: 40.063em) {
+			padding: 30px 24px 35px 24px;	
+		}
 		background: #5e6367;
 		h2 {
 			color: $primary-color;
 			margin-bottom: 25px;
+			@media only screen and (max-width: 40.063em) {
+				text-align: center;	
+			}
 		}
 		p {
 			color: #fff;
 			font-size: 22px;
+			@media only screen and (max-width: 40.063em) {
+				font-size: 20px;	
+			}
 		}
 	}
 	.about-photo {
@@ -124,35 +150,66 @@ section.timeline {
 		background-repeat: no-repeat;
 		background-position: center center;
 	}
+	@media only screen and (max-width: 40.063em) {
+		.about-content, .about-photo {
+			width: 100%;
+		}	
+	}
 }
 
 section.facts {
 	padding: 100px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 45px 2px 22px 2px;	
+	}
 	svg {
 		float: left;
 		margin-right: 36px;
+		@media only screen and (max-width: 40.063em) {
+			margin-right: 20px;
+		}
 	}
 	.cooktop svg {
 		width: 107px;
 		height: 107px;
+		@media only screen and (max-width: 40.063em) {
+			width: 57px;
+			height: 57px;	
+		}
 	}
 	.stopwatch svg {
 		width: 87px;
 		height: 110px;
+		@media only screen and (max-width: 40.063em) {
+			width: 47px;
+			height: 59px;	
+		}
 	}
 	.facts-box {
 		padding: 28px 30px 20px 30px;
-		&.border {
-			border: solid 2px #626260;
+		@media only screen and (max-width: 40.063em) {
+			padding: 17px 20px;
+		}
+		border: solid 2px #626260;
+		@media only screen and (max-width: 40.063em) {
+			margin-bottom: 23px;	
 		}
 	}
 	h3 {
 		font-size: 34px;
 		line-height: 1.2;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 20px;
+			margin-bottom: 4px;
+		}
 	}
 	p {
 		font-size: 26px;
 		line-height: 1.2;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 16px;
+			margin-bottom: 0;	
+		}
 	}
 }
 
@@ -162,11 +219,99 @@ section.facts {
 
 section.reach {
 	padding: 270px 0 90px;
+	@media only screen and (max-width: 40.063em) {
+		padding: 65px 0 40px;	
+	}
 	background: url(../images/global-reach-bg.jpg) center center no-repeat;
+	@media only screen and (max-width: 40.063em) {
+		background: url(../images/global-reach-bg-mobile.jpg) center center no-repeat;
+	}
 	background-size: cover !important;
 	h2 {
 		color: #fff;
 		font-size: 46px;
 		margin-bottom: 135px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 30px;
+			margin-bottom: 35px;	
+		}
+	}
+	.global-locations {
+		background: rgba(178,109,29,.8);
+		margin-bottom: 30px;
+		p {
+			color: #fff;
+			font-size: 22px;
+			line-height: 2;
+			padding: 10px;
+		}
+	}
+}
+
+section.enviro {
+	padding: 85px 0 80px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 50px 0;	
+	}
+	background: #efeff0;
+	h2 {
+		color: $secondary-color;
+	}
+	.enviro-intro {
+		h2 {		
+			font-size: 46px;
+			margin-bottom: 20px;
+			@media only screen and (max-width: 40.063em) {
+				font-size: 30px;	
+			}
+		}
+		p {
+			margin-bottom: 40px;
+		}
+	}
+	.enviro-facts {
+		svg {
+			width: 108px;
+			height: 108px;
+			margin-bottom: 20px;
+		}
+		h2 {
+			font-size: 64px;
+			@media only screen and (max-width: 40.063em) {
+				line-height: 1;
+				margin-bottom: 0;
+			}
+		}
+		p {
+			font-size: 26px;
+			@media only screen and (max-width: 40.063em) {
+				font-size: 22px;	
+			}
+			strong {
+				font-size: 34px;
+				color: $secondary-color;
+				font-weight: normal;
+				@media only screen and (max-width: 40.063em) {
+					font-size: 28px;	
+				}
+			}
+		}
+		& > div {
+			width: 30%;
+			display: inline-block;
+			vertical-align: middle;
+			max-width: 260px;
+			padding: 0 20px;
+			margin-bottom: 25px;
+			@media only screen and (max-width: 860px) {
+				width: 100%;
+				max-width: 100% !important;
+			}
+		}
+		.fact.large {
+			max-width: 350px;
+			padding: 0 25px;
+		}
+		
 	}
 }

@@ -167,11 +167,19 @@ section.container > section {
 	h1 {
 		color: #fff;
 		font-size: 52px;
+		padding: 0 20px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 40px;	
+		}
 	}
 	h2 {
 		max-width: 650px;
 		color: #fff;
 		font-size: 36px;
+		padding: 0 20px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 24px;	
+		}
 		display: inline-block;
 	}
 }

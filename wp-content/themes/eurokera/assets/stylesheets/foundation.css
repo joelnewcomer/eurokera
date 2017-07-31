@@ -1283,7 +1283,7 @@ h1 {
   font-size: 2.5rem; }
 
 h2 {
-  font-size: 1.25rem; }
+  font-size: 1.875rem; }
 
 h3 {
   font-size: 1.1875rem; }
@@ -2077,12 +2077,20 @@ section.container > section {
   background-attachment: fixed; }
   .featured-image h1, .parallax-window h1 {
     color: #fff;
-    font-size: 52px; }
+    font-size: 52px;
+    padding: 0 20px; }
+    @media only screen and (max-width: 40.063em) {
+      .featured-image h1, .parallax-window h1 {
+        font-size: 40px; } }
   .featured-image h2, .parallax-window h2 {
     max-width: 650px;
     color: #fff;
     font-size: 36px;
+    padding: 0 20px;
     display: inline-block; }
+    @media only screen and (max-width: 40.063em) {
+      .featured-image h2, .parallax-window h2 {
+        font-size: 24px; } }
 
 .loading-inner {
   background: #ccc;
@@ -3249,13 +3257,21 @@ section.timeline {
           background-size: cover; }
   section.timeline .saint-gobain svg {
     width: 211px;
-    height: 88px; }
+    height: 88px;
+    max-width: 100%; }
   section.timeline .corning svg {
     width: 229px;
-    height: 34px; }
+    height: 34px;
+    max-width: 100%; }
+  section.timeline .saint-gobain, section.timeline .corning {
+    max-width: 40%; }
   section.timeline .num-one svg {
     width: 161px;
     height: 63px; }
+    @media only screen and (max-width: 40.063em) {
+      section.timeline .num-one svg {
+        width: 119px;
+        height: 47px; } }
   section.timeline .history-logo {
     display: inline-block;
     vertical-align: middle; }
@@ -3265,6 +3281,10 @@ section.timeline {
     color: #5e6367;
     margin: 0 40px;
     vertical-align: middle; }
+    @media only screen and (max-width: 40.063em) {
+      section.timeline .plus, section.timeline .equals {
+        font-size: 30px;
+        margin: 0 20px; } }
   section.timeline .eurokera-logo-1 {
     fill: #251a06; }
 
@@ -3334,6 +3354,9 @@ section.timeline {
 
 .about-logos {
   margin-bottom: 70px; }
+  @media only screen and (max-width: 40.063em) {
+    .about-logos {
+      margin-bottom: 35px; } }
 
 .about-intro div {
   display: block;
@@ -3342,15 +3365,25 @@ section.timeline {
 
 .about-intro .about-content {
   position: relative;
+  float: left;
   width: 55%;
   padding: 80px 10% 80px 15%;
   background: #5e6367; }
+  @media only screen and (max-width: 40.063em) {
+    .about-intro .about-content {
+      padding: 30px 24px 35px 24px; } }
   .about-intro .about-content h2 {
     color: #f89828;
     margin-bottom: 25px; }
+    @media only screen and (max-width: 40.063em) {
+      .about-intro .about-content h2 {
+        text-align: center; } }
   .about-intro .about-content p {
     color: #fff;
     font-size: 22px; }
+    @media only screen and (max-width: 40.063em) {
+      .about-intro .about-content p {
+        font-size: 20px; } }
 
 .about-intro .about-photo {
   float: right;
@@ -3362,27 +3395,58 @@ section.timeline {
   background-repeat: no-repeat;
   background-position: center center; }
 
+@media only screen and (max-width: 40.063em) {
+  .about-intro .about-content, .about-intro .about-photo {
+    width: 100%; } }
+
 section.facts {
   padding: 100px 0; }
+  @media only screen and (max-width: 40.063em) {
+    section.facts {
+      padding: 45px 2px 22px 2px; } }
   section.facts svg {
     float: left;
     margin-right: 36px; }
+    @media only screen and (max-width: 40.063em) {
+      section.facts svg {
+        margin-right: 20px; } }
   section.facts .cooktop svg {
     width: 107px;
     height: 107px; }
+    @media only screen and (max-width: 40.063em) {
+      section.facts .cooktop svg {
+        width: 57px;
+        height: 57px; } }
   section.facts .stopwatch svg {
     width: 87px;
     height: 110px; }
+    @media only screen and (max-width: 40.063em) {
+      section.facts .stopwatch svg {
+        width: 47px;
+        height: 59px; } }
   section.facts .facts-box {
-    padding: 28px 30px 20px 30px; }
-    section.facts .facts-box.border {
-      border: solid 2px #626260; }
+    padding: 28px 30px 20px 30px;
+    border: solid 2px #626260; }
+    @media only screen and (max-width: 40.063em) {
+      section.facts .facts-box {
+        padding: 17px 20px; } }
+    @media only screen and (max-width: 40.063em) {
+      section.facts .facts-box {
+        margin-bottom: 23px; } }
   section.facts h3 {
     font-size: 34px;
     line-height: 1.2; }
+    @media only screen and (max-width: 40.063em) {
+      section.facts h3 {
+        font-size: 20px;
+        margin-bottom: 4px; } }
   section.facts p {
     font-size: 26px;
     line-height: 1.2; }
+    @media only screen and (max-width: 40.063em) {
+      section.facts p {
+        font-size: 16px;
+        margin-bottom: 0; } }
 
 .caps {
   text-transform: uppercase; }
@@ -3392,10 +3456,81 @@ section.reach {
   background: url(../images/global-reach-bg.jpg) center center no-repeat;
   -webkit-background-size: cover !important;
           background-size: cover !important; }
+  @media only screen and (max-width: 40.063em) {
+    section.reach {
+      padding: 65px 0 40px; } }
+  @media only screen and (max-width: 40.063em) {
+    section.reach {
+      background: url(../images/global-reach-bg-mobile.jpg) center center no-repeat; } }
   section.reach h2 {
     color: #fff;
     font-size: 46px;
     margin-bottom: 135px; }
+    @media only screen and (max-width: 40.063em) {
+      section.reach h2 {
+        font-size: 30px;
+        margin-bottom: 35px; } }
+  section.reach .global-locations {
+    background: rgba(178, 109, 29, 0.8);
+    margin-bottom: 30px; }
+    section.reach .global-locations p {
+      color: #fff;
+      font-size: 22px;
+      line-height: 2;
+      padding: 10px; }
+
+section.enviro {
+  padding: 85px 0 80px 0;
+  background: #efeff0; }
+  @media only screen and (max-width: 40.063em) {
+    section.enviro {
+      padding: 50px 0; } }
+  section.enviro h2 {
+    color: #0a948f; }
+  section.enviro .enviro-intro h2 {
+    font-size: 46px;
+    margin-bottom: 20px; }
+    @media only screen and (max-width: 40.063em) {
+      section.enviro .enviro-intro h2 {
+        font-size: 30px; } }
+  section.enviro .enviro-intro p {
+    margin-bottom: 40px; }
+  section.enviro .enviro-facts svg {
+    width: 108px;
+    height: 108px;
+    margin-bottom: 20px; }
+  section.enviro .enviro-facts h2 {
+    font-size: 64px; }
+    @media only screen and (max-width: 40.063em) {
+      section.enviro .enviro-facts h2 {
+        line-height: 1;
+        margin-bottom: 0; } }
+  section.enviro .enviro-facts p {
+    font-size: 26px; }
+    @media only screen and (max-width: 40.063em) {
+      section.enviro .enviro-facts p {
+        font-size: 22px; } }
+    section.enviro .enviro-facts p strong {
+      font-size: 34px;
+      color: #0a948f;
+      font-weight: normal; }
+      @media only screen and (max-width: 40.063em) {
+        section.enviro .enviro-facts p strong {
+          font-size: 28px; } }
+  section.enviro .enviro-facts > div {
+    width: 30%;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 260px;
+    padding: 0 20px;
+    margin-bottom: 25px; }
+    @media only screen and (max-width: 860px) {
+      section.enviro .enviro-facts > div {
+        width: 100%;
+        max-width: 100% !important; } }
+  section.enviro .enviro-facts .fact.large {
+    max-width: 350px;
+    padding: 0 25px; }
 
 /*!
  * animsition v4.0.2
