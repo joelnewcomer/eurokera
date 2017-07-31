@@ -151,11 +151,25 @@ body > section.container > header,
 	z-index: 11;
 	background: #fff;
 	width: 100%;
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);
+	box-shadow: 0 0 5px rgba(0,0,0,.15);
+	
 	&.stuck {
 		position: fixed;
 		top: 0;
 		left: 0;
 	}
+}
+
+body:not(.home) .header-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+body.admin-bar:not(.home) .header-wrapper {
+	top: 32px;
 }
 
 .admin-bar .header-wrapper.stuck {

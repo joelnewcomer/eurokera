@@ -1,0 +1,172 @@
+section.timeline {
+	padding: 90px 0 100px;
+	background: url(../images/history-bg.jpg) center center no-repeat;
+	background-size: cover;
+	.saint-gobain svg {
+		width: 211px;
+		height: 88px;
+	}
+	.corning svg {
+		width: 229px;
+		height: 34px;
+	}
+	.num-one svg {
+		width: 161px;
+		height: 63px;
+	}
+	.history-logo {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.plus,.equals {
+		display: inline-block;
+		font-size: 52px;
+		color: #5e6367;
+		margin: 0 40px;
+		vertical-align: middle;
+	}
+	.eurokera-logo-1 {
+		fill: #251a06;
+	}
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+    perspective: 1000;
+    transform-style: preserve-3d;
+	color:#fff;
+	display: inline-block;
+	margin: 22px;
+	vertical-align: top;
+}
+.flip-container, .front, .back {
+    width: 185px;
+    height: 185px;
+    -moz-border-radius: 92px;
+    -webkit-border-radius: 92px;
+    -khtml-border-radius: 92px;
+    border-radius: 92px;
+    text-align: center;
+}
+/* flip speed goes here */
+.card {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    display: block;
+    float: left;
+    width: 100%;
+    cursor: pointer;
+}
+
+.back-inner {
+	max-width: 85%;
+	display: block;
+	margin: 0 auto;
+	line-height: 1.2;
+}
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: solid 1px #5e6367;
+    margin: 0;
+}
+/*  UPDATED! front pane, placed above back */
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+	background: transparent;
+	font-size: 48px;
+	color: #5e6367;
+	
+}
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(-180deg);
+	background: #5e6367;
+}
+
+.about-logos {
+	margin-bottom: 70px;
+}
+
+.about-intro {
+	div {
+		display: block;
+		float: left;
+		width: 100%;
+	}
+	.about-content {
+		position: relative;
+		width: 55%;
+		padding: 80px 10% 80px 15%;
+		background: #5e6367;
+		h2 {
+			color: $primary-color;
+			margin-bottom: 25px;
+		}
+		p {
+			color: #fff;
+			font-size: 22px;
+		}
+	}
+	.about-photo {
+		float: right;
+		width: 45%;
+		height: 100%;
+		min-height: 400px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+}
+
+section.facts {
+	padding: 100px 0;
+	svg {
+		float: left;
+		margin-right: 36px;
+	}
+	.cooktop svg {
+		width: 107px;
+		height: 107px;
+	}
+	.stopwatch svg {
+		width: 87px;
+		height: 110px;
+	}
+	.facts-box {
+		padding: 28px 30px 20px 30px;
+		&.border {
+			border: solid 2px #626260;
+		}
+	}
+	h3 {
+		font-size: 34px;
+		line-height: 1.2;
+	}
+	p {
+		font-size: 26px;
+		line-height: 1.2;
+	}
+}
+
+.caps {
+	text-transform: uppercase;
+}
+
+section.reach {
+	padding: 270px 0 90px;
+	background: url(../images/global-reach-bg.jpg) center center no-repeat;
+	background-size: cover !important;
+	h2 {
+		color: #fff;
+		font-size: 46px;
+		margin-bottom: 135px;
+	}
+}

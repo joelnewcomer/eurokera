@@ -89,6 +89,21 @@ input.button:hover {
 	}
 }
 
+.gray.button a {
+	background-color: #5e6367;
+	border-color: #5e6367;
+	&:hover {
+		background: transparent;
+		color: #5e6367;
+	}
+	&:after {
+		background: #5e6367;
+	}
+	&:before {
+		border: 2px solid #5e6367;
+	}
+}
+
 .button.reverse a {
 	background-color: #fff;
 	border-color: #fff;
