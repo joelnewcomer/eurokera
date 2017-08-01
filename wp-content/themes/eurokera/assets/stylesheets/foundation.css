@@ -3323,6 +3323,15 @@ section.features .feature.large + .feature {
 section.features .feature.large + .feature + .feature {
   padding-left: 5px; }
 
+section.inspire {
+  padding: 95px 0 90px 0;
+  background: url(../images/design-gallery.jpg) center center/cover no-repeat; }
+  section.inspire h2 {
+    color: #fff;
+    margin-bottom: 40px; }
+  section.inspire .button a {
+    color: #0a948f; }
+
 .featured-image {
   height: -webkit-calc(100vh - 112px);
   height: calc(100vh - 112px);

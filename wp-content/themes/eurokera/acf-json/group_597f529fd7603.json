@@ -223,7 +223,7 @@
             "label": "Video Poster",
             "name": "video_poster",
             "type": "image",
-            "instructions": "",
+            "instructions": "Will be sized and cropped to 934 x 508 pixels.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -279,5 +279,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1501530359
+    "modified": 1501611765
 }
