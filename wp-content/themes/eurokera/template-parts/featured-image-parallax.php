@@ -13,6 +13,7 @@ if ($image_url == null) {
 	$image_url = get_template_directory_uri() . '/assets/images/default-featured.jpg';
 }
 $subtitle = get_field('subtitle');
+$video_url = get_field('featured_video_url');
 ?>
 <div class="featured-image" data-paroller-factor="0.3" style="background: url(<?php echo $image_url; ?>) center center no-repeat;">
 			<div class="text-center" style="display:table;width:100%;height:100%;">
@@ -20,6 +21,12 @@ $subtitle = get_field('subtitle');
 			    <div style="text-align:center;"><h1 class="entry-title"><?php echo $title; ?></h1></div>
 			    <?php if ($subtitle != '') : ?>
 			    	<h2 class="subtitle"><?php echo $subtitle; ?></h2>
+				<?php endif; ?>
+				<?php if ($video_url != '') : ?>
+					<a class="product-video" href="<?php echo $video_url; ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
+						Play Video<br />
+						<?php get_template_part('assets/images/play', 'button.svg'); ?><br />
+					</a>
 				<?php endif; ?>
 			  </div>
 			</div>

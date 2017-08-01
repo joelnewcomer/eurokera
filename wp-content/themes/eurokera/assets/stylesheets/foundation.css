@@ -2279,6 +2279,9 @@ body.admin-bar:not(.home) .header-wrapper {
 #site-navigation {
   position: relative; }
 
+body:not(.home) .header-wrapper + section.container {
+  margin-top: 113px; }
+
 #footer-container {
   display: block;
   float: left;
@@ -3241,6 +3244,84 @@ section.site-links {
 
 #single-post > article {
   padding-bottom: 40px; }
+
+a.product-video {
+  font-size: 28px;
+  color: #fff;
+  margin-top: 7px; }
+  a.product-video svg {
+    width: 46px;
+    height: 46px;
+    margin-top: 5px; }
+
+section.product-intro {
+  padding: 90px 0 85px; }
+  section.product-intro .product-intro-pp {
+    margin-bottom: 35px; }
+  section.product-intro p {
+    font-size: 24px; }
+  section.product-intro h2 {
+    color: #f89828;
+    margin-bottom: 25px; }
+  section.product-intro .heat-source {
+    display: inline-block;
+    min-width: 133px;
+    font-size: 21px;
+    color: #000;
+    text-transform: uppercase; }
+    section.product-intro .heat-source svg {
+      width: 57px;
+      height: 50px;
+      margin-bottom: 15px; }
+    section.product-intro .heat-source.radiant svg {
+      width: 65px; }
+    section.product-intro .heat-source:not(.active) {
+      color: #bdbbbc; }
+      section.product-intro .heat-source:not(.active) svg path {
+        fill: #bdbbbc; }
+  section.product-intro .led-colors {
+    display: inline-block;
+    width: 280px; }
+  section.product-intro .led-color {
+    display: inline-block;
+    margin: 5px 10px;
+    font-size: 21px;
+    font-weight: bold;
+    color: #000; }
+    section.product-intro .led-color:not(.active) {
+      color: #bdbbbc;
+      font-weight: normal;
+      text-decoration: line-through; }
+  section.product-intro .intro-pds {
+    margin-top: 35px; }
+
+section.features .feature {
+  width: 50%;
+  display: block;
+  float: left;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #fff;
+  font-size: 34px; }
+
+section.features .feature, section.features .feature-inner {
+  -webkit-background-size: cover !important;
+          background-size: cover !important;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 454px; }
+
+section.features .feature-inner {
+  padding: 0 20px; }
+
+section.features .feature.large {
+  width: 100%; }
+
+section.features .feature.large + .feature {
+  padding-right: 5px; }
+
+section.features .feature.large + .feature + .feature {
+  padding-left: 5px; }
 
 .featured-image {
   height: -webkit-calc(100vh - 112px);

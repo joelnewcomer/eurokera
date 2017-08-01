@@ -199,3 +199,7 @@ body.admin-bar:not(.home) .header-wrapper {
 #site-navigation {
 	position: relative;
 }
+
+body:not(.home) .header-wrapper + section.container {
+	margin-top: 113px;
+}
