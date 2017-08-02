@@ -10,12 +10,18 @@ a.product-video {
 }
 
 section.product-intro {
-	padding: 90px 0 85px;
+	padding: 90px 10px 85px 10px;
+	@media only screen and (max-width: 40.063em) {
+		padding: 30px 10px 25px 10px;	
+	}
 	.product-intro-pp {
 		margin-bottom: 35px;
 	}
 	p {
 		font-size: 24px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 20px;	
+		}
 	}
 	h2 {
 		color: $primary-color;
@@ -25,15 +31,27 @@ section.product-intro {
 		display: inline-block;
 		min-width: 133px;
 		font-size: 21px;
+		@media only screen and (max-width: 40.063em) {
+			min-width: 33%;
+			font-size: 19px;
+			margin-bottom: 50px;
+		}		
 		color: #000;
 		text-transform: uppercase;
 		svg {
 			width: 57px;
 			height: 50px;
 			margin-bottom: 15px;
+			@media only screen and (max-width: 40.063em) {
+				width: 48px;
+				height: 42px;	
+			}
 		}
 		&.radiant svg {
 			width: 65px;
+			@media only screen and (max-width: 40.063em) {
+				width: 55px;	
+			}
 		}
 		&:not(.active) {
 			color: #bdbbbc;
@@ -66,18 +84,30 @@ section.product-intro {
 section.features {
 	.feature {
 		width: 50%;
+		@media only screen and (max-width: 40.063em) {
+			width: 100%;	
+		}
 		display: block;
 		float: left;
 		margin-bottom: 10px;
+		@media only screen and (max-width: 40.063em) {
+			margin-bottom: 4px;	
+		}
 		text-align: center;
 		color: #fff;
 		font-size: 34px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 20px;	
+		}
 	}
 	.feature, .feature-inner {
 		background-size: cover !important;
 		background-repeat: no-repeat;
 		background-position: center center;	
-		height: 454px;		
+		height: 454px;
+		@media only screen and (max-width: 40.063em) {
+			height: 187px;	
+		}
 	}
 	.feature-inner {
 		padding: 0 20px;	
@@ -85,11 +115,13 @@ section.features {
 	.feature.large {
 		width: 100%;
 	}
-	.feature.large + .feature {
-		padding-right: 5px;
-	}
-	.feature.large + .feature + .feature {
-		padding-left: 5px;
+	@media only screen and (min-width: 40.063em) {
+		.feature.large + .feature {
+			padding-right: 5px;
+		}
+		.feature.large + .feature + .feature {
+			padding-left: 5px;
+		}
 	}
 }
 
@@ -102,5 +134,78 @@ section.inspire {
 	}
 	.button a {
 		color: $secondary-color;
+	}
+	.product-addl-video {
+		
+	}
+}
+
+section.product-videos {
+	padding: 100px 19px 30px 19px;
+	@media only screen and (max-width: 40.063em) {
+		padding: 40px 19px 20px 19px;	
+	}
+	h2 {
+		max-width: 790px;
+		display: inline-block;
+		font-size: 46px;
+		margin-bottom: 55px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 30px;
+			margin-bottom: 20px;	
+		}
+	}
+	a.product-addl-video {
+		position: relative;
+		display: inline-block;
+		margin-bottom: 60px;
+		@media only screen and (max-width: 40.063em) {
+			margin-bottom: 29px;	
+		}
+		svg {
+			display: block;
+			position: absolute;
+			width: 90px;
+			height: 90px;
+			top: 50%;
+			left: 50%;
+			margin-top: -45px;
+			margin-left: -45px;
+			@media only screen and (max-width: 40.063em) {
+				width: 51px;
+				height: 51px;
+				margin-top: -25px;
+				margin-left: -25px;	
+			}
+		}
+	}
+}
+
+.full-width-data-sheet-button {
+	display: block;
+	float: left;
+	background: #efeff0;
+	padding: 15px;
+	width: 100%;
+	font-size: 26px;
+	@media only screen and (max-width: 40.063em) {
+		font-size: 20px;	
+	}
+	color: #5e6367;
+}
+
+section.ready {
+	padding: 90px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding-top: 55px;	
+	}
+	background: url(../images/innovative.jpg) center center/cover no-repeat;
+	h2 {
+		color: #fff;
+		font-size: 46px;
+		margin-bottom: 40px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 30px;	
+		}
 	}
 }

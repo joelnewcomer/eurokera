@@ -182,11 +182,11 @@ body.admin-bar:not(.home) .header-wrapper {
 		top: 0;
 		left: 0;
 	}
-	.admin-bar .header-wrapper {
+	.admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper  {
 		top: 46px;	
 	}
 	body:not(.home) section.container, .home-banner {
-		margin-top: 64px;
+		margin-top: 66px;
 	}
 }
 
@@ -200,6 +200,8 @@ body.admin-bar:not(.home) .header-wrapper {
 	position: relative;
 }
 
-body:not(.home) .header-wrapper + section.container {
-	margin-top: 113px;
+@media only screen and (min-width: 40.063em) {
+	body:not(.home) .header-wrapper + section.container {
+		margin-top: 113px;
+	}
 }

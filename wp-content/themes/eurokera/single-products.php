@@ -93,8 +93,34 @@ get_header(); ?>
 	</div>
 </section>
 
-<section class="product-video text-center">
-	
+<?php
+$video_title = get_field('video_title');
+$video_poster = get_field('video_poster');
+$video_url = get_field('video_url');
+if ($video_title != null && $video_poster != null && $video_url != null) : ?>
+<section class="product-videos text-center">
+	<div class="row">
+		<div class="large-12 columns">
+			<h2><?php echo $video_title; ?></h2>
+			<a class="product-addl-video" href="<?php echo $video_url; ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
+				<?php echo  wp_get_attachment_image( $video_poster, 'width=934&height=508&crop=1&crop_from_position=center,left' ) ?>
+				<?php get_template_part('assets/images/play', 'button.svg'); ?><br />
+			</a>
+			<div class="button"><a href="<?php echo get_site_url(); ?>/contact">Experience The EuroKera Quality</a></div>
+		</div>
+	</div>
+</section>
+<?php endif; ?>
+
+<a class="full-width-data-sheet-button text-center" href="<?php echo get_field('product_data_sheet'); ?>"><strong>Download</strong> Product Data Sheet</a>
+
+<section class="ready">
+	<div class="row">
+		<div class="large-12 columns text-center">
+			<h2>Ready To Build An Innovative Cooktop?</h2>
+			<div class="button reverse"><a href="<?php echo get_site_url(); ?>/contact">Let's Work Together</a></div>
+		</div>
+	</div>
 </section>
 
 

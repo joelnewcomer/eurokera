@@ -104,6 +104,10 @@ blockquote p {
 	width: 100%;
 }
 
+section.container {
+	overflow: hidden;
+}
+
 section.default-background {
 	background:$default-section;
 }
