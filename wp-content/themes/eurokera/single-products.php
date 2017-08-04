@@ -114,14 +114,6 @@ if ($video_title != null && $video_poster != null && $video_url != null) : ?>
 
 <a class="full-width-data-sheet-button text-center" href="<?php echo get_field('product_data_sheet'); ?>"><strong>Download</strong> Product Data Sheet</a>
 
-<section class="ready">
-	<div class="row">
-		<div class="large-12 columns text-center">
-			<h2>Ready To Build An Innovative Cooktop?</h2>
-			<div class="button reverse"><a href="<?php echo get_site_url(); ?>/contact">Let's Work Together</a></div>
-		</div>
-	</div>
-</section>
-
+<?php echo get_template_part('template-parts/content','ready'); ?>
 
 <?php get_footer(); ?>

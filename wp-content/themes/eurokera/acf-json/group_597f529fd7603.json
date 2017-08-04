@@ -103,6 +103,7 @@
                 "id": ""
             },
             "choices": {
+                "none": "none",
                 "red": "red",
                 "blue": "blue",
                 "monochromatic": "monochromatic",
@@ -260,6 +261,71 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_5981f6686b91e",
+            "label": "Glass-Ceramic Color",
+            "name": "glass_color",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Black": "Black",
+                "Grey": "Grey",
+                "White": "White",
+                "Transparent": "Transparent"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5981f9ea718f5",
+            "label": "3D Shapes",
+            "name": "3d_shapes",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5981fa20718f6",
+            "label": "Woks",
+            "name": "woks",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -279,5 +345,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1501615583
+    "modified": 1501789385
 }
