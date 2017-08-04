@@ -65,31 +65,29 @@
 						if (strpos($title, 'White') !== false) {
 							$white = 'white';	
 						}
+						$classes = '';
+						$classes .= strtolower(get_field('glass_color'));
+						$led_colors = get_field('led_colors');
+						foreach ($led_colors as $led_color) {
+							$classes .= ' ' . strtolower($led_color);
+						}
+						$heat_sources = get_field('heat_source');
+						foreach ($heat_sources as $heat_source) {
+							$classes .= ' ' . strtolower($heat_source);
+						}
+						if (get_field('3d_shapes')) {
+							$classes .= ' 3d';
+						}
+						if (get_field('woks')) {
+							$classes .= ' woks';
+						}
 						?>
 						<div class="large-4 medium-4 columns text-center product-selector-product <?php echo $classes; ?> <?php echo $white; ?>" data-href="<?php the_permalink(); ?>">
-							<?php
-							$classes = '';
-							$classes .= strtolower(get_field('glass_color'));
-							$led_colors = get_field('led_colors');
-							foreach ($led_colors as $led_color) {
-								$classes .= ' ' . strtolower($led_color);
-							}
-							$heat_sources = get_field('heat_source');
-							foreach ($heat_sources as $heat_source) {
-								$classes .= ' ' . strtolower($heat_source);
-							}
-							if (get_field('3d_shapes')) {
-								$classes .= ' 3d';
-							}
-							if (get_field('woks')) {
-								$classes .= ' woks';
-							}
-							?>
 							<?php echo wp_get_attachment_image( get_field('thumbnail'), 'width=355&height=203&crop=1' ); ?>
 							<div class="overlay">
 								<div style="display:table;width:100%;height:100%;">
 								  <div style="display:table-cell;vertical-align:middle;">
-								    <div style="text-align:center;"><?php the_title(); ?></div>
+								    <div style="text-align:center;" class="product-name"><?php the_title(); ?></div>
 								  </div>
 								</div>
 							</div>
@@ -125,10 +123,12 @@
 						jQuery('h2.no-matches').fadeOut();
 					}
 				});
-				// When user clicks on product, send their form selections to EuroKera
+				// When user clicks on product, email their form selections to EuroKera
 				jQuery(".product-selector-product").on('click', function() {
 					var productUrl = jQuery(this).data('href');
-					var selectedValues = '';
+					var optionHeader = false;
+					var productName = jQuery(this).find('.product-name').html();
+					var selectedValues = '<h2>Product they clicked: ' + productName + '</h2>';
 					// Get all selected form elements
 					jQuery('#product-selector input:checked, #product-selector select').each(function() {
 						fieldType = jQuery(this).get(0).tagName;
@@ -139,8 +139,20 @@
 								selectedValues += '<h2>Display Options</h2><p>' + jQuery(this).find('option:selected').text() + '</p>';
 							}
 						} else if (jQuery(this).val() != '') {
-							alert (fieldType + ': ' + jQuery(this).val())
-							selectedValues += ' ' + jQuery(this).val();
+							var selectedValue = jQuery('label[for="' + jQuery(this).attr('id') + '"]').html();
+							if (selectedValue == 'Gas' || selectedValue == 'Induction' || selectedValue == 'Radiant') {
+								selectedValues += '<h2>Heat Source</h2>';
+							} else if (selectedValue == 'Complex Patterns' || selectedValue == 'Reflective Inks' || selectedValue == 'Multi-Colors') {
+								selectedValues += '<h2>Custom Top Decoration</h2>';
+							} else if (selectedValue == 'Retail' || selectedValue == 'Professional') {
+								selectedValues += '<h2>Retail/Professional</h2>';
+							} else {
+								if (!optionHeader) {
+									selectedValues += '<h2>Additional Design Options</h2>';
+									optionHeader = true;
+								}
+							}
+							selectedValues += '<p>' + selectedValue + '</p>';
 						}
 					});
 					if (selectedValues != '') {
