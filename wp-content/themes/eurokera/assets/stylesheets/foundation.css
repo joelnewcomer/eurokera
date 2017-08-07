@@ -3259,6 +3259,39 @@ a.product-video {
     height: 46px;
     margin-top: 5px; }
 
+.heat-source {
+  display: inline-block;
+  min-width: 133px;
+  font-size: 21px;
+  color: #000;
+  text-transform: uppercase; }
+  @media only screen and (max-width: 40.063em) {
+    .heat-source {
+      min-width: 33%;
+      font-size: 19px;
+      margin-bottom: 50px; } }
+  .heat-source svg {
+    width: 57px;
+    height: 50px;
+    margin-bottom: 15px; }
+    @media only screen and (max-width: 40.063em) {
+      .heat-source svg {
+        width: 48px;
+        height: 42px; } }
+  .heat-source.radiant svg {
+    width: 65px; }
+    @media only screen and (max-width: 40.063em) {
+      .heat-source.radiant svg {
+        width: 55px; } }
+  .heat-source:not(.active) {
+    color: #bdbbbc; }
+  .heat-source:not(.active):not(.induction) svg path {
+    fill: #bdbbbc; }
+  .heat-source.induction:not(.active) svg path.induction-1 {
+    fill: #bdbbbc; }
+  .heat-source.induction:not(.active) path.induction-2, .heat-source.induction:not(.active) path.induction-3 {
+    stroke: #bdbbbc; }
+
 section.product-intro {
   padding: 90px 10px 85px 10px; }
   @media only screen and (max-width: 40.063em) {
@@ -3274,34 +3307,6 @@ section.product-intro {
   section.product-intro h2 {
     color: #f89828;
     margin-bottom: 25px; }
-  section.product-intro .heat-source {
-    display: inline-block;
-    min-width: 133px;
-    font-size: 21px;
-    color: #000;
-    text-transform: uppercase; }
-    @media only screen and (max-width: 40.063em) {
-      section.product-intro .heat-source {
-        min-width: 33%;
-        font-size: 19px;
-        margin-bottom: 50px; } }
-    section.product-intro .heat-source svg {
-      width: 57px;
-      height: 50px;
-      margin-bottom: 15px; }
-      @media only screen and (max-width: 40.063em) {
-        section.product-intro .heat-source svg {
-          width: 48px;
-          height: 42px; } }
-    section.product-intro .heat-source.radiant svg {
-      width: 65px; }
-      @media only screen and (max-width: 40.063em) {
-        section.product-intro .heat-source.radiant svg {
-          width: 55px; } }
-    section.product-intro .heat-source:not(.active) {
-      color: #bdbbbc; }
-      section.product-intro .heat-source:not(.active) svg path {
-        fill: #bdbbbc; }
   section.product-intro .led-colors {
     display: inline-block;
     width: 280px; }
@@ -3722,12 +3727,21 @@ section.enviro {
 
 section.intro {
   padding: 90px 20px 45px 20px; }
+  @media only screen and (max-width: 40.063em) {
+    section.intro {
+      padding: 45px 20px; } }
   section.intro h2 {
     color: #f89828;
     font-size: 46px;
     margin-bottom: 18px; }
+    @media only screen and (max-width: 40.063em) {
+      section.intro h2 {
+        font-size: 30px; } }
   section.intro p {
     font-size: 22px; }
+    @media only screen and (max-width: 40.063em) {
+      section.intro p {
+        font-size: 20px; } }
   section.intro .row {
     max-width: 960px; }
 
@@ -3744,6 +3758,19 @@ section.image-links {
     border-radius: 130px;
     margin-bottom: 60px;
     color: #fff; }
+    @media only screen and (max-width: 890px) {
+      section.image-links .image-link {
+        width: 200px;
+        height: 200px;
+        border-radius: 100px; } }
+    @media only screen and (max-width: 480px) {
+      section.image-links .image-link {
+        width: 125px;
+        height: 125px;
+        border-radius: 62px;
+        margin-bottom: 25px; }
+        section.image-links .image-link h3 {
+          font-size: 15px; } }
     section.image-links .image-link .overlay {
       position: absolute;
       top: 0;
@@ -3754,9 +3781,16 @@ section.image-links {
 section.product-selector {
   padding: 90px 0 85px 0;
   background: #dfe0e1; }
+  @media only screen and (max-width: 40.063em) {
+    section.product-selector {
+      padding: 45px 20px 25px 20px; } }
   section.product-selector h2 {
     font-size: 46px;
     margin-bottom: 35px; }
+    @media only screen and (max-width: 40.063em) {
+      section.product-selector h2 {
+        font-size: 30px;
+        margin-bottom: 20px; } }
   section.product-selector h2.no-matches {
     display: none; }
   section.product-selector .row {
@@ -3771,6 +3805,9 @@ section.product-selector {
     width: 100%;
     height: 100%;
     z-index: 2; }
+    @media only screen and (max-width: 40.063em) {
+      section.product-selector .overlay {
+        font-size: 16px; } }
   section.product-selector .white .overlay {
     color: #5e6367; }
   section.product-selector .columns {
@@ -3779,6 +3816,9 @@ section.product-selector {
     float: none;
     margin-left: -4px;
     position: relative; }
+    @media only screen and (max-width: 40.063em) {
+      section.product-selector .columns {
+        padding: 4px; } }
   section.product-selector .product-selector-product {
     cursor: pointer; }
   section.product-selector form#product-selector {
@@ -3787,6 +3827,9 @@ section.product-selector {
     margin: 0 auto; }
     section.product-selector form#product-selector [type="radio"]:not(:checked) + label, section.product-selector form#product-selector [type="radio"]:checked + label, section.product-selector form#product-selector [type="checkbox"]:not(:checked) + label, section.product-selector form#product-selector [type="checkbox"]:checked + label {
       font-size: 27px; }
+      @media only screen and (max-width: 40.063em) {
+        section.product-selector form#product-selector [type="radio"]:not(:checked) + label, section.product-selector form#product-selector [type="radio"]:checked + label, section.product-selector form#product-selector [type="checkbox"]:not(:checked) + label, section.product-selector form#product-selector [type="checkbox"]:checked + label {
+          font-size: 24px; } }
     section.product-selector form#product-selector .stacked-radio[type="radio"]:not(:checked) + label, section.product-selector form#product-selector .stacked-radio[type="radio"]:checked + label {
       padding: 32px 0 0 0 !important; }
     section.product-selector form#product-selector [type="radio"]:not(:checked) + label:before, section.product-selector form#product-selector [type="radio"]:checked + label:before, section.product-selector form#product-selector [type="checkbox"]:not(:checked) + label:before, section.product-selector form#product-selector [type="checkbox"]:checked + label:before {
@@ -3803,13 +3846,14 @@ section.product-selector {
     section.product-selector form#product-selector select {
       width: 263px;
       background: #5e6367;
+      border: 2px solid #5e6367;
       text-align: center;
       -moz-text-align-last: center;
            text-align-last: center;
       color: #fff;
       font-size: 21px !important;
       text-transform: uppercase;
-      margin: 0 8px;
+      margin: 0 8px 15px 8px;
       padding: 10px 5px;
       height: auto; }
     section.product-selector form#product-selector .form-divider {
@@ -3817,6 +3861,9 @@ section.product-selector {
       display: block;
       width: 100%;
       margin: 45px 0 10px 0; }
+      @media only screen and (max-width: 40.063em) {
+        section.product-selector form#product-selector .form-divider {
+          margin: 30px 0 8px 0; } }
       section.product-selector form#product-selector .form-divider div {
         display: inline-block;
         font-size: 28px;
@@ -3825,6 +3872,9 @@ section.product-selector {
         padding: 0 24px;
         position: relative;
         z-index: 2; }
+        @media only screen and (max-width: 40.063em) {
+          section.product-selector form#product-selector .form-divider div {
+            font-size: 24px; } }
       section.product-selector form#product-selector .form-divider:before {
         content: '';
         display: block;
@@ -3834,17 +3884,33 @@ section.product-selector {
         height: 1px;
         background: #5e6367;
         top: 50%; }
+        @media only screen and (max-width: 40.063em) {
+          section.product-selector form#product-selector .form-divider:before {
+            top: -12px; } }
+      @media only screen and (max-width: 40.063em) {
+        section.product-selector form#product-selector .form-divider.no-divider-small:before {
+          display: none; } }
     section.product-selector form#product-selector .radio-group {
       margin-top: 40px;
       margin-bottom: 30px; }
   section.product-selector p {
     font-size: 24px; }
+    @media only screen and (max-width: 40.063em) {
+      section.product-selector p {
+        font-size: 20px; } }
 
 section.customers {
   padding: 90px 0 120px 0; }
+  @media only screen and (max-width: 40.063em) {
+    section.customers {
+      padding: 45px 20px 30px 20px; } }
   section.customers h2 {
     font-size: 46px;
     margin-bottom: 50px; }
+    @media only screen and (max-width: 40.063em) {
+      section.customers h2 {
+        font-size: 30px;
+        margin-bottom: 20px; } }
   section.customers .customer-logo {
     height: 115px; }
 
@@ -3868,11 +3934,44 @@ section.customers {
 .owl-theme .owl-nav .owl-prev {
   left: -64px;
   background: url(../images/left-arrow.svg) left top no-repeat; }
+  @media only screen and (max-width: 40.063em) {
+    .owl-theme .owl-nav .owl-prev {
+      left: -20px; } }
 
 .owl-theme .owl-nav .owl-next {
   left: 100%;
   margin-left: 15px;
   background: url(../images/right-arrow.svg) left top no-repeat; }
+  @media only screen and (max-width: 40.063em) {
+    .owl-theme .owl-nav .owl-next {
+      margin-left: -30px; } }
+
+.makers-details > div {
+  height: 350px; }
+
+.makers-details .glass-ceramic h2 {
+  color: #fff; }
+
+.makers-details .heat-source {
+  margin-bottom: 0; }
+  @media only screen and (max-width: 40.063em) {
+    .makers-details .heat-source {
+      min-width: 110px; } }
+
+.cooking-methods {
+  background: #dfe0e1; }
+  .cooking-methods h2 {
+    margin-bottom: 30px; }
+  .cooking-methods .heat-source {
+    color: #585c60; }
+    .cooking-methods .heat-source svg {
+      margin-bottom: 0; }
+    .cooking-methods .heat-source:not(.induction) svg path {
+      fill: #585c60; }
+    .cooking-methods .heat-source.induction svg path.induction-1 {
+      fill: #585c60; }
+    .cooking-methods .heat-source.induction path.induction-2, .cooking-methods .heat-source.induction path.induction-3 {
+      stroke: #585c60; }
 
 /*!
  * animsition v4.0.2

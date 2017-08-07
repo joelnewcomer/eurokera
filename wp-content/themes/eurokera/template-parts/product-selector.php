@@ -23,7 +23,7 @@
 					<option value="none">No Display</option>				
 				</select>
 				
-				<div class="form-divider"><div>Heat Source</div></div>
+				<div class="form-divider no-divider-small"><div>Heat Source</div></div>
 				<input class="stacked-radio" type="radio" name="heat-source" id="gas" value="gas"><label for="gas">Gas</label>
 				<input class="stacked-radio" type="radio" name="heat-source" id="induction" value="induction"><label for="induction">Induction</label>
 				<input class="stacked-radio" type="radio" name="heat-source" id="radiant" value="radiant"><label for="radiant">Radiant</label>
@@ -82,7 +82,7 @@
 							$classes .= ' woks';
 						}
 						?>
-						<div class="large-4 medium-4 columns text-center product-selector-product <?php echo $classes; ?> <?php echo $white; ?>" data-href="<?php the_permalink(); ?>">
+						<div class="large-4 medium-4 small-6 columns text-center product-selector-product <?php echo $classes; ?> <?php echo $white; ?>" data-href="<?php the_permalink(); ?>">
 							<?php echo wp_get_attachment_image( get_field('thumbnail'), 'width=355&height=203&crop=1' ); ?>
 							<div class="overlay">
 								<div style="display:table;width:100%;height:100%;">

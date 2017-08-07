@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Cooktop Makers
+Template Name: Cooktop Users
 */
 get_header(); ?>
 
@@ -51,12 +51,10 @@ get_header(); ?>
 	</div>
 </section>
 
-<?php echo get_template_part('template-parts/product','selector'); ?>
-
-<section class="customers">
+<section class="users-gallery">
 	<div class="row">
 		<div class="large-12 columns text-center">
-			<h2>Among Our Valued Customers</h2>
+			<h2>Transform the Heart of Your Home with EuroKera</h2>
 		</div>
 		<div class="large-12 columns text-center">
 			<div class="logo-carousel owl-theme owl-carousel">
@@ -98,39 +96,28 @@ get_header(); ?>
 	</script>
 </section>
 
-<section class="makers-details">
-	<?php $glass_ceramic_img = wp_get_attachment_image_src( get_field('glass_ceramic_image'), 'full' ); ?>
-	<div class="large-6 medium-6 columns glass-ceramic text-center" style="background: url(<?php echo $glass_ceramic_img[0]; ?>);">
-		<div style="display:table;width:100%;height:100%;">
-		  <div style="display:table-cell;vertical-align:middle;">
-		    <div style="text-align:center;"><h2><?php echo get_field('glass_ceramic_title'); ?></h2></div>
-		  </div>
-		</div>
-	</div>
-	<div class="large-6 medium-6 columns cooking-methods text-center">
-		<div style="display:table;width:100%;height:100%;">
-		  <div style="display:table-cell;vertical-align:middle;">
-		    <div style="text-align:center;">
-				<h2>Different Cooking Methods</h2>
-				<div class="heat-source gas">
-					<?php get_template_part('assets/images/gas.svg'); ?><br />
-					Gas
-				</div>		
-				<div class="heat-source induction">
-					<?php get_template_part('assets/images/induction.svg'); ?><br />
-					Induction
-				</div>	
-				<div class="heat-source radiant">
-					<?php get_template_part('assets/images/radiant.svg'); ?><br />
-					Radiant
-				</div>				    
-		    </div>
-		  </div>
-		</div>		
-	</div>
+<section class="cooking-methods">
+	<div style="display:table;width:100%;height:100%;">
+	  <div style="display:table-cell;vertical-align:middle;">
+	    <div style="text-align:center;">
+			<h2>Different Cooking Methods</h2>
+			<div class="heat-source gas">
+				<?php get_template_part('assets/images/gas.svg'); ?><br />
+				Gas
+			</div>		
+			<div class="heat-source induction">
+				<?php get_template_part('assets/images/induction.svg'); ?><br />
+				Induction
+			</div>	
+			<div class="heat-source radiant">
+				<?php get_template_part('assets/images/radiant.svg'); ?><br />
+				Radiant
+			</div>				    
+	    </div>
+	  </div>
+	</div>		
 </section>
 
-<?php echo get_template_part('template-parts/content','ready'); ?>
 
 <?php do_action( 'foundationpress_after_content' ); ?>
 

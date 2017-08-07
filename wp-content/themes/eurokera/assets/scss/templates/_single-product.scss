@@ -9,6 +9,50 @@ a.product-video {
 	}
 }
 
+.heat-source {
+	display: inline-block;
+	min-width: 133px;
+	font-size: 21px;
+	@media only screen and (max-width: 40.063em) {
+		min-width: 33%;
+		font-size: 19px;
+		margin-bottom: 50px;
+	}		
+	color: #000;
+	text-transform: uppercase;
+	svg {
+		width: 57px;
+		height: 50px;
+		margin-bottom: 15px;
+		@media only screen and (max-width: 40.063em) {
+			width: 48px;
+			height: 42px;	
+		}
+	}
+	&.radiant svg {
+		width: 65px;
+		@media only screen and (max-width: 40.063em) {
+			width: 55px;	
+		}
+	}
+	&:not(.active) {
+		color: #bdbbbc;
+	}
+	&:not(.active):not(.induction) {
+		svg path {
+			fill: #bdbbbc;
+		}
+	}
+	&.induction:not(.active) {
+		svg path.induction-1 {
+			fill: #bdbbbc;
+		}
+		path.induction-2, path.induction-3 {
+			stroke: #bdbbbc;
+		}
+	}
+}
+
 section.product-intro {
 	padding: 90px 10px 85px 10px;
 	@media only screen and (max-width: 40.063em) {
@@ -26,39 +70,6 @@ section.product-intro {
 	h2 {
 		color: $primary-color;
 		margin-bottom: 25px;
-	}
-	.heat-source {
-		display: inline-block;
-		min-width: 133px;
-		font-size: 21px;
-		@media only screen and (max-width: 40.063em) {
-			min-width: 33%;
-			font-size: 19px;
-			margin-bottom: 50px;
-		}		
-		color: #000;
-		text-transform: uppercase;
-		svg {
-			width: 57px;
-			height: 50px;
-			margin-bottom: 15px;
-			@media only screen and (max-width: 40.063em) {
-				width: 48px;
-				height: 42px;	
-			}
-		}
-		&.radiant svg {
-			width: 65px;
-			@media only screen and (max-width: 40.063em) {
-				width: 55px;	
-			}
-		}
-		&:not(.active) {
-			color: #bdbbbc;
-			svg path {
-				fill: #bdbbbc;
-			}
-		}
 	}
 	.led-colors {
 		display: inline-block;

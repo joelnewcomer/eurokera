@@ -1,12 +1,21 @@
 section.intro {
 	padding: 90px 20px 45px 20px;
+	@media only screen and (max-width: 40.063em) {
+		padding: 45px 20px;	
+	}
 	h2 {
 		color: $primary-color;
 		font-size: 46px;
 		margin-bottom: 18px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 30px;	
+		}
 	}
 	p {
 		font-size: 22px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 20px;	
+		}
 	}
 	.row {
 		max-width: 960px;
@@ -29,6 +38,26 @@ section.image-links {
 		-khtml-border-radius: 130px;
 		border-radius: 130px;
 		margin-bottom: 60px;
+		@media only screen and (max-width: 890px) {
+			width: 200px;
+			height: 200px;
+			-moz-border-radius: 100px;
+			-webkit-border-radius: 100px;
+			-khtml-border-radius: 100px;
+			border-radius: 100px;		
+		}
+		@media only screen and (max-width: 480px) {
+			width: 125px;
+			height: 125px;
+			-moz-border-radius: 62px;
+			-webkit-border-radius: 62px;
+			-khtml-border-radius: 62px;
+			border-radius: 62px;
+			margin-bottom: 25px;
+			h3 {
+				font-size: 15px;
+			}	
+		}
 		color: #fff;
 		.overlay {
 			position: absolute;
@@ -42,10 +71,17 @@ section.image-links {
 
 section.product-selector {
 	padding: 90px 0 85px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 45px 20px 25px 20px;	
+	}
 	background: #dfe0e1;
 	h2 {
 		font-size: 46px;
 		margin-bottom: 35px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 30px;
+			margin-bottom: 20px;	
+		}
 	}
 	h2.no-matches {
 		display: none;
@@ -58,6 +94,9 @@ section.product-selector {
 		top: 0;
 		left: 0;
 		font-size: 22px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 16px;	
+		}
 		color: #fff;
 		display: block;
 		width: 100%;
@@ -69,6 +108,9 @@ section.product-selector {
 	}
 	.columns {
 		padding: 8px;
+		@media only screen and (max-width: 40.063em) {
+			padding: 4px;	
+		}
 		display: inline-block;
 		float: none;
 		margin-left: -4px;
@@ -79,7 +121,10 @@ section.product-selector {
 	}
 	form#product-selector {
 		[type="radio"]:not(:checked) + label, [type="radio"]:checked + label, [type="checkbox"]:not(:checked) + label, [type="checkbox"]:checked + label {
-			font-size: 27px;			
+			font-size: 27px;
+			@media only screen and (max-width: 40.063em) {
+				font-size: 24px;
+			}		
 		}
 		.stacked-radio[type="radio"]:not(:checked) + label, .stacked-radio[type="radio"]:checked + label {
 			padding: 32px 0 0 0 !important;
@@ -105,12 +150,13 @@ section.product-selector {
 		select {
 			width: 263px;
 			background: #5e6367;
+			border: 2px solid #5e6367;
 			text-align: center;
 			text-align-last: center;
 			color: #fff;
 			font-size: 21px !important;
 			text-transform: uppercase;
-			margin: 0 8px;
+			margin: 0 8px 15px 8px;
 			padding: 10px 5px;
 			height: auto;
 		}
@@ -119,6 +165,9 @@ section.product-selector {
 			display: block;
 			width: 100%;
 			margin: 45px 0 10px 0;
+			@media only screen and (max-width: 40.063em) {
+				margin: 30px 0 8px 0;
+			}
 			div {
 				display: inline-block;
 				font-size: 28px;
@@ -127,6 +176,9 @@ section.product-selector {
 				padding: 0 24px;
 				position: relative;
 				z-index: 2;
+				@media only screen and (max-width: 40.063em) {
+					font-size: 24px;	
+				}
 			}
 			&:before {
 				content: '';
@@ -137,6 +189,14 @@ section.product-selector {
 				height: 1px;
 				background: #5e6367;
 				top: 50%;
+				@media only screen and (max-width: 40.063em) {
+					top: -12px;	
+				}
+			}
+			&.no-divider-small:before {
+				@media only screen and (max-width: 40.063em) {
+					display: none;
+				}
 			}
 		}
 		.radio-group {
@@ -146,14 +206,24 @@ section.product-selector {
 	}
 	p {
 		font-size: 24px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 20px;	
+		}
 	}	
 }
 
 section.customers {
 	padding: 90px 0 120px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 45px 20px 30px 20px;	
+	}
 	h2 {
 		font-size: 46px;
 		margin-bottom: 50px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 30px;
+			margin-bottom: 20px;	
+		}
 	}
 	.logo-carousel {
 			
@@ -184,10 +254,57 @@ section.customers {
 .owl-theme .owl-nav .owl-prev {
 	left: -64px;
 	background: url(../images/left-arrow.svg) left top no-repeat;
+	@media only screen and (max-width: 40.063em) {
+		left: -20px;	
+	}
 }
 
 .owl-theme .owl-nav .owl-next {
 	left: 100%;
 	margin-left: 15px;
 	background: url(../images/right-arrow.svg) left top no-repeat;
+	@media only screen and (max-width: 40.063em) {
+		margin-left: -30px;	
+	}
+}
+
+.makers-details {
+	& > div {
+		height: 350px;
+	}
+	.glass-ceramic h2 {
+		color: #fff;
+	}
+	.heat-source {
+		margin-bottom: 0;
+		@media only screen and (max-width: 40.063em) {
+			min-width: 110px;
+		}
+	}
+}
+
+.cooking-methods {
+	background: #dfe0e1;
+	h2 {
+		margin-bottom: 30px;
+	}
+	.heat-source {	
+		color: #585c60;
+		svg {
+			margin-bottom: 0;
+		}
+		&:not(.induction) {
+			svg path {
+				fill: #585c60;
+			}
+		}
+		&.induction{
+			svg path.induction-1 {
+				fill: #585c60;
+			}
+			path.induction-2, path.induction-3 {
+				stroke: #585c60;
+			}
+		}
+	}
 }
