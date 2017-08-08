@@ -3267,7 +3267,7 @@ a.product-video {
   text-transform: uppercase; }
   @media only screen and (max-width: 40.063em) {
     .heat-source {
-      min-width: 33%;
+      min-width: 32%;
       font-size: 19px;
       margin-bottom: 50px; } }
   .heat-source svg {
@@ -3421,9 +3421,11 @@ section.product-videos {
     .full-width-data-sheet-button {
       font-size: 20px; } }
 
-section.ready {
-  padding: 90px 0;
+section.ready, section .columns.locate {
   background: url(../images/innovative.jpg) center center/cover no-repeat; }
+
+section.ready {
+  padding: 90px 0; }
   @media only screen and (max-width: 40.063em) {
     section.ready {
       padding-top: 55px; } }
@@ -3972,6 +3974,156 @@ section.customers {
       fill: #585c60; }
     .cooking-methods .heat-source.induction path.induction-2, .cooking-methods .heat-source.induction path.induction-3 {
       stroke: #585c60; }
+
+.owl-theme.users-gallery-carousel .owl-dots {
+  width: 100%;
+  max-width: 1013px;
+  margin: 0 auto;
+  padding: 0 20px; }
+
+.owl-theme.users-gallery-carousel .owl-dots .owl-dot span {
+  border-radius: 0;
+  margin: 0;
+  height: 6px;
+  width: 100%;
+  background: #f89828;
+  opacity: .2; }
+  @media only screen and (max-width: 40.063em) {
+    .owl-theme.users-gallery-carousel .owl-dots .owl-dot span {
+      height: 3px; } }
+
+.owl-theme.users-gallery-carousel .owl-dots .owl-dot span:hover {
+  background: #f89828;
+  opacity: .2; }
+
+.owl-theme.users-gallery-carousel .owl-dots .owl-dot.active span {
+  opacity: 1;
+  background: #f89828; }
+
+.owl-theme.users-gallery-carousel .owl-stage {
+  padding: 26px 0; }
+  @media only screen and (max-width: 40.063em) {
+    .owl-theme.users-gallery-carousel .owl-stage {
+      padding: 0; } }
+
+@media only screen and (max-width: 40.063em) {
+  .users-gallery-image {
+    padding: 0 20px; } }
+
+@media only screen and (min-width: 1000px) {
+  .owl-theme.users-gallery-carousel .owl-stage .owl-item.active.center {
+    zoom: 120%;
+    margin-left: -54px;
+    margin-right: -54px !important;
+    z-index: 999;
+    margin-top: -26px; } }
+
+section.users-gallery {
+  padding: 85px 0 50px 0; }
+  @media only screen and (max-width: 40.063em) {
+    section.users-gallery {
+      padding: 35px 0 20px 0; } }
+  section.users-gallery h2 {
+    display: inline-block;
+    color: #f89828;
+    max-width: 700px;
+    margin-bottom: 60px;
+    font-size: 48px; }
+    @media only screen and (max-width: 40.063em) {
+      section.users-gallery h2 {
+        font-size: 30px;
+        margin-bottom: 20px; } }
+  section.users-gallery img {
+    margin-bottom: 20px; }
+  section.users-gallery p {
+    font-size: 26px;
+    color: #5e6367;
+    opacity: 0;
+    margin: 0; }
+    @media only screen and (max-width: 40.063em) {
+      section.users-gallery p {
+        font-size: 20px; } }
+  section.users-gallery .owl-item.active.center p {
+    opacity: 1; }
+
+section.clean-identify > div {
+  height: 404px;
+  -webkit-background-size: cover !important;
+          background-size: cover !important; }
+  @media only screen and (max-width: 40.063em) {
+    section.clean-identify > div {
+      height: 252px; } }
+
+section.clean-identify h2 {
+  display: inline-block;
+  color: #fff;
+  font-size: 46px;
+  line-height: 1; }
+  @media only screen and (max-width: 40.063em) {
+    section.clean-identify h2 {
+      font-size: 30px; } }
+
+section.clean-identify .clean-cooktop {
+  background: url(../images/clean-cooktop.jpg) center center no-repeat; }
+  section.clean-identify .clean-cooktop h2 {
+    max-width: 295px;
+    margin-bottom: 20px; }
+
+section.clean-identify .identify-cooktop {
+  background: url(../images/identify-cooktop.jpg) center center no-repeat; }
+
+section.clean-identify .identify-cooktop svg {
+  width: 89px;
+  height: 89px;
+  margin-bottom: 15px; }
+  @media only screen and (max-width: 40.063em) {
+    section.clean-identify .identify-cooktop svg {
+      width: 54px;
+      height: 54px; } }
+  section.clean-identify .identify-cooktop svg path, section.clean-identify .identify-cooktop svg rect {
+    fill: #fff; }
+
+section.users-intro p {
+  display: inline-block;
+  max-width: 940px;
+  text-align: left; }
+
+section.users-cooking-methods {
+  padding: 85px 10px; }
+  @media only screen and (max-width: 40.063em) {
+    section.users-cooking-methods {
+      padding: 70px 10px 10px 10px; } }
+
+section.locate-support > div {
+  height: 342px;
+  padding-left: 20px;
+  padding-right: 20px; }
+  @media only screen and (max-width: 40.063em) {
+    section.locate-support > div {
+      height: 288px; } }
+
+@media only screen and (max-width: 40.063em) {
+  section.locate-support .button a {
+    width: 100%; } }
+
+section.locate-support h2 {
+  display: inline-block;
+  max-width: 400px;
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 46px; }
+  @media only screen and (max-width: 40.063em) {
+    section.locate-support h2 {
+      font-size: 30px; } }
+
+section.locate-support .support {
+  background: url(../images/support.jpg) center center no-repeat;
+  -webkit-background-size: cover !important;
+          background-size: cover !important; }
+  section.locate-support .support .button.reverse a {
+    color: #0a948f; }
+    section.locate-support .support .button.reverse a:hover {
+      color: #fff; }
 
 /*!
  * animsition v4.0.2

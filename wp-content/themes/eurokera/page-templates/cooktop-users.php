@@ -8,9 +8,89 @@ get_header(); ?>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 
-<section class="intro">
+<section class="users-gallery text-center">
 	<div class="row">
-		<div class="large-12 columns">
+		<div class="large-12 columns text-center">
+			<h2>Transform the Heart of Your Home with EuroKera</h2>
+		</div>
+	</div>
+
+		<?php 
+		$images = get_field('gallery');
+		$gallery_dot_width = (100 / count($images));
+		?>
+		<style>
+			.owl-theme.users-gallery-carousel .owl-dots .owl-dot {
+				width: <?php echo $gallery_dot_width; ?>%;
+			}
+		</style>
+	
+	<div class="users-gallery-carousel owl-theme owl-carousel">
+		<?php
+		if( $images ): ?>
+			<?php foreach( $images as $image ): ?>
+			    <div class="users-gallery-image">
+			    	<?php echo wp_get_attachment_image( $image['ID'], 'width=936&height=475&crop=1' ) ?>
+			        <p class="caption"><?php echo $image['caption']; ?></p>
+			    </div>
+			<?php endforeach; ?>
+		<?php endif; ?>
+	</div>
+	<script>
+		jQuery(document).ready(function(){
+			jQuery('.owl-carousel').owlCarousel({
+				loop: true,
+				margin: 38,
+				nav: false,
+				dots: true,
+				center: true,
+				autoplay: true,
+			    responsive:{
+			        0:{
+			            items:1
+			        },
+			        600:{
+			            items:2
+			        },
+			        1000:{
+			            items:2
+			        }
+			    }
+			})
+		});		
+	</script>
+</section>
+
+<section class="clean-identify">
+	<div class="large-6 medium-6 columns clean-cooktop text-center">
+		<div style="display:table;width:100%;height:100%;">
+		  <div style="display:table-cell;vertical-align:middle;">
+		    <div style="text-align:center;">
+			    <h2>How to Clean Your Cooktop</h2>
+				<div class="button reverse"><a href="<?php echo get_field('clean_link'); ?>">Learn More</a></div>
+		    </div>
+		  </div>
+		</div>
+		
+	</div>
+	<div class="large-6 medium-6 columns identify-cooktop text-center">
+		<a href="<?php echo get_field('identify_link'); ?>">
+			<div style="display:table;width:100%;height:100%;">
+			  <div style="display:table-cell;vertical-align:middle;">
+			    <div style="text-align:center;">
+				    <?php get_template_part('assets/images/cooktop.svg'); ?><br />
+					<h2>How to Identify EuroKera Cooktops</h2>
+			    </div>
+			  </div>
+			</div>
+			
+		</a>
+	</div>	
+</section>
+
+<section class="users-intro intro">
+	<div class="row">
+		<div class="large-12 columns text-center">
 			<?php echo get_field('intro'); ?>
 		</div>
 	</div>
@@ -51,52 +131,9 @@ get_header(); ?>
 	</div>
 </section>
 
-<section class="users-gallery">
-	<div class="row">
-		<div class="large-12 columns text-center">
-			<h2>Transform the Heart of Your Home with EuroKera</h2>
-		</div>
-		<div class="large-12 columns text-center">
-			<div class="logo-carousel owl-theme owl-carousel">
-				<?php if(get_field('customer_logos')): ?>
-					<?php while(has_sub_field('customer_logos')): ?>
-						<div class="customer-logo">
-							<div style="display:table;width:100%;height:100%;">
-							  <div style="display:table-cell;vertical-align:middle;">
-							    <div style="text-align:center;"><?php echo wp_get_attachment_image( get_sub_field('logo'), 'width=250&height=115&crop=0' ); ?></div>
-							  </div>
-							</div>		
-						</div>
-					<?php endwhile; ?>
-				<?php endif; ?>
-			</div>
-		</div>
-	</div>
-	<script>
-		jQuery(document).ready(function(){
-			jQuery('.owl-carousel').owlCarousel({
-			    loop:true,
-			    margin:10,
-			    nav:true,
-			    dots: false,
-			    autoplay: true,
-			    responsive:{
-			        0:{
-			            items:1
-			        },
-			        600:{
-			            items:3
-			        },
-			        1000:{
-			            items:4
-			        }
-			    }
-			})
-		});		
-	</script>
-</section>
 
-<section class="cooking-methods">
+
+<section class="cooking-methods users-cooking-methods">
 	<div style="display:table;width:100%;height:100%;">
 	  <div style="display:table-cell;vertical-align:middle;">
 	    <div style="text-align:center;">
@@ -118,6 +155,28 @@ get_header(); ?>
 	</div>		
 </section>
 
+<section class="locate-support">
+	<div class="large-6 medium-6 columns text-center locate">
+		<div style="display:table;width:100%;height:100%;">
+		  <div style="display:table-cell;vertical-align:middle;">
+		    <div style="text-align:center;">
+			    <h2>Where Can I Find a EuroKera Cooktop?</h2>
+				<div class="button reverse"><a href="<?php echo get_field('locate_now_link'); ?>">Locate Now</a></div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<div class="large-6 medium-6 columns text-center support">
+		<div style="display:table;width:100%;height:100%;">
+		  <div style="display:table-cell;vertical-align:middle;">
+		    <div style="text-align:center;">
+			    <h2>We Can Help You With Your Cooktop</h2>
+				<div class="button reverse"><a href="<?php echo get_field('support_link'); ?>">Service & Support</a></div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</section>
 
 <?php do_action( 'foundationpress_after_content' ); ?>
 

@@ -14,7 +14,7 @@ a.product-video {
 	min-width: 133px;
 	font-size: 21px;
 	@media only screen and (max-width: 40.063em) {
-		min-width: 33%;
+		min-width: 32%;
 		font-size: 19px;
 		margin-bottom: 50px;
 	}		
@@ -205,12 +205,15 @@ section.product-videos {
 	color: #5e6367;
 }
 
+section.ready, section .columns.locate {
+	background: url(../images/innovative.jpg) center center/cover no-repeat;
+}
+
 section.ready {
 	padding: 90px 0;
 	@media only screen and (max-width: 40.063em) {
 		padding-top: 55px;	
 	}
-	background: url(../images/innovative.jpg) center center/cover no-repeat;
 	h2 {
 		color: #fff;
 		font-size: 46px;
