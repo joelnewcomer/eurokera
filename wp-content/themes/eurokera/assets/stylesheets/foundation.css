@@ -4125,6 +4125,34 @@ section.locate-support .support {
     section.locate-support .support .button.reverse a:hover {
       color: #fff; }
 
+.page-template-design-gallery .featured-image {
+  max-height: 475px; }
+
+.owl-carousel .item {
+  transition: .8s;
+  -webkit-transition: .8s;
+  -ms-transform: translateX(0);
+      transform: translateX(0);
+  -webkit-transform: translateX(0);
+  opacity: 1; }
+
+.owl-carousel .item.__loading {
+  opacity: 0;
+  -ms-transform: translateX(40px);
+      transform: translateX(40px);
+  -webkit-transform: translateX(40px); }
+
+section.design-gallery {
+  padding: 25px 0 80px 0; }
+
+.btn-filter-wrap {
+  margin-bottom: 30px; }
+  .btn-filter-wrap .btn-filter {
+    font-size: 24px;
+    padding: 4px 15px; }
+    .btn-filter-wrap .btn-filter.btn-active {
+      color: #f89828; }
+
 /*!
  * animsition v4.0.2
  * A simple and easy jQuery plugin for CSS animated page transitions.
