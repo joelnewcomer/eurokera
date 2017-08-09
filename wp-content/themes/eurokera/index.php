@@ -16,9 +16,10 @@
 
 get_header(); ?>
 
+<?php get_template_part( 'template-parts/featured-image-parallax' ); ?>
+
 <div id="page" role="main">
     <div class="row">
-        <article class="large-8 medium-8 columns">
         <?php if ( have_posts() ) : ?>
 
             <?php /* Start the Loop */ ?>
@@ -38,9 +39,6 @@ get_header(); ?>
                     <div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
                 </nav>
             <?php } ?>
-
-        </article>
-        <?php get_sidebar(); ?>
     </div>
 </div>
 

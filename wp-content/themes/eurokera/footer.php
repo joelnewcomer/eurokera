@@ -39,9 +39,9 @@
 					<div class="large-6 medium-6 columns copyright small-text-center">
 						<p><?php _e( 'Copyright ', 'textdomain' ); ?> &copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?>.  <span class="no-break"><?php _e( 'All rights reserved.', 'textdomain' ); ?></span> <span class="show-for-small"><br /></span><a href="">Terms of Use</a>, <a href="">Privacy Policy</a>.</p>
 					</div>
-					<div class="large-6 medium-6 columns drum hide-on-print text-right small-text-center">
+					<!-- <div class="large-6 medium-6 columns drum hide-on-print text-right small-text-center">
 						<a href="http://www.drumcreative.com" target="_blank"><?php _e( 'Web Design by: Drum Creative', 'textdomain' ); ?></a>
-					</div>
+					</div> -->
 				</div>
 			</footer>
 		</div> <!-- footer-container -->

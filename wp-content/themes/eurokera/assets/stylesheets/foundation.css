@@ -3005,6 +3005,12 @@ ul.post-meta {
   top: 16px;
   font-family: FontAwesome; }
 
+body.blog .featured-image {
+  max-height: 360px; }
+
+body.blog #page {
+  padding-top: 70px; }
+
 .home-banner {
   display: block;
   position: relative;
