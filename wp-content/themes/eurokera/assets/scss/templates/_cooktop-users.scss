@@ -182,7 +182,7 @@ section.locate-support {
 	width: 100%;
 	overflow: hidden;
 	position: fixed;
-	top: -2000px;
+	top: -100%;
 	left: 0;
 	z-index: 999999;
 	&.active {

@@ -4035,7 +4035,9 @@ section.customers {
       margin-left: -30px; } }
 
 .makers-details > div {
-  height: 350px; }
+  height: 350px;
+  -webkit-background-size: cover !important;
+          background-size: cover !important; }
 
 .makers-details .glass-ceramic h2 {
   color: #fff; }
@@ -4216,7 +4218,7 @@ section.locate-support .support {
   width: 100%;
   overflow: hidden;
   position: fixed;
-  top: -2000px;
+  top: -100%;
   left: 0;
   z-index: 999999; }
   .epop-content.active {

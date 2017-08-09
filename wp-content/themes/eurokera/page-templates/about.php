@@ -31,16 +31,16 @@ get_header(); ?>
 					<div class="card">
 					    <figure class="front">
 					    	<div style="display:table;width:100%;height:100%;">
-					    	  <div style="display:table-cell;vertical-align:middle;">
-					    	    <div style="text-align:center;"><?php the_sub_field('year'); ?></div>
-					    	  </div>
+					    		<div style="display:table-cell;vertical-align:middle;">
+					    	    	<div style="text-align:center;"><?php the_sub_field('year'); ?></div>
+					    		</div>
 					    	</div>
 					    </figure>
 					    <figure class="back">
 					    	<div style="display:table;width:100%;height:100%;">
-					    	  <div style="display:table-cell;vertical-align:middle;">
-					    	    <div class="back-inner" style="text-align:center;"><?php the_sub_field('blurb'); ?></div>
-					    	  </div>
+					    		<div style="display:table-cell;vertical-align:middle;">
+					    	    	<div class="back-inner" style="text-align:center;"><?php the_sub_field('blurb'); ?></div>
+					    		</div>
 					    	</div>
 					    </figure>
 					</div>
@@ -130,7 +130,7 @@ get_header(); ?>
 	<div class="button gray"><a href="<?php echo get_field('wm_page'); ?>">Worldwide Manufacturing</a></div>
 </section>
 
-<section class="enviro text-center">
+<section id="environment" class="enviro text-center">
 	<div class="row enviro-intro">
 		<div class="large-8 medium-10 columns large-offset-2 medium-offset-1">
 			<?php echo get_field('enviro_content'); ?>
@@ -168,4 +168,13 @@ get_header(); ?>
 	jQuery( window ).load(function() {
 		jQuery('.match-intro').matchHeight();
 	});
+</script>
+
+<script>
+// When page loads, scroll to hash
+jQuery(window).load(function() {
+    if (window.location.hash != '') {
+        jQuery('html, body').animate({ scrollTop: jQuery(window.location.hash).offset().top - 70}, 500); 
+    }
+});
 </script>
