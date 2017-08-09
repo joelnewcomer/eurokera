@@ -4211,6 +4211,74 @@ section.locate-support .support {
     section.locate-support .support .button.reverse a:hover {
       color: #fff; }
 
+.epop-content {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: -2000px;
+  left: 0;
+  z-index: 999999; }
+  .epop-content.active {
+    top: 0; }
+  .epop-content .epop-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; }
+  .epop-content .epop-inner-tint {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(248, 152, 40, 0.85); }
+  .epop-content .epop-inner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 80%;
+    margin-left: 10%; }
+  .epop-content .epop-close {
+    position: absolute;
+    cursor: pointer;
+    z-index: 3;
+    font-size: 86px;
+    top: 38px;
+    width: 100%;
+    color: #fff;
+    line-height: 33px; }
+  .epop-content .epop-inner {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    -webkit-background-size: cover;
+            background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    top: 50%;
+    left: 50%;
+    margin-left: -322px;
+    margin-top: -322px;
+    width: 644px;
+    height: 644px;
+    border-radius: 322px;
+    -webkit-box-shadow: 0 0 50px rgba(1, 1, 1, 0.2);
+    box-shadow: 0 0 50px rgba(1, 1, 1, 0.2); }
+    @media only screen and (max-width: 644px) {
+      .epop-content .epop-inner {
+        border-radius: 0;
+        margin: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        padding: 100px 0 50px 0; } }
+    .epop-content .epop-inner h2, .epop-content .epop-inner h3, .epop-content .epop-inner h4, .epop-content .epop-inner p {
+      color: #fff; }
+
 .page-template-design-gallery .featured-image {
   max-height: 475px; }
 

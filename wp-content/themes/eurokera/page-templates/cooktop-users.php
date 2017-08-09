@@ -98,40 +98,41 @@ get_header(); ?>
 
 <section class="image-links">
 	<div class="row">
+		<?php $epops = ''; ?>
 		<?php if(get_field('image_links')): ?>
 			<?php while(has_sub_field('image_links')): ?>
 				<div class="large-4 medium-4 small-6 columns text-center">
-					<?php
-					$link = get_sub_field('link');
-					if ($link != null) {
-						echo '<a class="image-link" href="' . $link . '">';
-					} else {
-						echo '<div class="image-link">';
-					}
-					echo wp_get_attachment_image( get_sub_field('image'), 'width=261&height=261&crop=1' ); ?>
-					
-					<div class="overlay">
-						<div style="display:table;width:100%;height:100%;">
-							<div style="display:table-cell;vertical-align:middle;">
-								<div style="text-align:center;"><h3><?php echo get_sub_field('title'); ?></h3></div>
+					<?php $epop_id = sanitize_title(get_sub_field('title')); ?>
+					<a href="#" class="epop-link image-link" data-epop="#<?php echo $epop_id; ?>">
+						<?php
+						echo wp_get_attachment_image( get_sub_field('image'), 'width=261&height=261&crop=1' ); ?>
+						<div class="overlay">
+							<div style="display:table;width:100%;height:100%;">
+								<div style="display:table-cell;vertical-align:middle;">
+									<div style="text-align:center;"><h3><?php echo get_sub_field('title'); ?></h3></div>
+								</div>
 							</div>
 						</div>
-					</div>
-					
-					<?php
-					if ($link != null) {
-						echo '</a>';
-					} else {
-						echo '</div>';
-					}
-					?>					
+					</a>				
 				</div>
+				<?php
+				$epop_bg = wp_get_attachment_image_src( get_sub_field("image"), "width=644&height=644&crop=1" );
+				$epops .= '<div class="epop-content transition" id="' . $epop_id . '">
+					<div class="epop-overlay"></div>
+					<div class="epop-inner text-center" style="background-image: url(' . $epop_bg[0] . ');">
+						<div class="epop-inner-tint"></div>
+						<div class="epop-close">&times;</div>
+						<div class="epop-inner-content" style="display:table;width:100%;height:100%;">
+						  <div style="display:table-cell;vertical-align:middle;">
+						    <div style="text-align:center;">' . get_sub_field('pop-up_content') . '</div>
+						  </div>
+						</div>
+					</div>
+				</div>'; ?>
 			<?php endwhile; ?>
 		<?php endif; ?>
 	</div>
 </section>
-
-
 
 <section class="cooking-methods users-cooking-methods">
 	<div style="display:table;width:100%;height:100%;">
@@ -181,3 +182,17 @@ get_header(); ?>
 <?php do_action( 'foundationpress_after_content' ); ?>
 
 <?php get_footer(); ?>
+
+<?php echo $epops; ?>
+
+<script>
+jQuery( ".epop-link" ).on( "click", function(e) {
+	e.preventDefault();
+	var epopID = jQuery(this).data('epop');
+	jQuery(epopID).toggleClass('active');
+});
+
+jQuery( ".epop-close, .epop-overlay" ).on( "click", function() {
+	jQuery('.epop-content').removeClass('active');
+});
+</script>

@@ -105,7 +105,7 @@
         },
         {
             "key": "field_5989b360dc11c",
-            "label": "Round Image Links",
+            "label": "Round Image Pop-Ups",
             "name": "image_links",
             "type": "repeater",
             "instructions": "",
@@ -146,7 +146,7 @@
                     "label": "Image",
                     "name": "image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Will be sized and cropped to 644 x 644 pixels.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -166,10 +166,10 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5989b390dc11f",
-                    "label": "Link",
-                    "name": "link",
-                    "type": "page_link",
+                    "key": "field_598b58b01c565",
+                    "label": "Pop-Up Content",
+                    "name": "pop-up_content",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -178,11 +178,11 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": [],
-                    "taxonomy": [],
-                    "allow_null": 1,
-                    "allow_archives": 1,
-                    "multiple": 0
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
                 }
             ]
         },
@@ -248,5 +248,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1502196690
+    "modified": 1502309582
 }
