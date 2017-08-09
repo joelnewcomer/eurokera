@@ -1,12 +1,15 @@
 <!-- Parallax Featured Image -->
 <?php
 /** If this is the blog page then get the featured image for it **/
-if (is_home() && get_option('page_for_posts') ) {
+if ((is_home() || is_archive()) && get_option('page_for_posts') ) {
 	$image_url = get_the_post_thumbnail_url(get_option('page_for_posts'));
 	$title = get_the_title(get_option('page_for_posts'));
 } else {
 	$image_url = get_the_post_thumbnail_url();
 	$title = get_the_title();
+}
+if (is_archive()) {
+	$title = single_cat_title('',false);
 }
 // Default featured image
 if ($image_url == null) {
@@ -14,6 +17,10 @@ if ($image_url == null) {
 }
 $subtitle = get_field('subtitle');
 $video_url = get_field('featured_video_url');
+$display_title = get_field('display_title');
+if ($display_title != null) {
+	$title = $display_title;
+}
 ?>
 <div class="featured-image" data-paroller-factor="0.3" style="background: url(<?php echo $image_url; ?>) center center no-repeat;">
 			<div class="text-center" style="display:table;width:100%;height:100%;">

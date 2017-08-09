@@ -9,24 +9,15 @@
 
 get_header(); ?>
 
+<?php get_template_part( 'template-parts/featured-image-parallax' ); ?>
 
 <div id="single-post" role="main">
 	<div class="row">	
 	<?php do_action( 'foundationpress_before_content' ); ?>
 	<?php while ( have_posts() ) : the_post(); ?>
-		<article class="main-content large-8 medium-8 columns" <?php post_class() ?> id="post-<?php the_ID(); ?>">
-			<header>
-				<h1 class="entry-title"><?php the_title(); ?></h1>
-				<?php drum_entry_meta(); ?>
-			</header>
+		<article class="main-content large-12 columns" <?php post_class() ?> id="post-<?php the_ID(); ?>">
 			<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
 			<div class="entry-content">
-	
-			<?php if ( has_post_thumbnail() ) : ?>
-				<div class="featured-image">
-					<?php the_post_thumbnail( array( 'width' => 770, 'height' => 420, 'crop' => true )); ?>
-				</div>
-			<?php endif; ?>
 	
 			<?php the_content(); ?>
 			</div>
@@ -39,9 +30,12 @@ get_header(); ?>
 			<?php do_action( 'foundationpress_post_after_comments' ); ?>
 		</article>
 	<?php endwhile;?>
+	<div class="more-articles text-center">
+		<a href="<?php echo get_permalink( get_option( 'page_for_posts' )); ?>">Read more articles...</a>
+	</div>
+	
 	
 	<?php do_action( 'foundationpress_after_content' ); ?>
-	<?php get_sidebar(); ?>
 	</div> <!-- row -->
 </div> <!-- #single-post -->
 <?php get_footer(); ?>

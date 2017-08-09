@@ -20,11 +20,48 @@ get_header(); ?>
 
 <div id="page" role="main">
     <div class="row">
+	    <div class="blog-cats large-12 text-center">
+		    <a class="active" href="<?php echo get_permalink( get_option( 'page_for_posts' )); ?>">All</a>
+			<?php
+			$args = array(
+			    'orderby' => 'name',
+			    'order' => 'ASC',
+			    'hide_empty' => 0
+			);
+			$categories = get_categories($args);
+			foreach($categories as $category) { 
+			    echo '<a class="no-break" href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all articles in %s" ), $category->name ) . '" ' . '>' . $category->name;
+			    echo '</a>';
+			}
+			?>		    
+	    </div>
+    </div>
+    <div class="blog-row row">
+	    
         <?php if ( have_posts() ) : ?>
 
             <?php /* Start the Loop */ ?>
             <?php while ( have_posts() ) : the_post(); ?>
-                <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+            	<?php
+	            // Check for alternate featured image first
+	            $featured_id = get_field('alt_featured');
+	            if ($featured_id == null) {
+		            $featured_id = get_post_thumbnail_id();
+	            }
+	            // Default featured image
+	            if ($featured_id == null) {
+		            $featured_id = 729;
+	            }
+	            ?>
+                <div class="large-6 medium-6 columns blog-columns">
+	                <a href="<?php the_permalink(); ?>" class="blog-block">
+		                <div class="text-center">
+			                <?php echo wp_get_attachment_image( $featured_id, 'width=316&height=316&crop=1' ) ?>
+							<h2><?php the_title(); ?></h2>
+		                </div>
+		                <?php the_excerpt(); ?>
+	                </a>
+                </div>
             <?php endwhile; ?>
 
             <?php else : ?>
@@ -41,5 +78,11 @@ get_header(); ?>
             <?php } ?>
     </div>
 </div>
+
+<script>
+jQuery(document).ready(function(){
+	jQuery('.blog-block').matchHeight();
+});
+</script>
 
 <?php get_footer(); ?>

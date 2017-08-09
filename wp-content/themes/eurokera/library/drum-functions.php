@@ -5,6 +5,7 @@
  * 1. has_gform() - Line 94 - Checks to see if a Gravity Forms form is on the current page.
  * 2. is_woocommerce_activated() -  Line 526 - Checks to see if WooCommerce is activated.
  * 3. is_blog() - Line 519 Checks to see if this is a blog-related page (blog, blog post, archive)
+ * 4. Line 564 - Update Featured Image Size
  */
 
 // Set content width to appease Theme Check
@@ -19,7 +20,7 @@ add_filter( 'use_default_gallery_style', '__return_false' );
 //Add the read more link to excerpts
 function new_excerpt_more( $more ) {
 	global $post;
-	return '... <div class="button small text-center"><a href="'. get_permalink($post->ID) . '">Continue Reading</a></div>';
+	return '...<strong>read more</strong>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
@@ -561,7 +562,7 @@ add_filter( 'comment_form_defaults', 'placeholder_comment_form_field' );
 // Add notice stating featured image size
 add_filter( 'admin_post_thumbnail_html', 'add_featured_image_instruction');
 function add_featured_image_instruction( $content ) {
-    return $content .= '<p>Featured Image must be sized to at least 1100 x 300 pixels.</p>';
+    return $content .= '<p>Featured Image must be sized to at least 1400 x 556 pixels.</p>';
 }
 
 // Set WYSIWYG Colors on Options Page - http://stackoverflow.com/questions/23171247/add-custom-text-color-wordpress-3-9-tinymce-4-visual-editor

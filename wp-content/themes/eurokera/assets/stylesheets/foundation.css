@@ -36,7 +36,7 @@ p.wp-caption-text {
   display: table;
   float: left;
   padding-right: 1rem;
-  margin: 1rem 0 !important;
+  margin: 0 0 1rem 0 !important;
   margin: 0; }
   .alignleft figcaption {
     margin-right: 1rem; }
@@ -3005,11 +3005,71 @@ ul.post-meta {
   top: 16px;
   font-family: FontAwesome; }
 
-body.blog .featured-image {
+body.blog .featured-image, body.category .featured-image, body.single .featured-image {
   max-height: 360px; }
 
-body.blog #page {
-  padding-top: 70px; }
+body.blog #page, body.category #page {
+  padding-top: 70px;
+  padding-bottom: 45px; }
+  @media only screen and (max-width: 40.063em) {
+    body.blog #page, body.category #page {
+      padding-top: 30px;
+      padding-bottom: 15px; } }
+
+.blog-cats {
+  margin-bottom: 40px; }
+  @media only screen and (max-width: 40.063em) {
+    .blog-cats {
+      margin-bottom: 10px; } }
+  .blog-cats a {
+    display: inline-block;
+    padding: 4px 30px;
+    font-size: 28px;
+    color: #5e6367; }
+    @media only screen and (max-width: 40.063em) {
+      .blog-cats a {
+        font-size: 22px;
+        padding: 4px 20px; } }
+    .blog-cats a.active {
+      color: #f89828;
+      cursor: default;
+      pointer-events: none; }
+
+.blog-row {
+  max-width: 1000px; }
+  .blog-row .columns {
+    padding: 18px 24px; }
+  .blog-row .blog-block {
+    display: block;
+    float: left;
+    width: 100%;
+    margin-top: 70px;
+    background: #efefef;
+    padding: 0 30px 35px 30px; }
+    .blog-row .blog-block img {
+      margin-top: -70px;
+      border-radius: 158px;
+      margin-bottom: 35px;
+      transition: all .5s;
+      -webkit-transition: all .5s;
+      /* Safari and Chrome */
+      -ms-transition: all .5s;
+      /* Opera */ }
+    .blog-row .blog-block:hover img {
+      -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      transform: scale(1.1); }
+    .blog-row .blog-block h2 {
+      font-size: 34px;
+      line-height: 1;
+      color: #f89828; }
+
+.pagination-centered {
+  display: block;
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin-top: 24px; }
 
 .home-banner {
   display: block;
@@ -3253,8 +3313,28 @@ section.site-links {
     section.site-links {
       padding: 30px 0 20px 0; } }
 
-#single-post > article {
-  padding-bottom: 40px; }
+#single-post > row {
+  max-width: 1120px; }
+
+article.main-content {
+  margin-top: 80px;
+  background: #efefef;
+  padding: 85px;
+  margin-bottom: 20px; }
+  @media only screen and (max-width: 40.063em) {
+    article.main-content {
+      padding: 30px;
+      margin-top: 0; } }
+
+.more-articles {
+  display: block;
+  float: left;
+  width: 100%;
+  margin-bottom: 50px; }
+  .more-articles a {
+    font-size: 22px;
+    color: #626260;
+    font-weight: bold; }
 
 a.product-video {
   font-size: 28px;
@@ -4158,6 +4238,138 @@ section.design-gallery {
     padding: 4px 15px; }
     .btn-filter-wrap .btn-filter.btn-active {
       color: #f89828; }
+
+.featured-image h1 {
+  max-width: 960px;
+  display: inline-block; }
+
+section.manu-intro {
+  background: url(../images/manu-intro-bg.jpg) center center no-repeat;
+  -webkit-background-size: cover;
+          background-size: cover;
+  padding: 80px 0 0 0; }
+  @media only screen and (max-width: 40.063em) {
+    section.manu-intro {
+      padding: 40px 0 0 0; } }
+  section.manu-intro .row {
+    max-width: 1020px; }
+  section.manu-intro img {
+    max-width: 50%; }
+  section.manu-intro p {
+    font-size: 28px;
+    margin-bottom: 80px; }
+    @media only screen and (max-width: 40.063em) {
+      section.manu-intro p {
+        margin-bottom: 40px; } }
+  section.manu-intro p:first-of-type {
+    font-size: 22px;
+    margin-bottom: 50px; }
+    @media only screen and (max-width: 40.063em) {
+      section.manu-intro p:first-of-type {
+        margin-bottom: 30px; } }
+  section.manu-intro h2 {
+    clear: left;
+    color: #f89828;
+    font-size: 46px; }
+
+section.shipped {
+  padding: 40px 0; }
+  @media only screen and (max-width: 40.063em) {
+    section.shipped {
+      padding: 20px 0; } }
+  section.shipped svg {
+    width: 818px;
+    height: 177px;
+    max-width: 100%;
+    margin-bottom: 10px; }
+  section.shipped h2 {
+    display: inline-block;
+    font-size: 46px;
+    color: #f89828;
+    max-width: 490px; }
+  section.shipped p {
+    font-size: 28px; }
+
+section.locations svg#france path {
+  fill: #fff; }
+
+section.locations h2.reverse {
+  width: 100%;
+  color: #fff;
+  font-size: 36px;
+  margin: 0;
+  padding: 9px 0; }
+
+section.locations h2.primary {
+  background: #f89828; }
+
+section.locations h2.secondary {
+  background: #0a948f; }
+
+section.locations .location.europe-usa {
+  background: url(../images/europe-usa.jpg) center center no-repeat;
+  -webkit-background-size: cover;
+          background-size: cover; }
+  section.locations .location.europe-usa svg {
+    margin-top: 20px; }
+
+section.locations .location.asia {
+  background: url(../images/asia.jpg) center center no-repeat;
+  -webkit-background-size: cover;
+          background-size: cover; }
+  section.locations .location.asia svg {
+    margin-top: 4px; }
+
+section.locations .location {
+  height: 390px; }
+  section.locations .location p {
+    color: #fff;
+    font-size: 28px; }
+
+section.locations svg#france {
+  width: 77px;
+  height: 77px; }
+
+section.locations svg#usa {
+  width: 154px;
+  height: 56px; }
+
+section.locations svg#china {
+  width: 25px;
+  height: 121px; }
+
+section.locations svg#thailand {
+  width: 120px;
+  height: 104px; }
+
+section.final-steps {
+  padding: 90px 0 60px 0; }
+  @media only screen and (max-width: 40.063em) {
+    section.final-steps {
+      padding: 50px 0 20px 0; } }
+  section.final-steps .row {
+    max-width: 960px; }
+  section.final-steps h2 {
+    color: #f89828; }
+  section.final-steps p {
+    font-size: 28px;
+    margin-bottom: 50px;
+    color: #626260;
+    font-weight: 300; }
+
+section.let-us {
+  background: url(../images/let-us-bg.jpg) center center no-repeat;
+  -webkit-background-size: cover !important;
+          background-size: cover !important;
+  padding: 90px 0 70px 0; }
+  @media only screen and (max-width: 40.063em) {
+    section.let-us {
+      padding: 50px 0 30px 0; } }
+  section.let-us h2 {
+    display: inline-block;
+    max-width: 510px;
+    color: #0a948f;
+    margin-bottom: 25px; }
 
 /*!
  * animsition v4.0.2
