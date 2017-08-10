@@ -73,6 +73,7 @@ get_header(); ?>
 			        }
 			    }
 			});
+
 			/* animate filter */
 			var owlAnimateFilter = function(even) {
 				jQuery(this)

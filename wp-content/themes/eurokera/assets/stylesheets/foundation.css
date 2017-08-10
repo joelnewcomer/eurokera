@@ -3263,8 +3263,8 @@ section.numbers {
 section.about {
   padding: 90px 0 80px 0;
   background: url(../images/about-bg.jpg) center center no-repeat;
-  -webkit-background-size: cover;
-          background-size: cover; }
+  -webkit-background-size: 120% 120%;
+          background-size: 120% 120%; }
   @media only screen and (max-width: 40.063em) {
     section.about {
       padding: 40px 15px 45px 15px; } }
@@ -3526,7 +3526,10 @@ section.ready {
 .featured-image {
   height: -webkit-calc(100vh - 112px);
   height: calc(100vh - 112px);
-  position: relative; }
+  position: relative;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0, 0, 0); }
 
 .entry-content section:first-child p:first-of-type {
   font-size: 24px; }
@@ -4145,11 +4148,13 @@ body .epop-form h3 {
   -webkit-transition: transform .3s;
   /* Safari and Chrome */
   -ms-transition: transform .3s;
-  /* Opera */
-  -webkit-transform: scale(0.8);
-      -ms-transform: scale(0.8);
-          transform: scale(0.8);
-  opacity: .4; }
+  /* Opera */ }
+  @media only screen and (min-width: 40.063em) {
+    .owl-theme.users-gallery-carousel .owl-stage .owl-item {
+      -webkit-transform: scale(0.8);
+          -ms-transform: scale(0.8);
+              transform: scale(0.8);
+      opacity: .4; } }
 
 @media only screen and (min-width: 1000px) {
   .owl-theme.users-gallery-carousel .owl-stage .owl-item.active.center {

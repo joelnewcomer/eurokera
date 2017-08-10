@@ -212,9 +212,13 @@ jQuery( document ).ready(function() {
 		});
 	}
 	
-	jQuery(window).paroller();
-	
+	alert(jQuery(document).scrollTop());
+	setTimeout(function(){
+		jQuery(window).paroller();
+	}, 1000);	
 });
+
+	
 
 /* jQuery.holdReady( true );
 setTimeout(function() {

@@ -44,8 +44,10 @@
 	transition: transform .3s;
 	-webkit-transition: transform .3s; /* Safari and Chrome */
 	-ms-transition: transform .3s; /* Opera */
-	transform:scale(.8);
-	opacity: .4;
+	@media only screen and (min-width: 40.063em) {
+		transform:scale(.8);
+		opacity: .4;
+	}
 }
 
 @media only screen and (min-width: 1000px) {
