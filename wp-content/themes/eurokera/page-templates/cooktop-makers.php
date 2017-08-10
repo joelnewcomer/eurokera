@@ -134,4 +134,28 @@ get_header(); ?>
 
 <?php do_action( 'foundationpress_after_content' ); ?>
 
+<div id="work-together" class="epop-content transition">
+	<div class="epop-overlay"></div>
+	<div class="epop-form text-center">		
+		<?php gravity_form(4, false, false, false, '', true, 12); ?>
+	</div>
+</div>
+
 <?php get_footer(); ?>
+
+<script>
+jQuery( "#work-together-btn" ).on( "click", function(e) {
+	e.preventDefault();
+	jQuery('#work-together').toggleClass('active');
+});
+
+jQuery( ".epop-overlay" ).on( "click", function() {
+	jQuery('.epop-content').removeClass('active');
+});
+</script>
+
+<script type="text/javascript">
+jQuery(document).bind('gform_confirmation_loaded', function(event, formId){
+    setTimeout(function(){ jQuery('.epop-content').removeClass('active'); }, 3000);
+});
+</script>

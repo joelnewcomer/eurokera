@@ -66,25 +66,6 @@
             "multiple": 0
         },
         {
-            "key": "field_5989b3091f74e",
-            "label": "How to Identify EuroKera Cooktops Link",
-            "name": "identify_link",
-            "type": "page_link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [],
-            "taxonomy": [],
-            "allow_null": 0,
-            "allow_archives": 1,
-            "multiple": 0
-        },
-        {
             "key": "field_5989b327870f3",
             "label": "Intro",
             "name": "intro",
@@ -248,5 +229,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1502309582
+    "modified": 1502369749
 }

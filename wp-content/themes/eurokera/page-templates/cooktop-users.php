@@ -8,6 +8,8 @@ get_header(); ?>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 
+<?php $epops = ""; ?>
+
 <section class="users-gallery text-center">
 	<div class="row">
 		<div class="large-12 columns text-center">
@@ -74,7 +76,7 @@ get_header(); ?>
 		
 	</div>
 	<div class="large-6 medium-6 columns identify-cooktop text-center">
-		<a href="<?php echo get_field('identify_link'); ?>">
+		<a class="epop-link" data-epop="#identify" href="#">
 			<div style="display:table;width:100%;height:100%;">
 			  <div style="display:table-cell;vertical-align:middle;">
 			    <div style="text-align:center;">
@@ -82,11 +84,20 @@ get_header(); ?>
 					<h2>How to Identify EuroKera Cooktops</h2>
 			    </div>
 			  </div>
-			</div>
-			
+			</div>			
 		</a>
 	</div>	
 </section>
+
+		<div class="epop-content transition" id="identify">
+			<div class="epop-overlay"></div>
+			<div class="epop-identify text-center">
+				<div class="epop-close">&times;</div>
+				<h3>Look for these Logos On Your Cooktop</h3><br />
+				<?php get_template_part('assets/images/k.svg'); ?>
+				<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?>
+			</div>
+		</div>
 
 <section class="users-intro intro">
 	<div class="row">
@@ -98,7 +109,6 @@ get_header(); ?>
 
 <section class="image-links">
 	<div class="row">
-		<?php $epops = ''; ?>
 		<?php if(get_field('image_links')): ?>
 			<?php while(has_sub_field('image_links')): ?>
 				<div class="large-4 medium-4 small-6 columns text-center">

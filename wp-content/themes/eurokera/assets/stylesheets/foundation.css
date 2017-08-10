@@ -2511,16 +2511,16 @@ input.button:hover {
   .gray.button a:before {
     border: 2px solid #5e6367; }
 
-.button.reverse a {
+.button.reverse a, #gform_submit_button_4 {
   background-color: #fff;
   border-color: #fff;
   color: #f89828; }
-  .button.reverse a:hover {
+  .button.reverse a:hover, #gform_submit_button_4:hover {
     background: transparent;
     color: #fff; }
-  .button.reverse a:after {
+  .button.reverse a:after, #gform_submit_button_4:after {
     background: #fff; }
-  .button.reverse a:before {
+  .button.reverse a:before, #gform_submit_button_4:before {
     border: 2px solid #fff; }
 
 .button.outline.white a {
@@ -3316,13 +3316,13 @@ section.site-links {
 #single-post > row {
   max-width: 1120px; }
 
-article.main-content {
+#single-post article.main-content {
   margin-top: 80px;
   background: #efefef;
   padding: 85px;
   margin-bottom: 20px; }
   @media only screen and (max-width: 40.063em) {
-    article.main-content {
+    #single-post article.main-content {
       padding: 30px;
       margin-top: 0; } }
 
@@ -4063,6 +4063,45 @@ section.customers {
     .cooking-methods .heat-source.induction path.induction-2, .cooking-methods .heat-source.induction path.induction-3 {
       stroke: #585c60; }
 
+.epop-form {
+  display: block;
+  position: absolute;
+  width: 540px;
+  top: 250px;
+  top: 50%;
+  left: 50%;
+  margin-left: -270px;
+  margin-top: -125px;
+  -webkit-box-shadow: 0 0 50px rgba(1, 1, 1, 0.3);
+  box-shadow: 0 0 50px rgba(1, 1, 1, 0.3);
+  border: solid 4px #fff;
+  background: #f89828;
+  padding: 14px; }
+
+body .epop-form .gform_wrapper .top_label div.ginput_container {
+  padding-right: 0 !important;
+  margin-bottom: 0; }
+
+body .epop-form .gform_wrapper input {
+  border: none !important; }
+
+body .epop-form .gform_wrapper {
+  margin: 0; }
+
+body .epop-form .gform_wrapper ul li.gfield, body .epop-form .gform_wrapper .top_label div.ginput_container {
+  margin-top: 0; }
+
+body .epop-form .gform_wrapper .gform_footer {
+  margin: 0;
+  padding: 0;
+  text-align: right; }
+
+#gform_submit_button_4 {
+  margin: 0; }
+
+body .epop-form h3 {
+  color: #fff; }
+
 .owl-theme.users-gallery-carousel .owl-dots {
   width: 100%;
   max-width: 1013px;
@@ -4280,6 +4319,50 @@ section.locate-support .support {
         padding: 100px 0 50px 0; } }
     .epop-content .epop-inner h2, .epop-content .epop-inner h3, .epop-content .epop-inner h4, .epop-content .epop-inner p {
       color: #fff; }
+
+.epop-identify {
+  position: absolute;
+  width: 416px;
+  height: 310px;
+  padding: 65px 20px 60px 20px;
+  top: 50%;
+  left: 50%;
+  margin-left: -208px;
+  margin-top: -155px;
+  background: #f89828;
+  border-radius: 10px;
+  border: solid 4px #fff;
+  -webkit-box-shadow: 0 0 50px rgba(1, 1, 1, 0.3);
+  box-shadow: 0 0 50px rgba(1, 1, 1, 0.3); }
+  @media only screen and (max-width: 40.063em) {
+    .epop-identify {
+      width: 95%;
+      margin-left: 0;
+      left: 2.5%; } }
+  .epop-identify h3 {
+    color: #fff;
+    display: inline-block;
+    max-width: 250px;
+    margin-bottom: 25px; }
+  .epop-identify .eurokera-logo-2 {
+    fill: #fff; }
+  .epop-identify .eurokera-logo-3 {
+    fill: #f89828; }
+  .epop-identify .epop-close {
+    width: 38px;
+    height: 33px;
+    right: 14px;
+    top: 14px; }
+  .epop-identify svg.euro-k {
+    width: 62px;
+    height: 72px;
+    margin-right: 75px; }
+    @media only screen and (max-width: 40.063em) {
+      .epop-identify svg.euro-k {
+        margin-right: 40px; } }
+  .epop-identify svg.eurokera-logo {
+    width: 178px;
+    height: 71px; }
 
 .page-template-design-gallery .featured-image {
   max-height: 475px; }
