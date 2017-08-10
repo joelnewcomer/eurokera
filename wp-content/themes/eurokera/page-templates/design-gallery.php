@@ -31,7 +31,7 @@ get_header(); ?>
 			}
 		</style>
 	
-	<div class="users-gallery-carousel owl-theme owl-carousel">
+	<div class="users-gallery-carousel owl-theme owl-carousel" data-featherlight-gallery data-featherlight-filter="a">
 		<?php
 		if( $images ): ?>
 			<?php foreach( $images as $image ): ?>
@@ -41,9 +41,12 @@ get_header(); ?>
 				foreach ($categories as $category) {
 					$cat_classes .= ' ' . sanitize_title($category);
 				}
+				$full_size_url = wp_get_attachment_image_src( $image['ID'], 'full' );
 				?>
 			    <div class="item users-gallery-image<?php echo $cat_classes; ?>">
-			    	<?php echo wp_get_attachment_image( $image['ID'], 'width=936&height=475&crop=1' ) ?>
+				    <a class="gallery" href="<?php echo $full_size_url[0]; ?>">
+			    		<?php echo wp_get_attachment_image( $image['ID'], 'width=936&height=475&crop=1' ) ?>
+				    </a>
 			        <p class="caption"><?php echo $image['caption']; ?></p>
 			    </div>
 			<?php endforeach; ?>
@@ -53,7 +56,7 @@ get_header(); ?>
 		jQuery(window).load(function(){
 			var owl = jQuery('.owl-carousel').owlCarousel({
 				loop: true,
-				margin: 38,
+				margin: 0,
 				nav: false,
 				dots: true,
 				center: true,
@@ -79,21 +82,24 @@ get_header(); ?>
 					jQuery(this).dequeue().removeClass('__loading')
 				})
 			}
-			
 			jQuery('.btn-filter-wrap').on('click', '.btn-filter', function(e) {
-				var filter_data = jQuery(this).data('filter');
-			
+				var filter_data = jQuery(this).data('filter');			
 				/* return if current */
 				if(jQuery(this).hasClass('btn-active')) return;
-			
 				/* active current */
 				jQuery(this).addClass('btn-active').siblings().removeClass('btn-active');
-			
 				/* Filter */
 				owl.owlFilter(filter_data, function(_owl) { 
 					jQuery(_owl).find('.item').each(owlAnimateFilter); 
 				});
-			})			
+			}); 			
+
+			jQuery.featherlightGallery.prototype.afterContent = function() {
+				var caption = this.$currentTarget.closest('.caption').html();
+				this.$instance.find('.caption').remove();
+				jQuery('<div class="caption">').text(caption).appendTo(this.$instance.find('.featherlight-content'));
+			};
+				
 		});		
 	</script>
 </section>

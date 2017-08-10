@@ -4137,13 +4137,30 @@ body .epop-form h3 {
   .users-gallery-image {
     padding: 0 20px; } }
 
+.owl-theme.users-gallery-carousel .owl-stage .owl-item {
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+  -webkit-transition: transform .3s;
+  /* Safari and Chrome */
+  -ms-transition: transform .3s;
+  /* Opera */
+  -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+          transform: scale(0.8);
+  opacity: .4; }
+
 @media only screen and (min-width: 1000px) {
   .owl-theme.users-gallery-carousel .owl-stage .owl-item.active.center {
-    zoom: 120%;
-    margin-left: -54px;
-    margin-right: -54px !important;
-    z-index: 999;
-    margin-top: -26px; } }
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+    z-index: 999; }
+    .owl-theme.users-gallery-carousel .owl-stage .owl-item.active.center img {
+      -webkit-box-shadow: 0 0 50px rgba(1, 1, 1, 0.2);
+      box-shadow: 0 0 50px rgba(1, 1, 1, 0.2); } }
 
 section.users-gallery {
   padding: 85px 0 50px 0; }

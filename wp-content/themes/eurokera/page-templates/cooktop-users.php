@@ -42,7 +42,7 @@ get_header(); ?>
 		jQuery(document).ready(function(){
 			jQuery('.owl-carousel').owlCarousel({
 				loop: true,
-				margin: 38,
+				margin: 0,
 				nav: false,
 				dots: true,
 				center: true,
