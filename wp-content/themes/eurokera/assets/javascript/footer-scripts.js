@@ -212,10 +212,11 @@ jQuery( document ).ready(function() {
 		});
 	}
 	
-	alert(jQuery(document).scrollTop());
-	setTimeout(function(){
-		jQuery(window).paroller();
-	}, 1000);	
+	if (jQuery(document).scrollTop() > 600) {
+		setTimeout(function(){
+			jQuery(window).paroller();
+		}, 1000);
+	}	
 });
 
 	
