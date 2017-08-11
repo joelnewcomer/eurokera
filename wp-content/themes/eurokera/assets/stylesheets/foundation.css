@@ -3307,6 +3307,13 @@ a.home-video {
       a.home-video svg {
         width: 44px;
         height: 44px; } }
+  a.home-video a.svg:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
 
 section.site-links {
   padding: 90px 0; }
