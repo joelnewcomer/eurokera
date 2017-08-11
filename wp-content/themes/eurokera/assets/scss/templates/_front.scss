@@ -273,7 +273,7 @@ a.home-video {
 			height: 44px;	
 		}
 	}
-	a.svg:after {
+	&:after {
 		content: ""; 
 		position: absolute; 
 		top: 0; 

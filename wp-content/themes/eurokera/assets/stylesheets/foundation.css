@@ -3307,7 +3307,7 @@ a.home-video {
       a.home-video svg {
         width: 44px;
         height: 44px; } }
-  a.home-video a.svg:after {
+  a.home-video:after {
     content: "";
     position: absolute;
     top: 0;
