@@ -216,6 +216,8 @@ jQuery( document ).ready(function() {
 		setTimeout(function(){
 			jQuery(window).paroller();
 		}, 1000);
+	} else {
+		jQuery(window).paroller();
 	}	
 });
 
