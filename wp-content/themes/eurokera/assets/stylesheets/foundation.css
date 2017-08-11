@@ -2134,6 +2134,7 @@ p {
   .top-bar-right .search-button svg.search-icon {
     fill: #5e6367;
     width: 50px;
+    height: 20px;
     margin-top: 2px;
     transition: color 0.5s ease-out;
     -o-transition: color 0.5s ease-out;
