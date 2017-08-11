@@ -151,14 +151,18 @@ section.product-selector {
 			width: 263px;
 			background: #5e6367;
 			border: 2px solid #5e6367;
-			text-align: center;
-			text-align-last: center;
 			color: #fff;
 			font-size: 21px !important;
 			text-transform: uppercase;
 			margin: 0 8px 15px 8px;
 			padding: 10px 5px;
 			height: auto;
+			&#glass-color {
+				padding-left: 20px !important;
+			}
+			&#display {
+				padding-left: 48px !important;
+			}
 		}
 		.form-divider {
 			position: relative;

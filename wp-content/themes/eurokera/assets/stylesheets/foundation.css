@@ -3938,15 +3938,16 @@ section.product-selector {
       width: 263px;
       background: #5e6367;
       border: 2px solid #5e6367;
-      text-align: center;
-      -moz-text-align-last: center;
-           text-align-last: center;
       color: #fff;
       font-size: 21px !important;
       text-transform: uppercase;
       margin: 0 8px 15px 8px;
       padding: 10px 5px;
       height: auto; }
+      section.product-selector form#product-selector select#glass-color {
+        padding-left: 20px !important; }
+      section.product-selector form#product-selector select#display {
+        padding-left: 48px !important; }
     section.product-selector form#product-selector .form-divider {
       position: relative;
       display: block;
