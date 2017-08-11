@@ -3301,19 +3301,13 @@ a.home-video {
       font-size: 30px;
       padding: 90px 0 50px; } }
   a.home-video svg {
+    pointer-events: none;
     width: 103px;
     height: 103px; }
     @media only screen and (max-width: 40.063em) {
       a.home-video svg {
         width: 44px;
         height: 44px; } }
-  a.home-video:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0; }
 
 section.site-links {
   padding: 90px 0; }
