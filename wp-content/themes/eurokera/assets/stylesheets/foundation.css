@@ -3288,8 +3288,7 @@ section.about {
         font-size: 20px; } }
 
 a.home-video {
-  display: block;
-  float: left;
+  display: inline-block;
   position: relative;
   width: 100%;
   font-size: 44px;
