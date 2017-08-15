@@ -269,10 +269,16 @@ a.home-video {
 		pointer-events: none;
 		width: 103px;
 		height: 103px;
+		transition: all .5s;
+		-webkit-transition: all .5s; /* Safari and Chrome */
+		-ms-transition: all .5s; /* Opera */
 		@media only screen and (max-width: 40.063em) {
 			width: 44px;
 			height: 44px;	
 		}
+	}
+	.columns:hover svg {
+		opacity: .5;	
 	}
 }
 

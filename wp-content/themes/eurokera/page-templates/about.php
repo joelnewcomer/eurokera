@@ -138,16 +138,69 @@ get_header(); ?>
 	</div>
 	<div class="row enviro-facts">
 		<div class="recycled fact">
-			<h2>600</h2>
+			<h2 id="recycled-glass"></h2>
 			<p>Tons of Glass Recycled</p>
+			<script>
+				jQuery(document).ready(function(){
+					var easingFn = function (t, b, c, d) {
+					  var ts = (t /= d) * t;
+					  var tc = ts * t;
+					  return b + c * (tc + -3 * ts + 3 * t);
+					}
+					var glass = {
+					  useEasing : true,
+					  easingFn: easingFn,
+					  useGrouping : true,
+					  separator : ',',
+					  decimal : '.',
+					  prefix : '',
+					  suffix : ''
+					};
+					var tonsofglass = new CountUp("recycled-glass", 0, 600, 0, 6, glass);
+					// tonsofgalass.start();
+					function startTonsAnim() {
+						tonsofglass.start();
+					}
+					inView('#environment').on('enter', startTonsAnim);
+				});
+			</script>
 		</div>
 		<div class="substrates fact large">
 			<?php get_template_part('assets/images/eurokera-enviro', 'logo.svg'); ?><br />
 			<p><strong><span class="caps">All</span> of EuroKera’s black substrates</strong> are arsenic- and antimony-free. All of our glass-ceramic is fully recyclable.</p>
 		</div>		
 		<div class="landfill fact">
-			<h2>80%</h2>
+			<h2 id="landfills"></h2>
 			<p>Reduction in Landfill Waste Since 2010</p>
+
+				<script>
+
+
+						jQuery(document).ready(function(){
+							var easingFn = function (t, b, c, d) {
+							  var ts = (t /= d) * t;
+							  var tc = ts * t;
+							  return b + c * (tc + -3 * ts + 3 * t);
+							}
+							var options = {
+							  useEasing : true,
+							  easingFn: easingFn,
+							  useGrouping : true,
+							  separator : ',',
+							  decimal : '.',
+							  prefix : '',
+							  suffix : '%'
+							};
+							var landfills = new CountUp("landfills", 0, 80, 0, 6, options);
+							//landfills.start();
+
+							function startLandfillsAnim() {
+								landfills.start();
+							}
+							inView('#environment').on('enter', startLandfillsAnim);
+						});
+				</script>
+			
 		</div>		
 	</div>
 </section>

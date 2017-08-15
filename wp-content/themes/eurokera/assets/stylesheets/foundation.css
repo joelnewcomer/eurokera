@@ -3303,11 +3303,18 @@ a.home-video {
   a.home-video svg {
     pointer-events: none;
     width: 103px;
-    height: 103px; }
+    height: 103px;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    /* Safari and Chrome */
+    -ms-transition: all .5s;
+    /* Opera */ }
     @media only screen and (max-width: 40.063em) {
       a.home-video svg {
         width: 44px;
         height: 44px; } }
+  a.home-video .columns:hover svg {
+    opacity: .5; }
 
 section.site-links {
   padding: 90px 0; }
