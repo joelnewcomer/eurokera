@@ -159,3 +159,12 @@ jQuery(document).bind('gform_confirmation_loaded', function(event, formId){
     setTimeout(function(){ jQuery('.epop-content').removeClass('active'); }, 3000);
 });
 </script>
+
+<script>
+// When page loads, scroll to hash
+jQuery(window).load(function() {
+    if (window.location.hash != '') {
+        jQuery('html, body').animate({ scrollTop: jQuery(window.location.hash).offset().top - 70}, 500); 
+    }
+});
+</script>
