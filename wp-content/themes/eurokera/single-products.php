@@ -33,7 +33,7 @@ get_header(); ?>
 			?>
 		</div>
 		<div class="large-6 medium-6 columns text-center">
-			<h2>LED Colors</h2>
+			<h2>Display Colors</h2>
 			<div class="led-colors">
 			<?php
 			$all_led_colors = array('red','blue','monochromatic','white','all color');
