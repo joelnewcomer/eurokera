@@ -6211,7 +6211,7 @@ ul.slimmenu li a {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); }
 
-ul.slimmenu li.active a:before {
+ul.slimmenu li.active > a:before {
   opacity: 1;
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1); }
