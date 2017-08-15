@@ -1,4 +1,4 @@
-<section class="product-selector">
+<section id="product-selector" class="product-selector">
 	<div class="row">
 		<div class="large-12 columns text-center">
 			<h2>Product Selector</h2>
