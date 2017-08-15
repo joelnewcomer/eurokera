@@ -2876,6 +2876,7 @@ input.button:hover {
     color: transparent;
     background: transparent;
     position: absolute;
+    border: none;
     top: 0;
     right: 90px;
     width: 90px;
