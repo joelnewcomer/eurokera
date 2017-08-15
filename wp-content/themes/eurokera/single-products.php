@@ -36,11 +36,20 @@ get_header(); ?>
 			<h2>Display Colors</h2>
 			<div class="led-colors">
 			<?php
-			$all_led_colors = array('red','blue','monochromatic','white','all color');
+			$all_led_colors = array('red/orange','monochromatic','no display','any color including white');
 			$this_led_colors = get_field('led_colors');
 			foreach ($all_led_colors as $led_color) {
+				if ($led_color == 'no display') {
+					$led_color_in_array = 'none';
+				} elseif ($led_color == 'red/orange') {
+					$led_color_in_array = 'red';
+				} elseif ($led_color == 'any color including white') {
+					$led_color_in_array = 'all color';
+				} else {
+					$led_color_in_array = $led_color;
+				}
 				$active = false;
-				if (in_array($led_color, $this_led_colors)) {
+				if (in_array($led_color_in_array, $this_led_colors)) {
 					$active = " active";
 				}
 				echo '<span class="led-color ' . strtolower($led_color) . $active . '">' . $led_color . '</span>';

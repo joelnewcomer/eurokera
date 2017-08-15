@@ -91,7 +91,7 @@
         },
         {
             "key": "field_597f642e12828",
-            "label": "LED Colors",
+            "label": "Display Colors",
             "name": "led_colors",
             "type": "checkbox",
             "instructions": "",
@@ -103,12 +103,10 @@
                 "id": ""
             },
             "choices": {
-                "none": "none",
-                "red": "red",
-                "blue": "blue",
-                "monochromatic": "monochromatic",
-                "white": "white",
-                "all color": "all color"
+                "none": "No Display",
+                "red": "Red\/Orange",
+                "monochromatic": "Monochromatic",
+                "all color": "Any Color Including White"
             },
             "allow_custom": 0,
             "save_custom": 0,
@@ -345,5 +343,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1501789385
+    "modified": 1502817051
 }
