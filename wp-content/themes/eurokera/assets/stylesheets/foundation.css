@@ -6092,9 +6092,10 @@ ul.slimmenu li ul {
 ul.slimmenu li > ul {
   background: #f89828;
   position: absolute;
-  left: -150%;
+  right: -150%;
+  width: 100%;
+  text-align: right;
   z-index: 999;
-  width: auto;
   -webkit-transition: all .5;
   transition: all .5;
   -webkit-transition: all .5s;
@@ -6106,6 +6107,7 @@ ul.slimmenu li > ul {
     position: absolute;
     height: 100%;
     display: block;
+    top: 0;
     width: 100%;
     background: #f89828;
     transition: all .5s;
@@ -6125,7 +6127,7 @@ ul.slimmenu li.blue > ul {
     background: #0a948f; }
 
 ul.slimmenu ul.active {
-  left: 0; }
+  right: 0; }
   ul.slimmenu ul.active:after {
     width: 100%; }
 
@@ -6138,7 +6140,6 @@ ul.slimmenu li > ul > li ul {
   width: 100%; }
 
 ul.slimmenu li {
-  float: left;
   display: inline-block; }
   @media only screen and (min-width: 40.063em) {
     ul.slimmenu li {
