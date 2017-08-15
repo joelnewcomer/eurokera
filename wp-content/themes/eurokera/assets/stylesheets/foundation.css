@@ -6116,7 +6116,7 @@ ul.slimmenu li > ul {
     -ms-transition: all .5s;
     /* Opera */ }
   ul.slimmenu li > ul:before {
-    left: -100%; }
+    right: -100%; }
   ul.slimmenu li > ul:after {
     left: 100%;
     width: 0; }
@@ -6130,6 +6130,8 @@ ul.slimmenu ul.active {
   right: 0; }
   ul.slimmenu ul.active:after {
     width: 100%; }
+  ul.slimmenu ul.active:before {
+    left: -100%; }
 
 ul.slimmenu li > ul > li ul {
   position: absolute;
