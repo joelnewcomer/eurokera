@@ -2125,6 +2125,9 @@ p {
 .green {
   color: #0a948f; }
 
+iframe {
+  max-width: 100%; }
+
 @media only screen and (min-width: 40.063em) {
   .top-bar-right {
     margin-top: 33px; } }
