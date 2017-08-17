@@ -127,7 +127,7 @@ get_header(); ?>
 				</div>
 				<?php
 				$epop_bg = wp_get_attachment_image_src( get_sub_field("image"), "width=644&height=644&crop=1" );
-				$epops .= '<div class="epop-content transition" id="' . $epop_id . '">
+				$epops .= '<div class="epop-content" id="' . $epop_id . '">
 					<div class="epop-overlay"></div>
 					<div class="epop-inner text-center" style="background-image: url(' . $epop_bg[0] . ');">
 						<div class="epop-inner-tint"></div>
