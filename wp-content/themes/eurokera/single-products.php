@@ -121,7 +121,7 @@ if ($video_title != null && $video_poster != null && $video_url != null) : ?>
 </section>
 <?php endif; ?>
 
-<a class="full-width-data-sheet-button text-center" href="<?php echo get_field('product_data_sheet'); ?>"><strong>Download</strong> Product Data Sheet</a>
+<!-- <a class="full-width-data-sheet-button text-center" href="<?php echo get_field('product_data_sheet'); ?>"><strong>Download</strong> Product Data Sheet</a> -->
 
 <?php echo get_template_part('template-parts/content','ready'); ?>
 
