@@ -4236,20 +4236,6 @@ section.clean-identify .clean-cooktop {
     max-width: 295px;
     margin-bottom: 20px; }
 
-section.clean-identify .identify-cooktop {
-  background: url(../images/identify-cooktop.jpg) center center no-repeat; }
-
-section.clean-identify .identify-cooktop svg {
-  width: 89px;
-  height: 89px;
-  margin-bottom: 15px; }
-  @media only screen and (max-width: 40.063em) {
-    section.clean-identify .identify-cooktop svg {
-      width: 54px;
-      height: 54px; } }
-  section.clean-identify .identify-cooktop svg path, section.clean-identify .identify-cooktop svg rect {
-    fill: #fff; }
-
 section.users-intro p {
   display: inline-block;
   max-width: 940px;
@@ -4291,6 +4277,23 @@ section.locate-support .support {
     color: #0a948f; }
     section.locate-support .support .button.reverse a:hover {
       color: #fff; }
+
+section.locate-support .identify-cooktop {
+  background: url(../images/identify-cooktop.jpg) center center no-repeat; }
+
+section.locate-support .identify-cooktop svg {
+  width: 89px;
+  height: 89px;
+  margin-bottom: 15px; }
+  @media only screen and (max-width: 40.063em) {
+    section.locate-support .identify-cooktop svg {
+      width: 54px;
+      height: 54px; } }
+  section.locate-support .identify-cooktop svg path, section.locate-support .identify-cooktop svg rect {
+    fill: #fff; }
+
+.coming-soon {
+  background: #666; }
 
 .epop-content {
   height: 100%;

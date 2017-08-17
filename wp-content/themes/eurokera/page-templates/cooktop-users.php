@@ -75,29 +75,16 @@ get_header(); ?>
 		</div>
 		
 	</div>
-	<div class="large-6 medium-6 columns identify-cooktop text-center">
-		<a class="epop-link" data-epop="#identify" href="#">
-			<div style="display:table;width:100%;height:100%;">
-			  <div style="display:table-cell;vertical-align:middle;">
-			    <div style="text-align:center;">
-				    <?php get_template_part('assets/images/cooktop.svg'); ?><br />
-					<h2>How to Identify EuroKera Cooktops</h2>
-			    </div>
-			  </div>
-			</div>			
-		</a>
+	<div class="large-6 medium-6 columns coming-soon text-center">
+		<div style="display:table;width:100%;height:100%;">
+		  <div style="display:table-cell;vertical-align:middle;">
+		    <div style="text-align:center;"><h2>Content Coming Soon</h2></div>
+		  </div>
+		</div>
 	</div>	
 </section>
 
-		<div class="epop-content transition" id="identify">
-			<div class="epop-overlay"></div>
-			<div class="epop-identify text-center">
-				<div class="epop-close">&times;</div>
-				<h3>Look for these Logos On Your Cooktop</h3><br />
-				<?php get_template_part('assets/images/k.svg'); ?>
-				<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?>
-			</div>
-		</div>
+
 
 <section class="users-intro intro">
 	<div class="row">
@@ -177,7 +164,19 @@ get_header(); ?>
 		  </div>
 		</div>
 	</div>
-	<div class="large-6 medium-6 columns text-center support">
+	<div class="large-6 medium-6 columns identify-cooktop text-center">
+		<a class="epop-link" data-epop="#identify" href="#">
+			<div style="display:table;width:100%;height:100%;">
+			  <div style="display:table-cell;vertical-align:middle;">
+			    <div style="text-align:center;">
+				    <?php get_template_part('assets/images/cooktop.svg'); ?><br />
+					<h2>How to Identify EuroKera Cooktops</h2>
+			    </div>
+			  </div>
+			</div>			
+		</a>
+	</div>		
+	<!-- <div class="large-6 medium-6 columns text-center support">
 		<div style="display:table;width:100%;height:100%;">
 		  <div style="display:table-cell;vertical-align:middle;">
 		    <div style="text-align:center;">
@@ -186,8 +185,18 @@ get_header(); ?>
 		    </div>
 		  </div>
 		</div>
-	</div>
+	</div> -->
 </section>
+
+		<div class="epop-content transition" id="identify">
+			<div class="epop-overlay"></div>
+			<div class="epop-identify text-center">
+				<div class="epop-close">&times;</div>
+				<h3>Look for these Logos On Your Cooktop</h3><br />
+				<?php get_template_part('assets/images/k.svg'); ?>
+				<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?>
+			</div>
+		</div>
 
 <?php do_action( 'foundationpress_after_content' ); ?>
 

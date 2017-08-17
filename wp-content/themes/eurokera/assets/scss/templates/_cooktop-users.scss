@@ -120,23 +120,6 @@ section.clean-identify {
 			margin-bottom: 20px;
 		}
 	}
-	.identify-cooktop {
-		background: url(../images/identify-cooktop.jpg) center center no-repeat;
-	}
-	.identify-cooktop {
-		svg {
-			width: 89px;
-			height: 89px;
-			@media only screen and (max-width: 40.063em) {
-				width: 54px;
-				height: 54px;
-			}
-			margin-bottom: 15px;
-			path, rect {
-				fill: #fff;
-			}
-		}
-	}
 }
 
 section.users-intro {
@@ -188,6 +171,27 @@ section.locate-support {
 			}
 		}
 	}
+	.identify-cooktop {
+		background: url(../images/identify-cooktop.jpg) center center no-repeat;
+	}
+	.identify-cooktop {
+		svg {
+			width: 89px;
+			height: 89px;
+			@media only screen and (max-width: 40.063em) {
+				width: 54px;
+				height: 54px;
+			}
+			margin-bottom: 15px;
+			path, rect {
+				fill: #fff;
+			}
+		}
+	}	
+}
+
+.coming-soon {
+	background: #666;
 }
 
 .epop-content {
