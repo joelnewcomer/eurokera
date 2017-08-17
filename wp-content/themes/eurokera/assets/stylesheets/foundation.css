@@ -1954,6 +1954,10 @@ body, .animsition {
   width: 100%;
   min-height: 100vh; }
 
+body {
+  max-width: 100%;
+  overflow-x: hidden; }
+
 .sr-only, .floatlabel-wrapper + label, .ginput_container select + label, .gfield > label, .gfield_address legend, .gfield_name legend {
   position: absolute;
   width: 1px;
