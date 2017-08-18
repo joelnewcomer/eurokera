@@ -65,7 +65,14 @@ section.image-links {
 			left: 0;
 			height: 100%;
 			width: 100%;
+			transition: all .5s;
+			-webkit-transition: all .5s; /* Safari and Chrome */
+			-ms-transition: all .5s; /* Opera */
 		}
+		
+	}
+	a.image-link:hover .overlay {
+		background: rgba(#f89828, .8);
 	}
 }
 
