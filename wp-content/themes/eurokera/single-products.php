@@ -109,6 +109,9 @@ $video_url = get_field('video_url');
 if ($video_title != null && $video_poster != null && $video_url != null) : ?>
 <section class="product-videos text-center">
 	<div class="row">
+		<div class="large-12 columns text-center">
+			<h2>Our Quality is Above All Others</h2>
+		</div>
 		<div class="large-12 columns">
 			<h2><?php echo $video_title; ?></h2>
 			<a class="product-addl-video" href="<?php echo $video_url; ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
