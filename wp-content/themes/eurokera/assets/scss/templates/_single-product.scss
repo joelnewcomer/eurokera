@@ -152,43 +152,75 @@ section.inspire {
 }
 
 section.product-videos {
-	padding: 100px 19px 30px 19px;
+	background: #e9eaea;
+	padding: 90px 19px 85px 19px;
 	@media only screen and (max-width: 40.063em) {
-		padding: 40px 19px 20px 19px;	
+		padding: 40px 19px 45px 19px;	
+	}
+	.columns > h2 {
+		margin-bottom: 25px;		
 	}
 	h2 {
-		max-width: 790px;
-		display: inline-block;
 		font-size: 46px;
-		margin-bottom: 55px;
 		@media only screen and (max-width: 40.063em) {
 			font-size: 30px;
-			margin-bottom: 20px;	
 		}
 	}
-	a.product-addl-video {
+	.quality-video {
+		display: block;
+		float: left;
+		width: 100%;
+		background: #cdcfd0;
+		padding: 35px 75px;
+		@media only screen and (max-width: 64.063em) {
+			padding: 25px 35px;	
+		}
+		margin-bottom: 12px;
+	}
+	.product-addl-video {
+		display: block;
+		float: left;
 		position: relative;
-		display: inline-block;
-		margin-bottom: 60px;
+		margin-right: 3%;
+		width: 30%;
 		@media only screen and (max-width: 40.063em) {
-			margin-bottom: 29px;	
+			width: 100%;
+			margin-bottom: 15px;
 		}
 		svg {
 			display: block;
 			position: absolute;
-			width: 90px;
-			height: 90px;
+			width: 51px;
+			height: 51px;
 			top: 50%;
 			left: 50%;
-			margin-top: -45px;
-			margin-left: -45px;
+			margin-top: -25px;
+			margin-left: -25px;
+		}
+	}
+	.video-title {
+		width: 67%;
+		@media only screen and (min-width: 1200px) {
+			min-height: 225px;
+		}
+		@media only screen and (max-width: 40.063em) {
+			width: 100%;
+		}
+		h2 {
+			font-size: 38px;
+			color: #5e6367;
+			font-weight: 400;
 			@media only screen and (max-width: 40.063em) {
-				width: 51px;
-				height: 51px;
-				margin-top: -25px;
-				margin-left: -25px;	
+				font-size: 22px;	
 			}
 		}
+	}
+	.button {
+		display: block;
+		float: left;
+		width: 100%;
+		text-align: center;
+		margin-top: 30px;
 	}
 }
 
@@ -265,6 +297,7 @@ section.ready {
 	#view-all {
 		background: rgba(94,99,103,.8);
 		color: #fff;
+		display: block;
 		position: absolute;
 		right: 40px;
 		bottom: -39px;

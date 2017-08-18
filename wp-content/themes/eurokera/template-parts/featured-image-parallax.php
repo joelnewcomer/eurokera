@@ -44,13 +44,13 @@ if ($display_title != null) {
 								$white = ' white';
 							}	
 							?>
-							<div class="product-thumb<?php echo $white; ?>" style="background: url(<?php echo $thumb[0]; ?>);">
+							<a href="<?php the_permalink(); ?>" class="product-thumb<?php echo $white; ?>" style="background: url(<?php echo $thumb[0]; ?>);">
 								<div style="display:table;width:100%;height:100%;">
 								  <div style="display:table-cell;vertical-align:middle;">
 								    <div style="text-align:center;"><?php the_title(); ?></div>
 								  </div>
 								</div>
-							</div>
+							</a>
 						<?php endwhile; ?>
 					<?php endif; ?>
 				</div>
