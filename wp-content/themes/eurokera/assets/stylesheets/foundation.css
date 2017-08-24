@@ -4038,12 +4038,8 @@ section.product-selector {
       font-size: 21px !important;
       text-transform: uppercase;
       margin: 0 8px 15px 8px;
-      padding: 10px 5px;
+      padding: 10px 15px;
       height: auto; }
-      section.product-selector form#product-selector select#glass-color {
-        padding-left: 20px !important; }
-      section.product-selector form#product-selector select#display {
-        padding-left: 48px !important; }
     section.product-selector form#product-selector .form-divider {
       position: relative;
       display: block;
