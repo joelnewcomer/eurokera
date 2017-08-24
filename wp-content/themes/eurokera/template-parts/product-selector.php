@@ -29,9 +29,9 @@
 				<input class="stacked-radio" type="radio" name="heat-source" id="radiant" value="radiant"><label for="radiant">Radiant</label>
 
 				<div class="form-divider"><div>Custom Top Decoration</div></div>
-				<input class="stacked-radio placebo" type="radio" name="decor" id="complex" value="complex"><label for="complex">Complex Patterns</label>
-				<input class="stacked-radio placebo" type="radio" name="decor" id="reflective" value="reflective"><label for="reflective">Reflective Inks</label>
-				<input class="stacked-radio placebo" type="radio" name="decor" id="multi" value="multi"><label for="multi">Multi-Colors</label>
+				<input class="stacked-radio placebo" type="checkbox" name="decor" id="complex" value="complex"><label for="complex">Complex Patterns</label>
+				<input class="stacked-radio placebo" type="checkbox" name="decor" id="reflective" value="reflective"><label for="reflective">Reflective Inks</label>
+				<input class="stacked-radio placebo" type="checkbox" name="decor" id="multi" value="multi"><label for="multi">Multi-Colors</label>
 
 				<div class="form-divider"><div>Additional Design Options</div></div>
 				<input class="round placebo" type="checkbox" name="holes" id="holes" value="complex"><label for="holes">Holes</label>
