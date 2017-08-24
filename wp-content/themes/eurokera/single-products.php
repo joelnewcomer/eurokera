@@ -8,6 +8,15 @@
  */
 get_header(); ?>
 
+<script>
+	jQuery( document ).ready(function() {
+		options = {
+			expireDays: 365
+		};
+		basil = new window.Basil(options);
+	});
+</script>
+
 <?php get_template_part( 'template-parts/featured-image-parallax' ); ?>
 
 <section class="product-intro">
@@ -58,7 +67,7 @@ get_header(); ?>
 			</div>
 		</div>
 		<div class="large-12 columns text-center intro-pds">
-			<div class="button"><a href="<?php echo get_field('product_data_sheet'); ?>">Download Product Data Sheet</a></div>
+			<div class="button"><a id="data-sheet-dl" href="#">Download Product Data Sheet</a></div>
 		</div>
 	</div>
 </section>
@@ -131,5 +140,40 @@ get_header(); ?>
 <!-- <a class="full-width-data-sheet-button text-center" href="<?php echo get_field('product_data_sheet'); ?>"><strong>Download</strong> Product Data Sheet</a> -->
 
 <?php echo get_template_part('template-parts/content','ready'); ?>
+
+			<div class="data-sheet-modal">
+				<div class="modal-overlay transition"></div>
+				<div class="modal-form transition">					
+					<?php gravity_form(5, false, false, false, array('product' => get_the_title()), true, 12); ?>
+				</div>
+			</div>
+			<script>
+				jQuery( document ).ready(function() {
+					// Check for persistent variable 
+					// basil.remove('formCompleted');
+					var formCompleted = basil.get('formCompleted');
+					jQuery('#data-sheet-dl').on( "click", function(e) {
+						e.preventDefault();
+						if (formCompleted != 'yes') {
+							jQuery('.data-sheet-modal').addClass('open');
+						} else {
+							window.location = '<?php echo get_field('product_data_sheet'); ?>';
+						}
+					});	
+					// When form is completed, set persistent variable, download data sheet, and close the modal
+					jQuery(document).bind('gform_confirmation_loaded', function(event, formId){
+						basil.set('formCompleted', 'yes');
+						window.location = '<?php echo get_field('product_data_sheet'); ?>';
+						/* setTimeout(function(){ 
+							jQuery('.data-sheet-modal').removeClass('open');
+						}, 2000); */
+					});
+					// Close modal 
+					jQuery('.modal-overlay').on( "click", function() {
+						jQuery('.data-sheet-modal').removeClass('open');
+					});
+					
+				});
+			</script>
 
 <?php get_footer(); ?>
