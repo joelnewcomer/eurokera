@@ -106,7 +106,6 @@ function quality_videos( $atts, $content = null ) {
 	$rows = get_field('quality_videos','option');
 	if($rows) {
 		shuffle( $rows );
-		$counter = 1;
 		echo '<div class="product-videos">';
 		foreach($rows as $row) { ?>
 			<a class="quality-video" href="<?php echo $row['video_url']; ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
@@ -121,10 +120,6 @@ function quality_videos( $atts, $content = null ) {
 				</div>
 			</a>
 			<?php
-			$counter++;
-			if ($counter > 2) {
-				break;
-			}
 		}
 		echo '</div>';
 	}
