@@ -3,8 +3,8 @@ Contributors: enshrined
 Donate link: https://wpsvg.com/
 Tags: svg, sanitize, upload, sanitise, security, svg upload, image, vector, file, graphic, media, mime
 Requires at least: 4.0
-Tested up to: 4.8.0
-Stable tag: 1.5.0
+Tested up to: 4.8.1
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,9 @@ SVG Sanitization is done through the following library: [https://github.com/dary
 Install through the WordPress directory or download, unzip and upload the files to your `/wp-content/plugins/` directory
 
 == Changelog ==
+
+= 1.5.1 =
+* Fix PHP strict standards warning
 
 = 1.5.0 =
 * Library update
