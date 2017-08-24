@@ -4031,14 +4031,14 @@ section.product-selector {
       left: 50%;
       margin-left: -11px; }
     section.product-selector form#product-selector select {
-      width: 263px;
+      width: 317px;
       background: #5e6367;
       border: 2px solid #5e6367;
       color: #fff;
       font-size: 21px !important;
       text-transform: uppercase;
       margin: 0 8px 15px 8px;
-      padding: 10px 15px;
+      padding: 10px 15px !important;
       height: auto; }
     section.product-selector form#product-selector .form-divider {
       position: relative;

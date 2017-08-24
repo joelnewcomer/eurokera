@@ -24,9 +24,9 @@
 				</select>
 				
 				<div class="form-divider no-divider-small"><div>Heat Source</div></div>
-				<input class="stacked-radio" type="radio" name="heat-source" id="gas" value="gas"><label for="gas">Gas</label>
-				<input class="stacked-radio" type="radio" name="heat-source" id="induction" value="induction"><label for="induction">Induction</label>
-				<input class="stacked-radio" type="radio" name="heat-source" id="radiant" value="radiant"><label for="radiant">Radiant</label>
+				<input class="stacked-radio" type="checkbox" name="heat-source" id="gas" value="gas"><label for="gas">Gas</label>
+				<input class="stacked-radio" type="checkbox" name="heat-source" id="induction" value="induction"><label for="induction">Induction</label>
+				<input class="stacked-radio" type="checkbox" name="heat-source" id="radiant" value="radiant"><label for="radiant">Radiant</label>
 
 				<div class="form-divider"><div>Custom Top Decoration</div></div>
 				<input class="stacked-radio placebo" type="checkbox" name="decor" id="complex" value="complex"><label for="complex">Complex Patterns</label>
@@ -96,6 +96,22 @@
 				<?php endif; ?>
 				<?php wp_reset_postdata(); ?>
 				<script>
+				// When they choose a glass color, update their "Display Options" selections
+				jQuery('select#glass-color').on( 'change', function() {
+					// Remove All Options	
+					jQuery('select#display').find('option').remove();
+					// Grey and White are the only glass colors with limitations
+					// black - all, grey - red/orange, transparent - all, white - red/orange
+					if (jQuery(this).val() != 'grey' && jQuery(this).val() != 'white') {
+						jQuery('select#display').append('<option value="">Display Options</option>');
+						jQuery('select#display').append('<option value="all-color">Any Color including white</option>');
+					}
+					jQuery('select#display').append('<option value="red">Red/Orange</option>');
+					if (jQuery(this).val() != 'grey' && jQuery(this).val() != 'white') {
+						jQuery('select#display').append('<option value="monochromatic">Monochromatic</option>');
+						jQuery('select#display').append('<option value="none">No Display</option>');
+					}
+				});
 				jQuery('#product-selector input:not(.placebo), #product-selector select').on( 'change', function() {
 					var selectedClasses = '';
 					// Get all selected form elements

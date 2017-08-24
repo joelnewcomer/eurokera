@@ -155,14 +155,14 @@ section.product-selector {
 		max-width: 940px;
 		margin: 0 auto;
 		select {
-			width: 263px;
+			width: 317px;
 			background: #5e6367;
 			border: 2px solid #5e6367;
 			color: #fff;
 			font-size: 21px !important;
 			text-transform: uppercase;
 			margin: 0 8px 15px 8px;
-			padding: 10px 15px;
+			padding: 10px 15px !important;
 			height: auto;
 		}
 		.form-divider {
