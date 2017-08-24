@@ -142,42 +142,41 @@
 				// When user clicks on product, email their form selections to EuroKera
 				jQuery(".product-selector-product").on('click', function() {
 					var productUrl = jQuery(this).data('href');
-					var optionHeader = false;
 					var productName = jQuery(this).find('.product-name').html();
-					var selectedValues = '<h2>Product they clicked: ' + productName + '</h2>';
+					var glassColor = "";
+					var displayOptions = "";
+					var heatSource = "";
+					var customTop = ""
+					var retailPro = "";
+					var addlOptions = "";
 					// Get all selected form elements
 					jQuery('#product-selector input:checked, #product-selector select').each(function() {
 						fieldType = jQuery(this).get(0).tagName;
 						if (jQuery(this).val() != '' && fieldType == 'SELECT') {
 							if (jQuery(this).attr('id') == 'glass-color') {
-								selectedValues += '<h2>Glass-Ceramic Color</h2><p>' + jQuery(this).find('option:selected').text() + '</p>';
+								glassColor += ', ' + jQuery(this).find('option:selected').text();
 							} else {
-								selectedValues += '<h2>Display Options</h2><p>' + jQuery(this).find('option:selected').text() + '</p>';
+								displayOptions += ', ' + jQuery(this).find('option:selected').text();
 							}
 						} else if (jQuery(this).val() != '') {
 							var selectedValue = jQuery('label[for="' + jQuery(this).attr('id') + '"]').html();
 							if (selectedValue == 'Gas' || selectedValue == 'Induction' || selectedValue == 'Radiant') {
-								selectedValues += '<h2>Heat Source</h2>';
+								heatSource += ', ' + selectedValue;
 							} else if (selectedValue == 'Complex Patterns' || selectedValue == 'Reflective Inks' || selectedValue == 'Multi-Colors') {
-								selectedValues += '<h2>Custom Top Decoration</h2>';
+								customTop += ', ' + selectedValue;
 							} else if (selectedValue == 'Retail' || selectedValue == 'Professional') {
-								selectedValues += '<h2>Retail/Professional</h2>';
+								retailPro += ', ' + selectedValue;
 							} else {
-								if (!optionHeader) {
-									selectedValues += '<h2>Additional Design Options</h2>';
-									optionHeader = true;
-								}
+								addlOptions += ', ' + selectedValue;
 							}
-							selectedValues += '<p>' + selectedValue + '</p>';
 						}
 					});
-					if (selectedValues != '') {
-						jQuery.ajax({
-    					    url: '<?php echo get_stylesheet_directory_uri(); ?>/ajax-selector-email.php',
-    					    type: 'POST',
-    					    data: { selected : selectedValues },
-    					});
-    				}
+					jQuery.ajax({
+    					url: '<?php echo get_stylesheet_directory_uri(); ?>/ajax-selector-log.php',
+    					type: 'POST',
+    					data: { productName : productName, glassColor : glassColor, displayOptions : displayOptions, heatSource : heatSource, customTop : customTop, retailPro : retailPro, addlOptions : addlOptions },
+    				});
+    				// Go to the product they clicked on
     				window.location.href = productUrl;
 				});
 				</script>

@@ -82,3 +82,20 @@ register_post_type('products', array('menu_icon' => 'dashicons-cart', 'label' =>
   'not_found_in_trash' => 'No Products Found in Trash',
   'parent' => 'Parent Product',
 ),) );
+
+register_post_type('selector_log', array('menu_icon' => 'dashicons-list-view',	'label' => 'Product Selector Log','description' => '','public' => true,'show_ui' => true,'show_in_menu' => true,'capability_type' => 'post','hierarchical' => false,'rewrite' => array('slug' => ''),'query_var' => true,'exclude_from_search' => true,'supports' => array('title',),'labels' => array (
+  'name' => 'Product Selector Log',
+  'singular_name' => 'Log Item',
+  'menu_name' => 'Product Selector Log',
+  'add_new' => 'Add Log Item',
+  'add_new_item' => 'Add New Log Item',
+  'edit' => 'Edit',
+  'edit_item' => 'Edit Log Item',
+  'new_item' => 'New Log Item',
+  'view' => 'View Log Item',
+  'view_item' => 'View Log Item',
+  'search_items' => 'Search Product Selector Log',
+  'not_found' => 'No Product Selector Log Found',
+  'not_found_in_trash' => 'No Product Selector Log Found in Trash',
+  'parent' => 'Parent Log Item',
+),) );
