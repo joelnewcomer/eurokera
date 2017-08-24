@@ -69,7 +69,7 @@
 						$classes .= strtolower(get_field('glass_color'));
 						$led_colors = get_field('led_colors');
 						foreach ($led_colors as $led_color) {
-							$classes .= ' ' . strtolower($led_color);
+							$classes .= ' ' . sanitize_title($led_color);
 						}
 						$heat_sources = get_field('heat_source');
 						foreach ($heat_sources as $heat_source) {
