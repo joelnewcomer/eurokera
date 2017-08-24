@@ -3475,20 +3475,23 @@ section.inspire {
   section.inspire .button a {
     color: #0a948f; }
 
-section.product-videos {
+.product-videos {
+  display: block;
+  float: left;
+  width: 100%;
   background: #e9eaea;
   padding: 90px 19px 85px 19px; }
   @media only screen and (max-width: 40.063em) {
-    section.product-videos {
+    .product-videos {
       padding: 40px 19px 45px 19px; } }
-  section.product-videos .columns > h2 {
+  .product-videos .columns > h2 {
     margin-bottom: 25px; }
-  section.product-videos h2 {
+  .product-videos h2 {
     font-size: 46px; }
     @media only screen and (max-width: 40.063em) {
-      section.product-videos h2 {
+      .product-videos h2 {
         font-size: 30px; } }
-  section.product-videos .quality-video {
+  .product-videos .quality-video {
     display: block;
     float: left;
     width: 100%;
@@ -3496,19 +3499,19 @@ section.product-videos {
     padding: 35px 75px;
     margin-bottom: 12px; }
     @media only screen and (max-width: 64.063em) {
-      section.product-videos .quality-video {
+      .product-videos .quality-video {
         padding: 25px 35px; } }
-  section.product-videos .product-addl-video {
+  .product-videos .product-addl-video {
     display: block;
     float: left;
     position: relative;
     margin-right: 3%;
     width: 30%; }
     @media only screen and (max-width: 40.063em) {
-      section.product-videos .product-addl-video {
+      .product-videos .product-addl-video {
         width: 100%;
         margin-bottom: 15px; } }
-    section.product-videos .product-addl-video svg {
+    .product-videos .product-addl-video svg {
       display: block;
       position: absolute;
       width: 51px;
@@ -3517,22 +3520,22 @@ section.product-videos {
       left: 50%;
       margin-top: -25px;
       margin-left: -25px; }
-  section.product-videos .video-title {
+  .product-videos .video-title {
     width: 67%; }
     @media only screen and (min-width: 1200px) {
-      section.product-videos .video-title {
+      .product-videos .video-title {
         min-height: 225px; } }
     @media only screen and (max-width: 40.063em) {
-      section.product-videos .video-title {
+      .product-videos .video-title {
         width: 100%; } }
-    section.product-videos .video-title h2 {
+    .product-videos .video-title h2 {
       font-size: 38px;
       color: #5e6367;
       font-weight: 400; }
       @media only screen and (max-width: 40.063em) {
-        section.product-videos .video-title h2 {
+        .product-videos .video-title h2 {
           font-size: 22px; } }
-  section.product-videos .button {
+  .product-videos .button {
     display: block;
     float: left;
     width: 100%;

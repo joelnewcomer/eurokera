@@ -111,26 +111,40 @@ get_header(); ?>
 	</div>
 </section>
 
-<?php if(get_field('quality_videos')): ?>
+<?php if(get_field('quality_videos','option')): ?>
 	<section class="product-videos">
 		<div class="row">
 			<div class="large-12 columns text-center">
 				<h2>Our Quality is Above All Others</h2>
 			</div>
-			<div class="large-12 columns small-text-center">	
-				<?php while(has_sub_field('quality_videos')): ?>
-					<a class="quality-video" href="<?php the_sub_field('video_url'); ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
-						<div class="product-addl-video">
-							<?php echo  wp_get_attachment_image( get_sub_field('video_poster'), 'width=310&height=228&crop=1' ) ?>
-							<?php get_template_part('assets/images/play', 'button.svg'); ?>
-						</div>
-						<div class="video-title" style="display:table;height:100%;">
-						  <div style="display:table-cell;vertical-align:middle;">
-						    <div><h2><?php the_sub_field('video_title'); ?></h2></div>
-						  </div>
-						</div>
-					</a>
-				<?php endwhile; ?>
+			<div class="large-12 columns small-text-center">
+				
+				<?php				
+				$rows = get_field('quality_videos','option');
+				if($rows) {
+					shuffle( $rows );
+					$counter = 1;
+					foreach($rows as $row) { ?>
+						<a class="quality-video" href="<?php echo $row['video_url']; ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
+							<div class="product-addl-video">
+								<?php echo  wp_get_attachment_image( $row['video_poster'], 'width=310&height=228&crop=1' ) ?>
+								<?php get_template_part('assets/images/play', 'button.svg'); ?>
+							</div>
+							<div class="video-title" style="display:table;height:100%;">
+							  <div style="display:table-cell;vertical-align:middle;">
+							    <div><h2><?php echo $row['video_title']; ?></h2></div>
+							  </div>
+							</div>
+						</a>
+						<?php
+						$counter++;
+						if ($counter > 2) {
+							break;
+						}
+					}
+				}
+				?>
+					
 				<div class="button"><a href="<?php echo get_site_url(); ?>/contact">Experience The EuroKera Quality</a></div>
 			</div>
 		</div>
