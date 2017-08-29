@@ -103,13 +103,46 @@
                     "mime_types": ""
                 },
                 {
+                    "key": "field_59a55705d300c",
+                    "label": "Link Type",
+                    "name": "link_type",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Page": "Page",
+                        "URL": "URL"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
+                },
+                {
                     "key": "field_5981dbae8e5b1",
                     "label": "Link",
                     "name": "link",
                     "type": "page_link",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_59a55705d300c",
+                                "operator": "==",
+                                "value": "Page"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -120,6 +153,30 @@
                     "allow_null": 1,
                     "allow_archives": 1,
                     "multiple": 0
+                },
+                {
+                    "key": "field_59a55733d300d",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_59a55705d300c",
+                                "operator": "==",
+                                "value": "URL"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
                 }
             ]
         },
@@ -259,5 +316,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1501689027
+    "modified": 1504008026
 }

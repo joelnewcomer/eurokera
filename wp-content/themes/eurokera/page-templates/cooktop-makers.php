@@ -22,7 +22,12 @@ get_header(); ?>
 			<?php while(has_sub_field('image_links')): ?>
 				<div class="large-4 medium-4 small-6 columns text-center">
 					<?php
-					$link = get_sub_field('link');
+					$link_type = get_sub_field('link_type');
+					if ($link_type != 'URL') {
+						$link = get_sub_field('link');
+					} else {
+						$link = get_sub_field('url');
+					}
 					if ($link != null) {
 						echo '<a class="image-link" href="' . $link . '">';
 					} else {
