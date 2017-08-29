@@ -265,6 +265,10 @@ ul.slimmenu li a {
 	}
 }
 
+ul.slimmenu li.blue a:before {
+	border-bottom: 1px solid $secondary-color;
+}
+
 ul.slimmenu li.active > a:before {
 	opacity: 1;
 	-webkit-transform: scale3d(1, 1, 1);
