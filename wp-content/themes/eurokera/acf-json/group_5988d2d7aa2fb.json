@@ -168,6 +168,27 @@
             ]
         },
         {
+            "key": "field_59a5595e23d9a",
+            "label": "Cooking Methods Link",
+            "name": "cooking_methods_link",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [],
+            "allow_null": 0,
+            "allow_archives": 1,
+            "multiple": 0
+        },
+        {
             "key": "field_5989b3b13c6bd",
             "label": "Locate Now Link",
             "name": "locate_now_link",
@@ -229,5 +250,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1502369749
+    "modified": 1504008562
 }

@@ -173,6 +173,7 @@ section.locate-support {
 	}
 	.identify-cooktop {
 		background: url(../images/identify-cooktop.jpg) center center no-repeat;
+		background-size: cover !important;
 	}
 	.identify-cooktop {
 		svg {
@@ -319,5 +320,22 @@ section.locate-support {
 	svg.eurokera-logo {
 		width: 178px;
 		height: 71px;
+	}
+}
+
+.users-cooking-methods {
+	a:hover {
+		color: $primary-color;
+		svg path {
+			transition: all .5s;
+			-webkit-transition: all .5s; /* Safari and Chrome */
+			-ms-transition: all .5s; /* Opera */
+		}
+		.radiant-1, .gas-1, .induction-1 {
+			fill: $primary-color !important;
+		}
+		.induction-2, .induction-3 {
+			stroke: $primary-color !important;
+		}
 	}
 }

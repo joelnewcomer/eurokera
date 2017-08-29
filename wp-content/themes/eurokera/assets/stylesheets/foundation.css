@@ -4421,7 +4421,9 @@ section.locate-support .support {
       color: #fff; }
 
 section.locate-support .identify-cooktop {
-  background: url(../images/identify-cooktop.jpg) center center no-repeat; }
+  background: url(../images/identify-cooktop.jpg) center center no-repeat;
+  -webkit-background-size: cover !important;
+          background-size: cover !important; }
 
 section.locate-support .identify-cooktop svg {
   width: 89px;
@@ -4548,6 +4550,19 @@ section.locate-support .identify-cooktop svg {
   .epop-identify svg.eurokera-logo {
     width: 178px;
     height: 71px; }
+
+.users-cooking-methods a:hover {
+  color: #f89828; }
+  .users-cooking-methods a:hover svg path {
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    /* Safari and Chrome */
+    -ms-transition: all .5s;
+    /* Opera */ }
+  .users-cooking-methods a:hover .radiant-1, .users-cooking-methods a:hover .gas-1, .users-cooking-methods a:hover .induction-1 {
+    fill: #f89828 !important; }
+  .users-cooking-methods a:hover .induction-2, .users-cooking-methods a:hover .induction-3 {
+    stroke: #f89828 !important; }
 
 .page-template-design-gallery .featured-image {
   max-height: 475px; }

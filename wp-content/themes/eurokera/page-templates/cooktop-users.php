@@ -136,18 +136,18 @@ get_header(); ?>
 	  <div style="display:table-cell;vertical-align:middle;">
 	    <div style="text-align:center;">
 			<h2>Different Cooking Methods</h2>
-			<div class="heat-source gas">
+			<a href="<?php echo get_field('cooking_methods_link'); ?>" class="heat-source gas">
 				<?php get_template_part('assets/images/gas.svg'); ?><br />
 				Gas
-			</div>		
-			<div class="heat-source induction">
+			</a>		
+			<a href="<?php echo get_field('cooking_methods_link'); ?>" class="heat-source induction">
 				<?php get_template_part('assets/images/induction.svg'); ?><br />
 				Induction
-			</div>	
-			<div class="heat-source radiant">
+			</a>	
+			<a href="<?php echo get_field('cooking_methods_link'); ?>" class="heat-source radiant">
 				<?php get_template_part('assets/images/radiant.svg'); ?><br />
 				Radiant
-			</div>				    
+			</a>				    
 	    </div>
 	  </div>
 	</div>		
