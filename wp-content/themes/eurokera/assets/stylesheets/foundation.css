@@ -4197,10 +4197,15 @@ section.customers {
     .owl-theme .owl-nav .owl-next {
       margin-left: -30px; } }
 
-.makers-details > div {
+.makers-details > div, .makers-details > a {
   height: 350px;
   -webkit-background-size: cover !important;
           background-size: cover !important; }
+
+.makers-details > a {
+  padding: 0; }
+  .makers-details > a:hover > div {
+    background: rgba(248, 152, 40, 0.8); }
 
 .makers-details .glass-ceramic h2 {
   color: #fff; }

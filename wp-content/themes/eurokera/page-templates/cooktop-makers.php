@@ -105,13 +105,13 @@ get_header(); ?>
 
 <section class="makers-details">
 	<?php $glass_ceramic_img = wp_get_attachment_image_src( get_field('glass_ceramic_image'), 'full' ); ?>
-	<div class="large-6 medium-6 columns glass-ceramic text-center" style="background: url(<?php echo $glass_ceramic_img[0]; ?>);">
-		<div style="display:table;width:100%;height:100%;">
+	<a href="<?php echo get_field('glass_ceramic_link'); ?>" class="large-6 medium-6 columns glass-ceramic text-center" style="background: url(<?php echo $glass_ceramic_img[0]; ?>);">
+		<div class="transition" style="display:table;width:100%;height:100%;">
 		  <div style="display:table-cell;vertical-align:middle;">
 		    <div style="text-align:center;"><h2><?php echo get_field('glass_ceramic_title'); ?></h2></div>
 		  </div>
 		</div>
-	</div>
+	</a>
 	<div class="large-6 medium-6 columns cooking-methods text-center">
 		<div style="display:table;width:100%;height:100%;">
 		  <div style="display:table-cell;vertical-align:middle;">

@@ -274,9 +274,15 @@ section.customers {
 }
 
 .makers-details {
-	& > div {
+	& > div, & > a {
 		height: 350px;
 		background-size: cover !important;
+	}
+	& > a {
+		padding: 0;
+		&:hover > div {
+			background: rgba($primary-color, .8);
+		}
 	}
 	.glass-ceramic h2 {
 		color: #fff;
