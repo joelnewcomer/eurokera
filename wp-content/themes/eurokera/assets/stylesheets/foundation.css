@@ -4551,18 +4551,18 @@ section.locate-support .identify-cooktop svg {
     width: 178px;
     height: 71px; }
 
-.users-cooking-methods a:hover {
-  color: #f89828; }
-  .users-cooking-methods a:hover svg path {
+.cooking-methods a:hover {
+  color: #9c9b9d; }
+  .cooking-methods a:hover svg path {
     transition: all .5s;
     -webkit-transition: all .5s;
     /* Safari and Chrome */
     -ms-transition: all .5s;
     /* Opera */ }
-  .users-cooking-methods a:hover .radiant-1, .users-cooking-methods a:hover .gas-1, .users-cooking-methods a:hover .induction-1 {
-    fill: #f89828 !important; }
-  .users-cooking-methods a:hover .induction-2, .users-cooking-methods a:hover .induction-3 {
-    stroke: #f89828 !important; }
+  .cooking-methods a:hover .radiant-1, .cooking-methods a:hover .gas-1, .cooking-methods a:hover .induction-1 {
+    fill: #9c9b9d !important; }
+  .cooking-methods a:hover .induction-2, .cooking-methods a:hover .induction-3 {
+    stroke: #9c9b9d !important; }
 
 .page-template-design-gallery .featured-image {
   max-height: 475px; }
