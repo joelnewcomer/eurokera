@@ -57,13 +57,44 @@ ul.slimmenu.collapsed li>ul {
 ul.slimmenu.collapsed li a {
     display: block;
     border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+    @media only screen and (max-width: 40.063em) {
+	 	border: none;   
+	}
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box
+    -webkit-box-sizing: border-box;
+}
+
+ul.slimmenu li.orange > a {
+	@media only screen and (max-width: 40.063em) {
+		background: $primary-color;
+		color: #fff;
+	}
+}
+
+ul.slimmenu li.orange li a {
+	@media only screen and (max-width: 40.063em) {
+		color: $primary-color;
+		text-transform: none;
+	}
+}
+
+ul.slimmenu li.blue > a {
+	@media only screen and (max-width: 40.063em) {
+		background: $secondary-color;
+		color: #fff;
+	}
+}
+
+ul.slimmenu li.blue li a {
+	@media only screen and (max-width: 40.063em) {
+		color: $secondary-color;
+		text-transform: none;
+	}
 }
 
 ul.slimmenu.collapsed li .sub-toggle {
-    height: 46px;
+    height: 49px;
     width: 40px;
 }
 
@@ -74,12 +105,17 @@ ul.slimmenu li ul {
 
 @media only screen and (max-width: 40.062em) {
 	ul.slimmenu li ul li {
-    	background: #f1f1f1;
+    	background: #fff;
 	}
 	ul.slimmenu {
 		width: 100%;
 		top: 64px;
 		position: absolute;
+		height: calc(100vh - 66px);
+		overflow: scroll;
+	}
+	.admin-bar ul.slimmenu {
+		height: calc(100vh - 112px);
 	}
 }
 
@@ -164,15 +200,26 @@ ul.slimmenu li {
 	}
 }
 
+ul.slimmenu li {
+	@media only screen and (max-width: 40.063em) {
+		position: relative;
+		overflow: hidden;
+	}
+}
+
 ul.slimmenu li a {
     display: block;
     position: relative;
     white-space: nowrap;
-    padding: 12px 0;
+    padding: 14px 0;
     @media only screen and (max-width: 40.063em) {
-	 	padding: 12px;   
+	 	padding: 12px;  
+	 	text-align: center;
 	}
     font-size: 16px;
+    @media only screen and (max-width: 40.063em) {
+		font-size: 20px;
+	}
     letter-spacing: 1px;
      @media only screen and (max-width: 1020px) and (min-width: 40.063em) {
 	 	padding: 7px 0;
@@ -243,13 +290,17 @@ ul.slimmenu .sub-menu li a:before {
 }
 
 @media only screen and (max-width: 40.062em) {
+	ul.slimmenu ul.sub-menu {
+		padding: 15px 0;
+		background: #fff !important;
+	}
 	ul.slimmenu ul.sub-menu li a {
 		width: auto;
+		padding: 5px;
 	}
 }
 
 ul.slimmenu li .sub-toggle {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.075);
     position: absolute;
     right: 0;
     top: 0;
@@ -272,10 +323,11 @@ ul.slimmenu li .sub-toggle:before {
 
 ul.slimmenu li .sub-toggle>svg {
     display: inline-block;
-    fill: #333;
-	width: 46px;
-    height: 20px;
-    margin-top: 10px;
+    fill: #fff;
+	width: 30px;
+    height: 27px;
+    margin-top: 12px;
+    margin-right: 15px;
 }
 
 @media only screen and (min-width: 40.063em) {
