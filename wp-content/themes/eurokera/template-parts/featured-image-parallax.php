@@ -21,7 +21,9 @@ $display_title = get_field('display_title');
 if ($display_title != null) {
 	$title = $display_title;
 }
+$no_featured = get_field('remove_header_image');
 ?>
+<?php if (!$no_featured) : ?>
 <div class="featured-image" data-paroller-factor="0.3" style="background: url(<?php echo $image_url; ?>) center center no-repeat;">
 	<?php if (is_singular('products')) : ?>
 		<div class="all-products transition">
@@ -84,3 +86,13 @@ jQuery('.down-arrow').click(function() {
 	jQuery('html, body').animate({ scrollTop: jQuery('#page').offset().top}, 1000);
 });
 </script>
+
+<?php else: ?>
+<header class="no-image">
+	<div class="row">
+		<div class="large-12 columns">
+			<div style="text-align:center;"><h1 class="entry-title"><?php echo $title; ?></h1></div>
+		</div>
+	</div>
+</header>
+<?php endif; ?>

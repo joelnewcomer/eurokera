@@ -3687,6 +3687,9 @@ section.ready {
   -webkit-transform: translate3d(0, 0, 0);
   z-index: 9; }
 
+header.no-image {
+  padding-top: 30px; }
+
 .entry-content section:first-child p:first-of-type {
   font-size: 24px; }
 
