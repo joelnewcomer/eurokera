@@ -265,8 +265,12 @@ section.locate-support {
 		-webkit-box-shadow: 0 0 50px rgba(1,1,1,.2);
 		-moz-box-shadow: 0 0 50px rgba(1,1,1,.2);
 		box-shadow: 0 0 50px rgba(1,1,1,.2);
-		h2,h3,h4,p {
+		h2,h3,h4,p,li {
 			color: #fff;
+		}
+		li {
+			font-size: 20px;
+			text-align: left;
 		}
 	}
 }

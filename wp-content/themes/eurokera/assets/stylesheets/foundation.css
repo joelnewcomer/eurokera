@@ -2637,7 +2637,8 @@ input.button:hover {
   position: relative;
   padding-left: 17px;
   margin-bottom: 7px;
-  font-size: 20px; }
+  font-size: 20px;
+  text-align: left; }
   .entry-content > ul > li:before, section.section ul > li:before {
     content: "";
     width: 7px;
@@ -4521,8 +4522,11 @@ section.locate-support .identify-cooktop svg {
         width: 100%;
         height: auto;
         padding: 100px 0 50px 0; } }
-    .epop-content .epop-inner h2, .epop-content .epop-inner h3, .epop-content .epop-inner h4, .epop-content .epop-inner p {
+    .epop-content .epop-inner h2, .epop-content .epop-inner h3, .epop-content .epop-inner h4, .epop-content .epop-inner p, .epop-content .epop-inner li {
       color: #fff; }
+    .epop-content .epop-inner li {
+      font-size: 20px;
+      text-align: left; }
 
 .epop-identify {
   position: absolute;
