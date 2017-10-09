@@ -2636,14 +2636,15 @@ input.button:hover {
   list-style: none;
   position: relative;
   padding-left: 18px;
-  margin-bottom: 7px; }
+  margin-bottom: 7px;
+  font-size: 20px; }
   .entry-content > ul > li:before, section.section ul > li:before {
     content: "";
     width: 7px;
     height: 7px;
     position: absolute;
     left: 0;
-    top: 7px;
+    top: 10px;
     background-color: #f89828;
     border-radius: 4px; }
 
