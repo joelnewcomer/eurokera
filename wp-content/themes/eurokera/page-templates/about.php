@@ -138,8 +138,8 @@ get_header(); ?>
 	</div>
 	<div class="row enviro-facts">
 		<div class="recycled fact">
-			<h2 id="recycled-glass"></h2>
-			<p>Tons of Glass Recycled</p>
+			<h2><span id="recycled-glass"></span>+</h2>
+			<p>tons of glass recycled in <?php echo get_field('recycle_year'); ?> within our manufacturing process at KeraGlass.</p>
 			<script>
 				jQuery(document).ready(function(){
 					var easingFn = function (t, b, c, d) {
@@ -156,7 +156,7 @@ get_header(); ?>
 					  prefix : '',
 					  suffix : ''
 					};
-					var tonsofglass = new CountUp("recycled-glass", 0, 600, 0, 6, glass);
+					var tonsofglass = new CountUp("recycled-glass", 0, <?php echo get_field('recycle_tons'); ?>, 0, 6, glass);
 					// tonsofgalass.start();
 					function startTonsAnim() {
 						tonsofglass.start();
@@ -167,11 +167,11 @@ get_header(); ?>
 		</div>
 		<div class="substrates fact large">
 			<?php get_template_part('assets/images/eurokera-enviro', 'logo.svg'); ?><br />
-			<p><strong><span class="caps">All</span> of EuroKera’s black substrates</strong> are arsenic- and antimony-free. All of our glass-ceramic is fully recyclable.</p>
+			<p><strong><span class="caps">No</span> arsenic or antimony</strong> in EuroKera's black substrates.</p>
 		</div>		
 		<div class="landfill fact">
 			<h2 id="landfills"></h2>
-			<p>Reduction in Landfill Waste Since 2010</p>
+			<p>Reduction in Landfill Waste Between 2011 and 2014</p>
 
 				<script>
 
@@ -191,7 +191,7 @@ get_header(); ?>
 							  prefix : '',
 							  suffix : '%'
 							};
-							var landfills = new CountUp("landfills", 0, 80, 0, 6, options);
+							var landfills = new CountUp("landfills", 0, 50, 0, 6, options);
 							//landfills.start();
 
 							function startLandfillsAnim() {
