@@ -4563,15 +4563,12 @@ section.locate-support .identify-cooktop svg {
     height: 33px;
     right: 14px;
     top: 14px; }
-  .epop-identify svg.euro-k {
-    width: 62px;
-    height: 72px;
+  .epop-identify img.euro-k {
     margin-right: 75px; }
     @media only screen and (max-width: 40.063em) {
-      .epop-identify svg.euro-k {
+      .epop-identify img.euro-k {
         margin-right: 40px; } }
-  .epop-identify svg.eurokera-logo {
-    width: 178px;
+  .epop-identify img {
     height: 71px; }
 
 .cooking-methods a:hover {
