@@ -2635,7 +2635,7 @@ input.button:hover {
 .entry-content > ul > li, section.section ul > li {
   list-style: none;
   position: relative;
-  padding-left: 18px;
+  padding-left: 17px;
   margin-bottom: 7px;
   font-size: 20px; }
   .entry-content > ul > li:before, section.section ul > li:before {
@@ -2647,6 +2647,14 @@ input.button:hover {
     top: 10px;
     background-color: #f89828;
     border-radius: 4px; }
+
+.entry-content > ol, section.section ol {
+  margin-left: 1.25rem; }
+  .entry-content > ol > li, section.section ol > li {
+    list-style-position: inside;
+    position: relative;
+    margin-bottom: 7px;
+    font-size: 20px; }
 
 .gallery {
   margin: auto;
