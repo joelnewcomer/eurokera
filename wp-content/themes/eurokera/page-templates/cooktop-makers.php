@@ -23,16 +23,23 @@ get_header(); ?>
 				<div class="large-4 medium-4 small-6 columns text-center">
 					<?php
 					$link_type = get_sub_field('link_type');
-					if ($link_type != 'URL') {
+					if ($link_type == 'Page') {
 						$link = get_sub_field('link');
-					} else {
+					} elseif ($link_type == 'URL') {
 						$link = get_sub_field('url');
+					} elseif ($link_type == 'Pop-Up') {
+						$link = null;
+						$epop_id = sanitize_title(get_sub_field('title'));
+						echo '<a href="#" class="epop-link image-link" data-epop="#' .  $epop_id . '">';
 					}
 					if ($link != null) {
 						echo '<a class="image-link" href="' . $link . '">';
 					} else {
-						echo '<div class="image-link">';
+						if ($link == null & $link_type != 'Pop-Up') {
+							echo '<div class="image-link">';
+						}
 					}
+
 					echo wp_get_attachment_image( get_sub_field('image'), 'width=261&height=261&crop=1' ); ?>
 					
 					<div class="overlay">
@@ -44,12 +51,30 @@ get_header(); ?>
 					</div>
 					
 					<?php
-					if ($link != null) {
-						echo '</a>';
-					} else {
+					if ($link == null & $link_type != 'Pop-Up') {
 						echo '</div>';
+					} else {
+						echo '</a>';
 					}
-					?>					
+	
+					if ($link_type == 'Pop-Up') {
+						$epop_bg = wp_get_attachment_image_src( get_sub_field("image"), "width=644&height=644&crop=1" );
+						$epops .= '<div class="epop-content" id="' . $epop_id . '">
+							<div class="epop-overlay"></div>
+							<div class="epop-inner text-center" style="background-image: url(' . $epop_bg[0] . ');">
+								<div class="epop-inner-tint"></div>
+								<div class="epop-close">&times;</div>
+								<div class="epop-inner-content" style="display:table;width:100%;height:100%;">
+								  <div style="display:table-cell;vertical-align:middle;">
+								    <div style="text-align:center;">' . get_sub_field('pop-up_content') . '</div>
+								  </div>
+								</div> <!-- epop-inner-content -->
+							</div> <!-- epop-inner -->
+						</div> <!-- epop-content -->'; 
+					}
+					?>
+
+
 				</div>
 			<?php endwhile; ?>
 		<?php endif; ?>
@@ -171,5 +196,19 @@ jQuery(window).load(function() {
     if (window.location.hash != '') {
         jQuery('html, body').animate({ scrollTop: jQuery(window.location.hash).offset().top - 70}, 500); 
     }
+});
+</script>
+
+<?php echo $epops; ?>
+
+<script>
+jQuery( ".epop-link" ).on( "click", function(e) {
+	e.preventDefault();
+	var epopID = jQuery(this).data('epop');
+	jQuery(epopID).toggleClass('active');
+});
+
+jQuery( ".epop-close, .epop-overlay" ).on( "click", function() {
+	jQuery('.epop-content').removeClass('active');
 });
 </script>

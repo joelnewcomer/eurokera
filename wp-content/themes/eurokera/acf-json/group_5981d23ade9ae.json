@@ -7,6 +7,7 @@
             "label": "Subtitle",
             "name": "subtitle",
             "type": "text",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -26,6 +27,7 @@
             "label": "Intro",
             "name": "intro",
             "type": "wysiwyg",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -45,6 +47,7 @@
             "label": "Round Image Links",
             "name": "image_links",
             "type": "repeater",
+            "value": null,
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -64,6 +67,7 @@
                     "label": "Title",
                     "name": "title",
                     "type": "text",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -83,6 +87,7 @@
                     "label": "Image",
                     "name": "image",
                     "type": "image",
+                    "value": null,
                     "instructions": "Will be sized and cropped to 261 x 261 pixels.",
                     "required": 0,
                     "conditional_logic": 0,
@@ -107,6 +112,7 @@
                     "label": "Link Type",
                     "name": "link_type",
                     "type": "select",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -117,7 +123,8 @@
                     },
                     "choices": {
                         "Page": "Page",
-                        "URL": "URL"
+                        "URL": "URL",
+                        "Pop-Up": "Pop-Up"
                     },
                     "default_value": [],
                     "allow_null": 0,
@@ -132,6 +139,7 @@
                     "label": "Link",
                     "name": "link",
                     "type": "page_link",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": [
@@ -159,6 +167,7 @@
                     "label": "URL",
                     "name": "url",
                     "type": "url",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": [
@@ -177,6 +186,34 @@
                     },
                     "default_value": "",
                     "placeholder": ""
+                },
+                {
+                    "key": "field_59db7fbf6a9b2",
+                    "label": "Pop-Up Content",
+                    "name": "pop-up_content",
+                    "type": "wysiwyg",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_59a55705d300c",
+                                "operator": "==",
+                                "value": "Pop-Up"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
                 }
             ]
         },
@@ -185,6 +222,7 @@
             "label": "Customer Logos",
             "name": "customer_logos",
             "type": "repeater",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -204,6 +242,7 @@
                     "label": "Logo",
                     "name": "logo",
                     "type": "image",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -230,6 +269,7 @@
             "label": "Glass Ceramic Title",
             "name": "glass_ceramic_title",
             "type": "text",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -249,6 +289,7 @@
             "label": "Glass Ceramic Image",
             "name": "glass_ceramic_image",
             "type": "image",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -273,6 +314,7 @@
             "label": "Glass Ceramic Link",
             "name": "glass_ceramic_link",
             "type": "page_link",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -292,6 +334,7 @@
             "label": "Cooking Methods Link",
             "name": "cooking_methods_link",
             "type": "page_link",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -337,5 +380,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1504014718
+    "modified": 1507557354
 }
