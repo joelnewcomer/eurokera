@@ -102,15 +102,15 @@ get_header(); ?>
 		<div class="large-6 medium-6 columns cooktop">
 			<div class="facts-box">
 				<?php get_template_part('assets/images/cooktop.svg'); ?>
-				<h3 class="green">More than <br />100 <span class="caps">million</span></h3>
-				<p>panels produced since 1990</p>
+				<h3 class="green"><?php echo get_field('qty_produced'); ?></h3>
+				<p>EuroKera glass-ceramic panels produced since 1990</p>
 			</div>
 		</div>
 		<div class="large-6 medium-6 columns stopwatch">
 			<div class="facts-box border">
 				<?php get_template_part('assets/images/stopwatch.svg'); ?>
+				<p>We produce a glass-ceramic cooking surface</p>
 				<h3>Every <span class="caps green">5 seconds</span></h3>
-				<p>a glass-ceramic cooking surface is manufactured by Eurokera</p>
 			</div>		
 		</div>
 	</div>

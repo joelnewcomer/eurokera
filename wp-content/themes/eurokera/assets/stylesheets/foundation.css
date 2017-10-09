@@ -3893,6 +3893,8 @@ section.facts {
       section.facts h3 {
         font-size: 20px;
         margin-bottom: 4px; } }
+  section.facts .stopwatch p {
+    max-width: 500px; }
   section.facts p {
     font-size: 26px;
     line-height: 1.2; }
