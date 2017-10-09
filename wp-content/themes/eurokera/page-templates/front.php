@@ -26,7 +26,7 @@ get_header(); ?>
 <section class="numbers">
 	<div class="row">
 		<div class="large-12 columns text-center">
-			<h2>100 MILLION +</h2>
+			<h2><?php echo get_field('num_of_cooktops'); ?> MILLION +</h2>
 			<h3>Cooktops</h3>
 			<div class="partner saint-gobain">
 				<?php get_template_part('assets/images/saint-gobain', 'logo.svg'); ?><br />
@@ -39,7 +39,7 @@ get_header(); ?>
 			</div><br />
 			<div class="num-one partner">
 				<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?><br />
-				#1 glass-ceramic manufacturer 
+				Global Leader in Glass-Ceramic Manufacturing 
 			</div>
 		</div>
 	</div>
