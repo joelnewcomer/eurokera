@@ -4533,7 +4533,7 @@ section.locate-support .identify-cooktop svg {
 .epop-identify {
   position: absolute;
   width: 416px;
-  height: 310px;
+  height: 375px;
   padding: 65px 20px 60px 20px;
   top: 50%;
   left: 50%;
@@ -4563,12 +4563,24 @@ section.locate-support .identify-cooktop svg {
     height: 33px;
     right: 14px;
     top: 14px; }
+  .epop-identify svg {
+    margin-bottom: 20px; }
   .epop-identify img.euro-k {
     margin-right: 75px; }
     @media only screen and (max-width: 40.063em) {
       .epop-identify img.euro-k {
         margin-right: 40px; } }
   .epop-identify img {
+    height: 71px; }
+  .epop-identify svg.euro-k {
+    width: 62px;
+    height: 72px;
+    margin-right: 75px; }
+    @media only screen and (max-width: 40.063em) {
+      .epop-identify svg.euro-k {
+        margin-right: 40px; } }
+  .epop-identify svg.eurokera-logo {
+    width: 178px;
     height: 71px; }
 
 .cooking-methods a:hover {

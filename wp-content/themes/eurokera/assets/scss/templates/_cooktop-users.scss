@@ -278,7 +278,7 @@ section.locate-support {
 .epop-identify {
 	position: absolute;
 	width: 416px;
-	height: 310px;
+	height: 375px;
 	padding: 65px 20px 60px 20px;
 	top: 50%;
 	left: 50%;
@@ -313,6 +313,9 @@ section.locate-support {
 		right: 14px;
 		top: 14px;
 	}
+	svg {
+		margin-bottom: 20px;
+	}
 	img.euro-k {
 		margin-right: 75px;
 		@media only screen and (max-width: 40.063em) {
@@ -322,6 +325,18 @@ section.locate-support {
 	img {
 		height: 71px;
 	}
+	svg.euro-k {
+		width: 62px;
+		height: 72px;
+		margin-right: 75px;
+		@media only screen and (max-width: 40.063em) {
+			margin-right: 40px;	
+		}
+	}
+	svg.eurokera-logo {
+		width: 178px;
+		height: 71px;
+	}	
 }
 
 .cooking-methods {

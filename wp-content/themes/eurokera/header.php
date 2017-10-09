@@ -75,7 +75,6 @@
 				    }
 				});
 
-
 				jQuery('.home-banner .down-arrow').click(function() {
 				    jQuery('html, body').animate({ scrollTop: jQuery('#masthead').offset().top}, 1000);
 				});
