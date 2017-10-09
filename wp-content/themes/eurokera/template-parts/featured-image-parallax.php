@@ -40,9 +40,9 @@ $no_featured = get_field('remove_header_image');
 						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 							<?php
 							$thumb = wp_get_attachment_image_src( get_field('thumbnail'), 'width=143&height=103&crop=1' );
-							$title = get_the_title();
+							$product_title = get_the_title();
 							$white = '';
-							if (strpos(strtolower($title), 'white') !== false) {
+							if (strpos(strtolower($product_title), 'white') !== false) {
 								$white = ' white';
 							}	
 							?>
