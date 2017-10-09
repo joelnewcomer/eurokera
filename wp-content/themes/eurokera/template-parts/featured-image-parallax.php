@@ -54,6 +54,7 @@ $no_featured = get_field('remove_header_image');
 								</div>
 							</a>
 						<?php endwhile; ?>
+						<?php wp_reset_query(); ?>
 					<?php endif; ?>
 				</div>
 			</div>
