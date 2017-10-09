@@ -47,7 +47,7 @@
 				</div>
 			</form>
 				
-				<p>Eurokera loves to bring our clients ideas to life. Your ideas are our innovation.<br />Let us help <strong>build</strong> you a custom design.</p>
+				<p>EuroKera was founded with the goal of serving appliance manufacturers like you. Your ideas inspire us to continually develop new technologies, materials and designs. Let us help you <strong><a href="<?php echo get_site_url(); ?>/contact">build</a></strong> a custom design.</p>
 			
 			<div id="products">
 				<h2 class="no-matches">No products match your selected criteria.<br />Please try different selections.</h2>
