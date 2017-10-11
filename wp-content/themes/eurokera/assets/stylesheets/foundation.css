@@ -4762,10 +4762,10 @@ section.final-steps {
   section.final-steps h2 {
     color: #f89828; }
   section.final-steps p {
-    font-size: 28px;
-    margin-bottom: 50px;
-    color: #626260;
-    font-weight: 400; }
+    /* font-size: 28px;
+		margin-bottom: 50px;
+		color: #626260;
+		font-weight: 400; */ }
 
 section.let-us {
   background: url(../images/let-us-bg.jpg) center center no-repeat;

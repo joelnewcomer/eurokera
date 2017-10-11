@@ -61,7 +61,7 @@ get_header(); ?>
 
 <section class="final-steps">
 	<div class="row">
-		<div class="large-12 columns text-center">
+		<div class="large-12 columns text-center entry-content">
 			<?php echo get_field('final_steps'); ?>
 		</div>
 	</div>
