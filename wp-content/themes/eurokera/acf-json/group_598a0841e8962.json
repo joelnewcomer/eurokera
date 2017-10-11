@@ -7,6 +7,7 @@
             "label": "Categories for Design Gallery",
             "name": "categories",
             "type": "checkbox",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -23,8 +24,7 @@
                 "Shapes": "Shapes",
                 "Touch Sliders": "Touch Sliders",
                 "Bevels": "Bevels",
-                "Decorations": "Decorations",
-                "Enamel Colors": "Enamel Colors"
+                "Decorations": "Decorations"
             },
             "allow_custom": 0,
             "save_custom": 0,
@@ -51,5 +51,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1502219131
+    "modified": 1507746501
 }
