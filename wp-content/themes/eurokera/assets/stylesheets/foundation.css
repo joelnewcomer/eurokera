@@ -4114,7 +4114,7 @@ section.product-selector {
       margin-left: -11px; }
     section.product-selector form#product-selector select {
       width: 317px;
-      background: #5e6367;
+      background-color: #5e6367;
       border: 2px solid #5e6367;
       color: #fff;
       font-size: 21px !important;
