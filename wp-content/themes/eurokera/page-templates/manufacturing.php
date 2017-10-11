@@ -10,7 +10,7 @@ get_header(); ?>
 
 <section class="manu-intro">
 	<div class="row">
-		<div class="large-12 columns">
+		<div class="large-12 columns entry-content">
 			<?php echo get_field('intro'); ?>
 		</div>
 	</div>
