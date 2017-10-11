@@ -2519,16 +2519,16 @@ input.button:hover {
   .gray.button a:before {
     border: 2px solid #5e6367; }
 
-.button.reverse a, #gform_submit_button_4 {
+.button.reverse a, #gform_submit_button_4, .epop-inner-content .button a {
   background-color: #fff;
   border-color: #fff;
   color: #f89828; }
-  .button.reverse a:hover, #gform_submit_button_4:hover {
+  .button.reverse a:hover, #gform_submit_button_4:hover, .epop-inner-content .button a:hover {
     background: transparent;
     color: #fff; }
-  .button.reverse a:after, #gform_submit_button_4:after {
+  .button.reverse a:after, #gform_submit_button_4:after, .epop-inner-content .button a:after {
     background: #fff; }
-  .button.reverse a:before, #gform_submit_button_4:before {
+  .button.reverse a:before, #gform_submit_button_4:before, .epop-inner-content .button a:before {
     border: 2px solid #fff; }
 
 .button.outline.white a {
@@ -4524,6 +4524,8 @@ section.locate-support .identify-cooktop svg {
         width: 100%;
         height: auto;
         padding: 100px 0 50px 0; } }
+    .epop-content .epop-inner a {
+      color: #000; }
     .epop-content .epop-inner h2, .epop-content .epop-inner h3, .epop-content .epop-inner h4, .epop-content .epop-inner p, .epop-content .epop-inner li {
       color: #fff; }
     .epop-content .epop-inner li {
