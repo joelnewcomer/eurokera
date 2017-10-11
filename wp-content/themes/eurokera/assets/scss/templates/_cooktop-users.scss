@@ -120,6 +120,18 @@ section.clean-identify {
 			margin-bottom: 20px;
 		}
 	}
+	.user-video {
+		background-size: cover;
+		position: relative;
+		.video-title {
+			display: block;
+			float: left;
+			width: 100%;
+			position: absolute;
+			top: 25%;
+			left: 0;
+		}
+	}
 }
 
 section.users-intro {

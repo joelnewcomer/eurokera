@@ -190,16 +190,6 @@ section.inspire {
 			width: 100%;
 			margin-bottom: 15px;
 		}
-		svg {
-			display: block;
-			position: absolute;
-			width: 51px;
-			height: 51px;
-			top: 50%;
-			left: 50%;
-			margin-top: -25px;
-			margin-left: -25px;
-		}
 	}
 	.video-title {
 		width: 67%;
@@ -225,6 +215,17 @@ section.inspire {
 		text-align: center;
 		margin-top: 30px;
 	}
+}
+
+.product-addl-video svg {
+	display: block;
+	position: absolute;
+	width: 51px;
+	height: 51px;
+	top: 50%;
+	left: 50%;
+	margin-top: -25px;
+	margin-left: -25px;	
 }
 
 .entry-content .product-videos {

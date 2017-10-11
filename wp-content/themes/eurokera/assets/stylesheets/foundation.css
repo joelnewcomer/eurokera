@@ -3521,15 +3521,6 @@ section.inspire {
       .product-videos .product-addl-video {
         width: 100%;
         margin-bottom: 15px; } }
-    .product-videos .product-addl-video svg {
-      display: block;
-      position: absolute;
-      width: 51px;
-      height: 51px;
-      top: 50%;
-      left: 50%;
-      margin-top: -25px;
-      margin-left: -25px; }
   .product-videos .video-title {
     width: 67%; }
     @media only screen and (min-width: 1200px) {
@@ -3551,6 +3542,16 @@ section.inspire {
     width: 100%;
     text-align: center;
     margin-top: 30px; }
+
+.product-addl-video svg {
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -25px; }
 
 .entry-content .product-videos {
   background: none;
@@ -4397,6 +4398,18 @@ section.clean-identify .clean-cooktop {
   section.clean-identify .clean-cooktop h2 {
     max-width: 295px;
     margin-bottom: 20px; }
+
+section.clean-identify .user-video {
+  -webkit-background-size: cover;
+          background-size: cover;
+  position: relative; }
+  section.clean-identify .user-video .video-title {
+    display: block;
+    float: left;
+    width: 100%;
+    position: absolute;
+    top: 25%;
+    left: 0; }
 
 section.users-intro p {
   display: inline-block;

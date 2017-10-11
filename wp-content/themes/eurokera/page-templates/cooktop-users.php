@@ -75,12 +75,17 @@ get_header(); ?>
 		</div>
 		
 	</div>
-	<div class="large-6 medium-6 columns coming-soon text-center">
-		<div style="display:table;width:100%;height:100%;">
-		  <div style="display:table-cell;vertical-align:middle;">
-		    <div style="text-align:center;"><h2>Content Coming Soon</h2></div>
-		  </div>
-		</div>
+	<?php $video_poster = wp_get_attachment_image_src( get_field('video_poster'), 'width=700&height=400&crop=1' ); ?>
+	<div class="large-6 medium-6 columns user-video text-center" style="background-image: url(<?php echo $video_poster[0]; ?>);">
+		<a href="<?php echo get_field('video_url'); ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
+			<div class="product-addl-video">
+				<?php get_template_part('assets/images/play', 'button.svg'); ?>
+			</div>
+			<div class="video-title">
+			    <h2><?php echo get_field('video_title'); ?></h2>
+			</div>
+		</a>
+
 	</div>	
 </section>
 

@@ -7,6 +7,7 @@
             "label": "Subtitle",
             "name": "subtitle",
             "type": "text",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -26,6 +27,7 @@
             "label": "Gallery",
             "name": "gallery",
             "type": "gallery",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -51,6 +53,7 @@
             "label": "How to Clean Your Cooktop Link",
             "name": "clean_link",
             "type": "page_link",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -66,10 +69,91 @@
             "multiple": 0
         },
         {
+            "key": "field_59de3acf057e9",
+            "label": "Video",
+            "name": "video",
+            "type": "group",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_59de3b0421667",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_59de3b1b21668",
+                    "label": "Poster",
+                    "name": "poster",
+                    "type": "image",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_59de3b2821669",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "url",
+                    "value": null,
+                    "instructions": "Must be the embed URL that looks similar to this: https:\/\/www.youtube.com\/embed\/wFf2Sn_qIDE or\r\nhttps:\/\/player.vimeo.com\/video\/234004525",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                }
+            ]
+        },
+        {
             "key": "field_5989b327870f3",
             "label": "Intro",
             "name": "intro",
             "type": "wysiwyg",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -89,6 +173,7 @@
             "label": "Round Image Pop-Ups",
             "name": "image_links",
             "type": "repeater",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -108,6 +193,7 @@
                     "label": "Title",
                     "name": "title",
                     "type": "text",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -127,6 +213,7 @@
                     "label": "Image",
                     "name": "image",
                     "type": "image",
+                    "value": null,
                     "instructions": "Will be sized and cropped to 644 x 644 pixels.",
                     "required": 0,
                     "conditional_logic": 0,
@@ -151,6 +238,7 @@
                     "label": "Pop-Up Content",
                     "name": "pop-up_content",
                     "type": "wysiwyg",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -172,6 +260,7 @@
             "label": "Cooking Methods Link",
             "name": "cooking_methods_link",
             "type": "page_link",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -193,6 +282,7 @@
             "label": "Locate Now Link",
             "name": "locate_now_link",
             "type": "page_link",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -212,6 +302,7 @@
             "label": "Support Link",
             "name": "support_link",
             "type": "page_link",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -250,5 +341,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1504008562
+    "modified": 1507736394
 }
