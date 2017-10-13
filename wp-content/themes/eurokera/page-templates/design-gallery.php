@@ -56,6 +56,8 @@ get_header(); ?>
 			};
 		});
 		jQuery('.btn-filter').on( "click", function() {
+			jQuery('.btn-filter').removeClass('btn-active');
+			jQuery(this).addClass('btn-active');
 			var galleryFilter = jQuery(this).data('filter');
 			// All
 			if (galleryFilter == '*') {
