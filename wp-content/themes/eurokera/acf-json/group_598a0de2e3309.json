@@ -30,8 +30,8 @@
         },
         {
             "key": "field_59de61985245a",
-            "label": "Enamel Colors",
-            "name": "enamel_colors",
+            "label": "White Enamel Colors",
+            "name": "white_enamel_colors",
             "type": "repeater",
             "value": null,
             "instructions": "",
@@ -83,12 +83,34 @@
                         "id": ""
                     },
                     "default_value": ""
-                },
+                }
+            ]
+        },
+        {
+            "key": "field_59e0c2d2702b6",
+            "label": "Black Enamel Colors",
+            "name": "black_enamel_colors",
+            "type": "repeater",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add Color",
+            "sub_fields": [
                 {
-                    "key": "field_59de62145245d",
-                    "label": "Background",
-                    "name": "background",
-                    "type": "select",
+                    "key": "field_59e0c2d2702b7",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
                     "value": null,
                     "instructions": "",
                     "required": 0,
@@ -98,19 +120,27 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "Black": "Black",
-                        "White": "White"
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_59e0c2d2702b8",
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color_picker",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
                     },
-                    "default_value": [
-                        "Black"
-                    ],
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "ajax": 0,
-                    "return_format": "value",
-                    "placeholder": ""
+                    "default_value": ""
                 }
             ]
         }
@@ -139,5 +169,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1507746393
+    "modified": 1507902192
 }
