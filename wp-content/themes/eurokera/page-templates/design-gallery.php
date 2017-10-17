@@ -8,7 +8,7 @@ get_header(); ?>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 
-<section class="users-gallery design-gallery text-center">
+<section class="design-gallery text-center">
 	<div class="row">
 		
 	<div class="btn-filter-wrap">
@@ -21,7 +21,7 @@ get_header(); ?>
 		<button class="btn-filter" data-filter=".touch-sliders">Touch Sliders</button>
 		<button class="btn-filter" data-filter=".bevels">Bevels</button>
 		<button class="btn-filter" data-filter=".decorations">Decorations</button>
-		<button class="btn-filter" data-filter=".enamel-colors">Enamel Colors</button>
+		<button class="btn-filter" data-filter=".enamel-colors-faux">Enamel Colors</button>
 	</div>
 	
 	<?php $images = get_field('gallery'); ?>
@@ -44,6 +44,40 @@ get_header(); ?>
 				</a>
 			        <!-- <p class="caption"><?php echo $image['caption']; ?></p> -->
 			<?php endforeach; ?>
+		<?php endif; ?>
+	</div>
+	
+	<div class="enamels white text-center">
+		<h2>Color options for white enamel</h2>
+		<?php if(get_field('white_enamel_colors')): ?>
+			<?php while(has_sub_field('white_enamel_colors')): ?>
+				<div class="enamel">
+					<?php $bg = get_sub_field('color'); ?>
+					<div class="enamel-sample">
+						<div class="enamel-inner" style="background: <?php echo $bg; ?>;">
+							<?php get_template_part('assets/images/white-k.svg'); ?>
+						</div> <!-- enamel-inner -->
+					</div> <!-- enamel-sample -->
+					<?php echo get_sub_field('title'); ?>
+				</div> <!-- enamel -->
+			<?php endwhile; ?>
+		<?php endif; ?>
+	</div>
+
+	<div class="enamels black text-center">
+		<h2>Color options for black enamel</h2>
+		<?php if(get_field('black_enamel_colors')): ?>
+			<?php while(has_sub_field('black_enamel_colors')): ?>
+				<div class="enamel">
+					<?php $bg = get_sub_field('color'); ?>
+					<div class="enamel-sample">
+						<div class="enamel-inner" style="background: <?php echo $bg; ?>;">
+							<?php get_template_part('assets/images/white-k.svg'); ?>
+						</div> <!-- enamel-inner -->
+					</div> <!-- enamel-sample -->
+					<?php echo get_sub_field('title'); ?>
+				</div> <!-- enamel -->
+			<?php endwhile; ?>
 		<?php endif; ?>
 	</div>
 	

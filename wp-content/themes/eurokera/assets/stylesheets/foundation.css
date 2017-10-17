@@ -4615,7 +4615,8 @@ section.locate-support .identify-cooktop svg {
   max-height: 475px; }
 
 section.design-gallery {
-  padding: 25px 0 80px 0; }
+  padding: 25px 0 80px 0;
+  background: #e6e6e7; }
   section.design-gallery .btn-filter-wrap {
     margin-bottom: 30px; }
     section.design-gallery .btn-filter-wrap .btn-filter {
@@ -4662,6 +4663,62 @@ section.design-gallery {
         section.design-gallery .gallery.fifth-item {
           width: 100%; } }
 
+.enamels {
+  display: block;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0; }
+  .enamels h2 {
+    font-size: 24px;
+    width: 100%;
+    max-width: none !important;
+    text-align: center; }
+  .enamels .enamel {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -4px;
+    width: 20%;
+    padding: 23px;
+    font-size: 16px;
+    color: #626260;
+    line-height: 1.2; }
+    @media only screen and (max-width: 880px) {
+      .enamels .enamel {
+        width: 25%; } }
+    @media only screen and (max-width: 750px) {
+      .enamels .enamel {
+        width: 33%; } }
+    @media only screen and (max-width: 40.063em) {
+      .enamels .enamel {
+        padding: 12px; } }
+    .enamels .enamel .enamel-sample {
+      display: block;
+      float: left;
+      width: 100%;
+      padding: 25px;
+      margin-bottom: 14px; }
+      @media only screen and (max-width: 40.063em) {
+        .enamels .enamel .enamel-sample {
+          padding: 12px; } }
+    .enamels .enamel .enamel-inner {
+      display: block;
+      float: left;
+      width: 100%;
+      padding-left: 17px; }
+    .enamels .enamel svg {
+      display: block; }
+
+.white.enamels {
+  margin-top: 40px; }
+
+.white .enamel-sample {
+  background: #fff; }
+
+.black .enamel-sample {
+  background: #221f1f; }
+  .black .enamel-sample svg polygon, .black .enamel-sample svg rect {
+    fill: #221f1f; }
+
 .featured-image h1 {
   max-width: 960px;
   display: inline-block; }
@@ -4670,7 +4727,21 @@ section.manu-intro {
   background: url(../images/manu-intro-bg.jpg) center center no-repeat;
   -webkit-background-size: cover;
           background-size: cover;
-  padding: 80px 0 0 0; }
+  padding: 80px 0 0 0;
+  /* p {
+		font-size: 28px;
+		margin-bottom: 80px;
+		@media only screen and (max-width: 40.063em) {
+			margin-bottom: 40px;	
+		}
+	}
+	p:first-of-type {
+		font-size: 22px;
+		margin-bottom: 50px;
+		@media only screen and (max-width: 40.063em) {
+			margin-bottom: 30px;	
+		}
+	} */ }
   @media only screen and (max-width: 40.063em) {
     section.manu-intro {
       padding: 40px 0 0 0; } }
@@ -4678,18 +4749,6 @@ section.manu-intro {
     max-width: 1020px; }
   section.manu-intro img {
     max-width: 50%; }
-  section.manu-intro p {
-    font-size: 28px;
-    margin-bottom: 80px; }
-    @media only screen and (max-width: 40.063em) {
-      section.manu-intro p {
-        margin-bottom: 40px; } }
-  section.manu-intro p:first-of-type {
-    font-size: 22px;
-    margin-bottom: 50px; }
-    @media only screen and (max-width: 40.063em) {
-      section.manu-intro p:first-of-type {
-        margin-bottom: 30px; } }
   section.manu-intro h2 {
     clear: left;
     color: #f89828;
