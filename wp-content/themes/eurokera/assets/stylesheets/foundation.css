@@ -2117,7 +2117,7 @@ section.container > section {
 
 p {
   color: #595959;
-  font-size: 20px; }
+  font-size: 22px; }
 
 .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4 {
   color: #f89828; }
@@ -2637,7 +2637,7 @@ input.button:hover {
   position: relative;
   padding-left: 17px;
   margin-bottom: 7px;
-  font-size: 20px;
+  font-size: 22px;
   text-align: left; }
   .entry-content > ul > li:before, section.section ul > li:before {
     content: "";
@@ -3700,9 +3700,6 @@ section.ready {
 
 header.no-image {
   padding-top: 30px; }
-
-.entry-content section:first-child p:first-of-type {
-  font-size: 24px; }
 
 section.timeline {
   padding: 90px 0 100px;
@@ -4769,8 +4766,6 @@ section.shipped {
     font-size: 46px;
     color: #f89828;
     max-width: 490px; }
-  section.shipped p {
-    font-size: 28px; }
 
 section.locations svg#france path {
   fill: #fff; }
