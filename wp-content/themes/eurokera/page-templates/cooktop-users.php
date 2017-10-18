@@ -152,7 +152,8 @@ get_header(); ?>
 			<a href="<?php echo get_field('cooking_methods_link'); ?>" class="heat-source radiant">
 				<?php get_template_part('assets/images/radiant.svg'); ?><br />
 				Radiant
-			</a>				    
+			</a><br />
+			<a href="<?php echo get_field('cooking_methods_link'); ?>">Click to Learn More</a>				    
 	    </div>
 	  </div>
 	</div>		

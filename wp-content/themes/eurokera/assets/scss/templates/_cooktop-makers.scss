@@ -288,7 +288,6 @@ section.customers {
 		color: #fff;
 	}
 	.heat-source {
-		margin-bottom: 15px;
 		@media only screen and (max-width: 40.063em) {
 			min-width: 110px;
 		}
@@ -302,6 +301,7 @@ section.customers {
 	}
 	.heat-source {	
 		color: #585c60;
+		margin-bottom: 15px;
 		svg {
 			margin-bottom: 0;
 		}

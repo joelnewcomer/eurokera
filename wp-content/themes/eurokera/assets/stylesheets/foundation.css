@@ -4223,18 +4223,17 @@ section.customers {
 .makers-details .glass-ceramic h2 {
   color: #fff; }
 
-.makers-details .heat-source {
-  margin-bottom: 15px; }
-  @media only screen and (max-width: 40.063em) {
-    .makers-details .heat-source {
-      min-width: 110px; } }
+@media only screen and (max-width: 40.063em) {
+  .makers-details .heat-source {
+    min-width: 110px; } }
 
 .cooking-methods {
   background: #dfe0e1; }
   .cooking-methods h2 {
     margin-bottom: 30px; }
   .cooking-methods .heat-source {
-    color: #585c60; }
+    color: #585c60;
+    margin-bottom: 15px; }
     .cooking-methods .heat-source svg {
       margin-bottom: 0; }
     .cooking-methods .heat-source:not(.induction) svg path {
