@@ -96,7 +96,7 @@ section.design-gallery {
 			display: block;
 			float: left;
 			width: 100%;
-			padding: 25px;
+			padding: 0 25px;
 			@media only screen and (max-width: 40.063em) {
 				padding: 12px;	
 			}
@@ -114,18 +114,13 @@ section.design-gallery {
 	}
 }
 
+.black.enamels .enamel-inner {
+	background-image: url(../images/reflective-overlay.png);
+	background-position: left bottom;
+	background-repeat: no-repeat;
+}
+
 
 .white.enamels {
 	margin-top: 40px;
-}
-
-.white .enamel-sample {
-	background: #fff;
-}
-
-.black .enamel-sample {
-	background: #221f1f;
-	svg polygon, svg rect {
-		fill: #221f1f;
-	}
 }

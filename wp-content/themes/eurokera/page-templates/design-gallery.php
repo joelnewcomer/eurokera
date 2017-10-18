@@ -48,7 +48,7 @@ get_header(); ?>
 	</div>
 	
 	<div class="enamels white text-center">
-		<h2>Color options for white enamel</h2>
+		<h2>Matte Enamels</h2>
 		<?php if(get_field('white_enamel_colors')): ?>
 			<?php while(has_sub_field('white_enamel_colors')): ?>
 				<div class="enamel">
@@ -65,13 +65,13 @@ get_header(); ?>
 	</div>
 
 	<div class="enamels black text-center">
-		<h2>Color options for black enamel</h2>
+		<h2>Reflective Enamels</h2>
 		<?php if(get_field('black_enamel_colors')): ?>
 			<?php while(has_sub_field('black_enamel_colors')): ?>
 				<div class="enamel">
 					<?php $bg = get_sub_field('color'); ?>
 					<div class="enamel-sample">
-						<div class="enamel-inner" style="background: <?php echo $bg; ?>;">
+						<div class="enamel-inner" style="background-color: <?php echo $bg; ?>;">
 							<?php get_template_part('assets/images/white-k.svg'); ?>
 						</div> <!-- enamel-inner -->
 					</div> <!-- enamel-sample -->
