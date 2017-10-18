@@ -67,7 +67,7 @@ get_header(); ?>
 			</div>
 		</div>
 		<div class="large-12 columns text-center intro-pds">
-			<div class="button"><a id="data-sheet-dl" href="#">Download Product Data Sheet</a></div>
+			<div class="button"><a id="data-sheet-dl" href="<?php echo get_field('product_data_sheet'); ?>">Download Product Data Sheet</a></div>
 		</div>
 	</div>
 </section>
