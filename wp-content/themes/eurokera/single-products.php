@@ -145,7 +145,7 @@ get_header(); ?>
 				}
 				?>
 					
-				<div class="button"><a href="<?php echo get_site_url(); ?>/contact">Experience The EuroKera Quality</a></div>
+				<div class="button"><a href="<?php echo get_site_url(); ?>/cooktop-manufacturers/quality/">Experience The EuroKera Quality</a></div>
 			</div>
 		</div>
 	</section>
