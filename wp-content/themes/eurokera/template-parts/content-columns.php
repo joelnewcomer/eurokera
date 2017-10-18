@@ -60,7 +60,7 @@ function drum_animate($column, $row, $script = false) {
 			// One Column
 	        if( get_row_layout() == 'one_column' ): ?>
 	        	<?php
-		        if (get_sub_field('advanced')) {
+		        if (get_sub_field('advanced_section_features')) {
 		        	$background = get_sub_field('background_color'); 
 	        		$section_id = get_sub_field('section_id');
 	        		$section_header = get_sub_field('section_header');

@@ -2132,6 +2132,9 @@ p {
 iframe {
   max-width: 100%; }
 
+section#video-center p {
+  text-align: center; }
+
 @media only screen and (min-width: 40.063em) {
   .top-bar-right {
     margin-top: 33px; } }
@@ -4390,7 +4393,8 @@ section.clean-identify h2 {
       font-size: 30px; } }
 
 section.clean-identify .clean-cooktop {
-  background: url(../images/clean-cooktop.jpg) center center no-repeat; }
+  /* background: url(../images/clean-cooktop.jpg) center center no-repeat; */
+  background: #f89828; }
   section.clean-identify .clean-cooktop h2 {
     max-width: 295px;
     margin-bottom: 20px; }
