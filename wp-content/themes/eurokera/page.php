@@ -34,4 +34,16 @@ get_header(); ?>
 	<?php do_action( 'foundationpress_after_content' ); ?>
 </div> <!-- #page -->
 
-<?php get_footer();
+<?php get_footer(); ?>
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('.entry-content section a[href^="#"]').click(function() {
+            var target = jQuery(this.hash);
+            if (target.length == 0) target = jQuery('a[name="' + this.hash.substr(1) + '"]');
+            if (target.length == 0) target = jQuery('html');
+            jQuery('html, body').animate({ scrollTop: target.offset().top - 70}, 500);
+            return false;
+        });
+    });
+</script>
