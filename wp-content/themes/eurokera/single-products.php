@@ -66,9 +66,13 @@ get_header(); ?>
 			?>
 			</div>
 		</div>
+		<?php 
+		$data_sheet = get_field('product_data_sheet');
+		if ($data_sheet != null) : ?>
 		<div class="large-12 columns text-center intro-pds">
 			<div class="button"><a id="data-sheet-dl" href="#">Download Product Data Sheet</a></div>
 		</div>
+		<?php endif; ?>
 	</div>
 </section>
 
