@@ -155,9 +155,10 @@ get_header(); ?>
 	</section>
 <?php endif; ?>
 
-<!-- <a class="full-width-data-sheet-button text-center" href="<?php echo get_field('product_data_sheet'); ?>"><strong>Download</strong> Product Data Sheet</a> -->
 
 <?php echo get_template_part('template-parts/content','ready'); ?>
+
+<?php if ($data_sheet != null) : ?>
 
 			<div class="data-sheet-modal">
 				<div class="modal-overlay transition"></div>
@@ -193,5 +194,7 @@ get_header(); ?>
 					
 				});
 			</script>
+
+<?php endif; ?>
 
 <?php get_footer(); ?>
