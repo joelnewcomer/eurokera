@@ -60,7 +60,7 @@
 			<?php
 			// Insert a line break after the first period
 			$desc = get_bloginfo('description');
-			$period_pos = strpos($desc, '.');
+			$period_pos = strpos($desc, '.') + 1;
 			$desc = substr_replace($desc, '<br />', $period_pos, 0);
 			?>
 			<h1><?php echo $desc; ?></h1>
