@@ -117,17 +117,27 @@ get_header(); ?>
 </section>
 
 <section class="reach text-center">
-	<h2>Global Reach</h2>
-	<div class="global-locations show-for-small text-center">
-		<p>
-			Fountain Inn, SC, USA<br />
-			Bagneaux-sur-Loing, France<br />
-			Château-Thierry, France<br />
-			Guangzhou, China<br />
-			Rayong, Thailand
-		</p>
-	</div>
-	<div class="button gray"><a href="<?php echo get_field('wm_page'); ?>">Worldwide Manufacturing</a></div>
+	<img class="hide-for-small" src="<?php echo get_template_directory_uri(); ?>/assets/images/global-reach-bg.jpg" alt="EuroKera Worldwide Locations Map">
+	<div class="reach-overlay">
+		<div class="hide-for-small" style="display:table;width:100%;height:100%;">
+			<div style="display:table-cell;vertical-align:middle;">
+		    	<div style="text-align:center;"><h2>Global Reach</h2></div>
+		  	</div>
+		</div>
+		<div class="show-for-small">
+			<h2>Global Reach</h2>
+			<div class="global-locations show-for-small text-center">
+				<p>
+					Fountain Inn, SC, USA<br />
+					Bagneaux-sur-Loing, France<br />
+					Château-Thierry, France<br />
+					Guangzhou, China<br />
+					Rayong, Thailand
+				</p>
+			</div>
+		</div>
+		<div class="button gray"><a href="<?php echo get_field('wm_page'); ?>">Worldwide Manufacturing</a></div>
+	</div> <!-- reach-overlay -->
 </section>
 
 <section id="environment" class="enviro text-center">

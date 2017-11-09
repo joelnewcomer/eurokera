@@ -221,19 +221,29 @@ section.facts {
 }
 
 section.reach {
-	padding: 270px 0 90px;
+	@media only screen and (min-width: 40.063em) {
+		.reach-overlay {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+		}
+		.button {
+			position: absolute;
+			bottom: 10%;
+			left: 0;
+			width: 100%;
+		}		
+	}
 	@media only screen and (max-width: 40.063em) {
 		padding: 65px 0 40px;	
-	}
-	background: url(../images/global-reach-bg.jpg) center center no-repeat;
-	@media only screen and (max-width: 40.063em) {
 		background: url(../images/global-reach-bg-mobile.jpg) center center no-repeat;
 	}
-	background-size: cover !important;
+	background-size: 100% auto !important;
 	h2 {
 		color: #fff;
 		font-size: 46px;
-		margin-bottom: 135px;
 		@media only screen and (max-width: 40.063em) {
 			font-size: 30px;
 			margin-bottom: 35px;	
