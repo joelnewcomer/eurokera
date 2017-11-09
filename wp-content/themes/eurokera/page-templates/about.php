@@ -181,7 +181,7 @@ get_header(); ?>
 		</div>		
 		<div class="landfill fact">
 			<h2 id="landfills"></h2>
-			<p>Reduction in Landfill Waste Between 2011 and 2014</p>
+			<p>reduction in landfill waste between 2011 and 2014</p>
 
 				<script>
 

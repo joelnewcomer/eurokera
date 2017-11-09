@@ -3908,27 +3908,20 @@ section.facts {
   text-transform: uppercase; }
 
 section.reach {
-  -webkit-background-size: 100% auto !important;
-          background-size: 100% auto !important; }
-  @media only screen and (min-width: 40.063em) {
-    section.reach .reach-overlay {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0; }
-    section.reach .button {
-      position: absolute;
-      bottom: 10%;
-      left: 0;
-      width: 100%; } }
+  padding: 270px 0 90px;
+  background: url(../images/global-reach-bg.jpg) center center no-repeat;
+  -webkit-background-size: cover !important;
+          background-size: cover !important; }
   @media only screen and (max-width: 40.063em) {
     section.reach {
-      padding: 65px 0 40px;
+      padding: 65px 0 40px; } }
+  @media only screen and (max-width: 40.063em) {
+    section.reach {
       background: url(../images/global-reach-bg-mobile.jpg) center center no-repeat; } }
   section.reach h2 {
     color: #fff;
-    font-size: 46px; }
+    font-size: 46px;
+    margin-bottom: 135px; }
     @media only screen and (max-width: 40.063em) {
       section.reach h2 {
         font-size: 30px;
