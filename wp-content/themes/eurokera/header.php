@@ -57,7 +57,13 @@
 	<?php if (is_front_page()) : ?>
 		<section class="home-banner text-center" data-paroller-factor="0.3" style="background: url('<?php the_post_thumbnail_url('full'); ?>') center center no-repeat;">
 			<div class="hide-for-small"><?php get_template_part('template-parts/header-icon'); ?><br /></div>
-			<h1><?php bloginfo('description'); ?></h1>
+			<?php
+			// Insert a line break after the first period
+			$desc = get_bloginfo('description');
+			$period_pos = strpos($desc, '.');
+			$desc = substr_replace($desc, '<br />', $period_pos, 0);
+			?>
+			<h1><?php echo $desc; ?></h1>
 			<?php get_template_part('template-parts/content','site-links'); ?>
 			<div class="down-arrow bounce animated"><?php get_template_part('assets/images/acc', 'arrow.svg'); ?></div>
 		</section>
