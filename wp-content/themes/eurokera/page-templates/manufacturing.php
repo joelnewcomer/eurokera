@@ -73,10 +73,7 @@ get_header(); ?>
 			<h2>Let Us Build Your Future Innovative Cooking Surface</h2>
 			<div class="site-links">
 				<div class="button">
-					<a href="<?php echo get_site_url(); ?>/cooktop-makers">Cooktop Makers</a>
-				</div>
-				<div class="button blue">
-					<a href="<?php echo get_site_url(); ?>/cooktop-users">Cooktop Users</a>
+					<a href="<?php echo get_site_url(); ?>/contact">Contact Us</a>
 				</div>
 			</div>
 		</div>

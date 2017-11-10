@@ -23,7 +23,7 @@ body.admin-bar.f-topbar-fixed .sticky.fixed {
   display: table-caption;
   caption-side: bottom;
   max-width: 100%;
-  font-size: 0.8rem;
+  font-size: 16px;
   color: #999;
   padding: 0.25rem 0; }
 
