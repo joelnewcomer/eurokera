@@ -3379,8 +3379,7 @@ a.product-video {
   display: inline-block;
   min-width: 133px;
   font-size: 21px;
-  color: #000;
-  text-transform: uppercase; }
+  color: #000; }
   @media only screen and (max-width: 40.063em) {
     .heat-source {
       min-width: 32%;
