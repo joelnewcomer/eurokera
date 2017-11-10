@@ -11,7 +11,7 @@ section.manu-intro {
 		padding: 40px 0 0 0;	
 	}
 	.row {
-		max-width: 1020px;
+		max-width: 960px;
 	}
 	img {
 		max-width: 50%;
@@ -38,6 +38,9 @@ section.manu-intro {
 }
 
 section.shipped {
+	.row {
+		max-width: 960px;
+	}	
 	padding: 40px 0;
 	@media only screen and (max-width: 40.063em) {
 		padding: 20px 0;	
