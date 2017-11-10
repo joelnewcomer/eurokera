@@ -100,7 +100,9 @@ get_header(); ?>
 				});
 				jQuery('.enamels').fadeIn('fast');
 			} else if (galleryFilter == '.enamels') {
-				jQuery('.enamels').fadeIn('fast');
+				jQuery('a.gallery:not(' + galleryFilter + ')').fadeOut( "fast", function() {
+					jQuery('.enamels').fadeIn('fast');
+				});
 			} else {
 				jQuery('.enamels').fadeOut('fast');
 				jQuery('a.gallery:not(' + galleryFilter + ')').fadeOut( "fast", function() {
