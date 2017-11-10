@@ -28,7 +28,7 @@ class Settings {
 		wp_enqueue_script('heartbeat-control-settings', plugins_url( '/assets/js/bundle.js' , __FILE__ ), array('jquery', 'jquery-ui-slider'), '1.0.0', true);
 		wp_localize_script( 'heartbeat-control-settings', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 		wp_register_style( 'slider_ui', '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css', array(), '1.0' );
-		wp_enqueue_style('heartbeat-control-settings', plugins_url( '/style.css' , __FILE__ ), array('slider_ui'), '1.0.0');
+		wp_enqueue_style( 'slider_ui' );
 	}
 
 	public function init_metaboxes() {
@@ -42,40 +42,54 @@ class Settings {
 			'object_types' => array( 'options-page', ), // Post type
 			'option_key'   => 'heartbeat_control_settings',
 			'capability'   => 'manage_options',
-			'parent_slug'   => 'options-general.php',
+			'parent_slug'  => 'options-general.php',
 		) );
 
-		$cmb->add_field( array(
-			'name'       => __( 'Heartbeat Behavior', 'cmb2' ),
+		$rule_group = $cmb->add_field( array(
+			'id'          => 'rules',
+			'type'        => 'group',
+			'description' => __( 'Set WordPress heartbeat rules. Duplicate locations are ordered based on priority (higher list position wins).', 'heartbeat-control' ),
+			'options'     => array(
+				'group_title'   => __( 'Rule {#}', 'heartbeat-control' ),
+				'add_button'    => __( 'Add Another Rule', 'heartbeat-control' ),
+				'remove_button' => __( 'Remove Rule', 'heartbeat-control' ),
+				'sortable'      => true,
+			),
+		) );
+
+		$cmb->add_group_field( $rule_group, array(
+			'name'       => __( 'Heartbeat Behavior', 'heartbeat-control' ),
 			'id'         => $prefix . 'behavior',
 			'type'       => 'select',
 			'default'          => 'allow',
+			'classes'    => 'heartbeat_behavior',
 			'options'          => array(
-				'allow' => __( 'Allow Heartbeat', 'cmb2' ),
-				'disable'   => __( 'Disable Heartbeat', 'cmb2' ),
-				'modify'     => __( 'Modify Heartbeat', 'cmb2' ),
+				'allow' => __( 'Allow Heartbeat', 'heartbeat-control' ),
+				'disable'   => __( 'Disable Heartbeat', 'heartbeat-control' ),
+				'modify'     => __( 'Modify Heartbeat', 'heartbeat-control' ),
 			),
 		) );
 
-		$cmb->add_field( array(
-			'name'       => __( 'Locations', 'cmb2' ),
+		$cmb->add_group_field( $rule_group, array(
+			'name'       => __( 'Locations', 'heartbeat-control' ),
 			'id'         => $prefix . 'location',
 			'type'       => 'multicheck',
 			'options'          => array(
-				'admin' => __( 'WordPress Dashboard', 'cmb2' ),
-				'frontend'  => __( 'Frontend', 'cmb2' ),
-				'/wp-admin/post.php' => __( 'Post Editor', 'cmb2' ),
+				'admin' => __( 'WordPress Dashboard', 'heartbeat-control' ),
+				'frontend'  => __( 'Frontend', 'heartbeat-control' ),
+				'/wp-admin/post.php' => __( 'Post Editor', 'heartbeat-control' ),
 			),
 		) );
 
-		$cmb->add_field( array(
-			'name'       => __( 'Frequency', 'cmb2' ),
+		$cmb->add_group_field( $rule_group, array(
+			'name'       => __( 'Frequency', 'heartbeat-control' ),
 			'id'         => $prefix . 'frequency',
 			'type'       => 'slider',
 			'min'        => '15',
 			'step' => '1',
 			'max'  => '300',
 			'default' => '15',
+			'classes' => 'heartbeat_frequency',
 		) );
 	}
 

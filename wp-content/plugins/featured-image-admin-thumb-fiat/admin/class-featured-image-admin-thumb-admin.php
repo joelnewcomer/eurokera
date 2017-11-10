@@ -47,6 +47,9 @@ class Featured_Image_Admin_Thumb_Admin {
 	protected $text_domain;
 	protected $fiat_image_size = 'fiat_thumb';
 	protected $is_woocommerce_active;
+	protected $plugin_slug;
+	protected $template_html;
+	protected $fiat_kses;
 
 	// For post types
 	// Expect that we won't need thumbnails for these post types
@@ -67,12 +70,27 @@ class Featured_Image_Admin_Thumb_Admin {
 		$plugin = Featured_Image_Admin_Thumb::get_instance();
 		$this->plugin_slug = $plugin->get_plugin_slug();
 		$this->text_domain = $plugin->load_plugin_textdomain();
-
+		$this->template_html = '<a title="' . __( 'Change featured image', 'featured-image-admin-thumb-fiat' ) . '" href="%1$s" class="fiat_thickbox" data-thumbnail-id="%3$d">%2$s</a>';
+		$this->fiat_kses = array(
+			'a' => array(
+				'href' => array(),
+				'class' => array(),
+				'title' => array(),
+				'id' => array(),
+				'data-thumbnail-id' => array(),
+			),
+			'img' => array(
+				'src' => array(),
+				'alt' => array(),
+				'width' => array(),
+				'height' => array(),
+				'class' => array(),
+			),
+		);
 		// Load admin style sheet and JavaScript.
-//		add_action( 'admin_enqueue_scripts',        array( $this, 'enqueue_admin_styles' ) );
 		add_action( 'admin_enqueue_scripts',        array( $this, 'enqueue_admin_scripts' ) );
 
-		add_image_size( $this->fiat_image_size , 60  );
+		add_image_size( $this->fiat_image_size , 60, 60, ['center','center']  );
 
 		add_action( 'admin_init', array( $this, 'fiat_init_columns' ) );
 
@@ -193,19 +211,27 @@ class Featured_Image_Admin_Thumb_Admin {
 	public function fiat_get_thumbnail() {
 
 		// Get the post id we are to attach the image to
-		$post_ID = intval( $_POST['post_id'] );
-		if ( ! current_user_can( 'edit_post', $post_ID ) ) {
-			wp_die( - 1 );
+		if ( isset( $_POST['post_id'] ) && ! empty( $_POST['post_id'] ) ) {
+			$post_ID = intval( $_POST['post_id'] );
+			if ( ! current_user_can( 'edit_post', $post_ID ) ) {
+				wp_die(-1);
+			} else {
+				// Check we know who's calling us before proceeding
+				check_ajax_referer( 'set_post_thumbnail-' . $post_ID, $this->fiat_nonce );
+
+				// Get thumbnail ID so we can then get html src to use for thumbnail
+				if ( isset( $_POST['thumbnail_id'] ) && ! empty( $_POST['thumbnail_id'] ) ) {
+					$thumbnail_id = intval($_POST['thumbnail_id']);
+					$thumb_url = get_image_tag( $thumbnail_id, '', '', '', $this->fiat_image_size );
+					$html = sprintf( $this->template_html,
+						home_url() . '/wp-admin/media-upload.php?post_id=' . $post_ID .'&amp;type=image&amp;TB_iframe=1&_wpnonce=' . wp_create_nonce( 'set_post_thumbnail-' . $post_ID ),
+						$thumb_url,
+						esc_attr( $thumbnail_id )
+					);
+					echo wp_kses( $html, $this->fiat_kses );
+				}
+			}
 		}
-
-		// Check who's calling us before proceeding
-		check_ajax_referer( 'set_post_thumbnail-' . $post_ID, $this->fiat_nonce );
-
-		// Get thumbnail ID so we can then get html src to use for thumbnail
-		$thumbnail_id = intval( $_POST['thumbnail_id'] );
-		$thumb_url = wp_get_attachment_image( $thumbnail_id, $this->fiat_image_size );
-		echo $thumb_url;
-
 		die();
 	}
 
@@ -267,30 +293,25 @@ class Featured_Image_Admin_Thumb_Admin {
 					}
 					// Here it is!
 					$this->fiat_nonce = wp_create_nonce( 'set_post_thumbnail-' . $post_id );
-					$template_html = '<a title="' . __( 'Change featured image', 'featured-image-admin-thumb-fiat' ) . '" href="%1$s" id="set-post-thumbnail" class="fiat_thickbox" data-thumbnail-id="%3$d">%2$s</a>';
-					$html = sprintf( $template_html,
+					$html = sprintf( $this->template_html,
 						home_url() . '/wp-admin/media-upload.php?post_id=' . $post_id .'&amp;type=image&amp;TB_iframe=1&_wpnonce=' . $this->fiat_nonce,
 						$thumb_url,
 						$thumbnail_id
 					);
 					// Click me to change!
-					echo $html;
+					echo wp_kses( $html, $this->fiat_kses );
 				} else {
-
-						// This nonce "action" parameter must match the Ajax Referrer action used in the js and PHP
-					// wp-admin/includes/ajax-actions.php wp-includes/pluggable.php
-					// It's like dealing with the IRS. :-)
 
 					$this->fiat_nonce = wp_create_nonce( 'set_post_thumbnail-' . $post_id );
 					$set_featured_image = sprintf( __( 'Set %s featured image', 'featured-image-admin-thumb-fiat' ), '<br/>' );
 					$set_edit_markup = $this->fiat_on_woocommerce_products_list() ? '' : $set_featured_image;
-					$template_html = '<a title="' . __( 'Set featured image', 'featured-image-admin-thumb-fiat' ) . '" href="%1$s" id="set-post-thumbnail" class="fiat_thickbox" >%2$s</a>';
-					$html = sprintf( $template_html,
+					$html = sprintf( $this->template_html,
 						home_url() . '/wp-admin/media-upload.php?post_id=' . $post_id .'&amp;type=image&amp;TB_iframe=1&_wpnonce=' . $this->fiat_nonce,
-						$set_edit_markup
+						$set_edit_markup,
+						$post_id
 					);
 					// Click me!
-					echo $html;
+					echo wp_kses( $html, $this->fiat_kses );
 				}
 				break;
 		}

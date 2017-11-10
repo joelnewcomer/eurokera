@@ -1,21 +1,41 @@
+jQuery(document).on('click', '#heartbeat_control_update_notice .notice-dismiss', function() {
+
+    jQuery.ajax({
+        url: ajaxurl,
+        data: {
+            action: 'dismiss_heartbeat_control_update_notice'
+        }
+    })
+
+});
 (function($) {
 
     'use strict';
 
-    $('#heartbeat_control_behavior').change(function() {
-        console.log('changed');
-        if (this.value === 'modify') {
-            $('.cmb2-id-heartbeat-control-frequency').show();
-        } else {
-            $('.cmb2-id-heartbeat-control-frequency').hide();
-        }
+    function maybeHideFrequency() {
+        $('.heartbeat_behavior select').each(function() {
+            if (this.value !== 'modify') {
+                $(this).closest('.cmb-repeatable-grouping').find('.heartbeat_frequency').hide();
+            } else {
+                $(this).closest('.cmb-repeatable-grouping').find('.heartbeat_frequency').show();
+            }
+        });
+    }
+
+    function bindChangeEvent() {
+        $('.heartbeat_behavior select').change(function() {
+            maybeHideFrequency();
+        });
+    }
+
+    $(document).ready(function() {
+        maybeHideFrequency();
+        bindChangeEvent();
     });
 
     // Init slider at start
     $('.cmb-type-slider').each(function() {
-
         initRow($(this));
-
     });
 
 
@@ -30,6 +50,8 @@
             $(this).find('.slider-field-value-text').text($(this).find('.slider-field-value').val());
 
         });
+        maybeHideFrequency();
+        bindChangeEvent();
 
         return false;
     });
@@ -47,6 +69,8 @@
             $(this).find('.slider-field-value-text').text('0');
         });
 
+        maybeHideFrequency();
+        bindChangeEvent();
         return false;
     });
 
@@ -78,6 +102,9 @@
             $value.val($slider.slider('value'));
             $text.text($slider.slider('value'));
         });
+
+        maybeHideFrequency();
+        bindChangeEvent();
     }
 
 
