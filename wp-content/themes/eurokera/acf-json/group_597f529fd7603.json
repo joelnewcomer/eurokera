@@ -7,7 +7,6 @@
             "label": "Thumbnail",
             "name": "thumbnail",
             "type": "image",
-            "value": null,
             "instructions": "Sized and cropped to 413 x 103 pixels.",
             "required": 0,
             "conditional_logic": 0,
@@ -32,7 +31,6 @@
             "label": "Video URL",
             "name": "featured_video_url",
             "type": "text",
-            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -52,7 +50,6 @@
             "label": "Description",
             "name": "description",
             "type": "wysiwyg",
-            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -72,7 +69,6 @@
             "label": "Heat Source",
             "name": "heat_source",
             "type": "checkbox",
-            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -98,7 +94,6 @@
             "label": "Display Colors",
             "name": "led_colors",
             "type": "checkbox",
-            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -125,7 +120,6 @@
             "label": "Product Data Sheet",
             "name": "product_data_sheet",
             "type": "file",
-            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -145,7 +139,6 @@
             "label": "Features",
             "name": "features",
             "type": "repeater",
-            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -165,7 +158,6 @@
                     "label": "Feature Title",
                     "name": "feature_title",
                     "type": "text",
-                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -185,7 +177,6 @@
                     "label": "Feature Image",
                     "name": "feature_image",
                     "type": "image",
-                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -212,7 +203,6 @@
             "label": "Glass-Ceramic Color",
             "name": "glass_color",
             "type": "select",
-            "value": null,
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -240,7 +230,6 @@
             "label": "3D Shapes",
             "name": "3d_shapes",
             "type": "true_false",
-            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -260,7 +249,6 @@
             "label": "Woks",
             "name": "woks",
             "type": "true_false",
-            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -274,6 +262,33 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_5a05bf1a326d4",
+            "label": "Retail or Professional?",
+            "name": "retail_pro",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "retail": "Retail",
+                "pro": "Professional"
+            },
+            "default_value": [
+                "retail"
+            ],
+            "allow_null": 0,
+            "multiple": 1,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
         }
     ],
     "location": [
@@ -293,5 +308,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1508418101
+    "modified": 1510326171
 }

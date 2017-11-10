@@ -81,6 +81,10 @@
 						if (get_field('woks')) {
 							$classes .= ' woks';
 						}
+						$retail_pro = get_field('retail_pro');
+						foreach ($retail_pro as $market) {
+							$classes .= ' ' . strtolower($market);
+						}						
 						?>
 						<div class="large-4 medium-4 small-6 columns text-center product-selector-product <?php echo $classes; ?> <?php echo $white; ?>" data-href="<?php the_permalink(); ?>">
 							<?php echo wp_get_attachment_image( get_field('thumbnail'), 'width=355&height=203&crop=1' ); ?>
