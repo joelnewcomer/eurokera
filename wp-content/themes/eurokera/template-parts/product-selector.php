@@ -42,8 +42,8 @@
 				<input class="round placebo" type="checkbox" name="custom-shape" id="custom-shape" value="custom-shape"><label for="custom-shape">Custom Shapes</label>
 				
 				<div class="radio-group">
-					<input class="placebo" type="radio" name="use" id="retail" value="retail"><label for="retail">Retail</label>
-					<input class="placebo" type="radio" name="use" id="pro" value="pro"><label for="pro">Professional</label>
+					<input type="radio" name="use" id="retail" value="retail"><label for="retail">Retail</label>
+					<input type="radio" name="use" id="pro" value="pro"><label for="pro">Professional</label>
 				</div>
 			</form>
 				
