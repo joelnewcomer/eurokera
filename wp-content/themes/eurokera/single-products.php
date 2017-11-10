@@ -35,7 +35,7 @@ get_header(); ?>
 					$active = " active";
 				}
 				echo '<div class="heat-source ' . strtolower($heat_source) . $active . '">';
-				get_template_part('assets/images/' . $heat_source . '.svg');
+				get_template_part('assets/images/' . strtolower($heat_source) . '.svg');
 				echo '<br />' . $heat_source;
 				echo '</div>';
 			}
