@@ -21,7 +21,7 @@ get_header(); ?>
 		<button class="btn-filter" data-filter=".touch-sliders">Touch Sliders</button>
 		<button class="btn-filter" data-filter=".bevels">Bevels</button>
 		<button class="btn-filter" data-filter=".decorations">Decorations</button>
-		<button class="btn-filter" data-filter=".enamel-colors-faux">Enamel Colors</button>
+		<button class="btn-filter" data-filter=".enamels">Enamel Colors</button>
 	</div>
 	
 	<?php $images = get_field('gallery'); ?>
@@ -98,7 +98,11 @@ get_header(); ?>
 				jQuery('a.gallery').fadeIn('fast', function() {
 					resetClasses();
 				});
+				jQuery('.enamels').fadeIn('fast');
+			} else if (galleryFilter == 'enamels') {
+				jQuery('.enamels').fadeIn('fast');
 			} else {
+				jQuery('.enamels').fadeOut('fast');
 				jQuery('a.gallery:not(' + galleryFilter + ')').fadeOut( "fast", function() {
 					jQuery('a.gallery' + galleryFilter).fadeIn('fast', function() {
 						resetClasses();
