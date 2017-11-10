@@ -7,7 +7,7 @@ Author:          Drum Creative
 Author URI:      https://drumcreative.com
 Text Domain:     drumcreative-drum-dashboard
 Domain Path:     /languages
-Version:         1.3.3
+Version:         1.4.5
 @package         Drum_Dashboard
  */
 
@@ -196,23 +196,35 @@ function admin_script() {
                 	$counter = 1;
                     while ( have_rows('videos', 'option') ) : the_row(); ?>
                         <div class="large-3 medium-6 short-delay columns tut-video">
-                            <iframe id="video-<?php echo $counter; ?>" width="560" height="370" src="https://player.vimeo.com/video/<?php echo the_sub_field('video_id');?>?title=0&byline=0&portrait=0" frameborder="0" allowfullscreen></iframe>
-                            <div id="video-title-<?php echo $counter; ?>" class="video-title"></div>
+	                        <?php if ( get_sub_field( 'video_type' )  == 'Vimeo' ): ?>
+                                <iframe id="video-<?php echo $counter; ?>" width="560" height="370" src="https://player.vimeo.com/video/<?php echo the_sub_field('video_id');?>?title=0&byline=0&portrait=0" frameborder="0" allowfullscreen></iframe>
+                                <div id="video-title-<?php echo $counter; ?>" class="video-title"></div>
+                                <script>
+                                    jQuery(window).load(function() {
+                                        var videoFrame = document.querySelector('iframe#video-<?php echo $counter; ?>');
+                                        var options = {
+                                            loop: false
+                                        };
+                                        var player = new Vimeo.Player(videoFrame, options);
+                                        player.getVideoTitle().then(function(title) {
+                                            jQuery('#video-title-<?php echo $counter; ?>').html('<h2>' + title + '</h2>');
+                                        }).catch(function(error) {
+                                            alert('Some went wrong ');
+                                        });
+                                    });
+                                </script>
+                            <?php else: ?>
+                                <?php
+                                $loom_url = get_sub_field('loom_video_url');
+                                $new_url = str_replace('share', 'embed', $loom_url);
+                                ?>
+
+                                <iframe class="vid-iframe" width="100%" height="218" src="<?php echo $new_url;?>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                <div class="loom-video-title">
+                                    <h2><?php echo get_sub_field('loom_video_title');?></h2>
+                                </div>
+	                        <?php endif; ?>
                         </div> <!-- .tut-video -->
-                        <script>
-							jQuery(window).load(function() {
-								var videoFrame = document.querySelector('iframe#video-<?php echo $counter; ?>');
-								var options = {
-									loop: false
-	            				};
-								var player = new Vimeo.Player(videoFrame, options);
-								player.getVideoTitle().then(function(title) {
-									jQuery('#video-title-<?php echo $counter; ?>').html('<h2>' + title + '</h2>');
-								}).catch(function(error) {
-									alert('Some went wrong ');
-								});
-							});
-	                    </script>
 	                    <?php $counter++; ?>
                     <?php endwhile;
                 endif;
@@ -266,19 +278,21 @@ if( function_exists('acf_add_options_page') ) {
 
 }
 
-//Change ACF Local JSON save location to /acf folder inside this plugin
+////Change ACF Local JSON save location to /acf folder inside this plugin
 //add_filter('acf/settings/save_json', function() {
 //    return dirname(__FILE__) . '/acf';
 //});
-//Include the /acf folder in the places to look for ACF Local JSON files
+////Include the /acf folder in the places to look for ACF Local JSON files
 //add_filter('acf/settings/load_json', function($paths) {
 //    $paths[] = dirname(__FILE__) . '/acf';
 //    return $paths;
 //});
+//
+//function add_cors_http_header(){
+//    header("Access-Control-Allow-Origin: *");
+//}
+//add_action('init','add_cors_http_header');
 
-function add_cors_http_header(){
-    header("Access-Control-Allow-Origin: *");
-}
-add_action('init','add_cors_http_header');
-
+/** ACF fields */
+require_once('acf/acf_fields.php');
 ?>

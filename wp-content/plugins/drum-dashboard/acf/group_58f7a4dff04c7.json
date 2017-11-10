@@ -203,9 +203,7 @@
                 "Account Manager 4",
                 "Account Manager 5"
             ],
-            "default_value": [
-
-            ],
+            "default_value": [],
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -288,17 +286,122 @@
             "collapsed": "",
             "min": 0,
             "max": 0,
-            "layout": "table",
+            "layout": "block",
             "button_label": "",
             "sub_fields": [
                 {
+                    "key": "field_59e909f45d75f",
+                    "label": "Video Type",
+                    "name": "video_type",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_58f7a4e0056ea",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Vimeo": "Vimeo",
+                        "Loom": "Loom"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
+                },
+                {
                     "key": "field_58f7a4e028483",
-                    "label": "Video ID",
+                    "label": "Vimeo Video ID",
                     "name": "video_id",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_59e909f45d75f",
+                                "operator": "==",
+                                "value": "Vimeo"
+                            },
+                            {
+                                "field": "field_59e909f45d75f",
+                                "operator": "!=",
+                                "value": "Loom"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_59e90a695d760",
+                    "label": "Loom Video Embed URL",
+                    "name": "loom_video_url",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_59e909f45d75f",
+                                "operator": "==",
+                                "value": "Loom"
+                            },
+                            {
+                                "field": "field_59e909f45d75f",
+                                "operator": "!=",
+                                "value": "Vimeo"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_59ea0e4beb56e",
+                    "label": "Loom Video Title",
+                    "name": "loom_video_title",
+                    "type": "text",
+                    "instructions": "Limited 20 characters.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_59e909f45d75f",
+                                "operator": "==",
+                                "value": "Loom"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -308,7 +411,7 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": 20
                 }
             ]
         },
@@ -355,9 +458,7 @@
                 "Ad Maintenance": "Ad Maintenance",
                 "Ad Landing Page": "Ad Landing Page"
             },
-            "default_value": [
-
-            ],
+            "default_value": [],
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -383,5 +484,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1496937117
+    "modified": 1508513803
 }

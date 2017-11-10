@@ -1,11 +1,11 @@
 {
 	"name": "Drum Dashboard",
-	"version": "1.2",
+	"version": "1.4.4",
 	"download_url": "https://bitbucket.org/drumcreative/drum-dashboard/get/master.zip",
 
 	"homepage": "https://bitbucket.org/drumcreative/drum-dashboard/overview",
 	"requires": "4.0",
-	"tested": "4.8",
+	"tested": "4.8.2",
 	"last_updated": "2017-06-08 16:00:00",
 	"upgrade_notice": "We have up added WP Rest API integration!!",
 

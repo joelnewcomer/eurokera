@@ -20,6 +20,7 @@ $red:#ba0c2f;
 		  line-height: 42px;
 	  }
   }
+
   p {
     font-size: 16px !important;
   }
@@ -94,14 +95,19 @@ $red:#ba0c2f;
 
 
 .tut-video {
+  float: left!important;
 	/* Medium Down */
     @media only screen and (max-width: 64em) {
     	margin-bottom: 30px;
     }
 
-    .video-title {
-	    text-align: center;
+    .video-title, .loom-video-title {
+      margin: 8px 0px 16px;
+      text-align: center;
 	}
+  .loom-video-title {
+    margin-top: 0px;
+  }
 }
 /*
 #drum-welcome {
@@ -119,7 +125,13 @@ $red:#ba0c2f;
 }
 */
 
-
+iframe {
+  border-radius: 6px;
+  &.vid-iframe {
+    height: 218px;
+    margin: 5px 0;
+  }
+}
 #drum-ad {
   padding: 0 !important;
   .welcome-panel-content {
@@ -144,4 +156,8 @@ $red:#ba0c2f;
 
 .text-center {
 	text-align: center!important;
+}
+
+.float-left {
+  float: left!important;
 }
