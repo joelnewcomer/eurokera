@@ -337,6 +337,11 @@ section.customers {
 	border: solid 4px #fff;
 	background: $primary-color;
 	padding: 14px;
+	@media only screen and (max-width: 40.063em) {
+		width: 100%;
+		left: 0;
+		margin-left: 0;	
+	}
 }
 
 body .epop-form .gform_wrapper .top_label div.ginput_container {
