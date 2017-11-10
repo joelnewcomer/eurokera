@@ -82,7 +82,6 @@
 							$classes .= ' woks';
 						}
 						$retail_pro = get_field('retail_pro');
-						print_r($retail_pro);
 						foreach ($retail_pro as $market) {
 							$classes .= ' ' . strtolower($market);
 						}
