@@ -99,7 +99,7 @@ get_header(); ?>
 					resetClasses();
 				});
 				jQuery('.enamels').fadeIn('fast');
-			} else if (galleryFilter == 'enamels') {
+			} else if (galleryFilter == '.enamels') {
 				jQuery('.enamels').fadeIn('fast');
 			} else {
 				jQuery('.enamels').fadeOut('fast');
