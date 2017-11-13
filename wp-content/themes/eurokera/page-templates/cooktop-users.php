@@ -27,14 +27,16 @@ get_header(); ?>
 			}
 		</style>
 	
-	<div class="users-gallery-carousel owl-theme owl-carousel">
+	<div class="users-gallery-carousel owl-theme owl-carousel" data-featherlight-gallery
+      data-featherlight-filter="a">
 		<?php
 		if( $images ): ?>
 			<?php foreach( $images as $image ): ?>
-			    <div class="users-gallery-image">
+				<?php $src = wp_get_attachment_image_src( $image['ID'], 'full' ) ?>
+			    <a href="<?php echo $src[0]; ?>" class="users-gallery-image">
 			    	<?php echo wp_get_attachment_image( $image['ID'], 'width=936&height=475&crop=1' ) ?>
 			        <p class="caption"><?php echo $image['caption']; ?></p>
-			    </div>
+			    </a>
 			<?php endforeach; ?>
 		<?php endif; ?>
 	</div>
