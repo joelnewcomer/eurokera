@@ -240,3 +240,7 @@ iframe {
 section#video-center p {
 	text-align: center;
 }
+
+.blog-columns:nth-child(odd) {
+	clear: left;
+}
