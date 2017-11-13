@@ -10,21 +10,24 @@
 
 ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class('blogpost-entry entry-content sr'); ?>>
-	<header>
-		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-		<?php drum_entry_meta(); ?>
-		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="featured-image">
-				<?php the_post_thumbnail( array( 'width' => 770, 'height' => 420, 'crop' => true )); ?>
-			</div>
-		<?php endif; ?>
-	</header>
-	<div class="entry-content">
-		<?php the_excerpt(); ?>
-	</div>
-	<footer>
-		<?php $tag = get_the_tags(); if ( $tag ) { ?><p><?php the_tags(); ?></p><?php } ?>
-	</footer>
-	<hr />
-</div>
+            	<?php
+	            // Check for alternate featured image first
+	            $featured_id = get_field('alt_featured');
+	            if ($featured_id == null) {
+		            $featured_id = get_post_thumbnail_id();
+	            }
+	            // Default featured image
+	            if ($featured_id == null) {
+		            $featured_id = 729;
+	            }
+	            ?>
+
+                <div class="large-6 medium-6 columns blog-columns">
+	                <a href="<?php the_permalink(); ?>" class="blog-block">
+		                <div class="text-center">
+			                <?php echo wp_get_attachment_image( $featured_id, 'width=316&height=316&crop=1' ) ?>
+							<h2><?php the_title(); ?></h2>
+		                </div>
+		                <?php the_excerpt(); ?>
+	                </a>
+                </div>

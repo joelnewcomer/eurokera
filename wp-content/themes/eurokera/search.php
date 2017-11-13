@@ -9,7 +9,7 @@
 get_header(); ?>
 
 <div class="row">
-	<div class="small-12 large-8 columns" role="main">
+	<div class="small-12 large-8 large-offset-2 medium-offset-2 columns" role="main">
 
 		<?php do_action( 'foundationpress_before_content' ); ?>
 
@@ -17,10 +17,13 @@ get_header(); ?>
 
 	<?php if ( have_posts() ) : ?>
 
+<div class="blog-row row">
+
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 		<?php endwhile; ?>
 
+</div>
 		<?php else : ?>
 			<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
@@ -39,6 +42,5 @@ get_header(); ?>
 	<?php do_action( 'foundationpress_after_content' ); ?>
 
 	</div>
-	<?php get_sidebar(); ?>
 </div>
 <?php get_footer();
