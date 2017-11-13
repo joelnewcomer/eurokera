@@ -190,16 +190,6 @@ ul.slimmenu li {
 	}	
 }
 
-@media only screen and (max-width: 785px) and (min-width: 40.063em) {
-	.top-bar-left {
-		display: none;
-	}
-	.top-bar-right {
-		width: 100%;
-		text-align: center;
-	}
-}
-
 ul.slimmenu li {
 	@media only screen and (max-width: 40.063em) {
 		position: relative;

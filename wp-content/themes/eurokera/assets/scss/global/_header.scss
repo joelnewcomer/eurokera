@@ -30,7 +30,7 @@
 }
 
 .top-bar-left a.logo {
-	display: inline-block;
+	display: block;
 	margin: 27px 15px 18px 15px;
 	svg {
 		display: block;
@@ -171,6 +171,9 @@ body:not(.home) .header-wrapper {
 
 body.admin-bar:not(.home) .header-wrapper {
 	top: 32px;
+	@media only screen and (max-width: 782px) {
+		top: 46px;
+	}
 }
 
 .admin-bar .header-wrapper.stuck {
