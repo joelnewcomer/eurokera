@@ -216,11 +216,6 @@ ul.slimmenu li a {
 	 	font-size: 15px;
 	 	letter-spacing: 0;
 	}
-    @media only screen and (max-width: 860px) and (min-width: 40.063em) {
-	 	padding: 5px 0;
-	 	font-size: 14px;
-	 	letter-spacing: 0;
-	}
     text-transform: uppercase;
     color: #5e6367;
     font-weight: 400;
@@ -280,6 +275,15 @@ ul.slimmenu .sub-menu li a:before {
 	ul.slimmenu ul.sub-menu li a {
 		color: #fff;
 		padding: 24px 0;
+	}
+}
+
+@media only screen and (max-width: 720px) {
+	ul.slimmenu > li > a {
+		padding-bottom: 29px;
+		&:before {
+			top: -19px;	
+		}		
 	}
 }
 
