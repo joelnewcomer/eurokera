@@ -2142,7 +2142,7 @@ section#video-center p {
   .top-bar-right {
     margin-top: 33px; } }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 720px) and (min-width: 40.063em) {
   .top-bar-right {
     margin-top: 29px; } }
 
@@ -6534,6 +6534,9 @@ ul.slimmenu li a {
       padding: 7px 0;
       font-size: 15px;
       letter-spacing: 0; } }
+  @media only screen and (max-width: 670px) and (min-width: 40.063em) {
+    ul.slimmenu li a {
+      font-size: 14px; } }
   ul.slimmenu li a:before {
     content: '';
     z-index: -1;
