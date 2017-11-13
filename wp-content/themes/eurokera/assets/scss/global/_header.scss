@@ -218,3 +218,15 @@ body.admin-bar:not(.home) .header-wrapper {
 		margin-top: 113px;
 	}
 }
+
+@media only screen and (max-width: 1020px) {
+	body:not(.home) .header-wrapper + section.container {
+		margin-top: 107px;
+	}
+}
+
+@media only screen and (max-width: 720px) {
+	body:not(.home) .header-wrapper + section.container {
+		margin-top: 87px;
+	}
+}
