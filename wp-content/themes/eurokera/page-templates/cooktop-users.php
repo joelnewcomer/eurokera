@@ -27,8 +27,7 @@ get_header(); ?>
 			}
 		</style>
 	
-	<div class="users-gallery-carousel owl-theme owl-carousel" data-featherlight-gallery
-      data-featherlight-filter="a">
+	<div class="users-gallery-carousel owl-theme owl-carousel" data-featherlight-gallery data-featherlight-filter="a">
 		<?php
 		if( $images ): ?>
 			<?php foreach( $images as $image ): ?>
@@ -204,7 +203,7 @@ get_header(); ?>
 				<?php get_template_part('assets/images/k.svg'); ?>
 				<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?>
 				<img class="euro-k" src="<?php echo get_template_directory_uri(); ?>/assets/images/identi-k.png">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/identi-logo.png">
+				<img class="identi-logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/identi-logo.png">
 			</div>
 		</div>
 
