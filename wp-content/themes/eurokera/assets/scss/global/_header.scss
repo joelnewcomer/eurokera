@@ -3,7 +3,7 @@
 		margin-top: 33px;
 	}
 	@media only screen and (max-width: 720px) and (min-width: 40.063em)  {
-		margin-top: 29px;
+		margin-top: 20px;
 	}
 	.search-button  {
 		display: inline-block;
@@ -37,6 +37,10 @@
 	margin: 27px 15px 18px 15px;
 	@media only screen and (max-width: 1020px) {
 		margin-top: 22px;
+	}
+	@media only screen and (max-width: 720px) {
+		margin-top: 15px;
+		margin-bottom: 15px;
 	}
 	svg {
 		display: block;
@@ -227,6 +231,6 @@ body.admin-bar:not(.home) .header-wrapper {
 
 @media only screen and (max-width: 720px) {
 	body:not(.home) .header-wrapper + section.container {
-		margin-top: 87px;
+		margin-top: 85px;
 	}
 }
