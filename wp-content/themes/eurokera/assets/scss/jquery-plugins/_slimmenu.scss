@@ -281,7 +281,7 @@ ul.slimmenu .sub-menu li a:before {
 	}
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 720px) and (min-width: 40.063em) {
 	ul.slimmenu > li > a {
 		padding-bottom: 26px;
 		&:before {

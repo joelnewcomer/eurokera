@@ -2323,7 +2323,7 @@ body.admin-bar:not(.home) .header-wrapper {
 
 @media only screen and (max-width: 720px) {
   body:not(.home) .header-wrapper + section.container {
-    margin-top: 85px; } }
+    margin-top: 67px; } }
 
 #footer-container {
   display: block;
@@ -6597,7 +6597,7 @@ ul.slimmenu .sub-menu li a:before {
     color: #fff;
     padding: 24px 0; } }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 720px) and (min-width: 40.063em) {
   ul.slimmenu > li > a {
     padding-bottom: 26px; }
     ul.slimmenu > li > a:before {
