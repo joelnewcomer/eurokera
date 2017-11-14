@@ -253,6 +253,11 @@ ul.slimmenu li a {
 	}
 }
 
+ul.slimmenu li.active > a {
+	background: $primary-color;
+	color: #fff;
+}
+
 ul.slimmenu li.blue a:before {
 	border-bottom: 1px solid $secondary-color;
 }
