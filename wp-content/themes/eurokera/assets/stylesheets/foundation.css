@@ -1286,16 +1286,16 @@ h2 {
   font-size: 1.875rem; }
 
 h3 {
-  font-size: 1.375rem; }
+  font-size: 1.25rem; }
 
 h4 {
-  font-size: 1.375rem; }
+  font-size: 1.25rem; }
 
 h5 {
-  font-size: 1.375rem; }
+  font-size: 1.25rem; }
 
 h6 {
-  font-size: 1.375rem; }
+  font-size: 1.25rem; }
 
 @media screen and (min-width: 40em) {
   h1 {
@@ -1307,9 +1307,9 @@ h6 {
   h4 {
     font-size: 1.5625rem; }
   h5 {
-    font-size: 1.375rem; }
+    font-size: 1.25rem; }
   h6 {
-    font-size: 1.375rem; } }
+    font-size: 1.25rem; } }
 
 a {
   color: #f89828;
@@ -2117,7 +2117,7 @@ section.container > section {
 
 p {
   color: #595959;
-  font-size: 22px; }
+  font-size: 20px; }
 
 .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4 {
   color: #f89828; }
@@ -2668,7 +2668,7 @@ input.button:hover {
   position: relative;
   padding-left: 17px;
   margin-bottom: 7px;
-  font-size: 22px;
+  font-size: 20px;
   text-align: left; }
   .entry-content > ul > li:before, section.section ul > li:before {
     content: "";
