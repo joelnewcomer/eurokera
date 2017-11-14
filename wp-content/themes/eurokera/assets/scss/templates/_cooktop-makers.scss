@@ -301,6 +301,10 @@ section.customers {
 	background: #dfe0e1;
 	h2 {
 		margin-bottom: 30px;
+		@media only screen and (max-width: 670px) {
+			font-size: 32px;
+			margin-bottom: 20px;	
+		}
 	}
 	.heat-source {	
 		color: #585c60;

@@ -122,6 +122,9 @@ section.timeline {
 		float: left;
 		width: 55%;
 		padding: 80px 10% 80px 15%;
+		@media only screen and (max-width: 1040px) {
+			padding: 30px 24px 35px 24px;
+		}
 		@media only screen and (max-width: 40.063em) {
 			padding: 30px 24px 35px 24px;	
 		}
@@ -136,7 +139,7 @@ section.timeline {
 		p {
 			color: #fff;
 			font-size: 22px;
-			@media only screen and (max-width: 40.063em) {
+			@media only screen and (max-width: 1040px) {
 				font-size: 20px;	
 			}
 		}
@@ -165,14 +168,17 @@ section.facts {
 	svg {
 		float: left;
 		margin-right: 36px;
-		@media only screen and (max-width: 40.063em) {
+		@media only screen and (min-width: 40.063em) {
+			margin-bottom: 20px;
+		}
+		@media only screen and (max-width: 760px) {
 			margin-right: 20px;
 		}
 	}
 	.cooktop svg {
 		width: 107px;
 		height: 107px;
-		@media only screen and (max-width: 40.063em) {
+		@media only screen and (max-width: 760px) {
 			width: 57px;
 			height: 57px;	
 		}
@@ -180,12 +186,14 @@ section.facts {
 	.stopwatch svg {
 		width: 87px;
 		height: 110px;
-		@media only screen and (max-width: 40.063em) {
+		@media only screen and (max-width: 760px) {
 			width: 47px;
 			height: 59px;	
 		}
 	}
 	.facts-box {
+		display: inline-block;
+		width: 100%;
 		padding: 28px 30px 20px 30px;
 		@media only screen and (max-width: 40.063em) {
 			padding: 17px 20px;
@@ -198,6 +206,15 @@ section.facts {
 	h3 {
 		font-size: 34px;
 		line-height: 1.2;
+		@media only screen and (max-width: 1060px) {
+			font-size: 28px;
+		}		
+		@media only screen and (max-width: 820px) {
+			font-size: 24px;
+		}
+		@media only screen and (max-width: 760px) {
+			font-size: 22px;
+		}
 		@media only screen and (max-width: 40.063em) {
 			font-size: 20px;
 			margin-bottom: 4px;
@@ -209,8 +226,11 @@ section.facts {
 	p {
 		font-size: 26px;
 		line-height: 1.2;
-		@media only screen and (max-width: 40.063em) {
-			font-size: 16px;
+		@media only screen and (max-width: 1060px) {
+			font-size: 20px;
+		}
+		@media only screen and (max-width: 820px) {
+			font-size: 18px;
 			margin-bottom: 0;	
 		}
 	}

@@ -52,6 +52,15 @@ a.product-video {
 	}
 }
 
+.makers-details .heat-source {
+	@media only screen and (max-width: 875px) {
+		min-width: 100px;
+	}
+	@media only screen and (max-width: 680px) {
+		min-width: 85px;
+	}
+}
+
 section.product-intro {
 	padding: 90px 10px 85px 10px;
 	@media only screen and (max-width: 40.063em) {
