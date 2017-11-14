@@ -6576,9 +6576,10 @@ ul.slimmenu li a {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); }
 
-ul.slimmenu li.active > a {
-  background: #f89828;
-  color: #fff; }
+@media only screen and (max-width: 40.063em) {
+  ul.slimmenu li.active > a {
+    background: #f89828;
+    color: #fff; } }
 
 ul.slimmenu li.blue a:before {
   border-bottom: 1px solid #0a948f; }
