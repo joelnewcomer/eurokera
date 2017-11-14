@@ -128,9 +128,9 @@ get_header(); ?>
 			<h2>Global Reach</h2>
 			<div class="global-locations show-for-small text-center">
 				<p>
-					Fountain Inn, SC, USA<br />
-					Bagneaux-sur-Loing, France<br />
 					Château-Thierry, France<br />
+					Bagneaux-sur-Loing, France<br />
+					Fountain Inn, SC, USA<br />
 					Guangzhou, China<br />
 					Rayong, Thailand
 				</p>
