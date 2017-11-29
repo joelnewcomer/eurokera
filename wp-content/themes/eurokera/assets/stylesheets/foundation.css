@@ -4788,6 +4788,11 @@ section.design-gallery {
 .white.enamels {
   margin-top: 40px; }
 
+.featherlight .featherlight-content .caption {
+  width: 100%;
+  text-align: center !important;
+  font-weight: normal !important; }
+
 .featured-image h1 {
   max-width: 960px;
   display: inline-block; }

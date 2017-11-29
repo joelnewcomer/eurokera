@@ -39,10 +39,9 @@ get_header(); ?>
 				$full_size_url = wp_get_attachment_image_src( $image['ID'], 'full' );
 				$cropped_url = wp_get_attachment_image_src( $image['ID'], 'width=936&height=475&crop=1' ) 
 				?>
-				<a class="gallery<?php echo $cat_classes; ?>" href="<?php echo $full_size_url[0]; ?>">
+				<a class="gallery-link gallery<?php echo $cat_classes; ?>" href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $image['caption']; ?>">
 					<div class="hero" style="background-image: url(<?php echo $cropped_url[0]; ?>);"></div>
 				</a>
-			        <!-- <p class="caption"><?php echo $image['caption']; ?></p> -->
 			<?php endforeach; ?>
 		<?php endif; ?>
 	</div>
@@ -84,7 +83,7 @@ get_header(); ?>
 	<script>
 		jQuery(window).load(function(){
 			jQuery.featherlightGallery.prototype.afterContent = function() {
-				var caption = this.$currentTarget.closest('.caption').html();
+				var caption = this.$currentTarget.data('caption');
 				this.$instance.find('.caption').remove();
 				jQuery('<div class="caption">').text(caption).appendTo(this.$instance.find('.featherlight-content'));
 			};
