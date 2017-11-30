@@ -182,9 +182,9 @@ get_header(); ?>
 					// When form is completed, set persistent variable, download data sheet, and close the modal
 					jQuery(document).bind('gform_confirmation_loaded', function(event, formId){
 						basil.set('formCompleted', 'yes');
-						window.location = '<?php echo get_field('product_data_sheet'); ?>';
 						setTimeout(function(){ 
 							jQuery('.data-sheet-modal').removeClass('open');
+							window.location = '<?php echo get_field('product_data_sheet'); ?>';
 						}, 2000);
 					});
 					// Close modal 
