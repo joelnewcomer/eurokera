@@ -11,7 +11,7 @@
 	    	fill: #5e6367;
 	    	width: 50px;
 	    	height: 20px;
-	    	margin-top: 2px;
+	    	margin-top: -4px;
 			&:hover {
 				color: $primary-color;
 			}
@@ -24,12 +24,10 @@
 			margin-left: -4px;
 			cursor: pointer;
 			@media only screen and (max-width: 40em) {
-				fill: #fff;
 				width: 60px;
 			}
 		}
 	}
-
 }
 
 .top-bar-left a.logo {
@@ -139,13 +137,6 @@ header#masthead {
 		top: 0;
 		z-index: 999;
 		width: 100%;
-	}
-	.icon-wrapper {
-		position: absolute;
-		right: 0;
-		top: 0;
-		height: 64px;
-		background: $primary-color;
 	}
 }
 

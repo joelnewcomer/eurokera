@@ -2152,7 +2152,7 @@ section#video-center p {
     fill: #5e6367;
     width: 50px;
     height: 20px;
-    margin-top: 2px;
+    margin-top: -4px;
     transition: color 0.5s ease-out;
     -o-transition: color 0.5s ease-out;
     -moz-transition: color 0.5s ease-out;
@@ -2165,7 +2165,6 @@ section#video-center p {
       color: #f89828; }
     @media only screen and (max-width: 40em) {
       .top-bar-right .search-button svg.search-icon {
-        fill: #fff;
         width: 60px; } }
 
 .top-bar-left a.logo {
@@ -2252,13 +2251,7 @@ header#masthead {
     position: absolute;
     top: 0;
     z-index: 999;
-    width: 100%; }
-  .icon-wrapper {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 64px;
-    background: #f89828; } }
+    width: 100%; } }
 
 body > .animsition > section.container > section,
 body > section.container > section,
@@ -2874,6 +2867,9 @@ input.button:hover {
     .fl-modal.fl-search .fl-modal-close-icon {
       width: 100px;
       height: 100px; } }
+  @media only screen and (max-width: 40.063em) {
+    .fl-modal.fl-search .fl-modal-close-icon {
+      line-height: 52px; } }
 
 #searchBox input {
   display: block;
@@ -2930,6 +2926,9 @@ input.button:hover {
     width: 90px;
     height: 100%;
     z-index: 5; }
+    @media only screen and (max-width: 40.063em) {
+      .search-popup input#searchsubmit {
+        right: 50px; } }
   .search-popup .search-icon {
     width: 25px;
     position: absolute;
@@ -2939,6 +2938,9 @@ input.button:hover {
     @media screen and (min-width: 40em) {
       .search-popup .search-icon {
         width: 75px; } }
+    @media only screen and (max-width: 40.063em) {
+      .search-popup .search-icon {
+        right: 68px; } }
   .search-popup .close-button {
     top: 0;
     right: 0px;
@@ -2976,16 +2978,13 @@ body > .fl-modal .fl-modal-content {
   border: none; }
   @media only screen and (max-width: 40.063em) {
     body > .fl-modal .fl-modal-content {
-      width: 100%;
-      max-width: 100%;
+      width: 85%;
       margin: 0; } }
 
 @media only screen and (max-width: 40.063em) {
   .search-container {
     width: 100%;
     text-align: center; }
-  .search-popup form, .search-popup input#s {
-    width: 80%; }
   .search-popup input#s {
     min-width: 20px;
     padding: 0 0 0 15px;
@@ -3002,6 +3001,12 @@ body > .fl-modal .fl-modal-content {
     height: 50px;
     font-size: 20px;
     line-height: 50px; } }
+
+.page-content #searchsubmit {
+  padding: 8px 30px; }
+
+body.search section.container {
+  padding: 40px 0; }
 
 ul.post-meta {
   margin-left: 0;
@@ -6556,7 +6561,7 @@ ul.slimmenu li {
     position: relative;
     overflow: hidden; } }
 
-ul.slimmenu li a {
+ul.slimmenu li a, ul.slimmenu li .search-button {
   display: block;
   position: relative;
   white-space: nowrap;
@@ -6571,21 +6576,21 @@ ul.slimmenu li a {
   -moz-transition: color 0.5s ease-out;
   -webkit-transition: color 0.5s ease-out; }
   @media only screen and (max-width: 40.063em) {
-    ul.slimmenu li a {
+    ul.slimmenu li a, ul.slimmenu li .search-button {
       padding: 12px;
       text-align: center; } }
   @media only screen and (max-width: 40.063em) {
-    ul.slimmenu li a {
+    ul.slimmenu li a, ul.slimmenu li .search-button {
       font-size: 20px; } }
   @media only screen and (max-width: 1020px) and (min-width: 40.063em) {
-    ul.slimmenu li a {
+    ul.slimmenu li a, ul.slimmenu li .search-button {
       padding: 7px 0;
       font-size: 15px;
       letter-spacing: 0; } }
   @media only screen and (max-width: 670px) and (min-width: 40.063em) {
-    ul.slimmenu li a {
+    ul.slimmenu li a, ul.slimmenu li .search-button {
       font-size: 14px; } }
-  ul.slimmenu li a:before {
+  ul.slimmenu li a:before, ul.slimmenu li .search-button:before {
     content: '';
     z-index: -1;
     border-radius: inherit;
@@ -6607,7 +6612,7 @@ ul.slimmenu li a {
     opacity: 0;
     -webkit-transform: scale3d(1.2, 1.2, 1);
     transform: scale3d(1.2, 1.2, 1); }
-  ul.slimmenu li a:hover::before {
+  ul.slimmenu li a:hover::before, ul.slimmenu li .search-button:hover::before {
     opacity: 1;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); }
@@ -6630,9 +6635,9 @@ ul.slimmenu .sub-menu li a:before {
   top: -12px; }
 
 @media only screen and (min-width: 40.063em) {
-  ul.slimmenu > li > a {
+  ul.slimmenu > li > a, ul.slimmenu li .search-button {
     padding-bottom: 45px; }
-    ul.slimmenu > li > a:before {
+    ul.slimmenu > li > a:before, ul.slimmenu li .search-button:before {
       top: -35px; }
   ul.slimmenu ul.sub-menu li a {
     color: #fff;

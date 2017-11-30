@@ -21,12 +21,22 @@ if ( ! function_exists( 'foundationpress_main_menu' ) ) {
 		wp_nav_menu( array(
 			'container'      => false,
 			'menu_class'     => 'dropdown menu slimmenu',
-			'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu" data-dropdown-menu>%3$s</ul>',
+			'items_wrap'     => my_nav_wrap(),
 			'theme_location' => 'main-menu',
 			'depth'          => 3,
 			'fallback_cb'    => false,
 		));
 	}
+}
+
+function my_nav_wrap() {  
+	$wrap  = '<ul id="%1$s" class="%2$s desktop-menu" data-dropdown-menu>';
+	$wrap .= '%3$s';
+	$search_icon = file_get_contents(locate_template("assets/images/search.svg.php"));
+	// get_template_part('assets/images/search.svg');
+	$wrap .= '<li class="icon-wrapper">' . $search_icon . '</li>';
+	$wrap .= '</ul>';
+	return $wrap;
 }
 
 
