@@ -4658,22 +4658,23 @@ section.locate-support .identify-cooktop svg {
   .epop-identify svg {
     margin-bottom: 20px; }
   .epop-identify img.euro-k {
+    height: 58px;
     margin-right: 75px; }
     @media only screen and (max-width: 40.063em) {
       .epop-identify img.euro-k {
         margin-right: 40px; } }
-  .epop-identify img {
-    height: 71px; }
+  .epop-identify img.identi-logo {
+    height: 100px; }
   .epop-identify svg.euro-k {
-    width: 62px;
-    height: 72px;
+    width: 50px;
+    height: 58px;
     margin-right: 75px; }
     @media only screen and (max-width: 40.063em) {
       .epop-identify svg.euro-k {
         margin-right: 40px; } }
   .epop-identify svg.eurokera-logo {
-    width: 178px;
-    height: 71px; }
+    width: 145px;
+    height: 58px; }
 
 .cooking-methods a:hover {
   color: #9c9b9d; }

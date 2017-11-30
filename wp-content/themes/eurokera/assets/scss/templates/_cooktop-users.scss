@@ -333,25 +333,26 @@ section.locate-support {
 		margin-bottom: 20px;
 	}
 	img.euro-k {
+		height: 58px;
 		margin-right: 75px;
 		@media only screen and (max-width: 40.063em) {
 			margin-right: 40px;	
 		}
 	}
-	img {
-		height: 71px;
+	img.identi-logo {
+		height: 100px;
 	}
 	svg.euro-k {
-		width: 62px;
-		height: 72px;
+		width: 50px;
+		height: 58px;
 		margin-right: 75px;
 		@media only screen and (max-width: 40.063em) {
 			margin-right: 40px;	
 		}
 	}
 	svg.eurokera-logo {
-		width: 178px;
-		height: 71px;
+		width: 145px;
+		height: 58px;
 	}	
 }
 

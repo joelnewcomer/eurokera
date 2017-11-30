@@ -167,7 +167,8 @@ get_header(); ?>
 
 <div id="work-together" class="epop-content transition">
 	<div class="epop-overlay"></div>
-	<div class="epop-form text-center">		
+	<div class="epop-form text-center">
+		<!-- <div class="epop-close">&times;</div> -->
 		<?php gravity_form(4, false, false, false, '', true, 12); ?>
 	</div>
 </div>
@@ -180,7 +181,7 @@ jQuery( "#work-together-btn" ).on( "click", function(e) {
 	jQuery('#work-together').toggleClass('active');
 });
 
-jQuery( ".epop-overlay" ).on( "click", function() {
+jQuery( ".epop-overlay,.epop-close" ).on( "click", function() {
 	jQuery('.epop-content').removeClass('active');
 });
 </script>
