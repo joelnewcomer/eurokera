@@ -2397,7 +2397,7 @@ body.admin-bar:not(.home) .header-wrapper {
     color: #848484; }
 
 .social svg {
-  margin: 0 5px;
+  margin: 0 12px;
   max-height: 42px;
   max-width: 42px;
   fill: #f89828;
