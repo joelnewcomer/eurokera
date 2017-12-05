@@ -2373,17 +2373,16 @@ body.admin-bar:not(.home) .header-wrapper {
           text-align: center;
           text-transform: none; } }
   #footer-container svg.eurokera-logo {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    max-width: 147px; }
   #footer-container .social {
     margin-bottom: 30px; }
-  #footer-container svg {
-    max-width: 147px; }
-    @media only screen and (max-width: 40.063em) {
-      #footer-container svg {
-        margin-top: 0;
-        width: 114px;
-        height: 45px;
-        margin-bottom: 8px; } }
+  @media only screen and (max-width: 40.063em) {
+    #footer-container svg {
+      margin-top: 0;
+      width: 114px;
+      height: 45px;
+      margin-bottom: 8px; } }
   #footer-container .button {
     margin-bottom: 25px; }
     #footer-container .button a {
