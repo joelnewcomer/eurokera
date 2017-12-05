@@ -3408,6 +3408,9 @@ section.site-links {
     section.site-links {
       padding: 30px 0 20px 0; } }
 
+section.homepage-content {
+  padding: 40px 0 30px 0; }
+
 #single-post > row {
   max-width: 1120px; }
 

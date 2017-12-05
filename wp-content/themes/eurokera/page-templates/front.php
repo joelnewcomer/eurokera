@@ -45,6 +45,15 @@ get_header(); ?>
    });			
 </script>
 
+<?php $content = get_field('homepage_content'); ?>
+<?php if ($content != '') : ?>
+<section class="homepage-content">
+	<div class="large-12 columns">
+		<?php echo $content; ?>
+	</div>
+</section>
+<?php endif; ?>
+
 <section class="ceo">
 	<div class="large-6 medium-6 columns ceo-photo text-right match-quote" style="background-image: url(<?php echo get_field('ceo_photo'); ?>);">
 		<div class="short-quote">
