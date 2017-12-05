@@ -13,7 +13,11 @@
 		<div id="footer-container">
 			<footer id="footer">
 				<div class="row">
-					<div class="large-2 medium-2 columns small-text-center">
+					<div class="large-12 columns text-center">
+						<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?>
+						<?php get_template_part('template-parts/social'); ?>
+					</div>
+					<!-- <div class="large-2 medium-2 columns small-text-center">
 						<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?>
 					</div>
 					<div class="large-8 medium-8 columns">
@@ -32,8 +36,8 @@
 						<div class="text-center">
 							<div class="button outline white"><a href="<?php echo get_permalink( get_option('page_for_posts' ) ); ?>">Blog</a></div>
 						</div>
-					</div>
-				</div>
+					</div> -->
+				</div> <!-- row -->
 				
 				<div class="row">
 					<div class="large-6 medium-6 columns copyright small-text-center">

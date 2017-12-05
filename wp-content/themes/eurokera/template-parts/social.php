@@ -1,4 +1,4 @@
-<div class="social text-right small-text-center">
+<div class="social text-center">
 	<?php if(get_field('social_networks', 'option')): ?>
 		<?php while(has_sub_field('social_networks', 'option')): ?>
 			<?php

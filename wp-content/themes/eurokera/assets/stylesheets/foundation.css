@@ -2342,7 +2342,7 @@ body.admin-bar:not(.home) .header-wrapper {
   width: 100%;
   overflow: hidden;
   background: #30302f;
-  padding-top: 60px;
+  padding-top: 50px;
   padding-bottom: 15px; }
   @media only screen and (max-width: 40.063em) {
     #footer-container {
@@ -2372,9 +2372,12 @@ body.admin-bar:not(.home) .header-wrapper {
           margin-bottom: 15px;
           text-align: center;
           text-transform: none; } }
+  #footer-container svg.eurokera-logo {
+    margin-bottom: 20px; }
+  #footer-container .social {
+    margin-bottom: 30px; }
   #footer-container svg {
-    max-width: 147px;
-    margin-top: 51px; }
+    max-width: 147px; }
     @media only screen and (max-width: 40.063em) {
       #footer-container svg {
         margin-top: 0;
@@ -2396,8 +2399,8 @@ body.admin-bar:not(.home) .header-wrapper {
 
 .social svg {
   margin: 0 5px;
-  max-height: 20px;
-  max-width: 25px;
+  max-height: 42px;
+  max-width: 42px;
   fill: #f89828;
   vertical-align: middle; }
 

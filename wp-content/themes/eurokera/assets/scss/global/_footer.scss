@@ -6,7 +6,7 @@
 	width: 100%;
 	overflow: hidden;
 	background: #30302f;
-	padding-top: 60px;
+	padding-top: 50px;
 	@media only screen and (max-width: 40.063em) {
 		padding-top: 40px;	
 	}
@@ -39,9 +39,14 @@
 			}
 		}
 	}
+	svg.eurokera-logo {
+		margin-bottom: 20px;
+	}
+	.social {
+		margin-bottom: 30px;
+	}
 	svg {
 		max-width: 147px;
-		margin-top: 51px;
 		@media only screen and (max-width: 40.063em) {
 			margin-top: 0;
 			width: 114px;
@@ -71,8 +76,8 @@
 .social {
 	svg {
 		margin: 0 5px;
-		max-height: 20px;
-		max-width: 25px;
+		max-height: 42px;
+		max-width: 42px;
 		fill: $primary-color;
 		vertical-align: middle;
 	}
