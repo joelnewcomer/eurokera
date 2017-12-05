@@ -201,9 +201,9 @@ ul.slimmenu li a, ul.slimmenu li .search-button {
     display: block;
     position: relative;
     white-space: nowrap;
-    padding: 14px 0;
+    padding: 14px 0 38px 0;
     @media only screen and (max-width: 40.063em) {
-	 	padding: 12px;  
+	 	padding: 12px 0 38px 0;  
 	 	text-align: center;
 	}
     font-size: 16px;
@@ -212,7 +212,7 @@ ul.slimmenu li a, ul.slimmenu li .search-button {
 	}
     letter-spacing: 1px;
      @media only screen and (max-width: 1020px) and (min-width: 40.063em) {
-	 	padding: 7px 0;
+	 	padding: 7px 0 38px 0;
 	 	font-size: 15px;
 	 	letter-spacing: 0;
 	}

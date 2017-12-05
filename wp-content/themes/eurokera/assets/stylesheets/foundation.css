@@ -484,7 +484,7 @@ button {
   display: none !important; }
 
 .row {
-  max-width: 75rem;
+  max-width: 65.5rem;
   margin-left: auto;
   margin-right: auto; }
   .row::before, .row::after {
@@ -1322,7 +1322,7 @@ a {
     border: 0; }
 
 hr {
-  max-width: 75rem;
+  max-width: 65.5rem;
   height: 0;
   border-right: 0;
   border-top: 0;
@@ -2320,15 +2320,19 @@ body.admin-bar:not(.home) .header-wrapper {
 
 @media only screen and (min-width: 40.063em) {
   body:not(.home) .header-wrapper + section.container {
-    margin-top: 113px; } }
+    margin-top: 107px; } }
 
 @media only screen and (max-width: 1020px) {
   body:not(.home) .header-wrapper + section.container {
-    margin-top: 107px; } }
+    margin-top: 102px; } }
 
 @media only screen and (max-width: 720px) {
   body:not(.home) .header-wrapper + section.container {
-    margin-top: 67px; } }
+    margin-top: 74px; } }
+
+@media only screen and (max-width: 40.063em) {
+  body:not(.home) .header-wrapper + section.container {
+    margin-top: 66px; } }
 
 #footer-container {
   display: block;
@@ -2461,7 +2465,7 @@ body.admin-bar:not(.home) .header-wrapper {
 
 body#tinymce {
   height: auto;
-  max-width: 75rem;
+  max-width: 65.5rem;
   padding: 1.25rem !important; }
 
 .button {
@@ -6601,7 +6605,7 @@ ul.slimmenu li a, ul.slimmenu li .search-button {
   display: block;
   position: relative;
   white-space: nowrap;
-  padding: 14px 0;
+  padding: 14px 0 38px 0;
   font-size: 16px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -6613,14 +6617,14 @@ ul.slimmenu li a, ul.slimmenu li .search-button {
   -webkit-transition: color 0.5s ease-out; }
   @media only screen and (max-width: 40.063em) {
     ul.slimmenu li a, ul.slimmenu li .search-button {
-      padding: 12px;
+      padding: 12px 0 38px 0;
       text-align: center; } }
   @media only screen and (max-width: 40.063em) {
     ul.slimmenu li a, ul.slimmenu li .search-button {
       font-size: 20px; } }
   @media only screen and (max-width: 1020px) and (min-width: 40.063em) {
     ul.slimmenu li a, ul.slimmenu li .search-button {
-      padding: 7px 0;
+      padding: 7px 0 38px 0;
       font-size: 15px;
       letter-spacing: 0; } }
   @media only screen and (max-width: 670px) and (min-width: 40.063em) {
