@@ -87,11 +87,11 @@ get_header(); ?>
 				var imgURL = this.$instance.find('.featherlight-content').find('img').attr("src");
 				var facebookIcon = '<?php echo load_template_part('assets/images/social/facebook','official.svg'); ?>';
 				var facebookURL = 'https://www.facebook.com/sharer.php?u=' + imgURL;
-				var facebookFullLink = '<a href="' + facebookURL + '">' + facebookIcon + '</a>';
+				var facebookFullLink = '<a href="' + facebookURL + '" target="_blank">' + facebookIcon + '</a>';
 				this.$instance.find('.caption').remove();
 				jQuery('<div class="caption">').text(caption).appendTo(this.$instance.find('.featherlight-content'));
 				
-				jQuery('<div class="social">' + facebookFullLink + '</div>').appendTo(this.$instance.find('.featherlight-content'));
+				jQuery('<div class="img-social">Share: ' + facebookFullLink + '</div>').appendTo(this.$instance.find('.featherlight-content'));
 			};
 		});
 		jQuery('.btn-filter').on( "click", function() {
