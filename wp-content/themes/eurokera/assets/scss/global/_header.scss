@@ -194,15 +194,34 @@ body.admin-bar:not(.home) .header-wrapper {
 		top: 46px;	
 	}
 	body:not(.home) section.container, .home-banner {
-		margin-top: 66px;
+		margin-top: 0;
 	}
 }
 
 @media only screen and (min-width: 40.063em) {
 	.header-wrapper.stuck + section.container {
-		margin-top: 113px;
+		margin-top: 107px;
 	}
 }
+
+@media only screen and (max-width: 1020px) {
+	.header-wrapper.stuck + section.container {
+		margin-top: 102px;
+	}
+}
+
+@media only screen and (max-width: 720px) {
+	.header-wrapper.stuck + section.container {
+		margin-top: 74px;
+	}
+}
+
+@media only screen and (max-width: 40.063em) {
+	.header-wrapper.stuck + section.container {
+		margin-top: 66px;
+	}
+}
+
 
 #site-navigation {
 	position: relative;

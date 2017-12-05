@@ -2297,11 +2297,23 @@ body.admin-bar:not(.home) .header-wrapper {
   .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
     top: 46px; }
   body:not(.home) section.container, .home-banner {
-    margin-top: 66px; } }
+    margin-top: 0; } }
 
 @media only screen and (min-width: 40.063em) {
   .header-wrapper.stuck + section.container {
-    margin-top: 113px; } }
+    margin-top: 107px; } }
+
+@media only screen and (max-width: 1020px) {
+  .header-wrapper.stuck + section.container {
+    margin-top: 102px; } }
+
+@media only screen and (max-width: 720px) {
+  .header-wrapper.stuck + section.container {
+    margin-top: 74px; } }
+
+@media only screen and (max-width: 40.063em) {
+  .header-wrapper.stuck + section.container {
+    margin-top: 66px; } }
 
 #site-navigation {
   position: relative; }
@@ -3130,10 +3142,14 @@ body.blog #page, body.category #page {
   display: block;
   position: relative;
   width: 100%;
-  min-height: 100vh;
   -webkit-background-size: cover !important;
           background-size: cover !important;
-  padding: 15% 20px; }
+  background-repeat: no-repeat;
+  padding: 0 20px; }
+  @media only screen and (max-width: 1100px) {
+    .home-banner {
+      -webkit-background-size: auto 110% !important;
+              background-size: auto 110% !important; } }
   .home-banner svg {
     width: 155px;
     height: 62px;
@@ -3142,6 +3158,22 @@ body.blog #page, body.category #page {
     color: #fff;
     font-weight: 300;
     margin-bottom: 35px; }
+
+.home-banner, .center-banner {
+  min-height: -webkit-calc(100vh - 106px);
+  min-height: calc(100vh - 106px); }
+  @media only screen and (max-width: 1021px) {
+    .home-banner, .center-banner {
+      min-height: -webkit-calc(100vh - 101px);
+      min-height: calc(100vh - 101px); } }
+  @media only screen and (max-width: 721px) {
+    .home-banner, .center-banner {
+      min-height: -webkit-calc(100vh - 73px);
+      min-height: calc(100vh - 73px); } }
+  @media only screen and (max-width: 40.063em) {
+    .home-banner, .center-banner {
+      min-height: -webkit-calc(100vh - 65px);
+      min-height: calc(100vh - 65px); } }
 
 .down-arrow {
   position: absolute;
@@ -6636,10 +6668,8 @@ ul.slimmenu .sub-menu li a:before {
   top: -12px; }
 
 @media only screen and (min-width: 40.063em) {
-  ul.slimmenu > li > a, ul.slimmenu li .search-button {
-    padding-bottom: 45px; }
-    ul.slimmenu > li > a:before, ul.slimmenu li .search-button:before {
-      top: -35px; }
+  ul.slimmenu > li > a:before, ul.slimmenu li .search-button:before {
+    top: -35px; }
   ul.slimmenu ul.sub-menu li a {
     color: #fff;
     padding: 24px 0; } }

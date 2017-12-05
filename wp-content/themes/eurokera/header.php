@@ -53,40 +53,6 @@
 	<?php if(!preg_match('/(?i)msie [5-9]/',$_SERVER['HTTP_USER_AGENT'])) : ?>
 		<div class="animsition">
 	<?php endif; ?>	
-	
-	<?php if (is_front_page()) : ?>
-		<section class="home-banner text-center" data-paroller-factor="0.3" style="background: url('<?php the_post_thumbnail_url('full'); ?>') center center no-repeat;">
-			<div class="hide-for-small"><?php get_template_part('template-parts/header-icon'); ?><br /></div>
-			<?php
-			// Insert a line break after the first period
-			$desc = get_bloginfo('description');
-			$period_pos = strpos($desc, '.') + 1;
-			$desc = substr_replace($desc, '<br />', $period_pos, 0);
-			?>
-			<h1><?php echo $desc; ?></h1>
-			<?php get_template_part('template-parts/content','site-links'); ?>
-			<div class="down-arrow bounce animated"><?php get_template_part('assets/images/acc', 'arrow.svg'); ?></div>
-		</section>
-	
-		<script>
-			jQuery( document ).ready(function() {
-				var nav = jQuery('.header-wrapper').offset();
-				var $window = jQuery(window);
-
-				$window.scroll(function () {
-				    if ($window.scrollTop() >= nav.top) {
-				        jQuery(".header-wrapper").addClass("stuck");
-				    } else {
-					    jQuery(".header-wrapper").removeClass("stuck");
-				    }
-				});
-
-				jQuery('.home-banner .down-arrow').click(function() {
-				    jQuery('html, body').animate({ scrollTop: jQuery('#masthead').offset().top}, 1000);
-				});
-    		});			
-		</script>
-	<?php endif; ?>
 
 	<div class="header-wrapper match-header">
 	<header id="masthead" class="site-header match-header" role="banner">

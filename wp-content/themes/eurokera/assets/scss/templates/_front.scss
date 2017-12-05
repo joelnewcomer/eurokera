@@ -2,9 +2,12 @@
 	display: block;
 	position: relative;
 	width: 100%;
-	min-height: 100vh;
 	background-size: cover !important;
-	padding: 15% 20px;
+	background-repeat: no-repeat;
+	@media only screen and (max-width: 1100px) {
+		background-size: auto 110% !important;	
+	}
+	padding: 0 20px;
 	svg {
 		width: 155px;
 		height: 62px;
@@ -14,6 +17,19 @@
 		color: #fff;
 		font-weight: 300;
 		margin-bottom: 35px;
+	}
+}
+
+.home-banner, .center-banner {
+	min-height: calc(100vh - 106px);
+	@media only screen and (max-width: 1021px) {
+		min-height: calc(100vh - 101px);
+	}
+	@media only screen and (max-width: 721px) {
+		min-height: calc(100vh - 73px);
+	}
+	@media only screen and (max-width: 40.063em) {
+		min-height: calc(100vh - 65px);
 	}
 }
 
