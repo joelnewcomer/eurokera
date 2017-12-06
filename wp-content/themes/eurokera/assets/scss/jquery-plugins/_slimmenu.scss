@@ -202,23 +202,21 @@ ul.slimmenu li a, ul.slimmenu li .search-button {
     position: relative;
     white-space: nowrap;
     padding: 14px 0 38px 0;
-    @media only screen and (max-width: 40.063em) {
-	 	padding: 12px 0 38px 0;  
-	 	text-align: center;
-	}
     font-size: 15px;
-    @media only screen and (max-width: 40.063em) {
-		font-size: 18px;
-	}
     letter-spacing: 1px;
-     @media only screen and (max-width: 1020px) and (min-width: 40.063em) {
+     @media only screen and (max-width: 897px) and (min-width: 40.063em) {
 	 	padding: 7px 0 38px 0;
 	 	font-size: 14px;
 	 	letter-spacing: 0;
 	}
-     @media only screen and (max-width: 670px) and (min-width: 40.063em) {
+     @media only screen and (max-width: 757px) and (min-width: 40.063em) {
 	 	font-size: 13px;
 	}
+    @media only screen and (max-width: 40.063em) {
+	 	padding: 12px 0 38px 0;  
+	 	text-align: center;
+		font-size: 18px;
+	}	
     text-transform: uppercase;
     color: #5e6367;
     font-weight: 400;
