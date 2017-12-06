@@ -4334,7 +4334,7 @@ section.customers {
   width: 100%;
   position: absolute;
   top: 50%;
-  margin-top: -45px; }
+  margin-top: -68px; }
 
 .owl-prev, .owl-next {
   position: absolute;
@@ -4344,11 +4344,16 @@ section.customers {
           background-size: 49px 91px !important;
   width: 49px;
   height: 91px;
-  text-indent: -9999px; }
+  text-indent: -9999px;
+  transition: all .5s;
+  -webkit-transition: all .5s;
+  /* Safari and Chrome */
+  -ms-transition: all .5s;
+  /* Opera */ }
 
 .owl-theme .owl-nav .owl-prev {
   left: -64px;
-  background: url(../images/left-arrow.svg) left top no-repeat; }
+  background: url(../images/left-arrow-black.svg) left top no-repeat; }
   @media only screen and (max-width: 40.063em) {
     .owl-theme .owl-nav .owl-prev {
       left: -20px; } }
@@ -4356,10 +4361,16 @@ section.customers {
 .owl-theme .owl-nav .owl-next {
   left: 100%;
   margin-left: 15px;
-  background: url(../images/right-arrow.svg) left top no-repeat; }
+  background: url(../images/right-arrow-black.svg) left top no-repeat; }
   @media only screen and (max-width: 40.063em) {
     .owl-theme .owl-nav .owl-next {
       margin-left: -30px; } }
+
+.owl-carousel:hover .owl-nav .owl-prev {
+  left: 40px; }
+
+.owl-carousel:hover .owl-nav .owl-next {
+  margin-left: -89px; }
 
 .makers-details > div, .makers-details > a {
   height: 350px;

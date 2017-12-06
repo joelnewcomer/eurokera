@@ -44,8 +44,8 @@ get_header(); ?>
 			jQuery('.owl-carousel').owlCarousel({
 				loop: true,
 				margin: 0,
-				nav: false,
-				dots: true,
+				nav: true,
+				dots: false,
 				center: true,
 				autoplay: true,
 			    responsive:{
