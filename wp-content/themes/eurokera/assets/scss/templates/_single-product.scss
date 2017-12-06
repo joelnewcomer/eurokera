@@ -135,7 +135,12 @@ section.features {
 	}
 	.feature.text-black .feature-inner {
 		color: #5e6367;
-		text-shadow: 2px 2px 10px rgba(255,255,255,.5);
+		// white outline
+		text-shadow:
+   -1px -1px 0 #fff,  
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+     1px 1px 0 #fff;
 	}
 	.feature.large {
 		width: 100%;
