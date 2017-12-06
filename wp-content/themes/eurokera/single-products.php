@@ -90,6 +90,7 @@ get_header(); ?>
 			}
 			$brightness = getBrightness($img_src[0]);
 			$text_color = get_sub_field('text_color');
+			$title = get_sub_field('feature_title');
 			if ( is_array($text_color) ) {
                 $text_color = $text_color[0];
             }
@@ -102,10 +103,33 @@ get_header(); ?>
 			}
 			// print_r($text_color);
 			echo '<div class="feature' . $large . ' ' . $text_color . '"><div class="feature-inner" style="background-image: url(' . $img_src[0] . '); ">';
+
+
+				echo '<div class="img-social">Share: ';
+
+				// Facebook
+				echo '<a href="https://www.facebook.com/sharer.php?u=' . $img_src[0] . '" target="_blank">';
+				get_template_part('assets/images/social/facebook','official.svg');
+				echo '</a>';
+				// Twitter
+				echo '<a href="https://twitter.com/intent/tweet?url=' . $img_src[0] . '&text=' . $title . '" target="_blank">';
+				get_template_part('assets/images/social/twitter','official.svg');
+				echo '</a>';
+				// Pinterest
+				echo '<a href="https://pinterest.com/pin/create/bookmarklet/?media=' . $img_src[0] . '&url=' . $img_src[0] . '&is_video=false&description=' . $title . '" target="_blank">';
+				get_template_part('assets/images/social/pinterest-p','official.svg');
+				echo '</a>';				
+				// LinkedIn
+				echo '<a href="https://www.linkedin.com/shareArticle?url=' . get_permalink() . '&title=' . $title . '" target="_blank">';
+				get_template_part('assets/images/social/linkedin','official.svg');
+				echo '</a>';				
+				echo '</div>';
+
+
 			
 			echo '<div style="display:table;width:100%;height:100%;">
 			  <div style="display:table-cell;vertical-align:middle;">
-			    <div style="text-align:center;">' . get_sub_field('feature_title') . '</div>
+			    <div style="text-align:center;">' . $title . '</div>
 			  </div>
 			</div>';
 			

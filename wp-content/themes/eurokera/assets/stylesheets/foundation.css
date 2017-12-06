@@ -3570,6 +3570,7 @@ section.features .feature {
       font-size: 20px; } }
 
 section.features .feature, section.features .feature-inner {
+  position: relative;
   -webkit-background-size: cover !important;
           background-size: cover !important;
   background-repeat: no-repeat;
