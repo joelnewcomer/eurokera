@@ -105,7 +105,7 @@ get_header(); ?>
 				
 				this.$instance.find('.caption').remove();
 				jQuery('<div class="caption">').text(caption).appendTo(this.$instance.find('.featherlight-content'));
-				jQuery('<div class="img-social">Share: ' + facebookFullLink + twitterFullLink + pinterestFullLink + '</div>').appendTo(this.$instance.find('.featherlight-content'));
+				jQuery('<div class="img-social">Share: ' + facebookFullLink + twitterFullLink + pinterestFullLink + linkedinFullLink + '</div>').appendTo(this.$instance.find('.featherlight-content'));
 			};
 		});
 		jQuery('.btn-filter').on( "click", function() {
