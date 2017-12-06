@@ -97,6 +97,7 @@ get_header(); ?>
 					$text_color = 'text-white';
 				}
 			}
+			print_r($text_color);
 			echo '<div class="feature' . $large . ' ' . $text_color . '"><div class="feature-inner" style="background-image: url(' . $img_src[0] . '); ">';
 			
 			echo '<div style="display:table;width:100%;height:100%;">
