@@ -2,6 +2,7 @@
 	<div class="row">
 		<div class="large-12 columns text-center">
 			<h2>Product Selector</h2>
+			<p>Use the selector below to guide you to the perfect EuroKera glass-ceramic solution or scroll down to see all of our substrates.</p>
 			
 			<form id="product-selector">
 				<select id="glass-color" class="product-dropdown">
