@@ -12,11 +12,15 @@ get_header(); ?>
 	<div class="row">
 		<div class="large-12 columns text-center about-logos">
 			<div class="saint-gobain history-logo">
-				<?php get_template_part('assets/images/saint-gobain', 'logo.svg'); ?>
+				<a href="<?php echo get_field('saint_gobain_website'); ?>" target="_blank">
+					<?php get_template_part('assets/images/saint-gobain', 'logo.svg'); ?>
+				</a>
 			</div>
 			<div class="plus">+</div>
 			<div class="corning history-logo">
-				<?php get_template_part('assets/images/corning', 'logo.svg'); ?><br />
+				<a href="<?php echo get_field('corning_website'); ?>" target="_blank">
+					<?php get_template_part('assets/images/corning', 'logo.svg'); ?><br />
+				</a>
 			</div>
 			<div class="equals hide-for-small">=</div>
 			<div class="num-one history-logo">
