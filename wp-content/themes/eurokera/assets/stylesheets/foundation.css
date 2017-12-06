@@ -2205,7 +2205,7 @@ section#video-center p {
 
 .top-bar-left a.logo {
   display: block;
-  margin: 27px 15px 18px 15px; }
+  margin: 27px 0 18px 15px; }
   @media only screen and (max-width: 1020px) {
     .top-bar-left a.logo {
       margin-top: 22px; } }
@@ -2217,7 +2217,7 @@ section#video-center p {
     display: block;
     width: 154px;
     height: 61px; }
-    @media only screen and (max-width: 720px) {
+    @media only screen and (max-width: 730px) {
       .top-bar-left a.logo svg {
         width: 111px;
         height: 44px; } }
@@ -6675,6 +6675,9 @@ ul.slimmenu li a, ul.slimmenu li .search-button {
   @media only screen and (max-width: 757px) and (min-width: 40.063em) {
     ul.slimmenu li a, ul.slimmenu li .search-button {
       font-size: 13px; } }
+  @media only screen and (max-width: 675px) and (min-width: 40.063em) {
+    ul.slimmenu li a, ul.slimmenu li .search-button {
+      font-size: 12px; } }
   @media only screen and (max-width: 40.063em) {
     ul.slimmenu li a, ul.slimmenu li .search-button {
       padding: 12px 0 38px 0;
