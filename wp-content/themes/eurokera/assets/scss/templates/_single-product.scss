@@ -129,7 +129,12 @@ section.features {
 	}
 	.feature-inner {
 		padding: 0 20px;
-		text-shadow: 2px 2px 10px rgba(0,0,0,.25);	
+	}
+	.feature.text-black .feature-inner {
+		text-shadow: 2px 2px 10px rgba(0,0,0,.25);
+	}
+	.feature.text-white .feature-inner {
+		color: #000;
 	}
 	.feature.large {
 		width: 100%;
