@@ -90,6 +90,9 @@ get_header(); ?>
 			}
 			$brightness = getBrightness($img_src[0]);
 			$text_color = get_sub_field('text_color');
+			if ( is_array($text_color) ) {
+                $text_color = $text_color[0];
+            }
 			if ($text_color == 'auto' || $text_color == '') {
 				if ($brightness > 65) {
 					$text_color = 'text-black';
@@ -97,7 +100,7 @@ get_header(); ?>
 					$text_color = 'text-white';
 				}
 			}
-			print_r($text_color);
+			// print_r($text_color);
 			echo '<div class="feature' . $large . ' ' . $text_color . '"><div class="feature-inner" style="background-image: url(' . $img_src[0] . '); ">';
 			
 			echo '<div style="display:table;width:100%;height:100%;">
