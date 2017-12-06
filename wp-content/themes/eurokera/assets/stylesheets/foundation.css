@@ -2356,19 +2356,19 @@ body.admin-bar:not(.home) .header-wrapper {
 
 @media only screen and (min-width: 40.063em) {
   body:not(.home) .header-wrapper + section.container {
-    margin-top: 107px; } }
+    margin-top: 106px; } }
 
 @media only screen and (max-width: 1020px) {
   body:not(.home) .header-wrapper + section.container {
-    margin-top: 102px; } }
+    margin-top: 101px; } }
 
 @media only screen and (max-width: 720px) {
   body:not(.home) .header-wrapper + section.container {
-    margin-top: 74px; } }
+    margin-top: 73px; } }
 
 @media only screen and (max-width: 40.063em) {
   body:not(.home) .header-wrapper + section.container {
-    margin-top: 66px; } }
+    margin-top: 65px; } }
 
 #footer-container {
   display: block;
@@ -6632,7 +6632,7 @@ ul.slimmenu li > ul > li ul {
   position: absolute;
   left: 100%;
   top: 0;
-  z-index: 999;
+  z-index: 9999999;
   display: none;
   width: 100%; }
 
