@@ -6590,7 +6590,7 @@ ul.slimmenu li > ul {
   right: -150%;
   width: 100%;
   text-align: right;
-  z-index: 999;
+  z-index: 9999999;
   -webkit-transition: all .5;
   transition: all .5;
   -webkit-transition: all .5s;

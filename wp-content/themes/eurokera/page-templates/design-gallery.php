@@ -85,6 +85,7 @@ get_header(); ?>
 			jQuery.featherlightGallery.prototype.afterContent = function() {
 				var caption = this.$currentTarget.data('caption');
 				var imgURL = this.$instance.find('.featherlight-content').find('img').attr("src");
+				var pageURL = '<?php the_permalink(); ?>';
 				// Facebook
 				var facebookIcon = '<?php echo load_template_part('assets/images/social/facebook','official.svg'); ?>';
 				var facebookURL = 'https://www.facebook.com/sharer.php?u=' + imgURL;
@@ -97,6 +98,10 @@ get_header(); ?>
 				var pinterestIcon = '<?php echo load_template_part('assets/images/social/pinterest-p','official.svg'); ?>';
 				var pinterestURL = 'https://pinterest.com/pin/create/bookmarklet/?media=' + imgURL + '&url=' + imgURL + '&is_video=false&description=' + caption;
 				var pinterestFullLink = '<a href="' + pinterestURL + '" target="_blank">' + pinterestIcon + '</a>';
+				// LinkedIn
+				var linkedinIcon = '<?php echo load_template_part('assets/images/social/linkedin','official.svg'); ?>';
+				var linkedinURL = 'https://www.linkedin.com/shareArticle?url=' + pageURL + '&title=' + caption;
+				var linkedinFullLink = '<a href="' + linkedinURL + '" target="_blank">' + linkedinIcon + '</a>';
 				
 				this.$instance.find('.caption').remove();
 				jQuery('<div class="caption">').text(caption).appendTo(this.$instance.find('.featherlight-content'));
