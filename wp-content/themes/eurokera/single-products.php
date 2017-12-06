@@ -88,6 +88,8 @@ get_header(); ?>
 			} else {
 				$img_src = wp_get_attachment_image_src( get_sub_field('feature_image'), 'width=694&height=454&crop=1' );
 			}
+			$brightness = getBrightness($img_src[0]);
+			echo $brightness;
 			echo '<div class="feature' . $large . '"><div class="feature-inner" style="background-image: url(' . $img_src[0] . '); ">';
 			
 			echo '<div style="display:table;width:100%;height:100%;">

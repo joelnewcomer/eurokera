@@ -85,13 +85,22 @@ get_header(); ?>
 			jQuery.featherlightGallery.prototype.afterContent = function() {
 				var caption = this.$currentTarget.data('caption');
 				var imgURL = this.$instance.find('.featherlight-content').find('img').attr("src");
+				// Facebook
 				var facebookIcon = '<?php echo load_template_part('assets/images/social/facebook','official.svg'); ?>';
 				var facebookURL = 'https://www.facebook.com/sharer.php?u=' + imgURL;
 				var facebookFullLink = '<a href="' + facebookURL + '" target="_blank">' + facebookIcon + '</a>';
+				// Twitter
+				var twitterIcon = '<?php echo load_template_part('assets/images/social/twitter','official.svg'); ?>';
+				var twitterURL = 'https://twitter.com/intent/tweet?url=' + imgURL + '&text=' + caption;
+				var twitterFullLink = '<a href="' + twitterURL + '" target="_blank">' + twitterIcon + '</a>';
+				// Pinterest
+				var pinterestIcon = '<?php echo load_template_part('assets/images/social/pinterest-p','official.svg'); ?>';
+				var pinterestURL = 'https://pinterest.com/pin/create/bookmarklet/?media=' + imgURL + '&url=' + imgURL + '&is_video=false&description=' + caption;
+				var pinterestFullLink = '<a href="' + pinterestURL + '" target="_blank">' + pinterestIcon + '</a>';
+				
 				this.$instance.find('.caption').remove();
 				jQuery('<div class="caption">').text(caption).appendTo(this.$instance.find('.featherlight-content'));
-				
-				jQuery('<div class="img-social">Share: ' + facebookFullLink + '</div>').appendTo(this.$instance.find('.featherlight-content'));
+				jQuery('<div class="img-social">Share: ' + facebookFullLink + twitterFullLink + pinterestFullLink + '</div>').appendTo(this.$instance.find('.featherlight-content'));
 			};
 		});
 		jQuery('.btn-filter').on( "click", function() {

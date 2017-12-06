@@ -2138,6 +2138,25 @@ section#video-center p {
 .blog-columns:nth-child(odd) {
   clear: left; }
 
+.featherlight .featherlight-content {
+  background: transparent !important; }
+
+.img-social {
+  display: block;
+  padding: 4px 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  color: #fff; }
+  .img-social svg {
+    margin: 0 4px;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    fill: #fff; }
+
 @media only screen and (min-width: 40.063em) {
   .top-bar-right {
     margin-top: 33px; } }
@@ -3548,7 +3567,8 @@ section.features .feature, section.features .feature-inner {
       height: 187px; } }
 
 section.features .feature-inner {
-  padding: 0 20px; }
+  padding: 0 20px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); }
 
 section.features .feature.large {
   width: 100%; }

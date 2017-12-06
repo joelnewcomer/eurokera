@@ -126,11 +126,36 @@ function quality_videos( $atts, $content = null ) {
 }
 add_shortcode ('quality-videos', 'quality_videos');
 
-
+// Return get_template_part as variable
 function load_template_part($template_name, $part_name=null) {
     ob_start();
     get_template_part($template_name, $part_name);
     $var = ob_get_contents();
     ob_end_clean();
     return $var;
+}
+
+// Get brightness of photo    
+function getBrightness($imgURL) {
+	$gdHandle = imagecreatefromjpeg($imgURL);
+    $width = imagesx($gdHandle);
+    $height = imagesy($gdHandle);
+
+    $totalBrightness = 0;
+
+    for ($x = 0; $x < $width; $x++) {
+        for ($y = 0; $y < $height; $y++) {
+            $rgb = imagecolorat($gdHandle, $x, $y);
+
+            $red = ($rgb >> 16) & 0xFF;
+            $green = ($rgb >> 8) & 0xFF;
+            $blue = $rgb & 0xFF;
+
+            $totalBrightness += (max($red, $green, $blue) + min($red, $green, $blue)) / 2;
+        }
+    }
+
+    imagedestroy($gdHandle);
+
+    return ($totalBrightness / ($width * $height)) / 2.55;
 }

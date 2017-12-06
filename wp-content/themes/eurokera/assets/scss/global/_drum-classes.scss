@@ -244,3 +244,25 @@ section#video-center p {
 .blog-columns:nth-child(odd) {
 	clear: left;
 }
+
+.featherlight .featherlight-content {
+	background: transparent !important;
+}
+
+.img-social {
+	display: block;
+	padding: 4px 8px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: rgba(0,0,0,.5);
+	font-size: 14px;
+	color: #fff;
+	svg {
+		margin: 0 4px;
+		vertical-align: middle;
+		width: 20px;
+		height: 20px;
+		fill: #fff;
+	}
+}
