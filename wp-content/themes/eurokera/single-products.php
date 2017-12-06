@@ -83,10 +83,10 @@ get_header(); ?>
 			<?php
 			$large = false;
 			if ($counter == 1) {
-				$img_src = wp_get_attachment_image_src( get_sub_field('feature_image'), 'width=1400&height=454&crop=1' );
+				$img_src = wp_get_attachment_image_src( get_sub_field('feature_image'), 'width=1600&height=519&crop=1' );
 				$large = ' large';
 			} else {
-				$img_src = wp_get_attachment_image_src( get_sub_field('feature_image'), 'width=694&height=454&crop=1' );
+				$img_src = wp_get_attachment_image_src( get_sub_field('feature_image'), 'width=750&height=491&crop=1' );
 			}
 			$brightness = getBrightness($img_src[0]);
 			$text_color = get_sub_field('text_color');
