@@ -3741,7 +3741,7 @@ section.ready {
         margin: 15px 1% 0 1%;
         font-size: 14px; } }
   .all-products #view-all {
-    background: rgba(94, 99, 103, 0.8);
+    background: #f89828;
     color: #fff;
     display: block;
     position: absolute;

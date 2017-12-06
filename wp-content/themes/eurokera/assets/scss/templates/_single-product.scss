@@ -323,7 +323,8 @@ section.ready {
 		}
 	}
 	#view-all {
-		background: rgba(94,99,103,.8);
+		// background: rgba(94,99,103,.8);
+		background: $primary-color;
 		color: #fff;
 		display: block;
 		position: absolute;
