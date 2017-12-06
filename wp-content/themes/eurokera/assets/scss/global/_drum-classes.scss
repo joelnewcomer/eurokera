@@ -117,12 +117,37 @@ section.default-background {
 	background:$default-section;
 }
 
-section.primary-background {
+.entry-content section.primary-background {
 	background:$primary-section;
 }
 
-section.secondary-background, .entry-content section:nth-child(even) {
+.entry-content section.secondary-background, .entry-content section:nth-child(even) {
 	background: $secondary-section;
+}
+
+.entry-content section.teal-bg {
+	background: #0a948f;
+}
+
+.entry-content section.orange-bg {
+	background: #f89828;
+	blockquote {
+		border-left: 7px solid #fff;
+		color: #fff;
+	}
+	ul > li:before {
+		background: #fff;
+	}
+}
+
+.entry-content section.dark-gray-bg {
+	background: #30302f;
+}
+
+.entry-content section.dark-gray-bg, .entry-content section.orange-bg, .entry-content section.teal-bg {
+	p, li {
+		color: #fff;
+	}	
 }
 
 .featured-image img {

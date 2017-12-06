@@ -2037,11 +2037,28 @@ section.container {
 section.default-background {
   background: #fff; }
 
-section.primary-background {
+.entry-content section.primary-background {
   background: #fff; }
 
-section.secondary-background, .entry-content section:nth-child(even) {
+.entry-content section.secondary-background, .entry-content section:nth-child(even) {
   background: #f2f2f2; }
+
+.entry-content section.teal-bg {
+  background: #0a948f; }
+
+.entry-content section.orange-bg {
+  background: #f89828; }
+  .entry-content section.orange-bg blockquote {
+    border-left: 7px solid #fff;
+    color: #fff; }
+  .entry-content section.orange-bg ul > li:before {
+    background: #fff; }
+
+.entry-content section.dark-gray-bg {
+  background: #30302f; }
+
+.entry-content section.dark-gray-bg p, .entry-content section.dark-gray-bg li, .entry-content section.orange-bg p, .entry-content section.orange-bg li, .entry-content section.teal-bg p, .entry-content section.teal-bg li {
+  color: #fff; }
 
 .featured-image img {
   width: 100%; }
@@ -2580,16 +2597,16 @@ input.button:hover {
   .gray.button a:before {
     border: 2px solid #5e6367; }
 
-.button.reverse a, #gform_submit_button_4, .epop-inner-content .button a {
+.button.reverse a, #gform_submit_button_4, .epop-inner-content .button a, .entry-content section.orange-bg .button a {
   background-color: #fff;
   border-color: #fff;
   color: #f89828; }
-  .button.reverse a:hover, #gform_submit_button_4:hover, .epop-inner-content .button a:hover {
+  .button.reverse a:hover, #gform_submit_button_4:hover, .epop-inner-content .button a:hover, .entry-content section.orange-bg .button a:hover {
     background: transparent;
     color: #fff; }
-  .button.reverse a:after, #gform_submit_button_4:after, .epop-inner-content .button a:after {
+  .button.reverse a:after, #gform_submit_button_4:after, .epop-inner-content .button a:after, .entry-content section.orange-bg .button a:after {
     background: #fff; }
-  .button.reverse a:before, #gform_submit_button_4:before, .epop-inner-content .button a:before {
+  .button.reverse a:before, #gform_submit_button_4:before, .epop-inner-content .button a:before, .entry-content section.orange-bg .button a:before {
     border: 2px solid #fff; }
 
 .button.outline.white a {
