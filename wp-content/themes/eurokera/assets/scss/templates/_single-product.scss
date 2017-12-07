@@ -293,6 +293,7 @@ section.ready {
 	z-index: 999999;
 	top: 100%;
 	left: 0;
+	padding: 18px 4px 14px 0;
 	.row {
 		position: relative;
 	}
@@ -311,7 +312,7 @@ section.ready {
 		width: 135px;
 		height: 103px;
 		padding: 0 7px;
-		margin: 18px 4px 14px 4px;
+		margin: 4px;
 		color: #fff;
 		font-size: 16px;
 		&.white {
