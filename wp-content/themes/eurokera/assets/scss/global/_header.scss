@@ -228,25 +228,25 @@ body.admin-bar:not(.home) .header-wrapper {
 }
 
 @media only screen and (min-width: 40.063em) {
-	body:not(.home) .header-wrapper + section.container {
+	.header-wrapper + section.container {
 		margin-top: 106px;
 	}
 }
 
 @media only screen and (max-width: 1020px) {
-	body:not(.home) .header-wrapper + section.container {
+	.header-wrapper + section.container {
 		margin-top: 101px;
 	}
 }
 
 @media only screen and (max-width: 720px) {
-	body:not(.home) .header-wrapper + section.container {
+	.header-wrapper + section.container {
 		margin-top: 73px;
 	}
 }
 
 @media only screen and (max-width: 40.063em) {
-	body:not(.home) .header-wrapper + section.container {
+	.header-wrapper + section.container {
 		margin-top: 65px;
 	}
 }

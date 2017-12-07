@@ -53,6 +53,16 @@
 	<?php if(!preg_match('/(?i)msie [5-9]/',$_SERVER['HTTP_USER_AGENT'])) : ?>
 		<div class="animsition">
 	<?php endif; ?>	
+	
+	<!-- Load Basil -->
+	<script>
+	jQuery( document ).ready(function() {
+		options = {
+			expireDays: 365
+		};
+		basil = new window.Basil(options);
+	});
+	</script>
 
 	<div class="header-wrapper match-header">
 	<header id="masthead" class="site-header match-header" role="banner">
@@ -109,15 +119,6 @@
 		</nav> <!-- #site-navigation -->
 	</header> <!-- #masthead -->
 	</div> <!-- header-wrapper -->
-
-<script>
-	jQuery( document ).ready(function() {
-		options = {
-			expireDays: 365
-		};
-		basil = new window.Basil(options);
-	});
-</script>
 
 	<?php do_action( 'foundationpress_after_header' ); ?>
 
