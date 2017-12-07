@@ -39,9 +39,32 @@ get_header(); ?>
 				$full_size_url = wp_get_attachment_image_src( $image['ID'], 'full' );
 				$cropped_url = wp_get_attachment_image_src( $image['ID'], 'width=936&height=475&crop=1' ) 
 				?>
-				<a class="gallery-link gallery<?php echo $cat_classes; ?>" href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $image['caption']; ?>">
+				<div class="gallery-link gallery<?php echo $cat_classes; ?>">
+				<a href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $image['caption']; ?>">
 					<div class="hero" style="background-image: url(<?php echo $cropped_url[0]; ?>);"></div>
 				</a>
+				<?php
+				echo '<div class="img-social transition">Share: ';
+
+				// Facebook
+				echo '<a href="https://www.facebook.com/sharer.php?u=' . $full_size_url[0] . '" target="_blank">';
+				get_template_part('assets/images/social/facebook','official.svg');
+				echo '</a>';
+				// Twitter
+				echo '<a href="https://twitter.com/intent/tweet?url=' . $full_size_url[0] . '&text=' . $image['caption'] . '" target="_blank">';
+				get_template_part('assets/images/social/twitter','official.svg');
+				echo '</a>';
+				// Pinterest
+				echo '<a href="https://pinterest.com/pin/create/bookmarklet/?media=' . $full_size_url[0] . '&url=' . $full_size_url[0] . '&is_video=false&description=' . $title . '" target="_blank">';
+				get_template_part('assets/images/social/pinterest-p','official.svg');
+				echo '</a>';				
+				// LinkedIn
+				echo '<a href="https://www.linkedin.com/shareArticle?url=' . get_permalink() . '&title=' . $image['caption'] . '" target="_blank">';
+				get_template_part('assets/images/social/linkedin','official.svg');
+				echo '</a>';				
+				echo '</div>';
+				?>
+				</div>
 			<?php endforeach; ?>
 		<?php endif; ?>
 	</div>
@@ -114,18 +137,18 @@ get_header(); ?>
 			var galleryFilter = jQuery(this).data('filter');
 			// All
 			if (galleryFilter == '*') {
-				jQuery('a.gallery').fadeIn('fast', function() {
+				jQuery('.gallery').fadeIn('fast', function() {
 					resetClasses();
 				});
 				jQuery('.enamels').fadeIn('fast');
 			} else if (galleryFilter == '.enamels') {
-				jQuery('a.gallery:not(' + galleryFilter + ')').fadeOut( "fast", function() {
+				jQuery('.gallery:not(' + galleryFilter + ')').fadeOut( "fast", function() {
 					jQuery('.enamels').fadeIn('fast');
 				});
 			} else {
 				jQuery('.enamels').fadeOut('fast');
-				jQuery('a.gallery:not(' + galleryFilter + ')').fadeOut( "fast", function() {
-					jQuery('a.gallery' + galleryFilter).fadeIn('fast', function() {
+				jQuery('.gallery:not(' + galleryFilter + ')').fadeOut( "fast", function() {
+					jQuery('.gallery' + galleryFilter).fadeIn('fast', function() {
 						resetClasses();
 					});
 				});
@@ -138,8 +161,8 @@ get_header(); ?>
 <script>
 function resetClasses() {
 	var loopCounter = 1;
-	jQuery('a.gallery').removeClass('first-item fourth-item fifth-item');
-	jQuery('a.gallery:visible').each(function (i) {
+	jQuery('.gallery').removeClass('first-item fourth-item fifth-item');
+	jQuery('.gallery:visible').each(function (i) {
 		if (loopCounter == 1) {
 			jQuery(this).addClass('first-item');
 		}

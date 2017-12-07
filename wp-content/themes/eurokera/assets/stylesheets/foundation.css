@@ -2175,7 +2175,7 @@ section#video-center p {
     height: 20px;
     fill: #fff; }
 
-.feature-inner:hover .img-social, .featherlight-content:hover .img-social {
+.feature-inner:hover .img-social, .featherlight-content:hover .img-social, .gallery-link:hover .img-social {
   opacity: 1; }
 
 @media only screen and (min-width: 40.063em) {
@@ -4802,6 +4802,7 @@ section.design-gallery {
   section.design-gallery .gallery {
     margin-bottom: -4px;
     width: 49.7%;
+    position: relative;
     display: inline-block;
     float: none; }
     @media (max-width: 1072px) {
