@@ -3765,12 +3765,12 @@ section.ready {
         padding-bottom: 15px; } }
   .all-products .product-thumb {
     display: inline-block;
-    width: 143px;
+    width: 135px;
     height: 103px;
     padding: 0 7px;
-    margin: 18px 8px 14px 8px;
+    margin: 18px 4px 14px 4px;
     color: #fff;
-    font-size: 18px; }
+    font-size: 16px; }
     .all-products .product-thumb.white {
       color: #5e6367; }
     @media only screen and (max-width: 40.063em) {
