@@ -218,6 +218,7 @@ section.locate-support {
 	z-index: 999999;
 	&.active {
 		top: 0;
+		overflow-y: scroll;
 	}
 	.epop-overlay {
 		position: absolute;

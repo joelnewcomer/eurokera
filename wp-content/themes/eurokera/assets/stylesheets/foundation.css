@@ -4691,7 +4691,8 @@ section.locate-support .identify-cooktop svg {
   left: 0;
   z-index: 999999; }
   .epop-content.active {
-    top: 0; }
+    top: 0;
+    overflow-y: scroll; }
   .epop-content .epop-overlay {
     position: absolute;
     left: 0;
