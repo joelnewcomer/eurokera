@@ -76,6 +76,9 @@
 .social {
 	svg {
 		margin: 0 12px;
+		@media only screen and (max-width: 40.063em) {
+			margin: 0 8px;	
+		}
 		max-height: 42px;
 		max-width: 42px;
 		fill: $primary-color;

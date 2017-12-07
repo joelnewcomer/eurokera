@@ -2470,6 +2470,9 @@ body.admin-bar:not(.home) .header-wrapper {
   max-width: 42px;
   fill: #f89828;
   vertical-align: middle; }
+  @media only screen and (max-width: 40.063em) {
+    .social svg {
+      margin: 0 8px; } }
 
 .sidebar {
   width: 100%;
