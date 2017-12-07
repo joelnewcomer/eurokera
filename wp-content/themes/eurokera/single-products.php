@@ -138,7 +138,7 @@ get_header(); ?>
 	<div class="row">
 		<div class="large-12 columns text-center">
 			<h2>Design Gallery Inspiration</h2>
-			<div class="button reverse"><a href="">See What We Can Do</a></div>
+			<div class="button reverse"><a href="<?php echo get_site_url(); ?>/cooktop-manufacturers/innovation/design-gallery/">See What We Can Do</a></div>
 		</div>
 	</div>
 </section>
