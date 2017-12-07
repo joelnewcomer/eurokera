@@ -77,12 +77,16 @@ get_header(); ?>
 			<h2><?php echo get_field('num_of_cooktops'); ?> MILLION +</h2>
 			<h3>Cooktops</h3>
 			<div class="partner saint-gobain">
-				<?php get_template_part('assets/images/saint-gobain', 'logo.svg'); ?><br />
+				<a href="https://www.saint-gobain.com" target="_blank">	
+					<?php get_template_part('assets/images/saint-gobain', 'logo.svg'); ?>
+				</a><br />
 				350 years
 			</div>
 			<div class="plus">+</div>
 			<div class="partner corning">
-				<?php get_template_part('assets/images/corning', 'logo.svg'); ?><br />
+				<a href="http://www.corning.com/" target="_blank">
+					<?php get_template_part('assets/images/corning', 'logo.svg'); ?>
+				</a><br />
 				120 years
 			</div><br />
 			<div class="num-one partner">

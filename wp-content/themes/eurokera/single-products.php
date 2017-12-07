@@ -234,15 +234,4 @@ get_header(); ?>
 
 <?php endif; ?>
 
-<div class="cookie-policy">
-	<div class="row">
-		<div class="large-10 medium-9 columns">
-			<p>We use cookies to offer you a better browsing experience, analyze site traffic, and improve our customer service. Read about how we use cookies by clicking on "Cookie Policy". If you continue to use this site, you consent to our use of cookies.</p>
-		</div>
-		<div class="large-2 medium-3 columns">
-			<a href="">Cookie Policy</a>
-			<div id="accept-cookies" class="button"><a href="">Accept Cookies</a></div>
-		</div>
-</div>
-
 <?php get_footer(); ?>

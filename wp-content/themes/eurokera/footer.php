@@ -49,6 +49,20 @@
 				</div>
 			</footer>
 		</div> <!-- footer-container -->
+		
+<div class="cookie-policy">
+	<div class="row">
+		<div class="large-8 medium-8 columns">
+			<p>We use cookies to offer you a better browsing experience, analyze site traffic, and improve our customer service. Read about how we use cookies by clicking on "Cookie Policy". If you continue to use this site, you consent to our use of cookies.</p>
+		</div>
+		<div class="large-2 medium-2 columns">
+			<a href="<?php echo get_site_url(); ?>/cookie-policy">Cookie Policy</a>
+		</div>
+		<div class="large-2 medium-2 columns">
+			<div class="button"><a id="accept-cookies" href="#">Accept Cookies</a></div>
+		</div>
+	</div>
+</div> <!-- cookie-policy -->
 
 	<?php if(!preg_match('/(?i)msie [5-9]/',$_SERVER['HTTP_USER_AGENT'])) : ?>
 		</div> <!-- animsition -->
