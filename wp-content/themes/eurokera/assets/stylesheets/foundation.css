@@ -4377,6 +4377,9 @@ section.customers {
   position: absolute;
   top: 50%;
   margin-top: -68px; }
+  @media only screen and (max-width: 40.063em) {
+    .owl-nav {
+      display: none; } }
 
 .owl-prev, .owl-next {
   position: absolute;
