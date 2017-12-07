@@ -3237,6 +3237,9 @@ body.blog #page, body.category #page {
     font-weight: 300;
     margin-bottom: 35px; }
 
+section.home-banner + section.ceo {
+  margin-top: 8px; }
+
 .home-banner, .center-banner {
   min-height: -webkit-calc(100vh - 106px);
   min-height: calc(100vh - 106px); }

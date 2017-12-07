@@ -24,26 +24,27 @@ get_header(); ?>
    </div>
 
    <div class="down-arrow bounce animated"><?php get_template_part('assets/images/acc', 'arrow.svg'); ?></div>
+   <script>
+      jQuery( document ).ready(function() {
+      	var nav = jQuery('.header-wrapper').offset();
+      	var $window = jQuery(window);
+   
+      	$window.scroll(function () {
+      	    if ($window.scrollTop() >= nav.top) {
+      	        jQuery(".header-wrapper").addClass("stuck");
+      	    } else {
+      		    jQuery(".header-wrapper").removeClass("stuck");
+      	    }
+      	});
+   
+      	jQuery('.home-banner .down-arrow').click(function() {
+      	    jQuery('html, body').animate({ scrollTop: jQuery('#masthead').offset().top}, 1000);
+      	});
+      });			
+   </script>
 </section>
 
-<script>
-   jQuery( document ).ready(function() {
-   	var nav = jQuery('.header-wrapper').offset();
-   	var $window = jQuery(window);
 
-   	$window.scroll(function () {
-   	    if ($window.scrollTop() >= nav.top) {
-   	        jQuery(".header-wrapper").addClass("stuck");
-   	    } else {
-   		    jQuery(".header-wrapper").removeClass("stuck");
-   	    }
-   	});
-
-   	jQuery('.home-banner .down-arrow').click(function() {
-   	    jQuery('html, body').animate({ scrollTop: jQuery('#masthead').offset().top}, 1000);
-   	});
-   });			
-</script>
 
 <?php $content = get_field('homepage_content'); ?>
 <?php if ($content != '') : ?>

@@ -17,6 +17,10 @@
 	}
 }
 
+section.home-banner + section.ceo {
+	margin-top: 8px;
+}
+
 .home-banner, .center-banner {
 	min-height: calc(100vh - 106px);
 	@media only screen and (max-width: 1021px) {
