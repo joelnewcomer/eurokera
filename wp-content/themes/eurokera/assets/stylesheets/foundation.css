@@ -6727,7 +6727,7 @@ ul.slimmenu li a, ul.slimmenu li .search-button {
       font-size: 12px; } }
   @media only screen and (max-width: 40.063em) {
     ul.slimmenu li a, ul.slimmenu li .search-button {
-      padding: 12px 0 38px 0;
+      padding: 12px 0;
       text-align: center;
       font-size: 18px; } }
   ul.slimmenu li a:before, ul.slimmenu li .search-button:before {
