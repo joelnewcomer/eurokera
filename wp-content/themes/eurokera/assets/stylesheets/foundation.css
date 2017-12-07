@@ -3272,7 +3272,7 @@ body.blog #page, body.category #page {
   display: inline-block;
   margin: 0 8px; }
   .site-links .button a {
-    min-width: 262px; }
+    min-width: 304px; }
 
 .bounce {
   -webkit-animation-name: bounce;
