@@ -81,7 +81,8 @@
 		}
 	});
 	
-	jQuery( "#accept-cookies" ).on( "click", function() {
+	jQuery( "#accept-cookies" ).on( "click", function(e) {
+		e.preventDefault();
 		basil.set('accept-cookies', 'yes');
 		jQuery('.cookie-policy').removeClass('active');
 	});
