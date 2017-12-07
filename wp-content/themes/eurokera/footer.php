@@ -65,15 +65,6 @@
 </div> <!-- cookie-policy -->
 
 <script>
-	jQuery( document ).ready(function() {
-		options = {
-			expireDays: 365
-		};
-		basil = new window.Basil(options);
-	});
-</script>
-
-<script>
 	jQuery(window).load(function() {
 		var acceptCookies = basil.get('accept-cookies');
 		if (acceptCookies != 'yes') {

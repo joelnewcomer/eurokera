@@ -110,6 +110,15 @@
 	</header> <!-- #masthead -->
 	</div> <!-- header-wrapper -->
 
+<script>
+	jQuery( document ).ready(function() {
+		options = {
+			expireDays: 365
+		};
+		basil = new window.Basil(options);
+	});
+</script>
+
 	<?php do_action( 'foundationpress_after_header' ); ?>
 
 	<section class="container">
