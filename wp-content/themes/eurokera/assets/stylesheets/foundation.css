@@ -2184,10 +2184,13 @@ section#video-center p {
   display: block;
   float: left;
   position: fixed;
-  bottom: -100vh;
+  z-index: -999999999999;
+  bottom: -600px;
+  opacity: 0;
   left: 0;
   width: 100%; }
   .cookie-policy.active {
+    opacity: 1;
     bottom: 0;
     z-index: 99999999; }
   .cookie-policy a {
