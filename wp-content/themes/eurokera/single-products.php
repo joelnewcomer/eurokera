@@ -105,7 +105,7 @@ get_header(); ?>
 			echo '<div class="feature' . $large . ' ' . $text_color . '"><div class="feature-inner" style="background-image: url(' . $img_src[0] . '); ">';
 
 
-				echo '<div class="img-social">Share: ';
+				echo '<div class="img-social transition">Share: ';
 
 				// Facebook
 				echo '<a href="https://www.facebook.com/sharer.php?u=' . $img_src[0] . '" target="_blank">';
@@ -233,5 +233,16 @@ get_header(); ?>
 			</script>
 
 <?php endif; ?>
+
+<div class="cookie-policy">
+	<div class="row">
+		<div class="large-10 medium-9 columns">
+			<p>We use cookies to offer you a better browsing experience, analyze site traffic, and improve our customer service. Read about how we use cookies by clicking on "Cookie Policy". If you continue to use this site, you consent to our use of cookies.</p>
+		</div>
+		<div class="large-2 medium-3 columns">
+			<a href="">Cookie Policy</a>
+			<div id="accept-cookies" class="button"><a href="">Accept Cookies</a></div>
+		</div>
+</div>
 
 <?php get_footer(); ?>

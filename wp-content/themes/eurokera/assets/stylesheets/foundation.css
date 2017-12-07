@@ -2159,6 +2159,7 @@ section#video-center p {
   background: transparent !important; }
 
 .img-social {
+  opacity: 0;
   display: block;
   padding: 4px 8px;
   position: absolute;
@@ -2173,6 +2174,9 @@ section#video-center p {
     width: 20px;
     height: 20px;
     fill: #fff; }
+
+.feature-inner:hover .img-social, .featherlight-content:hover .img-social {
+  opacity: 1; }
 
 @media only screen and (min-width: 40.063em) {
   .top-bar-right {
@@ -3870,13 +3874,13 @@ section.timeline {
           transform-style: preserve-3d;
   color: #fff;
   display: inline-block;
-  margin: 22px;
+  margin: 16px;
   vertical-align: top; }
 
 .flip-container, .front, .back {
-  width: 185px;
-  height: 185px;
-  border-radius: 92px;
+  width: 165px;
+  height: 165px;
+  border-radius: 82px;
   text-align: center; }
 
 /* flip speed goes here */
@@ -3895,7 +3899,8 @@ section.timeline {
   max-width: 85%;
   display: block;
   margin: 0 auto;
-  line-height: 1.2; }
+  line-height: 1.2;
+  font-size: 14px; }
 
 /* hide back of pane during swap */
 .front, .back {

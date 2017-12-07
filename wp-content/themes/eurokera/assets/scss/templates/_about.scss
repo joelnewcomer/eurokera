@@ -49,16 +49,13 @@ section.timeline {
     transform-style: preserve-3d;
 	color:#fff;
 	display: inline-block;
-	margin: 22px;
+	margin: 16px;
 	vertical-align: top;
 }
 .flip-container, .front, .back {
-    width: 185px;
-    height: 185px;
-    -moz-border-radius: 92px;
-    -webkit-border-radius: 92px;
-    -khtml-border-radius: 92px;
-    border-radius: 92px;
+    width: 165px;
+    height: 165px;
+    border-radius: 82px;
     text-align: center;
 }
 /* flip speed goes here */
@@ -77,6 +74,7 @@ section.timeline {
 	display: block;
 	margin: 0 auto;
 	line-height: 1.2;
+	font-size: 14px;
 }
 /* hide back of pane during swap */
 .front, .back {
