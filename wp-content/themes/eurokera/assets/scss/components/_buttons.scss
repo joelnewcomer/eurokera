@@ -138,6 +138,12 @@ input.button:hover {
 	}
 }
 
+.button.small a {
+	padding: 8px 20px;
+	font-size: 16px;
+	text-transform: none; 
+}
+
 .button.full-width a {
 	width: 100%;
 	margin: 0 auto;

@@ -2178,6 +2178,31 @@ section#video-center p {
 .feature-inner:hover .img-social, .featherlight-content:hover .img-social, .gallery-link:hover .img-social {
   opacity: 1; }
 
+.cookie-policy {
+  background: #f89828;
+  padding: 20px 0 0 0;
+  display: block;
+  float: left;
+  position: fixed;
+  bottom: -100vh;
+  left: 0;
+  width: 100%; }
+  .cookie-policy.active {
+    bottom: 0;
+    z-index: 99999999; }
+  .cookie-policy a {
+    color: #fff; }
+  .cookie-policy p {
+    color: #fff;
+    font-size: 16px; }
+  .cookie-policy .cookie-policy-link {
+    display: inline-block; }
+    @media only screen and (min-width: 40.063em) {
+      .cookie-policy .cookie-policy-link {
+        margin-top: 16px; } }
+  .cookie-policy .button a {
+    margin: 14px 0; }
+
 @media only screen and (min-width: 40.063em) {
   .top-bar-right {
     margin-top: 33px; } }
@@ -2625,6 +2650,11 @@ input.button:hover {
   .button.outline.white a:before {
     background: #fff;
     border: 2px solid #fff; }
+
+.button.small a {
+  padding: 8px 20px;
+  font-size: 16px;
+  text-transform: none; }
 
 .button.full-width a {
   width: 100%;

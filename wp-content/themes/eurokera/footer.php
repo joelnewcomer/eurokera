@@ -50,19 +50,42 @@
 			</footer>
 		</div> <!-- footer-container -->
 		
-<div class="cookie-policy">
+<div class="cookie-policy transition">
 	<div class="row">
-		<div class="large-8 medium-8 columns">
+		<div class="large-8 medium-8 columns small-text-center">
 			<p>We use cookies to offer you a better browsing experience, analyze site traffic, and improve our customer service. Read about how we use cookies by clicking on "Cookie Policy". If you continue to use this site, you consent to our use of cookies.</p>
 		</div>
-		<div class="large-2 medium-2 columns">
-			<a href="<?php echo get_site_url(); ?>/cookie-policy">Cookie Policy</a>
+		<div class="large-2 medium-2 columns text-center">
+			<a class="cookie-policy-link" href="<?php echo get_site_url(); ?>/cookie-policy"><strong>Cookie Policy</strong></a>
 		</div>
-		<div class="large-2 medium-2 columns">
-			<div class="button"><a id="accept-cookies" href="#">Accept Cookies</a></div>
+		<div class="large-2 medium-2 columns small-text-center">
+			<div class="button small reverse"><a id="accept-cookies" href="#">Accept Cookies</a></div>
 		</div>
 	</div>
 </div> <!-- cookie-policy -->
+
+<script>
+	jQuery( document ).ready(function() {
+		options = {
+			expireDays: 365
+		};
+		basil = new window.Basil(options);
+	});
+</script>
+
+<script>
+	jQuery(window).load(function() {
+		var acceptCookies = basil.get('accept-cookies');
+		if (acceptCookies != 'yes') {
+			jQuery('.cookie-policy').addClass('active');
+		}
+	});
+	
+	jQuery( "#accept-cookies" ).on( "click", function() {
+		basil.set('accept-cookies', 'yes');
+		jQuery('.cookie-policy').removeClass('active');
+	});
+</script>
 
 	<?php if(!preg_match('/(?i)msie [5-9]/',$_SERVER['HTTP_USER_AGENT'])) : ?>
 		</div> <!-- animsition -->

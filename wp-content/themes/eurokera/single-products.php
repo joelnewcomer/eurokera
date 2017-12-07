@@ -8,15 +8,6 @@
  */
 get_header(); ?>
 
-<script>
-	jQuery( document ).ready(function() {
-		options = {
-			expireDays: 365
-		};
-		basil = new window.Basil(options);
-	});
-</script>
-
 <?php get_template_part( 'template-parts/featured-image-parallax' ); ?>
 
 <section class="product-intro">
