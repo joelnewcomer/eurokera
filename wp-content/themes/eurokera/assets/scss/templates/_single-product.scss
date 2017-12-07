@@ -293,7 +293,6 @@ section.ready {
 	z-index: 999999;
 	top: 100%;
 	left: 0;
-	padding: 18px 4px 14px 0;
 	.row {
 		position: relative;
 	}
@@ -303,6 +302,7 @@ section.ready {
 	}
 	&.open .columns {
 		max-height: 390px;
+		padding: 18px 4px 14px 0;
 		@media only screen and (max-width: 40.063em) {
 			padding-bottom: 15px;
 		}
