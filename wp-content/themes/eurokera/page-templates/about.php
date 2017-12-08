@@ -121,7 +121,7 @@ get_header(); ?>
 </section>
 
 <section class="reach text-center">
-	<img class="hide-for-small" src="<?php echo get_template_directory_uri(); ?>/assets/images/global-reach-bg.jpg" alt="EuroKera Worldwide Locations Map">
+	<img class="hide-for-small" src="<?php echo get_template_directory_uri(); ?>/assets/images/global-reach-bg-hires.jpg" alt="EuroKera Worldwide Locations Map">
 	<div class="reach-overlay">
 		<div class="hide-for-small" style="display:table;width:100%;height:100%;">
 			<div style="display:table-cell;vertical-align:middle;">
