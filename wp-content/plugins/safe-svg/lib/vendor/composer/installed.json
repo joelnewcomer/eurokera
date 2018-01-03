@@ -1,24 +1,24 @@
 [
     {
         "name": "enshrined/svg-sanitize",
-        "version": "0.7.0",
-        "version_normalized": "0.7.0.0",
+        "version": "0.8.2",
+        "version_normalized": "0.8.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/darylldoyle/svg-sanitizer.git",
-            "reference": "0bdbbd15b9ca501c33c9373968922d055e7064db"
+            "reference": "432fc4fc7e95b8a866790ba27e35076b9dd96ebe"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/0bdbbd15b9ca501c33c9373968922d055e7064db",
-            "reference": "0bdbbd15b9ca501c33c9373968922d055e7064db",
+            "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/432fc4fc7e95b8a866790ba27e35076b9dd96ebe",
+            "reference": "432fc4fc7e95b8a866790ba27e35076b9dd96ebe",
             "shasum": ""
         },
         "require-dev": {
             "codeclimate/php-test-reporter": "^0.1.2",
             "phpunit/phpunit": "^4.7"
         },
-        "time": "2017-06-20 16:13:01",
+        "time": "2017-12-06 15:31:26",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
