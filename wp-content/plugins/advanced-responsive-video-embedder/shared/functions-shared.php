@@ -14,6 +14,9 @@ function arve_get_options_defaults( $section ) {
 		'last_settings_tab'   => '',
 		'wp_video_override'   => true,
 		'controlslist'        => 'nodownload',
+		'vimeo_client_identifier' => '',
+		'vimeo_client_secret' => '',
+		'vimeo_oauth_token'   => '',
 	);
 
 	$properties = arve_get_host_properties();
@@ -174,6 +177,13 @@ function arve_get_settings_definitions() {
 			)
 		),
 		array(
+			'hide_from_settings' => true,
+			'attr'  => 'duration',
+			'label' => esc_html__( 'Duration', ARVE_SLUG ),
+			'type'  => 'text',
+			'description' => __( 'Duration in this format. <code>1HJ2M3S</code> for 1 hour, 2 minutes and 3 seconds. <code>5M</code> for 5 minutes.', ARVE_SLUG ),
+		),
+		array(
 			'attr'  => 'autoplay',
 			'label' => esc_html__('Autoplay', ARVE_SLUG ),
 			'type'  => 'select',
@@ -259,7 +269,7 @@ function arve_get_settings_definitions() {
 		),
 		array(
 			'attr'  => 'controlslist',
-			'label' => esc_html__( 'Chrom HTML5 Player controlls', ARVE_SLUG ),
+			'label' => esc_html__( 'Chrome HTML5 Player controls', ARVE_SLUG ),
 			'type'  => 'text',
 			'description' => __( "controlsList attribute on &lt;video&gt; for example use <code>nodownload nofullscreen noremoteplayback</code> to hide the download and the fullscreen button on the chrome HTML5 video player and disable remote playback.", ARVE_SLUG ),
 		),
@@ -301,6 +311,53 @@ function arve_get_settings_definitions() {
 			'meta'  => array(
 				'placeholder' => __( '.ogv file url for HTML5 video', ARVE_SLUG ),
 			),
+		),
+		array(
+			'hide_from_settings' => true,
+			'attr'  => 'controls',
+			'label' => esc_html__( 'Show Controls?', ARVE_SLUG ),
+			'type'  => 'select',
+			'options' => array(
+				''    => esc_html__( 'Yes', ARVE_SLUG ),
+				'no'  => esc_html__( 'No', ARVE_SLUG ),
+			),
+			'description' => esc_html__( 'Show controls on HTML5 video.', ARVE_SLUG ),
+		),
+		array(
+			'hide_from_settings' => true,
+			'attr'  => 'loop',
+			'label' => esc_html__( 'Loop?', ARVE_SLUG ),
+			'type'  => 'select',
+			'options' => array(
+				''    => esc_html__( 'No', ARVE_SLUG ),
+				'yes' => esc_html__( 'Yes', ARVE_SLUG ),
+			),
+			'description' => esc_html__( 'Loop HTML5 video.', ARVE_SLUG ),
+		),
+		array(
+			'hide_from_settings' => true,
+			'attr'  => 'muted',
+			'label' => esc_html__( 'Mute?', ARVE_SLUG ),
+			'type'  => 'select',
+			'options' => array(
+				''    => esc_html__( 'No', ARVE_SLUG ),
+				'yes' => esc_html__( 'Yes', ARVE_SLUG ),
+			),
+			'description' => esc_html__( 'Mute HTML5 video.', ARVE_SLUG ),
+		),
+		array(
+			'hide_from_sc' => true,
+			'attr'  => 'vimeo_client_identifier',
+			'label' => esc_html__( 'Video Client Identifier', ARVE_SLUG ),
+			'type'  => 'text',
+			'description' => esc_html__( 'Leave blank until asked, can be used by addons.', ARVE_SLUG ),
+		),
+		array(
+			'hide_from_sc' => true,
+			'attr'  => 'vimeo_client_secret',
+			'label' => esc_html__( 'Video Client Secret', ARVE_SLUG ),
+			'type'  => 'text',
+			'description' => esc_html__( 'Leave blank until asked, can be used by addons.', ARVE_SLUG ),
 		),
 	);
 }

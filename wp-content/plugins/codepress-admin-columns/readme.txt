@@ -3,8 +3,8 @@ Contributors: codepress, tschutter, davidmosterd, engelen, dungengronovius
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZDZRSYLQ4Z76J
 Tags: plugins, wordpress, admin, column, columns, custom columns, custom fields, image, dashboard, sortable, filters, posts, media, users, pages, posttypes, manage columns, wp-admin
 Requires at least: 4.5
-Tested up to: 4.8.1
-Stable tag: 3.0.5
+Tested up to: 4.9.2
+Stable tag: 3.1.3
 
 Customise columns on the administration screens for post(types), pages, media, comments, links and users with an easy to use drag-and-drop interface.
 
@@ -217,6 +217,44 @@ You can find a list of the available actions and filters (and examples on how to
 8. Posts Screen with custom fields.
 
 == Changelog ==
+
+= 3.1.3 =
+
+Release Date: January 30th, 2018
+
+* [Fixed] Added protected AC_ListScreen::get_object_by_id with deprecated message
+
+= 3.1.1 =
+
+Release Date: January 29th, 2018
+
+* [Fixed] Fixed fatal error for custom taxonomy columns
+
+= 3.1 =
+
+Release Date: January 29th, 2018
+
+* [Improved] Admin Columns Capability is now always set
+* [Improved] Database update message is only visible for administartors
+* [Improved] Links starting with # are now marked as internal
+* [Removed] Removed support for the Link/Bookmark list table
+* [Added] Added date time settings for columns that use dates
+
+= 3.0.7 =
+
+Release Date: December 12th, 2017
+
+* [Added] New setting for content fields: String limit (Limit on words or characters)
+* [Improved] Merged the roles column into the author column
+* [Improved] Added Before/After fields for the following columns: Content, Excerpt, User Description
+* [Improved] Removed deprecated Welcome page
+* [Improved] Removed deprecated Upgrade page
+
+= 3.0.6 =
+
+Release Date: November 22nd, 2017
+
+* [Fixed] Removed unused classes and methods
 
 = 3.0.5 =
 

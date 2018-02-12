@@ -171,13 +171,19 @@ function nextgenthemes_get_products() {
 			'name'    => 'Advanced Responsive Video Embedder Pro',
 			'type'    => 'plugin',
 			'author'  => 'Nicolas Jonas',
-			'url'     => 'https://nextgenthemes.com/plugins/advanced-responsive-video-embedder-pro/',
+			'url'     => 'https://nextgenthemes.com/plugins/arve-pro/',
 		),
 		'arve_amp' => array(
 			'name'   => 'ARVE Accelerated Mobile Pages Addon',
 			'type'   => 'plugin',
 			'author' => 'Nicolas Jonas',
-			'url'    => 'https://nextgenthemes.com/plugins/arve-accelerated-mobile-pages-addon/',
+			'url'    => 'https://nextgenthemes.com/plugins/arve-amp/',
+		),
+		'arve_random_video' => array(
+			'name'   => 'ARVE Random Video',
+			'type'   => 'plugin',
+			'author' => 'Nicolas Jonas',
+			'url'    => 'https://nextgenthemes.com/plugins/arve-random-video/',
 		)
 	);
 
@@ -192,6 +198,16 @@ function nextgenthemes_get_products() {
 
 		$version_define = strtoupper( $key ) . '_VERSION';
 		$file_define    = strtoupper( $key ) . '_FILE';
+
+		if( defined( $version_define ) ) {
+			$products[ $key ]['version'] = constant( $version_define );
+		}
+		if( defined( $file_define ) ) {
+			$products[ $key ]['file'] = constant( $file_define );
+		}
+
+		$version_define = "\\nextgenthemes\\$key\\VERSION";
+		$file_define    = "\\nextgenthemes\\$key\\FILE";
 
 		if( defined( $version_define ) ) {
 			$products[ $key ]['version'] = constant( $version_define );
@@ -234,36 +250,12 @@ function nextgenthemes_is_plugin_installed( $plugin_basename ) {
  */
 function nextgenthemes_menus() {
 
- 	$plugin_screen_hook_suffix = add_menu_page(
- 		__( 'Nextgenthemes', ARVE_SLUG ), # Page Title
- 		__( 'Nextgenthemes', ARVE_SLUG ), # Menu Tile
- 		'manage_options',                 # capability
- 		'nextgenthemes',                  # menu-slug
- 		'nextgenthemes_ads_page',         # function
-		'dashicons-video-alt3',           # icon_url
-		'80.892'                          # position
- 	);
-
-	/*
-  add_submenu_page(
-    'nextgenthemes',                      # parent_slug
-    __( 'Addons and Themes', ARVE_SLUG ), # Page Title
-    __( 'Addons and Themes', ARVE_SLUG ), # Menu Tile
-    'manage_options',                     # capability
-    'nextgenthemes',                      # menu-slug
-    function() {
-      require_once plugin_dir_path( __FILE__ ) . 'html-ad-page.php';
-    }
-  );
-	*/
-
-	add_submenu_page(
-		'nextgenthemes',              # parent_slug
-		__( 'Licenses', ARVE_SLUG ),  # Page Title
-		__( 'Licenses', ARVE_SLUG ),  # Menu Tile
-		'manage_options',             # capability
-		'nextgenthemes-licenses',     # menu-slug
-		'nextgenthemes_licenses_page' # function
+	$plugin_screen_hook_suffix = add_options_page(
+		__( 'ARVE Licenses', ARVE_SLUG ),
+		__( 'ARVE Licenses', ARVE_SLUG ),
+		'manage_options',
+		'nextgenthemes-licenses',
+		'nextgenthemes_licenses_page'
 	);
 }
 
@@ -459,13 +451,13 @@ function nextgenthemes_init_plugin_updater( $product ) {
 
 	// setup the updater
 	new EDD_SL_Plugin_Updater(
-		'https://nextgenthemes.com',
+		apply_filters( 'nextgenthemes_api_url', 'https://nextgenthemes.com' ),
 		$product['file'],
 		array(
 			'version' 	=> $product['version'],
 			'license' 	=> nextgenthemes_get_key( $product['slug'] ),
 			'item_name' => $product['name'],
-			'author' 	  => $product['author']
+			'author' 	=> $product['author']
 		)
 	);
 }

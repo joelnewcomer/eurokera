@@ -17,6 +17,15 @@ $options = arve_get_options();
 
 <div class="wrap arve-options-wrap">
 
+	<?php if ( $token_msg = arve_update_vimeo_oauth_token() ) : ?>
+
+		<div class="notice is-dismissible updated">
+			<button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
+			<?php printf( '<p>%s</p>', $token_msg ); ?>
+		</div>
+
+	<?php endif; ?>
+
 	<?php if ( arve_display_pro_ad() ) : ?>
 
 		<div class="arve-settings-page-ad notice is-dismissible updated">
@@ -24,6 +33,8 @@ $options = arve_get_options();
 			<button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
 
 			<div class="arve-corner-spacer"></div>
+
+			<?php printf( '<p><big><strong><a href="%s">Hiring a Marketing Person</a></strong></big></p>', 'https://nextgenthemes.com/hiring-a-marketing-person/' ); ?>
 
 			<?php echo file_get_contents( ARVE_PATH . 'readme/html/19-description-features-pro-intro.html' ); ?>
 			<?php echo file_get_contents( ARVE_PATH . 'readme/html/20-description-features-pro.html' ); ?>
