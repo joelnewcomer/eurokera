@@ -62,6 +62,7 @@
 					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 						<?php
 						$white = '';
+						$classes = '';
 						$title = get_the_title();
 						if (strpos($title, 'White') !== false) {
 							$white = 'white';	
