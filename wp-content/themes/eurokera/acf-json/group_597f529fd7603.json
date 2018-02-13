@@ -248,7 +248,7 @@
             "default_value": [],
             "allow_null": 0,
             "multiple": 1,
-            "ui": 0,
+            "ui": 1,
             "ajax": 0,
             "return_format": "value",
             "placeholder": ""
@@ -336,5 +336,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1518539982
+    "modified": 1518540531
 }
