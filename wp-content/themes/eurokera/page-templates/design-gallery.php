@@ -30,78 +30,102 @@ get_header(); ?>
 		<?php
 		if( $images ): ?>
 			<?php foreach( $images as $image ): ?>
-				<?php
-				$categories = get_field('categories', $image['ID']);
-				$cat_classes = '';
-				foreach ($categories as $category) {
-					$cat_classes .= ' ' . sanitize_title($category);
-				}
-				$full_size_url = wp_get_attachment_image_src( $image['ID'], 'full' );
-				$cropped_url = wp_get_attachment_image_src( $image['ID'], 'width=936&height=475&crop=1' ) 
-				?>
-				<div class="gallery-link gallery-image gallery<?php echo $cat_classes; ?>">
-					<a class="gallery-image" href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $image['caption']; ?>">
-						<div class="hero gallery-image" style="background-image: url(<?php echo $cropped_url[0]; ?>);"></div>
-					</a>
+				<?php $categories = get_field('categories', $image['ID']); ?>
+				<?php if (!in_array ( 'Enamels' , $categories)) : ?>
 					<?php
-					echo '<div class="img-social transition">Share: ';
-					
-					// Facebook
-					echo '<a href="https://www.facebook.com/sharer.php?u=' . $full_size_url[0] . '" target="_blank">';
-					get_template_part('assets/images/social/facebook','official.svg');
-					echo '</a>';
-					// Twitter
-					echo '<a href="https://twitter.com/intent/tweet?url=' . $full_size_url[0] . '&text=' . urlencode($image['caption']) . '" target="_blank">';
-					get_template_part('assets/images/social/twitter','official.svg');
-					echo '</a>';
-					// Pinterest
-					echo '<a href="https://pinterest.com/pin/create/bookmarklet/?media=' . $full_size_url[0] . '&url=' . $full_size_url[0] . '&is_video=false&description=' . $title . '" target="_blank">';
-					get_template_part('assets/images/social/pinterest-p','official.svg');
-					echo '</a>';				
-					// LinkedIn
-					echo '<a href="https://www.linkedin.com/shareArticle?url=' . get_permalink() . '&title=' . urlencode($image['caption']) . '" target="_blank">';
-					get_template_part('assets/images/social/linkedin','official.svg');
-					echo '</a>';				
-				echo '</div>';
-				?>
-				</div> <!-- gallery-link -->
+					$cat_classes = '';
+					foreach ($categories as $category) {
+						$cat_classes .= ' ' . sanitize_title($category);
+					}
+					$full_size_url = wp_get_attachment_image_src( $image['ID'], 'full' );
+					$cropped_url = wp_get_attachment_image_src( $image['ID'], 'width=936&height=475&crop=1' ) 
+					?>
+					<div class="gallery-link gallery-image gallery<?php echo $cat_classes; ?>">
+						<a class="gallery-image" href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $image['caption']; ?>">
+							<div class="hero gallery-image" style="background-image: url(<?php echo $cropped_url[0]; ?>);"></div>
+						</a>
+						<?php
+						echo '<div class="img-social transition">Share: ';
+						
+						// Facebook
+						echo '<a href="https://www.facebook.com/sharer.php?u=' . $full_size_url[0] . '" target="_blank">';
+						get_template_part('assets/images/social/facebook','official.svg');
+						echo '</a>';
+						// Twitter
+						echo '<a href="https://twitter.com/intent/tweet?url=' . $full_size_url[0] . '&text=' . urlencode($image['caption']) . '" target="_blank">';
+						get_template_part('assets/images/social/twitter','official.svg');
+						echo '</a>';
+						// Pinterest
+						echo '<a href="https://pinterest.com/pin/create/bookmarklet/?media=' . $full_size_url[0] . '&url=' . $full_size_url[0] . '&is_video=false&description=' . $title . '" target="_blank">';
+						get_template_part('assets/images/social/pinterest-p','official.svg');
+						echo '</a>';				
+						// LinkedIn
+						echo '<a href="https://www.linkedin.com/shareArticle?url=' . get_permalink() . '&title=' . urlencode($image['caption']) . '" target="_blank">';
+						get_template_part('assets/images/social/linkedin','official.svg');
+						echo '</a>';				
+					echo '</div>';
+					?>
+					</div> <!-- gallery-link -->
+				<?php endif; ?>
 			<?php endforeach; ?>
 		<?php endif; ?>
-	</div>
-	
-	<div class="enamels white text-center">
+
+
+
+	<div class="enamels text-center">
 		<h2>Enamel Color Samples</h2>
 		<p class="small">The color samples below are digital renderings with for only intend to illustrate the possibilities in terms of decoration offered by EuroKera. For any enquiry, we recommend to <a href="<?php echo get_site_url(); ?>/contact">contact EuroKera</a>.</p>
-		<?php if(get_field('white_enamel_colors')): ?>
-			<?php while(has_sub_field('white_enamel_colors')): ?>
-				<div class="enamel">
-					<?php $bg = get_sub_field('color'); ?>
-					<div class="enamel-sample">
-						<div class="enamel-inner" style="background: <?php echo $bg; ?>;">
-							<?php get_template_part('assets/images/white-k.svg'); ?>
-						</div> <!-- enamel-inner -->
-					</div> <!-- enamel-sample -->
-					<?php echo get_sub_field('title'); ?>
-				</div> <!-- enamel -->
-			<?php endwhile; ?>
-		<?php endif; ?>
-	</div>
 
-	<div class="enamels black text-center">
-		<?php if(get_field('black_enamel_colors')): ?>
-			<?php while(has_sub_field('black_enamel_colors')): ?>
-				<div class="enamel">
-					<?php $bg = get_sub_field('color'); ?>
-					<div class="enamel-sample">
-						<div class="enamel-inner" style="background-color: <?php echo $bg; ?>;">
-							<?php get_template_part('assets/images/white-k.svg'); ?>
-						</div> <!-- enamel-inner -->
-					</div> <!-- enamel-sample -->
-					<?php echo get_sub_field('title'); ?>
-				</div> <!-- enamel -->
-			<?php endwhile; ?>
+
+		<?php
+		if( $images ): ?>
+			<?php foreach( $images as $image ): ?>
+				<?php $categories = get_field('categories', $image['ID']); ?>
+				<?php if (in_array ( 'Enamels' , $categories)) : ?>
+					<?php
+					$cat_classes = '';
+					foreach ($categories as $category) {
+						$cat_classes .= ' ' . sanitize_title($category);
+					}
+					$full_size_url = wp_get_attachment_image_src( $image['ID'], 'full' );
+					$cropped_url = wp_get_attachment_image_src( $image['ID'], 'width=936&height=475&crop=1' ) 
+					?>
+					<div class="gallery-link gallery-image gallery<?php echo $cat_classes; ?>">
+						<a class="gallery-image" href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $image['caption']; ?>">
+							<div class="hero gallery-image" style="background-image: url(<?php echo $cropped_url[0]; ?>);"></div>
+						</a>
+						<?php
+						echo '<div class="img-social transition">Share: ';
+						
+						// Facebook
+						echo '<a href="https://www.facebook.com/sharer.php?u=' . $full_size_url[0] . '" target="_blank">';
+						get_template_part('assets/images/social/facebook','official.svg');
+						echo '</a>';
+						// Twitter
+						echo '<a href="https://twitter.com/intent/tweet?url=' . $full_size_url[0] . '&text=' . urlencode($image['caption']) . '" target="_blank">';
+						get_template_part('assets/images/social/twitter','official.svg');
+						echo '</a>';
+						// Pinterest
+						echo '<a href="https://pinterest.com/pin/create/bookmarklet/?media=' . $full_size_url[0] . '&url=' . $full_size_url[0] . '&is_video=false&description=' . $title . '" target="_blank">';
+						get_template_part('assets/images/social/pinterest-p','official.svg');
+						echo '</a>';				
+						// LinkedIn
+						echo '<a href="https://www.linkedin.com/shareArticle?url=' . get_permalink() . '&title=' . urlencode($image['caption']) . '" target="_blank">';
+						get_template_part('assets/images/social/linkedin','official.svg');
+						echo '</a>';				
+					echo '</div>';
+					?>
+					</div> <!-- gallery-link -->
+				<?php endif; ?>
+			<?php endforeach; ?>
 		<?php endif; ?>
+
+
+	</div> <!-- enamels -->
+
 	</div>
+	
+
 	
 	<script>
 		jQuery(window).load(function(){

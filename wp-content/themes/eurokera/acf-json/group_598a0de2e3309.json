@@ -7,7 +7,6 @@
             "label": "Gallery",
             "name": "gallery",
             "type": "gallery",
-            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -27,122 +26,6 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
-        },
-        {
-            "key": "field_59de61985245a",
-            "label": "Matte Enamels",
-            "name": "white_enamel_colors",
-            "type": "repeater",
-            "value": null,
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "row",
-            "button_label": "Add Color",
-            "sub_fields": [
-                {
-                    "key": "field_59de61a75245b",
-                    "label": "Title",
-                    "name": "title",
-                    "type": "text",
-                    "value": null,
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_59de61af5245c",
-                    "label": "Color",
-                    "name": "color",
-                    "type": "color_picker",
-                    "value": null,
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": ""
-                }
-            ]
-        },
-        {
-            "key": "field_59e0c2d2702b6",
-            "label": "Reflective Enamels",
-            "name": "black_enamel_colors",
-            "type": "repeater",
-            "value": null,
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "row",
-            "button_label": "Add Color",
-            "sub_fields": [
-                {
-                    "key": "field_59e0c2d2702b7",
-                    "label": "Title",
-                    "name": "title",
-                    "type": "text",
-                    "value": null,
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_59e0c2d2702b8",
-                    "label": "Color",
-                    "name": "color",
-                    "type": "color_picker",
-                    "value": null,
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": ""
-                }
-            ]
         }
     ],
     "location": [
@@ -169,5 +52,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1508338077
+    "modified": 1518536677
 }
