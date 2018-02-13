@@ -122,6 +122,8 @@
 					jQuery('select#display').append('<option value="red">Red/Orange</option>');
 					if (jQuery(this).val() != 'grey' && jQuery(this).val() != 'white') {
 						jQuery('select#display').append('<option value="monochromatic">Monochromatic</option>');
+					}
+					if (jQuery(this).val() == 'white') {
 						jQuery('select#display').append('<option value="none">No Display</option>');
 					}
 				});
