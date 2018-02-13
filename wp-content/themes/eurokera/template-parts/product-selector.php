@@ -68,8 +68,12 @@
 						}
 						$classes = '';
 						$glass_colors = get_field('glass_color');
-						foreach ($glass_colors as $glass_color) {
-							$classes .= ' ' . strtolower($glass_color);
+						if (is_array($glass_colors)) {			
+							foreach ($glass_colors as $glass_color) {
+								$classes .= ' ' . strtolower($glass_color);
+							}
+						} else {
+							$classes .= ' ' . strtolower($glass_colors);
 						}
 						$led_colors = get_field('led_colors');
 						foreach ($led_colors as $led_color) {
