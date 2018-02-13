@@ -126,6 +126,10 @@
 					if (jQuery(this).val() == 'white') {
 						jQuery('select#display').append('<option value="none">No Display</option>');
 					}
+					// Reset Display Options if this have no value
+					if (jQuery(this).val() == '') {
+						jQuery('select#display').prop('selectedIndex',0);
+					}
 				});
 				jQuery('#product-selector input:not(.placebo), #product-selector select').on( 'change', function() {
 					var selectedClasses = '';
