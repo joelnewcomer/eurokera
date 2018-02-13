@@ -35,11 +35,11 @@ function my_nav_wrap() {
 	$search_icon = file_get_contents(locate_template("assets/images/search.svg.php"));
 	// get_template_part('assets/images/search.svg');
 	$wrap .= '<li class="icon-wrapper">' . $search_icon . '</li>';
-$wrap .= '<li id="english" class="blue menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="http://localhost:8888/eurokerav2/cooktop-users/">EN</a>
-<ul class="sub-menu">
-	<li id="chinese" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#">CN</a></li>
-	<li id="korean" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#">KR</a></li>
-</ul><li>';
+// $wrap .= '<li id="english" class="blue menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="http://localhost:8888/eurokerav2/cooktop-users/">EN</a>
+//<ul class="sub-menu">
+//	<li id="chinese" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#">CN</a></li>
+//	<li id="korean" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#">KR</a></li>
+//</ul><li>';
 	$wrap .= '</ul>';
 	return $wrap;
 }
