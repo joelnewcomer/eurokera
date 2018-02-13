@@ -2163,6 +2163,7 @@ section#video-center p {
   display: block;
   padding: 4px 8px;
   position: absolute;
+  z-index: 999999;
   top: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.5);
@@ -2173,7 +2174,8 @@ section#video-center p {
     vertical-align: middle;
     width: 20px;
     height: 20px;
-    fill: #fff; }
+    fill: #fff;
+    pointer-events: none; }
 
 .feature-inner:hover .img-social, .featherlight-content:hover .img-social, .gallery-link:hover .img-social {
   opacity: 1; }

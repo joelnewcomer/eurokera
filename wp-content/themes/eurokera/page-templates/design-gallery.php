@@ -26,7 +26,7 @@ get_header(); ?>
 	
 	<?php $images = get_field('gallery'); ?>
 	
-	<div class="users-gallery" data-featherlight-gallery data-featherlight-filter="a">
+	<div class="users-gallery" data-featherlight-gallery data-featherlight-filter="a.gallery-image">
 		<?php
 		if( $images ): ?>
 			<?php foreach( $images as $image ): ?>
@@ -39,32 +39,32 @@ get_header(); ?>
 				$full_size_url = wp_get_attachment_image_src( $image['ID'], 'full' );
 				$cropped_url = wp_get_attachment_image_src( $image['ID'], 'width=936&height=475&crop=1' ) 
 				?>
-				<div class="gallery-link gallery<?php echo $cat_classes; ?>">
-				<a href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $image['caption']; ?>">
-					<div class="hero" style="background-image: url(<?php echo $cropped_url[0]; ?>);"></div>
-				</a>
-				<?php
-				echo '<div class="img-social transition">Share: ';
-
-				// Facebook
-				echo '<a href="https://www.facebook.com/sharer.php?u=' . $full_size_url[0] . '" target="_blank">';
-				get_template_part('assets/images/social/facebook','official.svg');
-				echo '</a>';
-				// Twitter
-				echo '<a href="https://twitter.com/intent/tweet?url=' . $full_size_url[0] . '&text=' . $image['caption'] . '" target="_blank">';
-				get_template_part('assets/images/social/twitter','official.svg');
-				echo '</a>';
-				// Pinterest
-				echo '<a href="https://pinterest.com/pin/create/bookmarklet/?media=' . $full_size_url[0] . '&url=' . $full_size_url[0] . '&is_video=false&description=' . $title . '" target="_blank">';
-				get_template_part('assets/images/social/pinterest-p','official.svg');
-				echo '</a>';				
-				// LinkedIn
-				echo '<a href="https://www.linkedin.com/shareArticle?url=' . get_permalink() . '&title=' . $image['caption'] . '" target="_blank">';
-				get_template_part('assets/images/social/linkedin','official.svg');
-				echo '</a>';				
+				<div class="gallery-link gallery-image gallery<?php echo $cat_classes; ?>">
+					<a class="gallery-image" href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $image['caption']; ?>">
+						<div class="hero gallery-image" style="background-image: url(<?php echo $cropped_url[0]; ?>);"></div>
+					</a>
+					<?php
+					echo '<div class="img-social transition">Share: ';
+					
+					// Facebook
+					echo '<a href="https://www.facebook.com/sharer.php?u=' . $full_size_url[0] . '" target="_blank">';
+					get_template_part('assets/images/social/facebook','official.svg');
+					echo '</a>';
+					// Twitter
+					echo '<a href="https://twitter.com/intent/tweet?url=' . $full_size_url[0] . '&text=' . urlencode($image['caption']) . '" target="_blank">';
+					get_template_part('assets/images/social/twitter','official.svg');
+					echo '</a>';
+					// Pinterest
+					echo '<a href="https://pinterest.com/pin/create/bookmarklet/?media=' . $full_size_url[0] . '&url=' . $full_size_url[0] . '&is_video=false&description=' . $title . '" target="_blank">';
+					get_template_part('assets/images/social/pinterest-p','official.svg');
+					echo '</a>';				
+					// LinkedIn
+					echo '<a href="https://www.linkedin.com/shareArticle?url=' . get_permalink() . '&title=' . urlencode($image['caption']) . '" target="_blank">';
+					get_template_part('assets/images/social/linkedin','official.svg');
+					echo '</a>';				
 				echo '</div>';
 				?>
-				</div>
+				</div> <!-- gallery-link -->
 			<?php endforeach; ?>
 		<?php endif; ?>
 	</div>
@@ -105,28 +105,35 @@ get_header(); ?>
 	
 	<script>
 		jQuery(window).load(function(){
+			jQuery.featherlight.prototype.beforeOpen = function(event) {
+				if(!jQuery(event.target).hasClass('gallery-image')) {
+					window.open = jQuery(event.target).attr('href');
+					return false;
+    			}
+			}
 			jQuery.featherlightGallery.prototype.afterContent = function() {
 				var caption = this.$currentTarget.data('caption');
 				var imgURL = this.$instance.find('.featherlight-content').find('img').attr("src");
-				var pageURL = '<?php the_permalink(); ?>';
+				var pageURL = '<?php echo get_the_permalink(); ?>';
 				// Facebook
 				var facebookIcon = '<?php echo load_template_part('assets/images/social/facebook','official.svg'); ?>';
-				var facebookURL = 'https://www.facebook.com/sharer.php?u=' + imgURL;
+				var facebookURL = encodeURI('https://www.facebook.com/sharer.php?u=' + imgURL);
 				var facebookFullLink = '<a href="' + facebookURL + '" target="_blank">' + facebookIcon + '</a>';
 				// Twitter
 				var twitterIcon = '<?php echo load_template_part('assets/images/social/twitter','official.svg'); ?>';
-				var twitterURL = 'https://twitter.com/intent/tweet?url=' + imgURL + '&text=' + caption;
+				var twitterURL = encodeURI('https://twitter.com/intent/tweet?url=' + imgURL + '&text=' + caption);
 				var twitterFullLink = '<a href="' + twitterURL + '" target="_blank">' + twitterIcon + '</a>';
 				// Pinterest
 				var pinterestIcon = '<?php echo load_template_part('assets/images/social/pinterest-p','official.svg'); ?>';
-				var pinterestURL = 'https://pinterest.com/pin/create/bookmarklet/?media=' + imgURL + '&url=' + imgURL + '&is_video=false&description=' + caption;
+				var pinterestURL = encodeURI('https://pinterest.com/pin/create/bookmarklet/?media=' + imgURL + '&url=' + imgURL + '&is_video=false&description=' + caption);
 				var pinterestFullLink = '<a href="' + pinterestURL + '" target="_blank">' + pinterestIcon + '</a>';
 				// LinkedIn
 				var linkedinIcon = '<?php echo load_template_part('assets/images/social/linkedin','official.svg'); ?>';
-				var linkedinURL = 'https://www.linkedin.com/shareArticle?url=' + pageURL + '&title=' + caption;
+				var linkedinURL = encodeURI('https://www.linkedin.com/shareArticle?url=' + pageURL + '&title=' + caption);
 				var linkedinFullLink = '<a href="' + linkedinURL + '" target="_blank">' + linkedinIcon + '</a>';
 				
 				this.$instance.find('.caption').remove();
+				this.$instance.find('.img-social').remove();
 				jQuery('<div class="caption">').text(caption).appendTo(this.$instance.find('.featherlight-content'));
 				jQuery('<div class="img-social transition">Share: ' + facebookFullLink + twitterFullLink + pinterestFullLink + linkedinFullLink + '</div>').appendTo(this.$instance.find('.featherlight-content'));
 			};

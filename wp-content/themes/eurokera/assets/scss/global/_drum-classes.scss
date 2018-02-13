@@ -279,6 +279,7 @@ section#video-center p {
 	display: block;
 	padding: 4px 8px;
 	position: absolute;
+	z-index: 999999;
 	top: 0;
 	right: 0;
 	background: rgba(0,0,0,.5);
@@ -290,6 +291,7 @@ section#video-center p {
 		width: 20px;
 		height: 20px;
 		fill: #fff;
+		pointer-events: none;
 	}
 }
 
