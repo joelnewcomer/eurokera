@@ -7,7 +7,7 @@ Author:          Drum Creative
 Author URI:      https://drumcreative.com
 Text Domain:     drumcreative-drum-dashboard
 Domain Path:     /languages
-Version:         1.4.5
+Version:         1.5.1
 @package         Drum_Dashboard
  */
 
@@ -46,6 +46,19 @@ function remove_menus() {
 }
 add_action('admin_menu', 'remove_menus', 999);
 
+/**
+ * Register a custom menu page.
+ */
+//function wpdocs_register_my_custom_menu_page() {
+//	add_menu_page(
+//		__( 'Drum Dashboard', 'textdomain' ),
+//		'myplugin/myplugin-admin.php',
+//		'',
+//		plugins_url( 'drumcreative-drum-dashboard/assets/images/drum-icon.png' ),
+//		6
+//	);
+//}
+//add_action( 'admin_menu', 'wpdocs_register_my_custom_menu_page' );
 
 // Disables ALL Panels on admin Dashboard
 function my_remove_dashboard_widgets() {
@@ -196,7 +209,17 @@ function admin_script() {
                 	$counter = 1;
                     while ( have_rows('videos', 'option') ) : the_row(); ?>
                         <div class="large-3 medium-6 short-delay columns tut-video">
-	                        <?php if ( get_sub_field( 'video_type' )  == 'Vimeo' ): ?>
+	                        <?php if ( get_sub_field( 'video_type' )  == 'Loom' ): ?>
+	                        <?php
+	                        $loom_url = get_sub_field('loom_video_url');
+	                        $new_url = str_replace('share', 'embed', $loom_url);
+	                        ?>
+
+                                <iframe class="vid-iframe" width="100%" height="218" src="<?php echo $new_url;?>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                <div class="loom-video-title">
+                                    <h2><?php echo get_sub_field('loom_video_title');?></h2>
+                                </div>
+                            <?php else: ?>
                                 <iframe id="video-<?php echo $counter; ?>" width="560" height="370" src="https://player.vimeo.com/video/<?php echo the_sub_field('video_id');?>?title=0&byline=0&portrait=0" frameborder="0" allowfullscreen></iframe>
                                 <div id="video-title-<?php echo $counter; ?>" class="video-title"></div>
                                 <script>
@@ -213,16 +236,6 @@ function admin_script() {
                                         });
                                     });
                                 </script>
-                            <?php else: ?>
-                                <?php
-                                $loom_url = get_sub_field('loom_video_url');
-                                $new_url = str_replace('share', 'embed', $loom_url);
-                                ?>
-
-                                <iframe class="vid-iframe" width="100%" height="218" src="<?php echo $new_url;?>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                                <div class="loom-video-title">
-                                    <h2><?php echo get_sub_field('loom_video_title');?></h2>
-                                </div>
 	                        <?php endif; ?>
                         </div> <!-- .tut-video -->
 	                    <?php $counter++; ?>
