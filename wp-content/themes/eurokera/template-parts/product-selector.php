@@ -67,7 +67,10 @@
 							$white = 'white';	
 						}
 						$classes = '';
-						$classes .= strtolower(get_field('glass_color'));
+						$glass_colors = get_field('glass_color');
+						foreach ($glass_colors as $glass_color) {
+							$classes .= ' ' . strtolower($glass_color);
+						}
 						$led_colors = get_field('led_colors');
 						foreach ($led_colors as $led_color) {
 							$classes .= ' ' . sanitize_title($led_color);
