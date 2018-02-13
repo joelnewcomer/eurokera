@@ -70,7 +70,8 @@ get_header(); ?>
 	</div>
 	
 	<div class="enamels white text-center">
-		<h2>Matte Enamels</h2>
+		<h2>Enamel Color Samples</h2>
+		<p class="small">The color samples below are digital renderings with for only intend to illustrate the possibilities in terms of decoration offered by EuroKera. For any enquiry, we recommend to <a href="<?php echo get_site_url(); ?>/contact">contact EuroKera</a>.</p>
 		<?php if(get_field('white_enamel_colors')): ?>
 			<?php while(has_sub_field('white_enamel_colors')): ?>
 				<div class="enamel">
@@ -87,7 +88,6 @@ get_header(); ?>
 	</div>
 
 	<div class="enamels black text-center">
-		<h2>Reflective Enamels</h2>
 		<?php if(get_field('black_enamel_colors')): ?>
 			<?php while(has_sub_field('black_enamel_colors')): ?>
 				<div class="enamel">
