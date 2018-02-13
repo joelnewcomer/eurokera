@@ -4765,7 +4765,6 @@ section.locate-support .identify-cooktop svg {
 .epop-identify {
   position: absolute;
   width: 416px;
-  height: 375px;
   padding: 65px 20px 60px 20px;
   top: 50%;
   left: 50%;
@@ -4784,7 +4783,6 @@ section.locate-support .identify-cooktop svg {
   .epop-identify h3 {
     color: #fff;
     display: inline-block;
-    max-width: 250px;
     margin-bottom: 25px; }
   .epop-identify .eurokera-logo-2 {
     fill: #fff; }
