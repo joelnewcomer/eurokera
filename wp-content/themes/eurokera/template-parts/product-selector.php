@@ -125,7 +125,11 @@
 					// Get all selected form elements
 					jQuery('#product-selector input:not(.placebo):checked, #product-selector select').each(function() {
 						if (jQuery(this).val() != '') {
-							selectedClasses += '.' + jQuery(this).val();
+							var thisVal = jQuery(this).val();
+							if (thisVal == 'all-color') {
+								thisVal = 'black.grey.white.transparent';
+							}
+							selectedClasses += '.' + thisVal;
 						}
 					});
 					var numDivs = jQuery('.product-selector-product:not(' + selectedClasses + ')').length;
