@@ -135,7 +135,8 @@
 					var selectedClasses = '';
 					// Get all selected form elements
 					jQuery('#product-selector input:not(.placebo):checked, #product-selector select').each(function() {
-						if (jQuery(this).val() != '' &&  jQuery(this).val() != 'all-color') {
+						// if (jQuery(this).val() != '' &&  jQuery(this).val() != 'all-color') {
+						if (jQuery(this).val() != '') {
 							selectedClasses += '.' + jQuery(this).val();
 						}
 					});

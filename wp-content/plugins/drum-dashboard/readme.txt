@@ -3,8 +3,8 @@ Contributors: drumcreative
 Donate link: http://example.com/
 Tags: web maintenance, tutorial videos, contact information, advertisements
 Requires at least: 4.0
-Tested up to: 4.9.2
-Stable tag: 1.5.1
+Tested up to: 4.9.4
+Stable tag: 1.5.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,9 @@ At Drum Creative we manage a lot of clients website. This plugin is an easy was 
 At Drum Creative we manage a lot of clients website. This plugin is an easy was to show clients how many hour of maintenance, where their website is hosted, and show who their account manager is. We also have a section where we can show tutorial videos that apply directly to the specific client. Last we can promote different services that we provide.
 
 == Changelog ==
+= 1.5.2 =
+* v1.5.2 - made the dashboard plugin dependent on Advanced Custom Fields Pro plugin
+
 = 1.5.1 =
 * v1.5.1 - changed the if statement for videos to make it backwards compatible for vimeo
 
