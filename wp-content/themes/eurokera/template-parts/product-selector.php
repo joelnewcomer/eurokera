@@ -115,8 +115,10 @@
 					jQuery('select#display').find('option').remove();
 					// Grey and White are the only glass colors with limitations
 					// black - all, grey - red/orange, transparent - all, white - red/orange
-					if (jQuery(this).val() != 'grey' && jQuery(this).val() != 'white') {
+					if (jQuery(this).val() != 'grey') {
 						jQuery('select#display').append('<option value="">Display Options</option>');
+					}
+					if (jQuery(this).val() != 'grey' && jQuery(this).val() != 'white') {
 						jQuery('select#display').append('<option value="all-color">Any Color including white</option>');
 					}
 					jQuery('select#display').append('<option value="red">Red/Orange</option>');
