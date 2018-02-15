@@ -83,7 +83,7 @@ get_header(); ?>
 
 <?php echo get_template_part('template-parts/product','selector'); ?>
 
-<section class="customers">
+<!-- <section class="customers">
 	<div class="row">
 		<div class="large-12 columns text-center">
 			<h2>Among Our Valued Customers</h2>
@@ -126,7 +126,7 @@ get_header(); ?>
 			})
 		});		
 	</script>
-</section>
+</section> -->
 
 <section class="makers-details">
 	<?php $glass_ceramic_img = wp_get_attachment_image_src( get_field('glass_ceramic_image'), 'full' ); ?>
