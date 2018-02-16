@@ -181,7 +181,7 @@ get_header(); ?>
 		</div>
 		<div class="substrates fact large">
 			<?php get_template_part('assets/images/eurokera-enviro', 'logo.svg'); ?><br />
-			<p><strong><span class="caps">No</span> arsenic or antimony</strong> used to make black substrates.</p>
+			<p><strong><span class="caps">No</span> arsenic or antimony</strong> used to manufacture black substrates.</p>
 		</div>		
 		<div class="landfill fact">
 			<h2 id="landfills"></h2>
