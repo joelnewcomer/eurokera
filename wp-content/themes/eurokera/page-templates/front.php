@@ -13,7 +13,7 @@ get_header(); ?>
    $period_pos = strpos($desc, '.') + 1;
    $desc = substr_replace($desc, '<br />', $period_pos, 0);
    ?>
-   <div class="center-banner" style="display:table;display:flex;display:-ms-flex;align-items: center; width: 100%; height:100%; text-align: center;">
+   <div class="center-banner" style="display:table;width: 100%; height:100%; text-align: center;">
        <div style="display:table-cell;vertical-align:middle;text-align:center;width: 100%;">
 	          <h1><?php echo $desc; ?></h1>
    <?php get_template_part('template-parts/content','site-links'); ?>
