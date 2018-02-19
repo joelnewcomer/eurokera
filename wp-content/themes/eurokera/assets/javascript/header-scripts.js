@@ -37,15 +37,6 @@ conditionizr.add('ie9', function () {
   return (Function('/*@cc_on return (/^9/.test(@_jscript_version) && /MSIE 9\.0(?!.*IEMobile)/i.test(navigator.userAgent)); @*/')());
 });
 
-/*!
- * IE11
- * RegExp to check out the new IE UserAgent:
- * Trident/7.0; rv:11.0
- */
-conditionizr.add('ie11', function () {
-  return (Function('/(?:\sTrident\/7\.0;.*\srv:11\.0)/i.test(navigator.userAgent)); @*/')());
-});
-
 if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
     document.body.classList.add("firefox");
 }
