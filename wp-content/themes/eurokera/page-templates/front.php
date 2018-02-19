@@ -7,20 +7,18 @@ get_header(); ?>
 <?php do_action( 'foundationpress_before_content' ); ?>
 
 <section class="home-banner text-center" data-paroller-factor="0.3" style="background-image: url('<?php the_post_thumbnail_url("full"); ?>');">
-   <!-- <div class="hide-for-small"><?php get_template_part('template-parts/header-icon'); ?><br /></div> -->
    <?php
    // Insert a line break after the first period
    $desc = get_bloginfo('description');
    $period_pos = strpos($desc, '.') + 1;
    $desc = substr_replace($desc, '<br />', $period_pos, 0);
    ?>
-   <div class="center-banner" style="display:table;width:100%;height:100%;">
-     <div style="display:table-cell;table-layout:fixed;vertical-align:middle;">
-       <div style="text-align:center;">
+   <div class="center-banner" style="display: flex;
+     align-items: center; width: 100%; text-align: center;">
+       <div style="text-align:center;width: 100%;">
 	          <h1><?php echo $desc; ?></h1>
    <?php get_template_part('template-parts/content','site-links'); ?>
        </div>
-     </div>
    </div>
 
    <div class="down-arrow bounce animated"><?php get_template_part('assets/images/acc', 'arrow.svg'); ?></div>
