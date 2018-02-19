@@ -38,7 +38,7 @@ class Settings {
 
 		$cmb = new_cmb2_box( array(
 			'id'           => 'heartbeat_control_settings',
-			'title'        => __( 'Heartbeat Control Settings', 'cmb2' ),
+			'title'        => __( 'Heartbeat Control Settings', 'heartbeat-control' ),
 			'object_types' => array( 'options-page', ), // Post type
 			'option_key'   => 'heartbeat_control_settings',
 			'capability'   => 'manage_options',

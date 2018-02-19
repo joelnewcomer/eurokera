@@ -1,17 +1,17 @@
 [
     {
         "name": "webdevstudios/cmb2",
-        "version": "v2.2.5.3",
-        "version_normalized": "2.2.5.3",
+        "version": "v2.3.0",
+        "version_normalized": "2.3.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/CMB2/CMB2.git",
-            "reference": "5c9bdb6e99e17e4dad71ebbc68dab5def3c64e12"
+            "reference": "a1778c2ffccf2fdd11c9d2006eaa72192bdce9e9"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/CMB2/CMB2/zipball/5c9bdb6e99e17e4dad71ebbc68dab5def3c64e12",
-            "reference": "5c9bdb6e99e17e4dad71ebbc68dab5def3c64e12",
+            "url": "https://api.github.com/repos/CMB2/CMB2/zipball/a1778c2ffccf2fdd11c9d2006eaa72192bdce9e9",
+            "reference": "a1778c2ffccf2fdd11c9d2006eaa72192bdce9e9",
             "shasum": ""
         },
         "require": {
@@ -23,7 +23,7 @@
         "suggest": {
             "composer/installers": "~1.0"
         },
-        "time": "2017-08-22 18:14:34",
+        "time": "2017-12-20 14:18:52",
         "type": "wordpress-plugin",
         "installation-source": "dist",
         "notification-url": "https://packagist.org/downloads/",

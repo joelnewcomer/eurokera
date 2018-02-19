@@ -1,10 +1,10 @@
 === Heartbeat Control ===
 Contributors: JeffMatson
-Donate link: https://www.patreon.com/JeffMatson
+Donate link: https://paypal.me/JeffMatson
 Tags: heartbeat, admin-ajax, server resources, heartbeat control, heartbeat api, performance, debugging, javascript
 Requires at least: 3.6
-Tested up to: 4.8.2
-Stable tag: 1.2.2
+Tested up to: 4.9.4
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,16 @@ All options are located within Settings > Heartbeat Control.
 If you commonly leave your WordPress admin up for long periods of time, especially while writing or editing a post, the repeated POST requests can cause high resource usage.  To avoid this, the heartbeat can be modified or even disabled to lower your server resource usage.
 
 == Changelog ==
+= 1.2.3 =
+* Added composer.json and composer.lock that were missing.
+* Updated CMB2 to 2.3
+* Translation files generated.
+* Language path and text domain added to plugin header.
+* Bumped compatible WP version.
+
+= 1.2.2 =
+* Minor bugfixes.
+
 = 1.2.1 =
 * Fixed issue that would cause some users to not see the modification slider.
 

@@ -3,10 +3,12 @@
  * Plugin Name: Heartbeat Control
  * Plugin URI: https://jeffmatson.net/heartbeat-control
  * Description: Completely controls the WordPress heartbeat.
- * Version: 1.2.2
+ * Version: 1.2.3
  * Author: Jeff Matson
  * Author URI: http://jeffmatson.net
  * License: GPL2
+ * Text Domain: heartbeat-control
+ * Domain Path: /languages
  */
 
 namespace Heartbeat_Control;
@@ -21,7 +23,7 @@ class Heartbeat_Control {
 	 *
 	 * @var string
 	 */
-	public $version = '1.2.2';
+	public $version = '1.2.3';
 
 	/**
 	 * Undocumented function
@@ -102,8 +104,7 @@ class Heartbeat_Control {
 		?>
 			<div id="heartbeat_control_update_notice" class="notice notice-success is-dismissible">
 				<p><?php _e( 'Heartbeat Control has updated to a new version!', 'heartbeat-control' ); ?></p>
-				<p><?php _e( 'Multiple rules can now be specified. Go to the settings to add the new features!', 'heartbeat-control' ); ?></p>
-				<p><?php _e( 'Want more? <a href="https://www.patreon.com/JeffMatson">Support me on Patreon</a> to further my projects and get early access to the upcoming Heartbeat Control Pro!', 'heartbeat-control' ); ?></p>
+				<p><?php _e( 'Love it? Does it save you money and valuable server resources? Consider <a href="https://paypal.me/JeffMatson">sending me a donation</a>. The plugin is entirely developed in my spare time and every little bit helps to motivate me to add more features and bug fixes.', 'heartbeat-control' ); ?></p>
 			</div>
 		<?php
 		}
