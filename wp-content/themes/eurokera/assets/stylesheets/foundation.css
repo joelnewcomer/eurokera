@@ -3261,7 +3261,7 @@ section.home-banner + section.ceo {
       min-height: -webkit-calc(100vh - 65px);
       min-height: calc(100vh - 65px); } }
 
-.gecko .home-banner .center-banner {
+.firefox .home-banner .center-banner {
   display: -webkit-box !important;
   display: -webkit-flex !important;
   display: -ms-flexbox !important;
