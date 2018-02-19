@@ -15,7 +15,7 @@ get_header(); ?>
    $desc = substr_replace($desc, '<br />', $period_pos, 0);
    ?>
    <div class="center-banner" style="display:table;width:100%;height:100%;">
-     <div style="display:table-cell;vertical-align:middle;">
+     <div style="display:table-cell;table-layout:fixed;vertical-align:middle;">
        <div style="text-align:center;">
 	          <h1><?php echo $desc; ?></h1>
    <?php get_template_part('template-parts/content','site-links'); ?>
