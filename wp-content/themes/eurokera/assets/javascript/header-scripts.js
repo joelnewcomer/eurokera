@@ -42,11 +42,10 @@ conditionizr.add('ie9', function () {
  * RegExp to check out the new IE UserAgent:
  * Trident/7.0; rv:11.0
  */
-conditionizr.add('ie11', /(?:\sTrident\/7\.0;.*\srv:11\.0)/i.test(navigator.userAgent));
+conditionizr.add('ie11', function () {
+  return (Function('/(?:\sTrident\/7\.0;.*\srv:11\.0)/i.test(navigator.userAgent)); @*/')());
+});
 
-
-/*!
- * Firefox
- * Evaluate the presence of `InstallTrigger`
- */
-conditionizr.add('firefox', 'InstallTrigger' in window);
+if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+    document.body.classList.add("firefox");
+}
