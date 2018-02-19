@@ -36,3 +36,17 @@ conditionizr.add('ie8', function () {
 conditionizr.add('ie9', function () {
   return (Function('/*@cc_on return (/^9/.test(@_jscript_version) && /MSIE 9\.0(?!.*IEMobile)/i.test(navigator.userAgent)); @*/')());
 });
+
+/*!
+ * IE11
+ * RegExp to check out the new IE UserAgent:
+ * Trident/7.0; rv:11.0
+ */
+conditionizr.add('ie11', /(?:\sTrident\/7\.0;.*\srv:11\.0)/i.test(navigator.userAgent));
+
+
+/*!
+ * Firefox
+ * Evaluate the presence of `InstallTrigger`
+ */
+conditionizr.add('firefox', 'InstallTrigger' in window);
