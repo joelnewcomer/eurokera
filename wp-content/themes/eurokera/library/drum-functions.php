@@ -364,30 +364,18 @@ function filter_media_comment_status( $open, $post_id ) {
 add_filter( 'comments_open', 'filter_media_comment_status', 10 , 2 );
 
 // Add User Browser and OS Classes to Body Class
-function mv_browser_body_class($classes) {
-        global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
-        if($is_lynx) $classes[] = 'lynx';
-        elseif($is_gecko) $classes[] = 'gecko';
-        elseif($is_opera) $classes[] = 'opera';
-        elseif($is_NS4) $classes[] = 'ns4';
-        elseif($is_safari) $classes[] = 'safari';
-        elseif($is_chrome) $classes[] = 'chrome';
-        elseif($is_IE) {
-                $classes[] = 'ie';
-                if(preg_match('/MSIE ([0-9]+)([a-zA-Z0-9.]+)/', $_SERVER['HTTP_USER_AGENT'], $browser_version))
-                $classes[] = 'ie'.$browser_version[1];
-        } else $classes[] = 'unknown';
-        if($is_iphone) $classes[] = 'iphone';
-        if ( stristr( $_SERVER['HTTP_USER_AGENT'],"mac") ) {
-                 $classes[] = 'osx';
-           } elseif ( stristr( $_SERVER['HTTP_USER_AGENT'],"linux") ) {
-                 $classes[] = 'linux';
-           } elseif ( stristr( $_SERVER['HTTP_USER_AGENT'],"windows") ) {
-                 $classes[] = 'windows';
-           }
-        return $classes;
+function custom_body_classes($classes) {
+    // the list of WordPress global browser checks
+    // https://codex.wordpress.org/Global_Variables#Browser_Detection_Booleans
+    $browsers = ['is_iphone', 'is_chrome', 'is_safari', 'is_NS4', 'is_opera', 'is_macIE', 'is_winIE', 'is_gecko', 'is_lynx', 'is_IE', 'is_edge'];
+    // check the globals to see if the browser is in there and return a string with the match
+    $classes[] = str_replace( 'is_' , '' , join(' ', array_filter($browsers, function ($browser) {
+        return $GLOBALS[$browser];
+    })));
+    return $classes;
 }
-add_filter('body_class','mv_browser_body_class');
+// call the filter for the body class
+add_filter('body_class', 'custom_body_classes');
 
 // Remove "Custom Fields" meta box to speed up admin
 function admin_speedup_remove_post_meta_box() {
