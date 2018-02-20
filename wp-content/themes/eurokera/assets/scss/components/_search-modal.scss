@@ -188,6 +188,7 @@
 	    width: 25px;
 	    @include breakpoint(medium ) {
 	        width: 75px;
+	        height: 75px;
 	    }
 	    position: absolute;
 	    top: 12px;
@@ -244,6 +245,7 @@ body > .fl-modal .fl-modal-content {
 	padding: 0;
 	margin: 0;
 	border: none;
+	overflow: hidden;
 	@media only screen and (max-width: 40.063em) {
 		width: 85%;
 		margin: 0;

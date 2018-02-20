@@ -3036,7 +3036,8 @@ input.button:hover {
     opacity: .15; }
     @media screen and (min-width: 40em) {
       .search-popup .search-icon {
-        width: 75px; } }
+        width: 75px;
+        height: 75px; } }
     @media only screen and (max-width: 40.063em) {
       .search-popup .search-icon {
         right: 68px; } }
@@ -3074,7 +3075,8 @@ body > .fl-modal .fl-modal-content {
   width: 60%;
   padding: 0;
   margin: 0;
-  border: none; }
+  border: none;
+  overflow: hidden; }
   @media only screen and (max-width: 40.063em) {
     body > .fl-modal .fl-modal-content {
       width: 85%;
