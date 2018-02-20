@@ -48,6 +48,7 @@ get_header(); ?>
 				dots: false,
 				center: true,
 				autoplay: true,
+				autoplayTimeout: 10000,
 			    responsive:{
 			        0:{
 			            items:1

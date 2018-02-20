@@ -4554,10 +4554,6 @@ body .epop-form h3 {
     .owl-theme.users-gallery-carousel .owl-stage {
       padding: 0; } }
 
-@media only screen and (max-width: 40.063em) {
-  .users-gallery-image {
-    padding: 0 20px; } }
-
 .owl-theme.users-gallery-carousel .owl-stage .owl-item {
   -webkit-transition: -webkit-transform .3s;
   transition: -webkit-transform .3s;

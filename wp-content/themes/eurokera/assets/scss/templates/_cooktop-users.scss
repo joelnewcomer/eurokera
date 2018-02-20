@@ -36,7 +36,8 @@
 
 .users-gallery-image {
 	@media only screen and (max-width: 40.063em) {
-		padding: 0 20px;
+		// Removed 2/20/18 because it was making weird gap on mobile
+		// padding: 0 20px;
 	}
 }
 
