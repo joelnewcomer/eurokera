@@ -40,7 +40,7 @@
 				</div> <!-- row -->
 				
 				<div class="row">
-					<div class="large-6 medium-6 columns copyright small-text-center">
+					<div class="large-12 medium-12 columns copyright small-text-center">
 						<p><?php _e( 'Copyright ', 'textdomain' ); ?> &copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?>.  <span class="no-break"><?php _e( 'All rights reserved.', 'textdomain' ); ?></span> <span class="show-for-small"><br /></span><a href="<?php echo get_site_url(); ?>/terms-of-use">Terms of Use</a>. <a href="<?php echo get_site_url(); ?>/privacy-policy">Privacy Policy</a>. <a href="<?php echo get_site_url(); ?>/sitemap">Sitemap</a></p>
 					</div>
 					<!-- <div class="large-6 medium-6 columns drum hide-on-print text-right small-text-center">
