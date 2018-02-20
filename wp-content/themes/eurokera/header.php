@@ -47,6 +47,7 @@
 
 	</head>
 	<body <?php body_class(); ?>>
+		<a class="skip-link sr-only" href="#content"><?php _e( 'Skip to content', 'drumroll' ); ?></a>
 	<?php do_action( 'foundationpress_after_body' ); ?>
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
@@ -122,4 +123,4 @@
 
 	<?php do_action( 'foundationpress_after_header' ); ?>
 
-	<section class="container">
+	<section id="content" class="container">
