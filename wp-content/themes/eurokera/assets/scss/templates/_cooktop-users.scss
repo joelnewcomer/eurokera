@@ -51,10 +51,15 @@
 	}
 }
 
+@media only screen and (min-width: 40.063em) {
+	.owl-theme.users-gallery-carousel .owl-stage .owl-item.active.center {
+		opacity: 1;		
+	}
+}
+
 @media only screen and (min-width: 1000px) {
 	.owl-theme.users-gallery-carousel .owl-stage .owl-item.active.center {
 		transform:scale(1);
-		opacity: 1;
 		z-index: 999;
 		img {
 			-webkit-box-shadow: 0 0 50px rgba(1,1,1,.2);
