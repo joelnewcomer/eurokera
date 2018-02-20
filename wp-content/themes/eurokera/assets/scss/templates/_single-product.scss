@@ -375,6 +375,11 @@ section.ready {
 		left: 50%;
 		padding: 14px;
 		border: solid 4px #fff;
+		@media only screen and (max-width: 545px) {
+			max-width: 100%;
+			margin-left: -50%;
+			height: auto;
+		}
 	}
 	&.open .modal-form {
 		top: 50%;
