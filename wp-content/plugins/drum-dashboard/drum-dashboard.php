@@ -7,7 +7,7 @@ Author:          Drum Creative
 Author URI:      https://drumcreative.com
 Text Domain:     drumcreative-drum-dashboard
 Domain Path:     /languages
-Version:         1.5.2
+Version:         1.5.4
 @package         Drum_Dashboard
  */
 
@@ -105,6 +105,9 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'icon_url' => 'dashicons-layout', // Add this line and replace the second inverted commas with class of the icon you like
 		'redirect'   => false
 	) );
+
+	/** ACF fields */
+	require_once( 'acf/acf_fields.php' );
 
 }
 function display_admin_notice() { ?>
@@ -301,9 +304,6 @@ if( !is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) ) { ?>
         </script>
 	<?php }
 
-
-	/** ACF fields */
-	require_once( 'acf/acf_fields.php' );
 }
 }
 add_action( 'admin_notices', 'display_admin_notice' );
