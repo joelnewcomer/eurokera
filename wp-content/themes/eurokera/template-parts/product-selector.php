@@ -10,10 +10,11 @@
 					<option value="black">Black</option>
 					<option value="grey">Grey (Slate)</option>
 					<option value="transparent">Transparent</option>
+					<option value="transparent">Transparent - Champagne</option>
 					<option value="transparent">Transparent - Silver</option>
 					<option value="transparent">Transparent - Slate Grey</option>
 					<option value="transparent">Transparent - Anthracite</option>
-					<option value="transparent">Transparent - UltraBlack</option>
+					<!-- <option value="transparent">Transparent - UltraBlack</option> -->
 					<option value="white">White</option>				
 				</select>
 				<select id="display" class="product-dropdown">
