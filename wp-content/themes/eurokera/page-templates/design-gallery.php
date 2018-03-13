@@ -48,19 +48,19 @@ get_header(); ?>
 						echo '<div class="img-social transition">Share: ';
 						
 						// Facebook
-						echo '<a href="https://www.facebook.com/sharer.php?u=' . $full_size_url[0] . '" target="_blank">';
+						echo '<a href="https://www.facebook.com/sharer.php?u=' . $full_size_url[0] . '" target="_blank" onclick="ga(\'send\', \'event\', \'Social\', \'Click\', \'Social Media – Facebook\');">';
 						get_template_part('assets/images/social/facebook','official.svg');
 						echo '</a>';
 						// Twitter
-						echo '<a href="https://twitter.com/intent/tweet?url=' . $full_size_url[0] . '&text=' . urlencode($image['caption']) . '" target="_blank">';
+						echo '<a href="https://twitter.com/intent/tweet?url=' . $full_size_url[0] . '&text=' . urlencode($image['caption']) . '" target="_blank" onclick="ga(\'send\', \'event\', \'Social\', \'Click\', \'Social Media – Twitter\');">';
 						get_template_part('assets/images/social/twitter','official.svg');
 						echo '</a>';
 						// Pinterest
-						echo '<a href="https://pinterest.com/pin/create/bookmarklet/?media=' . $full_size_url[0] . '&url=' . $full_size_url[0] . '&is_video=false&description=' . $title . '" target="_blank">';
+						echo '<a href="https://pinterest.com/pin/create/bookmarklet/?media=' . $full_size_url[0] . '&url=' . $full_size_url[0] . '&is_video=false&description=' . $title . '" target="_blank" onclick="ga(\'send\', \'event\', \'Social\', \'Click\', \'Social Media – Pinterest\');">';
 						get_template_part('assets/images/social/pinterest-p','official.svg');
 						echo '</a>';				
 						// LinkedIn
-						echo '<a href="https://www.linkedin.com/shareArticle?url=' . get_permalink() . '&title=' . urlencode($image['caption']) . '" target="_blank">';
+						echo '<a href="https://www.linkedin.com/shareArticle?url=' . get_permalink() . '&title=' . urlencode($image['caption']) . '" target="_blank" onclick="ga(\'send\', \'event\', \'Social\', \'Click\', \'Social Media – LinkedIn\');">';
 						get_template_part('assets/images/social/linkedin','official.svg');
 						echo '</a>';				
 					echo '</div>';
