@@ -4,7 +4,9 @@
 			<?php
 			$social_url = get_sub_field('url');
 			$social = get_sub_field('social_network');
-			echo '<a href="' . $social_url . '" class="' . $social . '" target="_blank">';
+			?>
+			<a href="<?php echo $social_url; ?>" class="<?php echo $social; ?>" target="_blank" onclick="ga('send', 'event', 'Social', 'Click', 'Social Media – <?php echo $social; ?>');">
+			<?php
 			get_template_part('assets/images/social/' . $social , 'official.svg');
 			echo '</a>';
 			?>
