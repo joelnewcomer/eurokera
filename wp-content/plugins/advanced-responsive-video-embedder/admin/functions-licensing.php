@@ -523,7 +523,7 @@ function nextgenthemes_api_action( $item_id, $key, $action ) {
 	// Call the custom API.
 	$response = wp_remote_post(
 		'https://nextgenthemes.com',
-		array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params )
+		array( 'timeout' => 15, 'sslverify' => true, 'body' => $api_params )
 	);
 
 	// make sure the response came back okay
@@ -588,11 +588,27 @@ function nextgenthemes_api_action( $item_id, $key, $action ) {
 	if ( empty( $message ) ) {
 
 		if ( empty( $license_data->license ) ) {
-			$message = __( 'Could not read license status.', ARVE_SLUG );
+
+			$textarea_dump = arve_textarea_dump( $response );
+
+			$message = sprintf(
+				__( 'Error. Please report the following:<br> %s', ARVE_SLUG ),
+				$textarea_dump
+			);
 		} else {
 			$message = $license_data->license;
 		}
 	}
 
 	return $message;
+}
+
+function arve_dump( $var ) {
+	ob_start();
+	var_dump( $var );
+	return ob_get_clean();
+}
+
+function arve_textarea_dump( $var ) {
+	return sprintf( '<textarea style="width: 100%; height: 70vh;">%s</textarea>', esc_textarea( arve_dump( $var ) ) );
 }

@@ -7,7 +7,7 @@ Author:          Drum Creative
 Author URI:      https://drumcreative.com
 Text Domain:     drumcreative-drum-dashboard
 Domain Path:     /languages
-Version:         1.5.4
+Version:         1.6.0
 @package         Drum_Dashboard
  */
 
@@ -119,6 +119,25 @@ if( !is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) ) { ?>
             Dashboard will show up! Thanks! 👍 🤘</h3></div>
 	<?php
 }else {
+	add_action('rest_api_init', function() {
+
+		/* unhook default function */
+		remove_filter('rest_pre_serve_request', 'rest_send_cors_headers');
+
+		/* then add your own filter */
+		add_filter('rest_pre_serve_request', function( $value ) {
+			$origin = get_http_origin();
+			$my_sites = array( 'https://drumcreative.com', );
+			if ( in_array( $origin, $my_sites ) ) {
+				header( 'Access-Control-Allow-Origin: ' . esc_url_raw( $origin ) );
+			} else {
+				header( 'Access-Control-Allow-Origin: ' . esc_url_raw( site_url() ) );
+			}
+			header( 'Access-Control-Allow-Methods: GET' );
+
+			return $value;
+		});
+	}, 15);
 	// Show Dashboard Settings submenu for selected user only
 	function remove_menus() {
 		$user         = wp_get_current_user();
@@ -195,24 +214,31 @@ if( !is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) ) { ?>
                         <script>
                             jQuery(document).ready(function () {
                                 // WP Rest API url from http://drumcreative.com
-                                var rest_url = 'https://drumcreative.com/wp-json/acf/v2/options/account_managers?_jsonp&callback?';
-                                jQuery.getJSON(rest_url, function (account_managers) {
-                                    var output = '';
-                                    var account_managers = account_managers.account_managers
-                                    // Name for Account Manager
-                                    output += "<p><strong>Name: </strong>" +
-                                        account_managers[<?php echo get_field( 'account_manager', 'option' ); ?>].name +
-                                        "</p>" +
-                                        // Email for Account Manager
-                                        "<p><strong>Email: </strong> <a href='mailto:" + account_managers[<?php echo get_field( 'account_manager', 'option' ); ?>].email + "'>" + account_managers[<?php echo get_field( 'account_manager', 'option' ); ?>].email + "</a></p>" +
-                                        // Phone Number for Account Manager
-                                        "<p><strong>Phone: </strong>" + account_managers[<?php echo get_field( 'account_manager', 'option' ); ?>].phone_number_extention + "</p>";
-                                    console.log(account_managers);
+                                var rest_url = 'https://drumcreative.com/wp-json/acf/v2/options/account_managers?_jsonp?';
+                                jQuery.ajax({
+                                    url: rest_url,
+                                    dataType: 'json',
+                                    jsonpCallback: 'MyJSONPCallback', // specify the callback name if you're hard-coding it
+                                    success: function(account_managers){
+                                        // we make a successful JSONP call!
+                                        var output = '';
+                                        var account_managers = account_managers.account_managers
+                                        // Name for Account Manager
+                                        output += "<p><strong>Name: </strong>" +
+                                            account_managers[<?php echo get_field( 'account_manager', 'option' ); ?>].name +
+                                            "</p>" +
+                                            // Email for Account Manager
+                                            "<p><strong>Email: </strong> <a href='mailto:" + account_managers[<?php echo get_field( 'account_manager', 'option' ); ?>].email + "'>" + account_managers[<?php echo get_field( 'account_manager', 'option' ); ?>].email + "</a></p>" +
+                                            // Phone Number for Account Manager
+                                            "<p><strong>Phone: </strong>" + account_managers[<?php echo get_field( 'account_manager', 'option' ); ?>].phone_number_extention + "</p>";
+                                        console.log(account_managers);
 
-                                    // Outputs the code for the Account Manager
-                                    var update = document.getElementById('manager');
-                                    update.innerHTML = output;
-                                })
+                                        // Outputs the code for the Account Manager
+                                        var update = document.getElementById('manager');
+                                        update.innerHTML = output;
+
+                                    }
+                                });
                             });
                         </script>
                     </div> <!-- .welcome-panel-column-container -->
