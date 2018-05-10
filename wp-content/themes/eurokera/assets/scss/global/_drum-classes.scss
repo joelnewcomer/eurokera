@@ -336,3 +336,8 @@ div.cookie-policy {
 p.small {
 	font-size: 14px;
 }
+
+// Hide language switcher
+.menu-item.wpml-ls-item {
+	display: none !important;
+}
