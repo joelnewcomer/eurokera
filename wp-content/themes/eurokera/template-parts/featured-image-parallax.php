@@ -33,7 +33,7 @@ $no_featured = get_field('remove_header_image');
 				<?php endif; ?>
 				<?php if ($video_url != '') : ?>
 					<a class="product-video" href="<?php echo $video_url; ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
-						Play Video<br />
+						<?php _e('Play Video'); ?><br />
 						<?php get_template_part('assets/images/play', 'button.svg'); ?><br />
 					</a>
 				<?php endif; ?>

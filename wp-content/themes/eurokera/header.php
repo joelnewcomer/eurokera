@@ -79,7 +79,7 @@
 	<?php if (is_singular('products')) : ?>
 		<div class="all-products transition">
 			<div class="row">
-				<div id="view-all">View All Products</div>
+				<div id="view-all"><?php _e('View All Products'); ?></div>
 				<div class="large-12 columns text-center transition">
 					<?php
 					$args = array(

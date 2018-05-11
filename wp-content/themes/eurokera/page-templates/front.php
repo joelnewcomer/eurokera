@@ -57,14 +57,14 @@ get_header(); ?>
 		<div class="short-quote">
 			<?php get_template_part('assets/images/quote.svg'); ?><br />
 			<h2><?php echo get_field('short_quote'); ?></h2>
-			<p class="ceo-name show-for-small"><?php echo get_field('ceo_name'); ?>, CEO</p>
+			<p class="ceo-name show-for-small"><?php echo get_field('ceo_name'); ?>, <?php _e('CEO'); ?></p>
 		</div>
 	</div>
 	<div class="large-6 medium-6 columns long-quote match-quote">
 		<p><?php echo get_field('long_quote'); ?></p>
 		<div class="hide-for-small">
 			<?php get_template_part('assets/images/quote.svg'); ?><br />	
-			<p class="ceo-name"><?php echo get_field('ceo_name'); ?>, CEO</p>
+			<p class="ceo-name"><?php echo get_field('ceo_name'); ?>, <?php _e('CEO'); ?></p>
 		</div>
 	</div>
 </section>
@@ -72,24 +72,24 @@ get_header(); ?>
 <section class="numbers">
 	<div class="row">
 		<div class="large-12 columns text-center">
-			<h2><?php echo get_field('num_of_cooktops'); ?> MILLION +</h2>
-			<h3>Cooktops</h3>
+			<h2><?php echo get_field('num_of_cooktops'); ?> <?php _e('MILLION'); ?> +</h2>
+			<h3><?php _e('Cooktops'); ?></h3>
 			<div class="partner saint-gobain">
 				<a href="https://www.saint-gobain.com" target="_blank">	
 					<?php get_template_part('assets/images/saint-gobain', 'logo.svg'); ?>
 				</a><br />
-				350 years
+				350 <?php _e('years'); ?>
 			</div>
 			<div class="plus">+</div>
 			<div class="partner corning">
 				<a href="http://www.corning.com/" target="_blank">
 					<?php get_template_part('assets/images/corning', 'logo.svg'); ?>
 				</a><br />
-				120 years
+				120 <?php _e('years'); ?>
 			</div><br />
 			<div class="num-one partner">
 				<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?><br />
-				Global Leader in Glass-Ceramic Manufacturing 
+				<?php _e('Global Leader in Glass-Ceramic Manufacturing '); ?>
 			</div>
 		</div>
 	</div>
@@ -105,7 +105,7 @@ get_header(); ?>
 				<p><?php echo get_field('about_us_content'); ?></p>
 			</div>
 			<div class="text-center">
-				<div class="button reverse"><a href="<?php echo get_field('about_us_page'); ?>">About Us</a></div>
+				<div class="button reverse"><a href="<?php echo get_field('about_us_page'); ?>"><?php _e('About Us'); ?></a></div>
 			</div>
 		</div>
 	</div>

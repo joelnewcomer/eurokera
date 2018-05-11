@@ -12,16 +12,16 @@ get_header(); ?>
 	<div class="row">
 		
 	<div class="btn-filter-wrap">
-		<button class="btn-filter btn-active" data-filter="*">All</button>
-		<button class="btn-filter" data-filter=".lcd">LCD</button>
-		<button class="btn-filter" data-filter=".grooves">Grooves</button>
-		<button class="btn-filter" data-filter=".wok">Wok</button>
-		<button class="btn-filter" data-filter=".holes">Holes</button>
-		<button class="btn-filter" data-filter=".shapes">Shapes</button>
-		<button class="btn-filter" data-filter=".touch-sliders">Touch Sliders</button>
-		<button class="btn-filter" data-filter=".bevels">Bevels</button>
-		<button class="btn-filter" data-filter=".decorations">Decorations</button>
-		<button class="btn-filter" data-filter=".enamels">Enamel Colors</button>
+		<button class="btn-filter btn-active" data-filter="*"><?php _e("All"); ?></button>
+		<button class="btn-filter" data-filter=".lcd"><?php _e("LCD"); ?></button>
+		<button class="btn-filter" data-filter=".grooves"><?php _e("Grooves"); ?></button>
+		<button class="btn-filter" data-filter=".wok"><?php _e("Wok"); ?></button>
+		<button class="btn-filter" data-filter=".holes"><?php _e("Holes"); ?></button>
+		<button class="btn-filter" data-filter=".shapes"><?php _e("Shapes"); ?></button>
+		<button class="btn-filter" data-filter=".touch-sliders"><?php _e("Touch Sliders"); ?></button>
+		<button class="btn-filter" data-filter=".bevels"><?php _e("Bevels"); ?></button>
+		<button class="btn-filter" data-filter=".decorations"><?php _e("Decorations"); ?></button>
+		<button class="btn-filter" data-filter=".enamels"><?php _e("Enamel Colors"); ?></button>
 	</div>
 	
 	<?php $images = get_field('gallery'); ?>
@@ -73,8 +73,8 @@ get_header(); ?>
 
 
 	<div class="enamels text-center">
-		<h2>Enamel Color Samples</h2>
-		<p class="small">The color samples below are digital renderings with for only intend to illustrate the possibilities in terms of decoration offered by EuroKera. For any enquiry, we recommend to <a href="<?php echo get_site_url(); ?>/contact">contact EuroKera</a>.</p>
+		<h2><?php _e('Enamel Color Samples'); ?></h2>
+		<p class="small"><?php _e('The color samples below are digital renderings with for only intend to illustrate the possibilities in terms of decoration offered by EuroKera. For any enquiry, we recommend to'); ?> <a href="<?php echo get_site_url(); ?>/contact"><?php _e('contact EuroKera'); ?></a>.</p>
 
 
 		<?php

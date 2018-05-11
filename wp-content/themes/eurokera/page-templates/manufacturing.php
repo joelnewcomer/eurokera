@@ -27,15 +27,15 @@ get_header(); ?>
 
 <section class="locations">
 	<div class="large-6 medium-6 columns text-center no-padding">
-		<h2 class="reverse secondary">Europe & North America</h2>
+		<h2 class="reverse secondary"><?php _e('Europe & North America'); ?></h2>
 		<div class="location europe-usa">
 			<div style="display:table;width:100%;height:100%;">
 			  <div style="display:table-cell;vertical-align:middle;">
 			    <div style="text-align:center;">
 				    			<?php get_template_part('assets/images/france.svg'); ?>
-			<p>Château-Thierry, France</p>
+			<p><?php _e('Château-Thierry, France'); ?></p>
 			<?php get_template_part('assets/images/usa.svg'); ?>
-			<p>Fountain Inn, SC USA</p>
+			<p><?php _e('Fountain Inn, SC USA'); ?></p>
 			    </div>
 			  </div>
 			</div>
@@ -43,15 +43,15 @@ get_header(); ?>
 		</div>
 	</div>
 	<div class="large-6 medium-6 columns text-center no-padding">
-		<h2 class="reverse primary">China & Thailand</h2>
+		<h2 class="reverse primary"><?php _e('China & Thailand'); ?></h2>
 		<div class="location asia">
 			<div style="display:table;width:100%;height:100%;">
 				<div style="display:table-cell;vertical-align:middle;">
 			    	<div style="text-align:center;">
 				    	<?php get_template_part('assets/images/china.svg'); ?>
-						<p>Guangzhou, China</p>
+						<p><?php _e('Guangzhou, China'); ?></p>
 						<?php get_template_part('assets/images/thailand.svg'); ?>
-						<p>Rayong, Thailand</p>
+						<p><?php _e('Rayong, Thailand'); ?></p>
 			    </div>
 			  </div>
 			</div>
@@ -70,10 +70,10 @@ get_header(); ?>
 <section class="let-us">
 	<div class="row">
 		<div class="large-12 columns text-center">
-			<h2>Let Us Build Your Future Innovative Cooking Surface</h2>
+			<h2><?php _e('Let Us Build Your Future Innovative Cooking Surface'); ?></h2>
 			<div class="site-links">
 				<div class="button">
-					<a href="<?php echo get_site_url(); ?>/contact">Contact Us</a>
+					<a href="<?php echo get_site_url(); ?>/contact"><?php _e('Contact Us'); ?></a>
 				</div>
 			</div>
 		</div>

@@ -13,7 +13,7 @@ get_header(); ?>
 <section class="users-gallery text-center">
 	<div class="row">
 		<div class="large-12 columns text-center">
-			<h2>Transform the Heart of Your Home with EuroKera</h2>
+			<h2><?php _e('Transform the Heart of Your Home with EuroKera'); ?></h2>
 		</div>
 	</div>
 
@@ -70,8 +70,8 @@ get_header(); ?>
 		<div style="display:table;width:100%;height:100%;">
 		  <div style="display:table-cell;vertical-align:middle;">
 		    <div style="text-align:center;">
-			    <h2>How to Clean Your Cooktop</h2>
-				<div class="button reverse"><a href="<?php echo get_field('clean_link'); ?>">Learn More</a></div>
+			    <h2><?php _e('How to Clean Your Cooktop'); ?></h2>
+				<div class="button reverse"><a href="<?php echo get_field('clean_link'); ?>"><?php _e('Learn More'); ?></a></div>
 		    </div>
 		  </div>
 		</div>
@@ -142,20 +142,20 @@ get_header(); ?>
 	<div style="display:table;width:100%;height:100%;">
 	  <div style="display:table-cell;vertical-align:middle;">
 	    <div style="text-align:center;">
-			<h2>Different Cooking Methods</h2>
+			<h2><?php _e('Different Cooking Methods'); ?></h2>
 			<a href="<?php echo get_field('cooking_methods_link'); ?>" class="heat-source gas">
 				<?php get_template_part('assets/images/gas.svg'); ?><br />
-				Gas
+				<?php _e('Gas'); ?>
 			</a>		
 			<a href="<?php echo get_field('cooking_methods_link'); ?>" class="heat-source induction">
 				<?php get_template_part('assets/images/induction.svg'); ?><br />
-				Induction
+				<?php _e('Induction'); ?>
 			</a>	
 			<a href="<?php echo get_field('cooking_methods_link'); ?>" class="heat-source radiant">
 				<?php get_template_part('assets/images/radiant.svg'); ?><br />
-				Radiant
+				<?php _e('Radiant'); ?>
 			</a><br />
-			<a href="<?php echo get_field('cooking_methods_link'); ?>">Click to Learn More</a>				    
+			<a href="<?php echo get_field('cooking_methods_link'); ?>"><?php _e('Click to Learn More'); ?></a>				    
 	    </div>
 	  </div>
 	</div>		
@@ -166,8 +166,8 @@ get_header(); ?>
 		<div style="display:table;width:100%;height:100%;">
 		  <div style="display:table-cell;vertical-align:middle;">
 		    <div style="text-align:center;">
-			    <h2>Where Can I Find a EuroKera Cooktop?</h2>
-				<div class="button reverse"><a href="<?php echo get_field('locate_now_link'); ?>">Locate Now</a></div>
+			    <h2><?php _e('Where Can I Find a EuroKera Cooktop?'); ?></h2>
+				<div class="button reverse"><a href="<?php echo get_field('locate_now_link'); ?>"><?php _e('Locate Now'); ?></a></div>
 		    </div>
 		  </div>
 		</div>
@@ -178,7 +178,7 @@ get_header(); ?>
 			  <div style="display:table-cell;vertical-align:middle;">
 			    <div style="text-align:center;">
 				    <?php get_template_part('assets/images/cooktop.svg'); ?><br />
-					<h2>How to Identify EuroKera Cooktops</h2>
+					<h2><?php _e('How to Identify EuroKera Cooktops'); ?></h2>
 			    </div>
 			  </div>
 			</div>			
@@ -200,7 +200,7 @@ get_header(); ?>
 			<div class="epop-overlay"></div>
 			<div class="epop-identify text-center">
 				<div class="epop-close">&times;</div>
-				<h3>Look for these Logos On Your Cooktop</h3><br />
+				<h3><?php _e('Look for these Logos On Your Cooktop'); ?></h3><br />
 				<?php get_template_part('assets/images/k.svg'); ?>
 				<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?>
 				<img class="euro-k" src="<?php echo get_template_directory_uri(); ?>/assets/images/identi-k.png">

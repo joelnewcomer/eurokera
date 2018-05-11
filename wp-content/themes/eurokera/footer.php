@@ -41,7 +41,7 @@
 				
 				<div class="row">
 					<div class="large-12 medium-12 columns copyright small-text-center">
-						<p><?php _e( 'Copyright ', 'textdomain' ); ?> &copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?>.  <span class="no-break"><?php _e( 'All rights reserved.', 'textdomain' ); ?></span> <span class="show-for-small"><br /></span><a href="<?php echo get_site_url(); ?>/terms-of-use">Terms of Use</a>. <a href="<?php echo get_site_url(); ?>/privacy-policy">Privacy Policy</a>. <a href="<?php echo get_site_url(); ?>/sitemap">Sitemap</a></p>
+						<p><?php _e( 'Copyright ', 'textdomain' ); ?> &copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?>.  <span class="no-break"><?php _e( 'All rights reserved.', 'textdomain' ); ?></span> <span class="show-for-small"><br /></span><a href="<?php echo get_site_url(); ?>/terms-of-use"><?php _e('Terms of Use'); ?></a>. <a href="<?php echo get_site_url(); ?>/privacy-policy"><?php _e('Privacy Policy'); ?></a>. <a href="<?php echo get_site_url(); ?>/sitemap"><?php _e('Sitemap'); ?></a></p>
 					</div>
 					<!-- <div class="large-6 medium-6 columns drum hide-on-print text-right small-text-center">
 						<a href="http://www.drumcreative.com" target="_blank"><?php _e( 'Web Design by: Drum Creative', 'textdomain' ); ?></a>
@@ -53,13 +53,13 @@
 <div class="cookie-policy transition">
 	<div class="row">
 		<div class="large-8 medium-8 columns small-text-center">
-			<p>We use cookies to offer you a better browsing experience, analyze site traffic, and improve our customer service. Read about how we use cookies by clicking on "Cookie Policy". If you continue to use this site, you consent to our use of cookies.</p>
+			<p><?php _e('We use cookies to offer you a better browsing experience, analyze site traffic, and improve our customer service. Read about how we use cookies by clicking on "Cookie Policy". If you continue to use this site, you consent to our use of cookies.'); ?></p>
 		</div>
 		<div class="large-2 medium-2 columns text-center">
-			<a class="cookie-policy-link" href="<?php echo get_site_url(); ?>/cookie-policy"><strong>Cookie Policy</strong></a>
+			<a class="cookie-policy-link" href="<?php echo get_site_url(); ?>/cookie-policy"><strong><?php _e('Cookie Policy'); ?></strong></a>
 		</div>
 		<div class="large-2 medium-2 columns small-text-center">
-			<div class="button small reverse"><a id="accept-cookies" href="#">Accept Cookies</a></div>
+			<div class="button small reverse"><a id="accept-cookies" href="#"><?php _e('Accept Cookies'); ?></a></div>
 		</div>
 	</div>
 </div> <!-- cookie-policy -->

@@ -16,7 +16,7 @@ get_header(); ?>
 			<?php echo get_field('description'); ?>
 		</div>
 		<div class="large-6 medium-6 columns text-center">
-			<h2>Heat Source</h2>
+			<h2><?php _e('Heat Source'); ?></h2>
 			<?php
 			$all_heat_sources = array('Gas','Induction','Radiant');
 			$this_heat_sources = get_field('heat_source');
@@ -33,7 +33,7 @@ get_header(); ?>
 			?>
 		</div>
 		<div class="large-6 medium-6 columns text-center">
-			<h2>Display Colors</h2>
+			<h2><?php _e('Display Colors'); ?></h2>
 			<div class="led-colors">
 			<?php
 			$all_led_colors = array('red/orange','monochromatic','no display','any color including white');
@@ -61,7 +61,7 @@ get_header(); ?>
 		$data_sheet = get_field('product_data_sheet');
 		if ($data_sheet != null) : ?>
 		<div class="large-12 columns text-center intro-pds">
-			<div class="button"><a id="data-sheet-dl" href="#">Download Product Data Sheet</a></div>
+			<div class="button"><a id="data-sheet-dl" href="#"><?php _e('Download Product Data Sheet'); ?></a></div>
 		</div>
 		<?php endif; ?>
 	</div>
@@ -137,8 +137,8 @@ get_header(); ?>
 <section class="inspire">
 	<div class="row">
 		<div class="large-12 columns text-center">
-			<h2>Design Gallery Inspiration</h2>
-			<div class="button reverse"><a href="<?php echo get_site_url(); ?>/cooktop-manufacturers/innovation/design-gallery/">See What We Can Do</a></div>
+			<h2><?php _e('Design Gallery Inspiration'); ?></h2>
+			<div class="button reverse"><a href="<?php echo get_site_url(); ?>/cooktop-manufacturers/innovation/design-gallery/"><?php _e('See What We Can Do'); ?></a></div>
 		</div>
 	</div>
 </section>
@@ -147,7 +147,7 @@ get_header(); ?>
 	<section class="product-videos">
 		<div class="row">
 			<div class="large-12 columns text-center">
-				<h2>Our Quality is Above All Others</h2>
+				<h2><?php _e('Our Quality is Above All Others'); ?></h2>
 			</div>
 			<div class="large-12 columns small-text-center">
 				
@@ -177,7 +177,7 @@ get_header(); ?>
 				}
 				?>
 					
-				<div class="button"><a href="<?php echo get_site_url(); ?>/cooktop-manufacturers/quality/">Experience The EuroKera Quality</a></div>
+				<div class="button"><a href="<?php echo get_site_url(); ?>/cooktop-manufacturers/quality/"><?php _e('Experience The EuroKera Quality'); ?></a></div>
 			</div>
 		</div>
 	</section>

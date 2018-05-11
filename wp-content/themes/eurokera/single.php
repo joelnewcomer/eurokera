@@ -31,7 +31,7 @@ get_header(); ?>
 		</article>
 	<?php endwhile;?>
 	<div class="more-articles text-center">
-		<a href="<?php echo get_permalink( get_option( 'page_for_posts' )); ?>">Read more articles...</a>
+		<a href="<?php echo get_permalink( get_option( 'page_for_posts' )); ?>"><?php _e('Read more articles...'); ?></a>
 	</div>
 	
 	

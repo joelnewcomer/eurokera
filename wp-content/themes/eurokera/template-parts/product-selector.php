@@ -1,58 +1,58 @@
 <section id="product-selector" class="product-selector">
 	<div class="row">
 		<div class="large-12 columns text-center">
-			<h2>Product Selector</h2>
-			<p>Use the selector below to guide you to the perfect EuroKera glass-ceramic solution or scroll down to see all of our substrates.</p>
+			<h2><?php _e('Product Selector'); ?></h2>
+			<p><?php _e('Use the selector below to guide you to the perfect EuroKera glass-ceramic solution or scroll down to see all of our substrates.'); ?></p>
 			
 			<form id="product-selector">
 				<select id="glass-color" class="product-dropdown">
-					<option value="">Glass-Ceramic Color</option>
-					<option value="black">Black</option>
-					<option value="grey">Grey (Slate)</option>
-					<option value="transparent">Transparent</option>
-					<option value="transparent">Transparent - Champagne</option>
-					<option value="transparent">Transparent - Silver</option>
-					<option value="transparent">Transparent - Slate Grey</option>
-					<option value="transparent">Transparent - Anthracite</option>
-					<!-- <option value="transparent">Transparent - UltraBlack</option> -->
-					<option value="white">White</option>				
+					<option value=""><?php _e('Glass-Ceramic Color'); ?></option>
+					<option value="black"><?php _e('Black'); ?></option>
+					<option value="grey"><?php _e('Grey (Slate)'); ?></option>
+					<option value="transparent"><?php _e('Transparent'); ?></option>
+					<option value="transparent"><?php _e('Transparent - Champagne'); ?></option>
+					<option value="transparent"><?php _e('Transparent - Silver'); ?></option>
+					<option value="transparent"><?php _e('Transparent - Slate Grey'); ?></option>
+					<option value="transparent"><?php _e('Transparent - Anthracite'); ?></option>
+					<!-- <option value="transparent"><?php _e('Transparent - UltraBlack'); ?></option> -->
+					<option value="white"><?php _e('White'); ?></option>				
 				</select>
 				<select id="display" class="product-dropdown">
-					<option value="">Display Options</option>
-					<option value="all-color">Any Color including white</option>
-					<option value="red">Red/Orange</option>
-					<option value="monochromatic">Monochromatic</option>
-					<option value="none">No Display</option>				
+					<option value=""><?php _e('Display Options'); ?></option>
+					<option value="all-color"><?php _e('Any Color including white'); ?></option>
+					<option value="red"><?php _e('Red/Orange'); ?></option>
+					<option value="monochromatic"><?php _e('Monochromatic'); ?></option>
+					<option value="none"><?php _e('No Display'); ?></option>				
 				</select>
 				
-				<div class="form-divider no-divider-small"><div>Heat Source</div></div>
-				<input class="stacked-radio" type="checkbox" name="heat-source" id="gas" value="gas"><label for="gas">Gas</label>
-				<input class="stacked-radio" type="checkbox" name="heat-source" id="induction" value="induction"><label for="induction">Induction</label>
-				<input class="stacked-radio" type="checkbox" name="heat-source" id="radiant" value="radiant"><label for="radiant">Radiant</label>
+				<div class="form-divider no-divider-small"><div><?php _e('Heat Source'); ?></div></div>
+				<input class="stacked-radio" type="checkbox" name="heat-source" id="gas" value="gas"><label for="gas"><?php _e('Gas'); ?></label>
+				<input class="stacked-radio" type="checkbox" name="heat-source" id="induction" value="induction"><label for="induction"><?php _e('Induction'); ?></label>
+				<input class="stacked-radio" type="checkbox" name="heat-source" id="radiant" value="radiant"><label for="radiant"><?php _e('Radiant'); ?></label>
 
-				<div class="form-divider"><div>Custom Top Decoration</div></div>
-				<input class="stacked-radio placebo" type="checkbox" name="decor" id="complex" value="complex"><label for="complex">Complex Patterns</label>
-				<input class="stacked-radio placebo" type="checkbox" name="decor" id="reflective" value="reflective"><label for="reflective">Reflective Inks</label>
-				<input class="stacked-radio placebo" type="checkbox" name="decor" id="multi" value="multi"><label for="multi">Multi-Colors</label>
+				<div class="form-divider"><div><?php _e('Custom Top Decoration'); ?></div></div>
+				<input class="stacked-radio placebo" type="checkbox" name="decor" id="complex" value="complex"><label for="complex"><?php _e('Complex Patterns'); ?></label>
+				<input class="stacked-radio placebo" type="checkbox" name="decor" id="reflective" value="reflective"><label for="reflective"><?php _e('Reflective Inks'); ?></label>
+				<input class="stacked-radio placebo" type="checkbox" name="decor" id="multi" value="multi"><label for="multi"><?php _e('Multi-Colors'); ?></label>
 
-				<div class="form-divider"><div>Additional Design Options</div></div>
-				<input class="round placebo" type="checkbox" name="holes" id="holes" value="complex"><label for="holes">Holes</label>
-				<input class="round placebo" type="checkbox" name="bevels" id="bevels" value="bevels"><label for="bevels">Bevels</label>
-				<input class="round" type="checkbox" name="woks" id="woks" value="woks"><label for="woks">Woks</label>
-				<input class="round" type="checkbox" name="3d" id="3d" value="3d"><label for="3d">3D Shapes</label>
-				<input class="round placebo" type="checkbox" name="custom-edge" id="custom-edge" value="custom-edge"><label for="custom-edge">Custom Edge Profiles</label>
-				<input class="round placebo" type="checkbox" name="custom-shape" id="custom-shape" value="custom-shape"><label for="custom-shape">Custom Shapes</label>
+				<div class="form-divider"><div><?php _e('Additional Design Options'); ?></div></div>
+				<input class="round placebo" type="checkbox" name="holes" id="holes" value="complex"><label for="holes"><?php _e('Holes'); ?></label>
+				<input class="round placebo" type="checkbox" name="bevels" id="bevels" value="bevels"><label for="bevels"><?php _e('Bevels'); ?></label>
+				<input class="round" type="checkbox" name="woks" id="woks" value="woks"><label for="woks"><?php _e('Woks'); ?></label>
+				<input class="round" type="checkbox" name="3d" id="3d" value="3d"><label for="3d"><?php _e('3D Shapes'); ?></label>
+				<input class="round placebo" type="checkbox" name="custom-edge" id="custom-edge" value="custom-edge"><label for="custom-edge"><?php _e('Custom Edge Profiles'); ?></label>
+				<input class="round placebo" type="checkbox" name="custom-shape" id="custom-shape" value="custom-shape"><label for="custom-shape"><?php _e('Custom Shapes'); ?></label>
 				
 				<div class="radio-group">
-					<input type="radio" name="use" id="retail" value="retail"><label for="retail">Retail</label>
-					<input type="radio" name="use" id="pro" value="pro"><label for="pro">Professional</label>
+					<input type="radio" name="use" id="retail" value="retail"><label for="retail"><?php _e('Retail'); ?></label>
+					<input type="radio" name="use" id="pro" value="pro"><label for="pro"><?php _e('Professional'); ?></label>
 				</div>
 			</form>
 				
-				<p>EuroKera was founded with the goal of serving appliance manufacturers like you. Your ideas inspire us to continually develop new technologies, materials and designs. Let us help you <a href="<?php echo get_site_url(); ?>/contact">build</a> a custom design.</p>
+				<p><?php _e('EuroKera was founded with the goal of serving appliance manufacturers like you. Your ideas inspire us to continually develop new technologies, materials and designs. Let us help you '); ?><a href="<?php echo get_site_url(); ?>/contact"><?php _e('build') ?></a> <?php _e('a custom design.'); ?></p>
 			
 			<div id="products">
-				<h2 class="no-matches">No products match your selected criteria.<br />Please try different selections.</h2>
+				<h2 class="no-matches"><?php _e('No products match your selected criteria.'); ?><br /><?php _e('Please try different selections.'); ?></h2>
 				<?php
 				$args = array(
 					'post_type' => 'products',
@@ -117,17 +117,17 @@
 					// Grey and White are the only glass colors with limitations
 					// black - all, grey - red/orange, transparent - all, white - red/orange
 					if (jQuery(this).val() != 'grey') {
-						jQuery('select#display').append('<option value="">Display Options</option>');
+						jQuery('select#display').append('<option value=""><?php _e('Display Options'); ?></option>');
 					}
 					if (jQuery(this).val() != 'grey' && jQuery(this).val() != 'white') {
-						jQuery('select#display').append('<option value="all-color">Any Color including white</option>');
+						jQuery('select#display').append('<option value="all-color"><?php _e('Any Color including white'); ?></option>');
 					}
-					jQuery('select#display').append('<option value="red">Red/Orange</option>');
+					jQuery('select#display').append('<option value="red"><?php _e('Red/Orange'); ?></option>');
 					if (jQuery(this).val() != 'grey' && jQuery(this).val() != 'white') {
-						jQuery('select#display').append('<option value="monochromatic">Monochromatic</option>');
+						jQuery('select#display').append('<option value="monochromatic"><?php _e('Monochromatic'); ?></option>');
 					}
 					if (jQuery(this).val() == 'white') {
-						jQuery('select#display').append('<option value="none">No Display</option>');
+						jQuery('select#display').append('<option value="none"><?php _e('No Display'); ?></option>');
 					}
 					// Reset Display Options if this have no value
 					if (jQuery(this).val() == '') {
@@ -183,11 +183,11 @@
 							}
 						} else if (jQuery(this).val() != '') {
 							var selectedValue = jQuery('label[for="' + jQuery(this).attr('id') + '"]').html();
-							if (selectedValue == 'Gas' || selectedValue == 'Induction' || selectedValue == 'Radiant') {
+							if (selectedValue == 'Gas' || selectedValue == '<?php _e('Induction'); ?>' || selectedValue == '<?php _e('Radiant'); ?>') {
 								heatSource += ', ' + selectedValue;
-							} else if (selectedValue == 'Complex Patterns' || selectedValue == 'Reflective Inks' || selectedValue == 'Multi-Colors') {
+							} else if (selectedValue == '<?php _e('Complex Patterns'); ?>' || selectedValue == '<?php _e('Reflective Inks'); ?>' || selectedValue == '<?php _e('Multi-Colors'); ?>') {
 								customTop += ', ' + selectedValue;
-							} else if (selectedValue == 'Retail' || selectedValue == 'Professional') {
+							} else if (selectedValue == '<?php _e('Retail'); ?>' || selectedValue == '<?php _e('Professional'); ?>') {
 								retailPro += ', ' + selectedValue;
 							} else {
 								addlOptions += ', ' + selectedValue;
