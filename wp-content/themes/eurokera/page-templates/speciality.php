@@ -8,7 +8,7 @@ get_header(); ?>
 
 <section class="home-banner text-center" data-paroller-factor="0.3" style="background-image: url('<?php the_post_thumbnail_url("full"); ?>');">
    <?php
-   // Insert a line break after the first period
+   // Insert a line break after first period
    $desc = get_bloginfo('description');
    $period_pos = strpos($desc, '.') + 1;
    $desc = substr_replace($desc, '<br />', $period_pos, 0);
