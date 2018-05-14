@@ -4,7 +4,7 @@ Tags: gdpr, law, regulations, compliance, data, protection, privacy, data protec
 Requires at least: 4.5
 Tested up to: 4.9.4
 Requires PHP: 5.3
-Stable tag: 1.3.1
+Stable tag: 1.3.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,18 @@ You'll find answers to many of your questions on [wpgdprc.com](https://www.wpgdp
 3. Control the link to your privacy policy and activate the request user data page.
 
 == Changelog ==
+
+= 1.3.3 =
+*Release date: May 14th, 2018*
+* Fixed a bug that caused anonymise request mails to fail.
+* Added missing translatable strings.
+
+= 1.3.2 =
+*Release date: May 11th, 2018*
+* Added translatable 'Yes' and 'No' strings.
+* Added confirmation mails sent after processing a anonymise request.
+* Added mail sent to the admin when a new request is created.
+* Added 'noopener noreferrer' to the Privacy Policy link.
 
 = 1.3.1 =
 *Release date: May 8th, 2018*

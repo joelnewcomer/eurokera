@@ -171,8 +171,11 @@ class Data {
             $output .= '</tbody>';
             $output .= '</table>';
             $output .= sprintf(
-                '<p><input type="submit" class="wpgdprc-remove" value="Remove selected %s(s)" /></p>',
-                str_replace('_', ' ', $type)
+                '<p><input type="submit" class="wpgdprc-remove" value="%s" /></p>',
+                sprintf(
+                    __('Anonymise selected %s(s)', WP_GDPR_C_SLUG),
+                    str_replace('_', ' ', $type)
+                )
             );
             $output .= '</form>';
         }
