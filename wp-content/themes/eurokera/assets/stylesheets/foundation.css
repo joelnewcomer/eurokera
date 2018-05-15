@@ -1378,14 +1378,14 @@ code {
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   font-weight: normal;
   color: #625f5b;
-  background-color: #e6e6e6;
+  background-color: #e5e1e6;
   border: 1px solid #cacaca;
   padding: 0.125rem 0.3125rem 0.0625rem; }
 
 kbd {
   padding: 0.125rem 0.25rem 0;
   margin: 0;
-  background-color: #e6e6e6;
+  background-color: #e5e1e6;
   color: #625f5b;
   font-family: Consolas, "Liberation Mono", Courier, monospace; }
 
@@ -1560,7 +1560,7 @@ textarea::placeholder {
 input:disabled, input[readonly],
 textarea:disabled,
 textarea[readonly] {
-  background-color: #e6e6e6;
+  background-color: #e5e1e6;
   cursor: default; }
 
 [type='submit'],
@@ -1631,7 +1631,7 @@ label {
 .input-group-label {
   text-align: center;
   padding: 0 1rem;
-  background: #e6e6e6;
+  background: #e5e1e6;
   color: #625f5b;
   border: 1px solid #cacaca;
   white-space: nowrap;
@@ -1704,7 +1704,7 @@ select {
     select {
       background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAYAAACbU/80AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIpJREFUeNrEkckNgDAMBBfRkEt0ObRBBdsGXUDgmQfK4XhH2m8czQAAy27R3tsw4Qfe2x8uOO6oYLb6GlOor3GF+swURAOmUJ+RwtEJs9WvTGEYxBXqI1MQAZhCfUQKRzDMVj+TwrAIV6jvSUEkYAr1LSkcyTBb/V+KYfX7xAeusq3sLDtGH3kEGACPWIflNZfhRQAAAABJRU5ErkJggg=="); } }
   select:disabled {
-    background-color: #e6e6e6;
+    background-color: #e5e1e6;
     cursor: default; }
   select::-ms-expand {
     display: none; }
@@ -1784,7 +1784,7 @@ select {
     border-radius: 0; }
     .pagination a:hover,
     .pagination button:hover {
-      background: #e6e6e6; }
+      background: #e5e1e6; }
   .pagination .current {
     padding: 0.1875rem 0.625rem;
     background: #ff8200;
