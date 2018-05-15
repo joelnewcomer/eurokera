@@ -3344,7 +3344,7 @@ section.ceo h2 {
   max-width: 35%;
   display: inline-block;
   font-size: 34px;
-  color: #5e6367;
+  color: #63666a;
   font-weight: 400; }
   @media only screen and (max-width: 40.063em) {
     section.ceo h2 {
@@ -3390,7 +3390,7 @@ section.numbers {
     section.numbers {
       padding: 50px 0 20px 0; } }
   section.numbers h2, section.numbers h3, section.numbers .partner, section.numbers .plus {
-    color: #5e6367; }
+    color: #63666a; }
   section.numbers svg {
     max-width: 100%; }
   section.numbers h2 {
