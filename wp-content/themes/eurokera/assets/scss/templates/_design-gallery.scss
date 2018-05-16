@@ -16,7 +16,11 @@ section.design-gallery {
 		}
 	}
 	.gallery {
-		padding: 0 4px;
+		padding: 2px 4px;
+		.img-social {
+			top: 2px;
+			right: 4px;
+		}
 		width: 49.7%;
 		position: relative;
 		@media (max-width: 1072px) {
@@ -60,6 +64,9 @@ section.design-gallery {
 			@media (max-width: 599px) {
 				width: 100%;
 			}
+		}
+		&.enamel {
+			padding: 10px;
 		}
 	}
 }

@@ -90,7 +90,7 @@ get_header(); ?>
 					$full_size_url = wp_get_attachment_image_src( $image['ID'], 'full' );
 					$cropped_url = wp_get_attachment_image_src( $image['ID'], 'width=936&height=475&crop=1' ) 
 					?>
-					<div class="gallery-link gallery-image gallery<?php echo $cat_classes; ?>">
+					<div class="gallery-link enamel gallery-image gallery<?php echo $cat_classes; ?>">
 						<a class="gallery-image" href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $image['caption']; ?>">
 							<div class="hero gallery-image" style="background-image: url(<?php echo $cropped_url[0]; ?>);"></div>
 						</a>
@@ -193,7 +193,7 @@ get_header(); ?>
 function resetClasses() {
 	var loopCounter = 1;
 	jQuery('.gallery').removeClass('first-item fourth-item fifth-item');
-	jQuery('.gallery:visible').each(function (i) {
+	jQuery('.gallery:visible:not(.enamel)').each(function (i) {
 		if (loopCounter == 1) {
 			jQuery(this).addClass('first-item');
 		}

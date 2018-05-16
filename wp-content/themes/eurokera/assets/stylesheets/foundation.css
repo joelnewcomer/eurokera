@@ -4861,11 +4861,14 @@ section.design-gallery {
       section.design-gallery .btn-filter-wrap .btn-filter.btn-active {
         color: #ff8200; }
   section.design-gallery .gallery {
-    padding: 0 4px;
+    padding: 2px 4px;
     width: 49.7%;
     position: relative;
     display: inline-block;
     float: none; }
+    section.design-gallery .gallery .img-social {
+      top: 2px;
+      right: 4px; }
     @media (max-width: 1072px) {
       section.design-gallery .gallery {
         width: 49.7%; } }
@@ -4899,6 +4902,8 @@ section.design-gallery {
       @media (max-width: 599px) {
         section.design-gallery .gallery.fifth-item {
           width: 100%; } }
+    section.design-gallery .gallery.enamel {
+      padding: 10px; }
 
 .enamels {
   display: block;
