@@ -4861,7 +4861,7 @@ section.design-gallery {
       section.design-gallery .btn-filter-wrap .btn-filter.btn-active {
         color: #ff8200; }
   section.design-gallery .gallery {
-    margin-bottom: -4px;
+    padding: 0 4px;
     width: 49.7%;
     position: relative;
     display: inline-block;
