@@ -67,6 +67,10 @@ section.design-gallery {
 		}
 		&.enamel {
 			padding: 10px;
+			.img-social {
+				top: 10px;
+				right: 10px;
+			}
 		}
 	}
 }

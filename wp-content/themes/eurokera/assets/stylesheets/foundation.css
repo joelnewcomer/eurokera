@@ -4904,6 +4904,9 @@ section.design-gallery {
           width: 100%; } }
     section.design-gallery .gallery.enamel {
       padding: 10px; }
+      section.design-gallery .gallery.enamel .img-social {
+        top: 10px;
+        right: 10px; }
 
 .enamels {
   display: block;
