@@ -4881,7 +4881,9 @@ section.design-gallery {
     section.design-gallery .gallery .hero {
       height: 300px;
       -webkit-background-size: cover;
-              background-size: cover; }
+              background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat; }
     section.design-gallery .gallery.first-item {
       width: 100% !important; }
       section.design-gallery .gallery.first-item .hero {
@@ -4918,10 +4920,13 @@ section.design-gallery {
     width: 100%;
     max-width: none !important;
     text-align: center; }
+  .enamels .hero {
+    -webkit-background-size: auto 100% !important;
+            background-size: auto 100% !important;
+    background-position: right center !important; }
   .enamels .enamel {
     display: inline-block;
     vertical-align: top;
-    margin-left: -4px;
     width: 20%;
     padding: 23px;
     font-size: 16px;
@@ -4950,8 +4955,6 @@ section.design-gallery {
       float: left;
       width: 100%;
       padding-left: 17px; }
-    .enamels .enamel svg {
-      display: block; }
 
 .black.enamels .enamel-inner {
   background-image: url(../images/reflective-overlay.png);

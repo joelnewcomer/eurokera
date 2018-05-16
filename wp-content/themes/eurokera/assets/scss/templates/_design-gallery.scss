@@ -37,6 +37,8 @@ section.design-gallery {
 		.hero {
 			height: 300px;
 			background-size: cover;
+			background-position: center center;
+			background-repeat: no-repeat;
 		}
 
 		&.first-item {
@@ -86,10 +88,13 @@ section.design-gallery {
 		max-width: none !important;
 		text-align: center;
 	}
+	.hero {
+		background-size: auto 100% !important;
+		background-position: right center !important;
+	}
 	.enamel {
 		display: inline-block;
 		vertical-align: top;
-		margin-left: -4px;
 		width: 20%;
 		@media only screen and (max-width: 880px) {
 			width: 25%;
@@ -119,9 +124,6 @@ section.design-gallery {
 			float: left;
 			width: 100%;
 			padding-left: 17px;
-		}
-		svg {
-			display: block;
 		}
 	}
 }

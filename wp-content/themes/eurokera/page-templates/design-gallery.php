@@ -88,7 +88,7 @@ get_header(); ?>
 						$cat_classes .= ' ' . sanitize_title($category);
 					}
 					$full_size_url = wp_get_attachment_image_src( $image['ID'], 'full' );
-					$cropped_url = wp_get_attachment_image_src( $image['ID'], 'width=936&height=475&crop=1' ) 
+					$cropped_url = wp_get_attachment_image_src( $image['ID'], 'width=936&height=526&crop=0' ) 
 					?>
 					<div class="gallery-link enamel gallery-image gallery<?php echo $cat_classes; ?>">
 						<a class="gallery-image" href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $image['caption']; ?>">
