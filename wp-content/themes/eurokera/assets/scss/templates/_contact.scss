@@ -1,0 +1,62 @@
+section.contact-locations {
+	display: block;
+	float: left;
+	width: 100%;
+	padding: 60px 0;
+	h2 {
+		margin-bottom: 30px;
+	}
+	h3, p {
+		color: #9B9B9B;
+	}
+	h3 {
+		font-size: 22px;
+		font-weight: bold;
+	}
+	.location {
+		display: inline-block;
+		vertical-align: top;
+		width: 32%;
+		@media only screen and (max-width: 40.063em) {
+			width: 49%;	
+		}
+		.icon-container {
+			height: 134px;
+			margin-bottom: 10px;
+		}
+		svg {
+			vertical-align: middle;
+			max-width: 134px;
+			max-height: 134px;
+			path:not(.china-1):not(.china-2):not(.usa-2):not(.thailand-1):not(.thailand-2) {
+				fill: #9B9B9B !important;
+			}
+			line, .china-1, .china-2, .usa-2, .thailand-1, .thailand-2 {
+				stroke: #9B9B9B !important;
+			}
+		}
+		svg#france {
+			width: 92px;
+			height: 92px;
+		}
+		svg#usa {
+			width: 134px;
+			height: 47px;
+		}
+		svg#keraglass {
+			
+		}
+		svg#china {
+			width: 28px;
+			height: 134px;
+		}
+		p {
+			font-size: 17px;
+			line-height: 1.2;
+		}
+		
+	}
+	.button a {
+		text-transform: uppercase;
+	}
+}

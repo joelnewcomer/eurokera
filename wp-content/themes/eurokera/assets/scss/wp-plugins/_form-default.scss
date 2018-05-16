@@ -1,6 +1,6 @@
 $field-height: 44px;
 $field-font-size: 16px;
-$field-border: solid 2px #848484;
+$field-border: solid 1px #CACACA;
 
 
 .gf_progressbar_wrapper h3.gf_progressbar_title {
@@ -219,22 +219,30 @@ label:hover:before {
 .gform_wrapper input {
   &[type=text], &[type=url], &[type=email], &[type=tel], &[type=number], &[type=password] {
     font-size: 16px !important;
-    padding-left: 7px !important;
+    padding-left: 12px !important;
     height: $field-height;
   }
 }
 
 select, textarea {
 	font-size: 16px !important;
-  	padding-left: 7px !important;
+  	padding-left: 12px !important;
     border: $input-border;
     height: $field-height;
     color: $input-placeholder-color;
 }
 
+textarea {
+	padding: 8px 12px !important;
+}
+
 select {
-	background: url(../images/select-arrows.png) 98% center no-repeat;
-	background-size: 12px 21px;
+	background-color: #fff;
+	background-image: url(../images/select-arrow.svg);
+	background-position: calc(100% - 10px) center;
+	background-repeat: no-repeat;
+	background-size: 15px 15px;
+	margin: 0;
 }
 
 [type="radio"]:not(:checked) + label + input {
@@ -243,7 +251,6 @@ select {
 
 input[name*="other"] {
   margin-top: 10px;
-  width: 50%;
 }
 
 img {
@@ -312,33 +319,7 @@ span.name_prefix {
 	}
 
 }
-div.ginput_complex.ginput_container.gf_name_has_3 span.name_first,
-div.ginput_complex.ginput_container.gf_name_has_3 span.name_last {
-    width: 100%;
 
-    @include breakpoint(medium) {
-            width: 43.7%;
-    }
-    @include breakpoint(large) {
-            width: 45%;
-    }
-}
-
-.gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield span.name_first
-.gform_wrapper .top_label li.gfield.gf_left_half {
-	padding-right: 16px!important;
-
-	@include breakpoint(medium ) {
-	    width: 50.5%!important;
-	}
-
-}
-.gform_wrapper .top_label li.gfield.gf_right_half {
-	padding-right: 0px!important;
-	@include breakpoint(medium ) {
-	    width: 49.5%!important;
-	}
-}
 .gform_wrapper.gf_browser_chrome .gform_body {
 	max-width: 100% !important;
 }
@@ -354,4 +335,20 @@ legend.gfield_label {
 
 .gfield_address input {
 	margin-bottom: 20px;
+}
+
+body .gform_wrapper .top_label div.ginput_container {
+	margin-top: 0 !important;
+}
+
+body .gform_wrapper ul li.gfield {
+	margin-top: 10px !important;
+}
+
+[type='text'], [type='password'], [type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='week'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], [type='url'], [type='color'], textarea {
+	margin: 0;
+}
+
+input.gform_button {
+	font-size: 17px !important;
 }
