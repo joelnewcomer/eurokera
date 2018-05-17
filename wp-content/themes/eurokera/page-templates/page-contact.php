@@ -76,7 +76,7 @@ get_header(); ?>
 				<h3><?php _e('EuroKera North America Inc.'); ?></h3>
 				<p><?php _e('140 Southchase Boulevard,'); ?><br />
 				<?php _e('Fountain Inn, SC 29644-8082, USA'); ?></p>
-				<div class="button small"><a href="https://www.google.com/maps/place/140+Southchase+Blvd,+Fountain+Inn,+SC+29644/@34.6928534,-82.241657,17z/data=!3m1!4b1!4m5!3m4!1s0x885820c880d3f8d1:0x7fcc3c63e7e8ee80!8m2!3d34.692849!4d-82.239463" target="_blank">Map</a></div>
+				<div class="button small"><a href="https://www.google.com/maps/place/EuroKera+North+America+Inc/@34.692849,-82.2416517,17z/data=!4m13!1m7!3m6!1s0x885820c880d3f8d1:0x7fcc3c63e7e8ee80!2s140+Southchase+Blvd,+Fountain+Inn,+SC+29644!3b1!8m2!3d34.692849!4d-82.239463!3m4!1s0x885820c880d3f8d1:0x654666a6475f56df!8m2!3d34.692849!4d-82.239463" target="_blank">Map</a></div>
 			</div>
 			
 			<div class="location">
