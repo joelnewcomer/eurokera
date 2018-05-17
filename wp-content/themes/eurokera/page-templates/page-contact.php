@@ -42,8 +42,7 @@ get_header(); ?>
 					</div>
 				</div>
 				<h3><?php _e('EuroKera S.N.C.'); ?></h3>
-				<p><?php _e('1 Avenue du Général de Gaulle,'); ?>
-				<?php _e('1 Avenue du Général de Gaulle,'); ?><br />
+				<p><?php _e('1 Avenue du Général de Gaulle,'); ?><br />
 				<?php _e('02400 Chierry, France'); ?></p>
 				<div class="button small"><a href="https://www.google.com/maps/place/EuroKera/@49.0404694,3.4142716,17z/data=!4m8!1m2!2m1!1s1+Avenue+du+G%C3%A9n%C3%A9ral+de+Gaulle,%091+Avenue+du+G%C3%A9n%C3%A9ral+de+Gaulle,+02400+Chierry,+France!3m4!1s0x47e8e648f63a46bd:0x995490721e9c1e88!8m2!3d49.0409721!4d3.418197" target="_blank">Map</a></div>
 			</div>
