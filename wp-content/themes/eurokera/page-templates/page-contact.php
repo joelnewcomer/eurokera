@@ -75,7 +75,7 @@ get_header(); ?>
 				</div>
 				<h3><?php _e('EuroKera North America Inc.'); ?></h3>
 				<p><?php _e('140 Southchase Boulevard,'); ?><br />
-				<?php _e('Fountain Inn, SC 29644-8082'); ?></p>
+				<?php _e('Fountain Inn, SC 29644-8082, USA'); ?></p>
 				<div class="button small"><a href="https://www.google.com/maps/place/140+Southchase+Blvd,+Fountain+Inn,+SC+29644/@34.6928534,-82.241657,17z/data=!3m1!4b1!4m5!3m4!1s0x885820c880d3f8d1:0x7fcc3c63e7e8ee80!8m2!3d34.692849!4d-82.239463" target="_blank">Map</a></div>
 			</div>
 			
@@ -91,7 +91,7 @@ get_header(); ?>
 				</div>
 				<h3><?php _e('EuroKera China'); ?></h3>
 				<p><?php _e('Building 11, American Industrial Park,'); ?><br />
-				<?php _e('48 Hongmian Road, Xinhua Town Huadu District, Guangzhou 510800'); ?></p>
+				<?php _e('48 Hongmian Road, Xinhua Town Huadu District, Guangzhou 510800, China'); ?></p>
 				<div class="button small"><a href="https://www.google.com/maps/place/48+Hong+Mian+Da+Dao+Bei,+Huadu+Qu,+Guangzhou+Shi,+Guangdong+Sheng,+China/@23.408007,113.1686408,17z/data=!4m5!3m4!1s0x3402e8950732003d:0x9e7bcf4a5c37924f!8m2!3d23.408006!4d113.170818" target="_blank">Map</a></div>
 			</div>
 			
@@ -107,7 +107,7 @@ get_header(); ?>
 				</div>
 				<h3><?php _e('EuroKera Thailand'); ?></h3>
 				<p><?php _e('Hemaraj Eastern Seaboard No.500/61'); ?><br />
-				<?php _e('Moo3, Tambol Tasit, Amphur P, Luakdaeng Rayong 21140'); ?></p>
+				<?php _e('Moo3, Tambol Tasit, Amphur P, Luakdaeng Rayong 21140, Thailand'); ?></p>
 				<div class="button small"><a href="https://www.google.com/maps/search/Hemaraj+Eastern+Seaboard+No.500%2F61+Moo+3,+Tambol+Tasit,+Amphur+PLuakdaeng+Rayong+21140/@12.9587766,101.1035924,11z/data=!3m1!4b1" target="_blank">Map</a></div>
 			</div>
 		</div>
