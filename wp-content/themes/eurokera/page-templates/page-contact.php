@@ -108,7 +108,7 @@ get_header(); ?>
 				<h3><?php _e('EuroKera Thailand'); ?></h3>
 				<p><?php _e('Hemaraj Eastern Seaboard No.500/61'); ?><br />
 				<?php _e('Moo3, Tambol Tasit, Amphur P, Luakdaeng Rayong 21140, Thailand'); ?></p>
-				<div class="button small"><a href="https://www.google.com/maps/search/Hemaraj+Eastern+Seaboard+No.500%2F61+Moo+3,+Tambol+Tasit,+Amphur+PLuakdaeng+Rayong+21140/@12.9587766,101.1035924,11z/data=!3m1!4b1" target="_blank">Map</a></div>
+				<div class="button small"><a href="https://www.google.com/maps/place/Eurokera+(Thailand)+Limited/@13.0585747,101.1776142,17z/data=!4m8!1m2!2m1!1sEurokera,+Rayong+21140!3m4!1s0x3102db234186cafb:0x6e9f9f68c19b45c2!8m2!3d13.0585695!4d101.1798029" target="_blank">Map</a></div>
 			</div>
 		</div>
 	</div>	
