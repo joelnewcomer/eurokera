@@ -27,41 +27,46 @@ class Action {
     }
 
     public function processEnableAccessRequest() {
-        $page = Helper::getAccessRequestPage();
         $enabled = Helper::isEnabled('enable_access_request', 'settings');
-        $status = ($enabled) ? 'private' : 'draft';
-        if ($enabled && $page === false) {
-            $result = wp_insert_post(array(
-                'post_type' => 'page',
-                'post_status' => $status,
-                'post_title' => __('Data Access Request', WP_GDPR_C_SLUG),
-                'post_content' => '[wpgdprc_access_request_form]',
-                'meta_input' => array(
-                    '_wpgdprc_access_request' => 1,
-                ),
-            ), true);
-            if (!is_wp_error($result)) {
-                $page = get_post($result);
+        if ($enabled) {
+            $accessRequest = AccessRequest::databaseTableExists();
+            $deleteRequest = DeleteRequest::databaseTableExists();
+            if (!$accessRequest || !$deleteRequest) {
+                Helper::createUserRequestDataTables();
+                $result = wp_insert_post(array(
+                    'post_type' => 'page',
+                    'post_status' => 'private',
+                    'post_title' => __('Data Access Request', WP_GDPR_C_SLUG),
+                    'post_content' => '[wpgdprc_access_request_form]',
+                    'meta_input' => array(
+                        '_wpgdprc_access_request' => 1,
+                    ),
+                ), true);
+                if (!is_wp_error($result)) {
+                    update_option(WP_GDPR_C_PREFIX . '_settings_access_request_page', $result);
+                }
             }
         }
+    }
+
+    public function processToggleAccessRequest() {
+        $page = Helper::getAccessRequestPage();
         if (!empty($page)) {
+            $enabled = Helper::isEnabled('enable_access_request', 'settings');
+            $status = ($enabled) ? 'private' : 'draft';
             wp_update_post(array(
                 'ID' => $page->ID,
                 'post_status' => $status
             ));
-        }
-        if ($enabled) {
-            Helper::createUserRequestDataTables();
         }
     }
 
     public function showNoticesRequestUserData() {
         $enabled = Helper::isEnabled('enable_access_request', 'settings');
         if ($enabled) {
-            global $wpdb;
-            $accessRequest = $wpdb->query("SHOW TABLES LIKE '" . AccessRequest::getDatabaseTableName() . "'");
-            $deleteRequest = $wpdb->query("SHOW TABLES LIKE '" . DeleteRequest::getDatabaseTableName() . "'");
-            if ($accessRequest !== 1 || $deleteRequest !== 1) {
+            $accessRequest = AccessRequest::databaseTableExists();
+            $deleteRequest = DeleteRequest::databaseTableExists();
+            if (!$accessRequest || !$deleteRequest) {
                 $pluginData = Helper::getPluginData();
                 printf(
                     '<div class="%s"><p><strong>%s:</strong> %s %s</p></div>',
@@ -71,7 +76,7 @@ class Action {
                     sprintf(
                         '<a class="button" href="%s">%s</a>',
                         add_query_arg(
-                            array('action' => 'create_request_tables'),
+                            array('wpgdprc-action' => 'create_request_tables'),
                             Helper::getPluginAdminUrl()
                         ),
                         __('Retry', WP_GDPR_C_SLUG)

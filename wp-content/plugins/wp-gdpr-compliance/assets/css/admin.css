@@ -226,6 +226,10 @@ table.wpgdprc-table tr:nth-child(even) {
     background-color: #F1F1F1;
 }
 
+table.wpgdprc-table tr.wpgdprc-table__row--expired {
+    opacity: .5;
+}
+
 .wpgdprc-background {
     position: fixed;
     right: 0;

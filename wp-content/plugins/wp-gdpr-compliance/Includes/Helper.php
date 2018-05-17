@@ -30,6 +30,21 @@ class Helper {
     }
 
     /**
+     * @param string $action
+     */
+    public static function doAction($action = '') {
+        if (!empty($action)) {
+            switch ($action) {
+                case 'create_request_tables' :
+                    Helper::createUserRequestDataTables();
+                    wp_safe_redirect(Helper::getPluginAdminUrl());
+                    die();
+                    break;
+            }
+        }
+    }
+
+    /**
      * @param string $plugin
      * @return mixed
      */
@@ -173,7 +188,7 @@ class Helper {
      * @return bool
      */
     public static function isEnabled($option = '', $type = 'integrations') {
-        return filter_var(get_option(WP_GDPR_C_PREFIX . '_' . $type . '_' . $option), FILTER_VALIDATE_BOOLEAN);
+        return filter_var(get_option(WP_GDPR_C_PREFIX . '_' . $type . '_' . $option, false), FILTER_VALIDATE_BOOLEAN);
     }
 
     /**
@@ -429,7 +444,7 @@ class Helper {
         global $wpdb;
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
         $charsetCollate = $wpdb->get_charset_collate();
-        $sql = "CREATE TABLE IF NOT EXISTS `" . AccessRequest::getDatabaseTableName() . "` (
+        $query = "CREATE TABLE IF NOT EXISTS `" . AccessRequest::getDatabaseTableName() . "` (
             `ID` bigint(20) NOT NULL AUTO_INCREMENT,
             `site_id` bigint(20) NOT NULL,
             `email_address` varchar(100) NOT NULL,
@@ -438,9 +453,9 @@ class Helper {
             `expired` tinyint(1) DEFAULT '0' NOT NULL,
             `date_created` datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
             PRIMARY KEY (`ID`)
-            ) $charsetCollate;";
-        dbDelta($sql);
-        $sql = "CREATE TABLE IF NOT EXISTS `" . DeleteRequest::getDatabaseTableName() . "` (
+        ) $charsetCollate;";
+        dbDelta($query);
+        $query = "CREATE TABLE IF NOT EXISTS `" . DeleteRequest::getDatabaseTableName() . "` (
             `ID` bigint(20) NOT NULL AUTO_INCREMENT,
             `site_id` bigint(20) NOT NULL,
             `access_request_id` bigint(20) NOT NULL,
@@ -451,8 +466,8 @@ class Helper {
             `processed` tinyint(1) DEFAULT '0' NOT NULL,
             `date_created` datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
             PRIMARY KEY (`ID`)
-            ) $charsetCollate;";
-        dbDelta($sql);
+        ) $charsetCollate;";
+        dbDelta($query);
     }
 
     /**

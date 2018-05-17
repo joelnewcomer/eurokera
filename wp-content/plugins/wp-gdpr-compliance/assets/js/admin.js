@@ -143,8 +143,10 @@
                 return;
             }
             $checkbox.on('change', function (e) {
-                e.preventDefault();
-                _doProcessAction($(this));
+                if ($(this).data('type')) {
+                    e.preventDefault();
+                    _doProcessAction($(this));
+                }
             });
         },
         initSelectAll = function () {

@@ -67,13 +67,25 @@ class Shortcode {
                     );
                 }
             } else {
-                wp_die(
-                    '<p>' . sprintf(
+                $accessRequestPage = Helper::getAccessRequestPage();
+                $output .= sprintf(
+                    '<div class="wpgdprc-feedback wpgdprc-feedback--error"><p>%s</p></div>',
+                    sprintf(
                         __('<strong>ERROR</strong>: %s', WP_GDPR_C_SLUG),
-                        __('What are you trying to do?', WP_GDPR_C_SLUG)
-                    ) . '</p>'
+                        sprintf(
+                            '%s<br /><br />%s',
+                            __('You are only able to view your data when visiting this page on the same device with the same IP and in the same browser session as when you performed your request. This is an extra security measure to keep your data safe.', WP_GDPR_C_SLUG),
+                            sprintf(
+                                __('If needed you can put in a new request after 24 hours here: %s.', WP_GDPR_C_SLUG),
+                                sprintf(
+                                    '<a target="_blank" href="%s">%s</a>',
+                                    get_permalink($accessRequestPage),
+                                    get_the_title($accessRequestPage)
+                                )
+                            )
+                        )
+                    )
                 );
-                exit;
             }
         } else {
             $output .= __('This request is expired or doesn\'t exist.', WP_GDPR_C_SLUG);

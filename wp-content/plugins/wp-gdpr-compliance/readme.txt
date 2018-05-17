@@ -4,7 +4,7 @@ Tags: gdpr, law, regulations, compliance, data, protection, privacy, data protec
 Requires at least: 4.5
 Tested up to: 4.9.4
 Requires PHP: 5.3
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,14 @@ You'll find answers to many of your questions on [wpgdprc.com](https://www.wpgdp
 3. Control the link to your privacy policy and activate the request user data page.
 
 == Changelog ==
+
+= 1.3.4 =
+*Release date: May 16th, 2018*
+* Fixed a bug when creating the database tables used by the request user data functionality.
+* Fixed a bug when creating the request user data page.
+* Expired access requests are shown more clearly.
+* Improved error messages.
+* Added a link to the support forum. We're happy to help!
 
 = 1.3.3 =
 *Release date: May 14th, 2018*

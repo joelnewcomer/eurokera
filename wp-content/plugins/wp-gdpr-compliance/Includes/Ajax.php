@@ -119,19 +119,24 @@ class Ajax {
                                             $request,
                                             $siteName
                                         );
+
                                         $message = sprintf(
                                             __('You have requested to access your data on %s.', WP_GDPR_C_SLUG),
                                             sprintf('<a target="_blank" href="%s">%s</a>', $siteUrl, $siteName)
                                         ) . '<br /><br />';
                                         $message .= sprintf(
-                                            __('Please visit this %s to view the data linked to the email address %s', WP_GDPR_C_SLUG),
+                                            __('Please visit this %s to view the data linked to the email address %s.', WP_GDPR_C_SLUG),
                                             $deleteRequestPage,
                                             $emailAddress
                                         ) . '<br /><br />';
-                                        $message .= __('This page is available for 24 hours and can only be reached from the same IP address you requested from.', WP_GDPR_C_SLUG)  . '<br />';
+                                        $message .= __('This page is available for 24 hours and can only be reached from the same device, IP address and browser session you requested from.', WP_GDPR_C_SLUG)  . '<br /><br />';
                                         $message .= sprintf(
-                                            __('If your link is invalid please fill in a new request: %s.', WP_GDPR_C_SLUG),
-                                            sprintf('<a target="_blank" href="%s">%s</a>', get_permalink($page), get_the_title($page))
+                                            __('If your link is invalid you can fill in a new request after 24 hours: %s.', WP_GDPR_C_SLUG),
+                                            sprintf(
+                                                '<a target="_blank" href="%s">%s</a>',
+                                                get_permalink($page),
+                                                get_the_title($page)
+                                            )
                                         );
                                         $message = apply_filters('wpgdprc_access_request_mail_content', $message, $request, $deleteRequestPage);
                                         $headers = array(

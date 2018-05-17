@@ -290,6 +290,15 @@ class AccessRequest {
     }
 
     /**
+     * @return bool
+     */
+    public static function databaseTableExists() {
+        global $wpdb;
+        $result = $wpdb->query("SHOW TABLES LIKE '" . self::getDatabaseTableName() . "'");
+        return ($result === 1);
+    }
+
+    /**
      * @return string
      */
     public static function getDatabaseTableName() {

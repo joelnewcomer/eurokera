@@ -37,16 +37,6 @@ class Page {
     }
 
     public function generatePage() {
-        $action = (isset($_REQUEST['action'])) ? esc_html($_REQUEST['action']) : false;
-        if (!empty($action)) {
-            switch ($action) {
-                case 'create_request_tables' :
-                    Helper::createUserRequestDataTables();
-                    wp_redirect(Helper::getPluginAdminUrl());
-                    die();
-                    break;
-            }
-        }
         $type = (isset($_REQUEST['type'])) ? esc_html($_REQUEST['type']) : false;
         $pluginData = Helper::getPluginData();
         $daysLeftToComply = Helper::getDaysLeftToComply();
@@ -139,8 +129,16 @@ class Page {
                     <div class="wpgdprc-sidebar-block">
                         <h3><?php _e('Rate us', WP_GDPR_C_SLUG); ?></h3>
                         <div class="wpgdprc-stars"></div>
-                        <p><?php echo sprintf(__('Did %s help you out? Please leave a positive 5-star review.', WP_GDPR_C_SLUG), $pluginData['Name']); ?></p>
+                        <p><?php echo sprintf(__('Did %s help you out? Please leave a 5-star review. Thank you!', WP_GDPR_C_SLUG), $pluginData['Name']); ?></p>
                         <a target="_blank" href="//wordpress.org/support/plugin/wp-gdpr-compliance/reviews/#new-post" class="button button-primary" rel="noopener noreferrer"><?php _e('Write a review', WP_GDPR_C_SLUG); ?></a>
+                    </div>
+
+                    <div class="wpgdprc-sidebar-block">
+                        <h3><?php _e('Support', WP_GDPR_C_SLUG); ?></h3>
+                        <p><?php echo sprintf(
+                                __('Need a helping hand? Please ask for help on the %s. Be sure to mention your WordPress version and give as much additional information as possible.', WP_GDPR_C_SLUG),
+                                sprintf('<a target="_blank" href="//wordpress.org/support/plugin/wp-gdpr-compliance#new-post" rel="noopener noreferrer">%s</a>', __('Support forum', WP_GDPR_C_SLUG))
+                            ); ?></p>
                     </div>
                 </div>
 
@@ -311,7 +309,7 @@ class Page {
             <div class="wpgdprc-setting">
                 <label for="<?php echo $optionNameEnableAccessRequest; ?>"><?php _e('Activate', WP_GDPR_C_SLUG); ?></label>
                 <div class="wpgdprc-options">
-                    <label><input type="checkbox" name="<?php echo $optionNameEnableAccessRequest; ?>" id="<?php echo $optionNameEnableAccessRequest; ?>" value="1" tabindex="1" data-type="save_setting" data-option="<?php echo $optionNameEnableAccessRequest; ?>" <?php checked(true, $enableAccessRequest); ?> /> <?php _e('Activate page', WP_GDPR_C_SLUG); ?></label>
+                    <label><input type="checkbox" name="<?php echo $optionNameEnableAccessRequest; ?>" id="<?php echo $optionNameEnableAccessRequest; ?>" value="1" tabindex="1" <?php checked(true, $enableAccessRequest); ?> /> <?php _e('Activate page', WP_GDPR_C_SLUG); ?></label>
                     <div class="wpgdprc-information">
                         <?php
                         printf(
@@ -485,7 +483,7 @@ class Page {
                     <th scope="col" width="22%"><?php _e('Email Address', WP_GDPR_C_SLUG); ?></th>
                     <th scope="col" width="18%"><?php _e('IP Address', WP_GDPR_C_SLUG); ?></th>
                     <th scope="col" width="22%"><?php _e('Date', WP_GDPR_C_SLUG); ?></th>
-                    <th scope="col" width="8%"><?php _e('Expired', WP_GDPR_C_SLUG); ?></th>
+                    <th scope="col" width="8%"><?php _e('Status', WP_GDPR_C_SLUG); ?></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -494,7 +492,7 @@ class Page {
                 foreach ($requests as $request) :
                     $amountOfDeleteRequests = DeleteRequest::getInstance()->getAmountByAccessRequestId($request->getId());
                     ?>
-                    <tr>
+                    <tr class="wpgdprc-table__row <?php echo ($request->getExpired()) ? 'wpgdprc-table__row--expired' : ''; ?>">
                         <td><?php printf('#%d', $request->getId()); ?></td>
                         <td>
                             <?php printf('%d', $amountOfDeleteRequests); ?>
@@ -517,7 +515,7 @@ class Page {
                         <td><?php echo $request->getEmailAddress(); ?></td>
                         <td><?php echo $request->getIpAddress(); ?></td>
                         <td><?php echo $request->getDateCreated(); ?></td>
-                        <td><span class="dashicons dashicons-<?php echo ($request->getExpired()) ? 'yes' : 'no'; ?>"></span></td>
+                        <td><?php echo ($request->getExpired()) ? __('Expired', WP_GDPR_C_SLUG) : __('Active', WP_GDPR_C_SLUG); ?></td>
                     </tr>
                     <?php
                 endforeach;

@@ -75,7 +75,7 @@ class Data {
                 );
                 break;
         }
-        $output[] = '<input type="checkbox" class="wpgdprc-select-all" />';
+        $output['checkbox'] = '<input type="checkbox" class="wpgdprc-select-all" />';
         return $output;
     }
 
@@ -120,7 +120,8 @@ class Data {
                 /** @var WooCommerceOrder $woocommerceOrder */
                 foreach ($data as $woocommerceOrder) {
                     $request = DeleteRequest::getInstance()->getByTypeAndDataIdAndAccessRequestId($type, $woocommerceOrder->getOrderId(), $requestId);
-                    $address = (!empty($woocommerceOrder->getBillingAddressTwo())) ? sprintf('%s,<br />%s', $woocommerceOrder->getBillingAddressOne(), $woocommerceOrder->getBillingAddressTwo()) : $woocommerceOrder->getBillingAddressOne();
+                    $billingAddressTwo = $woocommerceOrder->getBillingAddressTwo();
+                    $address = (!empty($billingAddressTwo)) ? sprintf('%s,<br />%s', $woocommerceOrder->getBillingAddressOne(), $billingAddressTwo) : $woocommerceOrder->getBillingAddressOne();
                     $output[$woocommerceOrder->getOrderId()] = array(
                         sprintf('#%d', $woocommerceOrder->getOrderId()),
                         $woocommerceOrder->getBillingEmailAddress(),
@@ -155,8 +156,9 @@ class Data {
             $output .= '<table class="wpgdprc-table">';
             $output .= '<thead>';
             $output .= '<tr>';
-            foreach (self::getOutputColumns($type) as $column) {
-                $output .= sprintf('<th scope="col">%s</th>', $column);
+            foreach (self::getOutputColumns($type) as $key => $column) {
+                $class = (is_string($key)) ? $key : sanitize_title($column);
+                $output .= sprintf('<th class="wpgdprc-table__head wpgdprc-table__head--%s" scope="col">%s</th>', $class, $column);
             }
             $output .= '</tr>';
             $output .= '</thead>';
