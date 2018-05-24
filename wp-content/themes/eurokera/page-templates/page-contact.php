@@ -92,7 +92,11 @@ get_header(); ?>
 				<h3><?php _e('EuroKera China'); ?></h3>
 				<p><?php _e('Building 11, American Industrial Park,'); ?><br />
 				<?php _e('48 Hongmian Road, Xinhua Town Huadu District, Guangzhou 510800, China'); ?></p>
-				<div class="button small"><a href="https://www.google.com/maps/place/48+Hong+Mian+Da+Dao+Bei,+Huadu+Qu,+Guangzhou+Shi,+Guangdong+Sheng,+China/@23.408007,113.1686408,17z/data=!4m5!3m4!1s0x3402e8950732003d:0x9e7bcf4a5c37924f!8m2!3d23.408006!4d113.170818" target="_blank">Map</a></div>
+				<?php if(ICL_LANGUAGE_CODE=='zh-hans') : ?>
+					<div class="button small"><a href="https://www.google.com/maps/place/23%C2%B024'33.4%22N+113%C2%B010'27.3%22E/@23.4092809,113.1729396,17z/data=!3m1!4b1!4m14!1m7!3m6!1s0x3402e8950732003d:0x9e7bcf4a5c37924f!2s48+Hong+Mian+Da+Dao+Bei,+Huadu+Qu,+Guangzhou+Shi,+Guangdong+Sheng,+Chine!3b1!8m2!3d23.408006!4d113.170818!3m5!1s0x0:0x0!7e2!8m2!3d23.4092783!4d113.1742408" target="_blank">Map</a></div>
+				<?php else : ?>
+					<div class="button small"><a href="https://www.amap.com/place/B0FFG8IV2H" target="_blank">Map</a></div>
+				<?php endif; ?>
 			</div>
 			
 			<div class="location">
