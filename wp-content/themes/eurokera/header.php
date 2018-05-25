@@ -23,15 +23,15 @@
 
 		<?php wp_head(); ?>
 
-		<!-- Load Korean font -->
+		<!-- Load Korean font kit -->
 		<?php if(ICL_LANGUAGE_CODE=='ko') : ?>
 			<script src="https://use.typekit.net/amh7lzl.js"></script>
 			<script>try{Typekit.load({ async: true });}catch(e){}</script>
-		<!-- Load Chinese/Vietnamese font -->
+		<!-- Load Chinese/Vietnamese font kit -->
 		<?php elseif (ICL_LANGUAGE_CODE=='zh-hans' || ICL_LANGUAGE_CODE=='vi') : ?>
 			<script src="https://use.typekit.net/mwj6guo.js"></script>
 			<script>try{Typekit.load({ async: true });}catch(e){}</script>
-		<!-- English fonts -->
+		<!-- English font kit -->
 		<?php else : ?>
 			<script src="https://use.typekit.net/xxf2jbi.js"></script>
 			<script>try{Typekit.load({ async: true });}catch(e){}</script>		
