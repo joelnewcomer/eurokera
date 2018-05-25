@@ -23,8 +23,21 @@
 
 		<?php wp_head(); ?>
 
-		<script src="https://use.typekit.net/xxf2jbi.js"></script>
-		<script>try{Typekit.load({ async: true });}catch(e){}</script>
+		<!-- Load Korean font -->
+		<?php if(ICL_LANGUAGE_CODE=='ko') : ?>
+			<script src="https://use.typekit.net/amh7lzl.js"></script>
+			<script>try{Typekit.load({ async: true });}catch(e){}</script>
+		<!-- Load Chinese/Vietnamese font -->
+		<?php elseif (ICL_LANGUAGE_CODE=='zh-hans' || ICL_LANGUAGE_CODE=='vi') : ?>
+			<script src="https://use.typekit.net/mwj6guo.js"></script>
+			<script>try{Typekit.load({ async: true });}catch(e){}</script>
+		<!-- English fonts -->
+		<?php else : ?>
+			<script src="https://use.typekit.net/xxf2jbi.js"></script>
+			<script>try{Typekit.load({ async: true });}catch(e){}</script>		
+		<?php endif; ?>
+
+
 
 		<!-- Polyfills to make various versions of IE play nicer -->
 		<script>

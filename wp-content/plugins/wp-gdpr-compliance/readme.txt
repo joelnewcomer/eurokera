@@ -4,7 +4,7 @@ Tags: gdpr, law, regulations, compliance, data, protection, privacy, data protec
 Requires at least: 4.5
 Tested up to: 4.9.4
 Requires PHP: 5.3
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,14 @@ You'll find answers to many of your questions on [wpgdprc.com](https://www.wpgdp
 3. Control the link to your privacy policy and activate the request user data page.
 
 == Changelog ==
+
+= 1.3.5 =
+*Release date: May 24th, 2018*
+* Small bugfix for older WooCommerce versions.
+* Small bugfix for some translatable strings.
+* Bugfix to make sure the correct Gravity Forms field ID is determined.
+* Added checkbox to the WooCommerce register forms.
+* Hide WooCommerce orders section when plugin is inactive.
 
 = 1.3.4 =
 *Release date: May 16th, 2018*

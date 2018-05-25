@@ -38,8 +38,10 @@ class Integration {
                     add_filter('wpcf7_validate_wpgdprc', array(CF7::getInstance(), 'validateField'), 10, 2);
                     break;
                 case WC::ID :
-                    add_action('woocommerce_checkout_process', array(WC::getInstance(), 'checkPost'));
+                    add_action('woocommerce_checkout_process', array(WC::getInstance(), 'checkPostCheckoutForm'));
+                    add_action('woocommerce_register_post', array(WC::getInstance(), 'checkPostRegisterForm'), 10, 3);
                     add_action('woocommerce_review_order_before_submit', array(WC::getInstance(), 'addField'), 999);
+                    add_action('woocommerce_register_form', array(WC::getInstance(), 'addField'), 999);
                     add_action('woocommerce_checkout_update_order_meta', array(WC::getInstance(), 'addAcceptedDateToOrderMeta'));
                     add_action('woocommerce_admin_order_data_after_order_details', array(WC::getInstance(), 'displayAcceptedDateInOrderData'));
                     break;

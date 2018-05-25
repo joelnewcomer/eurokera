@@ -1950,6 +1950,14 @@ body, .animsition {
   width: 100%;
   min-height: 100vh; }
 
+/* Korean font */
+html[lang="ko-KR"] * {
+  font-family: "source-han-sans-korean" !important;
+  font-weight: 200 !important; }
+
+html[lang="zh-hans"] *, html[lang="vi-VN"] * {
+  font-family: "source-han-sans-simplified-c" !important; }
+
 body {
   max-width: 100%;
   overflow-x: hidden; }

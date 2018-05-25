@@ -33,6 +33,7 @@ class GForms {
      */
     public function addField($form = array()) {
         $isUpdated = false;
+        $lastFieldId = 0;
         $choices = array(
             array(
                 'text' => self::getCheckboxText($form['id']),
@@ -41,15 +42,16 @@ class GForms {
             )
         );
         foreach ($form['fields'] as &$field) {
+            if ($field->id > $lastFieldId) {
+                $lastFieldId = intval($field->id);
+            }
             if (isset($field->wpgdprc) && $field->wpgdprc === true) {
                 $field['choices'] = $choices;
                 $isUpdated = true;
             }
         }
         if (!$isUpdated) {
-            $lastField = array_values(array_slice($form['fields'], -1));
-            $lastField = (isset($lastField[0])) ? $lastField[0] : false;
-            $id = (!empty($lastField)) ? (int)$lastField['id'] + 1 : 1;
+            $id = ((int)$lastFieldId > 0) ? $lastFieldId + 1 : 99;
             $args = array(
                 'id' => $id,
                 'type' => 'checkbox',
