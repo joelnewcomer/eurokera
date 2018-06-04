@@ -11,9 +11,9 @@
         }
     });
 
-    showHideType();
+    wpSeoShowHideType();
     $("#site_type, #_schema_aggregate_rating_schema_type").change(function () {
-        showHideType();
+        wpSeoShowHideType();
     });
 
     if ($("#kcseo-wordpres-seo-structured-data-schema-meta-box").length) {
@@ -116,7 +116,7 @@
         }
     });
 
-    function showHideType() {
+    function wpSeoShowHideType() {
         if($('#_schema_aggregate_rating_schema_type').length){
             var id = $("#_schema_aggregate_rating_schema_type option:selected").val();
         }
@@ -133,6 +133,12 @@
             $(".form-table tr.business-info,.form-table tr.all-type-data, .aggregate-except-organization-holder").hide();
         } else {
             $(".form-table tr.business-info,.form-table tr.all-type-data, .aggregate-except-organization-holder").show();
+        }
+
+        if($.inArray(id, ['FoodEstablishment', 'Bakery','BarOrPub','Brewery','CafeOrCoffeeShop','FastFoodRestaurant','IceCreamShop','Restaurant','Winery']) >= 0){
+            $(".form-table tr.restaurant").show();
+        }else {
+            $(".form-table tr.restaurant").hide();
         }
     }
 

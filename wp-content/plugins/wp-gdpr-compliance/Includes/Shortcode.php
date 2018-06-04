@@ -27,8 +27,8 @@ class Shortcode {
                 $comments = Data::getOutput($data->getComments(), 'comment', $request->getId());
 
                 $output .= sprintf(
-                    '<div class="wpgdprc-feedback wpgdprc-feedback--notice">%s</div>',
-                    Integration::getDeleteRequestFormExplanationText()
+                    '<div class="wpgdprc-message wpgdprc-message--notice">%s</div>',
+                    apply_filters('the_content', Integration::getDeleteRequestFormExplanationText())
                 );
 
                 // WordPress Users
@@ -37,7 +37,7 @@ class Shortcode {
                     $output .= $users;
                 } else {
                     $output .= sprintf(
-                        '<div class="wpgdprc-feedback wpgdprc-feedback--notice">%s</div>',
+                        '<div class="wpgdprc-message wpgdprc-message--notice">%s</div>',
                         sprintf(
                             __('No users found with email address %s.', WP_GDPR_C_SLUG),
                             sprintf('<strong>%s</strong>', $request->getEmailAddress())
@@ -51,7 +51,7 @@ class Shortcode {
                     $output .= $comments;
                 } else {
                     $output .= sprintf(
-                        '<div class="wpgdprc-feedback wpgdprc-feedback--notice">%s</div>',
+                        '<div class="wpgdprc-message wpgdprc-message--notice">%s</div>',
                         sprintf(
                             __('No comments found with email address %s.', WP_GDPR_C_SLUG),
                             sprintf('<strong>%s</strong>', $request->getEmailAddress())
@@ -67,7 +67,7 @@ class Shortcode {
                         $output .= $woocommerceOrders;
                     } else {
                         $output .= sprintf(
-                            '<div class="wpgdprc-feedback wpgdprc-feedback--notice">%s</div>',
+                            '<div class="wpgdprc-message wpgdprc-message--notice">%s</div>',
                             sprintf(
                                 __('No WooCommerce orders found with email address %s.', WP_GDPR_C_SLUG),
                                 sprintf('<strong>%s</strong>', $request->getEmailAddress())
@@ -80,7 +80,7 @@ class Shortcode {
             } else {
                 $accessRequestPage = Helper::getAccessRequestPage();
                 $output .= sprintf(
-                    '<div class="wpgdprc-feedback wpgdprc-feedback--error"><p>%s</p></div>',
+                    '<div class="wpgdprc-message wpgdprc-message--error"><p>%s</p></div>',
                     sprintf(
                         __('<strong>ERROR</strong>: %s', WP_GDPR_C_SLUG),
                         sprintf(
@@ -108,8 +108,6 @@ class Shortcode {
      * @return string
      */
     public function accessRequestForm() {
-        wp_enqueue_style('wpgdprc.css');
-        wp_enqueue_script('wpgdprc.js');
         $output = '<div class="wpgdprc">';
         if (isset($_REQUEST['wpgdprc'])) {
             $output .= self::getAccessRequestData();
@@ -136,11 +134,32 @@ class Shortcode {
                     apply_filters('wpgdprc_request_form_submit_label', esc_attr__('Send', WP_GDPR_C_SLUG))
                 )
             );
-            $output .= '<div class="wpgdprc-feedback" style="display: none;"></div>';
+            $output .= '<div class="wpgdprc-message" style="display: none;"></div>';
             $output .= '</form>';
             $output = apply_filters('wpgdprc_request_form', $output);
         }
         $output .= '</div>';
+        return $output;
+    }
+
+    /**
+     * @param $attributes
+     * @param string $label
+     * @return string
+     */
+    public function consentsSettingsLink($attributes, $label = '') {
+        $attributes = shortcode_atts(array(
+            'class' => '',
+        ), $attributes, 'wpgdprc_consents_settings_link');
+        $label = (!empty($label)) ? esc_html($label) : __('My settings', WP_GDPR_C_SLUG);
+        $classes = explode(',', $attributes['class']);
+        $classes[] = 'wpgdprc-consents-settings-link';
+        $classes = implode(' ', $classes);
+        $output = sprintf(
+            '<a class="%s" href="javascript:void(0);" data-micromodal-trigger="wpgdprc-consent-modal">%s</a>',
+            esc_attr($classes),
+            $label
+        );
         return $output;
     }
 

@@ -1,11 +1,11 @@
 <?php
 /**
  *Plugin Name: WP SEO Structured Data Schema
- * Plugin URI: http://kcseopro.com/
+ * Plugin URI: https://wpsemplugins.com/
  * Description: Comprehensive JSON-LD based Structured Data solution for WordPress for adding schema for organizations, businesses, blog posts, ratings & more.
- * Version: 2.4.1
- * Author: kcseopro
- * Author URI: http://kcseopro.com/
+ * Version: 2.5
+ * Author: WPSEMPlugins
+ * Author URI: https://wpsemplugins.com/
  * License: A "Slug" license name e.g. GPL2
  */
 if ( ! defined( 'ABSPATH' ) ) {

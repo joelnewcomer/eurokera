@@ -136,18 +136,20 @@ class GForms {
     /**
      * @param string $value
      * @param array $lead
-     * @param \GF_Field $field
+     * @param mixed $field
      * @return string
      */
-    public function addAcceptedDateToEntry($value = '', $lead = array(), \GF_Field $field) {
-        if (isset($field['wpgdprc']) && $field['wpgdprc'] === true) {
-            if (!empty($value)) {
-                $date = Helper::localDateFormat(get_option('date_format') . ' ' . get_option('time_format'), time());
-                $value = sprintf(__('Accepted on %s.', WP_GDPR_C_SLUG), $date);
-            } else {
-                $value = __('Not accepted.', WP_GDPR_C_SLUG);
+    public function addAcceptedDateToEntry($value = '', $lead = array(), $field) {
+        if ($field instanceof \GF_Field) {
+            if (isset($field['wpgdprc']) && $field['wpgdprc'] === true) {
+                if (!empty($value)) {
+                    $date = Helper::localDateFormat(get_option('date_format') . ' ' . get_option('time_format'), time());
+                    $value = sprintf(__('Accepted on %s.', WP_GDPR_C_SLUG), $date);
+                } else {
+                    $value = __('Not accepted.', WP_GDPR_C_SLUG);
+                }
+                $value = apply_filters('wpgdprc_gforms_accepted_date_to_entry', $value, $field, $lead);
             }
-            $value = apply_filters('wpgdprc_gforms_accepted_date_to_entry', $value, $field, $lead);
         }
         return $value;
     }

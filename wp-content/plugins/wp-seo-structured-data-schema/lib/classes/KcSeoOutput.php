@@ -143,9 +143,13 @@ if ( ! class_exists( 'KcSeoOutput' ) ):
 				}
 				$webMeta["geo"] = array(
 					"@type"     => "GeoCoordinates",
+					"latitude"  => ! empty( $settings['business_info']['latitude'] ) ? $KcSeoWPSchema->sanitizeOutPut( $settings['business_info']['latitude'] ) : null,
 					"longitude" => ! empty( $settings['business_info']['longitude'] ) ? $KcSeoWPSchema->sanitizeOutPut( $settings['business_info']['longitude'] ) : null,
-					"latitude"  => ! empty( $settings['business_info']['latitude'] ) ? $KcSeoWPSchema->sanitizeOutPut( $settings['business_info']['latitude'] ) : null
 				);
+			}
+
+			if(in_array($siteType, array('FoodEstablishment', 'Bakery','BarOrPub','Brewery','CafeOrCoffeeShop','FastFoodRestaurant','IceCreamShop','Restaurant','Winery'))){
+				$webMeta["servesCuisine"] = !empty($settings['restaurant']['servesCuisine']) ? $KcSeoWPSchema->sanitizeOutPut( $settings['restaurant']['servesCuisine'], 'textarea' ) : null;
 			}
 
 			$webMeta["url"] = ! empty( $settings['web_url'] ) ? $KcSeoWPSchema->sanitizeOutPut( $settings['web_url'], 'url' ) :  $KcSeoWPSchema->sanitizeOutPut( get_home_url(), 'url');
@@ -163,7 +167,7 @@ if ( ! class_exists( 'KcSeoOutput' ) ):
 
 			$webMeta["contactPoint"] = array(
 				"@type"             => "ContactPoint",
-				"telephone"         => ! empty( $settings['contact']['telephone'] ) ? $KcSeoWPSchema->sanitizeOutPut( $settings['contact']['telephone'] ) : '',
+				"telephone"         => ! empty( $settings['contact']['telephone'] ) ? $KcSeoWPSchema->sanitizeOutPut( $settings['contact']['telephone'] ) : (! empty( $settings['site_telephone'] ) ? $KcSeoWPSchema->sanitizeOutPut( $settings['site_telephone'] ) : null),
 				"contactType"       => ! empty( $settings['contact']['contactType'] ) ? $KcSeoWPSchema->sanitizeOutPut( $settings['contact']['contactType'] ) : '',
 				"email"       => ! empty( $settings['contact']['email'] ) ? $KcSeoWPSchema->sanitizeOutPut( $settings['contact']['email'] ) : '',
 				"contactOption"     => ! empty( $settings['contact']['contactOption'] ) ? $KcSeoWPSchema->sanitizeOutPut( $settings['contact']['contactOption'] ) : '',

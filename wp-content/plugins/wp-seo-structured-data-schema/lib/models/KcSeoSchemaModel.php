@@ -555,7 +555,7 @@ if ( ! class_exists( 'KcSeoSchemaModel' ) ):
 			$id    = $data['id'];
 			$name  = $data['name'];
 			$value = $data['value'];
-			$attr  = !empty($data['attr']) ? $data['attr'] : null;
+			$attr  = ! empty( $data['attr'] ) ? $data['attr'] : null;
 
 			$class       = isset( $data['class'] ) ? ( $data['class'] ? $data['class'] : null ) : null;
 			$require     = ( isset( $data['required'] ) ? ( $data['required'] ? "<span class='required'>*</span>" : null ) : null );
@@ -578,7 +578,7 @@ if ( ! class_exists( 'KcSeoSchemaModel' ) ):
 					break;
 
 				case 'number':
-						$html .= "<input type='number' {$attr} id='{$id}' class='{$class}' name='{$name}' value='" . esc_attr( $value ) . "' />";
+					$html .= "<input type='number' {$attr} id='{$id}' class='{$class}' name='{$name}' value='" . esc_attr( $value ) . "' />";
 					break;
 				case 'textarea':
 					$html .= "<textarea id='{$id}' class='{$class}' name='{$name}' >" . wp_kses( $value,
@@ -621,6 +621,45 @@ if ( ! class_exists( 'KcSeoSchemaModel' ) ):
 								$slt  = ( $optValue == $value ? "selected" : null );
 								$html .= "<option value='" . esc_attr( $optValue ) . "' {$slt}>" . esc_html( $optValue ) . "</option>";
 							}
+						}
+					}
+					$html .= "</select>";
+					break;
+				case 'schema_type':
+					$html .= "<select name='{$name}' class='select2 {$class}' id='{$id}'>";
+					if ( ! empty( $data['empty'] ) ) {
+						$html .= "<option value=''>{$data['empty']}</option>";
+					}
+
+					foreach ( $data['options'] as $key => $site ) {
+						if ( is_array( $site ) ) {
+							$slt = ( $key == $value ? "selected" : null );
+							$html .= "<option value='$key' $slt>&nbsp;&nbsp;&nbsp;$key</option>";
+							foreach ( $site as $inKey => $inSite ) {
+								if ( is_array( $inSite ) ) {
+									$slt = ( $inKey == $value ? "selected" : null );
+									$html .= "<option value='$inKey' $slt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$inKey</option>";
+									foreach ( $inSite as $inInKey => $inInSite ) {
+										if ( is_array( $inInSite ) ) {
+											$slt = ( $inInKey == $value ? "selected" : null );
+											$html .= "<option value='$inInKey' $slt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$inInKey</option>";
+											foreach ( $inInSite as $iSite ) {
+												$slt = ( $iSite == $value ? "selected" : null );
+												$html .= "<option value='$iSite' $slt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$iSite</option>";
+											}
+										} else {
+											$slt = ( $inInSite == $value ? "selected" : null );
+											$html .= "<option value='$inInSite' $slt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$inInSite</option>";
+										}
+									}
+								} else {
+									$slt = ( $inSite == $value ? "selected" : null );
+									$html .= "<option value='$inSite' $slt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$inSite</option>";
+								}
+							}
+						} else {
+							$slt = ( $site == $value ? "selected" : null );
+							$html .= "<option value='$site' $slt>$site</option>";
 						}
 					}
 					$html .= "</select>";
@@ -949,6 +988,7 @@ if ( ! class_exists( 'KcSeoSchemaModel' ) ):
 						'ratingValue'   => array(
 							'title' => 'Ratting value',
 							'type'  => 'number',
+							'attr'  => 'step="any"',
 							'desc'  => "Rating value. (1 , 2.5, 3, 5 etc)"
 						),
 						'reviewCount'   => array(
@@ -1210,7 +1250,7 @@ if ( ! class_exists( 'KcSeoSchemaModel' ) ):
 						),
 						'schema_type' => array(
 							'title'    => 'Schema type',
-							'type'     => 'select',
+							'type'     => 'schema_type',
 							'required' => true,
 							'options'  => $this->site_type(),
 							'empty'    => "Select one",
@@ -1252,27 +1292,27 @@ if ( ! class_exists( 'KcSeoSchemaModel' ) ):
 						'ratingCount' => array(
 							'title'    => 'Rating Count',
 							'type'     => 'number',
-							'attr'  => 'step="any"',
+							'attr'     => 'step="any"',
 							'required' => true,
 							'desc'     => "The total number of ratings for the item on your site. <span class='required'>* At least one of ratingCount or reviewCount is required.</span>"
 						),
 						'reviewCount' => array(
 							'title'    => 'Review Count',
 							'type'     => 'number',
-							'attr'  => 'step="any"',
+							'attr'     => 'step="any"',
 							'required' => true,
 							'desc'     => "Specifies the number of people who provided a review with or without an accompanying rating. At least one of ratingCount or reviewCount is required."
 						),
 						'ratingValue' => array(
 							'title'    => 'Rating Value',
 							'type'     => 'number',
-							'attr'  => 'step="any"',
+							'attr'     => 'step="any"',
 							'required' => true,
 							'desc'     => "A numerical quality rating for the item."
 						),
 						'ratingValue' => array(
 							'title'    => 'Rating Value',
-							'attr'  => 'step="any"',
+							'attr'     => 'step="any"',
 							'type'     => 'number',
 							'required' => true,
 							'desc'     => "A numerical quality rating for the item."
@@ -1280,14 +1320,14 @@ if ( ! class_exists( 'KcSeoSchemaModel' ) ):
 						'bestRating'  => array(
 							'title'    => 'Best Rating',
 							'type'     => 'number',
-							'attr'  => 'step="any"',
+							'attr'     => 'step="any"',
 							'required' => true,
 							'desc'     => "The highest value allowed in this rating system. <span class='required'>* Required if the rating system is not a 5-point scale.</span> If bestRating is omitted, 5 is assumed."
 						),
 						'worstRating' => array(
 							'title'    => 'Worst Rating',
 							'type'     => 'number',
-							'attr'  => 'step="any"',
+							'attr'     => 'step="any"',
 							'required' => true,
 							'desc'     => "The lowest value allowed in this rating system. <span class='required'>* Required if the rating system is not a 5-point scale.</span> If worstRating is omitted, 1 is assumed."
 						)
@@ -1410,97 +1450,161 @@ if ( ! class_exists( 'KcSeoSchemaModel' ) ):
 		function site_type() {
 			return array(
 				'Organization',
-				'LocalBusiness',
-				'AccountingService',
-				'AutoBodyShop',
-				'AutoDealer',
-				'AutoPartsStore',
-				'AutoRental',
-				'AutoRepair',
-				'AutoWash',
-				'Bakery',
-				'BarOrPub',
-				'BeautySalon',
-				'BedAndBreakfast',
-				'BikeStore',
-				'BookStore',
-				'CafeOrCoffeeShop',
-				'ChildCare',
-				'ClothingStore',
-				'ComputerStore',
-				'DaySpa',
-				'Dentist',
-				'DryCleaningOrLaundry',
-				'Electrician',
-				'ElectronicsStore',
-				'EmergencyService',
-				'EntertainmentBusiness',
-				'EventVenue',
-				'ExerciseGym',
-				'FinancialService',
-				'Florist',
-				'FoodEstablishment',
-				'FurnitureStore',
-				'GardenStore',
-				'GeneralContractor',
-				'GolfCourse',
-				'HairSalon',
-				'HardwareStore',
-				'HealthAndBeautyBusiness',
-				'HobbyShop',
-				'Store',
-				'HomeAndConstructionBusiness',
-				'HomeGoodsStore',
-				'Hospital',
-				'Hotel',
-				'HousePainter',
-				'HVACBusiness',
-				'HVACBusiness',
-				'InsuranceAgency',
-				'JewelryStore',
-				'LegalService',
-				'LiquorStore',
-				'Locksmith',
-				'LodgingBusiness',
-				'MedicalClinic',
-				'MensClothingStore',
-				'MobilePhoneStore',
-				'Motel',
-				'MotorcycleDealer',
-				'MotorcycleRepair',
-				'MovingCompany',
-				'MusicStore',
-				'NailSalon',
-				'NightClub',
-				'Notary',
-				'OfficeEquipmentStore',
-				'Optician',
-				'Person',
-				'PetStore',
-				'Physician',
-				'Plumber',
-				'ProfessionalService',
-				'RealEstateAgent',
-				'Residence',
-				'Restaurant',
-				'RoofingContractor',
-				'RVPark',
-				'School',
-				'SelfStorage',
-				'ShoeStore',
-				'SkiResort',
-				'SportingGoodsStore',
-				'SportsClub',
-				'Store',
-				'TattooParlor',
-				'Taxi',
-				'TennisComplex',
-				'TireShop',
-				'ToyStore',
-				'TravelAgency',
-				'VeterinaryCare',
-				'WholesaleStore',
-				'Winery'
+				'LocalBusiness' => array(
+					'AnimalShelter',
+					'AutomotiveBusiness'          => array(
+						'AutoBodyShop',
+						'AutoDealer',
+						'AutoPartsStore',
+						'AutoRental',
+						'AutoRepair',
+						'AutoWash',
+						'GasStation',
+						'MotorcycleDealer',
+						'MotorcycleRepair'
+					),
+					'ChildCare',
+					'DryCleaningOrLaundry',
+					'EmergencyService',
+					'EmploymentAgency',
+					'EntertainmentBusiness'       => array(
+						'AdultEntertainment',
+						'AmusementPark',
+						'ArtGallery',
+						'Casino',
+						'ComedyClub',
+						'MovieTheater',
+						'NightClub',
+
+					),
+					'FinancialService'            => array(
+						'AccountingService',
+						'AutomatedTeller',
+						'BankOrCreditUnion',
+						'InsuranceAgency',
+					),
+					'FoodEstablishment'           => array(
+						'Bakery',
+						'BarOrPub',
+						'Brewery',
+						'CafeOrCoffeeShop',
+						'FastFoodRestaurant',
+						'IceCreamShop',
+						'Restaurant',
+						'Winery',
+					),
+					'GovernmentOffice',
+					'HealthAndBeautyBusiness'     => array(
+						'BeautySalon',
+						'DaySpa',
+						'HairSalon',
+						'HealthClub',
+						'NailSalon',
+						'TattooParlor',
+					),
+					'HomeAndConstructionBusiness' => array(
+						'Electrician',
+						'GeneralContractor',
+						'HVACBusiness',
+						'HousePainter',
+						'Locksmith',
+						'MovingCompany',
+						'Plumber',
+						'RoofingContractor',
+					),
+					'InternetCafe',
+					'LegalService'                => array(
+						'Attorney',
+						'Notary',
+					),
+					'Library',
+					'MedicalBusiness'             => array(
+						'CommunityHealth',
+						'Dentist',
+						'Dermatology',
+						'DietNutrition',
+						'Emergency',
+						'Geriatric',
+						'Gynecologic',
+						'MedicalClinic',
+						'Midwifery',
+						'Nursing',
+						'Obstetric',
+						'Oncologic',
+						'Optician',
+						'Optometric',
+						'Otolaryngologic',
+						'Pediatric',
+						'Pharmacy',
+						'Physician',
+						'Physiotherapy',
+						'PlasticSurgery',
+						'Podiatric',
+						'PrimaryCare',
+						'Psychiatric',
+						'PublicHealth',
+					),
+					'LodgingBusiness'             => array(
+						'BedAndBreakfast',
+						'Campground',
+						'Hostel',
+						'Hotel',
+						'Motel',
+						'Resort',
+					),
+					'ProfessionalService',
+					'RadioStation',
+					'RealEstateAgent',
+					'RecyclingCenter',
+					'SelfStorage',
+					'ShoppingCenter',
+					'SportsActivityLocation'      => array(
+						'BowlingAlley',
+						'ExerciseGym',
+						'GolfCourse',
+						'HealthClub',
+						'PublicSwimmingPool',
+						'SkiResort',
+						'SportsClub',
+						'StadiumOrArena',
+						'TennisComplex',
+					),
+					'Store'                       => array(
+						'AutoPartsStore',
+						'BikeStore',
+						'BookStore',
+						'ClothingStore',
+						'ComputerStore',
+						'ConvenienceStore',
+						'DepartmentStore',
+						'ElectronicsStore',
+						'Florist',
+						'FurnitureStore',
+						'GardenStore',
+						'GroceryStore',
+						'HardwareStore',
+						'HobbyShop',
+						'HomeGoodsStore',
+						'JewelryStore',
+						'LiquorStore',
+						'MensClothingStore',
+						'MobilePhoneStore',
+						'MovieRentalStore',
+						'MusicStore',
+						'OfficeEquipmentStore',
+						'OutletStore',
+						'PawnShop',
+						'PetStore',
+						'ShoeStore',
+						'SportingGoodsStore',
+						'TireShop',
+						'ToyStore',
+						'WholesaleStore'
+					),
+					'TelevisionStation',
+					'TouristInformationCenter',
+					'TravelAgency'
+				)
 			);
 		}
 

@@ -20,13 +20,24 @@ class Helper {
     }
 
     /**
+     * @param string $type
+     * @param array $additionalArgs
      * @return string
      */
-    public static function getPluginAdminUrl() {
-        return admin_url(sprintf(
-            'tools.php?page=%s',
-            str_replace('-', '_', WP_GDPR_C_SLUG)
-        ));
+    public static function getPluginAdminUrl($type = '', $additionalArgs = array()) {
+        $args = array(
+            'page' => str_replace('-', '_', WP_GDPR_C_SLUG)
+        );
+        if (!empty($type)) {
+            $args['type'] = esc_html($type);
+        }
+        if (!empty($additionalArgs)) {
+            $args = array_merge($args, $additionalArgs);
+        }
+        $url = add_query_arg($args,
+            admin_url('tools.php')
+        );
+        return $url;
     }
 
     /**
@@ -134,18 +145,6 @@ class Helper {
     }
 
     /**
-     * @return float|int
-     */
-    public static function getDaysLeftToComply() {
-        $date = mktime(0, 0, 0, 5, 25, 2018);
-        $difference = $date - time();
-        if ($difference < 0) {
-            return 0;
-        }
-        return floor($difference / 60 / 60 / 24);
-    }
-
-    /**
      * @return array
      */
     public static function getCheckList() {
@@ -192,12 +191,12 @@ class Helper {
     }
 
     /**
+     * @param bool $showPluginData
      * @return array
      */
-    public static function getActivePlugins() {
+    public static function getActivePlugins($showPluginData = false) {
         $activePlugins = (array)get_option('active_plugins', array());
-        // Catch network activated plugins
-        $activeNetworkPlugins = (array)get_site_option('active_sitewide_plugins', array());
+        $activeNetworkPlugins = (is_multisite()) ? (array)get_site_option('active_sitewide_plugins', array()) : array();
         if (!empty($activeNetworkPlugins)) {
             foreach ($activeNetworkPlugins as $file => $timestamp) {
                 if (!in_array($file, $activePlugins)) {
@@ -205,6 +204,30 @@ class Helper {
                 }
             }
         }
+
+        // Remove this plugin from array
+        $key = array_search(WP_GDPR_C_BASENAME, $activePlugins);
+        if ($key !== false) {
+            unset($activePlugins[$key]);
+        }
+
+        if ($showPluginData) {
+            foreach ($activePlugins as $key => $file) {
+                $pluginData = get_plugin_data(WP_PLUGIN_DIR . '/' . $file);
+                $data = array(
+                    'basename' => plugin_basename($file)
+                );
+                if (isset($pluginData['Name'])) {
+                    $data['slug'] = sanitize_title($pluginData['Name']);
+                    $data['name'] = $pluginData['Name'];
+                }
+                if (isset($pluginData['Description'])) {
+                    $data['description'] = $pluginData['Description'];
+                }
+                $activePlugins[$key] = $data;
+            }
+        }
+
         return $activePlugins;
     }
 
@@ -323,7 +346,7 @@ class Helper {
     /**
      * Ensures an ip address is both a valid IP and does not fall within
      * a private network range.
-     * 
+     *
      * @param string $ipAddress
      * @return bool
      */
@@ -440,6 +463,40 @@ class Helper {
         return $output;
     }
 
+    /**
+     * @return array|bool
+     */
+    public static function getConsentIdsByCookie() {
+        $output = array();
+        $consents = (!empty($_COOKIE['wpgdprc-consent'])) ? $_COOKIE['wpgdprc-consent'] : '';
+        if (!empty($consents)) {
+            switch ($consents) {
+                case 'decline' :
+                    return false;
+                    break;
+                case 'accept' :
+                    $consents = Consent::getInstance()->getList(array(
+                        'active' => array('value' => 1)
+                    ));
+                    foreach ($consents as $consent) {
+                        $output[] = $consent->getId();
+                    }
+                    break;
+                default :
+                    $consents = explode(',', $consents);
+                    foreach ($consents as $id) {
+                        if (!is_numeric($id)) {
+                            return false;
+                        } else if (Consent::getInstance()->exists($id)) {
+                            $output[] = $id;
+                        }
+                    }
+                    break;
+            }
+        }
+        return $output;
+    }
+
     public static function createUserRequestDataTables() {
         global $wpdb;
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -470,6 +527,26 @@ class Helper {
         dbDelta($query);
     }
 
+    public static function createConsentsTables() {
+        global $wpdb;
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+        $charsetCollate = $wpdb->get_charset_collate();
+        $query = "CREATE TABLE IF NOT EXISTS `" . Consent::getDatabaseTableName() . "` (
+            `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+            `site_id` bigint(20) NOT NULL,
+            `title` text NOT NULL,
+            `description` longtext NOT NULL,
+            `snippet` longtext NOT NULL,
+            `placement` varchar(20) NOT NULL,
+            `plugins` longtext NOT NULL,
+            `active` tinyint(1) DEFAULT '1' NOT NULL,
+            `date_modified` timestamp DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+            `date_created` datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+            PRIMARY KEY (`ID`)
+        ) $charsetCollate;";
+        dbDelta($query);
+    }
+
     /**
      * @param array $filters
      * @param bool $grouped
@@ -491,7 +568,17 @@ class Helper {
                         $or = ($grouped === true && $count === 0) ? '' : $or;
                         $compare = (isset($filter['compare'])) ? $filter['compare'] : '=';
                         $wildcard = (isset($filter['wildcard']) && filter_var($filter['wildcard'], FILTER_VALIDATE_BOOLEAN)) ? '%' : '';
-                        $output .= " $or `$column` $compare '$wildcard$value$wildcard'";
+                        if (($compare === 'IN' || $compare === 'NOT IN') && is_array($value)) {
+                            $in = '';
+                            foreach ($value as $key => $data) {
+                                $in .= ($key !== 0) ? ', ' : '';
+                                $in .= (is_numeric($data)) ? $data : "'" . $data . "'";
+                            }
+                            $value = '(' . $in . ')';
+                            $output .= " $or `$column` $compare $wildcard$value$wildcard";
+                        } else {
+                            $output .= " $or `$column` $compare '$wildcard$value$wildcard'";
+                        }
                     }
                 }
                 $count++;

@@ -20,6 +20,15 @@ if ( ! class_exists( 'KcSeoInit' ) ):
 //	        register_deactivation_hook(KCSEO_WP_SCHEMA_PLUGIN_ACTIVE_FILE_NAME, array($this, 'uninstall'));
 			// Uninstall hook
 
+			add_filter( 'plugin_action_links_' . KCSEO_WP_SCHEMA_PLUGIN_ACTIVE_FILE_NAME,
+				array( $this, 'schema_marketing' ) );
+
+		}
+
+		function schema_marketing($links){
+			$links[] = '<a target="_blank" href="' . esc_url( 'https://wpsemplugins.com/documentation/' ) . '">Documentation</a>';
+			$links[] = '<a target="_blank" href="' . esc_url( 'https://wpsemplugins.com/downloads/wordpress-schema-plugin/' ) . '">Get Pro</a>';
+			return $links;
 		}
 
 

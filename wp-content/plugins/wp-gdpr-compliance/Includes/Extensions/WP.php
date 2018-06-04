@@ -54,7 +54,7 @@ class WP {
      * @return array
      */
     public function displayAcceptedDateColumnInCommentOverview($columns = array()) {
-        $columns['wpgdprc'] = apply_filters('wpgdprc_woocommerce_accepted_date_column_in_comment_overview', __('GDPR Accepted On', WP_GDPR_C_SLUG));
+        $columns['wpgdprc-date'] = apply_filters('wpgdprc_accepted_date_column_in_comment_overview', __('GDPR Accepted On', WP_GDPR_C_SLUG));
         return $columns;
     }
 
@@ -64,10 +64,10 @@ class WP {
      * @return string
      */
     public function displayAcceptedDateInCommentOverview($column = '', $commentId = 0) {
-        if ($column === 'wpgdprc') {
+        if ($column === 'wpgdprc-date') {
             $date = get_comment_meta($commentId, '_wpgdprc', true);
             $value = (!empty($date)) ? Helper::localDateFormat(get_option('date_format') . ' ' . get_option('time_format'), $date) : __('Not accepted.', WP_GDPR_C_SLUG);
-            echo apply_filters('wpgdprc_woocommerce_accepted_date_in_comment_overview', $value, $commentId);
+            echo apply_filters('wpgdprc_accepted_date_in_comment_overview', $value, $commentId);
         }
         return $column;
     }

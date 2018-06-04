@@ -41,7 +41,7 @@ if(!class_exists('KcSeoMetaData')):
             foreach($pt as $postType){
                 add_meta_box(
                     'kcseo-wordpres-seo-structured-data-schema-meta-box',
-                    __('WP SEO Structured Data Schema by <a href="http://kcseopro.com/">KCSEOPro.com</a>', KCSEO_WP_SCHEMA_SLUG),
+                    __('WP SEO Structured Data Schema by <a href="https://wpsemplugins.com/">WPSEMPlugins.com</a>', KCSEO_WP_SCHEMA_SLUG),
                     array($this,'meta_box_wp_schema'),
                     $postType,
                     'normal',
@@ -54,11 +54,21 @@ if(!class_exists('KcSeoMetaData')):
         function meta_box_wp_schema($post){
             global $KcSeoWPSchema;
             wp_nonce_field( $KcSeoWPSchema->nonceText(), '_kcseo_nonce' );
-            $schemas = new KcSeoSchemaModel;
+            $schemas = new KcSeoSchemaModel();
             $html = null;
             $html .="<div class='schema-tips'>";
-                $html .= "<p><span>Tip:</span> For more detailed information on how to configure this plugin, please visit: <a href='http://kcseopro.com/wordpress-seo-structured-data-schema-plugin/'>http://kcseopro.com/wordpress-seo-structured-data-schema-plugin/</a></p>";
+                $html .= "<p><span>Tip:</span> For more detailed information on how to configure this plugin, please visit: <a href='https://wpsemplugins.com/wordpress-seo-structured-data-schema-plugin/'>https://wpsemplugins.com/wordpress-seo-structured-data-schema-plugin/</a></p>";
                 $html .= "<p><span>Tip:</span> Once you save these structured data schema settings, validate this page url here: <a href='https://developers.google.com/structured-data/testing-tool/'>https://developers.google.com/structured-data/testing-tool/</a></p>";
+                $html .= "<div class='kc-get-pro'>
+							<strong>Pro Version Features</strong>
+				            <ol>
+				                <li>Includes Auto-fill function <---Popular</li>
+				                <li>Supports Custom Post Types beyond default page and posts</li>
+				                <li>Supports WordPress Multisite</li>
+				                <li>Supports more schema types: ( Books, Courses, Job Postings, Movies, Music, Recipe, TV Episode) </li>
+				            </ol>
+				            <a class='button button-primary' href='https://wpsemplugins.com/downloads/wordpress-schema-plugin/' target='_blank'>Get the Pro Version</a>
+						</div>";
             $html .="</div>";
             $html .= "<div class='schema-holder'>";
                 $html .= '<div id="meta-tab-holder" class="rt-tab-container">';
