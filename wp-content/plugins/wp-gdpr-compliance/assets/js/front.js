@@ -114,6 +114,8 @@
                 return;
             }
 
+            $consentBar.style.display = 'block';
+
             var $button = $consentBar.querySelector('.wpgdprc-consent-bar__button');
             if ($button !== null) {
                 $button.addEventListener('click', function (e) {
@@ -305,7 +307,9 @@
         };
 
     document.addEventListener('DOMContentLoaded', function () {
-        initConsentBar();
+        if (_readCookie('wpgdprc-consent') === null) {
+            initConsentBar();
+        }
         initConsentModal();
         initFormAccessRequest();
         initFormDeleteRequest();

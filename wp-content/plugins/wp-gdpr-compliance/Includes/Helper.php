@@ -122,6 +122,40 @@ class Helper {
     }
 
     /**
+     * @param string $notice
+     */
+    public static function showAdminNotice($notice = '') {
+        if (!empty($notice)) {
+            $type = 'success';
+            $dismissible = true;
+            $message = '';
+            switch ($notice) {
+                case 'wpgdprc-consent-updated' :
+                    $message = __('Consent has been updated successfully.', WP_GDPR_C_SLUG);
+                    break;
+                case 'wpgdprc-consent-added' :
+                    $message = __('Consent has been added successfully.', WP_GDPR_C_SLUG);
+                    break;
+                case 'wpgdprc-consent-removed' :
+                    $message = __('Consent has been removed successfully.', WP_GDPR_C_SLUG);
+                    break;
+                case 'wpgdprc-consent-not-found' :
+                    $type = 'error';
+                    $message = __('Couldn\'t find this consent.', WP_GDPR_C_SLUG);
+                    break;
+            }
+            if (!empty($message)) {
+                printf(
+                    '<div class="notice notice-%s %s"><p>%s</p></div>',
+                    $type,
+                    (($dismissible) ? 'is-dismissible' : ''),
+                    $message
+                );
+            }
+        }
+    }
+
+    /**
      * @param string $plugin
      * @return string
      */
@@ -521,26 +555,6 @@ class Helper {
             `data_id` bigint(20) NOT NULL,
             `type` varchar(255) NOT NULL,
             `processed` tinyint(1) DEFAULT '0' NOT NULL,
-            `date_created` datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
-            PRIMARY KEY (`ID`)
-        ) $charsetCollate;";
-        dbDelta($query);
-    }
-
-    public static function createConsentsTables() {
-        global $wpdb;
-        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-        $charsetCollate = $wpdb->get_charset_collate();
-        $query = "CREATE TABLE IF NOT EXISTS `" . Consent::getDatabaseTableName() . "` (
-            `ID` bigint(20) NOT NULL AUTO_INCREMENT,
-            `site_id` bigint(20) NOT NULL,
-            `title` text NOT NULL,
-            `description` longtext NOT NULL,
-            `snippet` longtext NOT NULL,
-            `placement` varchar(20) NOT NULL,
-            `plugins` longtext NOT NULL,
-            `active` tinyint(1) DEFAULT '1' NOT NULL,
-            `date_modified` timestamp DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
             `date_created` datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
             PRIMARY KEY (`ID`)
         ) $charsetCollate;";

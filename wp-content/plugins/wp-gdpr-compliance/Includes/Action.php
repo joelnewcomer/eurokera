@@ -10,33 +10,53 @@ class Action {
     /** @var null */
     private static $instance = null;
 
+    public function handleRedirects() {
+        global $pagenow;
+        if ($pagenow === 'tools.php' && isset($_REQUEST['page']) && $_REQUEST['page'] === str_replace('-', '_', WP_GDPR_C_SLUG)) {
+            $type = (isset($_REQUEST['type'])) ? esc_html($_REQUEST['type']) : false;
+            if ($type !== false) {
+                switch ($type) {
+                    case 'consents' :
+                        $action = (isset($_REQUEST['action'])) ? esc_html($_REQUEST['action']) : false;
+                        switch ($action) {
+                            case 'manage' :
+                                $id = (isset($_REQUEST['id']) && is_numeric($_REQUEST['id'])) ? intval($_REQUEST['id']) : 0;
+                                if (!empty($id) && !Consent::getInstance()->exists($id)) {
+                                    wp_safe_redirect(Helper::getPluginAdminUrl('consents', array('notice' => 'wpgdprc-consent-not-found')));
+                                    exit;
+                                }
+                                break;
+                            case 'create' :
+                                $consent = new Consent();
+                                $consent->setSiteId(get_current_blog_id());
+                                $id = $consent->save();
+                                if (!empty($id)) {
+                                    wp_redirect(add_query_arg(
+                                        array('notice' => 'wpgdprc-consent-added'),
+                                        Consent::getActionUrl($id)
+                                    ));
+                                }
+                                break;
+                            case 'delete' :
+                                $id = (isset($_REQUEST['id']) && is_numeric($_REQUEST['id'])) ? intval($_REQUEST['id']) : 0;
+                                if (!empty($id) && Consent::getInstance()->exists($id)) {
+                                    $result = Consent::getInstance()->delete($id);
+                                    if ($result !== false) {
+                                        wp_safe_redirect(Helper::getPluginAdminUrl('consents', array('notice' => 'wpgdprc-consent-removed')));
+                                        exit;
+                                    }
+                                }
+                                break;
+                        }
+                        break;
+                }
+            }
+        }
+    }
+
     public function showAdminNotices() {
-        if (isset($_REQUEST['notice'])) {
-            $dismissible = true;
-            $type = 'info';
-            $message = '';
-            switch ($_REQUEST['notice']) {
-                case 'wpgdprc-consent-updated' :
-                    $type = 'success';
-                    $message = __('Consent has been updated successfully.', WP_GDPR_C_SLUG);
-                    break;
-                case 'wpgdprc-consent-added' :
-                    $type = 'success';
-                    $message = __('Consent has been added successfully.', WP_GDPR_C_SLUG);
-                    break;
-                case 'wpgdprc-consent-not-found' :
-                    $type = 'error';
-                    $message = __('Couldn\'t find this consent.', WP_GDPR_C_SLUG);
-                    break;
-            }
-            if (!empty($message)) {
-                printf(
-                    '<div class="notice notice-%s %s"><p>%s</p></div>',
-                    $type,
-                    (($dismissible) ? 'is-dismissible' : ''),
-                    $message
-                );
-            }
+        if (!empty($_REQUEST['notice'])) {
+            Helper::showAdminNotice(esc_html($_REQUEST['notice']));
         }
     }
 
@@ -114,12 +134,12 @@ class Action {
     }
 
     public function addConsentBar() {
-        $output = '<div class="wpgdprc wpgdprc-consent-bar">';
+        $output = '<div class="wpgdprc wpgdprc-consent-bar" style="display: none;">';
         $output .= '<div class="wpgdprc-consent-bar__container">';
         $output .= '<div class="wpgdprc-consent-bar__content">';
         $output .= '<div class="wpgdprc-consent-bar__column">';
         $output .= '<div class="wpgdprc-consent-bar__notice">';
-        $output .= apply_filters('the_content', Consent::getBarExplanationText());
+        $output .= apply_filters('wpgdprc_the_content', Consent::getBarExplanationText());
         $output .= '</div>';
         $output .= '</div>';
         $output .= '<div class="wpgdprc-consent-bar__column">';
@@ -141,6 +161,7 @@ class Action {
     }
 
     public function addConsentModal() {
+        $consentIds = (array)Helper::getConsentIdsByCookie();
         $consents = Consent::getInstance()->getList(array(
             'active' => array('value' => 1)
         ));
@@ -164,8 +185,8 @@ class Action {
                 '<h3 class="wpgdprc-consent-modal__title">%s</h3>',
                 Consent::getModalTitle()
             );
-            $output .= apply_filters('the_content', Consent::getModalExplanationText());
-            $output .= apply_filters('the_content', sprintf(
+            $output .= apply_filters('wpgdprc_the_content', Consent::getModalExplanationText());
+            $output .= apply_filters('wpgdprc_the_content', sprintf(
                 '<strong>%s:</strong> %s',
                 strtoupper(__('Note', WP_GDPR_C_SLUG)),
                 __('These settings will only apply to the browser and device you are currently using.', WP_GDPR_C_SLUG)
@@ -178,12 +199,13 @@ class Action {
                     $consent->getId()
                 );
                 $output .= sprintf('<h3 class="wpgdprc-consent-modal__title">%s</h3>', $consent->getTitle());
-                $output .= apply_filters('the_content', $consent->getDescription());
+                $output .= apply_filters('wpgdprc_the_content', $consent->getDescription());
                 $output .= '<div class="wpgdprc-checkbox">';
                 $output .= '<label>';
                 $output .= sprintf(
-                    '<input type="checkbox" value="%d" tabindex="1" />',
-                    $consent->getId()
+                    '<input type="checkbox" value="%d" tabindex="1" %s />',
+                    $consent->getId(),
+                    checked(true, in_array($consent->getId(), $consentIds), false)
                 );
                 $output .= '<span class="wpgdprc-switch" aria-hidden="true">';
                 $output .= '<span class="wpgdprc-switch-label">';
@@ -191,7 +213,8 @@ class Action {
                 $output .= '<span class="wpgdprc-switch-switch"></span>';
                 $output .= '</span>';
                 $output .= '</span>';
-                $output .= ' Enable</label>';
+                $output .= __('Enable', WP_GDPR_C_SLUG);
+                $output .= '</label>';
                 $output .= '</div>';
                 $output .= '</div>'; // .wpgdprc-consent-modal__description
             }
@@ -219,8 +242,8 @@ class Action {
             return;
         }
         $args = array(
-            'active' => array('value' => 1),
             'placement' => array('value' => 'head'),
+            'active' => array('value' => 1),
         );
         if (!empty($consentIds)) {
             $args['ID'] = array(
@@ -238,8 +261,8 @@ class Action {
             return;
         }
         $args = array(
+            'placement' => array('value' => 'footer'),
             'active' => array('value' => 1),
-            'placement' => array('value' => 'footer')
         );
         if (!empty($consentIds)) {
             $args['ID'] = array(

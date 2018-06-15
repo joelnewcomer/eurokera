@@ -4,7 +4,7 @@ Tags: gdpr, law, regulations, compliance, data, protection, privacy, data protec
 Requires at least: 4.5
 Tested up to: 4.9.4
 Requires PHP: 5.3
-Stable tag: 1.3.9
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,21 @@ You'll find answers to many of your questions on [wpgdprc.com](https://www.wpgdp
 4. Control the link to your privacy policy, activate the request user data page and more.
 
 == Changelog ==
+
+= 1.4.1 =
+*Release date: June 12th, 2018*
+* Also show the WordPress Comments checkbox for administrators.
+* Small bugfix in certain PHP versions.
+
+= 1.4.0 =
+*Release date: June 8th, 2018*
+* Small front-end fixes.
+* Added missing translatable strings.
+* Fixed the text domain for some translatable strings.
+* Show enabled consents of user.
+* Small bugfix for admin redirects.
+* Added the ability to remove 'Consents' via the admin panel.
+* Added the option to wrap 'Consents' with <script> tags.
 
 = 1.3.9 =
 *Release date: June 3rd, 2018*

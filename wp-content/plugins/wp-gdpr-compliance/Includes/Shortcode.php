@@ -28,7 +28,7 @@ class Shortcode {
 
                 $output .= sprintf(
                     '<div class="wpgdprc-message wpgdprc-message--notice">%s</div>',
-                    apply_filters('the_content', Integration::getDeleteRequestFormExplanationText())
+                    apply_filters('wpgdprc_the_content', Integration::getDeleteRequestFormExplanationText())
                 );
 
                 // WordPress Users

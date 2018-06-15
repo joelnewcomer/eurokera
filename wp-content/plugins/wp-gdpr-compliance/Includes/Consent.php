@@ -19,6 +19,8 @@ class Consent {
     private $description = '';
     /** @var string */
     private $snippet = '';
+    /** @var int */
+    private $wrap = 1;
     /** @var string */
     private $placement = '';
     /** @var string */
@@ -61,7 +63,7 @@ class Consent {
     public static function getModalExplanationText($insertPrivacyPolicyLink = true) {
         $output = get_option(WP_GDPR_C_PREFIX . '_settings_consents_modal_explanation_text');
         if (empty($output)) {
-            $output = __('This site uses functional cookies and external scripts to improve your experience. Which cookies and scripts are used and how they impact your visit is specified on the left. You may change your settings at any time. Your choices will not impact your visit.', WP_GDPR_C_PREFIX);
+            $output = __('This site uses functional cookies and external scripts to improve your experience. Which cookies and scripts are used and how they impact your visit is specified on the left. You may change your settings at any time. Your choices will not impact your visit.', WP_GDPR_C_SLUG);
         }
         $output = ($insertPrivacyPolicyLink === true) ? Integration::insertPrivacyPolicyLink($output) : $output;
         return apply_filters('wpgdprc_consents_modal_explanation_text', wp_kses($output, Helper::getAllowedHTMLTags()));
@@ -74,7 +76,7 @@ class Consent {
     public static function getBarExplanationText($insertPrivacyPolicyLink = true) {
         $output = get_option(WP_GDPR_C_PREFIX . '_settings_consents_bar_explanation_text');
         if (empty($output)) {
-            $output = __('This site uses functional cookies and external scripts to improve your experience.', WP_GDPR_C_PREFIX);
+            $output = __('This site uses functional cookies and external scripts to improve your experience.', WP_GDPR_C_SLUG);
         }
         $output = ($insertPrivacyPolicyLink === true) ? Integration::insertPrivacyPolicyLink($output) : $output;
         return apply_filters('wpgdprc_consents_bar_explanation_text', wp_kses($output, Helper::getAllowedHTMLTags()));
@@ -89,10 +91,14 @@ class Consent {
         if (!empty($consents)) {
             /** @var Consent $consent */
             foreach ($consents as $consent) {
-                $output .= sprintf(
-                    '<script type="text/javascript">%s</script>',
-                    $consent->getSnippet()
-                );
+                if ($consent->getWrap()) {
+                    $output .= sprintf(
+                        '<script type="text/javascript">%s</script>',
+                        $consent->getSnippet()
+                    );
+                } else {
+                    $output .= sprintf('%s', $consent->getSnippet());
+                }
             }
         }
         return $output;
@@ -123,7 +129,7 @@ class Consent {
     public function getList($filters = array(), $limit = 0, $offset = 0) {
         global $wpdb;
         $output = array();
-        $query  = "SELECT * FROM `" . self::getDatabaseTableName() . "` WHERE 1";
+        $query = "SELECT * FROM `" . self::getDatabaseTableName() . "` WHERE 1";
         $query .= Helper::getQueryByFilters($filters);
         $query .= sprintf(" AND `site_id` = '%d'", get_current_blog_id());
         $query .= " ORDER BY `date_modified` DESC";
@@ -150,6 +156,7 @@ class Consent {
         $this->setTitle($row->title);
         $this->setDescription($row->description);
         $this->setSnippet($row->snippet);
+        $this->setWrap($row->wrap);
         $this->setPlacement($row->placement);
         $this->setPlugins($row->plugins);
         $this->setActive($row->active);
@@ -190,11 +197,12 @@ class Consent {
             'title' => $this->getTitle(),
             'description' => $this->getDescription(),
             'snippet' => $this->getSnippet(),
+            'wrap' => $this->getWrap(),
             'placement' => $this->getPlacement(),
             'plugins' => $this->getPlugins(),
             'active' => $this->getActive(),
         );
-        $dataTypes = array('%s', '%s', '%s', '%s', '%s', '%d');
+        $dataTypes = array('%s', '%s', '%s', '%d', '%s', '%s', '%d');
         if ($this->exists($this->getId())) {
             $wpdb->update(
                 self::getDatabaseTableName(),
@@ -207,7 +215,6 @@ class Consent {
         } else {
             $data['site_id'] = $this->getSiteId();
             $data['date_created'] = date_i18n('Y-m-d H:i:s');
-            $data['active'] = 1;
             $dataTypes = array_merge($dataTypes, array('%d', '%s', '%d'));
             $result = $wpdb->insert(
                 self::getDatabaseTableName(),
@@ -224,14 +231,42 @@ class Consent {
 
     /**
      * @param int $id
+     * @return bool
+     */
+    public function delete($id = 0) {
+        if ((int)$id > 0) {
+            global $wpdb;
+            $result = $wpdb->delete(self::getDatabaseTableName(), array('ID' => $id), array('%d'));
+            if ($result !== false) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @param int $id
+     * @param string $action
      * @return string
      */
-    public static function getManageUrl($id = 0) {
-        $args = array('action' => 'manage');
-        if ((int)$id > 0) {
-            $args['id'] = $id;
-        }
-        return Helper::getPluginAdminUrl('consents', $args);
+    public static function getActionUrl($id = 0, $action = 'manage') {
+        return Helper::getPluginAdminUrl(
+            'consents',
+            array(
+                'action' => $action,
+                'id' => $id,
+            )
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public static function getPossibleCodeWraps() {
+        return array(
+            '1' => esc_html__('Wrap my code snippet with <script> tags', WP_GDPR_C_SLUG),
+            '0' => __('Do not wrap my code snippet', WP_GDPR_C_SLUG)
+        );
     }
 
     /**
@@ -322,6 +357,20 @@ class Consent {
      */
     public function setSnippet($snippet) {
         $this->snippet = $snippet;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWrap() {
+        return $this->wrap;
+    }
+
+    /**
+     * @param int $wrap
+     */
+    public function setWrap($wrap) {
+        $this->wrap = $wrap;
     }
 
     /**

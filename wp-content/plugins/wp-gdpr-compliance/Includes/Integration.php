@@ -23,11 +23,9 @@ class Integration {
         foreach (Helper::getEnabledPlugins() as $plugin) {
             switch ($plugin['id']) {
                 case WP::ID :
-                    if (!current_user_can('administrator')) {
-                        add_filter('comment_form_submit_field', array(WP::getInstance(), 'addField'), 999);
-                        add_action('pre_comment_on_post', array(WP::getInstance(), 'checkPost'));
-                        add_action('comment_post', array(WP::getInstance(), 'addAcceptedDateToCommentMeta'));
-                    }
+                    add_filter('comment_form_submit_field', array(WP::getInstance(), 'addField'), 999);
+                    add_action('pre_comment_on_post', array(WP::getInstance(), 'checkPost'));
+                    add_action('comment_post', array(WP::getInstance(), 'addAcceptedDateToCommentMeta'));
                     add_filter('manage_edit-comments_columns', array(WP::getInstance(), 'displayAcceptedDateColumnInCommentOverview'));
                     add_action('manage_comments_custom_column', array(WP::getInstance(), 'displayAcceptedDateInCommentOverview'), 10, 2);
                     break;

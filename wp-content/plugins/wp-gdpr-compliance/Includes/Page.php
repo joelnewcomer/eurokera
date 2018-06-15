@@ -164,7 +164,7 @@ class Page {
                     foreach ($activatedPlugins as $key => $plugin) :
                         $optionName = WP_GDPR_C_PREFIX . '_integrations_' . $plugin['id'];
                         $checked = Helper::isEnabled($plugin['id']);
-                        $description = (!empty($plugin['description'])) ? apply_filters('the_content', $plugin['description']) : '';
+                        $description = (!empty($plugin['description'])) ? apply_filters('wpgdprc_the_content', $plugin['description']) : '';
                         $notices = Helper::getNotices($plugin['id']);
                         $options = Integration::getSupportedPluginOptions($plugin['id']);
                         ?>
@@ -414,44 +414,24 @@ class Page {
      */
     private static function renderManageConsentPage($consentId = 0) {
         wp_enqueue_style('wpgdprc.admin.codemirror.css');
-        wp_enqueue_script('wpgdprc.admin.codemirror.js');
-        wp_enqueue_script('wpgdprc.admin.codemirror.matchbrackets.js');
-        wp_enqueue_script('wpgdprc.admin.codemirror.comment.js');
-        wp_enqueue_script('wpgdprc.admin.codemirror.javascript.js');
-        if (!empty($consentId)) {
-            if (Consent::getInstance()->exists($consentId)) {
-                $consent = new Consent($consentId);
-            } else {
-                wp_redirect(Helper::getPluginAdminUrl('consents', array('notice' => 'wpgdprc-consent-not-found')));
-                exit;
-            }
-        } else {
-            $consent = new Consent();
-            $consent->setSiteId(get_current_blog_id());
-        }
+        wp_enqueue_script('wpgdprc.admin.codemirror.additional.js');
+        $consent = new Consent($consentId);
         if (isset($_POST['submit']) && check_admin_referer('consent_create_or_update', 'consent_nonce')) {
             $active = (isset($_POST['active'])) ? 1 : 0;
             $title = (isset($_POST['title'])) ? esc_html($_POST['title']) : $consent->getTitle();
             $description = (isset($_POST['description'])) ? stripslashes(esc_html($_POST['description'])) : $consent->getDescription();
             $snippet = (isset($_POST['snippet'])) ? stripslashes($_POST['snippet']) : $consent->getSnippet();
+            $wrap = (isset($_POST['wrap']) && array_key_exists($_POST['wrap'], Consent::getPossibleCodeWraps())) ? esc_html($_POST['wrap']) : $consent->getWrap();
             $placement = (isset($_POST['placement']) && array_key_exists($_POST['placement'], Consent::getPossiblePlacements())) ? esc_html($_POST['placement']) : $consent->getPlacement();
             $consent->setTitle($title);
             $consent->setDescription($description);
             $consent->setSnippet($snippet);
+            $consent->setWrap($wrap);
             $consent->setPlacement($placement);
             $consent->setActive($active);
             $id = $consent->save();
             if (!empty($id)) {
-                wp_redirect(add_query_arg(
-                    array(
-                        'notice' => sprintf(
-                            'wpgdprc-consent-%s',
-                            (!empty($consentId) ? 'updated' : 'added')
-                        )
-                    ),
-                    Consent::getManageUrl($id)
-                ));
-                exit;
+                Helper::showAdminNotice('wpgdprc-consent-updated');
             }
         }
         ?>
@@ -488,16 +468,24 @@ class Page {
                     <textarea name="snippet" id="wpgdprc_snippet" rows="10" autocomplete="false" autocorrect="false" autocapitalize="false" spellcheck="false"><?php echo htmlspecialchars($consent->getSnippet(), ENT_QUOTES, get_option('blog_charset')); ?></textarea>
                     <div class="wpgdprc-information">
                         <p><?php _e('Code snippets for Google Analytics, Facebook Pixel, etc.', WP_GDPR_C_SLUG); ?></p>
-                        <div class="wpgdprc-message wpgdprc-message--notice">
-                            <?php
-                            printf(
-                                '<p><strong>%s:</strong> %s</p>',
-                                strtoupper(__('Note', WP_GDPR_C_SLUG)),
-                                esc_html__('JavaScript only. Do not add any <script> tags to your snippet.', WP_GDPR_C_SLUG)
-                            );
-                            ?>
-                        </div>
                     </div>
+                </div>
+            </div>
+            <div class="wpgdprc-setting">
+                <label for="wpgdprc_code_wrap"><?php _e('Code Wrap', WP_GDPR_C_SLUG); ?></label>
+                <div class="wpgdprc-options">
+                    <select name="wrap" id="wpgdprc_code_wrap">
+                        <?php
+                        foreach (Consent::getPossibleCodeWraps() as $value => $label) {
+                            printf(
+                                '<option value="%s" %s>%s</option>',
+                                $value,
+                                selected($value, $consent->getWrap(), false),
+                                $label
+                            );
+                        }
+                        ?>
+                    </select>
                 </div>
             </div>
             <div class="wpgdprc-setting">
@@ -549,7 +537,7 @@ class Page {
         ?>
         <div class="wpgdprc-message wpgdprc-message--notice">
             <p><?php _e('Ask your visitors for permission to enable certain scripts for tracking or advertising purposes. Add a Consent for each type of script you are requesting permission for. Scripts will only be activated when permission is given.', WP_GDPR_C_SLUG); ?></p>
-            <p><a class="button button-primary" href="<?php echo Helper::getPluginAdminUrl('consents', array('action' => 'manage')); ?>"><?php _ex('Add New', 'consent', WP_GDPR_C_SLUG); ?></a></p>
+            <p><a class="button button-primary" href="<?php echo Helper::getPluginAdminUrl('consents', array('action' => 'create')); ?>"><?php _ex('Add New', 'consent', WP_GDPR_C_SLUG); ?></a></p>
         </div>
         <?php if (!empty($consents)) : ?>
             <table class="wpgdprc-table">
@@ -558,24 +546,53 @@ class Page {
                     <th scope="col" width="10%"><?php _e('Consent', WP_GDPR_C_SLUG); ?></th>
                     <th scope="col" width="16%"><?php _e('Title', WP_GDPR_C_SLUG); ?></th>
                     <th scope="col" width="12%"><?php _e('Placement', WP_GDPR_C_SLUG); ?></th>
-                    <th scope="col" width="22%"><?php _e('Modified at', WP_GDPR_C_SLUG); ?></th>
-                    <th scope="col" width="22%"><?php _e('Created at', WP_GDPR_C_SLUG); ?></th>
-                    <th scope="col" width="10%"><?php _e('Action', WP_GDPR_C_SLUG); ?></th>
+                    <th scope="col" width="20%"><?php _e('Modified at', WP_GDPR_C_SLUG); ?></th>
+                    <th scope="col" width="20%"><?php _e('Created at', WP_GDPR_C_SLUG); ?></th>
+                    <th scope="col" width="14%"><?php _e('Action', WP_GDPR_C_SLUG); ?></th>
                     <th scope="col" width="8%"><?php _e('Active', WP_GDPR_C_SLUG); ?></th>
                 </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($consents as $consent) : ?>
+                    <?php
+                    foreach ($consents as $consent) :
+                        $title = $consent->getTitle();
+                        ?>
                         <tr class="wpgdprc-table__row <?php echo (!$consent->getActive()) ? 'wpgdprc-table__row--expired' : ''; ?>">
                             <td><?php printf('#%d', $consent->getId()); ?></td>
-                            <td><?php printf('<a href="%s">%s</a>', Consent::getManageUrl($consent->getId()), $consent->getTitle()); ?></td>
+                            <td>
+                                <?php
+                                    printf(
+                                        '<a href="%s">%s</a>',
+                                        Consent::getActionUrl($consent->getId()),
+                                        ((!empty($title)) ? $title : __('(no title)'))
+                                    );
+                                ?>
+                            </td>
                             <td><?php echo $consent->getPlacement(); ?></td>
                             <td><?php echo $consent->getDateModified(); ?></td>
                             <td><?php echo $consent->getDateCreated(); ?></td>
-                            <td><?php printf('<a href="%s">%s</a>', Consent::getManageUrl($consent->getId()), __('Edit', WP_GDPR_C_SLUG)); ?></td>
+                            <td>
+                                <?php
+                                    printf(
+                                        '%s | %s',
+                                        sprintf(
+                                            '<a href="%s">%s</a>',
+                                            Consent::getActionUrl($consent->getId()),
+                                            __('Edit', WP_GDPR_C_SLUG)
+                                        ),
+                                        sprintf(
+                                            '<a href="%s">%s</a>',
+                                            Consent::getActionUrl($consent->getId(), 'delete'),
+                                            __('Remove', WP_GDPR_C_SLUG)
+                                        )
+                                    );
+                                ?>
+                            </td>
                             <td><?php echo ($consent->getActive()) ? __('Yes', WP_GDPR_C_SLUG) : __('No', WP_GDPR_C_SLUG); ?></td>
                         </tr>
-                    <?php endforeach; ?>
+                        <?php
+                    endforeach;
+                    ?>
                 </tbody>
             </table>
             <div class="wpgdprc-pagination">

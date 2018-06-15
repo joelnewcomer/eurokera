@@ -18,7 +18,7 @@ get_header(); ?>
 		<div class="large-6 medium-6 columns text-center">
 			<h2><?php _e('Heat Source'); ?></h2>
 			<?php
-			$all_heat_sources = array('Gas','Induction','Radiant');
+			$all_heat_sources = array(_e('Gas'),_e('Induction'),_e('Radiant'));
 			$this_heat_sources = get_field('heat_source');
 			foreach ($all_heat_sources as $heat_source) {
 				$active = false;
@@ -36,7 +36,7 @@ get_header(); ?>
 			<h2><?php _e('Display Colors'); ?></h2>
 			<div class="led-colors">
 			<?php
-			$all_led_colors = array('red/orange','monochromatic','no display','any color including white');
+			$all_led_colors = array(_e('red/orange'),_e('monochromatic'),'no display','any color including white');
 			$this_led_colors = get_field('led_colors');
 			foreach ($all_led_colors as $led_color) {
 				if ($led_color == 'no display') {

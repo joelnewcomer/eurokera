@@ -184,13 +184,10 @@
         var $snippet = document.getElementById('wpgdprc_snippet');
         if ($snippet !== null) {
             var editor = CodeMirror.fromTextArea($snippet, {
+                mode: 'text/html',
                 lineNumbers: true,
                 matchBrackets: true,
-                // continueComments: 'Enter',
-                indentUnit: 4,
-                extraKeys: {
-                    'Ctrl-Q': 'toggleComment'
-                }
+                indentUnit: 4
             });
         }
     });
