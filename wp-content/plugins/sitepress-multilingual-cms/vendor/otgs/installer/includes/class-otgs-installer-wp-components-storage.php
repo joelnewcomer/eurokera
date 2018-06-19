@@ -6,7 +6,7 @@ class OTGS_Installer_WP_Components_Storage {
 
 	public function refresh_cache() {
 		$active_theme      = wp_get_theme();
-		$installed_plugins = get_plugins();
+		$installed_plugins = $this->get_plugins();
 		$components        = array();
 
 		foreach ( $installed_plugins as $file => $plugin ) {
@@ -42,7 +42,7 @@ class OTGS_Installer_WP_Components_Storage {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 
-		$installed_plugins = get_plugins();
+		$installed_plugins = $this->get_plugins();
 
 		if ( isset( $components['theme'] ) ) {
 			if ( $components['theme'][0]['Template'] !== $current_theme->get_template() ||
@@ -75,5 +75,16 @@ class OTGS_Installer_WP_Components_Storage {
 
 	public function get() {
 		return get_option( self::COMPONENTS_CACHE_OPTION_KEY );
+	}
+
+	/**
+	 * @return array
+	 */
+	public function get_plugins() {
+		if ( ! function_exists( 'get_plugins' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+
+		return get_plugins();
 	}
 }

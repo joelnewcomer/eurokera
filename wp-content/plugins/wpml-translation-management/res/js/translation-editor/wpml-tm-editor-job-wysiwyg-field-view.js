@@ -58,7 +58,7 @@ var WPML_TM = WPML_TM || {};
 				self.$el.find('.wp-media-buttons').hide();
 			}
 
-			_.delay(_.bind(self.waitForEditorAndThenInstallHooks, self, jQuery( "input[name='fields["+self.field.field_type+"][finished]']:checked" ).length), 1000);
+			_.delay(_.bind(self.waitForEditorAndThenInstallHooks, self, self.translationCompleteCheckbox.is( ':checked' )), 1000);
 		},
 
 		getTextAreaElement: function () {
@@ -85,7 +85,9 @@ var WPML_TM = WPML_TM || {};
 				self.setOriginalBackgroundGray( editor );
 
 				if( checked ) {
-					jQuery( "input[name='fields["+self.field.field_type+"][finished]']" ).attr( 'checked', 'checked' );
+					self.translationCompleteCheckbox.prop('checked', true);
+					self.translationCompleteCheckbox.prop('disabled', false);
+					self.translationCompleteCheckbox.trigger('change');
 				}
 			} else {
 				_.delay(_.bind(self.waitForEditorAndThenInstallHooks, self), 1000);

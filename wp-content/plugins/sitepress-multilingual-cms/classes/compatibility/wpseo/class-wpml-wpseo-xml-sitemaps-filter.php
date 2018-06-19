@@ -228,7 +228,7 @@ class WPML_WPSEO_XML_Sitemaps_Filter {
 		if ( $page_on_front ) {
 			$translations = $this->sitepress->post_translations()->get_element_translations( $page_on_front );
 			unset( $translations[ $this->sitepress->get_default_language() ] );
-			if ( in_array( $post_object->ID, $translations, true ) ) {
+			if ( in_array( $post_object->ID, $translations, false ) ) {
 				$url = false;
 			}
 		}

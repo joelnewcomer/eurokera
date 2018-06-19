@@ -90,11 +90,14 @@ class WPML_TM_ATE_Jobs {
 		$factory            = wpml_tm_load_job_factory();
 		$job                = $factory->get_translation_job( $wpml_job_id, false, 0, true );
 		$translation_id     = $job->get_translation_id();
-		$translation_status = wpml_tm_get_records()->icl_translation_status_by_translation_id( $translation_id );
 
-		if ( $status && (int) $translation_status->status() !== (int) $status ) {
-			$translation_status->update( array( 'status' => $status ) );
-			$result[] = self::UPDATED_JOB_STATUS;
+		if ( $translation_id ) {
+			$translation_status = wpml_tm_get_records()->icl_translation_status_by_translation_id( $translation_id );
+
+			if ( $status && (int) $translation_status->status() !== (int) $status ) {
+				$translation_status->update( array( 'status' => $status ) );
+				$result[] = self::UPDATED_JOB_STATUS;
+			}
 		}
 
 		return $result;

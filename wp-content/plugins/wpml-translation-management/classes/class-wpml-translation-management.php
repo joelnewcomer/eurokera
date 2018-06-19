@@ -270,6 +270,8 @@ class WPML_Translation_Management {
 						array( 'wpml-tm-scripts', 'underscore' ),
 						WPML_TM_VERSION );
 
+					wp_enqueue_script( 'wpml-select-2', ICL_PLUGIN_URL . '/lib/select2/select2.min.js', array( 'jquery' ), ICL_SITEPRESS_VERSION, true );
+
 					wp_enqueue_script( 'wpml-tm-translation-roles-select2',
 						WPML_TM_URL . '/res/js/translation-roles-select2.js',
 						array(),
@@ -320,7 +322,9 @@ class WPML_Translation_Management {
 				                   WPML_TM_VERSION );
 			}
 
-			WPML_Simple_Language_Selector::enqueue_scripts();
+			if ( WPML_TM_Page::is_settings() ) {
+				WPML_Simple_Language_Selector::enqueue_scripts();
+			}
 
 			wp_enqueue_style ( 'wp-jquery-ui-dialog' );
 			wp_enqueue_script( 'thickbox' );
