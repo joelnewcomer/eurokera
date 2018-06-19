@@ -36,15 +36,15 @@ get_header(); ?>
 			<h2><?php _e('Display Colors'); ?></h2>
 			<div class="led-colors">
 			<?php
-			$all_led_colors = array(_e('red/orange'),_e('monochromatic'),'no display','any color including white');
-			$this_led_colors = get_field('led_colors');
+			$all_led_colors = array(_e('red/orange','foundationpress'),_e('monochromatic','foundationpress'),_e('no display','foundationpress'),_e('any color including white','foundationpress'));
+			$this_led_colors = get_field('led_colors','foundationpress');
 			foreach ($all_led_colors as $led_color) {
-				if ($led_color == 'no display') {
+				if ($led_color == _e('no display','foundationpress')) {
 					$led_color_in_array = 'none';
-				} elseif ($led_color == 'red/orange') {
-					$led_color_in_array = 'red';
-				} elseif ($led_color == 'any color including white') {
-					$led_color_in_array = 'all color';
+				} elseif ($led_color == _e('red/orange','foundationpress')) {
+					$led_color_in_array = _e('red','foundationpress');
+				} elseif ($led_color == _e('any color including white','foundationpress')) {
+					$led_color_in_array = _e('all color','foundationpress');
 				} else {
 					$led_color_in_array = $led_color;
 				}
@@ -61,7 +61,7 @@ get_header(); ?>
 		$data_sheet = get_field('product_data_sheet');
 		if ($data_sheet != null) : ?>
 		<div class="large-12 columns text-center intro-pds">
-			<div class="button"><a id="data-sheet-dl" href="#"><?php _e('Download Product Data Sheet'); ?></a></div>
+			<div class="button"><a id="data-sheet-dl" href="#"><?php _e('Download Product Data Sheet','foundationpress'); ?></a></div>
 		</div>
 		<?php endif; ?>
 	</div>
@@ -147,7 +147,7 @@ get_header(); ?>
 	<section class="product-videos">
 		<div class="row">
 			<div class="large-12 columns text-center">
-				<h2><?php _e('Our Quality is Above All Others'); ?></h2>
+				<h2><?php _e('Our Quality is Above All Others','foundationpress'); ?></h2>
 			</div>
 			<div class="large-12 columns small-text-center">
 				
@@ -177,7 +177,7 @@ get_header(); ?>
 				}
 				?>
 					
-				<div class="button"><a href="<?php echo get_site_url(); ?>/cooktop-manufacturers/quality/"><?php _e('Experience The EuroKera Quality'); ?></a></div>
+				<div class="button"><a href="<?php echo get_site_url(); ?>/cooktop-manufacturers/quality/"><?php _e('Experience The EuroKera Quality','foundationpress'); ?></a></div>
 			</div>
 		</div>
 	</section>

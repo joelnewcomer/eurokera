@@ -107,14 +107,14 @@ get_header(); ?>
 			<div class="facts-box match-facts">
 				<?php get_template_part('assets/images/cooktop.svg'); ?>
 				<h3 class="green"><?php echo get_field('qty_produced'); ?></h3>
-				<p><?php _e('EuroKera glass-ceramic panels produced since 1990'); ?></p>
+				<p><?php _e('EuroKera glass-ceramic panels produced since 1990','foundationpress'); ?></p>
 			</div>
 		</div>
 		<div class="large-6 medium-6 columns stopwatch">
 			<div class="facts-box border match-facts">
 				<?php get_template_part('assets/images/stopwatch.svg'); ?>
-				<p><?php _e('We produce a glass-ceramic cooking surface'); ?></p>
-				<h3><?php _e('Every');?> <span class="caps green"><?php _e('5 seconds'); ?></span></h3>
+				<p><?php _e('We produce a glass-ceramic cooking surface','foundationpress'); ?></p>
+				<h3><?php _e('Every');?> <span class="caps green"><?php _e('5 seconds','foundationpress'); ?></span></h3>
 			</div>		
 		</div>
 	</div>
@@ -125,35 +125,35 @@ get_header(); ?>
 	<div class="reach-overlay">
 		<div class="hide-for-small" style="display:table;width:100%;height:100%;">
 			<div style="display:table-cell;vertical-align:middle;">
-		    	<div style="text-align:center;"><h2><?php _e('Global Reach'); ?></h2></div>
+		    	<div style="text-align:center;"><h2><?php _e('Global Reach','foundationpress'); ?></h2></div>
 		  	</div>
 		</div>
 		<div class="show-for-small">
-			<h2><?php _e('Global Reach'); ?></h2>
+			<h2><?php _e('Global Reach','foundationpress'); ?></h2>
 			<div class="global-locations show-for-small text-center">
 				<p>
-					<?php _e('Château-Thierry, France'); ?><br />
-					<?php _e('Bagneaux-sur-Loing, France'); ?><br />
-					<?php _e('Fountain Inn, SC, USA'); ?><br />
-					<?php _e('Guangzhou, China'); ?><br />
-					<?php _e('Rayong, Thailand'); ?>
+					<?php _e('Château-Thierry, France','foundationpress'); ?><br />
+					<?php _e('Bagneaux-sur-Loing, France','foundationpress'); ?><br />
+					<?php _e('Fountain Inn, SC, USA','foundationpress'); ?><br />
+					<?php _e('Guangzhou, China','foundationpress'); ?><br />
+					<?php _e('Rayong, Thailand','foundationpress'); ?>
 				</p>
 			</div>
 		</div>
-		<div class="button gray"><a href="<?php echo get_field('wm_page'); ?>"><?php _e('Worldwide Manufacturing'); ?></a></div>
+		<div class="button gray"><a href="<?php echo get_field('wm_page'); ?>"><?php _e('Worldwide Manufacturing','foundationpress'); ?></a></div>
 	</div> <!-- reach-overlay -->
 </section>
 
 <section id="environment" class="enviro text-center">
 	<div class="row enviro-intro">
 		<div class="large-8 medium-10 columns large-offset-2 medium-offset-1">
-			<?php echo get_field('enviro_content'); ?>
+			<?php echo get_field('enviro_content','foundationpress'); ?>
 		</div>
 	</div>
 	<div class="row enviro-facts">
 		<div class="recycled fact">
 			<h2><span id="recycled-glass"></span>+</h2>
-			<p><?php _e('tons of glass recycled in'); ?> <?php echo get_field('recycle_year'); ?> <?php _e('within our manufacturing process at KeraGlass.'); ?></p>
+			<p><?php _e('tons of glass recycled in','foundationpress'); ?> <?php echo get_field('recycle_year'); ?> <?php _e('within our manufacturing process at KeraGlass.','foundationpress'); ?></p>
 			<script>
 				jQuery(document).ready(function(){
 					var easingFn = function (t, b, c, d) {
@@ -181,11 +181,11 @@ get_header(); ?>
 		</div>
 		<div class="substrates fact large">
 			<?php get_template_part('assets/images/eurokera-enviro', 'logo.svg'); ?><br />
-			<p><strong><span class="caps"><?php _e('No'); ?></span> <?php _e('arsenic or antimony'); ?></strong> <?php _e('used to manufacture black substrates.'); ?></p>
+			<p><strong><span class="caps"><?php _e('No','foundationpress'); ?></span> <?php _e('arsenic or antimony','foundationpress'); ?></strong> <?php _e('used to manufacture black substrates.','foundationpress'); ?></p>
 		</div>		
 		<div class="landfill fact">
 			<h2 id="landfills"></h2>
-			<p><?php _e('reduction in landfill waste between 2011 and 2014'); ?></p>
+			<p><?php _e('reduction in landfill waste between 2011 and 2014','foundationpress'); ?></p>
 
 				<script>
 
