@@ -18,7 +18,7 @@ get_header(); ?>
 		<div class="large-6 medium-6 columns text-center">
 			<h2><?php _e('Heat Source'); ?></h2>
 			<?php
-			$all_heat_sources = array(_e('Gas'),_e('Induction'),_e('Radiant'));
+			$all_heat_sources = array(__('Gas'),__('Induction'),__('Radiant'));
 			$this_heat_sources = get_field('heat_source');
 			foreach ($all_heat_sources as $heat_source) {
 				$active = false;
@@ -36,15 +36,15 @@ get_header(); ?>
 			<h2><?php _e('Display Colors'); ?></h2>
 			<div class="led-colors">
 			<?php
-			$all_led_colors = array(_e('red/orange','foundationpress'),_e('monochromatic','foundationpress'),_e('no display','foundationpress'),_e('any color including white','foundationpress'));
+			$all_led_colors = array(__('red/orange','foundationpress'),__('monochromatic','foundationpress'),__('no display','foundationpress'),__('any color including white','foundationpress'));
 			$this_led_colors = get_field('led_colors','foundationpress');
 			foreach ($all_led_colors as $led_color) {
-				if ($led_color == _e('no display','foundationpress')) {
+				if ($led_color == __('no display','foundationpress')) {
 					$led_color_in_array = 'none';
-				} elseif ($led_color == _e('red/orange','foundationpress')) {
-					$led_color_in_array = _e('red','foundationpress');
-				} elseif ($led_color == _e('any color including white','foundationpress')) {
-					$led_color_in_array = _e('all color','foundationpress');
+				} elseif ($led_color == __('red/orange','foundationpress')) {
+					$led_color_in_array = __('red','foundationpress');
+				} elseif ($led_color == __('any color including white','foundationpress')) {
+					$led_color_in_array = __('all color','foundationpress');
 				} else {
 					$led_color_in_array = $led_color;
 				}
