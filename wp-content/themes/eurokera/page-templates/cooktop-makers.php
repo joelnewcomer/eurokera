@@ -18,6 +18,7 @@ get_header(); ?>
 
 <section class="image-links">
 	<div class="row">
+		<?php $epop_counter = 1; ?>
 		<?php if(get_field('image_links')): ?>
 			<?php while(has_sub_field('image_links')): ?>
 				<div class="large-4 medium-4 small-6 columns text-center">
@@ -29,7 +30,7 @@ get_header(); ?>
 						$link = get_sub_field('url');
 					} elseif ($link_type == 'Pop-Up') {
 						$link = null;
-						$epop_id = sanitize_title(get_sub_field('title'));
+						$epop_id = 'epop-' . $epop_counter;
 						echo '<a href="#" class="epop-link image-link" data-epop="#' .  $epop_id . '">';
 					}
 					if ($link != null) {
@@ -76,6 +77,7 @@ get_header(); ?>
 
 
 				</div>
+				<?php $epop_counter++; ?>
 			<?php endwhile; ?>
 		<?php endif; ?>
 	</div>
