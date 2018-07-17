@@ -49,7 +49,8 @@
 				</div>
 			</form>
 				
-				<p><?php _e('EuroKera was founded with the goal of serving appliance manufacturers like you. Your ideas inspire us to continually develop new technologies, materials and designs. Let us help you '); ?><a href="<?php echo get_site_url(); ?>/contact"><?php _e('build') ?></a> <?php _e('a custom design.'); ?></p>
+				<?php $contact_string = 'Let us help you <a href="' . get_site_url() .'/contact">build</a> a custom design.'; ?>
+				<p><?php _e('EuroKera was founded with the goal of serving appliance manufacturers like you. Your ideas inspire us to continually develop new technologies, materials and designs.'); ?> <?php _e($contact_string,'foundationpress'); ?></p>
 			
 			<div id="products">
 				<h2 class="no-matches"><?php _e('No products match your selected criteria.'); ?><br /><?php _e('Please try different selections.'); ?></h2>

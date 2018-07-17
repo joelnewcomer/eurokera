@@ -113,8 +113,8 @@ get_header(); ?>
 		<div class="large-6 medium-6 columns stopwatch">
 			<div class="facts-box border match-facts">
 				<?php get_template_part('assets/images/stopwatch.svg'); ?>
-				<p><?php _e('We produce a glass-ceramic cooking surface','foundationpress'); ?></p>
-				<h3><?php _e('Every');?> <span class="caps green"><?php _e('5 seconds','foundationpress'); ?></span></h3>
+				<?php _e('<p>We produce a glass-ceramic cooking surface</p>
+				<h3>Every <span class="caps green">5 seconds</span></h3>','foundationpress'); ?>
 			</div>		
 		</div>
 	</div>
