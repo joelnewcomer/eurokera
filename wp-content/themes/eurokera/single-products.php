@@ -37,7 +37,7 @@ get_header(); ?>
 			<div class="led-colors">
 			<?php
 			$all_led_colors = array(__('red/orange','foundationpress'),__('monochromatic','foundationpress'),__('no display','foundationpress'),__('any color including white','foundationpress'));
-			$this_led_colors = get_field('led_colors','foundationpress');
+			$this_led_colors = get_field('led_colors');
 			foreach ($all_led_colors as $led_color) {
 				if ($led_color == __('no display','foundationpress')) {
 					$led_color_in_array = 'none';
