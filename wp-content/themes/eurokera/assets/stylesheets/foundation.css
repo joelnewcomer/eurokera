@@ -2420,7 +2420,7 @@ body.admin-bar:not(.home) .header-wrapper {
   padding-left: 10px;
   padding-right: 10px;
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; commented out 7/18/18 for WeChat QR code hover */
   background: #63666a;
   padding-top: 50px;
   padding-bottom: 15px; }
@@ -2485,6 +2485,28 @@ body.admin-bar:not(.home) .header-wrapper {
   @media only screen and (max-width: 40.063em) {
     .social svg {
       margin: 0 8px; } }
+
+.social a.wechat {
+  position: relative; }
+
+.social img.wechat-hover {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin-bottom: 20px;
+  margin-right: -34px;
+  position: absolute;
+  pointer-events: none;
+  -webkit-transition: opacity .3s ease;
+  transition: opacity .3s ease; }
+
+.social a.wechat:hover img.wechat-hover {
+  height: 150px;
+  width: 150px;
+  opacity: 1;
+  max-width: none;
+  bottom: 100%;
+  right: 0; }
 
 .sidebar {
   width: 100%;

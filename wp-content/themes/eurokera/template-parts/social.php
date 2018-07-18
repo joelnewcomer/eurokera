@@ -8,6 +8,9 @@
 			<a href="<?php echo $social_url; ?>" class="<?php echo $social; ?>" target="_blank" onclick="ga('send', 'event', 'Social', 'Click', 'Social Media – <?php echo $social; ?>');">
 			<?php
 			get_template_part('assets/images/social/' . $social , 'official.svg');
+			if ($social == 'wechat') {
+				echo wp_get_attachment_image(get_sub_field('wechat_qr_code'), full, false, array( 'class' => "wechat-hover" ));
+			}
 			echo '</a>';
 			?>
 		<?php endwhile; ?>
