@@ -74,9 +74,8 @@ get_header(); ?>
 
 	<div class="enamels text-center">
 		<h2><?php _e('Enamel Color Samples'); ?></h2>
-		<?php $contact_string = 'The color samples below are digital renderings with for only intend to illustrate the possibilities in terms of decoration offered by EuroKera. For any enquiry, we recommend to <a href="' .  get_site_url() . '/contact">contact EuroKera</a>.'; ?>
-		<p class="small"><?php _e($contact_string,'foundationpress'); ?></p>
-
+		<?php $contact_string = sprintf( __('The color samples below are digital renderings with for only intend to illustrate the possibilities in terms of decoration offered by EuroKera. For any enquiry, we recommend to <a href="%s">contact EuroKera</a>.', 'foundationpress'), get_site_url(). '/contact'); ?>
+		<p class="small"><?php echo $contact_string; ?></p>
 
 		<?php
 		if( $images ): ?>
