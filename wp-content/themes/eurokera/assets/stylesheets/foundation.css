@@ -3868,7 +3868,6 @@ section.ready {
     -webkit-box-shadow: 0 0 50px rgba(1, 1, 1, 0.3);
     box-shadow: 0 0 50px rgba(1, 1, 1, 0.3);
     width: 545px;
-    height: 242px;
     margin-left: -272px;
     margin-top: -121px;
     top: -100vh;
@@ -3880,6 +3879,8 @@ section.ready {
         max-width: 100%;
         margin-left: -50%;
         height: auto; } }
+    .data-sheet-modal .modal-form .gfield_label {
+      color: #fff; }
   .data-sheet-modal.open .modal-form {
     top: 50%; }
   .data-sheet-modal #gform_wrapper_5 {
