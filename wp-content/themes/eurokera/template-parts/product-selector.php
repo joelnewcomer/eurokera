@@ -49,8 +49,8 @@
 				</div>
 			</form>
 				
-				<?php $contact_string = 'Let us help you <a href="' . get_site_url() .'/contact">build</a> a custom design.'; ?>
-				<p><?php _e('EuroKera was founded with the goal of serving appliance manufacturers like you. Your ideas inspire us to continually develop new technologies, materials and designs.'); ?> <?php _e($contact_string,'foundationpress'); ?></p>
+				<?php $contact_string = sprintf( __('Let us help you <a href="%s">build</a> a custom design.', 'foundationpress'), get_site_url() . '/contact'); ?>
+				<p><?php _e('EuroKera was founded with the goal of serving appliance manufacturers like you. Your ideas inspire us to continually develop new technologies, materials and designs.'); ?> <?php echo $contact_string; ?></p>
 			
 			<div id="products">
 				<h2 class="no-matches"><?php _e('No products match your selected criteria.'); ?><br /><?php _e('Please try different selections.'); ?></h2>
