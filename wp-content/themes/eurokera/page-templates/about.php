@@ -181,7 +181,7 @@ get_header(); ?>
 		</div>
 		<div class="substrates fact large">
 			<?php get_template_part('assets/images/eurokera-enviro', 'logo.svg'); ?><br />
-			<p><strong><span class="caps"><?php _e('No','foundationpress'); ?></span> <?php _e('arsenic or antimony','foundationpress'); ?></strong> <?php _e('used to manufacture black substrates.','foundationpress'); ?></p>
+			<p><?php _e('<strong><span class="caps">No</span> arsenic or antimony</strong> used to manufacture black substrates.','foundationpress'); ?></p>
 		</div>		
 		<div class="landfill fact">
 			<h2 id="landfills"></h2>
