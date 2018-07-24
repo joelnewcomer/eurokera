@@ -49,7 +49,9 @@
 				</div>
 			</form>
 				
-				<?php $contact_string = sprintf( __('Let us help you <a href="%s">build</a> a custom design.', 'foundationpress'), get_site_url() . '/contact'); ?>
+				<?php $contact_page = get_page_by_path('contact'); ?>
+				<?php $contact_url = get_permalink($contact_page->ID); ?>
+				<?php $contact_string = sprintf( __('Let us help you <a href="%s">build</a> a custom design.', 'foundationpress'), $contact_url); ?>
 				<p><?php _e('EuroKera was founded with the goal of serving appliance manufacturers like you. Your ideas inspire us to continually develop new technologies, materials and designs.'); ?> <?php echo $contact_string; ?></p>
 			
 			<div id="products">

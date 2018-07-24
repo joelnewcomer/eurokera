@@ -61,7 +61,8 @@
 			<p><?php _e('We use cookies to offer you a better browsing experience, analyze site traffic, and improve our customer service. Read about how we use cookies by clicking on "Cookie Policy". If you continue to use this site, you consent to our use of cookies.'); ?></p>
 		</div>
 		<div class="large-2 medium-2 columns text-center">
-			<a class="cookie-policy-link" href="<?php echo get_site_url(); ?>/cookie-policy"><strong><?php _e('Cookie Policy'); ?></strong></a>
+			<?php $cookie_page = get_page_by_path('cookie-policy'); ?>
+			<a class="cookie-policy-link" href="<?php echo get_permalink($cookie_page); ?>"><strong><?php _e('Cookie Policy'); ?></strong></a>
 		</div>
 		<div class="large-2 medium-2 columns small-text-center">
 			<div class="button small reverse"><a id="accept-cookies" href="#"><?php _e('Accept Cookies'); ?></a></div>
