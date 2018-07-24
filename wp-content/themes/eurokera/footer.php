@@ -41,7 +41,12 @@
 				
 				<div class="row">
 					<div class="large-12 medium-12 columns copyright small-text-center">
-						<p><?php _e( 'Copyright ', 'textdomain' ); ?> &copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?>.  <span class="no-break"><?php _e( 'All rights reserved.', 'textdomain' ); ?></span> <span class="show-for-small"><br /></span><a href="<?php echo get_site_url(); ?>/terms-of-use"><?php _e('Terms of Use'); ?></a>. <a href="<?php echo get_site_url(); ?>/privacy-policy"><?php _e('Privacy Policy'); ?></a>. <a href="<?php echo get_site_url(); ?>/sitemap"><?php _e('Sitemap'); ?></a></p>
+						<?php 
+						$terms_page = get_page_by_path('terms-of-use');
+						$privacy_page = get_page_by_path('privacy-policy');
+						$sitemap_page = get_page_by_path('sitemap');
+						?>
+						<p><?php _e( 'Copyright ', 'textdomain' ); ?> &copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?>.  <span class="no-break"><?php _e( 'All rights reserved.', 'textdomain' ); ?></span> <span class="show-for-small"><br /></span><a href="<?php echo get_permalink($terms_page->ID); ?>"><?php _e('Terms of Use'); ?></a>. <a href="<?php echo get_permalink($privacy_page->ID); ?>"><?php _e('Privacy Policy'); ?></a>. <a href="<?php echo get_permalink($sitemap_page->ID); ?>"><?php _e('Sitemap'); ?></a></p>
 					</div>
 					<!-- <div class="large-6 medium-6 columns drum hide-on-print text-right small-text-center">
 						<a href="http://www.drumcreative.com" target="_blank"><?php _e( 'Web Design by: Drum Creative', 'textdomain' ); ?></a>
