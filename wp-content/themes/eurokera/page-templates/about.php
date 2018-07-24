@@ -154,7 +154,7 @@ get_header(); ?>
 		<div class="recycled fact">
 			<h2><span id="recycled-glass"></span>+</h2>
 			<?php $recycle_year = get_field('recycle_year'); ?>
-			<p><?php sprint_f( __('tons of glass recycled in %s within our manufacturing process at KeraGlass.','foundationpress'), $recycle_year); ?></p>
+			<p><?php sprintf( __('tons of glass recycled in %s within our manufacturing process at KeraGlass.','foundationpress'), $recycle_year); ?></p>
 			<script>
 				jQuery(document).ready(function(){
 					var easingFn = function (t, b, c, d) {
