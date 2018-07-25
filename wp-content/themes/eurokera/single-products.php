@@ -37,22 +37,25 @@ get_header(); ?>
 			<div class="led-colors">
 			<?php
 			$all_led_colors = array(__('red/orange','foundationpress'),__('monochromatic','foundationpress'),__('no display','foundationpress'),__('any color including white','foundationpress'));
-			$this_led_colors = get_field('led_colors');
+			$all_led_colors_en = array('red/orange','monochromatic','no display','any color including white'); // English
+			$this_led_colors = get_field('led_colors'); // English
+			$i = 0;
 			foreach ($all_led_colors as $led_color) {
 				if ($led_color == __('no display','foundationpress')) {
 					$led_color_in_array = 'none';
 				} elseif ($led_color == __('red/orange','foundationpress')) {
-					$led_color_in_array = __('red','foundationpress');
+					$led_color_in_array = 'red';
 				} elseif ($led_color == __('any color including white','foundationpress')) {
-					$led_color_in_array = __('all color','foundationpress');
+					$led_color_in_array = 'all color';
 				} else {
-					$led_color_in_array = $led_color;
+					$led_color_in_array = $all_led_colors_en[$i];
 				}
 				$active = false;
 				if (in_array($led_color_in_array, $this_led_colors)) {
 					$active = " active";
 				}
 				echo '<span class="led-color ' . strtolower($led_color) . $active . '">' . $led_color . '</span>';
+				$i++;
 			}
 			?>
 			</div>
