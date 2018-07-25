@@ -285,7 +285,7 @@ section.enviro {
 		padding: 50px 0;	
 	}
 	background: #efeff0;
-	h2 {
+	h2, span.h2 {
 		color: $secondary-color;
 	}
 	.enviro-intro {
@@ -306,7 +306,7 @@ section.enviro {
 			height: 108px;
 			margin-bottom: 20px;
 		}
-		h2 {
+		span.h2, h2 {
 			font-size: 64px;
 			@media only screen and (max-width: 40.063em) {
 				line-height: 1;
