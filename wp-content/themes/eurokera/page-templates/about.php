@@ -106,8 +106,7 @@ get_header(); ?>
 		<div class="large-6 medium-6 columns cooktop">
 			<div class="facts-box match-facts">
 				<?php get_template_part('assets/images/cooktop.svg'); ?>
-				<h3 class="green"><?php echo get_field('qty_produced'); ?></h3>
-				<p><?php _e('EuroKera glass-ceramic panels produced since 1990','foundationpress'); ?></p>
+				<?php echo sprintf( __('<h3 class="green">%s</h3><p>EuroKera glass-ceramic panels produced since 1990</p>','foundationpress'), get_field('qty_produced')); ?>
 			</div>
 		</div>
 		<div class="large-6 medium-6 columns stopwatch">
@@ -153,7 +152,7 @@ get_header(); ?>
 	<div class="row enviro-facts">
 		<div class="recycled fact">
 			<?php $recycle_year = get_field('recycle_year'); ?>
-			<p><?php echo sprintf( __('<span class="h2"><span id="recycled-glass"></span>+</span>tons of glass recycled in %s within our manufacturing process at KeraGlass.','foundationpress'), $recycle_year); ?></p>
+			<p><?php echo sprintf( __('<span class="h2"><span id="recycled-glass"></span>+</span> tons of glass recycled in %s within our manufacturing process at KeraGlass.','foundationpress'), $recycle_year); ?></p>
 			<script>
 				jQuery(document).ready(function(){
 					var easingFn = function (t, b, c, d) {
