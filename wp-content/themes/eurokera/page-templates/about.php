@@ -155,26 +155,29 @@ get_header(); ?>
 			<p><?php echo sprintf( __('<span class="h2"><span id="recycled-glass"></span>+</span> tons of glass recycled in %s within our manufacturing process at KeraGlass.','foundationpress'), $recycle_year); ?></p>
 			<script>
 				jQuery(document).ready(function(){
-					var easingFn = function (t, b, c, d) {
-					  var ts = (t /= d) * t;
-					  var tc = ts * t;
-					  return b + c * (tc + -3 * ts + 3 * t);
+					// Make sure ID exists
+					if(jQuery("#recycled-glass").length != 0) {
+						var easingFn = function (t, b, c, d) {
+						  var ts = (t /= d) * t;
+						  var tc = ts * t;
+						  return b + c * (tc + -3 * ts + 3 * t);
+						}
+						var glass = {
+						  useEasing : true,
+						  easingFn: easingFn,
+						  useGrouping : true,
+						  separator : ',',
+						  decimal : '.',
+						  prefix : '',
+						  suffix : ''
+						};
+						var tonsofglass = new CountUp("recycled-glass", 0, <?php echo get_field('recycle_tons'); ?>, 0, 6, glass);
+						// tonsofgalass.start();
+						function startTonsAnim() {
+							tonsofglass.start();
+						}
+						inView('#environment').on('enter', startTonsAnim);
 					}
-					var glass = {
-					  useEasing : true,
-					  easingFn: easingFn,
-					  useGrouping : true,
-					  separator : ',',
-					  decimal : '.',
-					  prefix : '',
-					  suffix : ''
-					};
-					var tonsofglass = new CountUp("recycled-glass", 0, <?php echo get_field('recycle_tons'); ?>, 0, 6, glass);
-					// tonsofgalass.start();
-					function startTonsAnim() {
-						tonsofglass.start();
-					}
-					inView('#environment').on('enter', startTonsAnim);
 				});
 			</script>
 		</div>
