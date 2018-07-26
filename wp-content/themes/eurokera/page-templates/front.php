@@ -72,7 +72,8 @@ get_header(); ?>
 <section class="numbers">
 	<div class="row">
 		<div class="large-12 columns text-center">
-			<h2><?php echo get_field('num_of_cooktops'); ?> <?php _e('MILLION'); ?> +</h2>
+			<?php $num_cooktops = get_field('num_of_cooktops'); ?>
+			<h2><?php echo sprintf( __('%s MILLION +', 'foundationpress'), $num_cooktops); ?></h2>
 			<h3><?php _e('Cooktops'); ?></h3>
 			<div class="partner saint-gobain">
 				<a href="https://www.saint-gobain.com" target="_blank">	
