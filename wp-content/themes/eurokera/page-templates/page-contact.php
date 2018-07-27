@@ -89,9 +89,9 @@ get_header(); ?>
 						</div>
 					</div>								
 				</div>
-				<h3><?php _e('EuroKera China'); ?></h3>
+				<h3><?php _e('EuroKera Guangzhou Co. Ltd.'); ?></h3>
 				<p><?php _e('Building 11, American Industrial Park,'); ?><br />
-				<?php _e('48 Hongmian Road, Xinhua Town Huadu District, Guangzhou 510800, China'); ?></p>
+				<?php _e('48 Hongmian Road, Huadu District, Guangzhou 510800, China'); ?></p>
 				<?php if(ICL_LANGUAGE_CODE=='zh-hans') : ?>
 					<div class="button small"><a href="https://www.google.com/maps/place/23%C2%B024'33.4%22N+113%C2%B010'27.3%22E/@23.4092809,113.1729396,17z/data=!3m1!4b1!4m14!1m7!3m6!1s0x3402e8950732003d:0x9e7bcf4a5c37924f!2s48+Hong+Mian+Da+Dao+Bei,+Huadu+Qu,+Guangzhou+Shi,+Guangdong+Sheng,+Chine!3b1!8m2!3d23.408006!4d113.170818!3m5!1s0x0:0x0!7e2!8m2!3d23.4092783!4d113.1742408" target="_blank">Map</a></div>
 				<?php else : ?>
@@ -109,7 +109,7 @@ get_header(); ?>
 						</div>
 					</div>								
 				</div>
-				<h3><?php _e('EuroKera Thailand'); ?></h3>
+				<h3><?php _e('EuroKera Thailand Ltd.'); ?></h3>
 				<p><?php _e('Hemaraj Eastern Seaboard No.500/61'); ?><br />
 				<?php _e('Moo3, Tambol Tasit, Amphur P, Luakdaeng Rayong 21140, Thailand'); ?></p>
 				<div class="button small"><a href="https://www.google.com/maps/place/Eurokera+(Thailand)+Limited/@13.0585747,101.1776142,17z/data=!4m8!1m2!2m1!1sEurokera,+Rayong+21140!3m4!1s0x3102db234186cafb:0x6e9f9f68c19b45c2!8m2!3d13.0585695!4d101.1798029" target="_blank">Map</a></div>
