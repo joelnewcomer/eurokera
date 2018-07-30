@@ -65,7 +65,7 @@ ul.slimmenu.collapsed li a {
     -webkit-box-sizing: border-box;
 }
 
-ul.slimmenu li.orange > a {
+ul.slimmenu li.orange > a, ul.slimmenu li.wpml-ls-item > a {
 	@media only screen and (max-width: 40.063em) {
 		background: $primary-color;
 		color: #fff;
@@ -301,6 +301,9 @@ ul.slimmenu .sub-menu li a:before {
 	ul.slimmenu ul.sub-menu {
 		padding: 15px 0;
 		background: #fff !important;
+	}
+	ul.slimmenu li.wpml-ls-item ul.sub-menu {
+		padding-top: 0;
 	}
 	ul.slimmenu ul.sub-menu li a {
 		width: auto;

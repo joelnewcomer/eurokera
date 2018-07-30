@@ -6702,7 +6702,7 @@ ul.slimmenu.collapsed li a {
       border: none; } }
 
 @media only screen and (max-width: 40.063em) {
-  ul.slimmenu li.orange > a {
+  ul.slimmenu li.orange > a, ul.slimmenu li.wpml-ls-item > a {
     background: #ff8200;
     color: #fff; } }
 
@@ -6902,6 +6902,8 @@ ul.slimmenu .sub-menu li a:before {
   ul.slimmenu ul.sub-menu {
     padding: 15px 0;
     background: #fff !important; }
+  ul.slimmenu li.wpml-ls-item ul.sub-menu {
+    padding-top: 0; }
   ul.slimmenu ul.sub-menu li a {
     width: auto;
     padding: 5px; } }
