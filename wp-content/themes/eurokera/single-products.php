@@ -19,16 +19,19 @@ get_header(); ?>
 			<h2><?php _e('Heat Source'); ?></h2>
 			<?php
 			$all_heat_sources = array(__('Gas'),__('Induction'),__('Radiant'));
+			$en_heat_sources = array('Gas','Induction','Radiant');
 			$this_heat_sources = get_field('heat_source');
+			$i = 0;
 			foreach ($all_heat_sources as $heat_source) {
 				$active = false;
-				if (in_array($heat_source, $this_heat_sources)) {
+				if (in_array($en_heat_sources[$i], $this_heat_sources)) {
 					$active = " active";
 				}
-				echo '<div class="heat-source ' . strtolower($heat_source) . $active . '">';
-				get_template_part('assets/images/' . strtolower($heat_source) . '.svg');
+				echo '<div class="heat-source ' . strtolower($en_heat_sources[$i]) . $active . '">';
+				get_template_part('assets/images/' . strtolower($en_heat_sources[$i]) . '.svg');
 				echo '<br />' . strtolower($heat_source);
 				echo '</div>';
+				$i++;
 			}
 			?>
 		</div>
