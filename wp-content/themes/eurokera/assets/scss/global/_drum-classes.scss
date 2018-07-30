@@ -18,6 +18,7 @@ html[lang="ko-KR"] * {
 
 html[lang="zh-hans"] *, html[lang="vi-VN"] * {
 	font-family: "source-han-sans-simplified-c" !important;
+	word-break: keep-all;
 }
 
 body {

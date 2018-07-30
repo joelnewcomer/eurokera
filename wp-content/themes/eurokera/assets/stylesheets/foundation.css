@@ -1958,7 +1958,8 @@ html[lang="ko-KR"] * {
   word-break: keep-all; }
 
 html[lang="zh-hans"] *, html[lang="vi-VN"] * {
-  font-family: "source-han-sans-simplified-c" !important; }
+  font-family: "source-han-sans-simplified-c" !important;
+  word-break: keep-all; }
 
 body {
   max-width: 100%;
