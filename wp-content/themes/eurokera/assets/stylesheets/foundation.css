@@ -2218,6 +2218,9 @@ div.cookie-policy {
 p.small {
   font-size: 14px; }
 
+.menu-item.wpml-ls-item {
+  display: none !important; }
+
 @media only screen and (min-width: 40.063em) {
   .top-bar-right {
     margin-top: 33px; } }
