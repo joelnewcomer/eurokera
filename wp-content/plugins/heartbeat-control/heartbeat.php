@@ -16,9 +16,9 @@ class Heartbeat {
 			$current_url = $_SERVER['REQUEST_URI'];
 		}
 
-		$this->current_screen = parse_url( $current_url );
+		$this->current_screen = wp_parse_url( $current_url );
 
-		if ( $this->current_screen == '/wp-admin/admin-ajax.php' ) {
+		if ( $this->current_screen === '/wp-admin/admin-ajax.php' ) {
 			return;
 		}
 
@@ -37,6 +37,10 @@ class Heartbeat {
 	}
 
 	public function check_location( $locations ) {
+		if ( ! isset( $locations ) || ! is_array( $locations ) ) {
+			return false;
+		}
+
 		if ( in_array( $this->current_screen['path'], $locations ) ) {
 			return true;
 		} elseif ( ( ! is_admin() ) && ( in_array( 'frontend', $locations ) ) ) {

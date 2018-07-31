@@ -558,9 +558,6 @@ class TranslationManagement {
 				} else {
 					$sitepress->set_setting( 'tm_block_retranslating_terms', '' );
 				}
-				if ( isset( $data[ 'translation_memory' ] ) ) {
-					$sitepress->set_setting( 'translation_memory', $data[ 'translation_memory' ] );
-				}
 				$this->save_settings();
 				echo '1|';
 				break;
@@ -1765,7 +1762,7 @@ class TranslationManagement {
 					$o_value = substr( $o_value, 0, 200 ) . ' ...';
 				}
 			}
-			echo $context_html . esc_html( $name ) . ': <i>' . $o_value . '</i> ' . $edit_link;
+			echo '<li>' . $context_html . esc_html( $name ) . ': <i>' . $o_value . '</i> ' . $edit_link . '</li>';
 		} else {
 			$edit_link = '[<a href="' . admin_url( 'admin.php?page=' . WPML_ST_FOLDER . '/menu/string-translation.php&context=' . esc_html( $es_context ) ) . '">' . esc_html__( 'translate', 'sitepress' ) . '</a>]';
 			echo '<strong>' . $context_html . $name . '</strong> ' . $edit_link;

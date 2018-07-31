@@ -24,8 +24,8 @@ get_header(); ?>
 		<button class="btn-filter" data-filter=".enamels"><?php _e("Enamel Colors"); ?></button>
 	</div>
 	
-	<?php $images = get_field('gallery'); ?>
-	
+	<?php $images = get_field('field_598a0e1b1a3d2'); ?>
+		
 	<div class="users-gallery" data-featherlight-gallery data-featherlight-filter="a.gallery-image">
 		<?php
 		if( $images ): ?>

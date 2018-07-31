@@ -1147,7 +1147,6 @@ class SitePress extends WPML_WPDB_User implements
 		                                                       $page_basename );
 
 		$this->scripts_handler->register_styles();
-		$this->scripts_handler->register_scripts();
 
 		if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
 
@@ -1300,17 +1299,9 @@ class SitePress extends WPML_WPDB_User implements
 
 	function post_edit_language_options() {
         /** @var TranslationManagement $iclTranslationManagement */
-		global $post, $iclTranslationManagement, $post_new_file, $post_type_object, $pagenow;
+		global $post, $iclTranslationManagement, $post_new_file, $post_type_object;
 
 		if ( null === $post || ! $this->get_setting( 'setup_complete', false ) ) {
-			return;
-		}
-
-		$is_preview    = ( isset( $_POST['wp-preview'] ) && $_POST['wp-preview'] === 'dopreview' ) || is_preview();
-		$is_attachment = in_array( $pagenow, array( 'upload.php', 'media-upload.php' ), true )
-						 || ( isset( $post ) && 'attachment' === $post->post_type ) || is_attachment();
-
-		if ( $is_attachment || $is_preview ) {
 			return;
 		}
 
@@ -3578,8 +3569,11 @@ class SitePress extends WPML_WPDB_User implements
 
 	function get_translatable_documents( $include_not_synced = false ) {
 		$translatable_post_types = array();
-
+		$attachment_is_translatable = $this->is_translated_post_type( 'attachment' );
 		$exceptions = array( 'revision', 'nav_menu_item' );
+		if(!$attachment_is_translatable) {
+			$exceptions[] = 'attachment';
+		}
 
 		$translation_modes = new WPML_Translation_Modes();
 
@@ -3700,7 +3694,7 @@ class SitePress extends WPML_WPDB_User implements
 
 	function is_translated_post_type( $type ) {
 
-		$translated = apply_filters( 'pre_wpml_is_translated_post_type', null, $type );
+		$translated = apply_filters( 'pre_wpml_is_translated_post_type', $type === 'attachment' ? false : null, $type );
 
 		return $translated !== null ? $translated : $this->is_translated_element( $type,
 		                                                                          'custom_posts_sync_option',
@@ -3743,8 +3737,20 @@ class SitePress extends WPML_WPDB_User implements
 	 * @param string $post_type
 	 */
 	public function verify_post_translations( $post_type ) {
-		$set_default_language = new WPML_Initialize_Language_For_Post_Type( $this->wpdb );
-		$set_default_language->run( $post_type, $this->get_default_language() );
+		$sql          = "
+					SELECT p.ID
+					FROM {$this->wpdb->posts} p
+					LEFT OUTER JOIN {$this->wpdb->prefix}icl_translations t
+						ON t.element_id = p.ID AND t.element_type = CONCAT('post_', p.post_type)
+					WHERE p.post_type = %s AND t.translation_id IS NULL
+				";
+		$sql_prepared = $this->wpdb->prepare( $sql, array( $post_type ) );
+		$results      = $this->wpdb->get_col( $sql_prepared );
+
+		$def_language = $this->get_default_language();
+		foreach ( $results as $id ) {
+			$this->set_element_language_details( $id, 'post_' . $post_type, false, $def_language );
+		}
 	}
 
 	/**

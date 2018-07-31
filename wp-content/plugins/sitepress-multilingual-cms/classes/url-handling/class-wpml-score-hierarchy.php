@@ -46,26 +46,16 @@ class WPML_Score_Hierarchy {
 				}
 			}
 		}
-		$related_ids  = array();
-		$matching_ids = array();
+		$possible_ids = array();
 		foreach ( $pages_with_name as $key => $page ) {
 			$correct_slug = end( $slugs );
 			if ( $page->post_name === $correct_slug ) {
-				if ( $this->is_matching( $page ) ) {
-					$matching_ids[] = (int) $page->ID;
-				} else {
-					$related_ids[ $page->ID ] = $this->calculate_score( $parent_slugs, $pages_with_name, $page );
-				}
+				$possible_ids[ $page->ID ] = $this->calculate_score( $parent_slugs, $pages_with_name, $page );
 			}
 		}
+		arsort( $possible_ids );
 
-		arsort( $related_ids );
-		$related_ids = array_keys( $related_ids );
-
-		return array(
-			'matching_ids' => $matching_ids,
-			'related_ids'  => $related_ids,
-		);
+		return array_keys( $possible_ids );
 	}
 
 	/**
@@ -88,25 +78,5 @@ class WPML_Score_Hierarchy {
 		}
 
 		return $new_score;
-	}
-
-	private function is_matching( $page ) {
-		$revert_slugs = array_reverse( $this->slugs );
-		$current_page = $page;
-
-		foreach ( $revert_slugs as $slug ) {
-			if ( $slug !== $current_page->post_name ) {
-				return false;
-			}
-
-			foreach ( $this->data as $page ) {
-				if ( $page->ID === $current_page->post_parent ) {
-					$current_page = $page;
-					break;
-				}
-			}
-		}
-
-		return true;
 	}
 }
