@@ -44,7 +44,7 @@ class WPML_TM_ATE_API {
 			                                   'timeout' => 60,
 			                                   'method'  => $verb,
 			                                   'headers' => $this->json_headers(),
-			                                   'body'    => wp_json_encode( $params, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES ),
+			                                   'body'    => wp_json_encode( $params ),
 		                                   ) );
 
 		return $this->get_response( $result );

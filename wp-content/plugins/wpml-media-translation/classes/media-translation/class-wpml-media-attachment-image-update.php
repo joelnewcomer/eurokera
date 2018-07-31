@@ -37,8 +37,7 @@ class WPML_Media_Attachment_Image_Update implements IWPML_Action {
 			$thumb_path = '';
 			$thumb_url  = '';
 
-			$upload_overrides = apply_filters( 'wpml_media_wp_upload_overrides', array( 'test_form' => false ) );
-			$file = wp_handle_upload( $file_array, $upload_overrides );
+			$file = wp_handle_upload( $file_array, array( 'test_form' => false ) );
 
 			if ( ! isset( $file['error'] ) ) {
 

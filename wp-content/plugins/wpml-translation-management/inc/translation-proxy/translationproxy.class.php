@@ -14,7 +14,10 @@ require_once WPML_TM_PATH . '/inc/translation-proxy/translationproxy-translator.
 define( 'CUSTOM_TEXT_MAX_LENGTH', 1000 );
 
 class TranslationProxy {
-	private static $tp_client;
+
+	static $errors = array();
+
+	static $tp_client;
 
 	/**
 	 * @param bool $reload

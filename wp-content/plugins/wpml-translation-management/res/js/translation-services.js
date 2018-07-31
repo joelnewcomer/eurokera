@@ -18,6 +18,8 @@ var WPMLTranslationServicesDialog = function () {
 	self.activeServiceWrapper = jQuery( '.js-wpml-active-service-wrapper' );
 
 	self.init = function () {
+		var activateServiceLink;
+		var activateServiceImage;
 		var flushWebsiteDetailsCacheLink;
 		var header;
 		var tip;
@@ -28,20 +30,32 @@ var WPMLTranslationServicesDialog = function () {
 		self.serviceDialog = jQuery('<div id="service_dialog"><h4>' + header + '</h4><div class="custom_fields_wrapper"></div><i>' + tip + '</i><br /><br /><div class="tp_response_message icl_ajx_response"></div>');
 		self.ajaxSpinner.addClass('is-active');
 
+		activateServiceImage = jQuery('.js-activate-service');
+		activateServiceLink = jQuery('.js-activate-service-id');
 		flushWebsiteDetailsCacheLink = jQuery('.js-flush-website-details-cache');
 
-
-        jQuery('#wpml-tp-services').delegate('.js-activate-service-id', 'click', function (event) {
+		activateServiceImage.bind('click', function (event) {
+			var link;
 			self.preventEventDefault(event);
 
-            var button = jQuery(this);
-            var serviceId = jQuery(this).data('id');
+			link = jQuery(this).closest('li').find('.js-activate-service-id');
+			link.trigger('click');
+			return false;
+		});
+
+		activateServiceLink.bind('click', function (event) {
+			var serviceId;
+			var button;
+			self.preventEventDefault(event);
+
+			button = jQuery(this);
+			serviceId = jQuery(this).data('id');
 			self.toggleService(serviceId, button, 1);
 
 			return false;
 		});
 
-        jQuery('body').delegate('.js-deactivate-service', 'click', function (event) {
+		self.activeServiceWrapper.on('click', '.js-deactivate-service', function (event) {
 			var serviceId;
 			var button;
 			self.preventEventDefault(event);

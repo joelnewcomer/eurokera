@@ -356,7 +356,7 @@ class WPML_TM_AMS_API {
 			),
 		);
 		if ( $params ) {
-			$args['body'] = wp_json_encode( $params, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES );
+			$args['body'] = json_encode( $params );
 		}
 
 		return $this->wp_http->request( $this->add_versions_to_url( $url ), $args );

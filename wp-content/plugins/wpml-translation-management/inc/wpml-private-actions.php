@@ -38,18 +38,13 @@ add_action( 'wpml_add_translation_job', 'wpml_tm_add_translation_job', 10, 4 );
 
 require_once dirname( __FILE__ ) . '/wpml-private-filters.php';
 
-/**
- * @param int $job_id
- */
-function wpml_set_job_translated_term_values( $job_id ) {
-	global $sitepress;
+function wpml_set_job_translated_term_values( $job_id, $delete = false ) {
 
-	$delete     = $sitepress->get_setting( 'tm_block_retranslating_terms' );
 	$job_object = new WPML_Post_Translation_Job( $job_id );
 	$job_object->load_terms_from_post_into_job( $delete );
 }
 
-add_action( 'wpml_added_local_translation_job', 'wpml_set_job_translated_term_values' );
+add_action( 'wpml_added_local_translation_job', 'wpml_set_job_translated_term_values', 10, 2 );
 
 function wpml_tm_save_post( $post_id, $post, $force_set_status ) {
 	global $wpdb, $wpml_post_translations, $wpml_term_translations;
