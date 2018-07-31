@@ -103,10 +103,11 @@ get_header(); ?>
 
 <section class="image-links">
 	<div class="row">
+		<?php $epop_counter = 1; ?>
 		<?php if(get_field('image_links')): ?>
 			<?php while(has_sub_field('image_links')): ?>
 				<div class="large-4 medium-4 small-6 columns text-center">
-					<?php $epop_id = sanitize_title(get_sub_field('title')); ?>
+					<?php $epop_id = 'epop_' . $epop_counter; ?>
 					<a href="#" class="epop-link image-link" data-epop="#<?php echo $epop_id; ?>">
 						<?php
 						echo wp_get_attachment_image( get_sub_field('image'), 'width=261&height=261&crop=1' ); ?>
@@ -133,6 +134,7 @@ get_header(); ?>
 						</div>
 					</div>
 				</div>'; ?>
+				<?php $epop_counter++; ?>
 			<?php endwhile; ?>
 		<?php endif; ?>
 	</div>
