@@ -95,6 +95,28 @@
 
 		<?php do_action( 'foundationpress_layout_end' ); ?>
 
+<!-- Automatically update Korean links -->
+<?php if(ICL_LANGUAGE_CODE=='ko') : ?> 
+	<script>
+	jQuery( document ).ready(function() {
+		// Process each link
+	    jQuery('a').each(function() {
+		    var thisHREF = jQuery(this).attr('href');
+		    // Make sure the A tag has an href
+		    if (typeof(thisHREF) !== 'undefined') {
+			    // If it doesn't include /ko in the URL, add /ko to the URL
+			    if (!thisHREF.includes("<?php echo site_url(); ?>/ko")) {
+				    thisHREF = thisHREF.replace("<?php echo site_url(); ?>", "<?php echo site_url(); ?>/ko");
+		    	} else if (thisHREF.startsWith('/')) {
+			    	thisHREF = '/ko' + thisHREF;
+		    	}
+		    	jQuery(this).attr('href', thisHREF);
+		    }
+	    });
+	});		
+	</script>
+<?php endif; ?>
+
 <?php wp_footer(); ?>
 
 <?php do_action( 'foundationpress_before_closing_body' ); ?>

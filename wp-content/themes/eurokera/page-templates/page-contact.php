@@ -120,14 +120,14 @@ get_header(); ?>
 	
 </div> <!-- #page -->
 
-			        		<script>
-				    	    	jQuery( document ).ready(function() {
-				    	    		jQuery('#user-faq').easyResponsiveTabs({
-					    	    		type: 'accordion',
-										tabidentify: 'user-faq', // The tab groups identifier
-            						});
-				    	    	});
-				    	    </script>
+<script>
+	jQuery( document ).ready(function() {
+ 		jQuery('#user-faq').easyResponsiveTabs({
+    		type: 'accordion',
+			tabidentify: 'user-faq', // The tab groups identifier
+ 		});
+ 	});
+</script>
 
 <?php get_footer(); ?>
 
