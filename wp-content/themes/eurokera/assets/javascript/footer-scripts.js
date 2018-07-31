@@ -236,10 +236,3 @@ jQuery( document ).ready(function() {
 		jQuery(window).paroller();
 	}	
 });
-
-	
-
-/* jQuery.holdReady( true );
-setTimeout(function() {
-	jQuery.holdReady( false );
-}, 2000); */

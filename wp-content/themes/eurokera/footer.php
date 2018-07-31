@@ -95,24 +95,37 @@
 
 		<?php do_action( 'foundationpress_layout_end' ); ?>
 
-<!-- Automatically update Korean links -->
-<?php if(ICL_LANGUAGE_CODE=='ko') : ?> 
-	<script>
-	jQuery( document ).ready(function() {
-	    jQuery('a').each(function() {
-		    var thisHREF = jQuery(this).attr('href');
-		    if (typeof(thisHREF) !== 'undefined') {
-			    if (!thisHREF.includes("<?php echo site_url(); ?>/ko")) {
-				    thisHREF = thisHREF.replace("<?php echo site_url(); ?>", "<?php echo site_url(); ?>/ko");
-		    	} else if (thisHREF.startsWith('/')) {
-			    	thisHREF = '/ko' + thisHREF;
-		    	}
-		    	jQuery(this).attr('href', thisHREF);
-		    }
-	    });
-	});		
-	</script>
-<?php endif; ?>
+<script>
+// Function to automatically update all links to a particular language code
+function updateWPMLLinks(langCode) {
+	jQuery('a').each(function() {
+		var thisHREF = jQuery(this).attr('href');
+		if (typeof(thisHREF) !== 'undefined') {
+			if (!thisHREF.includes("<?php echo site_url(); ?>/" + langCode)) {
+				thisHREF = thisHREF.replace("<?php echo site_url(); ?>", "<?php echo site_url(); ?>/" + langCode);
+		   	}
+		   	if (thisHREF.startsWith('/')) {
+			   	thisHREF = '/' + langCode + thisHREF;
+		   	}
+		    jQuery(this).attr('href', thisHREF);
+		}
+	});
+}
+</script>	
+
+
+<!-- Automatically update links for languages -->
+<?php
+$langCodes = array('ko','zh-hans','fr','es','th','vi');
+foreach ($langCodes as $langCode) {
+	if (ICL_LANGUAGE_CODE == $langCode) : ?> 
+		<script>
+		jQuery( document ).ready(function() {
+			updateWPMLLinks('<?php echo $langCode; ?>');
+		});		
+		</script>
+	<?php endif;
+} ?>
 
 <?php wp_footer(); ?>
 
