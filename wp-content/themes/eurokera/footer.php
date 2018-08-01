@@ -100,7 +100,7 @@
 function updateWPMLLinks(langCode) {
 	jQuery('section#content a').each(function() {
 		var thisHREF = jQuery(this).attr('href');
-		if (typeof(thisHREF) !== 'undefined') {
+		if (typeof(thisHREF) !== 'undefined' && !thisHREF.includes('.jpg') && !thisHREF.includes('.jpeg') ) {
 			if (!thisHREF.includes("<?php echo site_url(); ?>/" + langCode)) {
 				thisHREF = thisHREF.replace("<?php echo site_url(); ?>", "<?php echo site_url(); ?>/" + langCode);
 		   	}
