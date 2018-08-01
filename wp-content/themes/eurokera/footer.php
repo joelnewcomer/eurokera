@@ -98,7 +98,7 @@
 <script>
 // Function to automatically update all links to a particular language code
 function updateWPMLLinks(langCode) {
-	jQuery('a').each(function() {
+	jQuery('section#content a').each(function() {
 		var thisHREF = jQuery(this).attr('href');
 		if (typeof(thisHREF) !== 'undefined') {
 			if (!thisHREF.includes("<?php echo site_url(); ?>/" + langCode)) {
