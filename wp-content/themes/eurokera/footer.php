@@ -120,7 +120,7 @@ $langCodes = array('ko','zh-hans','fr','es','th','vi');
 foreach ($langCodes as $langCode) {
 	if (ICL_LANGUAGE_CODE == $langCode) : ?> 
 		<script>
-		jQuery( document ).ready(function() {
+		jQuery(function(){
 			updateWPMLLinks('<?php echo $langCode; ?>');
 		});		
 		</script>
