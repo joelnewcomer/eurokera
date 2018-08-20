@@ -3,7 +3,7 @@
  * Plugin Name: Cache External Scripts
  * Plugin URI: http://www.forcemedia.nl/wordpress-plugins/cache-external-scripts/
  * Description: This plugin allows you to cache the Google Analytics JavaScript file to be cached for more than 2 hours, for a better PageSpeed score
- * Version: 0.3
+ * Version: 0.4
  * Author: Diego Voors
  * Author URI: http://www.forcemedia.nl
  * License: GPL2
@@ -66,6 +66,21 @@ function function_cache_external_scripts() {
 		fclose($fp);
 	}
 	
+	$ga_data = get_data('http://www.googletagmanager.com/gtag/js');
+	if($ga_data AND (!file_exists(UPLOAD_BASE_DIR.'/cached-scripts/gtag.js') OR $ga_data!=file_get_contents(UPLOAD_BASE_DIR.'/cached-scripts/gtag.js'))){
+		$fp = fopen(UPLOAD_BASE_DIR.'/cached-scripts/gtag.js',"wb");
+		
+		//add extra function to Google gtag.js to retreive the UA-id dynamically
+		$ga_data = str_replace('kc.o=""', 'var url=document.getElementById("cached-script").src.toLowerCase();kc.o=/id=([^&]+)/.exec(url)[1];',$ga_data);
+		
+		//replace analytics.js with our cached version
+		if(file_exists(UPLOAD_BASE_DIR.'/cached-scripts/analytics.js')){
+			$ga_data = preg_replace('#(http:|https:|)//www.google-analytics.com/analytics.js#',UPLOAD_BASE_URL.'/cached-scripts/analytics.js',$ga_data);
+		}
+		fwrite($fp,$ga_data);
+		fclose($fp);
+	}
+	
 }
 // hook that function onto our scheduled event:
 add_action ('cache-external-scripts-cron', 'function_cache_external_scripts'); 
@@ -84,7 +99,10 @@ function ces_filter_wp_head_output($output) {
 		$output = preg_replace('#(http:|https:|)//www.google-analytics.com/analytics.js#',UPLOAD_BASE_URL.'/cached-scripts/analytics.js',$output);
 	}
 	if(file_exists(UPLOAD_BASE_DIR.'/cached-scripts/ga.js')){
-		$output = str_replace("ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';","ga.src = '".UPLOAD_BASE_URL."/cached-scripts/ga.js'",$output);
+		$output = str_replace("ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';","ga.src = '".UPLOAD_BASE_URL."/cached-scripts/ga.js';",$output);
+	}
+	if(file_exists(UPLOAD_BASE_DIR.'/cached-scripts/gtag.js')){
+		$output = str_replace("src=\"https://www.googletagmanager.com/gtag/js","id=\"cached-script\" src=\"".UPLOAD_BASE_URL."/cached-scripts/gtag.js",$output);
 	}
     return $output;
 }
@@ -112,7 +130,7 @@ function ces_options_page(  ) {
 	if(file_exists(UPLOAD_BASE_DIR.'/cached-scripts/analytics.js') AND file_exists(UPLOAD_BASE_DIR.'/cached-scripts/ga.js')){
 		echo '<p>Google Analytics file (analytics.js) succesfully cached on local server!</p><p>In case you want to force the cache to be renewed, click <a href="'.get_site_url().'/wp-admin/options-general.php?page=cache-external-scripts&action=cache-scripts">this link</a>
 		
-		<span style="margin-top:70px;background-color:#fff;padding:10px;border:1px solid #C42429;display:inline-block;">Did this plugin help you to leverage browser caching and increase your PageSpeed Score? <a href="https://wordpress.org/support/view/plugin-reviews/cache-external-scripts" target="_blank">Please rate the plugin</a>!<br />Did not work for your site? <a href="https://wordpress.org/support/plugin/cache-external-scripts" target="_blank">Please let us know</a>!</span>';
+		<div style="margin-top:40px;background-color:#fff;padding:10px;border:1px solid #C42429;display:inline-block;">Did this plugin help you to leverage browser caching and increase your PageSpeed Score? <a href="https://wordpress.org/support/view/plugin-reviews/cache-external-scripts" target="_blank">Please rate the plugin</a>!<br />Did not work for your site? <a href="https://wordpress.org/support/plugin/cache-external-scripts" target="_blank">Please let us know</a>!</div>';
 	}else{
 		echo '<p>Google Analytics file (analytics.js) is not cached yet on the local server. Please refresh <a href="'.get_site_url().'" target="_blank">your frontpage</a> to start the cron or start it manually by pressing <a href="'.get_site_url().'/wp-admin/options-general.php?page=cache-external-scripts&action=cache-scripts">this link</a>.</p>';
 	}

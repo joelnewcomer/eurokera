@@ -1,15 +1,15 @@
 <?php
 /**
-Plugin Name:     Drum Dashboard
-Plugin URI:      https://cliftonc0613@bitbucket.org/drumcreative/drum-dashboard
-Description:     This plugin adds a set of panels in the dashboard for the client.
-Author:          Drum Creative
-Author URI:      https://drumcreative.com
-Text Domain:     drumcreative-drum-dashboard
-Domain Path:     /languages
-Version:         1.6.0
-@package         Drum_Dashboard
- */
+*   Plugin Name:     Drum Dashboard
+*   Plugin URI:      https://cliftonc0613@bitbucket.org/drumcreative/drum-dashboard
+*   Description:     This plugin adds a set of panels in the dashboard for the client.
+*   Author:          Drum Creative
+*   Author URI:      https://drumcreative.com
+*   Text Domain:     drumcreative-drum-dashboard
+*   Domain Path:     /languages
+*   Version:         1.7.1
+*   @package         Drum_Dashboard
+*/
 
 
 // Automatic Updates
@@ -267,6 +267,36 @@ if( !is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) ) { ?>
                                                 mozallowfullscreen allowfullscreen></iframe>
                                         <div class="loom-video-title">
                                             <h2><?php echo get_sub_field( 'loom_video_title' ); ?></h2>
+                                        </div>
+                                    <?php elseif (get_sub_field('video_type') == 'Youtube') : ?>
+                                        <?php
+                                        // get iframe HTML
+                                        $iframe = get_sub_field('youtube');
+                                        // use preg_match to find iframe src
+                                        preg_match('/src="(.+?)"/', $iframe, $matches);
+                                        $src = $matches[1];
+                                        // add extra params to iframe src
+                                        $params = array(
+                                            'controls' => 0,
+                                            'hd' => 1,
+                                            'autohide' => 1,
+                                            'modestbranding' => 0,
+                                            'showinfo' => 0
+
+                                        );
+
+                                        $new_src = add_query_arg($params, $src);
+                                        $iframe = str_replace($src, $new_src, $iframe);
+                                        // add extra attributes to iframe html
+                                        $attributes = 'frameborder="0"';
+
+                                        $iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+                                        // echo $iframe
+                                        echo $iframe;
+
+                                        ?>
+                                        <div class="youtube-video-title">
+                                            <h2><?php echo get_sub_field('youtube_video_title'); ?></h2>
                                         </div>
 									<?php else: ?>
                                         <iframe id="video-<?php echo $counter; ?>" width="560" height="370"

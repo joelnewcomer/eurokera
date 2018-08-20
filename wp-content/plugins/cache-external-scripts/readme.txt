@@ -3,16 +3,16 @@ Contributors: Voorsie
 Donate link: http://www.forcemedia.nl/wordpress-plugins/cache-external-scripts/
 Tags: cache, caching, scripts, google analytics, javascripts, local, pagespeed
 Requires at least: 3.0.1
-Tested up to: 4.5.3
-Stable tag: 0.3
+Tested up to: 4.9.8
+Stable tag: 0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Save the Google Analytics file (analytics.js) locally to be able to cache it for longer than 2 hours for a better PageSpeed score!
+Save the Google Analytics file (gtag.js / analytics.js) locally to be able to cache it for longer than 2 hours for a better PageSpeed score!
 
 == Description ==
 
-Often when trying to optimize the Google Pagespeed score, there is one script which still causing the 'Leverage browser caching' rule popping up: Google's own analytics.js file...
+Often when trying to optimize the Google Pagespeed score, there is one script which still causing the 'Leverage browser caching' rule popping up: Google's own gtag.js and/or analytics.js file...
 
 With this plugin you will be able to cache this file on your local server and enable browser caching for longer than 2 hours. The plugin will check every day if there is a newer version of the file to keep the cache up to date.
 
@@ -28,7 +28,7 @@ Installation is very easy;
 
 = I have installed the plugin, but I can't find the Google Analytics code in the page source code =
 
-This plugin only caches the script and replaces it in your **current** Analytics code, containing 'analytics.js' script.
+This plugin only caches the script and replaces it in your **current** Analytics code, containing 'gtag.js', 'analytics.js' or the older 'ga.js' script.
 We chose not to insert the Analytics code itself because there are tons of plugins for that already, and some users require modifications in the code.
 
 = How can I check if the Analytics code is properly cached =
@@ -40,6 +40,10 @@ We store the cached file in the wordpress `uploads` directory, in the folder cal
 1. Fix this last Google Pagespeed problem
 
 == Changelog ==
+
+= 0.4 =
+* Added support for new Google Analytics tracking code using gtag.js
+* Added missing semicolon which rarely caused a JavaScript issue in certain cases when minifying source code
 
 = 0.3 =
 * Added support for new Google Analytics tracking codes using https protocol as standard
