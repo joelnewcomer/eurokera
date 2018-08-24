@@ -53,6 +53,13 @@ get_header(); ?>
 <?php endif; ?>
 
 <section class="ceo">
+	<?php
+	$ceo_photo = get_field('ceo_photo');
+	if (is_numeric($ceo_photo)) {
+		$ceo_photo_url = wp_get_attachment_image_src($ceo_photo, 'full');
+		$ceo_photo = $ceo_photo_url[0];
+	}
+	?>
 	<div class="large-6 medium-6 columns ceo-photo text-right match-quote" style="background-image: url(<?php echo get_field('ceo_photo'); ?>);">
 		<div class="short-quote">
 			<?php get_template_part('assets/images/quote.svg'); ?><br />

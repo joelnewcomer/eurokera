@@ -31,6 +31,7 @@ wp-content/uploads/snapshots
 wp-content/themes/thesis*/custom/cache
 wp-content/themes/thesis*/lib/scripts/cache
 wp-content/themes/*/cache
+wp-content/themes/*/node_modules
 wp-content/plugins/*/cache
 wp-content/object-cache.php
 wp-content/mysql.sql
