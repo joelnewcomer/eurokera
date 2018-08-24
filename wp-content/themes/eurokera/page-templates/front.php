@@ -60,7 +60,7 @@ get_header(); ?>
 		$ceo_photo = $ceo_photo_url[0];
 	}
 	?>
-	<div class="large-6 medium-6 columns ceo-photo text-right match-quote" style="background-image: url(<?php echo get_field('ceo_photo'); ?>);">
+	<div class="large-6 medium-6 columns ceo-photo text-right match-quote" style="background-image: url(<?php echo $ceo_photo; ?>);">
 		<div class="short-quote">
 			<?php get_template_part('assets/images/quote.svg'); ?><br />
 			<h2><?php echo get_field('short_quote'); ?></h2>
@@ -119,7 +119,14 @@ get_header(); ?>
 	</div>
 </section>
 
-<a class="home-video" href="<?php echo get_field('video_url'); ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540" style="background-image: url(<?php echo get_field('video_poster'); ?>);">
+	<?php
+	$video_poster = get_field('video_poster');
+	if (is_numeric($video_poster)) {
+		$video_poster_url = wp_get_attachment_image_src($video_poster, 'full');
+		$video_poster = $video_poster_url[0];
+	}
+	?>
+<a class="home-video" href="<?php echo get_field('video_url'); ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540" style="background-image: url(<?php echo $video_poster; ?>);">
 	<div class="row">
 		<div class="large-12 columns text-center">
 			<?php get_template_part('assets/images/play', 'button.svg'); ?><br />
