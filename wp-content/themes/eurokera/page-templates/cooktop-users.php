@@ -28,12 +28,21 @@ get_header(); ?>
 		</style>
 	
 	<div class="users-gallery-carousel owl-theme owl-carousel" data-featherlight-gallery data-featherlight-filter="a">
-		<?php
+		<?php	
 		if( $images ): ?>
 			<?php foreach( $images as $image ): ?>
-				<?php $src = wp_get_attachment_image_src( $image['ID'], 'full' ) ?>
+				<?php
+				if (!is_numeric($image)) {
+					$image = $image['ID'];
+					$caption = $image['caption'];
+				} else {
+					$image_object = get_post($image);
+					$caption = $image_object->post_excerpt;
+				}
+				?>
+				<?php $src = wp_get_attachment_image_src( $image, 'full' ) ?>
 			    <a href="<?php echo $src[0]; ?>" class="users-gallery-image">
-			    	<?php echo wp_get_attachment_image( $image['ID'], 'width=936&height=475&crop=1' ) ?>
+			    	<?php echo wp_get_attachment_image( $image, 'width=936&height=475&crop=1' ) ?>
 			        <p class="caption"><?php echo $image['caption']; ?></p>
 			    </a>
 			<?php endforeach; ?>
