@@ -43,7 +43,7 @@ get_header(); ?>
 				<?php $src = wp_get_attachment_image_src( $image, 'full' ) ?>
 			    <a href="<?php echo $src[0]; ?>" class="users-gallery-image">
 			    	<?php echo wp_get_attachment_image( $image, 'width=936&height=475&crop=1' ) ?>
-			        <p class="caption"><?php echo $image['caption']; ?></p>
+			        <p class="caption"><?php echo $caption; ?></p>
 			    </a>
 			<?php endforeach; ?>
 		<?php endif; ?>
