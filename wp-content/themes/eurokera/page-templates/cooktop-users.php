@@ -161,7 +161,7 @@ get_header(); ?>
 	    <div style="text-align:center;">
 			<h2><?php _e('Different Cooking Methods'); ?></h2>
 			<?php
-			$cooking_methods_link = get_field('clean_link');
+			$cooking_methods_link = get_field('cooking_methods_link');
 			if (is_numeric($cooking_methods_link)) {
 				$cooking_methods_link = get_permalink($cooking_methods_link);
 			}
@@ -191,7 +191,7 @@ get_header(); ?>
 		    <div style="text-align:center;">
 			    <h2><?php _e('Where Can I Find a EuroKera Cooktop?'); ?></h2>
 				<?php
-				$locate_now_link = get_field('clean_link');
+				$locate_now_link = get_field('locate_now_link');
 				if (is_numeric($locate_now_link)) {
 					$locate_now_link = get_permalink($locate_now_link);
 				}
