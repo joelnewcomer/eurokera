@@ -131,8 +131,14 @@ get_header(); ?>
 </section> -->
 
 <section class="makers-details">
+	<?php
+	$glass_ceramic_link = get_field('glass_ceramic_link');
+	if (is_numeric($glass_ceramic_link)) {
+		$glass_ceramic_link = get_permalink($glass_ceramic_link);
+	}
+	?>	
 	<?php $glass_ceramic_img = wp_get_attachment_image_src( get_field('glass_ceramic_image'), 'full' ); ?>
-	<a href="<?php echo get_field('glass_ceramic_link'); ?>" class="large-6 medium-6 columns glass-ceramic text-center" style="background: url(<?php echo $glass_ceramic_img[0]; ?>);">
+	<a href="<?php echo $glass_ceramic_link; ?>" class="large-6 medium-6 columns glass-ceramic text-center" style="background: url(<?php echo $glass_ceramic_img[0]; ?>);">
 		<div class="transition" style="display:table;width:100%;height:100%;">
 		  <div style="display:table-cell;vertical-align:middle;">
 		    <div style="text-align:center;"><h2><?php echo get_field('glass_ceramic_title'); ?></h2></div>
@@ -143,20 +149,26 @@ get_header(); ?>
 		<div style="display:table;width:100%;height:100%;">
 		  <div style="display:table-cell;vertical-align:middle;">
 		    <div style="text-align:center;">
+				<?php
+				$cooking_methods_link = get_field('cooking_methods_link');
+				if (is_numeric($cooking_methods_link)) {
+					$cooking_methods_link = get_permalink($cooking_methods_link);
+				}
+				?>
 				<h2><?php _e('Different Cooking Methods'); ?></h2>
-				<a href="<?php echo get_field('cooking_methods_link'); ?>" class="heat-source gas">
+				<a href="<?php echo $cooking_methods_link; ?>" class="heat-source gas">
 					<?php get_template_part('assets/images/gas.svg'); ?><br />
 					<?php _e('Gas'); ?>
 				</a>		
-				<a href="<?php echo get_field('cooking_methods_link'); ?>" class="heat-source induction">
+				<a href="<?php echo $cooking_methods_link; ?>" class="heat-source induction">
 					<?php get_template_part('assets/images/induction.svg'); ?><br />
 					<?php _e('Induction'); ?>
 				</a>	
-				<a href="<?php echo get_field('cooking_methods_link'); ?>" class="heat-source radiant">
+				<a href="<?php echo $cooking_methods_link; ?>" class="heat-source radiant">
 					<?php get_template_part('assets/images/radiant.svg'); ?><br />
 					<?php _e('Radiant'); ?>
 				</a><br />
-				<a href="<?php echo get_field('cooking_methods_link'); ?>"><?php _e('Click to Learn More'); ?></a>			    
+				<a href="<?php echo $cooking_methods_link; ?>"><?php _e('Click to Learn More'); ?></a>			    
 		    </div>
 		  </div>
 		</div>		
