@@ -95,7 +95,14 @@ get_header(); ?>
 </section> <!-- timeline -->
 
 <section class="about-intro">
-	<div class="about-photo match-intro" style="background-image: url(<?php echo get_field('intro_photo'); ?>);"></div>
+	<?php
+	$intro_photo = get_field('intro_photo');
+	if (is_numeric($intro_photo)) {
+		$intro_photo_url = wp_get_attachment_image_src($intro_photo, 'full');
+		$intro_photo = $intro_photo_url[0];
+	}
+	?>
+	<div class="about-photo match-intro" style="background-image: url(<?php echo $intro_photo; ?>);"></div>
 	<div class="about-content match-intro">
 		<?php echo get_field('intro'); ?>
 	</div>
