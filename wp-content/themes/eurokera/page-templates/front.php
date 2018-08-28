@@ -10,6 +10,7 @@ get_header(); ?>
    <?php
    // Insert a line break after the first period
    $desc = get_bloginfo('description');
+   $desc = __('EuroKera glass-ceramic. Transform the soul of your home.', 'foundationpress');
    $period_pos = strpos($desc, '.') + 1;
    $desc = substr_replace($desc, '<br />', $period_pos, 0);
    ?>
