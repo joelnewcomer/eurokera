@@ -100,7 +100,7 @@
 function updateWPMLLinks(langCode) {
 	jQuery('section#content a, .epop-content a').each(function() {
 		var thisHREF = jQuery(this).attr('href');
-		if (typeof(thisHREF) !== 'undefined' && !thisHREF.indexOf('.jpg') >= 0 && !thisHREF.indedOf('.jpeg') >= 0 ) {
+		if (typeof(thisHREF) !== 'undefined' && !thisHREF.indexOf('.jpg') >= 0 && !thisHREF.indexOf('.jpeg') >= 0 ) {
 			if (!thisHREF.includes("<?php echo site_url(); ?>/" + langCode)) {
 				thisHREF = thisHREF.replace("<?php echo site_url(); ?>", "<?php echo site_url(); ?>/" + langCode);
 		   	}
