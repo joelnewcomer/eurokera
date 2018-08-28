@@ -80,7 +80,13 @@ get_header(); ?>
 		  <div style="display:table-cell;vertical-align:middle;">
 		    <div style="text-align:center;">
 			    <h2><?php _e('How to Clean Your Cooktop'); ?></h2>
-				<div class="button reverse"><a href="<?php echo get_field('clean_link'); ?>"><?php _e('Learn More'); ?></a></div>
+			    <?php
+				$clean_link = get_field('clean_link');
+				if (is_numeric($clean_link)) {
+					$clean_link = get_permalink($clean_link);
+				}
+				?>
+				<div class="button reverse"><a href="<?php echo $clean_link; ?>"><?php _e('Learn More'); ?></a></div>
 		    </div>
 		  </div>
 		</div>
@@ -154,19 +160,25 @@ get_header(); ?>
 	  <div style="display:table-cell;vertical-align:middle;">
 	    <div style="text-align:center;">
 			<h2><?php _e('Different Cooking Methods'); ?></h2>
-			<a href="<?php echo get_field('cooking_methods_link'); ?>" class="heat-source gas">
+			<?php
+			$cooking_methods_link = get_field('clean_link');
+			if (is_numeric($cooking_methods_link)) {
+				$cooking_methods_link = get_permalink($cooking_methods_link);
+			}
+			?>
+			<a href="<?php echo $cooking_methods_link; ?>" class="heat-source gas">
 				<?php get_template_part('assets/images/gas.svg'); ?><br />
 				<?php _e('Gas'); ?>
 			</a>		
-			<a href="<?php echo get_field('cooking_methods_link'); ?>" class="heat-source induction">
+			<a href="<?php echo $cooking_methods_link; ?>" class="heat-source induction">
 				<?php get_template_part('assets/images/induction.svg'); ?><br />
 				<?php _e('Induction'); ?>
 			</a>	
-			<a href="<?php echo get_field('cooking_methods_link'); ?>" class="heat-source radiant">
+			<a href="<?php echo $cooking_methods_link; ?>" class="heat-source radiant">
 				<?php get_template_part('assets/images/radiant.svg'); ?><br />
 				<?php _e('Radiant'); ?>
 			</a><br />
-			<a href="<?php echo get_field('cooking_methods_link'); ?>"><?php _e('Click to Learn More'); ?></a>				    
+			<a href="<?php echo $cooking_methods_link; ?>"><?php _e('Click to Learn More'); ?></a>				    
 	    </div>
 	  </div>
 	</div>		
@@ -178,7 +190,13 @@ get_header(); ?>
 		  <div style="display:table-cell;vertical-align:middle;">
 		    <div style="text-align:center;">
 			    <h2><?php _e('Where Can I Find a EuroKera Cooktop?'); ?></h2>
-				<div class="button reverse"><a href="<?php echo get_field('locate_now_link'); ?>"><?php _e('Locate Now'); ?></a></div>
+				<?php
+				$locate_now_link = get_field('clean_link');
+				if (is_numeric($locate_now_link)) {
+					$locate_now_link = get_permalink($locate_now_link);
+				}
+				?>			    
+				<div class="button reverse"><a href="<?php echo $locate_now_link; ?>"><?php _e('Locate Now'); ?></a></div>
 		    </div>
 		  </div>
 		</div>
