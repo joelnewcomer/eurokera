@@ -29,12 +29,13 @@ get_header(); ?>
 	
 	<div class="users-gallery-carousel owl-theme owl-carousel" data-featherlight-gallery data-featherlight-filter="a">
 		<?php	
+		// print_r($images);
 		if( $images ): ?>
 			<?php foreach( $images as $image ): ?>
-				<?php
+				<?php	
 				if (!is_numeric($image)) {
-					$image = $image['ID'];
 					$caption = $image['caption'];
+					$image = $image['ID'];
 				} else {
 					$image_object = get_post($image);
 					$caption = $image_object->post_excerpt;
