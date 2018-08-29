@@ -202,6 +202,12 @@ get_header(); ?>
 					<?php gravity_form(5, false, false, false, array('product' => get_the_title()), true, 12); ?>
 				</div>
 			</div>
+			<?php
+			$product_data_sheet = get_field('product_data_sheet');	
+			if (is_numeric($product_data_sheet)) {
+				$product_data_sheet = wp_get_attachment_url( $product_data_sheet );	
+			}			
+			?>
 			<script>
 				jQuery( document ).ready(function() {
 					// Check for persistent variable 
@@ -212,7 +218,7 @@ get_header(); ?>
 						if (formCompleted != 'yes') {
 							jQuery('.data-sheet-modal').addClass('open');
 						} else {
-							window.location = '<?php echo get_field('product_data_sheet'); ?>';
+							window.location = '<?php echo $product_data_sheet; ?>';
 						}
 					});	
 					// When form is completed, set persistent variable, download data sheet, and close the modal
@@ -220,7 +226,7 @@ get_header(); ?>
 						basil.set('formCompleted', 'yes');
 						setTimeout(function(){ 
 							jQuery('.data-sheet-modal').removeClass('open');
-							window.location = '<?php echo get_field('product_data_sheet'); ?>';
+							window.location = '<?php echo $product_data_sheet; ?>';
 						}, 2000);
 					});
 					// Close modal 
