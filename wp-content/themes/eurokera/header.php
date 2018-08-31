@@ -65,7 +65,10 @@
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
 	<?php if(!preg_match('/(?i)msie [5-9]/',$_SERVER['HTTP_USER_AGENT'])) : ?>
-		<div class="animsition">
+		<div class="animsition-shell">
+		<script>
+			jQuery('.animsition-shell').addClass( 'animsition' );
+		</script>
 	<?php endif; ?>	
 	
 	<!-- Load Basil -->
