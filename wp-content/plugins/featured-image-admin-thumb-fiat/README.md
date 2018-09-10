@@ -52,6 +52,9 @@ After checking that the plugin is enabled, be sure to click Screen Options if yo
 ### Changelog
 == Changelog ==
 
+#### 1.5.1 (2018-08-31) ####
+* Add thumb column to EDD Downloads. Use filter (documented in 1.4.2 release) if you want to exclude thumb column in EDD Downloads. Code linting.
+
 #### 1.5.0 (2018-06-21) ####
 * Ability to sort thumbnail column. You can easily see the content that has a thumbnail, displays no thumbnail or has no thumbnail assigned to it.
 
