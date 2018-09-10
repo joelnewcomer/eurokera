@@ -12,6 +12,7 @@
 	    	width: 50px;
 	    	height: 20px;
 	    	margin-top: -4px;
+	    	pointer-events: none;
 			&:hover {
 				color: $primary-color;
 			}

@@ -132,7 +132,7 @@ get_header(); ?>
 	<script>
 		jQuery(window).load(function(){
 			jQuery.featherlight.prototype.beforeOpen = function(event) {
-				if(!jQuery(event.target).hasClass('gallery-image')) {
+				if(!jQuery(event.target).hasClass('gallery-image') && !jQuery(event.target).hasClass('search-button')) {
 					window.open = jQuery(event.target).attr('href');
 					return false;
     			}
