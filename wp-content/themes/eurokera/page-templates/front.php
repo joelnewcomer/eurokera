@@ -94,7 +94,7 @@ get_header(); ?>
 				<a href="http://www.corning.com/" target="_blank">
 					<?php get_template_part('assets/images/corning', 'logo.svg'); ?>
 				</a><br />
-				120 <?php _e('years'); ?>
+				160 <?php _e('years'); ?>
 			</div><br />
 			<div class="num-one partner">
 				<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?><br />
