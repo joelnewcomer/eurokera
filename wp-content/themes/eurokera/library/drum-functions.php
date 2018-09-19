@@ -175,6 +175,15 @@ function unset_tiff($mime_types){
 add_filter('upload_mimes', 'unset_tiff', 1, 1);
 
 
+// Enable vCard Upload 
+function enable_vcard_upload( $mime_types ){
+  $mime_types['vcf'] = 'text/x-vcard';
+  return $mime_types;
+}
+add_filter('upload_mimes', 'enable_vcard_upload' );
+
+
+
 // Generate image that is resized using WP Thumb and that is output using responsive image markup
 // This gives you full control of proportions
 function drum_image($id,$small,$medium,$large,$lazy = true) {
