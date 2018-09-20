@@ -2409,7 +2409,7 @@ body.admin-bar:not(.home) .header-wrapper {
 
 @media only screen and (max-width: 40.063em) {
   .header-wrapper + section.container {
-    margin-top: 65px; } }
+    margin-top: 30px !important; } }
 
 #footer-container {
   display: block;
