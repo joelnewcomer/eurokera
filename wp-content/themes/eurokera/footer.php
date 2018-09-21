@@ -62,7 +62,7 @@
 		</div>
 		<div class="large-2 medium-2 columns text-center">
 			<?php $cookie_page = get_page_by_path('cookie-policy'); ?>
-			<a class="cookie-policy-link" href="<?php echo get_permalink($cookie_page); ?>"><strong><?php _e('Cookie Policy'); ?></strong></a>
+			<a class="cookie-policy-link" href="<?php echo get_permalink($cookie_page->ID); ?>"><strong><?php _e('Cookie Policy'); ?></strong></a>
 		</div>
 		<div class="large-2 medium-2 columns small-text-center">
 			<div class="button small reverse"><a id="accept-cookies" href="#"><?php _e('Accept Cookies'); ?></a></div>
