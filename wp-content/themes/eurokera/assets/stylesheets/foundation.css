@@ -2262,6 +2262,10 @@ p.small {
       .top-bar-left a.logo svg {
         width: 111px;
         height: 44px; } }
+    @media only screen and (max-width: 725px) {
+      .top-bar-left a.logo svg {
+        width: 90px;
+        height: 36px; } }
   .top-bar-left a.logo .eurokera-logo-1 {
     fill: #251a06; }
 
@@ -6802,6 +6806,9 @@ ul.slimmenu li {
   @media only screen and (max-width: 930px) and (min-width: 40.063em) {
     ul.slimmenu li {
       margin: 0 7px; } }
+  @media only screen and (max-width: 725px) and (min-width: 40.063em) {
+    ul.slimmenu li {
+      margin: 0 5px; } }
 
 @media only screen and (max-width: 40.063em) {
   ul.slimmenu li {
