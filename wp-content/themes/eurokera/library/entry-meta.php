@@ -26,7 +26,7 @@ if ( ! function_exists( 'foundationpress_entry_meta' ) ) :
 			echo '<li>';
 			get_template_part("assets/images/clock-o.svg");
 			echo '<time class="updated" datetime="'. get_the_time( 'c' ) .'">'. sprintf( __( '%s', 'foundationpress' ), get_the_date() ) .'</time></li>';
-			echo '<li><div id="estimated-time"><span>Reading Time: <div class="eta"></div></div></li>';
+			echo '<li><div class="byline"><span>By: ' . get_the_author() . '</div></li>';
 			if ( get_comments_number() > 0 ) : ?>
 				<li>
 				<?php if (is_single()) : ?>

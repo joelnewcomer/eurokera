@@ -16,9 +16,12 @@ get_header(); ?>
 	<?php do_action( 'foundationpress_before_content' ); ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 		<article class="main-content large-12 columns" <?php post_class() ?> id="post-<?php the_ID(); ?>">
+				<header>
+					<?php drum_entry_meta(); ?>
+				</header>
 			<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
 			<div class="entry-content">
-	
+			
 			<?php the_content(); ?>
 			</div>
 			<footer>
