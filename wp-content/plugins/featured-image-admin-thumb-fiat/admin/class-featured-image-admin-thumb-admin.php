@@ -121,7 +121,7 @@ class Featured_Image_Admin_Thumb_Admin {
 		}
 
 		foreach ( $available_post_types as $post_type ) {
-			add_action( "manage_{$post_type}_posts_custom_column", array( $this, 'fiat_custom_columns' ), 2 );
+			add_action( "manage_{$post_type}_posts_custom_column", array( $this, 'fiat_custom_columns' ), 2, 2 );
 			add_filter( "manage_{$post_type}_posts_columns", array( $this, 'fiat_add_thumb_column' ) );
 			add_filter( "manage_edit-{$post_type}_sortable_columns", array( $this, 'fiat_thumb_sortable_columns' ) );
 		}
@@ -280,6 +280,7 @@ class Featured_Image_Admin_Thumb_Admin {
 
 	/**
 	* @param $column
+	* @param $post_id
 	* @return void
 	* @since 1.0.0
 	* @uses fiat_thumb, thumb
@@ -288,9 +289,7 @@ class Featured_Image_Admin_Thumb_Admin {
 	* for All Posts/Pages if we are on the "thumb" column
 	*
 	*/
-	public function fiat_custom_columns( $column ) {
-		global $post;
-		$post_id = $post->ID;
+	public function fiat_custom_columns( $column, $post_id ) {
 		switch ( $column ) {
 			case 'thumb':
 				if ( has_post_thumbnail( $post_id ) ) {
