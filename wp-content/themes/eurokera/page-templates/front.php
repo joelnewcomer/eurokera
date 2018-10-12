@@ -6,6 +6,14 @@ get_header(); ?>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 
+<?php
+global $post;
+update_post_meta( $post->ID, 'content_0_one_column', '' );
+update_post_meta( $post->ID, 'content_0_column_1_animation_animate', '' );
+update_post_meta( $post->ID, 'content_0_parallax', '' );
+update_post_meta( $post->ID, 'content_0_background_color', '' );
+?>
+
 <section class="home-banner text-center" data-paroller-factor="0.3" style="background-image: url('<?php the_post_thumbnail_url("full"); ?>');">
    <?php
    // Insert a line break after the first period
