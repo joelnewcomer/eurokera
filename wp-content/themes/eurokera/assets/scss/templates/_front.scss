@@ -124,6 +124,7 @@ section.ceo {
 	h2 {
 		max-width: 35%;
 		display: inline-block;
+		word-break: normal !important;
 		font-size: 34px;
 		@media only screen and (max-width: 40.063em) {
 			font-size: 28px;	
@@ -152,6 +153,7 @@ section.ceo {
 		p {
 			color: #fff;
 			font-size: 23px;
+			word-break: normal !important;
 			@media only screen and (max-width: 40.063em) {
 				color: #626260;
 				font-size: 20px;	
