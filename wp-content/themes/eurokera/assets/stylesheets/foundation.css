@@ -1950,12 +1950,10 @@ body, .animsition {
 /* Korean font */
 html[lang="ko-KR"] * {
   font-family: "source-han-sans-korean" !important;
-  font-weight: 200;
-  word-break: keep-all; }
+  font-weight: 200; }
 
 html[lang="zh-hans"] *, html[lang="vi-VN"] * {
-  font-family: "source-han-sans-simplified-c" !important;
-  word-break: keep-all; }
+  font-family: "source-han-sans-simplified-c" !important; }
 
 body {
   max-width: 100%;
@@ -3374,6 +3372,7 @@ section.ceo p.ceo-name {
 section.ceo h2 {
   max-width: 35%;
   display: inline-block;
+  word-break: normal !important;
   font-size: 34px;
   color: #63666a;
   font-weight: 400; }
@@ -3402,6 +3401,7 @@ section.ceo .long-quote {
   section.ceo .long-quote p {
     color: #fff;
     font-size: 23px;
+    word-break: normal !important;
     line-height: 1.4;
     max-width: 515px;
     margin-bottom: 30px; }
