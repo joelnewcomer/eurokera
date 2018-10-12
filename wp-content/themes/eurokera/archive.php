@@ -23,7 +23,7 @@ get_header(); ?>
 <div id="page" class="white-bg" role="main">
     <div class="row">
 	    <div class="blog-cats large-12 text-center">
-		    <a href="<?php echo get_permalink( get_option( 'page_for_posts' )); ?>">All</a>
+		    <a href="<?php echo get_permalink( get_option( 'page_for_posts' )); ?>"><?php _e('All'); ?></a>
 			<?php
 			$args = array(
 			    'orderby' => 'name',
