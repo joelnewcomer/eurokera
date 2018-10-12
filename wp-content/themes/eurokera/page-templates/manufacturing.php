@@ -70,7 +70,7 @@ get_header(); ?>
 <section class="let-us">
 	<div class="row">
 		<div class="large-12 columns text-center">
-			<h2><?php _e('Let Us Build Your Future Innovative Cooking Surface'); ?></h2>
+			<h2><?php _e('Let Us Build Your Future Innovative Cooking Surface'); ?></h2>
 			<div class="site-links">
 				<div class="button">
 					<?php $contact_page = get_page_by_path('contact'); ?>

@@ -230,7 +230,7 @@ get_header(); ?>
 			<div class="epop-overlay"></div>
 			<div class="epop-identify text-center">
 				<div class="epop-close">&times;</div>
-				<h3><?php _e('Look for these Logos On Your Cooktop'); ?></h3><br />
+				<h3><?php _e('Look for these Logos On Your Cooktop'); ?></h3><br />
 				<?php get_template_part('assets/images/k.svg'); ?>
 				<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?>
 				<img class="euro-k" src="<?php echo get_template_directory_uri(); ?>/assets/images/identi-k.png">
