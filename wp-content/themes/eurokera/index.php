@@ -21,7 +21,7 @@ get_header(); ?>
 <div id="page" role="main">
     <div class="row">
 	    <div class="blog-cats large-12 text-center">
-		    <a class="active" href="<?php echo get_permalink( get_option( 'page_for_posts' )); ?>"><?php _e('All'); ?></a>
+		    <a class="active" href="<?php echo get_permalink( get_option( 'page_for_posts' )); ?>"><?php _e('All','drumbeat'); ?></a>
 			<?php
 			$args = array(
 			    'orderby' => 'name',
