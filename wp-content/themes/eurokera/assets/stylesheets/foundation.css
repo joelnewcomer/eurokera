@@ -1950,7 +1950,8 @@ body, .animsition {
 /* Korean font */
 html[lang="ko-KR"] * {
   font-family: "source-han-sans-korean" !important;
-  font-weight: 200; }
+  font-weight: 200;
+  word-break: keep-all; }
 
 html[lang="zh-hans"] *, html[lang="vi-VN"] * {
   font-family: "source-han-sans-simplified-c" !important; }
