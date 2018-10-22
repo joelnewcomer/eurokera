@@ -13,7 +13,7 @@ get_header(); ?>
    $desc = __('EuroKera glass-ceramic. Transform the soul of your home.', 'foundationpress');
    if (ICL_LANGUAGE_CODE=='zh-hans' || ICL_LANGUAGE_CODE=='vi') {
 	   $period_pos = strpos($desc, '。') + 1;
-	   $desc = substr_replace($desc, '<br />', $period_pos, 0);	   
+	   $desc = substr_replace($desc, '<br>', $period_pos, 0);	   
    } else {
 	   $period_pos = strpos($desc, '.') + 1;
 	   $desc = substr_replace($desc, '<br />', $period_pos, 0);
