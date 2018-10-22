@@ -11,11 +11,16 @@ get_header(); ?>
    // Insert a line break after the first period
    $desc = get_bloginfo('description');
    $desc = __('EuroKera glass-ceramic. Transform the soul of your home.', 'foundationpress');
-   $period_pos = strpos($desc, '.') + 1;
-   $desc = substr_replace($desc, '<br />', $period_pos, 0);
-   ?>
-   <div class="center-banner" style="display:table;width: 100%; height:100%; text-align: center;">
-       <div style="display:table-cell;vertical-align:middle;text-align:center;width: 100%;">
+   if (ICL_LANGUAGE_CODE=='zh-hans' || ICL_LANGUAGE_CODE=='vi') {
+	   $period_pos = strpos($desc, '。') + 1;
+	   $desc = substr_replace($desc, '<br />', $period_pos, 0);	   
+   } else {
+	   $period_pos = strpos($desc, '.') + 1;
+	   $desc = substr_replace($desc, '<br />', $period_pos, 0);
+	}
+	?>
+	<div class="center-banner" style="display:table;width: 100%; height:100%; text-align: center;">
+       	<div style="display:table-cell;vertical-align:middle;text-align:center;width: 100%;">
 	          <h1><?php echo $desc; ?></h1>
    <?php get_template_part('template-parts/content','site-links'); ?>
        </div>
