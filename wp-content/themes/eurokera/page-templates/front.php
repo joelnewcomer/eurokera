@@ -11,10 +11,7 @@ get_header(); ?>
    // Insert a line break after the first period
    $desc = get_bloginfo('description');
    $desc = __('EuroKera glass-ceramic. Transform the soul of your home.', 'foundationpress');
-   if (ICL_LANGUAGE_CODE=='zh-hans' || ICL_LANGUAGE_CODE=='vi') {
-	   $period_pos = strpos($desc, '。') + 1;
-	   $desc = substr_replace($desc, '<br>', $period_pos, 0);	   
-   } else {
+   if (ICL_LANGUAGE_CODE!='zh-hans' && ICL_LANGUAGE_CODE!='vi') {
 	   $period_pos = strpos($desc, '.') + 1;
 	   $desc = substr_replace($desc, '<br />', $period_pos, 0);
 	}
