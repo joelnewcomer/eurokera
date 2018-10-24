@@ -163,7 +163,9 @@ if (typeof bxSlider === "function") {
 	});
 }
 
+// Filters
 jQuery('select.filter').on('change', function() {
+	jQuery('.enamel-block').removeClass('hidden');
 	jQuery('#search-enamels').val('');
 	var filters = '';
 	jQuery("select.filter").each(function() {
@@ -171,8 +173,46 @@ jQuery('select.filter').on('change', function() {
 			filters += '.' + jQuery(this).val();
 		}
 	});
-	jQuery('.enamel-block:not(' + filters + ')').fadeOut();
-	jQuery('.enamel-block' + filters).fadeIn();
+	jQuery('.enamel-block:not(' + filters + ')').addClass('hidden');
+	jQuery('.enamel-block' + filters).removeClass('hidden');
+});
+
+// Reset Filters
+jQuery("a.reset").on( "click", function(e) {
+	e.preventDefault();
+	jQuery('.enamel-block').removeClass('hidden');
+	jQuery("select.filter").each(function() {
+		jQuery(this).prop('selectedIndex',0);
+	});	
+});
+
+// Search	
+jQuery( document).ready(function() {
+	var h = holmes({
+		// queryselector for the input
+		input: '#search-enamels',
+		// queryselector for element to search in
+		find: '.enamels-container .enamel-block',
+		// (optional) text to show when no results
+		placeholder: 'no results',
+		class: {
+		  // (optional) class to add to matched elements
+		  visible: 'visible',
+		  // (optional) class to add to non-matched elements
+		  hidden: 'hidden'
+		},
+		// (optional) if true, this will refresh the content every search
+		dynamic: false,
+		// (optional) in case you don't want to wait for DOMContentLoaded before starting Holmes:
+		instant: true,
+		// (optional) if you want to start searching after a certain amount of characters are typed
+		minCharacters: 3,
+		onInput: function(){
+			jQuery("select.filter").each(function() {
+			    jQuery(this).prop('selectedIndex',0);
+			});
+		}
+	});
 });
 
 </script>
