@@ -1,7 +1,13 @@
 .enamels-page-intro {
 	padding: 100px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 24px 0;	
+	}
 	p {
 		font-size: 24px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 18px;
+		}
 		display: inline-block;
 		max-width: 960px;
 	}
@@ -29,6 +35,10 @@
 			padding-top: 40px;
 			padding-bottom: 40px;
 			padding-right: 40px;
+			@media only screen and (max-width: 40.063em) {
+				padding-left: 24px;
+				padding-right: 24px;	
+			}
 			.photo-container {
 				position: absolute;
 				width: 33%;
@@ -36,10 +46,16 @@
 				left: 0;
 				top: 0;
 				background-size: cover !important;
+				@media only screen and (max-width: 40.063em) {
+					display: none;	
+				}
 			}
 		}		
 		h2 {
 			font-size: 48px;
+			@media only screen and (max-width: 40.063em) {
+				font-size: 28px;	
+			}
 		}
 		.button a {
 			margin-top: 10px;
@@ -52,6 +68,9 @@
 		h2 {
 			font-size: 70px;
 			margin-bottom: 30px;
+			@media only screen and (max-width: 40.063em) {
+				font-size: 28px;	
+			}
 		}
 	}
 	li.video {

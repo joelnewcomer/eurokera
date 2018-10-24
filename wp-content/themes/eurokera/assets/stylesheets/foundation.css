@@ -5211,10 +5211,16 @@ section.contact-locations {
 
 .enamels-page-intro {
   padding: 100px 0; }
+  @media only screen and (max-width: 40.063em) {
+    .enamels-page-intro {
+      padding: 24px 0; } }
   .enamels-page-intro p {
     font-size: 24px;
     display: inline-block;
     max-width: 960px; }
+    @media only screen and (max-width: 40.063em) {
+      .enamels-page-intro p {
+        font-size: 18px; } }
 
 .enamels-slider .slider-container {
   display: block;
@@ -5234,6 +5240,10 @@ section.contact-locations {
   padding-top: 40px;
   padding-bottom: 40px;
   padding-right: 40px; }
+  @media only screen and (max-width: 40.063em) {
+    .enamels-slider li.content .content-photo {
+      padding-left: 24px;
+      padding-right: 24px; } }
   .enamels-slider li.content .content-photo .photo-container {
     position: absolute;
     width: 33%;
@@ -5242,9 +5252,15 @@ section.contact-locations {
     top: 0;
     -webkit-background-size: cover !important;
             background-size: cover !important; }
+    @media only screen and (max-width: 40.063em) {
+      .enamels-slider li.content .content-photo .photo-container {
+        display: none; } }
 
 .enamels-slider li.content h2 {
   font-size: 48px; }
+  @media only screen and (max-width: 40.063em) {
+    .enamels-slider li.content h2 {
+      font-size: 28px; } }
 
 .enamels-slider li.content .button a {
   margin-top: 10px; }
@@ -5255,6 +5271,9 @@ section.contact-locations {
 .enamels-slider li.photo h2 {
   font-size: 70px;
   margin-bottom: 30px; }
+  @media only screen and (max-width: 40.063em) {
+    .enamels-slider li.photo h2 {
+      font-size: 28px; } }
 
 .enamels-slider li.video svg {
   width: 62px;
