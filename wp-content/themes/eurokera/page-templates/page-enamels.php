@@ -88,6 +88,8 @@ get_header(); ?>
 		<div class="row">
 			<div class="large-12 columns text-center">
 				<h2><?php echo get_field('enamels_title'); ?></h2>
+			</div>
+			<div class="large-12 columns">
 				<p><?php echo get_field('enamels_intro'); ?></p>
 				
 				<div class="filter-bar">
@@ -95,27 +97,27 @@ get_header(); ?>
 				   		<input id="search-enamels" type="text" name="search" placeholder="Search by reference #">
 				   		<span>or</span>
 				   		<select class="filter glass-color">
-					   		<option vale="">Glass-Ceramic Substitute</option>
-				   			<option value="black">Black</option>
-				   			<option value="white">White</option>
+					   		<option value="">Glass-Ceramic Substitute</option>
+				   			<option value="glass-black">Black</option>
+				   			<option value="glass-white">White</option>
 				   		</select>
 				   		<select class="filter enamel-type">
-					   		<option vale="">Enamel Type</option>
+					   		<option value="">Enamel Type</option>
 				   			<option value="matte">Matte</option>
 				   			<option value="Mettalic">Mettalic</option>
 				   		</select>
 				   		<select class="filter color-type">
-					   		<option vale="">Color Type</option>
-					   		<option value="grey">Grey</option>
-					   		<option value="red">Red</option>
-					   		<option value="blue">Blue</option>
-					   		<option value="green">Green</option>
-					   		<option value="brown">Brown</option>
-					   		<option value="black">Black</option>
-					   		<option value="metallic">Metallic</option>
-					   		<option value="white">White</option>
-					   		<option value="pink">Pink</option>
-					   		<option value="yellow">Yellow</option>
+					   		<option value="">Color Type</option>
+					   		<option value="color-grey">Grey</option>
+					   		<option value="color-red">Red</option>
+					   		<option value="color-blue">Blue</option>
+					   		<option value="color-green">Green</option>
+					   		<option value="color-brown">Brown</option>
+					   		<option value="color-black">Black</option>
+					   		<option value="color-metallic">Metallic</option>
+					   		<option value="color-white">White</option>
+					   		<option value="color-pink">Pink</option>
+					   		<option value="color-yellow">Yellow</option>
 				   		</select>
 				   		<a class="reset" href="#">Reset Filters</a>
 				   	</form>
@@ -124,7 +126,7 @@ get_header(); ?>
 				<div class="enamels-container">
 					<?php if(get_field('enamels')): ?>
 						<?php while(has_sub_field('enamels')): ?>
-							<div class="enamel-block <?php echo strtolower(get_sub_field('glass_color')); ?> <?php echo strtolower(get_sub_field('enamel_type')); ?> <?php echo strtolower(get_sub_field('color_type')); ?>">
+							<div class="enamel-block glass-<?php echo strtolower(get_sub_field('glass_color')); ?> <?php echo strtolower(get_sub_field('enamel_type')); ?> color-<?php echo strtolower(get_sub_field('color_type')); ?>">
 								<?php echo wp_get_attachment_image(get_sub_field('image'), 'enamels'); ?>
 								<p><?php echo get_sub_field('title'); ?></p>
 								<a href=" <?php echo get_site_url(); ?>/contact">Inquire About This Enamel</a>
@@ -160,6 +162,18 @@ if (typeof bxSlider === "function") {
     	});		
 	});
 }
+
+jQuery('select.filter').on('change', function() {
+	jQuery('#search-enamels').val('');
+	var filters = '';
+	jQuery("select.filter").each(function() {
+		if (jQuery(this).val() != '') {
+			filters += '.' + jQuery(this).val();
+		}
+	});
+	jQuery('.enamel-block:not(' + filters + ')').fadeOut();
+	jQuery('.enamel-block' + filters).fadeIn();
+});
 
 </script>
 

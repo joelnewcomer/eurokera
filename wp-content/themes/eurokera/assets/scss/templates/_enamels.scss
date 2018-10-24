@@ -94,6 +94,11 @@ section.enamels {
 		margin: 0 20px;
 	}
 	.filter-bar {
+		display: block;
+		float: left;
+		width: 100%;
+		margin-top: 40px;
+		margin-bottom: 40px;
 		select, span {
 			font-size: 18px;
 		}
@@ -108,6 +113,27 @@ section.enamels {
 		}
 		.color-type {
 			width: 142px;
+		}
+	}
+	.enamel-block {
+		display: block;
+		float: left;
+		width: 100%;
+		margin-bottom: 40px;
+		img {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+		p, a {
+			font-size: 14px;
+			color: #5E6367;
+		}
+		p {
+			float: left;
+		}
+		a {
+			float: right;
+			font-weight: bold;
 		}
 	}
 }

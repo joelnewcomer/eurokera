@@ -5286,20 +5286,39 @@ section.enamels select, section.enamels span {
 section.enamels span {
   margin: 0 20px; }
 
-section.enamels .filter-bar select, section.enamels .filter-bar span {
-  font-size: 18px; }
+section.enamels .filter-bar {
+  display: block;
+  float: left;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px; }
+  section.enamels .filter-bar select, section.enamels .filter-bar span {
+    font-size: 18px; }
+  section.enamels .filter-bar select {
+    border: none; }
+  section.enamels .filter-bar .glass-color {
+    width: 240px; }
+  section.enamels .filter-bar .enamel-type {
+    width: 156px; }
+  section.enamels .filter-bar .color-type {
+    width: 142px; }
 
-section.enamels .filter-bar select {
-  border: none; }
-
-section.enamels .filter-bar .glass-color {
-  width: 240px; }
-
-section.enamels .filter-bar .enamel-type {
-  width: 156px; }
-
-section.enamels .filter-bar .color-type {
-  width: 142px; }
+section.enamels .enamel-block {
+  display: block;
+  float: left;
+  width: 100%;
+  margin-bottom: 40px; }
+  section.enamels .enamel-block img {
+    width: 100%;
+    margin-bottom: 10px; }
+  section.enamels .enamel-block p, section.enamels .enamel-block a {
+    font-size: 14px;
+    color: #5E6367; }
+  section.enamels .enamel-block p {
+    float: left; }
+  section.enamels .enamel-block a {
+    float: right;
+    font-weight: bold; }
 
 /*!
  * animsition v4.0.2
