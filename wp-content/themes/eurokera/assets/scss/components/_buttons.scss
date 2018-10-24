@@ -138,6 +138,34 @@ input.button:hover {
 	}
 }
 
+.button.white a {
+	background: #fff;
+	color: #5E6367;
+	&:hover {
+		background: transparent;
+		color: $primary-color;
+	}
+	&::before {
+		border: 2px solid $primary-color;
+		opacity: 0;
+		-webkit-transform: scale3d(1.2, 1.2, 1);
+		transform: scale3d(1.2, 1.2, 1);
+	}
+	&::after {
+		background: #fff;
+	}
+	&:hover::before {
+		opacity: 1;
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+	&:hover::after {
+		opacity: 0;
+		-webkit-transform: scale3d(0.8, 0.8, 1);
+		transform: scale3d(0.8, 0.8, 1);
+	}
+}
+
 .button.small a {
 	padding: 8px 20px;
 	font-size: 16px;

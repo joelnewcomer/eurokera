@@ -2691,6 +2691,28 @@ input.button:hover {
     background: #fff;
     border: 2px solid #fff; }
 
+.button.white a {
+  background: #fff;
+  color: #5E6367; }
+  .button.white a:hover {
+    background: transparent;
+    color: #ff8200; }
+  .button.white a::before {
+    border: 2px solid #ff8200;
+    opacity: 0;
+    -webkit-transform: scale3d(1.2, 1.2, 1);
+    transform: scale3d(1.2, 1.2, 1); }
+  .button.white a::after {
+    background: #fff; }
+  .button.white a:hover::before {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); }
+  .button.white a:hover::after {
+    opacity: 0;
+    -webkit-transform: scale3d(0.8, 0.8, 1);
+    transform: scale3d(0.8, 0.8, 1); }
+
 .button.small a {
   padding: 8px 20px;
   font-size: 16px;
@@ -4946,21 +4968,21 @@ section.design-gallery {
         top: 10px;
         right: 10px; }
 
-.enamels {
+.design-gallery .enamels {
   display: block;
   max-width: 1100px;
   margin: 0 auto;
   padding: 20px 0; }
-  .enamels h2 {
+  .design-gallery .enamels h2 {
     font-size: 24px;
     width: 100%;
     max-width: none !important;
     text-align: center; }
-  .enamels .hero {
+  .design-gallery .enamels .hero {
     -webkit-background-size: auto 100% !important;
             background-size: auto 100% !important;
     background-position: right center !important; }
-  .enamels .enamel {
+  .design-gallery .enamels .enamel {
     display: inline-block;
     vertical-align: top;
     width: 20%;
@@ -4969,24 +4991,24 @@ section.design-gallery {
     color: #626260;
     line-height: 1.2; }
     @media only screen and (max-width: 880px) {
-      .enamels .enamel {
+      .design-gallery .enamels .enamel {
         width: 25%; } }
     @media only screen and (max-width: 750px) {
-      .enamels .enamel {
+      .design-gallery .enamels .enamel {
         width: 33%; } }
     @media only screen and (max-width: 40.063em) {
-      .enamels .enamel {
+      .design-gallery .enamels .enamel {
         padding: 12px; } }
-    .enamels .enamel .enamel-sample {
+    .design-gallery .enamels .enamel .enamel-sample {
       display: block;
       float: left;
       width: 100%;
       padding: 0 25px;
       margin-bottom: 14px; }
       @media only screen and (max-width: 40.063em) {
-        .enamels .enamel .enamel-sample {
+        .design-gallery .enamels .enamel .enamel-sample {
           padding: 12px; } }
-    .enamels .enamel .enamel-inner {
+    .design-gallery .enamels .enamel .enamel-inner {
       display: block;
       float: left;
       width: 100%;
@@ -5183,6 +5205,101 @@ section.contact-locations {
       line-height: 1.2; }
   section.contact-locations .button a {
     text-transform: uppercase; }
+
+.enamels-page-intro {
+  padding: 100px 0; }
+  .enamels-page-intro p {
+    font-size: 24px;
+    display: inline-block;
+    max-width: 960px; }
+
+.enamels-slider .slider-container {
+  display: block;
+  margin: 0 auto;
+  max-width: 1440px; }
+
+.enamels-slider ul.bxslider {
+  height: 100%; }
+  .enamels-slider ul.bxslider li {
+    min-height: 100%; }
+
+.enamels-slider li.content .content-photo {
+  background: #2C9099;
+  position: relative;
+  padding-left: -webkit-calc(33% + 40px);
+  padding-left: calc(33% + 40px);
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-right: 40px; }
+  .enamels-slider li.content .content-photo .photo-container {
+    position: absolute;
+    width: 33%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    -webkit-background-size: cover !important;
+            background-size: cover !important; }
+
+.enamels-slider li.content h2 {
+  font-size: 48px; }
+
+.enamels-slider li.content .button a {
+  margin-top: 10px; }
+
+.enamels-slider li.photo .slide-inner {
+  padding: 160px 0 100px 0; }
+
+.enamels-slider li.photo h2 {
+  font-size: 70px;
+  margin-bottom: 30px; }
+
+.enamels-slider li.video svg {
+  width: 62px;
+  height: 62px; }
+
+.enamels-slider li.video .slide-inner {
+  background: #5E6367;
+  padding: 60px 0; }
+
+.enamels-slider li.video a.video {
+  display: block;
+  width: 100%;
+  max-width: 768px;
+  padding: 160px 0 60px 0;
+  -webkit-background-size: cover !important;
+          background-size: cover !important;
+  margin: 0 auto; }
+
+.enamels-slider .slide-inner h2, .enamels-slider .slide-inner p {
+  color: #fff; }
+
+.enamels-slider .slide-inner h2 {
+  font-weight: bold; }
+
+section.enamels #search-enamels {
+  display: inline-block;
+  max-width: 255px; }
+
+section.enamels select, section.enamels span {
+  display: inline-block; }
+
+section.enamels span {
+  margin: 0 20px; }
+
+section.enamels .filter-bar select, section.enamels .filter-bar span {
+  font-size: 18px; }
+
+section.enamels .filter-bar select {
+  border: none; }
+
+section.enamels .filter-bar .glass-color {
+  width: 240px; }
+
+section.enamels .filter-bar .enamel-type {
+  width: 156px; }
+
+section.enamels .filter-bar .color-type {
+  width: 142px; }
 
 /*!
  * animsition v4.0.2
@@ -7462,6 +7579,189 @@ h2.resp-accordion {
 
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
   background: #869791; }
+
+/**
+ * BxSlider v4.1.2 - Fully loaded, responsive content slider
+ * http://bxslider.com
+ *
+ * Written by: Steven Wanderski, 2014
+ * http://stevenwanderski.com
+ * (while drinking Belgian ales and listening to jazz)
+ *
+ * CEO and founder of bxCreative, LTD
+ * http://bxcreative.com
+ */
+/** RESET AND LAYOUT
+===================================*/
+.bx-wrapper {
+  position: relative;
+  margin: 0 auto 60px;
+  padding: 0;
+  *zoom: 1; }
+
+.bx-wrapper img {
+  width: 100%;
+  max-width: 100%;
+  display: block; }
+
+ul.bxslider {
+  margin: 0; }
+
+/** THEME
+===================================*/
+.bx-wrapper .bx-viewport {
+  /*fix other elements on the page moving (on Chrome)*/
+  -webkit-transform: translatez(0);
+  -ms-transform: translatez(0);
+  transform: translatez(0); }
+
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {
+  position: absolute;
+  bottom: -30px;
+  width: 100%; }
+
+/* LOADER */
+.bx-wrapper .bx-loading {
+  min-height: 50px;
+  background: url(../images/bx_loader.gif) center center no-repeat #fff;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000; }
+
+/* PAGER */
+.bx-wrapper .bx-pager {
+  text-align: center;
+  font-size: .85em;
+  font-family: Arial;
+  font-weight: bold;
+  color: #666;
+  padding-top: 20px; }
+
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline; }
+
+.bx-wrapper .bx-pager.bx-default-pager a {
+  background: #666;
+  text-indent: -9999px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  outline: 0;
+  border-radius: 5px; }
+
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+  background: #000; }
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+.bx-wrapper .bx-prev {
+  left: 10%; }
+
+.bx-wrapper .bx-prev:after {
+  content: "";
+  background: url(../images/slider-arrow-left.svg) center center no-repeat; }
+
+.bx-wrapper .bx-next {
+  right: 10%; }
+
+.bx-wrapper .bx-next:after {
+  content: "";
+  background: url(../images/slider-arrow-right.svg) center center no-repeat; }
+
+.bx-wrapper .bx-prev:hover {
+  background-position: 0 0; }
+
+.bx-wrapper .bx-next:hover {
+  background-position: -43px 0; }
+
+.bx-wrapper .bx-controls-direction a {
+  position: absolute;
+  top: 50%;
+  margin-top: -35px;
+  outline: 0;
+  width: 35px;
+  height: 70px;
+  text-indent: -9999px;
+  z-index: 9999; }
+
+.bx-wrapper .bx-controls-direction a:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: -7px;
+  width: 100%;
+  height: 100%;
+  font-family: FontAwesome;
+  font-size: 62px;
+  line-height: 62px;
+  text-indent: 0;
+  color: rgba(255, 255, 255, 0.5); }
+
+.bx-wrapper .bx-controls-direction a.disabled {
+  display: none; }
+
+/* AUTO CONTROLS (START / STOP) */
+.bx-wrapper .bx-controls-auto {
+  text-align: center; }
+
+.bx-wrapper .bx-controls-auto .bx-start {
+  display: block;
+  text-indent: -9999px;
+  width: 10px;
+  height: 11px;
+  outline: 0;
+  background: url(../images/controls.png) -86px -11px no-repeat;
+  margin: 0 3px; }
+
+.bx-wrapper .bx-controls-auto .bx-start:hover,
+.bx-wrapper .bx-controls-auto .bx-start.active {
+  background-position: -86px 0; }
+
+.bx-wrapper .bx-controls-auto .bx-stop {
+  display: block;
+  text-indent: -9999px;
+  width: 9px;
+  height: 11px;
+  outline: 0;
+  background: url(../images/controls.png) -86px -44px no-repeat;
+  margin: 0 3px; }
+
+.bx-wrapper .bx-controls-auto .bx-stop:hover,
+.bx-wrapper .bx-controls-auto .bx-stop.active {
+  background-position: -86px -33px; }
+
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+  text-align: left;
+  width: 80%; }
+
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+  right: 0;
+  width: 35px; }
+
+/* IMAGE CAPTIONS */
+.bx-wrapper .bx-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #666\9;
+  background: rgba(80, 80, 80, 0.75);
+  width: 100%; }
+
+.bx-wrapper .bx-caption span {
+  color: #fff;
+  font-family: Arial;
+  display: block;
+  font-size: .85em;
+  padding: 10px; }
 
 /*!
  * Load Awesome v1.1.0 (http://github.danielcardoso.net/load-awesome/)
