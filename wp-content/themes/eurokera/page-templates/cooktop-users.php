@@ -8,7 +8,10 @@ get_header(); ?>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 
-<?php $epops = ""; ?>
+<?php
+$epops = ""; 
+global $post;	
+?>
 
 <section class="users-gallery text-center">
 	<div class="row">
@@ -18,7 +21,7 @@ get_header(); ?>
 	</div>
 
 		<?php 
-		$images = get_field('gallery');
+		$images = get_post_meta($post->ID, 'gallery', true);
 		$gallery_dot_width = (100 / count($images));
 		?>
 		<style>
