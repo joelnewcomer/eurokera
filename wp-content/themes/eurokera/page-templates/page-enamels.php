@@ -127,7 +127,7 @@ get_header(); ?>
 					<?php if(get_field('enamels')): ?>
 						<?php while(has_sub_field('enamels')): ?>
 							<div class="enamel-block glass-<?php echo strtolower(get_sub_field('glass_color')); ?> <?php echo strtolower(get_sub_field('enamel_type')); ?> color-<?php echo strtolower(get_sub_field('color_type')); ?>">
-								<?php echo wp_get_attachment_image(get_sub_field('image'), 'enamels'); ?>
+								<?php echo wp_get_attachment_image(get_sub_field('image'), 'full'); ?>
 								<p><?php echo get_sub_field('title'); ?></p>
 								<a href=" <?php echo get_site_url(); ?>/contact">Inquire About This Enamel</a>
 								
