@@ -4,6 +4,8 @@ Template Name: Design Gallery
 */
 get_header(); ?>
 
+<?php global $post; ?>
+
 <?php get_template_part( 'template-parts/featured-image-parallax' ); ?>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
@@ -24,24 +26,24 @@ get_header(); ?>
 		<button class="btn-filter" data-filter=".enamels"><?php _e("Enamel Colors"); ?></button>
 	</div>
 	
-	<?php $images = get_field('field_598a0e1b1a3d2'); ?>
-		
+	<?php $images = get_post_meta($post->ID, 'gallery', true); ?>
+	
 	<div class="users-gallery" data-featherlight-gallery data-featherlight-filter="a.gallery-image">
 		<?php
 		if( $images ): ?>
 			<?php foreach( $images as $image ): ?>
-				<?php $categories = get_field('categories', $image['ID']); ?>
+				<?php $categories = get_field('categories', $image); ?>
 				<?php if (!in_array ( 'Enamels' , $categories)) : ?>
 					<?php
 					$cat_classes = '';
 					foreach ($categories as $category) {
 						$cat_classes .= ' ' . sanitize_title($category);
 					}
-					$full_size_url = wp_get_attachment_image_src( $image['ID'], 'full' );
-					$cropped_url = wp_get_attachment_image_src( $image['ID'], 'width=936&height=475&crop=1' ) 
+					$full_size_url = wp_get_attachment_image_src( $image, 'full' );
+					$cropped_url = wp_get_attachment_image_src( $image, 'width=936&height=475&crop=1' ) 
 					?>
 					<div class="gallery-link gallery-image gallery<?php echo $cat_classes; ?>">
-						<a class="gallery-image" href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $image['caption']; ?>">
+						<a class="gallery-image" href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $caption; ?>">
 							<div class="hero gallery-image" style="background-image: url(<?php echo $cropped_url[0]; ?>);"></div>
 						</a>
 						<?php
@@ -52,7 +54,7 @@ get_header(); ?>
 						get_template_part('assets/images/social/facebook','official.svg');
 						echo '</a>';
 						// Twitter
-						echo '<a href="https://twitter.com/intent/tweet?url=' . $full_size_url[0] . '&text=' . urlencode($image['caption']) . '" target="_blank" onclick="ga(\'send\', \'event\', \'Social\', \'Click\', \'Social Media – Twitter\');">';
+						echo '<a href="https://twitter.com/intent/tweet?url=' . $full_size_url[0] . '&text=' . urlencode($caption) . '" target="_blank" onclick="ga(\'send\', \'event\', \'Social\', \'Click\', \'Social Media – Twitter\');">';
 						get_template_part('assets/images/social/twitter','official.svg');
 						echo '</a>';
 						// Pinterest
@@ -60,7 +62,7 @@ get_header(); ?>
 						get_template_part('assets/images/social/pinterest-p','official.svg');
 						echo '</a>';				
 						// LinkedIn
-						echo '<a href="https://www.linkedin.com/shareArticle?url=' . get_permalink() . '&title=' . urlencode($image['caption']) . '" target="_blank" onclick="ga(\'send\', \'event\', \'Social\', \'Click\', \'Social Media – LinkedIn\');">';
+						echo '<a href="https://www.linkedin.com/shareArticle?url=' . get_permalink() . '&title=' . urlencode($caption) . '" target="_blank" onclick="ga(\'send\', \'event\', \'Social\', \'Click\', \'Social Media – LinkedIn\');">';
 						get_template_part('assets/images/social/linkedin','official.svg');
 						echo '</a>';				
 					echo '</div>';
@@ -82,18 +84,20 @@ get_header(); ?>
 		<?php
 		if( $images ): ?>
 			<?php foreach( $images as $image ): ?>
-				<?php $categories = get_field('categories', $image['ID']); ?>
+				<?php $categories = get_field('categories', $image);
+					$caption = wp_get_attachment_caption($image);
+				?>
 				<?php if (in_array ( 'Enamels' , $categories)) : ?>
 					<?php
 					$cat_classes = '';
 					foreach ($categories as $category) {
 						$cat_classes .= ' ' . sanitize_title($category);
 					}
-					$full_size_url = wp_get_attachment_image_src( $image['ID'], 'full' );
-					$cropped_url = wp_get_attachment_image_src( $image['ID'], 'width=936&height=526&crop=0' ) 
+					$full_size_url = wp_get_attachment_image_src( $image, 'full' );
+					$cropped_url = wp_get_attachment_image_src( $image, 'width=936&height=526&crop=0' ) 
 					?>
 					<div class="gallery-link enamel gallery-image gallery<?php echo $cat_classes; ?>">
-						<a class="gallery-image" href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $image['caption']; ?>">
+						<a class="gallery-image" href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $caption; ?>">
 							<div class="hero gallery-image" style="background-image: url(<?php echo $cropped_url[0]; ?>);"></div>
 						</a>
 						<?php
@@ -104,7 +108,7 @@ get_header(); ?>
 						get_template_part('assets/images/social/facebook','official.svg');
 						echo '</a>';
 						// Twitter
-						echo '<a href="https://twitter.com/intent/tweet?url=' . $full_size_url[0] . '&text=' . urlencode($image['caption']) . '" target="_blank">';
+						echo '<a href="https://twitter.com/intent/tweet?url=' . $full_size_url[0] . '&text=' . urlencode($caption) . '" target="_blank">';
 						get_template_part('assets/images/social/twitter','official.svg');
 						echo '</a>';
 						// Pinterest
@@ -112,7 +116,7 @@ get_header(); ?>
 						get_template_part('assets/images/social/pinterest-p','official.svg');
 						echo '</a>';				
 						// LinkedIn
-						echo '<a href="https://www.linkedin.com/shareArticle?url=' . get_permalink() . '&title=' . urlencode($image['caption']) . '" target="_blank">';
+						echo '<a href="https://www.linkedin.com/shareArticle?url=' . get_permalink() . '&title=' . urlencode($caption) . '" target="_blank">';
 						get_template_part('assets/images/social/linkedin','official.svg');
 						echo '</a>';				
 					echo '</div>';
