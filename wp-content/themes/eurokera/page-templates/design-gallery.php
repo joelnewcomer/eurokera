@@ -32,7 +32,9 @@ get_header(); ?>
 		<?php
 		if( $images ): ?>
 			<?php foreach( $images as $image ): ?>
-				<?php $categories = get_field('categories', $image); ?>
+				<?php $categories = get_field('categories', $image);
+					$caption = wp_get_attachment_caption($image);
+				?>
 				<?php if (!in_array ( 'Enamels' , $categories)) : ?>
 					<?php
 					$cat_classes = '';
