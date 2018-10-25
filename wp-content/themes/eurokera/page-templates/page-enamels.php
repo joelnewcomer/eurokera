@@ -90,9 +90,9 @@ get_header(); ?>
 				<h2><?php echo get_field('enamels_title'); ?></h2>
 			</div>
 			<div class="large-12 columns">
-				<p><?php echo get_field('enamels_intro'); ?></p>
+				<?php echo get_field('enamels_intro'); ?>
 				
-				<div class="filter-bar">
+				<div class="filter-bar small-text-center">
 				   	<form id="search" class="links-search">
 				   		<input id="search-enamels" type="text" name="search" placeholder="Search by reference #">
 				   		<span>or</span>

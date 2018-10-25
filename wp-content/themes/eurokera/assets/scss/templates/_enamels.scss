@@ -16,6 +16,10 @@
 
 
 .enamels-slider {
+	background: #efeff0;
+	.bx-wrapper {
+		margin: 0;
+	}
 	.slider-container {
 		display: block;
 		margin: 0 auto;
@@ -37,7 +41,10 @@
 			padding-right: 40px;
 			@media only screen and (max-width: 40.063em) {
 				padding-left: 24px;
-				padding-right: 24px;	
+				padding-right: 24px;
+				p {
+					font-size: 16px;
+				}
 			}
 			.photo-container {
 				position: absolute;
@@ -54,11 +61,17 @@
 		h2 {
 			font-size: 48px;
 			@media only screen and (max-width: 40.063em) {
-				font-size: 28px;	
+				font-size: 28px;
+				text-align: center;	
 			}
 		}
-		.button a {
-			margin-top: 10px;
+		.button {
+			a {
+				margin-top: 10px;
+			}
+			@media only screen and (max-width: 40.063em) {
+				text-align: center;
+			}
 		}
 	}
 	li.photo {
@@ -87,6 +100,10 @@
 			width: 100%;
 			max-width: 768px;
 			padding: 160px 0 60px 0;
+			@media only screen and (max-width: 40.063em) {
+				max-width: 90%;
+				padding: 120px 0 20px 0;
+			}			
 			background-size: cover !important;
 			margin: 0 auto;
 		}
@@ -102,15 +119,28 @@
 }
 
 section.enamels {
+	padding: 80px 0 30px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 30px 0 30px 0;	
+	}
+	background: #efeff0;
 	#search-enamels {
+		height: 44px;
+		border: none;
 		display: inline-block;
 		max-width: 255px;
+		@media only screen and (max-width: 40.063em) {
+			max-width: 100%;	
+		}
 	}
 	select, span {
 		display: inline-block;
 	}
 	span {
 		margin: 0 20px;
+		@media only screen and (max-width: 40.063em) {
+			margin: 10px 20px;	
+		}
 	}
 	.filter-bar {
 		display: block;
@@ -121,9 +151,6 @@ section.enamels {
 		select, span {
 			font-size: 18px;
 		}
-		select {
-			border: none;
-		}
 		.glass-color {
 			width: 240px;
 		}
@@ -133,12 +160,28 @@ section.enamels {
 		.color-type {
 			width: 142px;
 		}
+		select {
+			border: none;
+			padding-right: 0;
+			@media only screen and (max-width: 40.063em) {
+				width: 100% !important;
+				margin-bottom: 8px;
+			}
+		}		
+	}
+	a.reset {
+		font-weight: bold;
+		color: #5E6367;
+		margin: 0 8px;
 	}
 	.enamel-block {
 		display: block;
 		float: left;
 		width: 100%;
 		margin-bottom: 40px;
+		@media only screen and (max-width: 40.063em) {
+			margin-bottom: 20px;	
+		}
 		img {
 			width: 100%;
 			margin-bottom: 10px;
@@ -149,10 +192,17 @@ section.enamels {
 		}
 		p {
 			float: left;
+			margin: 0;
 		}
 		a {
 			float: right;
 			font-weight: bold;
+		}
+		@media only screen and (max-width: 40.063em) {
+			text-align: center;
+			p, a {
+				float: none;
+			}	
 		}
 	}
 }
