@@ -95,31 +95,31 @@ get_header(); ?>
 				<div class="filter-bar small-text-center">
 				   	<form id="search" class="links-search">
 				   		<input id="search-enamels" type="text" name="search" placeholder="Search by reference #">
-				   		<span>or</span>
+				   		<span><?php _e('or'); ?></span>
 				   		<select class="filter glass-color">
-					   		<option value="">Glass-Ceramic Substitute</option>
-				   			<option value="glass-black">Black</option>
-				   			<option value="glass-white">White</option>
+					   		<option value=""><?php _e('Glass-Ceramic Substitute'); ?></option>
+				   			<option value="glass-black"><?php _e('Black'); ?></option>
+				   			<option value="glass-white"><?php _e('White'); ?></option>
 				   		</select>
 				   		<select class="filter enamel-type">
-					   		<option value="">Enamel Type</option>
-				   			<option value="matte">Matte</option>
-				   			<option value="Mettalic">Mettalic</option>
+					   		<option value=""><?php _e('Enamel Type'); ?></option>
+				   			<option value="matte"><?php _e('Matte'); ?></option>
+				   			<option value="Mettalic"><?php _e('Mettalic'); ?></option>
 				   		</select>
 				   		<select class="filter color-type">
-					   		<option value="">Color Type</option>
-					   		<option value="color-grey">Grey</option>
-					   		<option value="color-red">Red</option>
-					   		<option value="color-blue">Blue</option>
-					   		<option value="color-green">Green</option>
-					   		<option value="color-brown">Brown</option>
-					   		<option value="color-black">Black</option>
-					   		<option value="color-metallic">Metallic</option>
-					   		<option value="color-white">White</option>
-					   		<option value="color-pink">Pink</option>
-					   		<option value="color-yellow">Yellow</option>
+					   		<option value=""><?php _e('Color Type'); ?></option>
+					   		<option value="color-grey"><?php _e('Grey'); ?></option>
+					   		<option value="color-red"><?php _e('Red'); ?></option>
+					   		<option value="color-blue"><?php _e('Blue'); ?></option>
+					   		<option value="color-green"><?php _e('Green'); ?></option>
+					   		<option value="color-brown"><?php _e('Brown'); ?></option>
+					   		<option value="color-black"><?php _e('Black'); ?></option>
+					   		<option value="color-metallic"><?php _e('Metallic'); ?></option>
+					   		<option value="color-white"><?php _e('White'); ?></option>
+					   		<option value="color-pink"><?php _e('Pink'); ?></option>
+					   		<option value="color-yellow"><?php _e('Yellow'); ?></option>
 				   		</select>
-				   		<a class="reset" href="#">Reset Filters</a>
+				   		<a class="reset" href="#"><?php _e('Reset Filters'); ?></a>
 				   	</form>
 				</div>
 				
@@ -129,7 +129,7 @@ get_header(); ?>
 							<div class="enamel-block glass-<?php echo strtolower(get_sub_field('glass_color')); ?> <?php echo strtolower(get_sub_field('enamel_type')); ?> color-<?php echo strtolower(get_sub_field('color_type')); ?>">
 								<?php echo wp_get_attachment_image(get_sub_field('image'), 'full'); ?>
 								<p><?php echo get_sub_field('title'); ?></p>
-								<a href=" <?php echo get_site_url(); ?>/contact">Inquire About This Enamel</a>
+								<a href=" <?php echo get_site_url(); ?>/contact"><?php _e('Inquire About This Enamel'); ?></a>
 								
 							</div> <!-- enamel-block -->
 						<?php endwhile; ?>
