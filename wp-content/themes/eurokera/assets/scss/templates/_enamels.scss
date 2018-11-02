@@ -23,12 +23,19 @@
 	.slider-container {
 		display: block;
 		margin: 0 auto;
-		max-width: 1440px;		
+		max-width: 1440px;
+		overflow: visible;		
 	}
 	ul.bxslider {
 		height: 100%;
 		li {
 			min-height: 100%;
+		}
+	}
+	.bx-wrapper .bx-pager.bx-default-pager a {
+		width: 100px;
+		&.active {
+			background: #ff8200;
 		}
 	}
 	li.content {

@@ -146,8 +146,8 @@ get_header(); ?>
 if (typeof bxSlider === "function") { 	
     var slider = jQuery('.bxslider').bxSlider({
         auto: false,
-        pager: false,
-        controls: true,
+    	pager: true,
+        controls: false,
         mode: 'fade',
         speed: 1000,
     });	
@@ -155,8 +155,8 @@ if (typeof bxSlider === "function") {
 	jQuery(window).load(function(){
     	var slider = jQuery('.bxslider').bxSlider({
     	    auto: false,
-    	    pager: false,
-    	    controls: true,
+    	    pager: true,
+    	    controls: false,
     	    mode: 'fade',
     	    speed: 1000,
     	});		

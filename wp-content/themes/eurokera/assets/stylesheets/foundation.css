@@ -5229,11 +5229,16 @@ section.contact-locations {
   .enamels-slider .slider-container {
     display: block;
     margin: 0 auto;
-    max-width: 1440px; }
+    max-width: 1440px;
+    overflow: visible; }
   .enamels-slider ul.bxslider {
     height: 100%; }
     .enamels-slider ul.bxslider li {
       min-height: 100%; }
+  .enamels-slider .bx-wrapper .bx-pager.bx-default-pager a {
+    width: 100px; }
+    .enamels-slider .bx-wrapper .bx-pager.bx-default-pager a.active {
+      background: #ff8200; }
   .enamels-slider li.content .content-photo {
     background: #2C9099;
     position: relative;
