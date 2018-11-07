@@ -104,7 +104,7 @@ get_header(); ?>
 				   		<select class="filter enamel-type">
 					   		<option value=""><?php _e('Enamel Type'); ?></option>
 				   			<option value="matte"><?php _e('Matte'); ?></option>
-				   			<option value="Mettalic"><?php _e('Metallic'); ?></option>
+				   			<option value="metallic"><?php _e('Metallic'); ?></option>
 				   		</select>
 				   		<select class="filter color-type">
 					   		<option value=""><?php _e('Color Type'); ?></option>
