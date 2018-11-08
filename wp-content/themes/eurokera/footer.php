@@ -48,8 +48,10 @@
 						$icl_privacy_page_id = icl_object_id($privacy_page->ID, 'page', true);
 						$sitemap_page = get_page_by_path('sitemap');
 						$icl_sitemap_page_id = icl_object_id($sitemap_page->ID, 'page', true);
+						$cookie_page = get_page_by_path('cookie-policy');
+						$icl_cookie_page_id = icl_object_id($cookie_page->ID, 'page', true);
 						?>
-						<p><?php _e( 'Copyright ', 'textdomain' ); ?> &copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?>.  <span class="no-break"><?php _e( 'All rights reserved.', 'textdomain' ); ?></span> <span class="show-for-small"><br /></span><a href="<?php echo get_permalink($icl_term_page_id); ?>"><?php _e('Terms of Use'); ?></a>. <a href="<?php echo get_permalink($icl_privacy_page_id); ?>"><?php _e('Privacy Policy'); ?></a>. <a href="<?php echo get_permalink($icl_sitemap_page_id); ?>"><?php _e('Sitemap'); ?></a></p>
+						<p><?php _e( 'Copyright ', 'textdomain' ); ?> &copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?>.  <span class="no-break"><?php _e( 'All rights reserved.', 'textdomain' ); ?></span> <span class="show-for-small"><br /></span><a href="<?php echo get_permalink($icl_term_page_id); ?>"><?php _e('Terms of Use'); ?></a>. <a href="<?php echo get_permalink($icl_privacy_page_id); ?>"><?php _e('Privacy Policy'); ?></a>. <a href="<?php echo get_permalink($icl_cookie_page_id); ?>"><?php _e('Cookie Policy'); ?></a>. <a href="<?php echo get_permalink($icl_sitemap_page_id); ?>"><?php _e('Sitemap'); ?></a></p>
 					</div>
 					<!-- <div class="large-6 medium-6 columns drum hide-on-print text-right small-text-center">
 						<a href="http://www.drumcreative.com" target="_blank"><?php _e( 'Web Design by: Drum Creative', 'textdomain' ); ?></a>
@@ -64,10 +66,7 @@
 			<p><?php _e('We use cookies to offer you a better browsing experience, analyze site traffic, and improve our customer service. Read about how we use cookies by clicking on "Cookie Policy". If you continue to use this site, you consent to our use of cookies.'); ?></p>
 		</div>
 		<div class="large-2 medium-2 columns text-center">
-			<?php
-			$cookie_page = get_page_by_path('cookie-policy');
-			$icl_cookie_page_id = icl_object_id($cookie_page->ID, 'page', true);
-			?>
+
 			<a class="cookie-policy-link" href="<?php echo get_permalink($icl_cookie_page_id); ?>"><strong><?php _e('Cookie Policy'); ?></strong></a>
 		</div>
 		<div class="large-2 medium-2 columns small-text-center">
