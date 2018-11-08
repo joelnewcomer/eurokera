@@ -73,8 +73,10 @@ get_header(); ?>
 			<h2><?php _e('Let Us Build Your Future Innovative Cooking Surface'); ?></h2>
 			<div class="site-links">
 				<div class="button">
-					<?php $contact_page = get_page_by_path('contact'); ?>
-					<a href="<?php echo get_permalink($contact_page->ID); ?>"><?php _e('Contact Us'); ?></a>
+					<?php $contact_page = get_page_by_path('contact'); 
+						$icl_contact_page_id = icl_object_id($contact_page->ID, 'page', true);
+						?>
+					<a href="<?php echo get_permalink($icl_contact_page_id); ?>"><?php _e('Contact Us'); ?></a>
 				</div>
 			</div>
 		</div>
