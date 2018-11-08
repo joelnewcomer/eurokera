@@ -144,8 +144,11 @@ get_header(); ?>
 	<div class="row">
 		<div class="large-12 columns text-center">
 			<h2><?php _e('Design Gallery Inspiration'); ?></h2>
-			<?php $gallery_page = get_page_by_path('cooktop-manufacturers/innovation/design-gallery'); ?>
-			<div class="button reverse"><a href="<?php echo get_permalink($gallery_page); ?>"><?php _e('See What We Can Do'); ?></a></div>
+			<?php $gallery_page = get_page_by_path('cooktop-manufacturers/innovation/design-gallery');
+			$icl_gallery_page_id = icl_object_id($gallery_page->ID, 'page', true);	
+			?>
+			
+			<div class="button reverse"><a href="<?php echo get_permalink($icl_gallery_page_id); ?>"><?php _e('See What We Can Do'); ?></a></div>
 		</div>
 	</div>
 </section>
@@ -184,8 +187,9 @@ get_header(); ?>
 				}
 				?>
 				
-				<?php $quality_page = get_page_by_path('cooktop-manufacturers/quality'); ?>	
-				<div class="button"><a href="<?php echo get_permalink($quality_page); ?>"><?php _e('Experience The EuroKera Quality','foundationpress'); ?></a></div>
+				<?php $quality_page = get_page_by_path('cooktop-manufacturers/quality');
+				$icl_quality_page_id = icl_object_id($quality_page->ID, 'page', true); ?>
+				<div class="button"><a href="<?php echo get_permalink($icl_quality_page_id); ?>"><?php _e('Experience The EuroKera Quality','foundationpress'); ?></a></div>
 			</div>
 		</div>
 	</section>
