@@ -5311,7 +5311,7 @@ section.enamels {
   background: #efeff0; }
   @media only screen and (max-width: 40.063em) {
     section.enamels {
-      padding: 30px 0 30px 0; } }
+      padding: 80px 0 30px 0; } }
   section.enamels #search-enamels {
     height: 44px;
     border: none;
@@ -7695,7 +7695,7 @@ ul.bxslider {
 .bx-wrapper .bx-pager,
 .bx-wrapper .bx-controls-auto {
   position: absolute;
-  bottom: -30px;
+  bottom: -40px;
   width: 100%; }
 
 /* LOADER */
