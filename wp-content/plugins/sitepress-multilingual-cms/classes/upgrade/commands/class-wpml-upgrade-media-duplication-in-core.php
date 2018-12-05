@@ -242,10 +242,6 @@ class WPML_Upgrade_Media_Duplication_In_Core implements IWPML_Upgrade_Command {
 		$translations = $this->sitepress->get_element_translations( $post->trid, $post->element_type );
 		$post_ids     = wp_list_pluck( $translations, 'element_id' );
 
-		if ( ! $post_ids ) {
-			return;
-		}
-
 		$this->wpdb->query(
 			$this->wpdb->prepare(
 				"INSERT INTO {$this->wpdb->prefix}postmeta ( post_id, meta_key, meta_value )

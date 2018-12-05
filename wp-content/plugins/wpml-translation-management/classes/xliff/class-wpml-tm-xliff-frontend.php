@@ -67,7 +67,7 @@ class WPML_TM_Xliff_Frontend extends WPML_TM_Xliff_Shared {
 				'ajax_set_xliff_options'
 			), 10, 2 );
 			if ( ! $this->sitepress->get_setting( 'xliff_newlines' ) ) {
-				$this->sitepress->set_setting( 'xliff_newlines', WPML_XLIFF_TM_NEWLINES_REPLACE, true );
+				$this->sitepress->set_setting( 'xliff_newlines', WPML_XLIFF_TM_NEWLINES_ORIGINAL, true );
 			}
 			if ( ! $this->sitepress->get_setting( 'tm_xliff_version' ) ) {
 				$this->sitepress->set_setting( 'tm_xliff_version', '12', true );

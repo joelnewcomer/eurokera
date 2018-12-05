@@ -35,7 +35,8 @@ class WPML_Set_Attachments_Language implements IWPML_Action {
 			$wpml_media_settings['starting_help'] = 1;
 			update_option( '_wpml_media', $wpml_media_settings );
 		}
-		exit;
+
+		wp_send_json_success();
 	}
 
 }
