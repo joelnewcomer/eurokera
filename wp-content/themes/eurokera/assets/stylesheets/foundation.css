@@ -4870,7 +4870,8 @@ section.locate-support .identify-cooktop svg {
   .epop-identify .eurokera-logo-3 {
     fill: #ff8200; }
   .epop-identify .epop-close {
-    font-family: "neuzeit-grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
+    font-family: "neuzeit-grotesk", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
+    font-weight: normal !important;
     width: 38px;
     height: 33px;
     right: 14px;
