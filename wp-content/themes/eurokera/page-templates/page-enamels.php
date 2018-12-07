@@ -206,7 +206,7 @@ jQuery( document).ready(function() {
 		// (optional) in case you don't want to wait for DOMContentLoaded before starting Holmes:
 		instant: true,
 		// (optional) if you want to start searching after a certain amount of characters are typed
-		minCharacters: 3,
+		minCharacters: 2,
 		onInput: function(){
 			jQuery("select.filter").each(function() {
 			    jQuery(this).prop('selectedIndex',0);
