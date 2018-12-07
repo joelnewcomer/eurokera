@@ -115,11 +115,11 @@
 					
 					<?php if (is_super_admin()) : ?>
 						<a class="large-4 medium-4 small-6 columns text-center product-selector-product always-show" href="<?php echo get_site_url(); ?>/enamels">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/enamels-product.png" alt="Enamels"> 
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/enamels-product.png" alt="<?php _e('Enamels'); ?>"> 
 							<div class="overlay">
 								<div style="display:table;width:100%;height:100%;">
 								  <div style="display:table-cell;vertical-align:middle;">
-								    <div style="text-align:center;" class="product-name">Top Decorations Enamels</div>
+								    <div style="text-align:center;" class="product-name"><?php _e('Top Decorations Enamels'); ?></div>
 								  </div>
 								</div>
 							</div>
