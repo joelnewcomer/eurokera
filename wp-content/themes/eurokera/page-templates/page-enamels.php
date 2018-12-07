@@ -156,7 +156,7 @@ if (typeof bxSlider === "function") {
 	jQuery(window).load(function(){
     	var slider = jQuery('.bxslider').bxSlider({
     	    auto: false,
-    	    pager: true,
+    	    pager: (jQuery(".bxslider").length > 1) ? true: false,
     	    controls: false,
     	    mode: 'fade',
     	    speed: 1000,
