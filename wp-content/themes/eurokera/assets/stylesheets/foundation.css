@@ -4342,6 +4342,7 @@ section.product-selector {
     top: 0;
     left: 0;
     font-size: 22px;
+    padding: 4px;
     color: #fff;
     display: block;
     width: 100%;

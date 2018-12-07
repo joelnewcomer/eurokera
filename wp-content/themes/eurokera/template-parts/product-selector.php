@@ -112,6 +112,20 @@
 							</div>
 						</div>
 					<?php endwhile; ?>
+					
+					<?php if (is_super_admin()) : ?>
+						<a class="large-4 medium-4 small-6 columns text-center product-selector-product always-show" href="<?php echo get_site_url(); ?>/enamels">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/enamels-product.png" alt="Enamels"> 
+							<div class="overlay">
+								<div style="display:table;width:100%;height:100%;">
+								  <div style="display:table-cell;vertical-align:middle;">
+								    <div style="text-align:center;" class="product-name">Top Decorations Enamels</div>
+								  </div>
+								</div>
+							</div>
+						</a>
+					<?php endif; ?>
+					
 				<?php endif; ?>
 				<?php wp_reset_postdata(); ?>
 				<script>
@@ -150,7 +164,7 @@
 					});
 					var numDivs = jQuery('.product-selector-product:not(' + selectedClasses + ')').length;
 					if (jQuery('.product-selector-product:not(' + selectedClasses + ')').length ) {
-						jQuery('.product-selector-product:not(' + selectedClasses + ')').fadeOut({
+						jQuery('.product-selector-product:not(' + selectedClasses + '):not(".always-show")').fadeOut({
 							duration: "fast",
 							complete: function() {
 								if( --numDivs > 0 ) return;
