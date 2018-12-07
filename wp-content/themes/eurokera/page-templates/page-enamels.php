@@ -97,7 +97,7 @@ get_header(); ?>
 				   		<input id="search-enamels" type="text" name="search" placeholder="<?php _e('Search'); ?>">
 				   		<span><?php _e('or'); ?></span>
 				   		<select class="filter glass-color">
-					   		<option value=""><?php _e('Glass-Ceramic Substitute'); ?></option>
+					   		<option value=""><?php _e('Glass-Ceramic Substrate'); ?></option>
 				   			<option value="glass-black"><?php _e('Black'); ?></option>
 				   			<option value="glass-white"><?php _e('White'); ?></option>
 				   		</select>
