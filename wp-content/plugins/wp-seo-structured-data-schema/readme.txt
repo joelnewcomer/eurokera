@@ -4,9 +4,9 @@ Donate link:
 Tags: seo, schema, structured data, rich snippets, microdata, json-ld, search engine optimization, local seo, google, sitelinks, schema.org, microformat, serp, amp
 Requires at least: 3.5
 Tested up to: 4.9
-Stable tag: 2.5.1
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: 2.5.2
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Comprehensive JSON-LD based Structured Data solution for WordPress for adding schema for organizations, businesses, blog posts, ratings & more.
 
