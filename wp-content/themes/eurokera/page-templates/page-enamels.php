@@ -94,7 +94,7 @@ get_header(); ?>
 				
 				<div class="filter-bar small-text-center">
 				   	<form id="search" class="links-search">
-				   		<input id="search-enamels" type="text" name="search" placeholder="Search by reference #">
+				   		<input id="search-enamels" type="text" name="search" placeholder="<?php _e('Search'); ?>">
 				   		<span><?php _e('or'); ?></span>
 				   		<select class="filter glass-color">
 					   		<option value=""><?php _e('Glass-Ceramic Substitute'); ?></option>
