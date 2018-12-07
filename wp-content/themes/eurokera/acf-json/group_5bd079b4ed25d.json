@@ -325,7 +325,8 @@
                     },
                     "choices": {
                         "Matte": "Matte",
-                        "Metallic": "Metallic"
+                        "Metallic": "Metallic",
+                        "Reflective": "Reflective"
                     },
                     "default_value": [],
                     "allow_null": 0,
@@ -390,5 +391,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1541171563
+    "modified": 1544195421
 }

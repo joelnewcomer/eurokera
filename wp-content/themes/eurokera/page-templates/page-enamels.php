@@ -105,6 +105,7 @@ get_header(); ?>
 					   		<option value=""><?php _e('Enamel Type'); ?></option>
 				   			<option value="matte"><?php _e('Matte'); ?></option>
 				   			<option value="metallic"><?php _e('Metallic'); ?></option>
+				   			<option value="reflective"><?php _e('Reflective'); ?></option>
 				   		</select>
 				   		<select class="filter color-type">
 					   		<option value=""><?php _e('Color Type'); ?></option>
