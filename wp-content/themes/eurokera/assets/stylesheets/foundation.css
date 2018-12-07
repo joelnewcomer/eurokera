@@ -5253,7 +5253,9 @@ section.contact-locations {
     @media only screen and (max-width: 40.063em) {
       .enamels-slider li.content .content-photo {
         padding-left: 24px;
-        padding-right: 24px; }
+        padding-right: 24px;
+        padding-top: 170px;
+        padding-bottom: 20px; }
         .enamels-slider li.content .content-photo p {
           font-size: 16px; } }
     .enamels-slider li.content .content-photo .photo-container {
@@ -5266,7 +5268,8 @@ section.contact-locations {
               background-size: cover !important; }
       @media only screen and (max-width: 40.063em) {
         .enamels-slider li.content .content-photo .photo-container {
-          display: none; } }
+          width: 100%;
+          height: 150px; } }
   .enamels-slider li.content h2 {
     font-size: 48px; }
     @media only screen and (max-width: 40.063em) {
