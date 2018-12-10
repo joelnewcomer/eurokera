@@ -119,7 +119,7 @@
 							<div class="overlay">
 								<div style="display:table;width:100%;height:100%;">
 								  <div style="display:table-cell;vertical-align:middle;">
-								    <div style="text-align:center;" class="product-name"><?php _e('Top Decorations Enamels'); ?></div>
+								    <div style="text-align:center;" class="product-name"><?php _e('Top Decoration Enamels'); ?></div>
 								  </div>
 								</div>
 							</div>
