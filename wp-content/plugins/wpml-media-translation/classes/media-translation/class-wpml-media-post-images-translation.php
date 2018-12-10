@@ -145,9 +145,18 @@ class WPML_Media_Post_Images_Translation implements IWPML_Action {
 					array( '%d' )
 				);
 			}
-		} else {
+		} elseif ( $this->is_updated_from_media_translation_menu() ) {
 			do_action( 'wpml_pb_resave_post_translation', $post_element );
 		}
+	}
+
+	private function is_updated_from_media_translation_menu() {
+		$allowed_actions = array(
+			'wpml_media_save_translation',
+			'wpml_media_translate_media_url_in_posts',
+		);
+
+		return isset( $_POST['action'] ) && in_array( $_POST['action'], $allowed_actions, true );
 	}
 
 	/**
