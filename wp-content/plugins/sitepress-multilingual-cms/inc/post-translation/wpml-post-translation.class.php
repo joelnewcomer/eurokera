@@ -431,7 +431,7 @@ abstract class WPML_Post_Translation extends WPML_Element_Translation {
 	 */
 	private function get_debug_backtrace() {
 		if ( ! $this->debug_backtrace ) {
-			$this->debug_backtrace = new WPML_Debug_BackTrace( 20 );
+			$this->debug_backtrace = new WPML_Debug_BackTrace( phpversion(), 20 );
 		}
 
 		return $this->debug_backtrace;

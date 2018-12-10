@@ -207,7 +207,7 @@ class WPML_Notices {
 			wp_enqueue_script(
 				'otgs-notices',
 				ICL_PLUGIN_URL . '/res/js/otgs-notices.js',
-				array( 'underscore', 'wp-edit-post' ),
+				array( 'underscore' ),
 				ICL_SITEPRESS_VERSION,
 				true
 			);

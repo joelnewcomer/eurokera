@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5eecc75985e1a9b54f916949739ad704
+class ComposerStaticInit1f3860639ccb40d86b68aef829508c0a
 {
     public static $files = array (
         'b45b351e6b6f7487d819961fef2fda77' => __DIR__ . '/..' . '/jakeasmith/http_build_url/src/http_build_url.php',
@@ -715,6 +715,7 @@ class ComposerStaticInit5eecc75985e1a9b54f916949739ad704
         'WPML_PB_Handle_Post_Body' => __DIR__ . '/..' . '/wpml/page-builders/src/tm/class-wpml-pb-handle-post-body.php',
         'WPML_PB_Integration' => __DIR__ . '/..' . '/wpml/page-builders/src/st/class-wpml-pb-integration.php',
         'WPML_PB_Integration_Rescan' => __DIR__ . '/..' . '/wpml/page-builders/src/st/class-wpml-pb-rescan.php',
+        'WPML_PB_Last_Translation_Edit_Mode' => __DIR__ . '/..' . '/wpml/page-builders/src/st/class-wpml-pb-last-translation-edit-mode.php',
         'WPML_PB_Loader' => __DIR__ . '/..' . '/wpml/page-builders/src/st/class-wpml-pb-loader.php',
         'WPML_PB_Package_Strings_Resave' => __DIR__ . '/..' . '/wpml/page-builders/src/st/class-wpml-pb-package-strings-resave.php',
         'WPML_PB_Register_Shortcodes' => __DIR__ . '/..' . '/wpml/page-builders/src/st/strategy/shortcode/class-wpml-pb-register-shortcodes.php',
@@ -1080,10 +1081,10 @@ class ComposerStaticInit5eecc75985e1a9b54f916949739ad704
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5eecc75985e1a9b54f916949739ad704::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5eecc75985e1a9b54f916949739ad704::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit5eecc75985e1a9b54f916949739ad704::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit5eecc75985e1a9b54f916949739ad704::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1f3860639ccb40d86b68aef829508c0a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1f3860639ccb40d86b68aef829508c0a::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit1f3860639ccb40d86b68aef829508c0a::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit1f3860639ccb40d86b68aef829508c0a::$classMap;
 
         }, null, ClassLoader::class);
     }

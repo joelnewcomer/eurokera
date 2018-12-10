@@ -10,12 +10,10 @@ class WPML_Endpoints_Support_Factory implements IWPML_Frontend_Action_Loader, IW
 	 * @return WPML_Endpoints_Support
 	 */
 	public function create() {
-		global $sitepress;
+		global $sitepress, $wpml_post_translations;
 
 		if ( defined( 'WPML_ST_VERSION' ) ) {
-			$translatable_element_factory = new WPML_Translation_Element_Factory( $sitepress );
-
-			return new WPML_Endpoints_Support( $translatable_element_factory, $sitepress->get_current_language(), $sitepress->get_default_language() );
+			return new WPML_Endpoints_Support( $wpml_post_translations, $sitepress->get_current_language(), $sitepress->get_default_language() );
 		}
 
 		return null;

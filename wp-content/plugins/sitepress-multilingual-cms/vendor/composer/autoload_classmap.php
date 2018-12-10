@@ -678,6 +678,7 @@ return array(
     'WPML_PB_Handle_Post_Body' => $vendorDir . '/wpml/page-builders/src/tm/class-wpml-pb-handle-post-body.php',
     'WPML_PB_Integration' => $vendorDir . '/wpml/page-builders/src/st/class-wpml-pb-integration.php',
     'WPML_PB_Integration_Rescan' => $vendorDir . '/wpml/page-builders/src/st/class-wpml-pb-rescan.php',
+    'WPML_PB_Last_Translation_Edit_Mode' => $vendorDir . '/wpml/page-builders/src/st/class-wpml-pb-last-translation-edit-mode.php',
     'WPML_PB_Loader' => $vendorDir . '/wpml/page-builders/src/st/class-wpml-pb-loader.php',
     'WPML_PB_Package_Strings_Resave' => $vendorDir . '/wpml/page-builders/src/st/class-wpml-pb-package-strings-resave.php',
     'WPML_PB_Register_Shortcodes' => $vendorDir . '/wpml/page-builders/src/st/strategy/shortcode/class-wpml-pb-register-shortcodes.php',

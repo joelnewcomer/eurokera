@@ -6,9 +6,9 @@ class WPML_Endpoints_Support {
 	const STRING_CONTEXT = 'WP Endpoints';
 
 	/**
-	 * @var WPML_Translation_Element_Factory
+	 * @var WPML_Post_Translation
 	 */
-	private $translatable_element_factory;
+	private $post_translations;
 	/**
 	 * @var string
 	 */
@@ -18,10 +18,10 @@ class WPML_Endpoints_Support {
 	 */
 	private $default_language;
 
-	public function __construct( WPML_Translation_Element_Factory $translatable_element_factory, $current_language, $default_language ) {
-		$this->translatable_element_factory = $translatable_element_factory;
-		$this->current_language             = $current_language;
-		$this->default_language             = $default_language;
+	public function __construct( WPML_Post_Translation $post_translations, $current_language, $default_language ) {
+		$this->post_translations = $post_translations;
+		$this->current_language  = $current_language;
+		$this->default_language  = $default_language;
 	}
 
 	public function add_hooks() {
@@ -157,21 +157,25 @@ class WPML_Endpoints_Support {
 
 		if ( isset( $post->ID ) && $post->ID && ! is_admin() ) {
 
-			$current_lang = apply_filters( 'wpml_current_language', $this->current_language );
-			$page = $this->translatable_element_factory->create_post( $post->ID );
-			$page_lang = $page->get_language_code();
+			$page_lang = $this->post_translations->get_element_lang_code( $post->ID );
 
 			if ( ! $page_lang ) {
 				return $link;
 			}
 
-			$pid_element = $this->translatable_element_factory->create_post( $pid );
-			$pid_translation = $pid_element->get_translation( $page_lang );
+			if ( $pid === $post->ID ) {
+				$pid_in_page_lang = $pid;
+			} else {
+				$translations     = $this->post_translations->get_element_translations( $pid );
+				$pid_in_page_lang = isset( $translations[ $page_lang ] ) ? $translations[ $page_lang ] : $pid;
+			}
+
+			$current_lang = apply_filters( 'wpml_current_language', $this->current_language );
 
 			if (
 				(
 					$current_lang != $page_lang &&
-					$pid_translation->get_element_id() == $post->ID
+					$pid_in_page_lang == $post->ID
 				) ||
 				apply_filters( 'wpml_endpoint_force_permalink_filter', false, $current_lang, $page_lang )
 			) {
@@ -233,8 +237,7 @@ class WPML_Endpoints_Support {
 
 		if ( isset( $post->ID ) && $post->ID ) {
 
-			$post_factory = $this->translatable_element_factory->create_post( $post->ID );
-			$post_lang = $post_factory->get_language_code();
+			$post_lang = $this->post_translations->get_element_lang_code( $post->ID );
 			$current_endpoint = $this->get_current_endpoint( $data['code'] );
 
 			if ( $post_lang === $data['code'] && $current_endpoint ) {
