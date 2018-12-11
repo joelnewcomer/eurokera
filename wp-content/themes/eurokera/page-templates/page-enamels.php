@@ -130,7 +130,12 @@ get_header(); ?>
 							<div class="enamel-block glass-<?php echo strtolower(get_sub_field('glass_color')); ?> <?php echo strtolower(get_sub_field('enamel_type')); ?> color-<?php echo strtolower(get_sub_field('color_type')); ?>">
 								<?php echo wp_get_attachment_image(get_sub_field('image'), 'full'); ?>
 								<p><?php echo get_sub_field('title'); ?></p>
-								<a href=" <?php echo get_site_url(); ?>/contact?subject=Inquiry About <?php echo get_sub_field('title'); ?>&message=Please send me more info about <?php echo get_sub_field('title'); ?>"><?php _e('Inquire About This Enamel'); ?></a>
+
+								<?php $contact_page = get_page_by_path('contact');
+								$icl_contact_page_id = icl_object_id($contact_page->ID, 'page', true);
+								$contact_url = get_permalink($icl_contact_page_id); ?>									
+								
+								<a href=" <?php echo $contact_url; ?>?subject=<?php _e('Inquiry About'); ?> <?php echo get_sub_field('title'); ?>&message=<?php _e('Please send me more info about'); ?> <?php echo get_sub_field('title'); ?>"><?php _e('Inquire About This Enamel'); ?></a>
 								
 							</div> <!-- enamel-block -->
 						<?php endwhile; ?>
