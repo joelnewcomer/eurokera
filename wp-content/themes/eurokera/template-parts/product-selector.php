@@ -189,7 +189,7 @@
 					}
 				});
 				// When user clicks on product, email their form selections to EuroKera
-				jQuery(".product-selector-product").on('click', function() {
+				jQuery(".product-selector-product:not('.always-show')").on('click', function() {
 					var productUrl = jQuery(this).data('href');
 					var productName = jQuery(this).find('.product-name').html();
 					var glassColor = "";
