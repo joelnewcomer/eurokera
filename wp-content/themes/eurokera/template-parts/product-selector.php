@@ -67,6 +67,7 @@
 				<?php if ( $the_query->have_posts() ) : ?>
 					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 						<?php
+						global $post;
 						$white = '';
 						$classes = '';
 						$title = get_the_title();
@@ -101,7 +102,10 @@
 							$classes .= ' ' . strtolower($market);
 						}
 						?>
-						<div class="large-4 medium-4 small-6 columns text-center product-selector-product <?php echo $classes; ?> <?php echo $white; ?>" data-href="<?php the_permalink(); ?>">
+						<div class="large-4 medium-4 small-6 columns text-center product-selector-product <?php echo $classes; ?> <?php echo $white; ?>" data-href="<?php echo get_permalink(icl_object_id($post->ID, 'products', false)); ?>">
+							
+							
+							
 							<?php echo wp_get_attachment_image( get_field('thumbnail'), 'width=355&height=203&crop=1' ); ?>
 							<div class="overlay">
 								<div style="display:table;width:100%;height:100%;">
