@@ -114,7 +114,12 @@
 					<?php endwhile; ?>
 					
 					<?php if (is_super_admin()) : ?>
-						<a class="large-4 medium-4 small-6 columns text-center product-selector-product always-show" href="<?php echo get_site_url(); ?>/enamels">
+						
+						<?php $enamels_page = get_page_by_path('enamels');
+						$icl_enamels_page_id = icl_object_id($enamels_page->ID, 'page', true);
+						$enamels_url = get_permalink($icl_enamels_page_id); ?>	
+						
+						<a class="large-4 medium-4 small-6 columns text-center product-selector-product always-show" href="<?php echo $enamels_url; ?>">
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/enamels-product.png" alt="<?php _e('Enamels'); ?>"> 
 							<div class="overlay">
 								<div style="display:table;width:100%;height:100%;">
