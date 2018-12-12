@@ -135,7 +135,9 @@ get_header(); ?>
 								$icl_contact_page_id = icl_object_id($contact_page->ID, 'page', true);
 								$contact_url = get_permalink($icl_contact_page_id); ?>									
 								
-								<a href=" <?php echo $contact_url; ?>?subject=<?php _e('Inquiry About'); ?> <?php echo get_sub_field('title'); ?>&message=<?php _e('Please send me more info about'); ?> <?php echo get_sub_field('title'); ?>"><?php _e('Inquire About This Enamel'); ?></a>
+								
+								
+								<a href=" <?php echo $contact_url; ?>?subject=<?php echo sprintf( __('Inquiry About %s', 'foundationpress'), get_sub_field('title')); ?>&message=<?php echo sprintf( __('Please send me more info about %s', 'foundationpress'), get_sub_field('title')); ?>"><?php _e('Inquire About This Enamel'); ?></a>
 								
 							</div> <!-- enamel-block -->
 						<?php endwhile; ?>
