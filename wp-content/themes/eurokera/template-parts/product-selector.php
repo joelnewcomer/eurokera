@@ -102,7 +102,7 @@
 							$classes .= ' ' . strtolower($market);
 						}
 						?>
-						<div class="large-4 medium-4 small-6 columns text-center product-selector-product <?php echo $classes; ?> <?php echo $white; ?>" data-href="<?php echo get_permalink(wpml_object_id($post->ID, 'products')); ?>">
+						<div class="large-4 medium-4 small-6 columns text-center product-selector-product <?php echo $classes; ?> <?php echo $white; ?>" data-href="<?php echo get_permalink(apply_filters( 'wpml_object_id', $post->ID, 'products')); ?>">
 							
 							<?php echo wp_get_attachment_image( get_field('thumbnail'), 'width=355&height=203&crop=1' ); ?>
 							<div class="overlay">
