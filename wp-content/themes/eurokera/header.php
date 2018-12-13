@@ -73,7 +73,7 @@
 	
 	<!-- Load Basil -->
 	<script>
-	jQuery( window ).load(function() {
+	jQuery( document ).ready(function() {
 		options = {
 			expireDays: 365
 		};
