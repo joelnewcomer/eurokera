@@ -116,8 +116,6 @@
 					<?php endwhile; ?>
 					
 					<?php if (is_super_admin()) : ?>
-					
-					<div class="large-4 medium-4 small-6 columns text-center product-selector-product <?php echo $classes; ?> <?php echo $white; ?>" data-href="<?php echo get_permalink(apply_filters( 'wpml_object_id', 698, 'products')); ?>"> Admin Debug </div>
 						
 						<?php $enamels_page = get_page_by_path('enamels');
 						$icl_enamels_page_id = icl_object_id($enamels_page->ID, 'page', true);
