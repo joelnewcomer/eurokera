@@ -115,7 +115,7 @@
 						</div>
 					<?php endwhile; ?>
 					
-					<?php if (is_super_admin()) : ?>
+					<?php if (ICL_LANGUAGE_CODE=='en') : ?>
 						
 						<?php $enamels_page = get_page_by_path('enamels');
 						$icl_enamels_page_id = icl_object_id($enamels_page->ID, 'page', true);
