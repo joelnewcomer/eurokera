@@ -20,7 +20,7 @@ add_filter( 'use_default_gallery_style', '__return_false' );
 //Add the read more link to excerpts
 function new_excerpt_more( $more ) {
 	global $post;
-	return '...<strong>read more</strong>';
+	return '...<strong>' . __('read more') . '</strong>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
