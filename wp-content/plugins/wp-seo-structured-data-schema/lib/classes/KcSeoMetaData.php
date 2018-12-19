@@ -113,10 +113,12 @@ if (!class_exists('KcSeoMetaData')):
             foreach ($schemaFields as $schemaID => $schema) {
                 $schemaMetaId = $KcSeoWPSchema->KcSeoPrefix . $schemaID;
                 $data = array();
-                foreach ($schema['fields'] as $fieldId => $fieldData) {
-                    $value = (!empty($_REQUEST[$schemaMetaId][$fieldId]) ? $_REQUEST[$schemaMetaId][$fieldId] : null);
-                    $value = $KcSeoWPSchema->sanitize($fieldData, $value);
-                    $data[$fieldId] = $value;
+                if(!empty($schema['fields'])) {
+                    foreach ($schema['fields'] as $fieldId => $fieldData) {
+                        $value = (!empty($_REQUEST[$schemaMetaId][$fieldId]) ? $_REQUEST[$schemaMetaId][$fieldId] : null);
+                        $value = $KcSeoWPSchema->sanitize($fieldData, $value);
+                        $data[$fieldId] = $value;
+                    }
                 }
                 $meta[$schemaMetaId] = $data;
             }

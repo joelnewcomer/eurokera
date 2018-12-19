@@ -62,7 +62,7 @@ msgid "TV Episode"
 msgstr ""
 
 #: ../lib/classes/KcSeoHelper.php:204, ../lib/models/KcSeoSchemaModel.php:1479
-msgid "FAQ / Question"
+msgid "QAPage"
 msgstr ""
 
 #: ../lib/classes/KcSeoHelper.php:210

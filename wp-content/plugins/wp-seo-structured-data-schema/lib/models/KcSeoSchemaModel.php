@@ -1476,7 +1476,7 @@ if (!class_exists('KcSeoSchemaModel')):
                 ),
                 'question'         => array(
                     'pro'   => true,
-                    'title' => __("FAQ / Question", "wp-seo-structured-data-schema"),
+                    'title' => __("QAPage", "wp-seo-structured-data-schema"),
                 ),
             );
         }

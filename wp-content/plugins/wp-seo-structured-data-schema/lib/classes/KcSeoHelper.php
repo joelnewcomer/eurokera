@@ -201,7 +201,7 @@ if (!class_exists('KcSeoSettings')):
                             <li><?php _e("Music", "wp-seo-structured-data-schema") ?></li>
                             <li><?php _e("Recipe", "wp-seo-structured-data-schema") ?></li>
                             <li><?php _e("TV Episode", "wp-seo-structured-data-schema") ?></li>
-                            <li><?php _e("FAQ / Question", "wp-seo-structured-data-schema") ?></li>
+                            <li><?php _e("QAPage", "wp-seo-structured-data-schema") ?></li>
                         </ol>
                     </li>
                 </ol>
