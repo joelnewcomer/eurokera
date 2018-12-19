@@ -144,11 +144,11 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
 (function(){var s = document.getElementsByTagName("script")[0];
 var b = document.createElement("script");
 b.type = "text/javascript";b.async = true;
-b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js<https://snap.licdn.com/li.lms-analytics/insight.min.js>";
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
 s.parentNode.insertBefore(b, s);})();
 </script>
 <noscript>
-<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=576260&fmt=gif<https://dc.ads.linkedin.com/collect/?pid=576260&fmt=gif>" />
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=576260&fmt=gif" />
 </noscript>
 
 </body>
