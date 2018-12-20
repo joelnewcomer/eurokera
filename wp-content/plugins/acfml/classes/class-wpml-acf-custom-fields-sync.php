@@ -2,24 +2,24 @@
 
 class WPML_ACF_Custom_Fields_Sync {
 	public function register_hooks() {
-		add_action( 'wpml_single_custom_field_sync_option_updated', array($this, 'synchronise_subrepeater_fields'), 10, 1);
-		add_action( 'wpml_custom_fields_sync_option_updated', array($this, 'synchronise_subrepeater_fields'), 10, 1);
+		add_action( 'wpml_single_custom_field_sync_option_updated', array($this, 'synchronise_sub_fields'), 10, 1);
+		add_action( 'wpml_custom_fields_sync_option_updated', array($this, 'synchronise_sub_fields'), 10, 1);
 
 		// make copy once synchornisation working (acfml-45)
 		add_filter( 'wpml_custom_field_values', array($this, 'remove_cf_value_for_copy_once'), 10, 2);
 
 	}
 
-	public function synchronise_subrepeater_fields($cft) {
+	public function synchronise_sub_fields($cft) {
 		global $iclTranslationManagement;
-		foreach ($cft as $field_name => $field_preferences) {
-			$post_id = $this->get_post_with_custom_field($field_name);
-			$repeater_object = get_field_object($field_name, $post_id);
-			if (isset($repeater_object['type']) && 'repeater' == $repeater_object['type']) { // it is repeater field
-				$repeater = get_field($field_name, $post_id);
-				if ($repeater) {
-					foreach ($repeater as $row_number => $row_content) {
-						foreach ($row_content as $subfield_name => $subfield_value) {
+		foreach ( $cft as $field_name => $field_preferences ) {
+			$post_id = $this->get_post_with_custom_field( $field_name );
+			$repeater_object = get_field_object( $field_name, $post_id) ;
+			if ( isset( $repeater_object['type'] ) && ( 'repeater' == $repeater_object['type'] || 'flexible_content' == $repeater_object['type'] ) ) { // it is repeater field or flexible
+				$repeater = get_field( $field_name, $post_id );
+				if ( $repeater ) {
+					foreach ( $repeater as $row_number => $row_content ) {
+						foreach ( $row_content as $subfield_name => $subfield_value ) {
 							$iclTranslationManagement->settings['custom_fields_translation'][$field_name . "_" . $row_number . "_" . $subfield_name] = $field_preferences;
 						}
 					}
@@ -33,7 +33,7 @@ class WPML_ACF_Custom_Fields_Sync {
 
 		// this action runs also for case 'icl_tcf_translation', @see \TranslationManagement::ajax_calls
 		// it shouldn't because it will overwrite normal cf fields values with zeros
-		remove_action( 'wpml_custom_fields_sync_option_updated', array($this, 'synchronise_subrepeater_fields'), 10, 1);
+		remove_action( 'wpml_custom_fields_sync_option_updated', array( $this, 'synchronise_sub_fields' ), 10, 1);
 	}
 
 	public function remove_cf_value_for_copy_once( $value, $context_data ) {
