@@ -674,6 +674,8 @@ return array(
     'WPML_PB_Config_Import_Shortcode' => $vendorDir . '/wpml/page-builders/src/st/strategy/shortcode/class-wpml-pb-config-import-shortcode.php',
     'WPML_PB_Elementor_Handle_Custom_Fields_Factory' => $vendorDir . '/wpml/page-builders-elementor/src/class-wpml-elementor-pb-handle-custom-fields-factory.php',
     'WPML_PB_Factory' => $vendorDir . '/wpml/page-builders/src/st/class-wpml-pb-factory.php',
+    'WPML_PB_Fix_Maintenance_Query' => $vendorDir . '/wpml/page-builders-elementor/src/class-wpml-pb-fix-maintenance-query.php',
+    'WPML_PB_Fix_Maintenance_Query_Factory' => $vendorDir . '/wpml/page-builders-elementor/src/class-wpml-pb-fix-maintenance-query-factory.php',
     'WPML_PB_Handle_Custom_Fields' => $vendorDir . '/wpml/page-builders/src/tm/class-wpml-pb-handle-custom-fields.php',
     'WPML_PB_Handle_Post_Body' => $vendorDir . '/wpml/page-builders/src/tm/class-wpml-pb-handle-post-body.php',
     'WPML_PB_Integration' => $vendorDir . '/wpml/page-builders/src/st/class-wpml-pb-integration.php',

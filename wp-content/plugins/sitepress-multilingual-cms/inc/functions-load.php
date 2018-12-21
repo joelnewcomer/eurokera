@@ -101,7 +101,9 @@ function wpml_load_request_handler( $is_admin, $active_language_codes, $default_
 	$wpml_cookie = new WPML_Cookie();
 	$wp_api      = new WPML_WP_API();
 
-	if ( $is_admin === true ) {
+	$is_rest = array_key_exists( 'rest_route', $_REQUEST ) || ( false !== strpos( $_SERVER['REQUEST_URI'], 'wp-json' ) );
+
+	if ( $is_admin === true || $is_rest ) {
 		$wpml_request_handler = new WPML_Backend_Request(
 			$wpml_url_converter,
 			$active_language_codes,
