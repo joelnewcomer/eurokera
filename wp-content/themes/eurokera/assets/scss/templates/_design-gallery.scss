@@ -10,6 +10,8 @@ section.design-gallery {
 		.btn-filter {
 			font-size: 24px;
 			padding: 4px 15px;
+			color: #625f5b;
+			white-space: nowrap;
 			&.btn-active {
 				color: $primary-color;
 			}

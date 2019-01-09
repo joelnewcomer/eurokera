@@ -23,7 +23,7 @@ get_header(); ?>
 		<button class="btn-filter" data-filter=".touch-sliders"><?php _e("Touch Sliders"); ?></button>
 		<button class="btn-filter" data-filter=".bevels"><?php _e("Bevels"); ?></button>
 		<button class="btn-filter" data-filter=".decorations"><?php _e("Decorations"); ?></button>
-		<button class="btn-filter" data-filter=".enamels"><?php _e("Enamel Colors"); ?></button>
+		<a class="btn-filter" href="<?php echo get_site_url(); ?>/enamels"><?php _e("Enamel Colors"); ?></a>
 	</div>
 	
 	<?php $images = get_post_meta($post->ID, 'gallery', true); ?>
@@ -74,63 +74,9 @@ get_header(); ?>
 			<?php endforeach; ?>
 		<?php endif; ?>
 
+		
 
 
-	<div class="enamels text-center">
-		<h2><?php _e('Enamel Color Samples'); ?></h2>
-		<?php $contact_page = get_page_by_path('contact');
-		$icl_contact_page_id = icl_object_id($contact_page->ID, 'page', true);
-		$contact_url = get_permalink($icl_contact_page_id); ?>
-		<?php $contact_string = sprintf( __('The color samples below are digital renderings and are only intended to illustrate the decoration possibilities. Please <a href="%s">contact EuroKera</a> for further questions.', 'foundationpress'), $contact_url); ?>
-		<p class="small"><?php echo $contact_string; ?></p>
-
-		<?php
-		if( $images ): ?>
-			<?php foreach( $images as $image ): ?>
-				<?php $categories = get_field('categories', $image);
-					$caption = wp_get_attachment_caption($image);
-				?>
-				<?php if (in_array ( 'Enamels' , $categories)) : ?>
-					<?php
-					$cat_classes = '';
-					foreach ($categories as $category) {
-						$cat_classes .= ' ' . sanitize_title($category);
-					}
-					$full_size_url = wp_get_attachment_image_src( $image, 'full' );
-					$cropped_url = wp_get_attachment_image_src( $image, 'width=936&height=526&crop=0' ) 
-					?>
-					<div class="gallery-link enamel gallery-image gallery<?php echo $cat_classes; ?>">
-						<a class="gallery-image" href="<?php echo $full_size_url[0]; ?>" data-caption="<?php echo $caption; ?>">
-							<div class="hero gallery-image" style="background-image: url(<?php echo $cropped_url[0]; ?>);"></div>
-						</a>
-						<?php
-						echo '<div class="img-social transition">Share: ';
-						
-						// Facebook
-						echo '<a href="https://www.facebook.com/sharer.php?u=' . $full_size_url[0] . '" target="_blank">';
-						get_template_part('assets/images/social/facebook','official.svg');
-						echo '</a>';
-						// Twitter
-						echo '<a href="https://twitter.com/intent/tweet?url=' . $full_size_url[0] . '&text=' . urlencode($caption) . '" target="_blank">';
-						get_template_part('assets/images/social/twitter','official.svg');
-						echo '</a>';
-						// Pinterest
-						echo '<a href="https://pinterest.com/pin/create/bookmarklet/?media=' . $full_size_url[0] . '&url=' . $full_size_url[0] . '&is_video=false&description=' . $title . '" target="_blank">';
-						get_template_part('assets/images/social/pinterest-p','official.svg');
-						echo '</a>';				
-						// LinkedIn
-						echo '<a href="https://www.linkedin.com/shareArticle?url=' . get_permalink() . '&title=' . urlencode($caption) . '" target="_blank">';
-						get_template_part('assets/images/social/linkedin','official.svg');
-						echo '</a>';				
-					echo '</div>';
-					?>
-					</div> <!-- gallery-link -->
-				<?php endif; ?>
-			<?php endforeach; ?>
-		<?php endif; ?>
-
-
-	</div> <!-- enamels -->
 
 	</div>
 	
@@ -171,7 +117,7 @@ get_header(); ?>
 				jQuery('<div class="img-social transition">Share: ' + facebookFullLink + twitterFullLink + pinterestFullLink + linkedinFullLink + '</div>').appendTo(this.$instance.find('.featherlight-content'));
 			};
 		});
-		jQuery('.btn-filter').on( "click", function() {
+		jQuery('button.btn-filter').on( "click", function() {
 			jQuery('.btn-filter').removeClass('btn-active');
 			jQuery(this).addClass('btn-active');
 			var galleryFilter = jQuery(this).data('filter');

@@ -4922,7 +4922,9 @@ section.design-gallery {
     margin-bottom: 30px; }
     section.design-gallery .btn-filter-wrap .btn-filter {
       font-size: 24px;
-      padding: 4px 15px; }
+      padding: 4px 15px;
+      color: #625f5b;
+      white-space: nowrap; }
       section.design-gallery .btn-filter-wrap .btn-filter.btn-active {
         color: #ff8200; }
   section.design-gallery .gallery {
