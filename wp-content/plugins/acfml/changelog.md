@@ -1,3 +1,7 @@
+# 1.0.2
+
+* fixed checking if ACF is active (acfml-121)
+
 # 1.0.1
 
 * fixed fatal error when ACF plugin disabled (acfml-117)

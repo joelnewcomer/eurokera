@@ -12,7 +12,7 @@ class WPML_ACF {
 	 * @return WPML_ACF_Worker
 	 */
 	public function init_worker() {
-		if ( class_exists( 'acf' ) ) {
+		if ( $this->is_acf_active() ) {
 			global $wpdb;
 			add_action( 'wpml_loaded', array( $this, 'init_acf_xliff' ) );
 			add_action( 'wpml_loaded', array( $this, 'init_acf_pro' ) );
@@ -30,6 +30,22 @@ class WPML_ACF {
 
 			return $this->init_duplicated_post( $wpdb );
 		}
+	}
+
+	private function is_acf_active() {
+		global $active_plugins;
+
+		$active = false;
+
+		foreach ( $active_plugins as $plugin ) {
+			if ( stristr( $plugin, DIRECTORY_SEPARATOR . 'acf.php' ) ) {
+				$active = true;
+				break;
+			}
+		}
+
+		return $active;
+
 	}
 
 	private function init_duplicated_post( $wpdb ) {

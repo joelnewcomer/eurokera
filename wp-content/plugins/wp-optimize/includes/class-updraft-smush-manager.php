@@ -464,12 +464,14 @@ class Updraft_Smush_Manager extends Updraft_Task_Manager_1_0 {
 		$compressed = get_post_meta($post->ID, 'smush-complete', true) ? true : false;
 		$has_backup = get_post_meta($post->ID, 'original-file', true) ? true : false;
 
+		$smush_info = get_post_meta($post->ID, 'smush-info', true);
+		
 		$extract = array(
 			'post_id' 			=> $post->ID,
 			'smush_display'		=> $compressed ? "style='display:none;'" : "style='display:block;'",
 			'restore_display' 	=> $compressed ? "style='display:block;'" : "style='display:none;'",
 			'restore_action'	=> $has_backup ? "style='display:block;'" : "style='display:none;'",
-			'smush_info'		=> get_post_meta($post->ID, 'smush-info', true) ?: " ",
+			'smush_info'		=> $smush_info ? $smush_info : ' ',
 			'file_size'			=> filesize(get_attached_file($post->ID))
 		);
 

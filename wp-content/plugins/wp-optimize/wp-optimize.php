@@ -3,7 +3,7 @@
 Plugin Name: WP-Optimize
 Plugin URI: https://getwpo.com
 Description: WP-Optimize is WordPress's #1 most installed optimization plugin. With it, you can clean up your database easily and safely, without manual queries.
-Version: 2.2.7
+Version: 2.2.9
 Author: David Anderson, Ruhani Rabin, Team Updraft
 Author URI: https://updraftplus.com
 Text Domain: wp-optimize
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) die('No direct access allowed');
 
 // Check to make sure if WP_Optimize is already call and returns.
 if (!class_exists('WP_Optimize')) :
-define('WPO_VERSION', '2.2.7');
+define('WPO_VERSION', '2.2.9');
 define('WPO_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('WPO_PLUGIN_MAIN_PATH', plugin_dir_path(__FILE__));
 define('WPO_PREMIUM_NOTIFICATION', false);
@@ -44,6 +44,9 @@ class WP_Optimize {
 
 	protected static $_gzip_compression = null;
 
+	/**
+	 * Class constructor
+	 */
 	public function __construct() {
 
 		// Checks if premium is installed along with plugins needed.
@@ -446,7 +449,9 @@ class WP_Optimize {
 
 		$result = json_encode($results);
 
-		$json_last_error = json_last_error();
+		// Requires PHP 5.3+
+		// @codingStandardsIgnoreLine
+		$json_last_error = function_exists('json_last_error') ? json_last_error() : false;
 
 		// if json_encode returned error then return error.
 		if ($json_last_error) {
@@ -1087,13 +1092,16 @@ class WP_Optimize {
 
 		$sub_menu_items = apply_filters('wp_optimize_sub_menu_items', $sub_menu_items);
 
-		usort($sub_menu_items, function ($a, $b) {
-			return ($a['order'] > $b['order']) ? 1 : -1;
-		});
+		usort($sub_menu_items, array($this, 'order_sort'));
 
 		return $sub_menu_items;
 	}
 
+	public function order_sort($a, $b) {
+		if ($a['order'] == $b['order']) return 0;
+		return ($a['order'] > $b['order']) ? 1 : -1;
+	}
+	
 	private function wp_normalize_path($path) {
 		// Wp_normalize_path is not present before WP 3.9.
 		if (function_exists('wp_normalize_path')) return wp_normalize_path($path);

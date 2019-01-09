@@ -4,7 +4,7 @@ Donate link: https://david.dw-perspective.org.uk/donate
 Tags: comments, spam, optimize, database, revisions, users, posts, trash, schedule, automatic, clean, phpmyadmin, meta, postmeta, responsive, mobile
 Requires at least: 3.8
 Tested up to: 5.0
-Stable tag: 2.2.7
+Stable tag: 2.2.9
 License: GPLv2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,11 @@ Please check your database for corrupted tables. That can happen, usually your w
 4. Settings
 
 == Changelog ==
+
+= 2.2.9 - 03/Jan/2019 =
+
+* FIX: Change a newly-introduced fragment that was not compatible with PHP 5.2
+* TWEAK: Tweak some other code that had PHP 5.2 compatibility issues
 
 = 2.2.7 - 31/December/2018 =
 
@@ -447,4 +452,4 @@ Please check your database for corrupted tables. That can happen, usually your w
 * Fix Interface
 
 == Upgrade Notice ==
-* 2.2.7 : Various tweaks and fixes, implemented new UI; a recommended update for all.
+* 2.2.9 : Fix issues when running on PHP 5.2
