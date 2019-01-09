@@ -10,6 +10,10 @@ get_header(); ?>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 
+<?php $enamels_page = get_page_by_path('enamels');
+						$icl_enamels_page_id = icl_object_id($enamels_page->ID, 'page', true);
+						$enamels_url = get_permalink($icl_enamels_page_id); ?>	
+
 <section class="design-gallery text-center">
 	<div class="row">
 		
@@ -23,7 +27,7 @@ get_header(); ?>
 		<button class="btn-filter" data-filter=".touch-sliders"><?php _e("Touch Sliders"); ?></button>
 		<button class="btn-filter" data-filter=".bevels"><?php _e("Bevels"); ?></button>
 		<button class="btn-filter" data-filter=".decorations"><?php _e("Decorations"); ?></button>
-		<a class="btn-filter" href="<?php echo get_site_url(); ?>/enamels"><?php _e("Enamel Colors"); ?></a>
+		<a class="btn-filter" href="<?php echo $enamels_url; ?>"><?php _e("Enamel Colors"); ?></a>
 	</div>
 	
 	<?php $images = get_post_meta($post->ID, 'gallery', true); ?>
