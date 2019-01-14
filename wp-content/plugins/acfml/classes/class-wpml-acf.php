@@ -33,14 +33,16 @@ class WPML_ACF {
 	}
 
 	private function is_acf_active() {
-		global $active_plugins;
-
 		$active = false;
 
-		foreach ( $active_plugins as $plugin ) {
-			if ( stristr( $plugin, DIRECTORY_SEPARATOR . 'acf.php' ) ) {
-				$active = true;
-				break;
+		$active_plugins = get_option('active_plugins');
+
+		if ( is_array( $active_plugins ) ) {
+			foreach ( $active_plugins as $plugin ) {
+				if ( stristr( $plugin, DIRECTORY_SEPARATOR . 'acf.php' ) ) {
+					$active = true;
+					break;
+				}
 			}
 		}
 

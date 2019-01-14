@@ -1,3 +1,7 @@
+# 1.0.3
+
+* fixed warning about foreach loop (acfml-123)
+
 # 1.0.2
 
 * fixed checking if ACF is active (acfml-121)
