@@ -104,7 +104,7 @@ class WPML_TM_MCS_ATE_Strings {
 		}
 		$message = $this->get_status_attribute( $status, 'message' );
 
-		return '<strong>' . $message['status'] . '</strong> ' . $message['text'];
+		return '<strong>' . $message['status'] . '</strong>' . $message['text'];
 	}
 
 	/**

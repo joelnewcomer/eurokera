@@ -1,3 +1,9 @@
+# 1.0.4
+
+* better checking if ACF is active on Windows (acfml-125)
+* fixed translation of ACF Options Page (acfml-126) 
+* fixed fatal error in field adnotations (wpmlsupp-6141)
+
 # 1.0.3
 
 * fixed warning about foreach loop (acfml-123)

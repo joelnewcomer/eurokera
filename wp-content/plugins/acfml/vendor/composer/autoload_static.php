@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit65a1cc5dd122940c2c7d3f6db0d11d59
+class ComposerStaticInit792f1f51ddfe9f7d682a9f84364ba117
 {
     public static $prefixesPsr0 = array (
         'x' => 
@@ -27,6 +27,7 @@ class ComposerStaticInit65a1cc5dd122940c2c7d3f6db0d11d59
         'WPML_ACF_Field' => __DIR__ . '/../..' . '/classes/class-wpml-acf-field.php',
         'WPML_ACF_Field_Annotations' => __DIR__ . '/../..' . '/classes/class-wpml-acf-field-annotations.php',
         'WPML_ACF_Location_Rules' => __DIR__ . '/../..' . '/classes/class-wpml-acf-location-rules.php',
+        'WPML_ACF_Options_Page' => __DIR__ . '/../..' . '/classes/class-wpml-acf-options-page.php',
         'WPML_ACF_Page_Link_Field' => __DIR__ . '/../..' . '/classes/class-wpml-acf-page-link-field.php',
         'WPML_ACF_Post_Id' => __DIR__ . '/../..' . '/classes/class-wpml-acf-post-id.php',
         'WPML_ACF_Post_Ids' => __DIR__ . '/../..' . '/classes/class-wpml-acf-post-ids.php',
@@ -49,8 +50,8 @@ class ComposerStaticInit65a1cc5dd122940c2c7d3f6db0d11d59
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInit65a1cc5dd122940c2c7d3f6db0d11d59::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit65a1cc5dd122940c2c7d3f6db0d11d59::$classMap;
+            $loader->prefixesPsr0 = ComposerStaticInit792f1f51ddfe9f7d682a9f84364ba117::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit792f1f51ddfe9f7d682a9f84364ba117::$classMap;
 
         }, null, ClassLoader::class);
     }

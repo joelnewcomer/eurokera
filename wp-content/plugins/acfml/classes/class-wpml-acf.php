@@ -39,7 +39,7 @@ class WPML_ACF {
 
 		if ( is_array( $active_plugins ) ) {
 			foreach ( $active_plugins as $plugin ) {
-				if ( stristr( $plugin, DIRECTORY_SEPARATOR . 'acf.php' ) ) {
+				if ( stristr( $plugin, '/acf.php' ) ) {
 					$active = true;
 					break;
 				}
@@ -73,7 +73,8 @@ class WPML_ACF {
 	}
 
 	public function init_acf_field_annotations() {
-		$WPML_ACF_Field_Annotations = new WPML_ACF_Field_Annotations();
+		$WPML_ACF_Options_Page = new WPML_ACF_Options_Page();
+		$WPML_ACF_Field_Annotations = new WPML_ACF_Field_Annotations( $WPML_ACF_Options_Page );
 	}
 
 	public function init_custom_fields_synchronisation_handler() {

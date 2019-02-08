@@ -3,19 +3,30 @@
  * @package wpml-core
  */
 
-class WPML_TM_Xliff_Writer extends WPML_TM_Job_Factory_User {
+class WPML_TM_Xliff_Writer {
+	const TAB                        = "\t";
+
+	protected $job_factory;
 	private $xliff_version;
-	const TAB = "\t";
+	private $xliff_shortcodes;
+	private $translator_notes;
 
 	/**
 	 * WPML_TM_xliff constructor.
 	 *
-	 * @param WPML_Translation_Job_Factory $job_factory
-	 * @param string                      $xliff_version
+	 * @param WPML_Translation_Job_Factory   $job_factory
+	 * @param string                         $xliff_version
+	 * @param \WPML_TM_XLIFF_Shortcodes|null $xliff_shortcodes
 	 */
-	public function __construct( $job_factory, $xliff_version = TRANSLATION_PROXY_XLIFF_VERSION ) {
-		parent::__construct( $job_factory );
-		$this->xliff_version = $xliff_version;
+	public function __construct( WPML_Translation_Job_Factory $job_factory, $xliff_version = TRANSLATION_PROXY_XLIFF_VERSION, WPML_TM_XLIFF_Shortcodes $xliff_shortcodes = null ) {
+		$this->job_factory      = $job_factory;
+		$this->xliff_version    = $xliff_version;
+
+		if ( ! $xliff_shortcodes ) {
+			$xliff_shortcodes = wpml_tm_xliff_shortcodes();
+		}
+		$this->xliff_shortcodes = $xliff_shortcodes;
+		$this->translator_notes = new WPML_TM_XLIFF_Translator_Notes();
 	}
 
 	/**
@@ -42,16 +53,22 @@ class WPML_TM_Xliff_Writer extends WPML_TM_Job_Factory_User {
 		global $iclTranslationManagement;
 
 		// don't include not-translatable and don't auto-assign
-		$job               = $iclTranslationManagement->get_translation_job( (int) $job_id, false, false, 1 );
-		$translation_units = $this->get_job_translation_units_data( $job );
-		$original          = $job_id . '-' . md5( $job_id . $job->original_doc_id );
+		$job                = $iclTranslationManagement->get_translation_job( (int) $job_id, false, false, 1 );
+		$translation_units  = $this->get_job_translation_units_data( $job );
+		$original           = $job_id . '-' . md5( $job_id . $job->original_doc_id );
+		$original_post_type = isset( $job->original_post_type ) ? $job->original_post_type : null;
 
 		$external_file_url = $this->get_external_url( $job );
+		$this->get_translator_notes( $job );
 
-		$xliff = $this->generate_xliff( $original,
+		$xliff = $this->generate_xliff(
+			$original,
 			$job->source_language_code,
 			$job->language_code,
-			$translation_units, $external_file_url );
+			$translation_units,
+			$external_file_url,
+			$original_post_type
+		);
 
 		return $xliff;
 	}
@@ -82,21 +99,34 @@ class WPML_TM_Xliff_Writer extends WPML_TM_Job_Factory_User {
 		$source_language,
 		$target_language,
 		array $translation_units = array(),
-		$external_file_url = null
+		$external_file_url = null,
+		$original_post_type = null
 	) {
 		$xliff = new WPML_TM_XLIFF( $this->get_xliff_version(), '1.0', 'utf-8' );
 
-		$string = $xliff->setFileAttributes( array(
-			                                     'original'        => $original_id,
-			                                     'source-language' => $source_language,
-			                                     'target-language' => $target_language,
-			                                     'datatype'        => 'plaintext',
-		                                     ) )
-		                ->setReferences( array(
-			                                 'external-file' => $external_file_url,
-		                                 ) )->setPhaseGroup( $this->get_shortcodes_data() )
-		                ->setTranslationUnits( $translation_units )
-		                ->toString();
+		$phase_group     = array();
+		$phase_group     = array_merge( $phase_group, $this->xliff_shortcodes->get() );
+		$phase_group     = array_merge( $phase_group, $this->translator_notes->get() );
+		$post_type_phase = new WPML_TM_XLIFF_Post_Type( $original_post_type );
+		$phase_group     = array_merge( $phase_group, $post_type_phase->get() );
+
+		$string = $xliff
+			->setFileAttributes(
+				array(
+					'original'        => $original_id,
+					'source-language' => $source_language,
+					'target-language' => $target_language,
+					'datatype'        => 'plaintext',
+				)
+			)
+			->setReferences(
+				array(
+					'external-file' => $external_file_url,
+				)
+			)
+			->setPhaseGroup( $phase_group )
+			->setTranslationUnits( $translation_units )
+			->toString();
 
 		return $string;
 	}
@@ -364,33 +394,20 @@ class WPML_TM_Xliff_Writer extends WPML_TM_Job_Factory_User {
 		return $external_file_url;
 	}
 
-	private function get_shortcodes() {
-		global $shortcode_tags;
+	/**
+	 * @param $content
+	 *
+	 * @return bool
+	 */
+	private function is_valid_unit_content( $content ) {
+		$content = preg_replace( '/[^#\w]*/u', '', $content );
 
-		$shortcodes = array();
-
-		if ( $shortcode_tags ) {
-			$shortcodes = array_keys( $shortcode_tags );
-		}
-
-		return apply_filters( 'wpml_shortcode_list', $shortcodes );
+		return $content || '0' === $content;
 	}
 
-	/**
-	 * @return array
-	 */
-	private function get_shortcodes_data() {
-		$short_codes = $this->get_shortcodes();
-
-		if ( $short_codes ) {
-			return array(
-				'shortcodes' => array(
-					'process-name' => 'Shortcodes identification',
-					'note'         => implode( ',', $short_codes )
-				)
-			);
-		}
-
-		return array();
+	private function get_translator_notes( $job ) {
+		$this->translator_notes = new WPML_TM_XLIFF_Translator_Notes(
+			isset( $job->original_doc_id ) ? $job->original_doc_id : 0
+		);
 	}
 }

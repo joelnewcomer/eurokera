@@ -279,18 +279,19 @@ class WPML_Installation extends WPML_WPDB_And_SP_User {
 		$res                = $this->wpdb->get_results( $res_query_prepared, ARRAY_A );
 		$languages          = array();
 
+		$icl_cache = $this->sitepress->get_language_name_cache();
 		foreach ( (array) $res as $r ) {
 			$languages[ $r[ 'code' ] ] = $r;
-			$this->sitepress->get_language_name_cache()->set( 'language_details_' . $r['code'] . $display_language, $r );
+			$icl_cache->set( 'language_details_' . $r['code'] . $display_language, $r );
 		}
 
 		if ( $active_only ) {
-			$this->sitepress->get_language_name_cache()->set( 'in_language_' . $display_language . '_' . $major_first . '_' . $order_by, $languages );
+			$icl_cache->set( 'in_language_' . $display_language . '_' . $major_first . '_' . $order_by, $languages );
 		} else {
-			$this->sitepress->get_language_name_cache()->set( 'all_language_' . $display_language . '_' . $major_first . '_' . $order_by, $languages );
+			$icl_cache->set( 'all_language_' . $display_language . '_' . $major_first . '_' . $order_by, $languages );
 		}
 
-		$this->sitepress->get_language_name_cache()->save_cache_if_required();
+		$icl_cache->save_cache_if_required();
 		
 		return $languages;
 	}

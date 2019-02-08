@@ -28,14 +28,6 @@ class WPML_Admin_Scripts_Setup extends WPML_Full_Translation_API {
 		wp_register_style( 'wpml-dialog', ICL_PLUGIN_URL . '/res/css/dialog.css', array( 'otgs-dialogs' ), ICL_SITEPRESS_VERSION );
 		wp_register_style( 'otgs-ico', ICL_PLUGIN_URL . '/res/css/otgs-ico.css', null, ICL_SITEPRESS_VERSION );
 		wp_register_style( 'wpml-wizard', ICL_PLUGIN_URL . '/res/css/wpml-wizard.css', null, ICL_SITEPRESS_VERSION );
-		wp_register_style( 'wpml-popover-tooltip', ICL_PLUGIN_URL . '/dist/css/shared/wpml-popover-tooltip.css', null, ICL_SITEPRESS_VERSION );
-		wp_register_style( 'otgs-ui', ICL_PLUGIN_URL . '/vendor/otgs/ui/dist/css/ui/styles.css', null, ICL_SITEPRESS_VERSION );
-
-	}
-
-	public function register_scripts() {
-		wp_register_script( 'wpml-popover-tooltip', ICL_PLUGIN_URL . '/dist/js/shared/wpml-popover-tooltip.js', null, ICL_SITEPRESS_VERSION );
-		wp_register_script( 'otgs-table-sticky-header', ICL_PLUGIN_URL . '/dist/js/shared/otgs-table-sticky-header.js', array( 'jquery' ), ICL_SITEPRESS_VERSION );
 	}
 
 	private function print_js_globals() {
@@ -451,8 +443,6 @@ class WPML_Admin_Scripts_Setup extends WPML_Full_Translation_API {
 		wp_enqueue_style( 'otgs-ico');
 		wp_enqueue_style( 'wpml-wizard' );
 		wp_enqueue_style( 'thickbox' );
-		wp_enqueue_style( 'translate-taxonomy', ICL_PLUGIN_URL . '/res/css/taxonomy-translation.css', array(), ICL_SITEPRESS_VERSION );
-		
 	}
 
 	private function verify_home_and_blog_pages_translations() {

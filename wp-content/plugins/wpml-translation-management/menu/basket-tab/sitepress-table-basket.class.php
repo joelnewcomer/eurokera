@@ -10,7 +10,7 @@ class SitePress_Table_Basket extends SitePress_Table {
         wp_enqueue_script(
             'wpml-tm-translation-basket-and-options',
             WPML_TM_URL . '/res/js/translation-basket-and-options.js',
-            array( 'wpml-tm-scripts', 'jquery-ui-progressbar', 'jquery-ui-datepicker', 'wpml-tooltip' ),
+            array( 'wpml-tm-scripts', 'jquery-ui-progressbar', 'jquery-ui-datepicker', 'wpml-tooltip', 'wpml-tm-progressbar' ),
             WPML_TM_VERSION
         );
 
@@ -152,7 +152,7 @@ class SitePress_Table_Basket extends SitePress_Table {
 
 		$new_qs = esc_attr( http_build_query( $qs ) );
 
-		return sprintf( '<a href="?%s" title="%s" class="otgs-ico-delete wpml-tm-delete"></a>',
+		return sprintf( '<a href="?%s" title="%s" class="otgs-ico-cancel wpml-tm-delete"></a>',
 			$new_qs, __( 'Remove from Translation Basket', 'wpml-translation-management' ) );
 	}
 
@@ -334,7 +334,7 @@ class SitePress_Table_Basket extends SitePress_Table {
 			?>
 			<a href="admin.php?page=<?php echo WPML_TM_FOLDER ?>/menu/main.php&sm=basket&clear_basket=1&clear_basket_nonce=<?php echo $clear_basket_nonce; ?>"
 			   class="button-secondary wpml-tm-clear-basket-button" name="clear-basket">
-				<i class="otgs-ico-delete"></i>
+				<i class="otgs-ico-cancel"></i>
 				<?php _e( 'Clear Basket', 'wpml-translation-management' ); ?>
 			</a>
 			<?php

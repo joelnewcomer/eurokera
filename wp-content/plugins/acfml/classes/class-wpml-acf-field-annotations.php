@@ -1,18 +1,26 @@
 <?php
 class WPML_ACF_Field_Annotations {
 
-	public function __construct() {
+	public function __construct( WPML_ACF_Options_Page $WPML_ACF_Options_Page ) {
+		$this->WPML_ACF_Options_Page = $WPML_ACF_Options_Page;
 		add_action( 'acf/create_field', array( $this, 'acf_create_field' ), 10, 2 );
         add_action( 'acf/render_field', array( $this, 'acf_create_field' ), 10, 2 );
         add_filter( 'wpml_post_edit_settings_custom_field_description', array( $this, 'metabox_field_description' ), 10, 3 );
 	}
 
 	public function acf_create_field($field, $post_id = null) {
+		if ( $this->WPML_ACF_Options_Page->is_acf_options_page() ) {
+			return;
+		}
+
         if ( null == $post_id ) {
             $post_id = get_the_ID();
         }
-		$this->field_original_value($field, $post_id);
-		$this->display_translated_warning($field);
+
+        if ( $post_id ) {
+        	$this->field_original_value($field, $post_id);
+			$this->display_translated_warning($field);
+        }
 	}
 
 	private function field_original_value($field, $post_id) {

@@ -104,6 +104,9 @@ function icl_sitepress_activate() {
                  `links_fixed` tinyint(4) NOT NULL DEFAULT 0,
                  `_prevstate` longtext,
                  `uuid` varchar(36) NULL,
+                 `tp_id` INT NULL DEFAULT NULL,
+                 `tp_revision` INT NOT NULL DEFAULT 1,
+                 `ts_status` TEXT NULL DEFAULT NULL,
                  PRIMARY KEY (`rid`),
                  UNIQUE KEY `translation_id` (`translation_id`)
                 ) {$charset_collate}    
@@ -127,6 +130,7 @@ function icl_sitepress_activate() {
                 `title` VARCHAR(160) NULL,
                 `deadline_date` DATETIME NULL,
                 `completed_date` DATETIME NULL,
+                `editor` VARCHAR(16) NULL,
                 INDEX ( `rid` , `translator_id` )
                 ) {$charset_collate}    
             ";
@@ -307,6 +311,8 @@ function icl_sitepress_activate() {
             `origin` VARCHAR( 64 ) NOT NULL ,
             `target` VARCHAR( 64 ) NOT NULL ,
             `status` SMALLINT NOT NULL,
+            `tp_revision` INT NOT NULL DEFAULT 1,
+            `ts_status` TEXT NULL DEFAULT NULL,
             PRIMARY KEY ( `id` ) ,
             INDEX ( `rid` )
             ) {$charset_collate}
