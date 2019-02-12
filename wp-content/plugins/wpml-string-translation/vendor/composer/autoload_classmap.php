@@ -53,6 +53,7 @@ return array(
     'WPML_ST_Blog_Name_And_Description_Hooks' => $baseDir . '/classes/filters/class-wpml-st-blog-name-and-description-hooks.php',
     'WPML_ST_Bulk_Strings_Insert' => $baseDir . '/classes/db-mappers/class-wpml-st-bulk-strings-insert.php',
     'WPML_ST_Bulk_Strings_Insert_Exception' => $baseDir . '/classes/db-mappers/class-wpml-st-bulk-strings-insert.php',
+    'WPML_ST_Bulk_Update_Strings_Status' => $baseDir . '/classes/db-mappers/class-wpml-st-bulk-update-strings-status.php',
     'WPML_ST_DB_Cache' => $baseDir . '/classes/filters/db-cache/class-wpml-st-db-cache.php',
     'WPML_ST_DB_Cache_Factory' => $baseDir . '/classes/filters/db-cache/class-wpml-st-db-cache-factory.php',
     'WPML_ST_DB_Chunk_Retrieve' => $baseDir . '/classes/filters/db-cache/class-wpml-st-db-chunk-retrieve.php',

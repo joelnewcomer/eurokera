@@ -695,6 +695,7 @@ return array(
     'WPML_Upgrade_Schema' => $baseDir . '/classes/upgrade/class-wpml-upgrade-schema.php',
     'WPML_Upgrade_Table_Translate_Job_For_3_9_0' => $baseDir . '/classes/upgrade/commands/class-wpml-upgrade-table-translate-job-for-3-9-0.php',
     'WPML_Upgrade_WPML_Site_ID' => $baseDir . '/classes/upgrade/commands/class-wpml-upgrade-wpml-site-id.php',
+    'WPML_Upgrade_WPML_Site_ID_Remaining' => $baseDir . '/classes/upgrade/commands/class-wpml-upgrade-wpml-site-id-remaining.php',
     'WPML_User' => $baseDir . '/classes/utilities/user/class-wpml-user.php',
     'WPML_User_Admin_Language' => $baseDir . '/classes/user-language/class-wpml-user-admin-language.php',
     'WPML_User_Language' => $baseDir . '/classes/user-language/class-wpml-user-language.php',

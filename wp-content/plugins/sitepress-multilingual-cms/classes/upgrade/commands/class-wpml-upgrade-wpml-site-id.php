@@ -12,10 +12,9 @@ class WPML_Upgrade_WPML_Site_ID implements IWPML_Upgrade_Command {
 	 */
 	public function run() {
 		if ( $this->old_option_exists() ) {
-			$site_id = new WPML_Site_ID();
 
-			$site_id->get_site_id( WPML_Site_ID::SITE_SCOPES_GLOBAL );
-
+			$value_from_old_option = get_option( WPML_Site_ID::SITE_ID_KEY, null );
+			update_option( WPML_Site_ID::SITE_ID_KEY . ':' . WPML_Site_ID::SITE_SCOPES_GLOBAL, $value_from_old_option, false );
 			return delete_option( WPML_Site_ID::SITE_ID_KEY );
 		}
 
@@ -31,7 +30,7 @@ class WPML_Upgrade_WPML_Site_ID implements IWPML_Upgrade_Command {
 		get_option( WPML_Site_ID::SITE_ID_KEY, null );
 		$notoptions = wp_cache_get( 'notoptions', 'options' );
 
-		return $notoptions && ( ! array_key_exists( WPML_Site_ID::SITE_ID_KEY, $notoptions ) );
+		return false === $notoptions || ! array_key_exists( WPML_Site_ID::SITE_ID_KEY, $notoptions );
 	}
 
 	/**

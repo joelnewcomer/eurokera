@@ -388,11 +388,7 @@ function icl_sitepress_activate() {
 	}
 
 	//Set new caps for all administrator role
-	if ( is_multisite() ) {
-		add_action( 'plugins_loaded', 'wpml_enable_capabilities' );
-	} else {
-		wpml_enable_capabilities();
-	}
+	wpml_enable_capabilities();
 
 	repair_el_type_collate();
 
@@ -469,6 +465,20 @@ function icl_enable_capabilities() {
 function wpml_enable_capabilities() {
 	global $sitepress_settings;
 
-	icl_enable_capabilities();
-	$sitepress_settings = get_option('icl_sitepress_settings');
+	/**
+	 * In case of multisite, in network activation,
+	 * including of pluggable.php before muplugins_loaded event trigger errors -
+	 * we postpone executing of icl_enable_capabilities to after plugins_loaded event.
+	 *
+	 * In other cases we include pluggable.php earlier than in wp-settings.php
+	 */
+	if ( ! did_action( 'muplugins_loaded' ) ) {
+		add_action( 'plugins_loaded', 'wpml_enable_capabilities' );
+	} else {
+		if ( ! function_exists( 'get_user_by' ) ) {
+			require( ABSPATH . WPINC . '/pluggable.php' );
+		}
+		icl_enable_capabilities();
+		$sitepress_settings = get_option( 'icl_sitepress_settings' );
+	}
 }

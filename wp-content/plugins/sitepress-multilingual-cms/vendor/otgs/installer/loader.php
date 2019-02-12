@@ -121,7 +121,8 @@ if ( ! function_exists( 'wpml_installer_instance_delegator' ) ) {
 		include_once $delegate['bootfile'];
 
 		// set configuration
-		if ( strpos( realpath( $delegate['bootfile'] ), (string) realpath( TEMPLATEPATH ) ) === 0 ) {
+		$template_path = realpath( TEMPLATEPATH );
+		if ( $template_path && strpos( realpath( $delegate['bootfile'] ), (string) $template_path ) === 0 ) {
 			$delegate['args']['in_theme_folder'] = dirname( ltrim( str_replace( realpath( TEMPLATEPATH ), '', realpath( $delegate['bootfile'] ) ), '\\/' ) );
 		}
 		if ( isset( $delegate['args'] ) && is_array( $delegate['args'] ) ) {

@@ -170,7 +170,7 @@ class WPML_Translation_Proxy_Networking {
 		return $request_filter->build_request_context( array(
 			'method'    => $method,
 			'body'      => $params,
-			'sslverify' => false,
+			'sslverify' => true,
 			'timeout'   => 60
 
 		) );

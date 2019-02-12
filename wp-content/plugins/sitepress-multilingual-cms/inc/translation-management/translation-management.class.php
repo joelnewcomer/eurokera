@@ -1089,6 +1089,7 @@ class TranslationManagement {
 		if ( ! isset( $data[ 'translation_id' ] ) ) {
 			return array( false, false );
 		}
+
 		$rid = $wpdb->get_var( $wpdb->prepare( "	SELECT rid
 													FROM {$wpdb->prefix}icl_translation_status
 													WHERE translation_id = %d",
@@ -1184,7 +1185,8 @@ class TranslationManagement {
 						'translation_package' => serialize( $translation_package ),
 						'batch_id'            => TranslationProxy_Batch::update_translation_batch( $batch->get_basket_name() ),
 						'uuid'                => $this->get_uuid( $current_translation_status, $post ),
-						'ts_status'			  => null,
+						'ts_status'           => null,
+						'timestamp'           => date( 'Y-m-d H:i:s', time()),
 					);
 
 					$prevstate = $this->get_translation_prev_state( $translation_id );

@@ -148,6 +148,7 @@ class WPML_Installation extends WPML_WPDB_And_SP_User {
 	public function finish_step1( $initial_language_code ) {
 		$this->set_initial_default_category( $initial_language_code );
 		$this->prepopulate_translations( $initial_language_code );
+		$this->update_active_language( $initial_language_code );
 		$admin_language = $this->get_admin_language( $initial_language_code );
 		$this->maybe_set_locale( $admin_language );
 		icl_set_setting( 'existing_content_language_verified', 1 );
@@ -377,7 +378,9 @@ class WPML_Installation extends WPML_WPDB_And_SP_User {
 				$lang
 			)
 		);
+	}
 
+	public function update_active_language( $lang ) {
 		$this->wpdb->update( $this->wpdb->prefix . 'icl_languages', array( 'active' => '1' ), array( 'code' => $lang ) );
 	}
 

@@ -84,7 +84,7 @@ class WPML_TP_API_Client {
 		return $this->request_filter->build_request_context( array(
 			'method'    => $method,
 			'body'      => $params,
-			'sslverify' => false,
+			'sslverify' => true,
 			'timeout'   => 60,
 		) );
 	}

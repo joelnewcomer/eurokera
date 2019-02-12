@@ -84,7 +84,9 @@ class WPML_TM_Post_Edit_TM_Editor_Mode {
 				$tm_settings['post_translation_editor_native'] = false;
 			}
 
-			$tm_settings['post_translation_editor_native_for_post_type'] = array();
+			if ( ! isset( $tm_settings['post_translation_editor_native_for_post_type'] ) ) {
+				$tm_settings['post_translation_editor_native_for_post_type'] = array();
+			}
 		}
 
 		return $tm_settings;

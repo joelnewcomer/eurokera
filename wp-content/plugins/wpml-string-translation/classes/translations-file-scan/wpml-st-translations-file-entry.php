@@ -161,7 +161,7 @@ class WPML_ST_Translations_File_Entry {
 	 * @return null|string
 	 */
 	public function get_file_locale() {
-		$file_locale = new WPML_ST_Translations_File_Locale( $this->get_path() );
+		$file_locale = new WPML_ST_Translations_File_Locale( $this->get_path(), $this->get_domain() );
 		return $file_locale->get();
 	}
 

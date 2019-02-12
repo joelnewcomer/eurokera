@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit4adb044af97d448b75eab8f1798233e7
+class ComposerStaticInit99fe77d00383823d38ce6d23e43a7e19
 {
     public static $files = array (
         'b45b351e6b6f7487d819961fef2fda77' => __DIR__ . '/..' . '/jakeasmith/http_build_url/src/http_build_url.php',
@@ -732,6 +732,7 @@ class ComposerStaticInit4adb044af97d448b75eab8f1798233e7
         'WPML_Upgrade_Schema' => __DIR__ . '/../..' . '/classes/upgrade/class-wpml-upgrade-schema.php',
         'WPML_Upgrade_Table_Translate_Job_For_3_9_0' => __DIR__ . '/../..' . '/classes/upgrade/commands/class-wpml-upgrade-table-translate-job-for-3-9-0.php',
         'WPML_Upgrade_WPML_Site_ID' => __DIR__ . '/../..' . '/classes/upgrade/commands/class-wpml-upgrade-wpml-site-id.php',
+        'WPML_Upgrade_WPML_Site_ID_Remaining' => __DIR__ . '/../..' . '/classes/upgrade/commands/class-wpml-upgrade-wpml-site-id-remaining.php',
         'WPML_User' => __DIR__ . '/../..' . '/classes/utilities/user/class-wpml-user.php',
         'WPML_User_Admin_Language' => __DIR__ . '/../..' . '/classes/user-language/class-wpml-user-admin-language.php',
         'WPML_User_Language' => __DIR__ . '/../..' . '/classes/user-language/class-wpml-user-language.php',
@@ -818,10 +819,10 @@ class ComposerStaticInit4adb044af97d448b75eab8f1798233e7
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit4adb044af97d448b75eab8f1798233e7::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit4adb044af97d448b75eab8f1798233e7::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit4adb044af97d448b75eab8f1798233e7::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit4adb044af97d448b75eab8f1798233e7::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit99fe77d00383823d38ce6d23e43a7e19::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit99fe77d00383823d38ce6d23e43a7e19::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit99fe77d00383823d38ce6d23e43a7e19::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit99fe77d00383823d38ce6d23e43a7e19::$classMap;
 
         }, null, ClassLoader::class);
     }

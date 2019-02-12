@@ -56,6 +56,10 @@ class WPML_TM_Upgrade_Loader implements IWPML_Action {
 			$this->factory->create_command_definition( 'WPML_TM_Add_TP_Revision_And_TS_Status_Columns_To_Translation_Status', array( $this->upgrade_schema ), array( 'admin', 'ajax', 'front-end' ) ),
 			$this->factory->create_command_definition( 'WPML_TM_Add_TP_Revision_And_TS_Status_Columns_To_Core_Status', array( $this->upgrade_schema ), array( 'admin', 'ajax', 'front-end' ) ),
 			$this->factory->create_command_definition( 'WPML_TM_Upgrade_WPML_Site_ID_ATE', array( $this->upgrade_schema ), array( 'admin' ) ),
+			$this->factory->create_command_definition(
+				'WPML_TM_Upgrade_Cancel_Orphan_Jobs',
+				array( new WPML_TP_Sync_Orphan_Jobs_Factory() ), array( 'admin' )
+			),
 		);
 
 		$upgrade = new WPML_Upgrade( $commands, $this->sitepress, $this->factory );

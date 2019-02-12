@@ -96,7 +96,7 @@ class SitePress extends WPML_WPDB_User implements
 		$this->term_translation = &$wpml_term_translations;
 		// @since 3.1
 		if ( is_admin() && ! $this->get_setting( 'icl_capabilities_verified' ) ) {
-			add_action( 'plugins_loaded', 'wpml_enable_capabilities' );
+			wpml_enable_capabilities();
 		}
 
 		if ( null === $pagenow && is_multisite() ) {

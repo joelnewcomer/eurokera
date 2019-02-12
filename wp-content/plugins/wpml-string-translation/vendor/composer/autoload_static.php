@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit8f72a72a2662e53b707914626e3d2ec3
+class ComposerStaticInit49f0e962768cf501108cedd2ade1454a
 {
     public static $prefixesPsr0 = array (
         'x' => 
@@ -64,6 +64,7 @@ class ComposerStaticInit8f72a72a2662e53b707914626e3d2ec3
         'WPML_ST_Blog_Name_And_Description_Hooks' => __DIR__ . '/../..' . '/classes/filters/class-wpml-st-blog-name-and-description-hooks.php',
         'WPML_ST_Bulk_Strings_Insert' => __DIR__ . '/../..' . '/classes/db-mappers/class-wpml-st-bulk-strings-insert.php',
         'WPML_ST_Bulk_Strings_Insert_Exception' => __DIR__ . '/../..' . '/classes/db-mappers/class-wpml-st-bulk-strings-insert.php',
+        'WPML_ST_Bulk_Update_Strings_Status' => __DIR__ . '/../..' . '/classes/db-mappers/class-wpml-st-bulk-update-strings-status.php',
         'WPML_ST_DB_Cache' => __DIR__ . '/../..' . '/classes/filters/db-cache/class-wpml-st-db-cache.php',
         'WPML_ST_DB_Cache_Factory' => __DIR__ . '/../..' . '/classes/filters/db-cache/class-wpml-st-db-cache-factory.php',
         'WPML_ST_DB_Chunk_Retrieve' => __DIR__ . '/../..' . '/classes/filters/db-cache/class-wpml-st-db-chunk-retrieve.php',
@@ -255,8 +256,8 @@ class ComposerStaticInit8f72a72a2662e53b707914626e3d2ec3
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInit8f72a72a2662e53b707914626e3d2ec3::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit8f72a72a2662e53b707914626e3d2ec3::$classMap;
+            $loader->prefixesPsr0 = ComposerStaticInit49f0e962768cf501108cedd2ade1454a::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit49f0e962768cf501108cedd2ade1454a::$classMap;
 
         }, null, ClassLoader::class);
     }

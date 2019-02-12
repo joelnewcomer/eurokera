@@ -328,11 +328,10 @@ function icl_update_string_status( $string_id ) {
 }
 
 function icl_update_string_status_all(){
-    global $wpdb;
-    $res = $wpdb->get_col("SELECT id FROM {$wpdb->prefix}icl_strings");
-    foreach($res as $id){
-        icl_update_string_status($id);
-    }
+    global $wpdb, $sitepress;
+
+    $updater = new WPML_ST_Bulk_Update_Strings_Status( $wpdb, array_keys( $sitepress->get_active_languages() ) );
+    $updater->run();
 }
 
 function icl_unregister_string($context, $name){

@@ -56,6 +56,7 @@ class WPML_Upgrade_Loader implements IWPML_Action {
 			$this->factory->create_command_definition( 'WPML_Upgrade_Chinese_Flags', array( 'wpdb' => $this->sitepress->wpdb() ), array( 'admin' ) ),
 			$this->factory->create_command_definition( 'WPML_Upgrade_Add_Editor_Column_To_Icl_Translate_Job', array( $this->upgrade_schema ), array( 'admin', 'ajax', 'front-end' ) ),
 			$this->factory->create_command_definition( 'WPML_Upgrade_WPML_Site_ID', array(), array( 'admin' ) ),
+			$this->factory->create_command_definition( 'WPML_Upgrade_WPML_Site_ID_Remaining', array(), array( 'admin' ) ),
 		);
 
 		$upgrade = new WPML_Upgrade( $commands, $this->sitepress, $this->factory );

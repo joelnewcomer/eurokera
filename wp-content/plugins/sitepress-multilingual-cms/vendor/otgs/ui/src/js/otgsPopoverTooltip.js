@@ -5,6 +5,25 @@ window.addEventListener("DOMContentLoaded", () => {
 	initialize();
 });
 
+/**
+ *
+ * @param {Element} element
+ */
+export function initSingle(element) {
+	/**
+	 * @see https://atomiks.github.io/tippyjs/#all-options
+	 * @type {{arrow: boolean, theme: string, animation: string, sticky: boolean, interactive: boolean}}
+	 */
+	const args = {
+		arrow:       true,
+		theme:       'otgs',
+		animation:   'fade',
+		sticky:      true,
+		interactive: true,
+	};
+	tippy(element, args);
+}
+
 export function initialize() {
 	/**
 	 * @param {NodeList} elements
@@ -15,20 +34,5 @@ export function initialize() {
 	/**
 	 * @param {Element} element
 	 */
-	elements.forEach(element => {
-
-		/**
-		 * @see https://atomiks.github.io/tippyjs/#all-options
-		 * @type {{arrow: boolean, theme: string, animation: string, sticky: boolean, interactive: boolean}}
-		 */
-		const args = {
-			arrow:       true,
-			theme:       'otgs',
-			animation:   'fade',
-			sticky:      true,
-			interactive: true,
-		};
-		tippy(element, args);
-	});
-
+	elements.forEach(element => initSingle(element));
 }

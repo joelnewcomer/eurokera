@@ -239,6 +239,14 @@ class WPML_TM_Translation_Status_Display {
 	 * @return string
 	 */
 	public function add_links_data_attributes( $html, $post_id, $lang, $trid  ) {
+		if ( ! isset(
+				$this->original_links[ $post_id ][ $lang ][ $trid ],
+				$this->tm_editor_links[ $post_id ][ $lang ][ $trid ]
+			)
+		) {
+			return $html;
+		}
+
 		$data_attributes = 'data-original-link="' . $this->original_links[ $post_id ][ $lang ][ $trid ] . '"';
 		$data_attributes .= ' data-tm-editor-link="' . $this->tm_editor_links[ $post_id ][ $lang ][ $trid ] . '"';
 		if ( isset( $this->statuses[ $trid ][ $lang ]['job_id'] ) ) {
@@ -335,8 +343,12 @@ class WPML_TM_Translation_Status_Display {
 
 	private function is_in_progress( $trid, $lang ) {
 
-		return isset( $this->statuses[ $trid ][ $lang ]['status'] )
-		       && $this->statuses[ $trid ][ $lang ]['status'] == ICL_TM_IN_PROGRESS;
+		return isset( $this->statuses[ $trid ][ $lang ]['status'] ) &&
+		       in_array(
+			       (int) $this->statuses[ $trid ][ $lang ]['status'],
+			       array( ICL_TM_IN_PROGRESS, ICL_TM_WAITING_FOR_TRANSLATOR ),
+			       true
+		       );
 	}
 
 	private function is_in_basket( $trid, $lang ) {

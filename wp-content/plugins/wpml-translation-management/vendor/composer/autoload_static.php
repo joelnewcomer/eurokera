@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit3675703b58224e0f306d76a825cbce29
+class ComposerStaticInit4dd7137195f2610649080d1f28e32cb5
 {
     public static $files = array (
         'b45b351e6b6f7487d819961fef2fda77' => __DIR__ . '/..' . '/jakeasmith/http_build_url/src/http_build_url.php',
@@ -397,6 +397,7 @@ class ComposerStaticInit3675703b58224e0f306d76a825cbce29
         'WPML_TM_Update_Post_Translation_Data_Action' => __DIR__ . '/../..' . '/inc/translation-jobs/helpers/wpml-update-post-translation-data-action.class.php',
         'WPML_TM_Update_Translation_Data_Action' => __DIR__ . '/../..' . '/inc/translation-jobs/helpers/wpml-update-translation-data-action.class.php',
         'WPML_TM_Update_Translation_Status' => __DIR__ . '/../..' . '/classes/records/class-wpml-tm-update-translation-status.php',
+        'WPML_TM_Upgrade_Cancel_Orphan_Jobs' => __DIR__ . '/../..' . '/classes/upgrade/commands/wpml-tm-upgrade-cancel-orphan-jobs.php',
         'WPML_TM_Upgrade_Default_Editor_For_Old_Jobs' => __DIR__ . '/../..' . '/classes/upgrade/commands/class-wpml-tm-upgrade-default-editor-for-old-jobs.php',
         'WPML_TM_Upgrade_Loader' => __DIR__ . '/../..' . '/classes/upgrade/class-wpml-tm-upgrade-loader.php',
         'WPML_TM_Upgrade_Loader_Factory' => __DIR__ . '/../..' . '/classes/upgrade/class-wpml-tm-upgrade-loader-factory.php',
@@ -510,6 +511,8 @@ class ComposerStaticInit3675703b58224e0f306d76a825cbce29
         'WPML_TP_String_Job' => __DIR__ . '/../..' . '/classes/translation-proxy/class-wpml-tp-string-job.php',
         'WPML_TP_Sync_Ajax_Handler' => __DIR__ . '/../..' . '/classes/translation-proxy/sync-jobs/class-wpml-tp-sync-ajax-handler.php',
         'WPML_TP_Sync_Jobs' => __DIR__ . '/../..' . '/classes/translation-proxy/sync-jobs/class-wpml-tp-sync-jobs.php',
+        'WPML_TP_Sync_Orphan_Jobs' => __DIR__ . '/../..' . '/classes/translation-proxy/sync-jobs/wpml-tp-sync-orphan-jobs.php',
+        'WPML_TP_Sync_Orphan_Jobs_Factory' => __DIR__ . '/../..' . '/classes/translation-proxy/sync-jobs/wpml-tp-sync-orphan-jobs-factory.php',
         'WPML_TP_Sync_Update_Job' => __DIR__ . '/../..' . '/classes/translation-proxy/sync-jobs/class-wpml-tp-sync-update-job.php',
         'WPML_TP_TM_Jobs' => __DIR__ . '/../..' . '/classes/tp-client/wpml-tp-tm-jobs.php',
         'WPML_TP_Translation' => __DIR__ . '/../..' . '/classes/translation-proxy/translations/class-wpml-tp-translation.php',
@@ -585,8 +588,8 @@ class ComposerStaticInit3675703b58224e0f306d76a825cbce29
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInit3675703b58224e0f306d76a825cbce29::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit3675703b58224e0f306d76a825cbce29::$classMap;
+            $loader->prefixesPsr0 = ComposerStaticInit4dd7137195f2610649080d1f28e32cb5::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit4dd7137195f2610649080d1f28e32cb5::$classMap;
 
         }, null, ClassLoader::class);
     }
