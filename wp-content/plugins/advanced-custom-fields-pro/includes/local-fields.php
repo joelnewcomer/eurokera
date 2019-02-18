@@ -1,8 +1,8 @@
 <?php 
 
 // Register notices stores.
-acf_register_store( 'local-fields' );
-acf_register_store( 'local-groups' );
+acf_register_store( 'local-fields' )->prop( 'multisite', true );
+acf_register_store( 'local-groups' )->prop( 'multisite', true );
 acf_register_store( 'local-empty' );
 
 // Register filter.
@@ -183,6 +183,21 @@ function acf_add_local_field_group( $field_group ) {
 }
 
 /**
+ * register_field_group
+ *
+ * See acf_add_local_field_group().
+ *
+ * @date	22/1/19
+ * @since	5.7.10
+ *
+ * @param	array $field_group The field group array.
+ * @return	void
+ */
+function register_field_group( $field_group ) {
+	acf_add_local_field_group( $field_group );
+}
+
+/**
  * acf_remove_local_field_group
  *
  * Removes a field group for the given key.
@@ -301,7 +316,7 @@ function acf_get_local_fields( $parent = '' ) {
  * @return	bool
  */
 function acf_have_local_fields( $parent = '' ) {
-	return !empty( acf_get_local_fields($parent) );
+	return acf_get_local_fields($parent) ? true : false;
 }
 
 /**
@@ -457,7 +472,7 @@ function _acf_apply_get_local_field_groups( $groups = array() ) {
 		}
 		
 		// Sort list via menu_order and title.
-		$groups = wp_list_sort( $groups, array('menu_order', 'title'), 'ASC' );
+		$groups = wp_list_sort( $groups, array('menu_order' => 'ASC', 'title' => 'ASC') );
 	}
 	
 	// Return groups.

@@ -1,7 +1,7 @@
 <?php 
 
 // Register store.
-acf_register_store( 'fields' );
+acf_register_store( 'fields' )->prop( 'multisite', true );
 
 /**
  * acf_get_field
@@ -334,9 +334,12 @@ add_action('acf/validate_field', 'acf_translate_field');
  */
 function acf_get_fields( $parent ) {
 	
-	// Bail early if $parent is not an array.
-	if( !is_array($parent) || !isset($parent['key']) ) {
-		return array();
+	// Allow field group selector as $parent.
+	if( !is_array($parent) ) {
+		$parent = acf_get_field_group( $parent );
+		if( !$parent ) {
+			return array();
+		}
 	}
 	
 	// Vars.
@@ -687,14 +690,14 @@ function acf_render_field_wrap( $field, $element = 'div', $instruction = 'label'
 		$wrapper = acf_merge_attributes( $wrapper, $field['wrapper'] );
 	}
 	
-	// Extract width attribute.
+	// Extract wrapper width and generate style.
 	// Todo: Move from $wrapper out into $field.
 	$width = acf_extract_var( $wrapper, 'width' );
-	
-	// Check if element can have width.
-	if( $element !== 'tr' && $element !== 'td' ) {
-		$wrapper['data-width'] = $width;
-		$wrapper['style'] .= " width:{$width}%;";
+	if( $width ) {
+		if( $element !== 'tr' && $element !== 'td' ) {
+			$wrapper['data-width'] = $width;
+			$wrapper['style'] .= " width:{$width}%;";
+		}
 	}
 	
 	// Clean up all attributes.
@@ -1232,14 +1235,9 @@ function acf_get_sub_field( $id, $field ) {
 	// Vars.
 	$sub_field = false;
 	
-	// Check sub_fields setting.
+	// Search sub fields.
 	if( isset($field['sub_fields']) ) {
-		foreach( $field['sub_fields'] as $_sub_field ) {
-			if( acf_is_field($_sub_field, $id) ) {
-				$sub_field = $_sub_field;
-				break;
-			}
-		}
+		$sub_field = acf_search_fields( $id, $field['sub_fields'] );
 	}
 	
 	/**
@@ -1263,6 +1261,33 @@ function acf_get_sub_field( $id, $field ) {
 acf_add_filter_variations( 'acf/get_sub_field', array('type'), 2 );
 
 /**
+ * acf_search_fields
+ *
+ * Searches an array of fields for one that matches the given identifier.
+ *
+ * @date	12/2/19
+ * @since	5.7.11
+ *
+ * @param	(int|string) $id The field ID, key or name.
+ * @param	array $haystack The array of fields.
+ * @return	(int|false)
+ */
+function acf_search_fields( $id, $fields ) {
+	
+	// Loop over fields.
+	foreach( $fields as $field ) {
+		foreach( array( 'key', 'name', '_name', '__name' ) as $key ) {
+			if( isset($field[$key]) && $field[$key] === $id ) {
+				return $field;
+			}
+		}
+	}
+	
+	// Return not found.
+	return false;
+}
+
+/**
  * acf_is_field
  *
  * Returns true if the given params match a field.
@@ -1275,21 +1300,11 @@ acf_add_filter_variations( 'acf/get_sub_field', array('type'), 2 );
  * @return	bool
  */
 function acf_is_field( $field = false, $id = '' ) {
-	
-	// Check $field matches basic requirements.
-	if( is_array($field) && isset($field['key'], $field['name']) ) {
-		
-		// Match identifier.
-		if( $id ) {
-			return in_array( $id, $field, true );
-		}
-		
-		// Return true.
-		return true;
-	}
-	
-	// Return false.
-	return false;
+	return ( 
+		is_array($field)
+		&& isset($field['key'])
+		&& isset($field['name'])
+	);
 }
 
 /**

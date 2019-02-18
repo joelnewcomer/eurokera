@@ -1,7 +1,7 @@
 <?php 
 
 // Register store.
-acf_register_store( 'values' );
+acf_register_store( 'values' )->prop( 'multisite', true );
 
 /**
  * acf_get_reference
@@ -75,7 +75,7 @@ function acf_get_value( $post_id = 0, $field ) {
 	$value = acf_get_metadata( $post_id, $field_name );
 	
 	// Use field's default_value if no meta was found.
-	if( $value === false && isset($field['default_value']) ) {
+	if( $value === null && isset($field['default_value']) ) {
 		$value = $field['default_value'];
 	}
 	

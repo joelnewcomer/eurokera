@@ -167,22 +167,25 @@ function acf_maybe_get_field( $selector, $post_id = false, $strict = true ) {
 	// init
 	acf_init();
 	
-	// get valid post_id
-	$post_id = acf_get_valid_post_id( $post_id );
+	// Check if field key was given.
+	if( acf_is_field_key($selector) ) {
+		return acf_get_field( $selector );
+	}
 	
-	// Try meta field.
+	// Lookup field via reference.
+	$post_id = acf_get_valid_post_id( $post_id );
 	$field = acf_get_meta_field( $selector, $post_id );
 	if( $field ) {
 		return $field;
 	}
 	
-	// Bail ealry if strict.
-	if( $strict ) {
-		return false;
+	// Lookup field loosely via name.
+	if( !$strict ) {
+		return acf_get_field( $selector );	
 	}
 	
-	// Try field.
-	return acf_get_field( $selector );	
+	// Return no result.
+	return false;
 }
 
 /*

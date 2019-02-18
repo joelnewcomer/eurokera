@@ -1,7 +1,7 @@
 <?php 
 
 // Register store.
-acf_register_store( 'field-groups' );
+acf_register_store( 'field-groups' )->prop( 'multisite', true );
 
 /**
  * acf_get_field_group
@@ -768,22 +768,12 @@ function acf_untrash_field_group( $id = 0 ) {
  * @param	mixed $id An optional identifier to search for.
  * @return	bool
  */
-function acf_is_field_group( $field_group = false, $id = '' ) {
-	
-	// Check $field_group matches basic requirements.
-	if( is_array($field_group) && isset($field_group['key'], $field_group['title']) ) {
-		
-		// Match identifier.
-		if( $id ) {
-			return in_array( $id, $field_group, true );
-		}
-		
-		// Return true.
-		return true;
-	}
-	
-	// Return false.
-	return false;
+function acf_is_field_group( $field_group = false ) {
+	return ( 
+		is_array($field_group)
+		&& isset($field_group['key'])
+		&& isset($field_group['title'])
+	);
 }
 
 /**
@@ -968,7 +958,7 @@ function acf_prepare_field_group_for_export( $field_group = array() ) {
  */
 function acf_import_field_group( $field_group ) {
 	
-	// Disable filters to ensure ACF loads data from DB.
+	// Disable filters to ensure data is not modified by local, clone, etc.
 	acf_disable_filters();
 	
 	// Validate field group.
@@ -1054,6 +1044,9 @@ function acf_import_field_group( $field_group ) {
 	
 	// Save field group.
 	$field_group = acf_update_field_group( $field_group );
+	
+	// Enable filters again.
+	acf_enable_filters();
 	
 	/**
 	 * Fires immediately after a field_group has been imported.
