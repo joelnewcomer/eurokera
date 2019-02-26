@@ -6849,7 +6849,7 @@ section.enamels {
   -webkit-animation-name: overlay-slide-out-right;
   animation-name: overlay-slide-out-right; }
 
-.menu-collapser {
+1.menu-collapser {
   position: relative;
   display: block;
   float: left;
@@ -6939,7 +6939,7 @@ ul.slimmenu li ul {
     background: #fff; }
   ul.slimmenu {
     width: 100%;
-    top: 64px;
+    top: 58px;
     position: absolute;
     height: -webkit-calc(100vh - 66px);
     height: calc(100vh - 66px);
