@@ -22,7 +22,7 @@ get_header(); ?>
 					<?php get_template_part('assets/images/corning', 'logo.svg'); ?><br />
 				</a>
 			</div>
-			<div class="equals hide-for-small">=</div>
+			<div class="equals">=</div>
 			<div class="num-one history-logo">
 				<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?><br />
 			</div>
