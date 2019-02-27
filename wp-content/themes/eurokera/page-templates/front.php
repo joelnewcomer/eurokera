@@ -131,7 +131,7 @@ get_header(); ?>
 	?>
 <?php if (ICL_LANGUAGE_CODE == 'zh-hans') : ?>	
 	<?php
-	$video_markup = '<a class="home-video vp-s vp-mp4-type" style="background-image: url(' . $video_poster . ');" href="' . get_field('video_url') . '" data-autoplay="1" data-dwrap="1"></a>';
+	$video_markup = '<a class="home-video vp-a vp-mp4-type" style="background-image: url(' . $video_poster . ');" href="' . get_field('video_url') . '" data-autoplay="1" data-dwrap="1"></a>';
 	echo apply_filters('the_content', $video_markup);
 	$video_inner = '<div class="row"><div class="large-12 columns text-center">';
 	ob_start();
