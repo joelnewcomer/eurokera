@@ -147,14 +147,13 @@ get_header(); ?>
 	?>
 <?php else: ?>
 	<a class="home-video" href="<?php echo get_field('video_url'); ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540" style="background-image: url(<?php echo $video_poster; ?>);">
-<?php endif; ?>
-	<div class="row">
-		<div class="large-12 columns text-center">
-			<?php get_template_part('assets/images/play', 'button.svg'); ?><br />
-			<?php echo get_field('video_title'); ?>
+		<div class="row">
+			<div class="large-12 columns text-center">
+				<?php get_template_part('assets/images/play', 'button.svg'); ?><br />
+				<?php echo get_field('video_title'); ?>
+			</div>
 		</div>
-	</div>
-</a>
+	</a>
 <?php endif; ?>
 
 <section class="site-links">
