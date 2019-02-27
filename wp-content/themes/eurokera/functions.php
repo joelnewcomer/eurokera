@@ -120,7 +120,7 @@ function quality_videos( $atts, $content = null ) {
 				$play_button = ob_get_contents();
 				ob_end_clean();
 				$video_inner .= $play_button;
-				$video_inner .= '</div><div class="video-title" style="display:table;height:100%;"><div style="display:table-cell;vertical-align:middle;"><div><h2>' . echo $row['video_title'] . '</h2></div></div></div>';
+				$video_inner .= '</div><div class="video-title" style="display:table;height:100%;"><div style="display:table-cell;vertical-align:middle;"><div><h2>' . $row['video_title'] . '</h2></div></div></div>';
 				?>
 				<script>
 					jQuery('a#quality-video-<?php echo $counter; ?>').html('<?php echo $video_inner; ?>');
