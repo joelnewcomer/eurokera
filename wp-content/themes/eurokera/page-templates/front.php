@@ -138,6 +138,7 @@ get_header(); ?>
 			get_template_part('assets/images/play', 'button.svg');
 			$play_button = ob_get_contents();
 			ob_end_clean();
+			$video_markup .= $play_button;
 			$video_markup .= '<br />' . get_field('video_title') . '
 		</div>
 	</div>
