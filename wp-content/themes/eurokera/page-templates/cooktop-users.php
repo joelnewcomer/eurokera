@@ -98,6 +98,25 @@ global $post;
 	</div>
 	<?php $video_poster = wp_get_attachment_image_src( get_field('video_poster'), 'width=700&height=400&crop=1' ); ?>
 	<div class="large-6 medium-6 columns user-video text-center" style="background-image: url(<?php echo $video_poster[0]; ?>);">
+
+
+<?php if (ICL_LANGUAGE_CODE == 'zh-hans') : ?>	
+	<?php
+	$video_markup = '<a class="tutorial-video vp-a vp-mp4-type" href="' . get_field('video_url') . '" data-autoplay="1" data-dwrap="1"></a>';
+	echo apply_filters('the_content', $video_markup);
+	$video_inner = '<div class="product-addl-video">';
+	ob_start();
+	get_template_part('assets/images/play', 'button.svg');
+	$play_button = ob_get_contents();
+	ob_end_clean();
+	$video_inner .= $play_button;
+	$video_inner .= '</div><div class="video-title"><h2>' . get_field('video_title') . '</h2></div>';
+	?>
+	<script>
+		jQuery('a.tutorial-video').html('<?php echo $video_inner; ?>');
+	</script>
+<?php else: ?>
+
 		<a href="<?php echo get_field('video_url'); ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
 			<div class="product-addl-video">
 				<?php get_template_part('assets/images/play', 'button.svg'); ?>
@@ -106,6 +125,7 @@ global $post;
 			    <h2><?php echo get_field('video_title'); ?></h2>
 			</div>
 		</a>
+		<?php endif; ?>
 
 	</div>	
 </section>
