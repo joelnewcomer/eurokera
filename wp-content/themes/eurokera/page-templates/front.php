@@ -131,7 +131,7 @@ get_header(); ?>
 	?>
 <?php if (ICL_LANGUAGE_CODE == 'zh-hans') : ?>	
 	<?php
-	$video_markup = '<a class="vp-s vp-mp4-type" href="' . get_field('video_url') . '">';
+	$video_markup = '<a class="home-video vp-s vp-mp4-type" href="' . get_field('video_url') . '">';
 	echo apply_filters('the_content', $video_markup);
 	?>
 <?php else: ?>
