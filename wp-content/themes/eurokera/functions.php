@@ -106,11 +106,31 @@ function quality_videos( $atts, $content = null ) {
 	$rows = get_field('quality_videos','option');
 	if($rows) {
 		shuffle( $rows );
+		$counter = 1;
 		echo '<div class="product-videos">';
 		foreach($rows as $row) { ?>
+		
+			<?php if (ICL_LANGUAGE_CODE == 'zh-hans') : ?>	
+				<?php
+				$video_markup = '<a id="quality-video-' . $counter . '" class="quality-video vp-a vp-mp4-type" href="' . $row['video_url'] . '" data-autoplay="1" data-dwrap="1"></a>';
+				echo apply_filters('the_content', $video_markup);
+				$video_inner = '<div class="product-addl-video">' . wp_get_attachment_image( $row['video_poster'], 'width=310&height=228&crop=1' );
+				ob_start();
+				get_template_part('assets/images/play', 'button.svg');
+				$play_button = ob_get_contents();
+				ob_end_clean();
+				$video_inner .= $play_button;
+				$video_inner .= '</div><div class="video-title" style="display:table;height:100%;"><div style="display:table-cell;vertical-align:middle;"><div><h2>' . echo $row['video_title'] . '</h2></div></div></div>';
+				?>
+				<script>
+					jQuery('a#quality-video-<?php echo $counter; ?>').html('<?php echo $video_inner; ?>');
+				</script>
+			<?php else: ?>
+		
+		
 			<a class="quality-video" href="<?php echo $row['video_url']; ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
 				<div class="product-addl-video">
-					<?php echo  wp_get_attachment_image( $row['video_poster'], 'width=310&height=228&crop=1' ) ?>
+					<?php echo  wp_get_attachment_image( $row['video_poster'], 'width=310&height=228&crop=1' ); ?>
 					<?php get_template_part('assets/images/play', 'button.svg'); ?>
 				</div>
 				<div class="video-title" style="display:table;height:100%;">
@@ -120,6 +140,7 @@ function quality_videos( $atts, $content = null ) {
 				</div>
 			</a>
 			<?php
+			$counter++;
 		}
 		echo '</div>';
 	}
