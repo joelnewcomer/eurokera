@@ -139,6 +139,8 @@ function quality_videos( $atts, $content = null ) {
 				  </div>
 				</div>
 			</a>
+			
+			<?php endif; ?>
 			<?php
 			$counter++;
 		}
