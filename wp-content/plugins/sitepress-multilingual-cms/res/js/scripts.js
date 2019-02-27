@@ -69,7 +69,7 @@ jQuery(document).ready(function($){
 
     });
 
-	jQuery( '.js-wpml-sync-lock' ).on( 'click', function ( e ) {
+    function click_on_lock() {
 		var radio_name = jQuery( this ).data( 'radio-name' ),
 			unlocked_name = jQuery( this ).data( 'unlocked-name' );
 
@@ -78,7 +78,21 @@ jQuery(document).ready(function($){
 		jQuery( 'input[name="' + unlocked_name + '"]' ).prop( 'value', '1' );
 
 		return false;
-	} );
+	}
+
+	function sync_lock_on_custom_fields_and_terms( form_id ) {
+		var locks = jQuery( '#' + form_id ).find( '.js-wpml-sync-lock' );
+		locks.on( 'click', click_on_lock );
+	}
+
+	$(document).on('icl-bind-locks', function( e ) {
+		sync_lock_on_custom_fields_and_terms( e.detail );
+	});
+
+	$( '#icl_custom_posts_sync_options .js-wpml-sync-lock, #icl_custom_tax_sync_options .js-wpml-sync-lock' ).on(
+		'click',
+		click_on_lock
+	);
 
 	$(document).ready( function() {
 		$( '.js-type-translation-row' ).each( function() {

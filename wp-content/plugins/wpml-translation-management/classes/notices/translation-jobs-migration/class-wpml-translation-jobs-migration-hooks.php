@@ -13,7 +13,7 @@ class WPML_Translation_Jobs_Migration_Hooks {
 
 	public function __construct(
 		WPML_Translation_Jobs_Migration_Notice $notice,
-		WPML_Translation_Jobs_Migration_Ajax $ajax_handler,
+		$ajax_handler,
 		WPML_Translation_Jobs_Migration_Repository $jobs_migration_repository,
 		WPML_Upgrade_Schema $schema
 	) {
@@ -74,6 +74,7 @@ class WPML_Translation_Jobs_Migration_Hooks {
 		}
 
 		WPML_Translation_Jobs_Migration::mark_migration_as_done();
+		WPML_Translation_Jobs_Migration::mark_all_jobs_migration_as_done();
 
 		return false;
 	}

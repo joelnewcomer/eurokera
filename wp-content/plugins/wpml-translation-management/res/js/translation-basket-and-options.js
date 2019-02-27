@@ -58,7 +58,7 @@
 				var progress_bar = progress_bar_object.getDomElement();
 				var batch_basket_items = [];
 				var batch_number = 0;
-				var initial_basket_size = 0;
+				var batch_size;
 				var batch_deadline = form.find( '#basket-deadline' );
 
 				var init = function () {
@@ -380,10 +380,11 @@
 					if (typeof skip_items === 'undefined') {
 						skip_items = 0;
 						batch_number = 0;
-						initial_basket_size = batch_basket_items.length;
+						// We consider 2s per doc and per lang, and we don't want to exceed 20s per request
+						var langs = Object.keys(translators);
+						batch_size = Math.ceil(20 / langs.length); // 1 to 20
+						batch_size = Math.min(5, batch_size); // 1 to 5
 					}
-
-					var batch_size = Math.max(5, initial_basket_size / 10);
 					
 					batch_number++;
 					

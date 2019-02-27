@@ -290,20 +290,8 @@ class WPML_TM_ATE_Jobs_Actions implements IWPML_Action {
 	 * @param string $message
 	 */
 	private function add_update_error_notice( $message ) {
-		$wpml_admin_notices = wpml_get_admin_notices();
-
-		$notice = new WPML_Notice(
-			self::RESPONSE_ATE_ERROR_NOTICE_ID,
-			sprintf(
-				__( 'There was a problem communicating with ATE: %s ', 'wpml-translation-management' ),
-				'(<i>' . $message . '</i>)'
-			),
-			self::RESPONSE_ATE_ERROR_NOTICE_GROUP
-		);
-		$notice->set_css_class_types( array( 'warning' ) );
-		$notice->add_capability_check( array( 'manage_options', 'wpml_manage_translation_management' ) );
-		$notice->set_flash();
-		$wpml_admin_notices->add_notice( $notice );
+		$error_log = new WPML_TM_ATE_API_Error();
+		$error_log->log( $message );
 	}
 
 	/**

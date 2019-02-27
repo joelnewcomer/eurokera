@@ -20,6 +20,7 @@ class WPML_ACF {
 			add_action( 'wpml_loaded', array( $this, 'init_custom_fields_synchronisation_handler'));
 			add_action( 'wpml_loaded', array( $this, 'init_acf_location_rules' ) );
 			add_action( 'wpml_loaded', array( $this, 'init_acf_attachments' ) );
+			add_action( 'wpml_loaded', array( $this, 'init_acf_field_settings' ) );
 
 			$this->WPML_ACF_Requirements = new WPML_ACF_Requirements();
 
@@ -89,5 +90,10 @@ class WPML_ACF {
 	public function init_acf_attachments() {
 		$WPML_ACF_Attachments = new WPML_ACF_Attachments();
 		$WPML_ACF_Attachments->register_hooks();
+	}
+
+	public function init_acf_field_settings() {
+		global $iclTranslationManagement;
+		$WPML_ACF_Field_Settings = new WPML_ACF_Field_Settings( $iclTranslationManagement );
 	}
 }

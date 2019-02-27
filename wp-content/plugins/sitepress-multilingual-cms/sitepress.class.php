@@ -214,7 +214,9 @@ class SitePress extends WPML_WPDB_User implements
 			add_filter( 'locale', array( $this, 'locale_filter' ), 10, 1 );
 			add_filter( 'pre_option_page_on_front', array( $this, 'pre_option_page_on_front' ) );
 			add_filter( 'pre_option_page_for_posts', array( $this, 'pre_option_page_for_posts' ) );
-			add_filter( 'pre_option_sticky_posts', array( $this, 'option_sticky_posts' ), 10, 2 );
+
+			$sticky_posts_loader = new WPML_Sticky_Posts_Loader( $this );
+			$sticky_posts_loader->add_hooks();
 
 			add_filter( 'trashed_post', array( $this, 'fix_trashed_front_or_posts_page_settings' ) );
 			add_filter( 'delete_post', array( $this, 'fix_trashed_front_or_posts_page_settings' ) );
@@ -428,10 +430,6 @@ class SitePress extends WPML_WPDB_User implements
 				} else {
 					$this->set_this_lang( 'all' );
 				}
-			}
-
-			if ( defined( 'DISQUS_VERSION' ) && ! is_admin() ) {
-				include WPML_PLUGIN_PATH . '/modules/disqus.php';
 			}
 		}
 
@@ -3441,28 +3439,6 @@ class SitePress extends WPML_WPDB_User implements
 		}
 
 		return $link;
-	}
-
-	/**
-	 * Wrapper for \WPML_Post_Translation::pre_option_sticky_posts_filter
-	 *
-	 * @param int[] $posts
-	 *
-	 * @return int[]|false
-	 *
-	 * @uses \WPML_Post_Translation::pre_option_sticky_posts_filter to filter the sticky posts
-	 *
-	 * @hook pre_option_sticky_posts
-	 */
-	function option_sticky_posts( $posts ) {
-		/** @var WPML_Post_Translation $wpml_post_translations */
-		global $wpml_post_translations;
-
-		remove_filter( 'pre_option_sticky_posts', array( $this, 'option_sticky_posts' ) );
-		$posts = $wpml_post_translations->pre_option_sticky_posts_filter( $posts, $this );
-		add_filter( 'pre_option_sticky_posts', array( $this, 'option_sticky_posts' ), 10, 2 );
-
-		return $posts;
 	}
 
 	function noscript_notice() {

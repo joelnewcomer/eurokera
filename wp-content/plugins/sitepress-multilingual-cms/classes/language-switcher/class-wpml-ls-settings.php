@@ -320,10 +320,16 @@ class WPML_LS_Settings {
 	public function get_menu_settings_from_id( $term_id ) {
 		if ( $term_id > 0 ) {
 			$menu_element = new WPML_Menu_Element( $term_id, $this->sitepress );
-			$default_lang = $this->sitepress->get_default_language();
 
-			if ( $menu_element->get_language_code() !== $default_lang ) {
-				$nav_menu = $menu_element->get_translation( $default_lang )
+			$source_element = $menu_element->get_source_element();
+			if ( null !== $source_element ) {
+				$term_id = $source_element->get_id();
+			}
+
+			if ( ! $menu_element->is_in_default_language()
+				&& $menu_element->get_language_code() !== $this->sitepress->get_current_language() ) {
+				$default_lang = $this->sitepress->get_default_language();
+				$nav_menu     = $menu_element->get_translation( $default_lang )
 					? $menu_element->get_translation( $default_lang )->get_wp_object() : null;
 
 				$term_id = $nav_menu && ! is_wp_error( $nav_menu ) ? $nav_menu->term_id : null;

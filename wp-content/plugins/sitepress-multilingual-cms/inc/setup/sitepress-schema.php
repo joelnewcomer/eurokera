@@ -50,15 +50,7 @@ function icl_reset_language_data(){
 function icl_sitepress_activate() {
 	global $wpdb;
 
-	$charset_collate = '';
-	if ( method_exists( $wpdb, 'has_cap' ) && $wpdb->has_cap( 'collation' ) ) {
-		if ( ! empty( $wpdb->charset ) ) {
-			$charset_collate = "DEFAULT CHARACTER SET $wpdb->charset";
-		}
-		if ( ! empty( $wpdb->collate ) ) {
-			$charset_collate .= " COLLATE $wpdb->collate";
-		}
-	}
+	$charset_collate = SitePress_Setup::get_charset_collate();
 
 	try {
 		SitePress_Setup::fill_languages();

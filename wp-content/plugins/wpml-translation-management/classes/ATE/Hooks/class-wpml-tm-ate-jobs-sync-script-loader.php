@@ -23,7 +23,7 @@ class WPML_TM_ATE_Jobs_Sync_Script_Loader {
 	public function load() {
 		$translation_jobs = $this->ate_jobs_repository->get_in_progress();
 
-		if ( $translation_jobs ) {
+		if ( count( $translation_jobs ) ) {
 			$js_handler = 'wpml-tm-ate-jobs-sync';
 			wp_register_script(
 				$js_handler,
@@ -31,7 +31,7 @@ class WPML_TM_ATE_Jobs_Sync_Script_Loader {
 				array( 'wpml-meta-box' ),
 				WPML_TM_VERSION
 			);
-			wp_localize_script( $js_handler, 'jobIds', wp_list_pluck( $translation_jobs, 'job_id' ) );
+			wp_localize_script( $js_handler, 'jobIds', $translation_jobs->map_to_property( 'translate_job_id' ) );
 
 			wp_enqueue_script( $js_handler );
 

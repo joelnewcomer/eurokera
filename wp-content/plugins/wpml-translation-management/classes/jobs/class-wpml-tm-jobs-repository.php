@@ -84,6 +84,8 @@ class WPML_TM_Jobs_Repository {
 				array( $this->elements_repository, 'get_job_elements' )
 			);
 			$job->set_translate_job_id( $raw_data->translate_job_id );
+			$job->set_editor( $raw_data->editor );
+			$job->set_completed_date( $raw_data->completed_date ? new DateTime( $raw_data->completed_date ) : null );
 		} else {
 			$job = new WPML_TM_Job_Entity(
 				$raw_data->id,

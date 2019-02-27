@@ -31,6 +31,7 @@ class WPML_TM_Jobs_String_Query implements WPML_TM_Jobs_Query {
 			'string_translations.translation_service as translation_service',
 			'string_status.timestamp as sent_date',
 			'NULL as deadline_date',
+			'NULL as completed_date',
 			'strings.value as title',
 			'source_languages.english_name as source_language_name',
 			'target_languages.english_name as target_language_name',
@@ -39,6 +40,7 @@ class WPML_TM_Jobs_String_Query implements WPML_TM_Jobs_Query {
 			'core_status.tp_revision AS revision',
 			'core_status.ts_status AS ts_status',
 			'NULL AS needs_update',
+			'NULL AS editor',
 		);
 
 		return $this->build_query( $params, $columns );
@@ -57,7 +59,7 @@ class WPML_TM_Jobs_String_Query implements WPML_TM_Jobs_Query {
 	 * @return string
 	 */
 	private function build_query( WPML_TM_Jobs_Search_Params $params, array $columns ) {
-		if ( $params->get_job_type() && WPML_TM_Job_Entity::STRING_TYPE !== $params->get_job_type() ) {
+		if ( $params->get_job_types() && WPML_TM_Job_Entity::STRING_TYPE !== $params->get_job_types() ) {
 			return '';
 		}
 

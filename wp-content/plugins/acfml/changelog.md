@@ -1,3 +1,8 @@
+# 1.1
+
+* you can set field translation preferences directly on the Field Gorup edit screen (acfml-104)
+* possibility to hide ACFML field annotations by setting constant ACFML_HIDE_FIELD_ANNOTATIONS to boolean true (acfml-129)
+
 # 1.0.4
 
 * better checking if ACF is active on Windows (acfml-125)

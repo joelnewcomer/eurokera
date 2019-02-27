@@ -805,3 +805,26 @@ function wpml_array_unique_fallback( $array, $keep_key_assoc ) {
 function wpml_is_rest_request() {
 	return array_key_exists( 'rest_route', $_REQUEST ) || false !== strpos( $_SERVER['REQUEST_URI'], 'wp-json' );
 }
+
+function wpml_sticky_post_sync( Sitepress $sitepress = null ) {
+	static $instance;
+
+	if ( ! $instance ) {
+		global $wpml_post_translations;
+
+		if ( ! $sitepress ) {
+			global $sitepress;
+		}
+
+		$instance = new WPML_Sticky_Posts_Sync(
+			$sitepress,
+			$wpml_post_translations,
+			new WPML_Sticky_Posts_Lang_Filter(
+				$sitepress,
+                $wpml_post_translations
+			)
+		);
+	}
+
+	return $instance;
+}

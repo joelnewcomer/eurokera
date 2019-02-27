@@ -41,7 +41,7 @@ class WPML_TM_Jobs_Composite_Query implements WPML_TM_Jobs_Query {
 	 * @return string
 	 */
 	public function get_data_query( WPML_TM_Jobs_Search_Params $params ) {
-		if ( ! $params->get_job_type() ) {
+		if ( ! $params->get_job_types() ) {
 			// We are merging subqueries here, that's why LIMIT must be applied to final query
 			$params_without_pagination_and_sorting = clone $params;
 			$params_without_pagination_and_sorting->set_limit( 0 )->set_offset( 0 );

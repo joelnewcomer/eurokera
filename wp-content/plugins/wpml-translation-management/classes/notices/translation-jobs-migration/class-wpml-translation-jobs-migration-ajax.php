@@ -8,10 +8,12 @@ class WPML_Translation_Jobs_Migration_Ajax {
 
 	private $jobs_migration;
 	private $jobs_repository;
+	private $notice;
 
-	public function __construct( WPML_Translation_Jobs_Migration $jobs_migration, WPML_Translation_Jobs_Migration_Repository $jobs_repository ) {
-		$this->jobs_migration  = $jobs_migration;
-		$this->jobs_repository = $jobs_repository;
+	public function __construct( WPML_Translation_Jobs_Migration $jobs_migration, WPML_Translation_Jobs_Migration_Repository $jobs_repository, WPML_Translation_Jobs_Migration_Notice $notice ) {
+		$this->jobs_migration            = $jobs_migration;
+		$this->jobs_repository           = $jobs_repository;
+		$this->notice                    = $notice;
 	}
 
 	public function run_migration() {
@@ -25,12 +27,19 @@ class WPML_Translation_Jobs_Migration_Ajax {
 		$this->jobs_migration->migrate_jobs( $jobs_chunk );
 
 		$done = count( $jobs ) === count( $jobs_chunk );
+		$total_jobs = count( $jobs );
+		$jobs_chunk_total = count( $jobs_chunk );
 
 		$result = array(
-			'totalJobs'    => count( $jobs ),
-			'jobsMigrated' => count( $jobs_chunk ),
+			'totalJobs'    => $total_jobs,
+			'jobsMigrated' => $jobs_chunk_total,
 			'done'         => $done,
 		);
+
+		if ( $jobs_chunk_total === $total_jobs ) {
+			WPML_Translation_Jobs_Migration::mark_all_jobs_migration_as_done();
+			$this->notice->remove_notice();
+		}
 
 		wp_send_json_success( $result );
 	}

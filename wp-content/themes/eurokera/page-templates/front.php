@@ -129,7 +129,14 @@ get_header(); ?>
 		$video_poster = $video_poster_url[0];
 	}
 	?>
-<a class="home-video" href="<?php echo get_field('video_url'); ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540" style="background-image: url(<?php echo $video_poster; ?>);">
+<?php if (ICL_LANGUAGE_CODE == 'zh-hans') : ?>	
+	<?php
+	$video_markup = '<a class="vp-s vp-mp4-type" href="' . get_field('video_url') . '">';
+	echo apply_filters('the_content', $video_markup);
+	?>
+<?php else: ?>
+	<a class="home-video" href="<?php echo get_field('video_url'); ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540" style="background-image: url(<?php echo $video_poster; ?>);">
+<?php endif; ?>
 	<div class="row">
 		<div class="large-12 columns text-center">
 			<?php get_template_part('assets/images/play', 'button.svg'); ?><br />

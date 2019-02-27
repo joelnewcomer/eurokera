@@ -70,6 +70,11 @@ function wpml_plugins_integration_setup() {
 		$factories_to_load[] = 'WPML_Compatibility_Tiny_Compress_Images_Factory';
 	}
 
+	global $DISQUSVERSION;
+	if ( $DISQUSVERSION ) {
+		$factories_to_load[] = 'WPML_Compatibility_Disqus_Factory';
+	}
+
 	$action_filter_loader = new WPML_Action_Filter_Loader();
 	$action_filter_loader->load( $factories_to_load );
 }

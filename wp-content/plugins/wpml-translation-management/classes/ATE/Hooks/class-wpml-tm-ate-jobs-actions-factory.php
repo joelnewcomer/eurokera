@@ -14,13 +14,10 @@ class WPML_TM_ATE_Jobs_Actions_Factory implements IWPML_Backend_Action_Loader {
 	 */
 	public function create() {
 		if ( WPML_TM_ATE_Status::is_enabled() && $this->is_active() ) {
-			$wp_http        = $this->get_http();
-			$auth           = $this->get_auth();
-			$endpoints      = $this->get_endpoints();
 			$sitepress      = $this->get_sitepress();
 			$current_screen = $this->get_current_screen();
 
-			$ate_api  = new WPML_TM_ATE_API( $wp_http, $auth, $endpoints );
+			$ate_api  = $this->create_ate_api();
 			$records  = new WPML_TM_ATE_Job_Records();
 			$ate_jobs = new WPML_TM_ATE_Jobs( $records );
 
@@ -40,6 +37,17 @@ class WPML_TM_ATE_Jobs_Actions_Factory implements IWPML_Backend_Action_Loader {
 		}
 
 		return null;
+	}
+
+	/**
+	 * @return WPML_TM_ATE_API
+	 */
+	public function create_ate_api() {
+		$wp_http        = $this->get_http();
+		$auth           = $this->get_auth();
+		$endpoints      = $this->get_endpoints();
+
+		return new WPML_TM_ATE_API( $wp_http, $auth, $endpoints );
 	}
 
 	/**
