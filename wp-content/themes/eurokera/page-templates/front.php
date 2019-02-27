@@ -131,18 +131,13 @@ get_header(); ?>
 	?>
 <?php if (ICL_LANGUAGE_CODE == 'zh-hans') : ?>	
 	<?php
-	$video_markup = '<a class="home-video vp-s vp-mp4-type" href="' . get_field('video_url') . '" data-autoplay="1" data-dwrap="1" style="background-image: url(' . $video_poster . ');">
-	<div class="row">
-		<div class="large-12 columns text-center">';
-			ob_start();
-			get_template_part('assets/images/play', 'button.svg');
-			$play_button = ob_get_contents();
-			ob_end_clean();
-			$video_markup .= $play_button;
-			$video_markup .= '<br />' . get_field('video_title') . '
-		</div>
-	</div>
-</a>';
+	$video_markup = '<a class="home-video vp-s vp-mp4-type" href="' . get_field('video_url') . '" data-autoplay="1" data-dwrap="1" style="background-image: url(' . $video_poster . ');"><div class="row"><div class="large-12 columns text-center">';
+	ob_start();
+	get_template_part('assets/images/play', 'button.svg');
+	$play_button = ob_get_contents();
+	ob_end_clean();
+	$video_markup .= $play_button;
+	$video_markup .= '<br />' . get_field('video_title') . '</div></div></a>';
 	echo apply_filters('the_content', $video_markup);
 	?>
 <?php else: ?>
