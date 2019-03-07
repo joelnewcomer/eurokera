@@ -25,16 +25,31 @@
 
 		<!-- Load Korean font kit -->
 		<?php if(ICL_LANGUAGE_CODE=='ko') : ?>
-			<script src="https://use.typekit.net/amh7lzl.js"></script>
-			<script>try{Typekit.load({ async: true });}catch(e){}</script>
+			<script>
+  (function(d) {
+    var config = {
+      kitId: 'amh7lzl',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
 		<!-- Load Chinese/Vietnamese font kit -->
 		<?php elseif (ICL_LANGUAGE_CODE=='zh-hans' || ICL_LANGUAGE_CODE=='vi') : ?>
-			<script src="https://use.typekit.net/mwj6guo.js"></script>
-			<script>try{Typekit.load({ async: true });}catch(e){}</script>
+			<script>
+			(function(d) {
+				var config = {
+					kitId: 'mwj6guo',
+					scriptTimeout: 3000,
+					async: true
+    			},
+				h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+			</script>
 		<!-- English font kit -->
 		<?php else : ?>
-			<script src="https://use.typekit.net/xxf2jbi.js"></script>
-			<script>try{Typekit.load({ async: true });}catch(e){}</script>		
+			<link rel="stylesheet" href="https://use.typekit.net/xxf2jbi.css">	
 		<?php endif; ?>
 
 
