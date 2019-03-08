@@ -2141,6 +2141,9 @@ p {
 .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4 {
   color: #ff8200; }
 
+.entry-content li h1, .entry-content li h2, .entry-content li h3, .entry-content li h4, .entry-content li h5, .entry-content li h6 {
+  display: inline; }
+
 .loading-inner svg {
   width: 154px;
   height: 61px; }
