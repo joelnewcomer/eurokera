@@ -15,13 +15,12 @@ class WPML_TM_ATE_Job_Repository {
 	 * @return WPML_TM_Jobs_Collection
 	 */
 	public function get_in_progress() {
-		$jobs = $this->job_repository->get( new WPML_TM_Jobs_Search_Params( array(
-			'scope'    => WPML_TM_Jobs_Search_Params::SCOPE_LOCAL,
-			'status'   => self::get_in_progress_statuses(),
-			'job_type' => WPML_TM_Job_Entity::POST_TYPE,
-		) ) );
+		$search_params = new WPML_TM_Jobs_Search_Params();
+		$search_params->set_scope( WPML_TM_Jobs_Search_Params::SCOPE_LOCAL );
+		$search_params->set_status( self::get_in_progress_statuses() );
+		$search_params->set_job_types( WPML_TM_Job_Entity::POST_TYPE );
 
-		return $jobs->filter( array( $this, 'is_ate_job' ) );
+		return $this->job_repository->get( $search_params )->filter( array( $this, 'is_ate_job' ) );
 	}
 
 	/**

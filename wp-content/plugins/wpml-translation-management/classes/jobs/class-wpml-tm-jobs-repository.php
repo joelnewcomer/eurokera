@@ -54,10 +54,9 @@ class WPML_TM_Jobs_Repository {
 	 * @return WPML_TM_Job_Entity|false
 	 */
 	public function get_job( $local_job_id, $job_type ) {
-		$params = new WPML_TM_Jobs_Search_Params( array(
-			'local_job_id' => $local_job_id,
-			'job_type'     => $job_type,
-		) );
+		$params = new WPML_TM_Jobs_Search_Params();
+		$params->set_local_job_id( $local_job_id );
+		$params->set_job_types( $job_type );
 
 		$data = $this->wpdb->get_row( $this->query_builder->get_data_query( $params ) );
 		if ( $data ) {

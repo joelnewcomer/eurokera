@@ -376,12 +376,12 @@ class WPML_Nav_Menu {
         $langsel .= '</select>';
         $langsel .= '</label>';
 
-		$base_menu_element = $this->get_base_menu();
-		if ( $base_menu_element !== null ) {
+		if ( $current_lang !== $default_language ) {
 			// show 'translation of' if this element is not in the default language and there are untranslated elements
 			$langsel .= '<span id="icl_translation_of_wrap">';
 			$trid_current = ! empty( $this->current_menu['trid'] ) ? $this->current_menu['trid'] : ( isset( $_GET['trid'] ) ? $_GET['trid'] : 0 );
-			$langsel .= $this->render_translation_of( $current_lang, (int) $trid_current, $base_menu_element );
+			$langsel .= $this->render_translation_of( $current_lang, (int)$trid_current );
+
 			$langsel .= '</span>';
 		}
 		$langsel .= '</span>';
@@ -416,17 +416,6 @@ class WPML_Nav_Menu {
         <?php            
     }
 
-	private function get_base_menu() {
-		if ( isset( $this->current_menu['id'] ) && $this->current_menu['id'] ) {
-			$menu_element = new WPML_Menu_Element( $this->current_menu['id'], $this->sitepress );
-			$base_menu_element = $menu_element->get_source_element();
-
-			return $base_menu_element;
-		}
-
-		return null;
-	}
-
 	function get_menus_without_translation( $lang, $trid = 0 ) {
 		$res_query          = "
                 SELECT ts.element_id, ts.trid, t.name
@@ -452,11 +441,11 @@ class WPML_Nav_Menu {
 		return $menus;
 	}
 
-	private function render_translation_of( $lang, $trid = false, $base_menu_element = null ) {
+	private function render_translation_of( $lang, $trid = false ) {
 		global $sitepress;
 		$out = '';
 
-		if ( $sitepress->get_default_language() != $lang || $base_menu_element !== null ) {
+		if ( $sitepress->get_default_language() != $lang ) {
 			$menus    = $this->get_menus_without_translation( $lang, (int) $trid );
 			$disabled = empty( $this->current_menu['id'] ) && isset( $_GET['trid'] ) ? ' disabled="disabled"' : '';
 			$out .= '<label class="menu-name-label howto"><span>' . __( 'Translation of', 'sitepress' ) . '</span>&nbsp;';

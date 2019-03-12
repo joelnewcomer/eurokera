@@ -59,7 +59,8 @@ class WPML_TM_Jobs_String_Query implements WPML_TM_Jobs_Query {
 	 * @return string
 	 */
 	private function build_query( WPML_TM_Jobs_Search_Params $params, array $columns ) {
-		if ( $params->get_job_types() && WPML_TM_Job_Entity::STRING_TYPE !== $params->get_job_types() ) {
+
+		if ( $this->check_job_type( $params ) ) {
 			return '';
 		}
 
@@ -74,6 +75,15 @@ class WPML_TM_Jobs_String_Query implements WPML_TM_Jobs_Query {
 		$query_builder->set_order( $params );
 
 		return $query_builder->build();
+	}
+
+	/**
+	 * @param WPML_TM_Jobs_Search_Params $params
+	 *
+	 * @return bool
+	 */
+	protected function check_job_type( WPML_TM_Jobs_Search_Params $params ) {
+		return $params->get_job_types() && ! in_array( WPML_TM_Job_Entity::STRING_TYPE, $params->get_job_types(), true );
 	}
 
 	private function define_joins( WPML_TM_Jobs_Query_Builder $query_builder ) {
