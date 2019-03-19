@@ -1,4 +1,4 @@
-1.menu-collapser {
+.menu-collapser {
     position: relative;
 	display: block;
     float: left;
@@ -126,9 +126,9 @@ ul.slimmenu li>ul {
     width: 100%;
     text-align: right;
     z-index: 9999999;
-    transition: all .5;
+    /* transition: all .5;
     -webkit-transition: all .5s; /* Safari and Chrome */
-    -ms-transition: all .5s; /* Opera */
+    /* -ms-transition: all .5s; /* Opera */
     &:before, &:after {
 	    content: "";
 	    position: absolute;
@@ -137,9 +137,9 @@ ul.slimmenu li>ul {
 	    top: 0;
 	    width: 100%;	    
 	    background: $primary-color;
-	    transition: all .5s;
+	    /* transition: all .5s;
 	    -webkit-transition: all .5s; /* Safari and Chrome */
-	    -ms-transition: all .5s; /* Opera */
+	    /* -ms-transition: all .5s; /* Opera */
     }
     &:before {
 	    right: -100%;

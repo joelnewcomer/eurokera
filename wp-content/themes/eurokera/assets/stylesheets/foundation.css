@@ -6852,7 +6852,7 @@ section.enamels {
   -webkit-animation-name: overlay-slide-out-right;
   animation-name: overlay-slide-out-right; }
 
-1.menu-collapser {
+.menu-collapser {
   position: relative;
   display: block;
   float: left;
@@ -6958,12 +6958,9 @@ ul.slimmenu li > ul {
   width: 100%;
   text-align: right;
   z-index: 9999999;
-  -webkit-transition: all .5;
-  transition: all .5;
-  -webkit-transition: all .5s;
-  /* Safari and Chrome */
-  -ms-transition: all .5s;
-  /* Opera */ }
+  /* transition: all .5;
+    -webkit-transition: all .5s; /* Safari and Chrome */
+  /* -ms-transition: all .5s; /* Opera */ }
   ul.slimmenu li > ul:before, ul.slimmenu li > ul:after {
     content: "";
     position: absolute;
@@ -6972,11 +6969,9 @@ ul.slimmenu li > ul {
     top: 0;
     width: 100%;
     background: #ff8200;
-    transition: all .5s;
-    -webkit-transition: all .5s;
-    /* Safari and Chrome */
-    -ms-transition: all .5s;
-    /* Opera */ }
+    /* transition: all .5s;
+	    -webkit-transition: all .5s; /* Safari and Chrome */
+    /* -ms-transition: all .5s; /* Opera */ }
   ul.slimmenu li > ul:before {
     right: -100%; }
   ul.slimmenu li > ul:after {
@@ -7506,7 +7501,6 @@ h2.resp-accordion {
 
 .owl-carousel.owl-grab {
   cursor: move;
-  cursor: -webkit-grab;
   cursor: grab; }
 
 .owl-carousel.owl-rtl {
