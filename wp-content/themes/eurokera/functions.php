@@ -66,7 +66,7 @@ function my_acf_json_load_point( $paths ) {
     return $paths;
 }
 
-register_post_type('products', array('menu_icon' => 'dashicons-cart', 'label' => 'Products','description' => '','public' => true,'show_ui' => true,'show_in_menu' => true,'capability_type' => 'post','hierarchical' => true,'rewrite' => array('slug' => ''),'query_var' => true,'exclude_from_search' => false,'supports' => array('title','revisions','thumbnail','page-attributes',),'labels' => array (
+register_post_type('products', array('menu_icon' => 'dashicons-cart', 'label' => 'Products','description' => '','public' => true,'show_ui' => true,'show_in_menu' => true,'capability_type' => 'post','hierarchical' => true,'rewrite' => array('slug' => '/'),'query_var' => true,'exclude_from_search' => false,'supports' => array('title','revisions','thumbnail','page-attributes',),'labels' => array (
   'name' => 'Products',
   'singular_name' => 'Product',
   'menu_name' => 'Products',
