@@ -66,7 +66,7 @@ function my_acf_json_load_point( $paths ) {
     return $paths;
 }
 
-register_post_type('products', array('menu_icon' => 'dashicons-cart', 'label' => 'Products','description' => '','public' => true,'show_ui' => true,'show_in_menu' => true,'capability_type' => 'post','hierarchical' => true,'rewrite' => array('slug' => '/'),'query_var' => true,'exclude_from_search' => false,'supports' => array('title','revisions','thumbnail','page-attributes',),'labels' => array (
+register_post_type('products', array('menu_icon' => 'dashicons-cart', 'label' => 'Products','description' => '','public' => true,'show_ui' => true,'show_in_menu' => true,'capability_type' => 'post','hierarchical' => true,'rewrite' => array('slug' => ''),'query_var' => true,'exclude_from_search' => false,'supports' => array('title','revisions','thumbnail','page-attributes',),'labels' => array (
   'name' => 'Products',
   'singular_name' => 'Product',
   'menu_name' => 'Products',
@@ -272,3 +272,9 @@ function getBrightness($imgURL) {
 
 // Custom image sizes
 add_image_size( 'enamels', 1160, 140, false );
+
+add_filter( 'register_post_type_args', 'wpd_change_post_type_args', 10, 2 );
+function wpd_change_post_type_args( $args, $post_type ){
+    $args['rewrite']['with_front'] = false;
+    return $args;
+}
