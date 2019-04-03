@@ -49,8 +49,10 @@ get_header(); ?>
 <?php $content = get_field('homepage_content'); ?>
 <?php if ($content != '') : ?>
 <section class="homepage-content">
-	<div class="large-12 columns">
-		<?php echo $content; ?>
+	<div class="row">
+		<div class="large-12 columns">
+			<?php echo $content; ?>
+		</div>
 	</div>
 </section>
 <?php endif; ?>
