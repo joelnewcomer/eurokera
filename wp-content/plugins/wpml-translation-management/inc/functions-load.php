@@ -130,16 +130,18 @@ function wpml_tm_translator() {
 }
 
 /**
+ * It returns a single instance of \WPML_Translation_Management.
+ *
  * @return \WPML_Translation_Management
  */
 function wpml_translation_management() {
-	static $translation_management;
-	if ( ! $translation_management ) {
+	global $WPML_Translation_Management;
+	if ( ! $WPML_Translation_Management ) {
 		global $sitepress;
-		$translation_management = new WPML_Translation_Management( $sitepress, wpml_tm_loader(), wpml_load_core_tm(), wpml_tm_translator() );
+		$WPML_Translation_Management = new WPML_Translation_Management( $sitepress, wpml_tm_loader(), wpml_load_core_tm(), wpml_tm_translator() );
 	}
 
-	return $translation_management;
+	return $WPML_Translation_Management;
 }
 
 /**
@@ -388,18 +390,23 @@ function wpml_tm_xliff_shortcodes() {
 	return $xliff_shortcodes;
 }
 
+/**
+ * @return WPML_TM_Old_Jobs_Editor
+ */
 function wpml_tm_load_old_jobs_editor() {
-	return new WPML_TM_Old_Jobs_Editor( wpml_tm_load_job_factory() );
+	static $instance;
+
+	if ( ! $instance ) {
+		$instance = new WPML_TM_Old_Jobs_Editor( wpml_tm_load_job_factory() );
+	}
+
+	return $instance;
 }
 
 function tm_after_load() {
 	global $wpml_tm_translation_status, $wpdb, $wpml_post_translations, $wpml_term_translations;
 
 	if ( ! isset( $wpml_tm_translation_status ) ) {
-		require_once WPML_TM_PATH . '/inc/actions/wpml-tm-action-helper.class.php';
-		require_once WPML_TM_PATH . '/inc/translation-jobs/collections/wpml-abstract-job-collection.class.php';
-		require_once WPML_TM_PATH . '/inc/translation-proxy/wpml-translation-basket.class.php';
-		require_once WPML_TM_PATH . '/inc/translation-jobs/wpml-translation-batch.class.php';
 		require_once WPML_TM_PATH . '/inc/translation-proxy/translationproxy.class.php';
 		require_once WPML_TM_PATH . '/inc/ajax.php';
 		wpml_tm_load_job_factory();
@@ -459,7 +466,7 @@ function wpml_tm_create_ATE_job_creation_model( $job_id ) {
 	}
 
 	$job->notify_enabled = true;
-	$job->notify_url     = wpml_tm_get_wpml_rest()->get_discovery_url() . '/ate/jobs/receive/' . $job_id;
+	$job->notify_url     = WPML_TM_REST_ATE_Public::get_receive_ate_job_url( $job_id );
 
 	$job->site_identifier = wpml_get_site_id( WPML_TM_ATE::SITE_ID_SCOPE );
 
@@ -614,7 +621,29 @@ function wpml_tm_get_jobs_repository() {
  * @return WPML_TM_ATE_Job_Repository
  */
 function wpml_tm_get_ate_jobs_repository() {
-	return new WPML_TM_ATE_Job_Repository( wpml_tm_get_jobs_repository() );
+	static $instance;
+
+	if ( ! $instance ) {
+		return new WPML_TM_ATE_Job_Repository(
+			wpml_tm_get_jobs_repository(),
+			wpml_tm_get_ate_job_records()
+		);
+	}
+
+	return $instance;
+}
+
+/**
+ * @return WPML_TM_ATE_Job_Records
+ */
+function wpml_tm_get_ate_job_records() {
+	static $instance;
+
+	if ( ! $instance ) {
+		$instance = new WPML_TM_ATE_Job_Records();
+	}
+
+	return $instance;
 }
 
 function wpml_tm_get_tp_sync_jobs() {

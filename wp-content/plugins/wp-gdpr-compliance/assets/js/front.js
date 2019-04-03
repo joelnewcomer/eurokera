@@ -1,4 +1,4 @@
-(function (window, document, MicroModal, postscribe, undefined) {
+(function (window, document, undefined) {
     'use strict';
 
     /**
@@ -136,6 +136,9 @@
             if ($consentModal === null) {
                 return;
             }
+            if (typeof MicroModal === 'undefined') {
+                return;
+            }
 
             MicroModal.init({
                 disableScroll: true,
@@ -219,6 +222,10 @@
             }
         },
         initLoadConsents = function () {
+            if (typeof postscribe === 'undefined') {
+                return;
+            }
+
             var data = {
                     action: 'wpgdprc_load_consents',
                     security: ajaxSecurity
@@ -353,4 +360,4 @@
         initFormAccessRequest();
         initFormDeleteRequest();
     });
-})(window, document, MicroModal, postscribe);
+})(window, document);

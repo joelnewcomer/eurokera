@@ -4,7 +4,7 @@ Tags: gdpr, law, regulations, compliance, data, protection, privacy, data protec
 Requires at least: 4.5
 Tested up to: 5.1
 Requires PHP: 5.3
-Stable tag: 1.4.9
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,10 @@ You'll find answers to many of your questions on [https://www.wpgdprc.com/faq/](
 4. Control the link to your privacy policy, activate the request user data page and more.
 
 == Changelog ==
+
+= 1.5.0 =
+*Release date: March 13th, 2019*
+* Bugfix: JavaScript error when no active consents are added.
 
 = 1.4.9 =
 *Release date: March 12th, 2019*

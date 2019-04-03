@@ -355,13 +355,7 @@
                 var progressbar_finish_text = '100%';
                 var progressbar_callback = function(){
                     // trigger an event that it's complete.
-					var progressBarWrapper = progress_bar_object.getDomElement().parent();
-					progressBarWrapper.append('<div class="alignright"><input type="button" class="button-primary wpml-basket-done-btn" value="' + tm_basket_data.strings['done_msg'] + '"></div>');
 					jQuery(document).trigger('wpml-tm-basket-commit-complete', progress_bar_object);
-
-					jQuery( 'body' ).on('click', '.wpml-basket-done-btn', function () {
-						location.href = wpmlTMBasket.redirection;
-					});
                 };
 
 				var update_basket_badge_count = function (count) {
@@ -493,7 +487,15 @@
                                 var success = result.success;
                                 result = result.data;
 								if (success) {
-                                    var message = jQuery(tm_basket_data.strings['jobs_committed']);
+                                    if(typeof result.result.is_local !== 'undefined' && result.result.is_local ) {
+                                        var message = tm_basket_data.strings['jobs_committed_local'];
+
+                                        if(typeof result.result.emails_did_not_sent !== 'undefined' && result.result.emails_did_not_sent ){
+                                        	message = message.replace(/<ul><li>[\s\S]*?<\/li>/, '<ul>' + tm_basket_data.strings['jobs_emails_local_did_not_sent'] );
+										}
+                                    }else{
+                                        var message = tm_basket_data.strings['jobs_committed'];
+									}
 									if (typeof result.links !== 'undefined') {
 										var links = jQuery('<ul></ul>');
 										jQuery.each(

@@ -23,6 +23,7 @@ class WPML_TM_ATE_AMS_Endpoints {
 	const ENDPOINTS_EDITOR              = '/api/wpml/jobs/{job_id}/open?translator={translator_email}&return_url={return_url}';
 	const ENDPOINTS_SUBSCRIPTION        = '/api/wpml/websites/translators/{translator_email}/enable';
 	const ENDPOINTS_SUBSCRIPTION_STATUS = '/api/wpml/websites/{WEBSITE_UUID}/translators/{translator_email}';
+	const ENDPOINTS_WEBSITES            = '/api/wpml/websites';
 	/**
 	 * ATE
 	 */
@@ -36,9 +37,9 @@ class WPML_TM_ATE_AMS_Endpoints {
 	const SERVICE_AMS                   = 'ams';
 	const SERVICE_ATE                   = 'ate';
 
-	const STORE_JOB = '/ate/jobs/store';
-	const JOBS_IN_PROGRESS = '/ate/jobs/in-progress';
-	const SYNC_JOBS = '/ate/jobs/sync';
+	const STORE_JOB    = '/ate/jobs/store';
+	const JOBS_TO_SYNC = '/ate/jobs/to-sync';
+	const SYNC_JOBS    = '/ate/jobs/sync';
 
 	/**
 	 * @return string
@@ -255,5 +256,12 @@ class WPML_TM_ATE_AMS_Endpoints {
 				'site_identifier' => wpml_get_site_id( WPML_TM_ATE::SITE_ID_SCOPE ),
 				'wpml_job_ids'    => $job_ids,
 			) );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function get_websites() {
+		return $this->get_endpoint_url( self::SERVICE_AMS, self::ENDPOINTS_WEBSITES );
 	}
 }

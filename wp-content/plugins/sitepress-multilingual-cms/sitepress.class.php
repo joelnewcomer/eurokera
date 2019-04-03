@@ -1949,7 +1949,9 @@ class SitePress extends WPML_WPDB_User implements
 			$sql          .= ' ORDER BY trid;';
 			$sql_prepared = $this->wpdb->prepare( $sql, array( 'post_' . $post_type ) );
 			$trid_results = $this->wpdb->get_results( $sql_prepared, 'ARRAY_A' );
+			//phpcs:disable PHPCompatibility.FunctionUse.NewFunctions.array_columnFound -- A fallback function is defined at `inc/hacks/missing-php-functions.php`
 			$trid_list    = array_column( $trid_results, 'trid' );
+			//phpcs:enable PHPCompatibility.FunctionUse.NewFunctions.array_columnFound
 			if ( $trid_list ) {
 				$sql          = "SELECT trid AS value, CONCAT('[', t.language_code, '] ', (CASE p.post_title WHEN '' THEN CONCAT(LEFT(p.post_content, 30), '...') ELSE p.post_title END)) AS label
 						FROM {$this->wpdb->posts} p
@@ -2799,7 +2801,7 @@ class SitePress extends WPML_WPDB_User implements
 			$skip_lang = false;
 			if ( is_singular()
 				 || ( isset( $_wp_query_back->query['name'] ) && isset( $_wp_query_back->query['post_type'] ) )
-				 || ( ! empty( $this->wp_query->queried_object_id ) && $this->wp_query->queried_object_id == get_option( 'page_for_posts' ) )
+				 || ( ! empty( $this->wp_query->queried_object_id ) && isset( $this->wp_query->query['page'] ) && $this->wp_query->queried_object_id == get_option( 'page_for_posts' ) )
 			) {
 				$this_lang_tmp = $this->this_lang;
 				$this->switch_lang( $lang['code'] );
@@ -4009,6 +4011,13 @@ class SitePress extends WPML_WPDB_User implements
 				'plugin'    => false,
 				'slug'      => 'gravityforms-multilingual',
 			),
+			'Yoast SEO Multilingual'  => array(
+				'installed' => false,
+				'active'    => false,
+				'file'      => false,
+				'plugin'    => false,
+				'slug'      => 'wp-seo-multilingual',
+			),
 		);
 
 		foreach ( $wpml_plugins_list as $wpml_plugin_name => $v ) {
@@ -4035,6 +4044,8 @@ class SitePress extends WPML_WPDB_User implements
 	public function get_backtrace( $limit = 0, $provide_object = false, $ignore_args = true ) {
 		$options = false;
 
+		// phpcs:disable PHPCompatibility.FunctionUse.NewFunctionParameters.debug_backtrace_limitFound -- It has a version check
+		// phpcs:disable PHPCompatibility.FunctionUse.ArgumentFunctionsReportCurrentValue.NeedsInspection -- It has a version check
 		if ( version_compare( $this->wp_api->phpversion(), '5.3.6' ) < 0 ) {
 			// Before 5.3.6, the only values recognized are TRUE or FALSE,
 			// which are the same as setting or not setting the DEBUG_BACKTRACE_PROVIDE_OBJECT option respectively.
@@ -4045,7 +4056,9 @@ class SitePress extends WPML_WPDB_User implements
 				$options |= DEBUG_BACKTRACE_PROVIDE_OBJECT;
 			}
 			if ( $ignore_args ) {
+				// phpcs:disable PHPCompatibility.Constants.NewConstants.debug_backtrace_ignore_argsFound -- It has a version check
 				$options |= DEBUG_BACKTRACE_IGNORE_ARGS;
+				// phpcs:enable PHPCompatibility.Constants.NewConstants.debug_backtrace_ignore_argsFound
 			}
 		}
 		if ( version_compare( $this->wp_api->phpversion(), '5.4.0' ) >= 0 ) {
@@ -4057,6 +4070,8 @@ class SitePress extends WPML_WPDB_User implements
 		} else {
 			$debug_backtrace = debug_backtrace( $options );
 		}
+		// phpcs:enable PHPCompatibility.FunctionUse.ArgumentFunctionsReportCurrentValue.NeedsInspection
+		// phpcs:enable PHPCompatibility.FunctionUse.NewFunctionParameters.debug_backtrace_limitFound
 
 		// Remove the current frame
 		if ( $debug_backtrace ) {

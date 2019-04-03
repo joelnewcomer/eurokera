@@ -18,7 +18,7 @@ class WPML_TM_ATE_Jobs_Actions_Factory implements IWPML_Backend_Action_Loader {
 			$current_screen = $this->get_current_screen();
 
 			$ate_api  = $this->create_ate_api();
-			$records  = new WPML_TM_ATE_Job_Records();
+			$records  = wpml_tm_get_ate_job_records();
 			$ate_jobs = new WPML_TM_ATE_Jobs( $records );
 
 			$translator_activation_records = new WPML_TM_AMS_Translator_Activation_Records( new WPML_WP_User_Factory() );

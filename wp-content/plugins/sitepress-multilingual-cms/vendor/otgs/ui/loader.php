@@ -22,7 +22,7 @@
 /**
  * OTGS UI version - increase after every major update.
  */
-$otg_ui_version = 105;
+$otg_ui_version = 107;
 
 /**
  * =================

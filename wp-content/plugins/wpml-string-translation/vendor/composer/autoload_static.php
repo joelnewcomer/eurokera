@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit56757b2eb54c60f00e795c658c5ba4b4
+class ComposerStaticInit949b2be6023c85838d20a3d405cdb69b
 {
     public static $prefixesPsr0 = array (
         'x' => 
@@ -217,7 +217,6 @@ class ComposerStaticInit56757b2eb54c60f00e795c658c5ba4b4
         'WPML_ST_Upgrade_Command_Factory' => __DIR__ . '/../..' . '/classes/upgrade/class-wpml-st-upgrade-command-factory.php',
         'WPML_ST_Upgrade_Command_Not_Found_Exception' => __DIR__ . '/../..' . '/classes/upgrade/class-wpml-st-upgrade-command-not-found-exception.php',
         'WPML_ST_Upgrade_DB_Longtext_String_Value' => __DIR__ . '/../..' . '/classes/upgrade/class-wpml-st-upgrade-db-longtext-string-value.php',
-        'WPML_ST_Upgrade_DB_String_Location' => __DIR__ . '/../..' . '/classes/upgrade/class-wpml-st-upgrade-db-string-location.php',
         'WPML_ST_Upgrade_DB_String_Name_Index' => __DIR__ . '/../..' . '/classes/upgrade/class-wpml-st-upgrade-db-string-name-index.php',
         'WPML_ST_Upgrade_DB_String_Packages' => __DIR__ . '/../..' . '/classes/upgrade/class-wpml-st-upgrade-db-string-packages.php',
         'WPML_ST_Upgrade_DB_String_Packages_Word_Count' => __DIR__ . '/../..' . '/classes/upgrade/class-wpml-st-upgrade-db-string-packages-word-count.php',
@@ -256,8 +255,8 @@ class ComposerStaticInit56757b2eb54c60f00e795c658c5ba4b4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInit56757b2eb54c60f00e795c658c5ba4b4::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit56757b2eb54c60f00e795c658c5ba4b4::$classMap;
+            $loader->prefixesPsr0 = ComposerStaticInit949b2be6023c85838d20a3d405cdb69b::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit949b2be6023c85838d20a3d405cdb69b::$classMap;
 
         }, null, ClassLoader::class);
     }

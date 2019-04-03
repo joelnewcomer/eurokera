@@ -32,6 +32,6 @@ class WPML_TM_ATE_Job_Data_Fallback implements IWPML_Action {
 			return $data;
 		}
 
-		return array( 'ateJobId' => $response->{$wpml_job_id}->ate_job_id );
+		return array( WPML_TM_ATE_Job_Records::FIELD_ATE_JOB_ID => $response->{$wpml_job_id}->ate_job_id );
 	}
 }
