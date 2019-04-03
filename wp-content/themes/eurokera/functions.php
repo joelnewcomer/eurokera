@@ -272,3 +272,9 @@ function getBrightness($imgURL) {
 
 // Custom image sizes
 add_image_size( 'enamels', 1160, 140, false );
+
+// Change notice for disabled users
+add_filter( 'ja_disable_users_notice', 'ekfourpointoh' );
+function ekfourpointoh( $content ) {
+    return 'All logins have been disabled in preparation for EuroKera 4.0. You can make changes on the staging website http://eurokerav2.staging.wpengine.com/wp-admin using the same username and password.';
+}
