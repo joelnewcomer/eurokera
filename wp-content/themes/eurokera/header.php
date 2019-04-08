@@ -95,7 +95,15 @@
 		basil = new window.Basil(options);
 	});
 	</script>
-
+	
+	<div class="top-header">
+		<div class="row">
+			<div class="large-12 columns small-text-center">	
+				<?php top_menu(); ?>
+				<?php top_menu_right(); ?>
+			</div>
+		</div>
+	</div>
 	<div class="header-wrapper match-header">
 	<header id="masthead" class="site-header match-header" role="banner">
 		<nav id="site-navigation" class="main-navigation top-bar row" role="navigation">

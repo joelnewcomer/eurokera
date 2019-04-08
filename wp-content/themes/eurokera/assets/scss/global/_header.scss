@@ -171,14 +171,14 @@ body > section.container > header,
 
 .header-wrapper {
 	position: fixed;
-	top: 0;
+	top: 30px;
 	left: 0;
 }
 
 body.admin-bar:not(.home) .header-wrapper {
-	top: 32px;
+	top: 62px;
 	@media only screen and (max-width: 782px) {
-		top: 46px;
+		top: 76px;
 	}
 }
 
@@ -189,17 +189,26 @@ body.admin-bar:not(.home) .header-wrapper {
 	}
 }
 
-@media only screen and (max-width: 40.063em) {
+@media only screen and (max-width: 40em) {
 	.header-wrapper {
 		position: fixed;
-		top: 0;
 		left: 0;
-	}
+		top: 58px;
+	}	
 	.admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper  {
-		top: 46px;	
+		top: 104px;	
 	}
 	body:not(.home) section.container, .home-banner {
 		margin-top: 0;
+	}
+}
+
+@media only screen and (max-width: 519px) {
+	.header-wrapper {
+		top: 87px;
+	}
+	.admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper  {
+		top: 133px;	
 	}
 }
 
@@ -253,5 +262,87 @@ body.admin-bar:not(.home) .header-wrapper {
 @media only screen and (max-width: 40.063em) {
 	.header-wrapper + section.container {
 		margin-top: 30px !important;
+	}
+}
+
+.top-header {
+	background: #000;
+	position: relative;
+	z-index: 9999;
+	a {
+		display: inline-block;
+		color: #fff;
+		font-size: 18px;
+		padding: 2px 14px;
+		@media only screen and (max-width: 1020px) and (min-width: 40.063em) {
+			padding: 2px 8px;		
+		}
+		@media only screen and (max-width: 895px) and (min-width: 40.063em) {
+			padding: 4px 5px;
+			font-size: 16px;		
+		}		
+		@media only screen and (max-width: 750px) and (min-width: 40.063em) {
+			padding: 6px 4px;
+			font-size: 14px;		
+		}
+		&:hover {
+			color: $orange;
+		}
+	}
+	ul {
+		display: inline-block;
+		@media only screen and (max-width: 40em) {
+			display: inline;
+		}
+		margin: 0;
+	}
+	li {
+		list-style: none;
+		display: inline-block;
+	}
+	@media only screen and (min-width: 40.063em) {
+		.top-menu-right {
+			float: right;
+			text-align: right;
+		}
+	}
+	ul.top-menu > li:first-child a {
+		padding-left: 0;
+	}
+	ul.sub-menu {
+		position: absolute;
+		opacity: 0;
+		height: 0;
+		overflow: hidden;
+		z-index: -1;
+		top: 50px;
+		left: 0;
+		transition: all .35s;
+		background: #000;
+		li {
+			float: left;
+			clear: left;
+			width: 100%;
+			text-align: left;
+			a {
+				width: 100%;
+				white-space: nowrap;
+			}
+		}
+	}
+	li:hover > ul.sub-menu {
+		top: 100%;
+		height: auto;
+		opacity: 1;
+		z-index: 1;
+		padding: 8px 0;
+	}
+}
+
+li.wpml-ls-menu-item.menu-item-has-children {
+	position: relative;
+	& > a {
+		padding-left: 34px;
+		background: url(../images/down-arrow.svg) 10px center no-repeat;
 	}
 }

@@ -1,10 +1,10 @@
 {
     "key": "group_54eb7f06b9b8a",
-    "title": "Homepage",
+    "title": "Cooking",
     "fields": [
         {
             "key": "field_5a26f334cca72",
-            "label": "Homepage Content",
+            "label": "Main Content",
             "name": "homepage_content",
             "type": "wysiwyg",
             "instructions": "",
@@ -15,6 +15,7 @@
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 0,
             "default_value": "",
             "tabs": "all",
             "toolbar": "full",
@@ -245,7 +246,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "page-templates\/front.php"
+                "value": "page-templates\/cooking.php"
             }
         ]
     ],
@@ -259,5 +260,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1551277949
+    "modified": 1554478962
 }

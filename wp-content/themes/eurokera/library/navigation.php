@@ -8,6 +8,11 @@
  */
 register_nav_menus(array(
 	'main-menu'  => 'Main Menu',
+	'top-menu' => 'Top Menu',
+	'top-menu-right' => 'Top Menu Right',
+	'versatis-menu' => 'Versatis Menu',
+	'fireplaces-menu' => 'Fireplaces Menu',
+	'specialties-menu' => 'Specialties Menu',
 ));
 
 
@@ -23,6 +28,71 @@ if ( ! function_exists( 'foundationpress_main_menu' ) ) {
 			'menu_class'     => 'dropdown menu slimmenu',
 			'items_wrap'     => my_nav_wrap(),
 			'theme_location' => 'main-menu',
+			'depth'          => 3,
+			'fallback_cb'    => false,
+		));
+	}
+}
+
+if ( ! function_exists( 'top_menu' ) ) {
+	function top_menu() {
+		wp_nav_menu( array(
+			'container'      => false,
+			'menu_class'     => 'top-menu small-text-center',
+			'items_wrap'     => my_nav_wrap(),
+			'theme_location' => 'top-menu',
+			'depth'          => 1,
+			'fallback_cb'    => false,
+		));
+	}
+}
+
+if ( ! function_exists( 'top_menu_right' ) ) {
+	function top_menu_right() {
+		wp_nav_menu( array(
+			'container'      => false,
+			'menu_class'     => 'top-menu-right small-text-center',
+			'items_wrap'     => my_nav_wrap(),
+			'theme_location' => 'top-menu-right',
+			'depth'          => 2,
+			'fallback_cb'    => false,
+		));
+	}
+}
+
+if ( ! function_exists( 'versatis_menu' ) ) {
+	function versatis_menu() {
+		wp_nav_menu( array(
+			'container'      => false,
+			'menu_class'     => 'dropdown menu slimmenu',
+			'items_wrap'     => my_nav_wrap(),
+			'theme_location' => 'versatis-menu',
+			'depth'          => 3,
+			'fallback_cb'    => false,
+		));
+	}
+}
+
+if ( ! function_exists( 'fireplaces_menu' ) ) {
+	function fireplaces_menu() {
+		wp_nav_menu( array(
+			'container'      => false,
+			'menu_class'     => 'dropdown menu slimmenu',
+			'items_wrap'     => my_nav_wrap(),
+			'theme_location' => 'fireplaces-menu',
+			'depth'          => 3,
+			'fallback_cb'    => false,
+		));
+	}
+}
+
+if ( ! function_exists( 'specialties_menu' ) ) {
+	function specialties_menu() {
+		wp_nav_menu( array(
+			'container'      => false,
+			'menu_class'     => 'dropdown menu slimmenu',
+			'items_wrap'     => my_nav_wrap(),
+			'theme_location' => 'specialties-menu',
 			'depth'          => 3,
 			'fallback_cb'    => false,
 		));

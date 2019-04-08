@@ -2361,14 +2361,14 @@ body > section.container > header,
 
 .header-wrapper {
   position: fixed;
-  top: 0;
+  top: 30px;
   left: 0; }
 
 body.admin-bar:not(.home) .header-wrapper {
-  top: 32px; }
+  top: 62px; }
   @media only screen and (max-width: 782px) {
     body.admin-bar:not(.home) .header-wrapper {
-      top: 46px; } }
+      top: 76px; } }
 
 .admin-bar .header-wrapper.stuck {
   top: 32px; }
@@ -2376,15 +2376,21 @@ body.admin-bar:not(.home) .header-wrapper {
     .admin-bar .header-wrapper.stuck {
       top: 46px; } }
 
-@media only screen and (max-width: 40.063em) {
+@media only screen and (max-width: 40em) {
   .header-wrapper {
     position: fixed;
-    top: 0;
-    left: 0; }
+    left: 0;
+    top: 58px; }
   .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
-    top: 46px; }
+    top: 104px; }
   body:not(.home) section.container, .home-banner {
     margin-top: 0; } }
+
+@media only screen and (max-width: 519px) {
+  .header-wrapper {
+    top: 87px; }
+  .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
+    top: 133px; } }
 
 @media only screen and (min-width: 40.063em) {
   .header-wrapper.stuck + section.container {
@@ -2420,6 +2426,75 @@ body.admin-bar:not(.home) .header-wrapper {
 @media only screen and (max-width: 40.063em) {
   .header-wrapper + section.container {
     margin-top: 30px !important; } }
+
+.top-header {
+  background: #000;
+  position: relative;
+  z-index: 9999; }
+  .top-header a {
+    display: inline-block;
+    color: #fff;
+    font-size: 18px;
+    padding: 2px 14px; }
+    @media only screen and (max-width: 1020px) and (min-width: 40.063em) {
+      .top-header a {
+        padding: 2px 8px; } }
+    @media only screen and (max-width: 895px) and (min-width: 40.063em) {
+      .top-header a {
+        padding: 4px 5px;
+        font-size: 16px; } }
+    @media only screen and (max-width: 750px) and (min-width: 40.063em) {
+      .top-header a {
+        padding: 6px 4px;
+        font-size: 14px; } }
+    .top-header a:hover {
+      color: #ff8200; }
+  .top-header ul {
+    display: inline-block;
+    margin: 0; }
+    @media only screen and (max-width: 40em) {
+      .top-header ul {
+        display: inline; } }
+  .top-header li {
+    list-style: none;
+    display: inline-block; }
+  @media only screen and (min-width: 40.063em) {
+    .top-header .top-menu-right {
+      float: right;
+      text-align: right; } }
+  .top-header ul.top-menu > li:first-child a {
+    padding-left: 0; }
+  .top-header ul.sub-menu {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    top: 50px;
+    left: 0;
+    -webkit-transition: all .35s;
+    transition: all .35s;
+    background: #000; }
+    .top-header ul.sub-menu li {
+      float: left;
+      clear: left;
+      width: 100%;
+      text-align: left; }
+      .top-header ul.sub-menu li a {
+        width: 100%;
+        white-space: nowrap; }
+  .top-header li:hover > ul.sub-menu {
+    top: 100%;
+    height: auto;
+    opacity: 1;
+    z-index: 1;
+    padding: 8px 0; }
+
+li.wpml-ls-menu-item.menu-item-has-children {
+  position: relative; }
+  li.wpml-ls-menu-item.menu-item-has-children > a {
+    padding-left: 34px;
+    background: url(../images/down-arrow.svg) 10px center no-repeat; }
 
 #footer-container {
   display: block;
