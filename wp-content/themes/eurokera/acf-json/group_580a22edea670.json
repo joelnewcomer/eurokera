@@ -197,14 +197,16 @@
                         "instagram": "Instagram",
                         "pinterest-p": "Pinterest",
                         "houzz": "Houzz",
-                        "vimeo": "Vimeo"
+                        "vimeo": "Vimeo",
+                        "youku": "Youku",
+                        "wechat": "WeChat"
                     },
                     "default_value": [],
                     "allow_null": 0,
                     "multiple": 0,
                     "ui": 0,
-                    "ajax": 0,
                     "return_format": "value",
+                    "ajax": 0,
                     "placeholder": ""
                 },
                 {
@@ -222,6 +224,38 @@
                     },
                     "default_value": "",
                     "placeholder": ""
+                },
+                {
+                    "key": "field_5b4f4b18a1514",
+                    "label": "WeChat QR Code",
+                    "name": "wechat_qr_code",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_581355ffde93a",
+                                "operator": "==",
+                                "value": "wechat"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
                 }
             ]
         },
@@ -305,7 +339,7 @@
             "name": "quality_videos",
             "type": "repeater",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -397,5 +431,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1512587417
+    "modified": 1554756893
 }

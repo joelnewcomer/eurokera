@@ -2376,13 +2376,24 @@ body.admin-bar:not(.home) .header-wrapper {
     .admin-bar .header-wrapper.stuck {
       top: 46px; } }
 
+.header-wrapper {
+  position: fixed;
+  left: 0;
+  top: 29px; }
+  @media only screen and (max-width: 640px) {
+    .header-wrapper {
+      top: 58px; } }
+
+.admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
+  top: 61px; }
+  @media only screen and (max-width: 782px) {
+    .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
+      top: 76px; } }
+  @media only screen and (max-width: 640px) {
+    .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
+      top: 104px; } }
+
 @media only screen and (max-width: 40em) {
-  .header-wrapper {
-    position: fixed;
-    left: 0;
-    top: 58px; }
-  .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
-    top: 104px; }
   body:not(.home) section.container, .home-banner {
     margin-top: 0; } }
 
