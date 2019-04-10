@@ -249,8 +249,8 @@
             "collapsed": "field_5caba2096973c",
             "min": 0,
             "max": 0,
-            "layout": "table",
-            "button_label": "",
+            "layout": "row",
+            "button_label": "Add Solution",
             "sub_fields": [
                 {
                     "key": "field_5caba2096973c",
@@ -443,5 +443,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1554907817
+    "modified": 1554908811
 }

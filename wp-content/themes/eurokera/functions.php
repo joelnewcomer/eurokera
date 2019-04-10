@@ -83,7 +83,7 @@ register_post_type('products', array('menu_icon' => 'dashicons-cart', 'label' =>
   'parent' => 'Parent Product',
 ),) );
 
-register_post_type('selector_log', array('menu_icon' => 'dashicons-list-view',	'label' => 'Product Selector Log','description' => '','public' => true,'show_ui' => true,'show_in_menu' => true,'capability_type' => 'post','hierarchical' => false,'rewrite' => array('slug' => 'log', 'with_front' => false),'query_var' => true,'exclude_from_search' => true,'supports' => array('title',),'labels' => array (
+register_post_type('selector_log', array('menu_icon' => 'dashicons-list-view',	'label' => 'Product Selector Log','description' => '','public' => false,'publicly_queryable' => false,'show_ui' => true,'show_in_menu' => true,'capability_type' => 'post','hierarchical' => false,'rewrite' => array('slug' => 'log', 'with_front' => false),'query_var' => true,'exclude_from_search' => true,'supports' => array('title',),'labels' => array (
   'name' => 'Product Selector Log',
   'singular_name' => 'Log Item',
   'menu_name' => 'Product Selector Log',
