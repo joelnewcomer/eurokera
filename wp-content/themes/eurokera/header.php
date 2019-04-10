@@ -138,17 +138,17 @@
 							?>
 							<a href="<?php the_permalink(); ?>" class="product-thumb<?php echo $white; ?>" style="background: url(<?php echo $thumb[0]; ?>);">
 								<div style="display:table;width:100%;height:100%;">
-								  <div style="display:table-cell;vertical-align:middle;">
-								    <div style="text-align:center;"><?php the_title(); ?></div>
-								  </div>
+									<div style="display:table-cell;vertical-align:middle;">
+										<div style="text-align:center;"><?php the_title(); ?></div>
+									</div>
 								</div>
 							</a>
 						<?php endwhile; ?>
 						<?php wp_reset_query(); ?>
 					<?php endif; ?>
-				</div>
-			</div>
-		</div>
+				</div> <!-- columns -->
+			</div> <!-- row -->
+		</div> <!-- all-products -->
 		<script>
 			jQuery('#view-all').on( "click", function() {
 				jQuery('.all-products').toggleClass('open');

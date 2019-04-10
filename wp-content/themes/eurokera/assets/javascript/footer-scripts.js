@@ -245,3 +245,17 @@ jQuery( document ).ready(function() {
 		jQuery(window).paroller();
 	}	
 });
+
+
+      jQuery( document ).ready(function() {
+      	var nav = jQuery('.header-wrapper').offset();
+      	var $window = jQuery(window);
+   
+      	$window.scroll(function () {
+      	    if ($window.scrollTop() >= nav.top) {
+      	        jQuery(".header-wrapper").addClass("stuck");
+      	    } else {
+      		    jQuery(".header-wrapper").removeClass("stuck");
+      	    }
+      	});
+      });			
