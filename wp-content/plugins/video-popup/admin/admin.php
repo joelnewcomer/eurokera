@@ -4,14 +4,14 @@ defined( 'ABSPATH' ) or die(':)');
 
 
 function video_popup_meta_row_style(){
-	wp_enqueue_style( 'video-popup-meta-row-style', plugins_url('/css/meta-row-style.css', __FILE__), array(), null, "all" );
+	wp_enqueue_style( 'video-popup-meta-row-style', plugins_url('/css/meta-row-style.css', __FILE__), array(), time(), "all" );
 
 	if( isset($_GET['page']) and ($_GET['page'] == 'video_popup_general_settings' or $_GET['page']== 'video_popup_shortcode' or $_GET['page']== 'video_popup_on_pageload') ){
-		wp_enqueue_style( 'video-popup-settings-style', plugins_url('/css/settings.css', __FILE__), array(), null, "all" );
+		wp_enqueue_style( 'video-popup-settings-style', plugins_url('/css/settings.css', __FILE__), array(), time(), "all" );
 	}
 
     if( !get_option('vp_green_bg_menu') ) {
-        wp_enqueue_style( 'video-popup-green-menu', plugins_url('/css/green-menu.css', __FILE__), array(), null, "all" );
+        wp_enqueue_style( 'video-popup-green-menu', plugins_url('/css/green-menu.css', __FILE__), array(), time(), "all" );
     }
 }
 add_action('admin_enqueue_scripts', 'video_popup_meta_row_style');
@@ -59,13 +59,13 @@ add_action('admin_menu', 'video_popup_add_submenu');
 
 
 function video_popup_extension_update_checker(){
-    if( get_option('vp_extension_update_checker_104') === false ){
-        if( get_option('vp_extension_update_checker_103') === true ){
-            delete_option('vp_extension_update_checker_103');
+    if( get_option('vp_extension_update_checker_105') === false ){
+        if( get_option('vp_extension_update_checker_104') === true ){
+            delete_option('vp_extension_update_checker_104');
         }
         $cache_time = 3600 * 24 * 7;
         delete_transient('vp-prm-alobaidi');
-        update_option('vp_extension_update_checker_104', '1');
+        update_option('vp_extension_update_checker_105', '1');
         update_option('vp_prm_alobaidi', 'has_up');
         set_transient('vp-prm-alobaidi', 'has_up', $cache_time);
     }

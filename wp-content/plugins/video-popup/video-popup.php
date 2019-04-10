@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Video PopUp
-Plugin URI: http://wp-plugins.in/video-popup
+Plugin URI: https://wp-plugins.in/video-popup
 Description: Display YouTube, Vimeo, SoundCloud, and MP4 Video in Popup. Pop-up Video on Page Load, Responsive video Popup, Retina ready, visual editor, unlimited Popup's, and many features! Easy to use.
-Version: 1.0.7
+Version: 1.0.8
 Author: Alobaidi
 Author URI: https://wp-plugins.in
 License: GPLv2 or later
@@ -43,8 +43,7 @@ function video_popup_plugin_row_meta( $links, $file ) {
 						'<a href="https://wp-plugins.in" target="_blank">'.__("More Plugins", "video-popup").'</a>',
 						'<a class="vp-aff-link vp-aff-et" title="Get collection of 88 WordPress themes for $80 only! Try it, a 30-Day Money Back Guarantee!" href="http://www.elegantthemes.com/affiliates/idevaffiliate.php?id=24967&tid1=vp_plugin_meta&url=35248" target="_blank">Elegant Themes</a>',
 						'<a class="vp-aff-link vp-aff-divi" title="'.esc_attr__("The Ultimate WordPress Theme & Visual Page Builder. Try it, a 30-Day Money Back Guarantee!", "video-popup").'" href="http://www.elegantthemes.com/affiliates/idevaffiliate.php?id=24967&url=21533&tid1=vp_plugin_meta_divi" target="_blank">'.__("Divi Theme", "video-popup").'</a>',
-						'<a class="vp-aff-link vp-aff-sg" title="Fastest SSD Web and WordPress Hosting. Try it, a 30-Day Money Back Guarantee!" href="https://www.siteground.com/go/vp_plugin_meta" target="_blank">SiteGround</a>',
-						'<a class="vp-aff-link vp-aff-mts" title="Get collection of 102 WordPress themes for $19 only! Try it, a 30-Day Money Back Guarantee!" href="https://mythemeshop.com/theme-category/popular-wordpress-themes/?ref=qassimdev&campaign=vp_plugin_meta" target="_blank">MyThemeShop</a>'
+						'<a class="vp-aff-link vp-aff-sg" title="Fastest SSD Web and WordPress Hosting. Try it, a 30-Day Money Back Guarantee!" href="https://www.siteground.com/go/vp_plugin_meta" target="_blank">SiteGround</a>'
 					);
 		
 		$links = array_merge( $links, $new_links );

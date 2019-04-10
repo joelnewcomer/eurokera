@@ -1,0 +1,318 @@
+.home-banner {
+	display: block;
+	position: relative;
+	width: 100%;
+	background-size: cover !important;
+	background-repeat: no-repeat;
+	padding: 0 20px;
+	svg {
+		width: 155px;
+		height: 62px;
+		margin-bottom: 15px;
+	}
+	h1 {
+		color: #fff;
+		font-weight: 300;
+		margin-bottom: 35px;
+	}
+}
+
+section.home-banner + section.ceo {
+	margin-top: 8px;
+}
+
+.home-banner, .center-banner {
+	min-height: calc(100vh - 106px);
+	@media only screen and (max-width: 1021px) {
+		min-height: calc(100vh - 101px);
+	}
+	@media only screen and (max-width: 721px) {
+		min-height: calc(100vh - 73px);
+	}
+	@media only screen and (max-width: 40.063em) {
+		min-height: calc(100vh - 65px);
+	}
+}
+
+.firefox .home-banner .center-banner {
+	display: flex !important;
+	align-items: center;
+}
+
+.down-arrow {
+	position: absolute;
+	cursor: pointer;
+	bottom: 10px;
+	left: 50%;
+	margin-left: -15px;		
+	svg {
+		width: 29px;
+		height: 20px;
+		-ms-transform: rotate(180deg); /* IE 9 */
+		-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+		transform: rotate(180deg);
+	}
+}
+
+.site-links {
+	.button {
+		display: inline-block;
+		margin: 0 8px;
+		a {
+			min-width: 304px;
+		}
+	}	
+}
+
+.bounce {
+	-webkit-animation-name: bounce;
+	-moz-animation-name: bounce;
+	-o-animation-name: bounce;
+	animation-name: bounce;
+}
+.animated{
+	animation-fill-mode:both;
+	-webkit-animation-fill-mode:both;
+	-moz-animation-fill-mode:both;
+	-ms-animation-fill-mode:both;
+	-o-animation-fill-mode:both;
+    animation-iteration-count: 3;
+    -moz-animation-iteration-count: 3;
+    -webkit-animation-iteration-count: 3;
+	-webkit-animation-duration:2s;
+	-moz-animation-duration:2s;
+	-ms-animation-duration:2s;
+	-o-animation-duration:2s;
+	animation-duration:2s;
+}
+
+@-webkit-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}	40% {-webkit-transform: translateY(-30px);}
+	60% {-webkit-transform: translateY(-15px);}
+}
+
+@-moz-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0);}
+	40% {-moz-transform: translateY(-30px);}
+	60% {-moz-transform: translateY(-15px);}
+}
+
+@-o-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-o-transform: translateY(0);}
+	40% {-o-transform: translateY(-30px);}
+	60% {-o-transform: translateY(-15px);}
+}
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-30px);}
+	60% {transform: translateY(-15px);}
+}
+
+section.ceo {
+	svg {
+		width: 31px;
+		height: 25px;
+	}
+	p.ceo-name {
+		font-size: 16px !important;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 14px !important;	
+		}
+		text-transform: uppercase;
+		margin: 0;
+	}	
+	h2 {
+		max-width: 35%;
+		display: inline-block;
+		word-break: normal !important;
+		font-size: 34px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 28px;	
+		}
+		color: $dark-gray;
+		font-weight: 400;
+	}
+	.ceo-photo {
+		padding: 160px 24px 24px 24px;
+		@media only screen and (max-width: 40.063em) {
+			padding: 46px 20px 10px 0; 	
+		}
+		background-size: cover;
+		background-position: center center;
+		svg {
+			margin-bottom: 25px;
+		}
+	}
+	.long-quote {
+		padding: 90px 40px 48px 40px;
+		background: $dark-gray;
+		@media only screen and (max-width: 40.063em) {
+			background: #fff;
+			padding: 30px 20px 4px 20px;
+		}
+		p {
+			color: #fff;
+			font-size: 23px;
+			word-break: normal !important;
+			@media only screen and (max-width: 40.063em) {
+				color: #626260;
+				font-size: 20px;	
+			}
+			line-height: 1.4;
+			max-width: 515px;
+			margin-bottom: 30px;
+		}
+		svg {
+			margin-bottom: 25px;
+			path {
+				fill: #fff;
+			}
+		}
+	}
+}
+
+section.numbers {
+	background: #fef4e9;
+	padding: 90px 0 80px;
+	@media only screen and (max-width: 40.063em) {
+		padding: 50px 0 20px 0;	
+	}
+	h2,h3,.partner,.plus {
+		color: $dark-gray;
+	}
+	svg {
+		max-width: 100%;
+	}
+	h2 {
+		font-size: 60px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 36px;	
+		}
+		margin-bottom: 0;
+	}
+	h3 {
+		font-size: 42px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 30px;	
+		}
+		margin-bottom: 25px;
+	}
+	.partner {
+		font-size: 30px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 26px;	
+		}
+		display: inline-block;
+		margin-bottom: 30px;
+	}
+	.plus {
+		font-size: 48px;
+		display: inline-block;
+		margin: 0 40px;
+		@media only screen and (max-width: 40.063em) {
+			margin: 0;
+			padding: 0 5px;
+			max-width: 10%;	
+		}
+	}
+	.eurokera-logo-1 {
+		fill: #251a06;
+	}
+	@media only screen and (max-width: 40.063em) {
+		.saint-gobain, .corning {
+			max-width: 40%;	
+		}
+	}
+	.saint-gobain svg {
+		width: 211px;
+		max-height: 88px;
+	}
+	.corning svg {
+		width: 229px;
+		max-height: 34px;
+	}
+	.num-one {
+		@media only screen and (max-width: 40.063em) {
+			line-height: 1.2;
+			max-width: 192px;
+		}	
+	}
+	.num-one svg {
+		width: 183px;
+		max-height: 72px;
+		@media only screen and (max-width: 40.063em) {
+			width: 118px;
+			height: 47px;	
+		}
+	}
+}
+
+section.about {
+	padding: 90px 0 80px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 40px 15px 45px 15px;	
+	}
+	background: url(../images/about-bg.jpg) center center no-repeat;
+	background-size: 120% 120%;
+	.row {
+		max-width: 920px;
+	}
+	h2, p {
+		color: #fff;
+	}
+	h2 {
+		font-size: 46px;
+		margin-bottom: 35px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 30px;
+			margin-bottom: 10px;	
+		}
+	}
+	p {
+		font-size: 22px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 20px;	
+		}
+		margin-bottom: 25px;
+	}
+}
+
+a.home-video {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	font-size: 44px;
+	padding: 145px 0 85px;
+	@media only screen and (max-width: 40.063em) {
+		font-size: 30px;
+		padding: 90px 0 50px;	
+	}
+	color: #fff;
+	background-size: cover;
+	svg {
+		pointer-events: none;
+		width: 103px;
+		height: 103px;
+		transition: all .5s;
+		-webkit-transition: all .5s; /* Safari and Chrome */
+		-ms-transition: all .5s; /* Opera */
+		@media only screen and (max-width: 40.063em) {
+			width: 44px;
+			height: 44px;	
+		}
+	}
+	.columns:hover svg {
+		opacity: .5;	
+	}
+}
+
+section.site-links {
+	padding: 90px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 30px 0 20px 0;	
+	}
+}
+
+section.homepage-content {
+	padding: 40px 0 30px 0;
+}

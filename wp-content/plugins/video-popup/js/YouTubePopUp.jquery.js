@@ -1,7 +1,7 @@
 /*
     Name: YouTubePopUp | Special Version for WordPress
     Description: jQuery plugin to display YouTube or Vimeo video in PopUp, responsive and retina, easy to use.
-    Version: 1.0.6
+    Version: 1.0.8
     Plugin URL: https://wp-time.com/youtube-popup-jquery-plugin/
     Written By: Qassim Hassan
     Twitter: @QQQHZ
@@ -54,25 +54,25 @@
 
                 if( youtubeLink.match(/(youtu.be)/) || youtubeLink.match(/(youtube.com)/) ){
                     var videoEmbedLink = "https://www.youtube.com/embed/"+cleanVideoID+"?autoplay="+YouTubePopUpOptions.autoplay+"";
-                    var iframe_element = '<iframe src="'+videoEmbedLink+'" allowfullscreen></iframe>';
+                    var iframe_element = '<iframe src="'+videoEmbedLink+'" allow="autoplay" allowfullscreen></iframe>';
                 }
 
                 if( youtubeLink.match(/(vimeo.com\/)+[0-9]/) || youtubeLink.match(/(vimeo.com\/)+[a-zA-Z]/) ){
                     var videoEmbedLink = "https://player.vimeo.com/video/"+cleanVideoID+"?autoplay="+YouTubePopUpOptions.autoplay+"";
-                    var iframe_element = '<iframe src="'+videoEmbedLink+'" allowfullscreen></iframe>';
+                    var iframe_element = '<iframe src="'+videoEmbedLink+'" allow="autoplay" allowfullscreen></iframe>';
                     var videoType = ' vp-vt-vimeo';
                 }
 
             }else{
                 if( dataSoundCloud ){
                     var data_embed_sc = $(this).attr('data-embedsc');
-                    var iframe_element = '<iframe src="'+data_embed_sc+'" allowfullscreen></iframe>';
+                    var iframe_element = '<iframe src="'+data_embed_sc+'" allow="autoplay" allowfullscreen></iframe>';
                     var videoType = ' vp-vt-soundcloud';
                 }else{
                     if( YouTubePopUpOptions.autoplay == 1 ){
-                        var locally_options = 'controls autoplay';
+                        var locally_options = 'controls autoplay controlsList="nodownload"';
                     }else{
-                        var locally_options = 'controls';
+                        var locally_options = 'controls controlsList="nodownload"';
                     }
                     var iframe_element = '<video '+locally_options+'><source src="'+youtubeLink+'" type="video/mp4"></video>';
                     var videoType = ' vp-vt-locally';

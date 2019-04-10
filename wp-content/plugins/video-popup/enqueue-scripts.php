@@ -5,10 +5,10 @@ defined( 'ABSPATH' ) or die(':)');
 
 function video_popup_include_css_js() {
 	//wp_enqueue_style( 'video_popup_icomoon', plugins_url( '/css/icomoon/close-button-icon.css', __FILE__ ), array(), null, "all");
-	wp_enqueue_style( 'video_popup_close_icon', plugins_url( '/css/vp-close-icon/close-button-icon.css', __FILE__ ), array(), null, "all");
-	wp_enqueue_style( 'oba_youtubepopup_css', plugins_url( '/css/YouTubePopUp.css', __FILE__ ), array(), null, "all");
-	wp_enqueue_script( 'oba_youtubepopup_plugin', plugins_url( '/js/YouTubePopUp.jquery.js', __FILE__ ), array('jquery'), null, false);
-	wp_enqueue_script( 'oba_youtubepopup_activate', plugins_url( '/js/YouTubePopUp.js', __FILE__ ), array('jquery'), null, false);
+	wp_enqueue_style( 'video_popup_close_icon', plugins_url( '/css/vp-close-icon/close-button-icon.css', __FILE__ ), array(), time(), "all");
+	wp_enqueue_style( 'oba_youtubepopup_css', plugins_url( '/css/YouTubePopUp.css', __FILE__ ), array(), time(), "all");
+	wp_enqueue_script( 'oba_youtubepopup_plugin', plugins_url( '/js/YouTubePopUp.jquery.js', __FILE__ ), array('jquery'), time(), false);
+	wp_enqueue_script( 'oba_youtubepopup_activate', plugins_url( '/js/YouTubePopUp.js', __FILE__ ), array('jquery'), time(), false);
 }
 add_action( 'wp_enqueue_scripts', 'video_popup_include_css_js' );
 

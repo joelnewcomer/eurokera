@@ -243,19 +243,19 @@ function video_popup_ajax_result_on_pageload(){
 				<div style="max-width:880px; height:440px;" class="vp-flex <?php echo $remove_border.$video_type_class; ?>">
 					<span class="YouTubePopUp-Close"></span>
 					<?php if ( preg_match("/(youtube.com)|(youtu.be)/", $video_url) ) : ?>
-						<iframe src="https://www.youtube.com/embed/<?php echo $the_video_id; ?>?autoplay=<?php echo $autoplay; ?>&mute=<?php echo $mute; ?>" allowfullscreen="true" allow="autoplay"></iframe>
+						<iframe src="https://www.youtube.com/embed/<?php echo $the_video_id; ?>?autoplay=<?php echo $autoplay; ?>&mute=<?php echo $mute; ?>" allow="autoplay" allowfullscreen></iframe>
 					<?php endif; ?>
 
 					<?php if ( preg_match("/(vimeo.com)/", $video_url) ) : ?>
-						<iframe src="https://player.vimeo.com/video/<?php echo $vimeo_id; ?>?autoplay=<?php echo $autoplay; ?>" allowfullscreen="true" allow="autoplay"></iframe>
+						<iframe src="https://player.vimeo.com/video/<?php echo $vimeo_id; ?>?autoplay=<?php echo $autoplay; ?>" allow="autoplay" allowfullscreen></iframe>
 					<?php endif; ?>
 
 					<?php if ( preg_match("/(.mp4)/", $video_url) ) : ?>
 						<?php
 							if( $autoplay == 1 ){
-								$mp4_options = 'controls autoplay';
+								$mp4_options = 'controls autoplay controlsList="nodownload"';
 							}else{
-								$mp4_options = 'controls';
+								$mp4_options = 'controls controlsList="nodownload"';
 							}
 						?>
 						<video <?php echo $mp4_options; ?>><source src="<?php echo $video_url; ?>" type="video/mp4"></video>

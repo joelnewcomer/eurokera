@@ -25,7 +25,7 @@ add_filter('mce_external_plugins', 'video_popup_register_tinymce_js');
 
 
 function video_popup_tinymce_button_icon(){
-	wp_enqueue_style( 'video-popup-tinymce-style', plugins_url('/css/tinymce.css', __FILE__), array(), null, "all"  );
+	wp_enqueue_style( 'video-popup-tinymce-style', plugins_url('/css/tinymce.css', __FILE__), array(), time(), "all"  );
 }
 add_action('admin_enqueue_scripts', 'video_popup_tinymce_button_icon');
 
