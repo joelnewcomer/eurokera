@@ -2220,6 +2220,9 @@ p.small {
 .hidden {
   display: none !important; }
 
+.orange {
+  color: #ff8200; }
+
 @media only screen and (min-width: 40.063em) {
   .top-bar-right {
     margin-top: 33px; } }
@@ -2676,7 +2679,7 @@ body#tinymce {
 .button {
   position: relative; }
 
-.button a, input.button {
+.button a, input.button, .faux-button {
   display: inline-block;
   position: relative;
   z-index: 1;
@@ -2694,21 +2697,21 @@ body#tinymce {
   -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
   transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1); }
   @media screen and (min-width: 40em) {
-    .button a, input.button {
+    .button a, input.button, .faux-button {
       margin-right: 15px; } }
-  .button a:last-child, input.button:last-child {
+  .button a:last-child, input.button:last-child, .faux-button:last-child {
     margin-right: 0; }
-  .button a:hover, input.button:hover {
+  .button a:hover, input.button:hover, .faux-button:hover {
     background: transparent;
     color: #ff8200; }
-  .button a::before, input.button::before {
+  .button a::before, input.button::before, .faux-button::before {
     border: 2px solid #ff8200;
     opacity: 0;
     -webkit-transform: scale3d(1.2, 1.2, 1);
     transform: scale3d(1.2, 1.2, 1); }
-  .button a::after, input.button::after {
+  .button a::after, input.button::after, .faux-button::after {
     background: #ff8200; }
-  .button a::before, .button a::after, input.button::before, input.button::after {
+  .button a::before, .button a::after, input.button::before, input.button::after, .faux-button::before, .faux-button::after {
     content: '';
     z-index: -1;
     border-radius: inherit;
@@ -2726,11 +2729,11 @@ body#tinymce {
     transition: transform 0.3s, opacity 0.3s, -webkit-transform 0.3s;
     -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
     transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1); }
-  .button a:hover::before, input.button:hover::before {
+  .button a:hover::before, input.button:hover::before, .faux-button:hover::before {
     opacity: 1;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); }
-  .button a:hover::after, input.button:hover::after {
+  .button a:hover::after, input.button:hover::after, .faux-button:hover::after {
     opacity: 0;
     -webkit-transform: scale3d(0.8, 0.8, 1);
     transform: scale3d(0.8, 0.8, 1); }
@@ -2742,15 +2745,15 @@ input.button:hover {
   font-size: 18px;
   padding: 8px 24px; }
 
-.blue.button a {
+.blue.button a, .faux-button.blue {
   background-color: #2c9199;
   border-color: #2c9199; }
-  .blue.button a:hover {
+  .blue.button a:hover, .faux-button.blue:hover {
     background: transparent;
     color: #2c9199; }
-  .blue.button a:after {
+  .blue.button a:after, .faux-button.blue:after {
     background: #2c9199; }
-  .blue.button a:before {
+  .blue.button a:before, .faux-button.blue:before {
     border: 2px solid #2c9199; }
 
 .gray.button a {
@@ -3399,9 +3402,64 @@ body.blog #page, body.category #page {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
-          justify-content: center; }
+          justify-content: center;
+  padding-top: 135px; }
   .home-slider .home-slider-overlay h1 {
     color: #fff; }
+
+.home-slider .bx-controls .bx-pager {
+  bottom: 20px; }
+
+.home-slider .bx-wrapper .bx-pager.bx-default-pager a {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: #fff !important;
+  opacity: .5; }
+
+.home-slider .bx-wrapper .bx-pager.bx-default-pager a:hover, .home-slider .bx-wrapper .bx-pager.bx-default-pager a.active {
+  opacity: 1; }
+
+.home-intro {
+  padding: 20px 0 40px 0; }
+  .home-intro h2 {
+    color: #ff8200;
+    margin-bottom: 30px; }
+
+body.home #content section h2 {
+  font-size: 40px; }
+
+section.most-popular {
+  padding: 40px 0; }
+  section.most-popular h2 {
+    margin-bottom: 40px; }
+  section.most-popular .columns {
+    padding: 0;
+    margin: 0 8px; }
+  section.most-popular h3 {
+    background: #63666A;
+    color: #fff;
+    padding: 12px 8px 14px 8px;
+    text-align: center;
+    width: 100%;
+    font-size: 24px; }
+  section.most-popular .most-popular-block {
+    background: #ececeb; }
+    section.most-popular .most-popular-block p {
+      color: #63666A;
+      font-size: 18px; }
+    section.most-popular .most-popular-block .most-popular-content {
+      padding: 20px; }
+    section.most-popular .most-popular-block .faux-button {
+      margin-top: 8px;
+      padding: 8px 20px;
+      font-size: 20px; }
+
+.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
 
 .home-banner {
   display: block;

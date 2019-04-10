@@ -26,7 +26,39 @@ get_header(); ?>
 		    </div>
 		</div> <!-- slider-container -->
 	</section> <!-- home-slider -->
+	
+	<section class="home-intro">
+		<div class="row">
+			<div class="large-12 columns">
+				<?php echo get_field('intro'); ?>
+			</div>
+		</div>
+	</section> <!-- home-intro -->
 
+	<section class="most-popular">
+		<div class="row">
+			<div class="large-12 columns">
+				<h2 class="orange"><?php echo get_field('most_popular_title'); ?></h2>
+			</div>
+		</div>
+		<div class="row flex">
+			<?php if(get_field('most_popular')): ?>
+				<?php while(has_sub_field('most_popular')): ?>
+					<a href="<?php echo get_sub_field('link'); ?>" class="large-3 medium-3 small-6 columns most-popular-block">
+						<?php echo wp_get_attachment_image( get_sub_field('photo'), 'width=327&height=220&crop=1'); ?>
+						<h3><?php echo get_sub_field('title'); ?></h3>
+						<div class="most-popular-content">
+							<p><?php echo get_sub_field('description'); ?></p>
+							<div class="text-center">
+								<div class="faux-button blue"><?php _e('Learn More'); ?></div>
+							</div>
+						</div>
+					</a>
+				<?php endwhile; ?>
+			<?php endif; ?>
+		</div>
+	</section> <!-- most-popular -->
+	
 	<?php
 	$video_poster = get_field('video_poster');
 	if (is_numeric($video_poster)) {

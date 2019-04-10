@@ -2,7 +2,7 @@
 	position: relative;
 }
 
-.button a, input.button {
+.button a, input.button, .faux-button {
 	display: inline-block;
 	position: relative;
 	z-index: 1;
@@ -75,7 +75,7 @@ input.button:hover {
 	padding: 8px 24px;
 }
 
-.blue.button a {
+.blue.button a, .faux-button.blue {
 	background-color: $secondary-color;
 	border-color: $secondary-color;
 	&:hover {

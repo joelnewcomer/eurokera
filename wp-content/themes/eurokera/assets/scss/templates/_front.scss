@@ -13,8 +13,74 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		padding-top: 135px;
 		h1 {
 			color: #fff;
 		}
 	}
+	.bx-controls {
+		.bx-pager {
+			bottom: 20px;
+		}
+	}
+	.bx-wrapper .bx-pager.bx-default-pager a {
+		width: 20px;
+		height: 20px;
+		border-radius: 10px;
+		background: #fff !important;
+		opacity: .5;
+	}
+	.bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active {
+		opacity: 1;
+	}
+}
+
+.home-intro {
+	padding: 20px 0 40px 0;
+	h2 {
+		color: $orange;
+		margin-bottom: 30px;
+	}
+}
+
+body.home #content section h2 {
+	font-size: 40px;
+}
+
+section.most-popular {
+	padding: 40px 0;
+	h2 {
+		margin-bottom: 40px;
+	}
+	.columns {
+		padding: 0;
+		margin: 0 8px;
+	}
+	h3 {
+		background: #63666A;
+		color: #fff;
+		padding: 12px 8px 14px 8px;
+		text-align: center;
+		width: 100%;
+		font-size: 24px;
+	}
+	.most-popular-block {
+		background: #ececeb;
+		p {
+			color: #63666A;
+			font-size: 18px;
+		}
+		.most-popular-content {
+			padding: 20px;
+		}
+		.faux-button {
+			margin-top: 8px;
+			padding: 8px 20px;
+			font-size: 20px;
+		}
+	}
+}
+
+.flex {
+	display: flex;
 }
