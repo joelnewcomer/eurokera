@@ -47,7 +47,7 @@
                     "label": "Photo",
                     "name": "photo",
                     "type": "image",
-                    "instructions": "Image will be sized and cropped to 1920 x 960 pixels.",
+                    "instructions": "Image will be sized and cropped to 1366 x 683 pixels.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -55,17 +55,17 @@
                         "class": "",
                         "id": ""
                     },
+                    "wpml_cf_preferences": 0,
                     "return_format": "id",
                     "preview_size": "medium",
                     "library": "all",
-                    "min_width": 1920,
-                    "min_height": 960,
+                    "min_width": 1366,
+                    "min_height": 683,
                     "min_size": "",
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": "",
-                    "wpml_cf_preferences": 0
+                    "mime_types": ""
                 }
             ]
         },
@@ -88,6 +88,26 @@
             "media_upload": 0,
             "delay": 0,
             "wpml_cf_preferences": 2
+        },
+        {
+            "key": "field_5cadfd1499284",
+            "label": "Most Popular Title",
+            "name": "most_popular_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_5cab9ddd7553c",
@@ -142,17 +162,17 @@
                         "class": "",
                         "id": ""
                     },
+                    "wpml_cf_preferences": 3,
                     "return_format": "id",
                     "preview_size": "thumbnail",
                     "library": "all",
                     "min_width": 327,
-                    "min_height": 229,
+                    "min_height": 220,
                     "min_size": "",
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": "",
-                    "wpml_cf_preferences": 3
+                    "mime_types": ""
                 },
                 {
                     "key": "field_5caba0567553f",
@@ -196,7 +216,7 @@
             "key": "field_5caba0a710c4c",
             "label": "All Solutions Intro",
             "name": "all_solutions_intro",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -206,10 +226,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0,
             "wpml_cf_preferences": 2
         },
         {
@@ -423,5 +443,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1554752420
+    "modified": 1554907817
 }
