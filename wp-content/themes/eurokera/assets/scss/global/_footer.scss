@@ -40,11 +40,11 @@
 		}
 	}
 	svg.eurokera-logo {
-		margin-bottom: 20px;
+		margin-bottom: 40px;
 		max-width: 147px;
 	}
 	.social {
-		margin-bottom: 30px;
+		margin-bottom: 40px;
 	}
 	svg {
 		@media only screen and (max-width: 40.063em) {
@@ -81,8 +81,13 @@
 		}
 		max-height: 42px;
 		max-width: 42px;
-		fill: $primary-color;
+		fill: #fff;
+		opacity: .31;
 		vertical-align: middle;
+		transition: all .35s;
+		&:hover {
+			opacity: 1;
+		}
 	}
 	a.wechat {
 		position: relative;

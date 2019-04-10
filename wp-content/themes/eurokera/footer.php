@@ -40,7 +40,7 @@
 				</div> <!-- row -->
 				
 				<div class="row">
-					<div class="large-12 medium-12 columns copyright small-text-center">
+					<div class="large-12 medium-12 columns copyright text-center">
 						<?php 
 						$terms_page = get_page_by_path('terms-of-use');
 						$icl_term_page_id = icl_object_id($terms_page->ID, 'page', true);

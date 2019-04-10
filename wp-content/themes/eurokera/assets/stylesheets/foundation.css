@@ -2546,10 +2546,10 @@ li.wpml-ls-menu-item.menu-item-has-children {
           text-align: center;
           text-transform: none; } }
   #footer-container svg.eurokera-logo {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     max-width: 147px; }
   #footer-container .social {
-    margin-bottom: 30px; }
+    margin-bottom: 40px; }
   @media only screen and (max-width: 40.063em) {
     #footer-container svg {
       margin-top: 0;
@@ -2573,11 +2573,16 @@ li.wpml-ls-menu-item.menu-item-has-children {
   margin: 0 12px;
   max-height: 42px;
   max-width: 42px;
-  fill: #ff8200;
-  vertical-align: middle; }
+  fill: #fff;
+  opacity: .31;
+  vertical-align: middle;
+  -webkit-transition: all .35s;
+  transition: all .35s; }
   @media only screen and (max-width: 40.063em) {
     .social svg {
       margin: 0 8px; } }
+  .social svg:hover {
+    opacity: 1; }
 
 .social a.wechat {
   position: relative; }
