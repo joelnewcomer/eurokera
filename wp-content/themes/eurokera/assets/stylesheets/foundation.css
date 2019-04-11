@@ -3422,12 +3422,11 @@ body.blog #page, body.category #page {
 
 .home-intro {
   padding: 20px 0 40px 0; }
-  .home-intro h2 {
-    color: #ff8200;
-    margin-bottom: 30px; }
 
 body.home #content section h2 {
-  font-size: 40px; }
+  font-size: 40px;
+  color: #ff8200;
+  margin-bottom: 30px; }
 
 section.most-popular {
   padding: 40px 0; }
@@ -3460,6 +3459,11 @@ section.most-popular {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
+
+section.all-solutions {
+  padding: 40px 0; }
+  section.all-solutions .solution-row {
+    border: solid 1px #D9D9D6; }
 
 .home-banner {
   display: block;

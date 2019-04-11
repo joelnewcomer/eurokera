@@ -59,6 +59,29 @@ get_header(); ?>
 		</div>
 	</section> <!-- most-popular -->
 	
+	<section class="all-solutions">
+		<div class="row">
+			<div class="large-12 columns solutions-intro">
+				<?php echo get_field('all_solutions_intro'); ?>
+			</div>
+		</div>
+		<?php if(get_field('all_solutions')): ?>
+			<?php while(has_sub_field('all_solutions')): ?>
+				<div class="row solution-row flex">
+					<div class="large-6 medium-6 columns solution-about">
+						<h3><a href="<?php echo get_sub_field('link'); ?>"><?php echo get_sub_field('title'); ?></a></h3>
+						<div class="most-popular-content">
+							<?php echo get_sub_field('about'); ?>
+						</div>
+					</div>
+					<?php $src = wp_get_attachment_image_src( get_sub_field('image'), 'width=640&height=350&crop=1'); ?>
+					<a href="<?php echo get_sub_field('link'); ?>" class="large-6 medium-6 columns solution-photo" style="background:url(<?php echo $src[0]; ?>) center center no-repeat;">
+					</a>
+				</div> <!-- solution-row -->
+			<?php endwhile; ?>
+		<?php endif; ?>
+	</section> <!-- all-solutions -->
+	
 	<?php
 	$video_poster = get_field('video_poster');
 	if (is_numeric($video_poster)) {
