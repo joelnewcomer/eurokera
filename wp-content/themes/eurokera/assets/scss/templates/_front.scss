@@ -16,11 +16,16 @@
 		padding-top: 135px;
 		h1 {
 			color: #fff;
+			max-width: 65%;
+			margin: 0;
 		}
 	}
 	.bx-controls {
 		.bx-pager {
 			bottom: 20px;
+			@media only screen and (max-width: 40em) {
+				
+			}
 		}
 	}
 	.bx-wrapper .bx-pager.bx-default-pager a {
@@ -37,12 +42,18 @@
 
 .home-intro {
 	padding: 20px 0 40px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 0 0 20px 0;	
+	}
 }
 
 body.home #content section h2:not(.blog-title) {
 	font-size: 40px;
 	color: $orange;
 	margin-bottom: 30px;
+	@media only screen and (max-width: 40.063em) {
+		font-size: 32px;	
+	}
 }
 
 section.most-popular {

@@ -103,7 +103,10 @@ ul.bxslider {
 /* DIRECTION CONTROLS (NEXT / PREV) */
 
 .bx-wrapper .bx-prev {
-	left: 10%;
+	left: 40px;
+	@media only screen and (max-width: 40.063em) {
+		left: 24px;	
+	}
 }
 
 .bx-wrapper .bx-prev:after {
@@ -112,7 +115,10 @@ ul.bxslider {
 }
 
 .bx-wrapper .bx-next {
-	right: 10%;
+	right: 40px;
+	@media only screen and (max-width: 40.063em) {
+		right: 24px;	
+	}
 }
 
 .bx-wrapper .bx-next:after {
@@ -150,7 +156,7 @@ ul.bxslider {
 	font-size: 62px;
 	line-height: 62px;
 	text-indent: 0;
-	color: rgba(255,255,255,.5);
+	color: rgba(255,255,255,.9);
 }
 
 .bx-wrapper .bx-controls-direction a.disabled {
