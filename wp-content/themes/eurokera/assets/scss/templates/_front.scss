@@ -61,6 +61,9 @@ section.most-popular {
 		text-align: center;
 		width: 100%;
 		font-size: 24px;
+		@media only screen and (max-width: 980px) {
+			font-size: 18px;	
+		}
 	}
 	.most-popular-block {
 		background: #ececeb;
@@ -110,6 +113,7 @@ section.all-solutions {
 	}
 	.solution-photo {
 		background-size: cover !important;
+		min-height: 250px;
 	}
 	.solution-row:last-child .solution-photo {
 		background-size: 100% auto !important;
@@ -118,4 +122,5 @@ section.all-solutions {
 
 section.home-blog {
 	background: #fff3e6;
+	padding: 80px 0 30px 0;
 }

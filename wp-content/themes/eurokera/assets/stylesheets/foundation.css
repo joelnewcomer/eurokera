@@ -3447,6 +3447,9 @@ section.most-popular {
     text-align: center;
     width: 100%;
     font-size: 24px; }
+    @media only screen and (max-width: 980px) {
+      section.most-popular h3 {
+        font-size: 18px; } }
   section.most-popular .most-popular-block {
     background: #ececeb;
     position: relative;
@@ -3492,13 +3495,15 @@ section.all-solutions {
     padding: 20px 24px 10px 24px; }
   section.all-solutions .solution-photo {
     -webkit-background-size: cover !important;
-            background-size: cover !important; }
+            background-size: cover !important;
+    min-height: 250px; }
   section.all-solutions .solution-row:last-child .solution-photo {
     -webkit-background-size: 100% auto !important;
             background-size: 100% auto !important; }
 
 section.home-blog {
-  background: #fff3e6; }
+  background: #fff3e6;
+  padding: 80px 0 30px 0; }
 
 .home-banner {
   display: block;

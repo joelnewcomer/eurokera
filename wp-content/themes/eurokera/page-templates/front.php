@@ -150,6 +150,9 @@ get_header(); ?>
 		<?php endwhile;
 		wp_reset_query();
 		?>
+		<div class="large-12 columns text-center">
+			<div class="button small"><a href="<?php echo get_field('blog_link'); ?>"><?php echo get_field('blog_button_text'); ?></a></div>
+		</div>
 	</div> <!-- blog-row --> 
 </section> <!-- home-blog -->
 
@@ -157,8 +160,8 @@ get_header(); ?>
 if (typeof bxSlider === "function") { 	
     var slider = jQuery('.bxslider').bxSlider({
         auto: false,
-    	pager: true,
-        controls: false,
+	    	pager: true,
+        controls: true,
         mode: 'fade',
         speed: 1000,
     });	
@@ -167,7 +170,7 @@ if (typeof bxSlider === "function") {
     	var slider = jQuery('.bxslider').bxSlider({
     	    auto: false,
     	    pager: (jQuery(".bxslider > li").length > 1) ? true: false,
-    	    controls: false,
+    	    controls: true,
     	    mode: 'fade',
     	    speed: 1000,
     	});		
