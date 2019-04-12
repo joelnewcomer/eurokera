@@ -3751,6 +3751,7 @@ a.home-video {
   position: relative;
   width: 100%;
   font-size: 44px;
+  margin-bottom: -6px;
   padding: 145px 0 85px;
   color: #fff;
   -webkit-background-size: cover;

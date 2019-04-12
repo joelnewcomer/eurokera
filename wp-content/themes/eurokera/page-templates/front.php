@@ -116,10 +116,12 @@ get_header(); ?>
 <?php endif; ?>
 
 <section class="home-blog">
-	<div class="blog-row row">
+	<div class="row">
 		<div class="large-12 columns">
 			<h2><?php echo get_field('blog_title'); ?></h2>
 		</div>
+	</div>
+	<div class="blog-row row">
 		<?php
 		$the_query = new WP_Query(
 			array( 'post_type' => 'post', 'posts_per_page' => '3')
@@ -148,8 +150,8 @@ get_header(); ?>
 		<?php endwhile;
 		wp_reset_query();
 		?>
-	</div>
-</section>
+	</div> <!-- blog-row --> 
+</section> <!-- home-blog -->
 
 <script>
 if (typeof bxSlider === "function") { 	
