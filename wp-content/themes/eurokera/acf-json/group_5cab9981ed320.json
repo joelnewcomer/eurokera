@@ -330,8 +330,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
-                    "wpml_cf_preferences": 3
+                    "wpml_cf_preferences": 3,
+                    "return_format": "url"
                 }
             ]
         },
@@ -443,5 +443,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1554910207
+    "modified": 1555074628
 }

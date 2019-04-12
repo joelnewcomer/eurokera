@@ -49,7 +49,7 @@ get_header(); ?>
 						<h3><?php echo get_sub_field('title'); ?></h3>
 						<div class="most-popular-content">
 							<p><?php echo get_sub_field('description'); ?></p>
-							<div class="text-center">
+							<div class="text-center bottom-button">
 								<div class="faux-button blue"><?php _e('Learn More'); ?></div>
 							</div>
 						</div>
@@ -69,7 +69,7 @@ get_header(); ?>
 			<?php while(has_sub_field('all_solutions')): ?>
 				<div class="row solution-row flex">
 					<div class="large-6 medium-6 columns solution-about">
-						<h3><a href="<?php echo get_sub_field('link'); ?>"><?php echo get_sub_field('title'); ?></a></h3>
+						<h3><a class="blue" href="<?php echo get_sub_field('link'); ?>"><?php echo get_sub_field('title'); ?></a></h3>
 						<div class="most-popular-content">
 							<?php echo get_sub_field('about'); ?>
 						</div>
@@ -114,6 +114,42 @@ get_header(); ?>
 		</div>
 	</a>
 <?php endif; ?>
+
+<section class="home-blog">
+	<div class="blog-row row">
+		<div class="large-12 columns">
+			<h2><?php echo get_field('blog_title'); ?></h2>
+		</div>
+		<?php
+		$the_query = new WP_Query(
+			array( 'post_type' => 'post', 'posts_per_page' => '3')
+		);
+		while($the_query->have_posts()) : $the_query->the_post(); ?>
+            	<?php
+	            // Check for alternate featured image first
+	            $featured_id = get_field('alt_featured');
+	            if ($featured_id == null) {
+		            $featured_id = get_post_thumbnail_id();
+	            }
+	            // Default featured image
+	            if ($featured_id == null) {
+		            $featured_id = 729;
+	            }
+	            ?>
+                <div class="large-4 medium-4 columns blog-columns">
+	                <a href="<?php the_permalink(); ?>" class="blog-block">
+		                <div class="text-center">
+			                <?php echo wp_get_attachment_image( $featured_id, 'width=316&height=316&crop=1' ) ?>
+							<h2 class="blog-title"><?php the_title(); ?></h2>
+		                </div>
+		                <?php the_excerpt(); ?>
+	                </a>
+                </div>
+		<?php endwhile;
+		wp_reset_query();
+		?>
+	</div>
+</section>
 
 <script>
 if (typeof bxSlider === "function") { 	

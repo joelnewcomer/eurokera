@@ -53,7 +53,7 @@ get_header(); ?>
 		            $featured_id = 729;
 	            }
 	            ?>
-                <div class="large-6 medium-6 columns blog-columns">
+                <div class="large-4 medium-4 columns blog-columns">
 	                <a href="<?php the_permalink(); ?>" class="blog-block">
 		                <div class="text-center">
 			                <?php echo wp_get_attachment_image( $featured_id, 'width=316&height=316&crop=1' ) ?>

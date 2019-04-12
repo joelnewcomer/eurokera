@@ -282,7 +282,7 @@ section#video-center p {
 	text-align: center;
 }
 
-.blog-columns:nth-child(odd) {
+.blog-columns:nth-child(3n+1) {
 	clear: left;
 }
 
@@ -364,4 +364,8 @@ p.small {
 
 .orange {
 	color: $orange;
+}
+
+.blue {
+	color: $blue;
 }

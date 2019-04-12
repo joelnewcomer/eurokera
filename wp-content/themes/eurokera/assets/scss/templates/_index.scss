@@ -102,7 +102,7 @@ body.blog #page, body.category #page {
 .blog-row {
 	max-width: 1000px;
 	.columns {
-		padding: 18px 24px;
+		padding: 18px 10px;
 	}
 	.blog-block {
 		display: block;
@@ -125,9 +125,12 @@ body.blog #page, body.category #page {
 			transform: scale(1.1);
 		}
 		h2 {
-			font-size: 34px;
+			font-size: 28px !important;
 			line-height: 1;
 			color: $primary-color;
+		}
+		p {
+			font-size: 18px;
 		}
 	}
 }
