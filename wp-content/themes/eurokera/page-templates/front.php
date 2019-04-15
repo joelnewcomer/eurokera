@@ -121,7 +121,7 @@ get_header(); ?>
 			<h2><?php echo get_field('blog_title'); ?></h2>
 		</div>
 	</div>
-	<div class="blog-row row">
+	<div class="blog-row row flex">
 		<?php
 		$the_query = new WP_Query(
 			array( 'post_type' => 'post', 'posts_per_page' => '3')
@@ -150,10 +150,12 @@ get_header(); ?>
 		<?php endwhile;
 		wp_reset_query();
 		?>
+	</div> <!-- blog-row --> 
+	<div class="row">
 		<div class="large-12 columns text-center">
 			<div class="button small"><a href="<?php echo get_field('blog_link'); ?>"><?php echo get_field('blog_button_text'); ?></a></div>
 		</div>
-	</div> <!-- blog-row --> 
+	</div> <!-- row --> 
 </section> <!-- home-blog -->
 
 <script>

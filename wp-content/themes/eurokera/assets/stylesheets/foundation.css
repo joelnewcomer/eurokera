@@ -3349,12 +3349,14 @@ body.blog #page, body.category #page {
 .blog-row {
   max-width: 1000px; }
   .blog-row .columns {
-    padding: 18px 10px; }
+    padding: 18px 10px;
+    margin-bottom: 70px; }
   .blog-row .blog-block {
     display: block;
     float: left;
     width: 100%;
     margin-top: 70px;
+    margin-bottom: -70px;
     background: #efefef;
     padding: 0 30px 35px 30px; }
     .blog-row .blog-block img {
@@ -3375,7 +3377,8 @@ body.blog #page, body.category #page {
       line-height: 1;
       color: #ff8200; }
     .blog-row .blog-block p {
-      font-size: 18px; }
+      font-size: 18px;
+      margin: 0; }
 
 .pagination-centered {
   display: block;
@@ -3512,6 +3515,9 @@ section.all-solutions {
 section.home-blog {
   background: #fff3e6;
   padding: 80px 0 30px 0; }
+  section.home-blog .blog-row .blog-block {
+    background: #fff;
+    height: 100%; }
 
 .home-banner {
   display: block;

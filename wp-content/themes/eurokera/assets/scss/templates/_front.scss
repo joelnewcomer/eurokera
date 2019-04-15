@@ -134,4 +134,8 @@ section.all-solutions {
 section.home-blog {
 	background: #fff3e6;
 	padding: 80px 0 30px 0;
+	.blog-row .blog-block {
+		background: #fff;
+		height: 100%;
+	}
 }
