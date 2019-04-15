@@ -3,7 +3,7 @@ Contributors: Alobaidi
 Tags: video popup, youtube lightbox, popup, video lightbox, lightbox
 Requires at least: 2.6.0
 Tested up to: 5.1.1
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 Requires PHP: 5.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -98,6 +98,12 @@ Unlock all the features, get it at a low price, and pay only once! [Get it now](
 * [Support and Contact](https://wp-plugins.in/VP-Support-and-Contact)
 
 == Changelog ==
+
+= 1.0.9 =
+
+1. In the version "1.0.9", we fixed an issue in the display options (for the popup video on page load).
+
+Note: If you are use a caching plugin on your site, such as "WP Super Cache Plugin", please clear all the cache files (one time only) after updating the Video Popup plugin to the version "1.0.9". Read [how to clear the cache in your website](https://wp-plugins.in/2VL1ksf).
 
 = 1.0.8 =
 

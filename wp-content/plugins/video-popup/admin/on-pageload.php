@@ -280,10 +280,17 @@ add_action('template_redirect', 'video_popup_on_pageload');
 
 
 function video_popup_on_pageload_html(){
+	if( is_single() or is_page() ){
+		global $post;
+		$get_id = $post->ID;
+		$ajax_link = home_url("/?p=$get_id&vp_on_pageload=t");
+	}else{
+		$ajax_link = "?vp_on_pageload=t";
+	}
 	?>
 		<script type="text/javascript">
 			jQuery(document).ready(function(){
-        		jQuery('.vp-on-pageload-wrap').load("?vp_on_pageload=t");
+        		jQuery('.vp-on-pageload-wrap').load("<?php echo $ajax_link; ?>");
 			});
 		</script>
 
