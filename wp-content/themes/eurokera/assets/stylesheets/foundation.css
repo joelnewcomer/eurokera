@@ -3620,12 +3620,14 @@ section.ceo svg {
   height: 25px; }
 
 section.ceo p.ceo-name {
-  font-size: 16px !important;
+  font-size: 20px !important;
   text-transform: uppercase;
   margin: 0; }
   @media only screen and (max-width: 40.063em) {
     section.ceo p.ceo-name {
-      font-size: 14px !important; } }
+      font-size: 16px !important; } }
+  section.ceo p.ceo-name span {
+    text-transform: none; }
 
 section.ceo h2 {
   max-width: 35%;
@@ -3650,23 +3652,22 @@ section.ceo .ceo-photo {
     margin-bottom: 25px; }
 
 section.ceo .long-quote {
-  padding: 90px 40px 48px 40px;
+  padding: 140px 40px 120px 40px;
   background: #63666a; }
   @media only screen and (max-width: 40.063em) {
     section.ceo .long-quote {
       background: #fff;
-      padding: 30px 20px 4px 20px; } }
+      padding: 100px 20px 80px 20px; } }
   section.ceo .long-quote p {
     color: #fff;
-    font-size: 23px;
+    font-size: 49px;
     word-break: normal !important;
     line-height: 1.4;
-    max-width: 515px;
     margin-bottom: 30px; }
     @media only screen and (max-width: 40.063em) {
       section.ceo .long-quote p {
         color: #626260;
-        font-size: 20px; } }
+        font-size: 28px; } }
   section.ceo .long-quote svg {
     margin-bottom: 25px; }
     section.ceo .long-quote svg path {

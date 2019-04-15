@@ -52,18 +52,15 @@ get_header(); ?>
 		$ceo_photo = $ceo_photo_url[0];
 	}
 	?>
-	<div class="large-6 medium-6 columns ceo-photo text-right match-quote" style="background-image: url(<?php echo $ceo_photo; ?>);">
-		<div class="short-quote">
-			<?php get_template_part('assets/images/quote.svg'); ?><br />
-			<h2><?php echo get_field('short_quote'); ?></h2>
-			<p class="ceo-name show-for-small"><?php echo get_field('ceo_name'); ?>, <?php _e('CEO'); ?></p>
+	<div class="large-6 medium-6 columns long-quote match-quote text-center">
+		<p><i>"<?php echo get_field('long_quote'); ?>"</i></p>
+		<div class="hide-for-small">	
+			<p class="ceo-name"><?php echo get_field('ceo_name'); ?><br /><span><?php echo get_field('executive_title'); ?></span></p>
 		</div>
 	</div>
-	<div class="large-6 medium-6 columns long-quote match-quote">
-		<p><?php echo get_field('long_quote'); ?></p>
-		<div class="hide-for-small">
-			<?php get_template_part('assets/images/quote.svg'); ?><br />	
-			<p class="ceo-name"><?php echo get_field('ceo_name'); ?>, <?php _e('CEO'); ?></p>
+	<div class="large-6 medium-6 columns ceo-photo text-right match-quote" style="background-image: url(<?php echo $ceo_photo; ?>);">
+		<div class="short-quote">
+			<p class="ceo-name show-for-small"><?php echo get_field('ceo_name'); ?>, <?php _e('CEO'); ?></p>
 		</div>
 	</div>
 </section>

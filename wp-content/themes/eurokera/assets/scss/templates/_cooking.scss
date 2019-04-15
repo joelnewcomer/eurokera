@@ -114,12 +114,15 @@ section.ceo {
 		height: 25px;
 	}
 	p.ceo-name {
-		font-size: 16px !important;
+		font-size: 20px !important;
 		@media only screen and (max-width: 40.063em) {
-			font-size: 14px !important;	
+			font-size: 16px !important;	
 		}
 		text-transform: uppercase;
 		margin: 0;
+		span {
+			text-transform: none;
+		}
 	}	
 	h2 {
 		max-width: 35%;
@@ -144,22 +147,21 @@ section.ceo {
 		}
 	}
 	.long-quote {
-		padding: 90px 40px 48px 40px;
+		padding: 140px 40px 120px 40px;
 		background: $dark-gray;
 		@media only screen and (max-width: 40.063em) {
 			background: #fff;
-			padding: 30px 20px 4px 20px;
+			padding: 100px 20px 80px 20px;
 		}
 		p {
 			color: #fff;
-			font-size: 23px;
+			font-size: 49px;
 			word-break: normal !important;
 			@media only screen and (max-width: 40.063em) {
 				color: #626260;
-				font-size: 20px;	
+				font-size: 28px;	
 			}
 			line-height: 1.4;
-			max-width: 515px;
 			margin-bottom: 30px;
 		}
 		svg {

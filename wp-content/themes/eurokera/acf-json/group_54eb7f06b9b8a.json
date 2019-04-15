@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_597794e768024",
-            "label": "CEO Photo",
+            "label": "Executive Photo",
             "name": "ceo_photo",
             "type": "image",
             "instructions": "",
@@ -15,6 +15,7 @@
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 0,
             "return_format": "url",
             "preview_size": "thumbnail",
             "library": "all",
@@ -48,7 +49,7 @@
         },
         {
             "key": "field_5977951868027",
-            "label": "Director of Sales & Marketing Name",
+            "label": "Executive Name",
             "name": "ceo_name",
             "type": "text",
             "instructions": "",
@@ -60,6 +61,26 @@
                 "id": ""
             },
             "wpml_cf_preferences": 0,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5cb4d5f0c663d",
+            "label": "Executive Title",
+            "name": "executive_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 2,
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -261,5 +282,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1555354377
+    "modified": 1555355165
 }
