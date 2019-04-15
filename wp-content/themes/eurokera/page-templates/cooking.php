@@ -27,8 +27,7 @@ get_header(); ?>
    <script>
       	jQuery('.home-banner .down-arrow').click(function() {
       	    jQuery('html, body').animate({ scrollTop: jQuery('#masthead').offset().top}, 1000);
-      	});
-      });			
+      	});			
    </script>
 </section>
 
@@ -72,7 +71,16 @@ get_header(); ?>
 <section class="numbers">
 	<div class="row">
 		<div class="large-12 columns text-center">
-			<?php $num_cooktops = get_field('num_of_cooktops'); ?>
+			<?php
+			$num_cooktops = get_field('num_of_cooktops');
+			$num_start = strtotime(get_field('number_start_date'));	
+			$num_increment = get_field('num_increment');
+			$current_date = time();
+			$six_months = 15780000;
+			$time_diff = $current_date - $num_start;
+			$increment_by = intval($time_diff / $six_months);
+			$num_cooktops = ($num_increment*$increment_by) + $num_cooktops;
+			?>
 			<h2><?php echo sprintf( __('%s MILLION +', 'foundationpress'), $num_cooktops); ?></h2>
 			<h3><?php _e('Cooktops'); ?></h3>
 			<div class="partner saint-gobain">

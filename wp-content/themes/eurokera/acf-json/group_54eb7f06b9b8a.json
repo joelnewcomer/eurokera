@@ -48,7 +48,7 @@
         },
         {
             "key": "field_5977951868027",
-            "label": "CEO Name",
+            "label": "Director of Sales & Marketing Name",
             "name": "ceo_name",
             "type": "text",
             "instructions": "",
@@ -59,6 +59,7 @@
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 0,
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -97,10 +98,10 @@
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 3,
             "display_format": "m\/d\/Y",
-            "return_format": "m\/d\/Y",
-            "first_day": 0,
-            "wpml_cf_preferences": 0
+            "return_format": "m-d-Y",
+            "first_day": 0
         },
         {
             "key": "field_5cb4c99216230",
@@ -115,7 +116,7 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
+            "wpml_cf_preferences": 3,
             "default_value": 5,
             "placeholder": "",
             "prepend": "",
@@ -260,5 +261,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1555352052
+    "modified": 1555354377
 }
