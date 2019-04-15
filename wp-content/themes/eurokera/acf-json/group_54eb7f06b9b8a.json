@@ -3,26 +3,6 @@
     "title": "Cooking",
     "fields": [
         {
-            "key": "field_5a26f334cca72",
-            "label": "Main Content",
-            "name": "homepage_content",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "wpml_cf_preferences": 0,
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
             "key": "field_597794e768024",
             "label": "CEO Photo",
             "name": "ceo_photo",
@@ -47,27 +27,8 @@
             "mime_types": ""
         },
         {
-            "key": "field_5977950568025",
-            "label": "Short Quote",
-            "name": "short_quote",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_5977950d68026",
-            "label": "Long Quote",
+            "label": "Quote",
             "name": "long_quote",
             "type": "textarea",
             "instructions": "",
@@ -78,6 +39,7 @@
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 0,
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
@@ -120,6 +82,44 @@
             "placeholder": "",
             "prepend": "",
             "append": "Million +",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5cb4c96b1622f",
+            "label": "Number of Cooktops Start Date",
+            "name": "number_start_date",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "m\/d\/Y",
+            "return_format": "m\/d\/Y",
+            "first_day": 0,
+            "wpml_cf_preferences": 0
+        },
+        {
+            "key": "field_5cb4c99216230",
+            "label": "Number of Cooktops automatic increment (in millions) every 6 months",
+            "name": "num_increment",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wpml_cf_preferences": 0,
+            "default_value": 5,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
             "maxlength": ""
         },
         {
@@ -260,5 +260,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1554478962
+    "modified": 1555352052
 }

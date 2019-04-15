@@ -79,14 +79,14 @@ get_header(); ?>
 				<a href="https://www.saint-gobain.com" target="_blank">	
 					<?php get_template_part('assets/images/saint-gobain', 'logo.svg'); ?>
 				</a><br />
-				350 <?php _e('years'); ?>
+				<?php echo date("Y") - 1665; ?> <?php _e('years'); ?>
 			</div>
 			<div class="plus">+</div>
 			<div class="partner corning">
 				<a href="http://www.corning.com/" target="_blank">
 					<?php get_template_part('assets/images/corning', 'logo.svg'); ?>
 				</a><br />
-				160 <?php _e('years'); ?>
+				<?php echo date("Y") - 1851; ?> <?php _e('years'); ?>
 			</div><br />
 			<div class="num-one partner">
 				<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?><br />
