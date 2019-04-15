@@ -5,47 +5,66 @@
 			<p><?php _e('Use the selector below to guide you to the perfect EuroKera glass-ceramic solution or scroll down to see all of our substrates.'); ?></p>
 			
 			<form id="product-selector">
-				<select id="glass-color" class="product-dropdown">
-					<option value=""><?php _e('Glass-Ceramic Color'); ?></option>
-					<option value="black"><?php _e('Black'); ?></option>
-					<option value="grey"><?php _e('Grey (Slate)'); ?></option>
-					<option value="transparent"><?php _e('Transparent'); ?></option>
-					<option value="transparent"><?php _e('Transparent - Champagne'); ?></option>
-					<option value="transparent"><?php _e('Transparent - Silver'); ?></option>
-					<option value="transparent"><?php _e('Transparent - Slate Grey'); ?></option>
-					<option value="transparent"><?php _e('Transparent - Anthracite'); ?></option>
-					<!-- <option value="transparent"><?php _e('Transparent - UltraBlack'); ?></option> -->
-					<option value="white"><?php _e('White'); ?></option>				
-				</select>
-				<select id="display" class="product-dropdown">
-					<option value=""><?php _e('Display Options'); ?></option>
-					<option value="all-color"><?php _e('Any Color including white'); ?></option>
-					<option value="red"><?php _e('Red/Orange'); ?></option>
-					<option value="monochromatic"><?php _e('Monochromatic'); ?></option>
-					<option value="none"><?php _e('No Display'); ?></option>				
-				</select>
+				<div class="product-dropdown">
+					<div class="dropdown-title"><?php _e('Glass-Ceramic Color'); ?></div>
+					<div class="dropdown-options">
+						<input type="radio" name="glass-color" id="black" value="black"><label for="black"><?php _e('Black'); ?></label>
+						<input type="radio" name="glass-color" id="grey" value="grey"><label for="grey"><?php _e('Grey (Slate)'); ?></label>
+						<input type="radio" name="glass-color" id="trans" value="transparent"><label for="trans"><?php _e('Transparent'); ?></label>
+						<input type="radio" name="glass-color" id="trans-champagne" value="transparent"><label for="trans-champagne"><?php _e('Transparent - Champagne'); ?></label>
+						<input type="radio" name="glass-color" id="trans-silver" value="transparent"><label for="trans-silver"><?php _e('Transparent - Silver'); ?></label>
+						<input type="radio" name="glass-color" id="trans-grey" value="transparent"><label for="trans-grey"><?php _e('Transparent - Slate Grey'); ?></label>
+						<input type="radio" name="glass-color" id="trans-anthra" value="transparent"><label for="trans-anthra"><?php _e('Transparent - Anthracite'); ?></label>
+						<input type="radio" name="glass-color" id="white" value="white"><label for="white"><?php _e('White'); ?></label>
+					</div>
+				</div>
 				
-				<div class="form-divider no-divider-small"><div><?php _e('Heat Source'); ?></div></div>
-				<input class="stacked-radio" type="checkbox" name="heat-source" id="gas" value="gas"><label for="gas"><?php _e('Gas'); ?></label>
-				<input class="stacked-radio" type="checkbox" name="heat-source" id="induction" value="induction"><label for="induction"><?php _e('Induction'); ?></label>
-				<input class="stacked-radio" type="checkbox" name="heat-source" id="radiant" value="radiant"><label for="radiant"><?php _e('Radiant'); ?></label>
-
-				<div class="form-divider"><div><?php _e('Custom Top Decoration'); ?></div></div>
-				<input class="stacked-radio placebo" type="checkbox" name="decor" id="complex" value="complex"><label for="complex"><?php _e('Complex Patterns'); ?></label>
-				<input class="stacked-radio placebo" type="checkbox" name="decor" id="reflective" value="reflective"><label for="reflective"><?php _e('Reflective Inks'); ?></label>
-				<input class="stacked-radio placebo" type="checkbox" name="decor" id="multi" value="multi"><label for="multi"><?php _e('Multi-Colors'); ?></label>
-
-				<div class="form-divider"><div><?php _e('Additional Design Options'); ?></div></div>
-				<input class="round placebo" type="checkbox" name="holes" id="holes" value="complex"><label for="holes"><?php _e('Holes'); ?></label>
-				<input class="round placebo" type="checkbox" name="bevels" id="bevels" value="bevels"><label for="bevels"><?php _e('Bevels'); ?></label>
-				<input class="round" type="checkbox" name="woks" id="woks" value="woks"><label for="woks"><?php _e('Woks'); ?></label>
-				<input class="round" type="checkbox" name="3d" id="3d" value="3d"><label for="3d"><?php _e('3D Shapes'); ?></label>
-				<input class="round placebo" type="checkbox" name="custom-edge" id="custom-edge" value="custom-edge"><label for="custom-edge"><?php _e('Custom Edge Profiles'); ?></label>
-				<input class="round placebo" type="checkbox" name="custom-shape" id="custom-shape" value="custom-shape"><label for="custom-shape"><?php _e('Custom Shapes'); ?></label>
+				<div class="product-dropdown">
+					<div class="dropdown-title"><?php _e('Display Option'); ?></div>
+					<div class="dropdown-options">
+						<input type="radio" name="display" id="all-color" value="all-color"><label for="all-color"><?php _e('Any Color including white'); ?></label>
+						<input type="radio" name="display" id="red" value="red"><label for="red"><?php _e('Red/Orange'); ?></label>
+						<input type="radio" name="display" id="monochromatic" value="monochromatic"><label for="monochromatic"><?php _e('Monochromatic'); ?></label>
+						<input type="radio" name="display" id="none" value="none"><label for="none"><?php _e('No Display'); ?></label>
+					</div>	
+				</div>
 				
-				<div class="radio-group">
-					<input type="radio" name="use" id="retail" value="retail"><label for="retail"><?php _e('Retail'); ?></label>
-					<input type="radio" name="use" id="pro" value="pro"><label for="pro"><?php _e('Professional'); ?></label>
+				<div class="product-dropdown">
+					<div class="dropdown-title"><?php _e('Heat Source'); ?></div>
+					<div class="dropdown-options">
+						<input class="stacked-radio" type="checkbox" name="heat-source" id="gas" value="gas"><label for="gas"><?php _e('Gas'); ?></label>
+						<input class="stacked-radio" type="checkbox" name="heat-source" id="induction" value="induction"><label for="induction"><?php _e('Induction'); ?></label>
+						<input class="stacked-radio" type="checkbox" name="heat-source" id="radiant" value="radiant"><label for="radiant"><?php _e('Radiant'); ?></label>
+					</div>
+				</div>
+				
+				<div class="product-dropdown">
+					<div class="dropdown-title"><?php _e('Decoration'); ?></div>
+					<div class="dropdown-options">
+						<input class="stacked-radio placebo" type="checkbox" name="decor" id="complex" value="complex"><label for="complex"><?php _e('Complex Patterns'); ?></label>
+						<input class="stacked-radio placebo" type="checkbox" name="decor" id="reflective" value="reflective"><label for="reflective"><?php _e('Reflective Inks'); ?></label>
+						<input class="stacked-radio placebo" type="checkbox" name="decor" id="multi" value="multi"><label for="multi"><?php _e('Multi-Colors'); ?></label>
+					</div>
+				</div>
+
+				<div class="product-dropdown">
+					<div class="dropdown-title"><?php _e('Design Options'); ?></div>
+					<div class="dropdown-options">
+						<input class="round placebo" type="checkbox" name="holes" id="holes" value="complex"><label for="holes"><?php _e('Holes'); ?></label>
+						<input class="round placebo" type="checkbox" name="bevels" id="bevels" value="bevels"><label for="bevels"><?php _e('Bevels'); ?></label>
+						<input class="round" type="checkbox" name="woks" id="woks" value="woks"><label for="woks"><?php _e('Woks'); ?></label>
+						<input class="round" type="checkbox" name="3d" id="3d" value="3d"><label for="3d"><?php _e('3D Shapes'); ?></label>
+						<input class="round placebo" type="checkbox" name="custom-edge" id="custom-edge" value="custom-edge"><label for="custom-edge"><?php _e('Custom Edge Profiles'); ?></label>
+						<input class="round placebo" type="checkbox" name="custom-shape" id="custom-shape" value="custom-shape"><label for="custom-shape"><?php _e('Custom Shapes'); ?></label>
+					</div>
+				</div>
+					
+				<div class="product-dropdown">
+					<div class="dropdown-title"><?php _e('Type of Use'); ?></div>
+					<div class="dropdown-options">
+						<input type="radio" name="use" id="retail" value="retail"><label for="retail"><?php _e('Retail'); ?></label>
+						<input type="radio" name="use" id="pro" value="pro"><label for="pro"><?php _e('Professional'); ?></label>
+					</div>
 				</div>
 			</form>
 				
