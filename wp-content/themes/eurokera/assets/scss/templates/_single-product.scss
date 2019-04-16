@@ -266,18 +266,19 @@ section.inspire {
 	color: #5e6367;
 }
 
-section.ready, section .columns.locate {
+section .columns.locate {
 	background: url(../images/innovative.jpg) center center/cover no-repeat;
 }
 
 section.ready {
+	background: #DFE0E2;
 	padding: 90px 0;
 	@media only screen and (max-width: 40.063em) {
 		padding-top: 55px;	
 	}
 	h2 {
-		color: #fff;
-		font-size: 46px;
+		color: #63666A;
+		font-size: 40px;
 		margin-bottom: 40px;
 		@media only screen and (max-width: 40.063em) {
 			font-size: 30px;	
