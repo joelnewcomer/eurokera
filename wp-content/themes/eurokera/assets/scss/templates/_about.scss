@@ -374,3 +374,56 @@ section.about-video {
 		}
 	}
 }
+
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: wrap;
+}
+
+section.about-ceo {
+	div {
+		display: block;
+		float: left;
+		width: 100%;
+	}
+	.ceo-content {
+		position: relative;
+		float: left;
+		width: 55%;
+		padding: 80px 10% 80px 15%;
+		@media only screen and (max-width: 1040px) {
+			padding: 30px 24px 35px 24px;
+		}
+		@media only screen and (max-width: 40.063em) {
+			padding: 30px 24px 35px 24px;	
+		}
+		background: #D9D9D6;
+		p {
+			font-size: 32px;
+			@media only screen and (max-width: 1040px) {
+				font-size: 20px;	
+			}
+		}
+		p.ceo-name {
+			font-size: 16px;
+			text-transform: uppercase;
+			margin: 0;
+		}
+	}
+	.ceo-photo {
+		float: right;
+		width: 45%;
+		height: 100%;
+		min-height: 400px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+	@media only screen and (max-width: 40.063em) {
+		.ceo-content, .ceo-photo {
+			width: 100%;
+		}	
+	}
+}

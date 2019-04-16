@@ -210,6 +210,22 @@ get_header(); ?>
 		</div>
 </section>
 
+<section class="about-ceo">
+	<?php
+	$intro_photo = get_field('ceo_block_photo');
+	if (is_numeric($intro_photo)) {
+		$intro_photo_url = wp_get_attachment_image_src($intro_photo, 'full');
+		$intro_photo = $intro_photo_url[0];
+	}
+	?>
+	<div class="ceo-photo match-ceo" style="background-image: url(<?php echo $intro_photo; ?>);"></div>
+	<div class="ceo-content match-ceo text-center flex-center">
+		<p><i><?php echo get_field('ceo_block_quote'); ?></i></p>
+		<p class="ceo-name"><?php echo get_field('ceo_block_name'); ?>,<br />
+		<?php echo get_field('ceo_block_title'); ?></p>
+	</div>
+</section>
+
 <!-- <section class="facts">
 	<div class="row">
 		<div class="large-6 medium-6 columns cooktop">
@@ -345,6 +361,7 @@ get_header(); ?>
 <script>
 	jQuery( window ).load(function() {
 		jQuery('.match-intro').matchHeight();
+		jQuery('.match-ceo').matchHeight();
 		jQuery('.match-facts').matchHeight({byRow:false});
 	});
 </script>
