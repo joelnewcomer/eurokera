@@ -145,7 +145,22 @@
 						</div>
 					<?php endwhile; ?>
 					
-					<?php // if (ICL_LANGUAGE_CODE=='en') : ?>
+
+						<?php $pro_cooking_page = get_page_by_path('professional-cooking');
+						$icl_pro_cooking_page_id = icl_object_id($enamels_page->ID, 'page', true);
+						$pro_cooking_url = get_permalink($icl_pro_cooking_page_id); ?>	
+						
+						<a class="large-4 medium-4 small-6 columns text-center product-selector-product always-show" href="<?php echo $pro_cooking_url; ?>">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/pro-cooking-product.jpg" alt="<?php _e('Enamels'); ?>"> 
+							<div class="overlay">
+								<div style="display:table;width:100%;height:100%;">
+								  <div style="display:table-cell;vertical-align:middle;">
+								    <div style="text-align:center;" class="product-name"><?php _e('Professional Cooking'); ?></div>
+								  </div>
+								</div>
+							</div>
+						</a>
+
 						
 						<?php $enamels_page = get_page_by_path('enamels');
 						$icl_enamels_page_id = icl_object_id($enamels_page->ID, 'page', true);
@@ -161,7 +176,6 @@
 								</div>
 							</div>
 						</a>
-					<?php // endif; ?>
 					
 				<?php endif; ?>
 				<?php wp_reset_postdata(); ?>
