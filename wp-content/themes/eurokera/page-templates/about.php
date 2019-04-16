@@ -173,7 +173,7 @@ get_header(); ?>
 
 <section class="about-video">
 	<div class="row">
-		<div class="large-3 medium-3 columns">
+		<div class="large-4 medium-4 columns">
 	<?php
 	$video_poster = get_field('video_poster');
 	if (is_numeric($video_poster)) {
@@ -183,7 +183,7 @@ get_header(); ?>
 	?>
 <?php if (ICL_LANGUAGE_CODE == 'zh-hans') : ?>	
 	<?php
-	$video_markup = '<a class="about-video vp-a vp-mp4-type" style="background-image: url(' . $video_poster . ');" href="' . get_field('video_url'å) . '" data-autoplay="1" data-dwrap="1"></a>';
+	$video_markup = '<a class="about-video vp-a vp-mp4-type" style="background-image: url(' . $video_poster . ');" href="' . get_field('video_url') . '" data-autoplay="1" data-dwrap="1"></a>';
 	echo apply_filters('the_content', $video_markup);
 	$video_inner = '<div class="row"><div class="large-12 columns text-center">';
 	ob_start();
@@ -198,16 +198,14 @@ get_header(); ?>
 	</script>
 <?php else: ?>
 	<a class="about-video" href="<?php echo get_field('video_url'); ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540" style="background-image: url(<?php echo $video_poster; ?>);">
-		<div class="row">
-			<div class="large-12 columns text-center">
-				<?php get_template_part('assets/images/play', 'button.svg'); ?><br />
-				<?php echo get_field('video_title'); ?>
-			</div>
+		<div class="video-overlay text-center">
+			<?php get_template_part('assets/images/play', 'button.svg'); ?><br />
+			<?php echo get_field('video_title'); ?>
 		</div>
 	</a>
 <?php endif; ?>			
 		</div>
-		<div class="large-9 medium-8 columns">
+		<div class="large-8 medium-8 columns">
 			<?php echo get_field('video_video_content'); ?>
 		</div>
 </section>
