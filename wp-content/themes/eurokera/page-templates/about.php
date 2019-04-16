@@ -226,6 +226,33 @@ get_header(); ?>
 	</div>
 </section>
 
+<section class="process">
+	<div class="row">
+		<div class="large-12 columns text-center">
+			<h2 class="orange"><?php echo get_field('manu_process_title'); ?></h2>
+		</div>
+	</div>
+	<div class="process-steps flex">
+		<?php $counter = 1; ?>
+		<?php if(get_field('manufacturing_process')): ?>
+			<?php while(has_sub_field('manufacturing_process')): ?>
+				<div class="process-step">
+					<div class="process-inner">
+						<div class="process-icon">
+							<?php echo file_get_contents(get_sub_field('icon')); ?>
+						</div>
+						<div class="process-content">
+							<h3><span class="process-num"><?php echo $counter; ?></span> <?php echo get_sub_field('title'); ?></h3>
+							<?php echo get_sub_field('description'); ?>
+						</div>
+					</div> <!-- process-inner -->
+				</div> <!-- process-step -->
+				<?php $counter++; ?>
+			<?php endwhile; ?>
+		<?php endif; ?>
+	</div> <!-- process-steps -->
+</section> <!-- process -->
+
 <!-- <section class="facts">
 	<div class="row">
 		<div class="large-6 medium-6 columns cooktop">

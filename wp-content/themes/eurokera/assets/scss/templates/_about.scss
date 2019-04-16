@@ -427,3 +427,28 @@ section.about-ceo {
 		}	
 	}
 }
+
+section.process {
+	padding: 60px 0 0 0;
+	.process-steps {
+		padding: 8px;
+	}
+	.process-step {
+		width: calc(50% - 16px);
+		margin: 8px;
+		padding: 40px 60px;
+		.process-icon {
+			max-width: 110px;
+			float: left;
+		}
+		.process-content {
+			padding-left: 140px;
+		}
+	}
+	.process-step:nth-child(4n+2), .process-step:nth-child(4n+3) {
+		background: #efeff0; // Light grey
+	}
+	.process-step:nth-child(4n+1), .process-step:nth-child(4n) {
+		background: #fff2e5; // Light orange
+	}
+}
