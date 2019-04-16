@@ -242,7 +242,7 @@ get_header(); ?>
 							<?php echo file_get_contents(get_sub_field('icon')); ?>
 						</div>
 						<div class="process-content">
-							<h3><span class="process-num"><?php echo $counter; ?></span> <?php echo get_sub_field('title'); ?></h3>
+							<h3><span class="process-num"><?php echo $counter; ?> </span> <?php echo get_sub_field('title'); ?></h3>
 							<?php echo get_sub_field('description'); ?>
 						</div>
 					</div> <!-- process-inner -->

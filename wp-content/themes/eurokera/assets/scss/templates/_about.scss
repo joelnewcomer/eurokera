@@ -445,10 +445,25 @@ section.process {
 			padding-left: 140px;
 		}
 	}
+	h3 {
+		font-size: 24px;
+		font-weight: bold;
+		span {
+			font-size: 48px;
+			display: inline-block;
+			vertical-align: baseline;
+		}
+	}
 	.process-step:nth-child(4n+2), .process-step:nth-child(4n+3) {
 		background: #efeff0; // Light grey
+		h3 {
+			color: #63666A;
+		}
 	}
 	.process-step:nth-child(4n+1), .process-step:nth-child(4n) {
 		background: #fff2e5; // Light orange
+		h3 {
+			color: #FF8200;
+		}
 	}
 }

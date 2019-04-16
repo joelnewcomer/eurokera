@@ -4601,10 +4601,21 @@ section.process {
       float: left; }
     section.process .process-step .process-content {
       padding-left: 140px; }
+  section.process h3 {
+    font-size: 24px;
+    font-weight: bold; }
+    section.process h3 span {
+      font-size: 48px;
+      display: inline-block;
+      vertical-align: baseline; }
   section.process .process-step:nth-child(4n+2), section.process .process-step:nth-child(4n+3) {
     background: #efeff0; }
+    section.process .process-step:nth-child(4n+2) h3, section.process .process-step:nth-child(4n+3) h3 {
+      color: #63666A; }
   section.process .process-step:nth-child(4n+1), section.process .process-step:nth-child(4n) {
     background: #fff2e5; }
+    section.process .process-step:nth-child(4n+1) h3, section.process .process-step:nth-child(4n) h3 {
+      color: #FF8200; }
 
 section.intro {
   padding: 90px 20px 45px 20px; }
