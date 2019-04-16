@@ -4607,79 +4607,88 @@ section.product-selector {
     cursor: pointer; }
   section.product-selector form#product-selector {
     display: block;
-    max-width: 940px;
-    margin: 0 auto; }
+    margin: 0 auto 24px auto; }
     section.product-selector form#product-selector [type="radio"]:not(:checked) + label, section.product-selector form#product-selector [type="radio"]:checked + label, section.product-selector form#product-selector [type="checkbox"]:not(:checked) + label, section.product-selector form#product-selector [type="checkbox"]:checked + label {
-      font-size: 27px; }
+      font-size: 14px;
+      padding-left: 24px !important;
+      width: 90%; }
       @media only screen and (max-width: 40.063em) {
         section.product-selector form#product-selector [type="radio"]:not(:checked) + label, section.product-selector form#product-selector [type="radio"]:checked + label, section.product-selector form#product-selector [type="checkbox"]:not(:checked) + label, section.product-selector form#product-selector [type="checkbox"]:checked + label {
-          font-size: 24px; } }
-    section.product-selector form#product-selector .stacked-radio[type="radio"]:not(:checked) + label, section.product-selector form#product-selector .stacked-radio[type="radio"]:checked + label {
-      padding: 32px 0 0 0 !important; }
+          font-size: 14px; } }
     section.product-selector form#product-selector [type="radio"]:not(:checked) + label:before, section.product-selector form#product-selector [type="radio"]:checked + label:before, section.product-selector form#product-selector [type="checkbox"]:not(:checked) + label:before, section.product-selector form#product-selector [type="checkbox"]:checked + label:before {
       background: transparent; }
     section.product-selector form#product-selector [type="radio"]:not(:checked) + label:before, section.product-selector form#product-selector [type="radio"]:checked + label:before, section.product-selector form#product-selector [type="radio"]:not(:checked) + label:after, section.product-selector form#product-selector [type="radio"]:checked + label:after, section.product-selector form#product-selector [type="checkbox"]:not(:checked) + label:before, section.product-selector form#product-selector [type="checkbox"]:checked + label:before, section.product-selector form#product-selector [type="checkbox"]:not(:checked) + label:after, section.product-selector form#product-selector [type="checkbox"]:checked + label:after {
-      width: 22px;
-      height: 22px;
-      border-radius: 11px; }
+      width: 18px;
+      height: 18px; }
+    section.product-selector form#product-selector [type="radio"]:not(:checked) + label:before, section.product-selector form#product-selector [type="radio"]:checked + label:before, section.product-selector form#product-selector [type="radio"]:not(:checked) + label:after, section.product-selector form#product-selector [type="radio"]:checked + label:after {
+      border-radius: 9px; }
     section.product-selector form#product-selector [type="radio"]:not(:checked) + label:before, section.product-selector form#product-selector [type="radio"]:checked + label:before, section.product-selector form#product-selector [type="radio"]:not(:checked) + label:after, section.product-selector form#product-selector [type="radio"]:checked + label:after, section.product-selector form#product-selector [type="checkbox"]:not(:checked) + label:before, section.product-selector form#product-selector [type="checkbox"]:checked + label:before, section.product-selector form#product-selector [type="checkbox"]:not(:checked) + label:after, section.product-selector form#product-selector [type="checkbox"]:checked + label:after {
-      top: 13px; }
-    section.product-selector form#product-selector .stacked-radio[type="radio"]:not(:checked) + label:before, section.product-selector form#product-selector .stacked-radio[type="radio"]:checked + label:before, section.product-selector form#product-selector .stacked-radio[type="radio"]:not(:checked) + label:after, section.product-selector form#product-selector .stacked-radio[type="radio"]:checked + label:after {
-      left: 50%;
-      margin-left: -11px; }
-    section.product-selector form#product-selector select {
-      width: 317px;
-      background-image: url(../images/select-arrow-white.svg);
-      background-color: #5e6367;
-      border: 2px solid #5e6367;
-      color: #fff;
-      font-size: 21px !important;
-      text-transform: uppercase;
-      margin: 0 8px 15px 8px;
-      padding: 10px 15px !important;
-      height: auto; }
-    section.product-selector form#product-selector .form-divider {
-      position: relative;
-      display: block;
-      width: 100%;
-      margin: 45px 0 10px 0; }
-      @media only screen and (max-width: 40.063em) {
-        section.product-selector form#product-selector .form-divider {
-          margin: 30px 0 8px 0; } }
-      section.product-selector form#product-selector .form-divider div {
-        display: inline-block;
-        font-size: 28px;
-        font-weight: bold;
-        background: #dfe0e1;
-        padding: 0 24px;
-        position: relative;
-        z-index: 2; }
-        @media only screen and (max-width: 40.063em) {
-          section.product-selector form#product-selector .form-divider div {
-            font-size: 24px; } }
-      section.product-selector form#product-selector .form-divider:before {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 100%;
-        left: 0;
-        height: 1px;
-        background: #5e6367;
-        top: 50%; }
-        @media only screen and (max-width: 40.063em) {
-          section.product-selector form#product-selector .form-divider:before {
-            top: -12px; } }
-      @media only screen and (max-width: 40.063em) {
-        section.product-selector form#product-selector .form-divider.no-divider-small:before {
-          display: none; } }
-    section.product-selector form#product-selector .radio-group {
-      margin-top: 40px;
-      margin-bottom: 30px; }
+      top: 3px; }
   section.product-selector p {
     font-size: 24px; }
     @media only screen and (max-width: 40.063em) {
       section.product-selector p {
         font-size: 20px; } }
+  section.product-selector .product-dropdown {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 4px;
+    width: 16.25%; }
+    @media only screen and (max-width: 1100px) {
+      section.product-selector .product-dropdown {
+        width: 32%; } }
+    @media only screen and (max-width: 40em) {
+      section.product-selector .product-dropdown {
+        width: 100%; } }
+    section.product-selector .product-dropdown .dropdown-title {
+      background: #63666A;
+      color: #fff;
+      font-size: 14px;
+      line-height: 1.2;
+      text-align: center;
+      width: 100%;
+      padding: 16px 20px 16px 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      z-index: 10; }
+      section.product-selector .product-dropdown .dropdown-title:before {
+        display: block;
+        content: '';
+        background: url(../images/down-arrow-lines.svg) 97% center no-repeat;
+        -webkit-background-size: 18px 9px !important;
+                background-size: 18px 9px !important;
+        position: absolute;
+        right: 5px;
+        width: 18px;
+        height: 9px;
+        top: 20px;
+        -webkit-transition: -webkit-transform .35s;
+        transition: -webkit-transform .35s;
+        transition: transform .35s;
+        transition: transform .35s, -webkit-transform .35s; }
+    section.product-selector .product-dropdown.active .dropdown-title:before {
+      -webkit-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+              transform: rotate(180deg); }
+    section.product-selector .product-dropdown .dropdown-options {
+      top: 100%;
+      width: 120%;
+      max-height: 0;
+      overflow: hidden;
+      -webkit-transition: all .35s;
+      transition: all .35s;
+      background: #fff;
+      text-align: left;
+      z-index: 11; }
+      @media only screen and (min-width: 40.063em) {
+        section.product-selector .product-dropdown .dropdown-options {
+          position: absolute; } }
+      @media only screen and (max-width: 40em) {
+        section.product-selector .product-dropdown .dropdown-options {
+          width: 100%; } }
+    section.product-selector .product-dropdown.active .dropdown-options {
+      max-height: 800px;
+      padding: 12px 5px; }
 
 section.customers {
   padding: 90px 0 120px 0; }

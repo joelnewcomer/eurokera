@@ -21,7 +21,7 @@
 				
 				<div class="product-dropdown">
 					<div class="dropdown-title"><?php _e('Display Option'); ?></div>
-					<div class="dropdown-options">
+					<div class="dropdown-options" id="display">
 						<input type="radio" name="display" id="all-color" value="all-color"><label for="all-color"><?php _e('Any Color including white'); ?></label>
 						<input type="radio" name="display" id="red" value="red"><label for="red"><?php _e('Red/Orange'); ?></label>
 						<input type="radio" name="display" id="monochromatic" value="monochromatic"><label for="monochromatic"><?php _e('Monochromatic'); ?></label>
@@ -32,30 +32,30 @@
 				<div class="product-dropdown">
 					<div class="dropdown-title"><?php _e('Heat Source'); ?></div>
 					<div class="dropdown-options">
-						<input class="stacked-radio" type="checkbox" name="heat-source" id="gas" value="gas"><label for="gas"><?php _e('Gas'); ?></label>
-						<input class="stacked-radio" type="checkbox" name="heat-source" id="induction" value="induction"><label for="induction"><?php _e('Induction'); ?></label>
-						<input class="stacked-radio" type="checkbox" name="heat-source" id="radiant" value="radiant"><label for="radiant"><?php _e('Radiant'); ?></label>
+						<input type="checkbox" name="heat-source" id="gas" value="gas"><label for="gas"><?php _e('Gas'); ?></label>
+						<input type="checkbox" name="heat-source" id="induction" value="induction"><label for="induction"><?php _e('Induction'); ?></label>
+						<input type="checkbox" name="heat-source" id="radiant" value="radiant"><label for="radiant"><?php _e('Radiant'); ?></label>
 					</div>
 				</div>
 				
 				<div class="product-dropdown">
 					<div class="dropdown-title"><?php _e('Decoration'); ?></div>
 					<div class="dropdown-options">
-						<input class="stacked-radio placebo" type="checkbox" name="decor" id="complex" value="complex"><label for="complex"><?php _e('Complex Patterns'); ?></label>
-						<input class="stacked-radio placebo" type="checkbox" name="decor" id="reflective" value="reflective"><label for="reflective"><?php _e('Reflective Inks'); ?></label>
-						<input class="stacked-radio placebo" type="checkbox" name="decor" id="multi" value="multi"><label for="multi"><?php _e('Multi-Colors'); ?></label>
+						<input class="placebo" type="checkbox" name="decor" id="complex" value="complex"><label for="complex"><?php _e('Complex Patterns'); ?></label>
+						<input class="placebo" type="checkbox" name="decor" id="reflective" value="reflective"><label for="reflective"><?php _e('Reflective Inks'); ?></label>
+						<input class="placebo" type="checkbox" name="decor" id="multi" value="multi"><label for="multi"><?php _e('Multi-Colors'); ?></label>
 					</div>
 				</div>
 
 				<div class="product-dropdown">
 					<div class="dropdown-title"><?php _e('Design Options'); ?></div>
 					<div class="dropdown-options">
-						<input class="round placebo" type="checkbox" name="holes" id="holes" value="complex"><label for="holes"><?php _e('Holes'); ?></label>
-						<input class="round placebo" type="checkbox" name="bevels" id="bevels" value="bevels"><label for="bevels"><?php _e('Bevels'); ?></label>
-						<input class="round" type="checkbox" name="woks" id="woks" value="woks"><label for="woks"><?php _e('Woks'); ?></label>
-						<input class="round" type="checkbox" name="3d" id="3d" value="3d"><label for="3d"><?php _e('3D Shapes'); ?></label>
-						<input class="round placebo" type="checkbox" name="custom-edge" id="custom-edge" value="custom-edge"><label for="custom-edge"><?php _e('Custom Edge Profiles'); ?></label>
-						<input class="round placebo" type="checkbox" name="custom-shape" id="custom-shape" value="custom-shape"><label for="custom-shape"><?php _e('Custom Shapes'); ?></label>
+						<input class="placebo" type="checkbox" name="holes" id="holes" value="complex"><label for="holes"><?php _e('Holes'); ?></label>
+						<input class="placebo" type="checkbox" name="bevels" id="bevels" value="bevels"><label for="bevels"><?php _e('Bevels'); ?></label>
+						<input type="checkbox" name="woks" id="woks" value="woks"><label for="woks"><?php _e('Woks'); ?></label>
+						<input type="checkbox" name="3d" id="3d" value="3d"><label for="3d"><?php _e('3D Shapes'); ?></label>
+						<input class="placebo" type="checkbox" name="custom-edge" id="custom-edge" value="custom-edge"><label for="custom-edge"><?php _e('Custom Edge Profiles'); ?></label>
+						<input class="placebo" type="checkbox" name="custom-shape" id="custom-shape" value="custom-shape"><label for="custom-shape"><?php _e('Custom Shapes'); ?></label>
 					</div>
 				</div>
 					
@@ -67,6 +67,17 @@
 					</div>
 				</div>
 			</form>
+			
+			<script>
+				jQuery(".dropdown-title").on( "click", function() {
+					var toggleClass = 'active';
+					if (jQuery(this).parent().hasClass('active')) {
+						toggleClass = '';
+					}
+					jQuery('.product-dropdown').removeClass('active');
+					jQuery(this).parent().addClass(toggleClass);
+				});
+			</script>
 				
 				<?php $contact_page = get_page_by_path('contact');
 				$icl_contact_page_id = icl_object_id($contact_page->ID, 'page', true);
@@ -156,33 +167,31 @@
 				<?php wp_reset_postdata(); ?>
 				<script>
 				// When they choose a glass color, update their "Display Options" selections
-				jQuery('select#glass-color').on( 'change', function() {
+				jQuery('input[name="glass-color"]').on( 'change', function() {
 					// Remove All Options	
-					jQuery('select#display').find('option').remove();
+					jQuery('#display').find('input').remove();
+					jQuery('#display').find('label').remove();
 					// Grey and White are the only glass colors with limitations
 					// black - all, grey - red/orange, transparent - all, white - red/orange
-					if (jQuery(this).val() != 'grey') {
-						jQuery('select#display').append('<option value=""><?php _e('Display Options'); ?></option>');
-					}
 					if (jQuery(this).val() != 'grey' && jQuery(this).val() != 'white') {
-						jQuery('select#display').append('<option value="all-color"><?php _e('Any Color including white'); ?></option>');
+						jQuery('#display').append('<input type="radio" name="display" id="all-color" value="all-color"><label for="all-color"><?php _e('Any Color including white'); ?></label>');
 					}
-					jQuery('select#display').append('<option value="red"><?php _e('Red/Orange'); ?></option>');
+					jQuery('#display').append('<input type="radio" name="display" id="red" value="red"><label for="red"><?php _e('Red/Orange'); ?></label>');
 					if (jQuery(this).val() != 'grey' && jQuery(this).val() != 'white') {
-						jQuery('select#display').append('<option value="monochromatic"><?php _e('Monochromatic'); ?></option>');
+						jQuery('#display').append('<input type="radio" name="display" id="monochromatic" value="monochromatic"><label for="monochromatic"><?php _e('Monochromatic'); ?></label>');
 					}
 					if (jQuery(this).val() == 'white') {
-						jQuery('select#display').append('<option value="none"><?php _e('No Display'); ?></option>');
+						jQuery('#display').append('<input type="radio" name="display" id="none" value="none"><label for="none"><?php _e('No Display'); ?></label>');
 					}
 					// Reset Display Options if this have no value
 					if (jQuery(this).val() == '') {
-						jQuery('select#display').prop('selectedIndex',0);
+						jQuery('#display input').prop( "checked", false );
 					}
 				});
-				jQuery('#product-selector input:not(.placebo), #product-selector select').on( 'change', function() {
+				jQuery(document).on( 'change', '#product-selector input:not(.placebo)', function() {
 					var selectedClasses = '';
 					// Get all selected form elements
-					jQuery('#product-selector input:not(.placebo):checked, #product-selector select').each(function() {
+					jQuery('#product-selector input:not(.placebo):checked').each(function() {
 						// if (jQuery(this).val() != '' &&  jQuery(this).val() != 'all-color') {
 						if (jQuery(this).val() != '') {
 							selectedClasses += '.' + jQuery(this).val();
@@ -193,7 +202,7 @@
 						jQuery('.product-selector-product:not(' + selectedClasses + '):not(".always-show")').fadeOut({
 							duration: "fast",
 							complete: function() {
-								if( --numDivs > 0 ) return;
+								// if( --numDivs > 0 ) return; removed 4/16/19 why was this here? JSN
 								jQuery('.product-selector-product' + selectedClasses).fadeIn();
 							}
 						});
@@ -218,17 +227,15 @@
 					var retailPro = "";
 					var addlOptions = "";
 					// Get all selected form elements
-					jQuery('#product-selector input:checked, #product-selector select').each(function() {
+					jQuery('#product-selector input:checked').each(function() {
 						fieldType = jQuery(this).get(0).tagName;
-						if (jQuery(this).val() != '' && fieldType == 'SELECT') {
-							if (jQuery(this).attr('id') == 'glass-color') {
-								glassColor += ', ' + jQuery(this).find('option:selected').text();
-							} else {
-								displayOptions += ', ' + jQuery(this).find('option:selected').text();
-							}
-						} else if (jQuery(this).val() != '') {
+						if (jQuery(this).val() != '') {
 							var selectedValue = jQuery('label[for="' + jQuery(this).attr('id') + '"]').html();
-							if (selectedValue == 'Gas' || selectedValue == '<?php _e('Induction'); ?>' || selectedValue == '<?php _e('Radiant'); ?>') {
+							if (selectedValue == '<?php _e('Black'); ?>' || selectedValue == '<?php _e('Grey (Slate)'); ?>' || selectedValue == '<?php _e('Transparent'); ?>' || selectedValue == '<?php _e('Transparent - Champagne'); ?>' || selectedValue == '<?php _e('Transparent - Silver'); ?>' || selectedValue == '<?php _e('Transparent - Slate Grey'); ?>' || selectedValue == '<?php _e('Transparent - Anthracite'); ?>' || selectedValue == '<?php _e('White'); ?>') {
+								glassColor += ', ' + selectedValue;
+							} else if (selectedValue == '<?php _e('Any Color including white'); ?>' || selectedValue == '<?php _e('Red/Orange'); ?>' || selectedValue == '<?php _e('Monochromatic'); ?>' || selectedValue == '<?php _e('No Display'); ?>') {
+								displayOptions += ', ' + selectedValue;
+							} else if (selectedValue == '<?php _e('Gas'); ?>' || selectedValue == '<?php _e('Induction'); ?>' || selectedValue == '<?php _e('Radiant'); ?>') {
 								heatSource += ', ' + selectedValue;
 							} else if (selectedValue == '<?php _e('Complex Patterns'); ?>' || selectedValue == '<?php _e('Reflective Inks'); ?>' || selectedValue == '<?php _e('Multi-Colors'); ?>') {
 								customTop += ', ' + selectedValue;
