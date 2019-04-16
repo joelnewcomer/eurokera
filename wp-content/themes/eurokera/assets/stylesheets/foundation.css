@@ -3376,9 +3376,15 @@ body.blog #page, body.category #page {
       font-size: 28px !important;
       line-height: 1;
       color: #ff8200; }
+      @media only screen and (max-width: 64.063em) {
+        .blog-row .blog-block h2 {
+          font-size: 22px !important; } }
     .blog-row .blog-block p {
       font-size: 18px;
       margin: 0; }
+      @media only screen and (max-width: 64.063em) {
+        .blog-row .blog-block p {
+          font-size: 16px; } }
 
 .pagination-centered {
   display: block;

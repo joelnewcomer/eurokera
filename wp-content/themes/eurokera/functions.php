@@ -278,3 +278,9 @@ add_filter( 'ja_disable_users_notice', 'ekfourpointoh' );
 function ekfourpointoh( $content ) {
     return 'All logins have been disabled in preparation for EuroKera 4.0. You can make changes on the <a href="http://eurokerav2.staging.wpengine.com/wp-admin">staging website</a> using the same username and password and these changes will go live when the new version of the website goes live. Please contact <a href="mailto:webmaster@drumcreative.com">webmaster@drumcreative.com</a> if you still need access to this website.';
 }
+
+// Change default excerpt length
+function custom_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
