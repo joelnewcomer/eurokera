@@ -4617,6 +4617,18 @@ section.process {
     section.process .process-step:nth-child(4n+1) h3, section.process .process-step:nth-child(4n) h3 {
       color: #FF8200; }
 
+section.mission-vision {
+  padding: 80px 0 60px 0; }
+  @media only screen and (max-width: 40.063em) {
+    section.mission-vision {
+      padding: 40px 0 20px 0; } }
+  section.mission-vision h2 {
+    color: #FF8200;
+    font-size: 32px;
+    margin-bottom: 30px; }
+  section.mission-vision p {
+    line-height: 1.4; }
+
 section.intro {
   padding: 90px 20px 45px 20px; }
   @media only screen and (max-width: 40.063em) {

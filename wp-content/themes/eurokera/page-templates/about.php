@@ -295,13 +295,27 @@ get_header(); ?>
 	</div> <!-- reach-overlay -->
 </section>
 
-<section id="environment" class="enviro text-center">
+<section class="mission-vision">
+	<div class="row">
+		<div class="large-4 medium-4 columns">
+			<?php echo get_field('mission'); ?>
+		</div>
+		<div class="large-4 medium-4 columns">
+			<?php echo get_field('vision'); ?>
+		</div>
+		<div class="large-4 medium-4 columns">
+			<?php echo get_field('values'); ?>
+		</div>		
+	</div>
+</section> <!-- mission-vision -->
+
+<section id="environment" class="enviro">
 	<div class="row enviro-intro">
-		<div class="large-8 medium-10 columns large-offset-2 medium-offset-1">
-			<?php echo get_field('enviro_content','foundationpress'); ?>
+		<div class="large-12 columns">
+			<?php echo get_field('enviro_content'); ?>
 		</div>
 	</div>
-	<div class="row enviro-facts">
+	<div class="row enviro-facts text-center">
 		<div class="recycled fact">
 			<?php $recycle_year = get_field('recycle_year'); ?>
 			<p><?php echo sprintf( __('<span class="h2"><span id="recycled-glass"></span>+</span> tons of glass recycled in %s within our manufacturing process at KeraGlass.','foundationpress'), $recycle_year); ?></p>
@@ -370,14 +384,6 @@ get_header(); ?>
 				</script>
 			
 		</div>		
-	</div>
-</section>
-
-<section class="site-links">
-	<div class="row">
-		<div class="large-12 columns text-center">
-			<?php get_template_part('template-parts/content','site-links'); ?>
-		</div>
 	</div>
 </section>
 

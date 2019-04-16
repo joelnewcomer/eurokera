@@ -471,6 +471,66 @@
             "multiple": 0
         },
         {
+            "key": "field_5cb6281fcbbaa",
+            "label": "Mission",
+            "name": "mission",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0,
+            "wpml_cf_preferences": 2
+        },
+        {
+            "key": "field_5cb628b5cbbab",
+            "label": "Vision",
+            "name": "vision",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0,
+            "wpml_cf_preferences": 2
+        },
+        {
+            "key": "field_5cb628bfcbbac",
+            "label": "Values",
+            "name": "values",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0,
+            "wpml_cf_preferences": 2
+        },
+        {
             "key": "field_5cb6278353f12",
             "label": "Environmental Header",
             "name": "enviro_header",
@@ -572,5 +632,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1555441587
+    "modified": 1555441947
 }
