@@ -6,7 +6,38 @@ get_header(); ?>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 
-<?php get_template_part( 'template-parts/featured-image-parallax' ); ?>
+	<?php
+	$video_poster = get_field('video_poster', get_option( 'page_on_front' ));
+	if (is_numeric($video_poster)) {
+		$video_poster_url = wp_get_attachment_image_src($video_poster, 'full');
+		$video_poster = $video_poster_url[0];
+	}
+	?>
+<?php if (ICL_LANGUAGE_CODE == 'zh-hans') : ?>	
+	<?php
+	$video_markup = '<a class="home-video vp-a vp-mp4-type" style="background-image: url(' . $video_poster . ');" href="' . get_field('video_url', get_option( 'page_on_front' )) . '" data-autoplay="1" data-dwrap="1"></a>';
+	echo apply_filters('the_content', $video_markup);
+	$video_inner = '<div class="row"><div class="large-12 columns text-center">';
+	ob_start();
+	get_template_part('assets/images/play', 'button.svg');
+	$play_button = ob_get_contents();
+	ob_end_clean();
+	$video_inner .= $play_button;
+	$video_inner .= '<br />' . get_field('video_title', get_option( 'page_on_front' )) . '</div></div>';
+	?>
+	<script>
+		jQuery('a.home-video').html('<?php echo $video_inner; ?>');
+	</script>
+<?php else: ?>
+	<a class="home-video" href="<?php echo get_field('video_url', get_option( 'page_on_front' )); ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540" style="background-image: url(<?php echo $video_poster; ?>);">
+		<div class="row">
+			<div class="large-12 columns text-center">
+				<?php get_template_part('assets/images/play', 'button.svg'); ?><br />
+				<?php echo get_field('video_title', get_option( 'page_on_front' )); ?>
+			</div>
+		</div>
+	</a>
+<?php endif; ?>
 
 <section class="timeline">
 	<div class="row">
@@ -50,6 +81,38 @@ get_header(); ?>
 					</div>
 				</article>
 				<?php endwhile; ?>
+
+				<!-- CURRENT YEAR AUTO-UPDATED -->
+				<article class="flip-container">
+					<div class="card">
+					    <figure class="front">
+					    	<div style="display:table;width:100%;height:100%;">
+					    		<div style="display:table-cell;vertical-align:middle;">
+					    	    	<div style="text-align:center;"><?php echo date("Y"); ?></div>
+					    		</div>
+					    	</div>
+					    </figure>
+					    <figure class="back">
+					    	<div style="display:table;width:100%;height:100%;">
+					    		<div style="display:table-cell;vertical-align:middle;">
+								<?php
+								$num_cooktops = 100; // Start at 100+ Million Cooktops
+								$num_start = 1514764800; // Jan 2018	
+								$num_increment = 5; // Increment 5 Million every six months
+								$current_date = time();
+								$six_months = 15780000;
+								$time_diff = $current_date - $num_start;
+								$increment_by = intval($time_diff / $six_months);
+								$num_cooktops = ($num_increment*$increment_by) + $num_cooktops;
+								?>
+								<div class="back-inner" style="text-align:center;"><?php echo $num_cooktops; ?>+ <?php _e('million cooking surfaces made','foundationpress'); ?></div>
+					    		</div>
+					    	</div>
+					    </figure>
+					</div>
+				</article>
+
+
 			<?php endif; ?>
 
 			<script>
@@ -108,7 +171,48 @@ get_header(); ?>
 	</div>
 </section>
 
-<section class="facts">
+<section class="about-video">
+	<div class="row">
+		<div class="large-3 medium-3 columns">
+	<?php
+	$video_poster = get_field('video_poster');
+	if (is_numeric($video_poster)) {
+		$video_poster_url = wp_get_attachment_image_src($video_poster, 'full');
+		$video_poster = $video_poster_url[0];
+	}
+	?>
+<?php if (ICL_LANGUAGE_CODE == 'zh-hans') : ?>	
+	<?php
+	$video_markup = '<a class="about-video vp-a vp-mp4-type" style="background-image: url(' . $video_poster . ');" href="' . get_field('video_url'å) . '" data-autoplay="1" data-dwrap="1"></a>';
+	echo apply_filters('the_content', $video_markup);
+	$video_inner = '<div class="row"><div class="large-12 columns text-center">';
+	ob_start();
+	get_template_part('assets/images/play', 'button.svg');
+	$play_button = ob_get_contents();
+	ob_end_clean();
+	$video_inner .= $play_button;
+	$video_inner .= '<br />' . get_field('video_title') . '</div></div>';
+	?>
+	<script>
+		jQuery('a.about-video').html('<?php echo $video_inner; ?>');
+	</script>
+<?php else: ?>
+	<a class="about-video" href="<?php echo get_field('video_url'); ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540" style="background-image: url(<?php echo $video_poster; ?>);">
+		<div class="row">
+			<div class="large-12 columns text-center">
+				<?php get_template_part('assets/images/play', 'button.svg'); ?><br />
+				<?php echo get_field('video_title'); ?>
+			</div>
+		</div>
+	</a>
+<?php endif; ?>			
+		</div>
+		<div class="large-9 medium-8 columns">
+			<?php echo get_field('video_video_content'); ?>
+		</div>
+</section>
+
+<!-- <section class="facts">
 	<div class="row">
 		<div class="large-6 medium-6 columns cooktop">
 			<div class="facts-box match-facts">
@@ -124,7 +228,7 @@ get_header(); ?>
 			</div>		
 		</div>
 	</div>
-</section>
+</section> -->
 
 <section class="reach text-center">
 	<img class="hide-for-small" src="<?php echo get_template_directory_uri(); ?>/assets/images/global-reach-bg-hires.jpg" alt="EuroKera Worldwide Locations Map">
