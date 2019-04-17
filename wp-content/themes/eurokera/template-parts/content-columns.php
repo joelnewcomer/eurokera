@@ -459,41 +459,51 @@ function drum_animate($column, $row, $script = false) {
 				
 					<section class="block-sections">
 						<div class="row">
-							<div class="large-12 columns">
+							<div class="large-12 columns block-section-intro">
 								<?php echo get_sub_field('intro'); ?>
 							</div>
 						</div>
 						<div class="row">
 							<?php if(get_sub_field('block_sections')): ?>
 								<?php while(has_sub_field('block_sections')): ?>
-									<div class="large-12 columns">
+									<div class="large-12 columns block-section-title">
 										<h3><?php echo get_sub_field('title'); ?></h3>
 									</div>
-									<?php if(get_field('blocks')): ?>
+									<?php if(get_sub_field('blocks')): ?>
+										<div class="flex">
 										<?php while(has_sub_field('blocks')): ?>
 											<div class="large-4 medium-4 columns page-block text-center">
-												<?php echo wp_get_attachment_image(get_sub_field('image'), 'full'); ?>
+												<div class="page-block-image flex">
+													<?php echo wp_get_attachment_image(get_sub_field('image'), 'full'); ?>
+												</div>
 												<h4><?php echo get_sub_field('title'); ?></h4>
-												<?php echo get_sub_field('description'); ?>
+												<p><?php echo get_sub_field('description'); ?></p>
 												<?php
 												$button_text = get_sub_field('button_text');	
 												$download = get_sub_field('download');	
 												?>
 												<?php if ($button_text != '' && $download != '') : ?>
-													<div class="button"><a href="<?php echo $download; ?>"><?php echo $button_text; ?></a></div>
+													<div class="button small blue"><a href="<?php echo $download; ?>"><?php echo $button_text; ?></a></div>
 												<?php endif; ?>
-											</div>
+											</div> <!-- page-block -->
 										<?php endwhile; ?>
+										</div> <!-- flex -->
 									<?php endif; ?>
 								<?php endwhile; ?>
 							<?php endif; ?>
 						</div>
 						
+						<?php
+						$button_link = get_sub_field('bottom_button_link');
+						$button_text = get_sub_field('bottom_button_text')
+						?>
+						<?php if ($button_link != '' && $button_text != '') : ?>
 						<div class="row">
 							<div class="large-12 columns text-center">
-								<div class="button"><a href="<?php echo get_field('bottom_button_link'); ?>"><?php echo get_field('bottom_button_text'); ?></a></div>
+								<div class="button"><a href="<?php echo $button_link; ?>"><?php echo $button_text; ?></a></div>
 							</div>	
 						</div>
+						<?php endif; ?>
 						
 					</section> <!-- icon-blocks -->					
 					
