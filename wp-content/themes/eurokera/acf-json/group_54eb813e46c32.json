@@ -2249,7 +2249,7 @@
                                             "key": "field_5cb73e8745347",
                                             "label": "Description",
                                             "name": "description",
-                                            "type": "textarea",
+                                            "type": "wysiwyg",
                                             "instructions": "",
                                             "required": 0,
                                             "conditional_logic": 0,
@@ -2259,11 +2259,11 @@
                                                 "id": ""
                                             },
                                             "default_value": "",
-                                            "placeholder": "",
-                                            "maxlength": "",
-                                            "rows": 2,
-                                            "new_lines": "",
-                                            "wpml_cf_preferences": 2
+                                            "tabs": "all",
+                                            "toolbar": "basic",
+                                            "media_upload": 0,
+                                            "delay": 0,
+                                            "wpml_cf_preferences": 0
                                         },
                                         {
                                             "key": "field_5cb742799a4ba",
@@ -2322,8 +2322,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "layout": "row",
                             "wpml_cf_preferences": 0,
+                            "layout": "row",
                             "sub_fields": [
                                 {
                                     "key": "field_5cb7418b70001",
@@ -2366,6 +2366,62 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5cb7719952561": {
+                    "key": "layout_5cb7719952561",
+                    "name": "gallery",
+                    "label": "Gallery",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5cb771a252562",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "Gallery",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5cb771c352563",
+                            "label": "Images",
+                            "name": "images",
+                            "type": "gallery",
+                            "instructions": "Images will be sized to 1080 x 640 pixels.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 0,
+                            "min": "",
+                            "max": "",
+                            "insert": "append",
+                            "library": "all",
+                            "min_width": 1080,
+                            "min_height": 640,
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Content",
@@ -2399,5 +2455,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1555514038
+    "modified": 1555526726
 }

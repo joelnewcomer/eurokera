@@ -135,3 +135,34 @@ section.block-sections {
 		width: 100%;
 	}
 }
+
+section.page-gallery {
+	h2 {
+		margin-bottom: 40px;
+	}
+	.bx-wrapper .bx-prev {
+		left: -75px;
+		@media only screen and (max-width: 1180px) {
+			left: 24px;	
+		}
+	}
+	.bx-wrapper .bx-controls-direction a:after {
+		background-size: 35px 70px !important;
+	}
+	
+	.bx-wrapper .bx-prev:after {
+	    background: url(../images/slider-arrow-left-gray.svg) center center no-repeat;
+	}
+	.bx-wrapper .bx-next {
+		right: -75px;
+		@media only screen and (max-width: 1180px) {
+			right: 24px;	
+		}
+	}
+	.bx-wrapper .bx-next:after {
+	    background: url(../images/slider-arrow-right-gray.svg) center center no-repeat;	
+	}
+	p.gallery-caption {
+		margin-top: 30px;
+	}
+}

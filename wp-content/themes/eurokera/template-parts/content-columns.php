@@ -505,7 +505,43 @@ function drum_animate($column, $row, $script = false) {
 						</div>
 						<?php endif; ?>
 						
-					</section> <!-- icon-blocks -->					
+					</section> <!-- block-sections -->					
+
+				<?php elseif( get_row_layout() == 'gallery' ): ?>
+				
+				
+					<section class="page-gallery">
+						<div class="row">
+							<div class="large-12 columns">
+								<h2><?php echo get_sub_field('title'); ?></h2>
+							</div>
+						</div>
+						<div class="row">
+							<?php 
+							$images = get_sub_field('images');								
+							if( $images ): ?>
+								<ul class="bxslider gallery-<?php echo $row_counter; ?>">
+							    		<?php foreach( $images as $image ): ?>
+							        		<li>
+							            		<?php echo wp_get_attachment_image( $image['ID'], 'width=1080&height=640&crop=1' ); ?>
+							            		<p class="gallery-caption"><?php echo wp_get_attachment_caption($image['ID']); ?></p>
+							            </li>
+							        <?php endforeach; ?>
+							    </ul>
+								<script>
+									jQuery(window).load(function(){
+										var slider = jQuery('.gallery-<?php echo $row_counter; ?>').bxSlider({
+										    auto: false,
+										    pager: false,
+										    controls: true,
+										    mode: 'fade',
+										    speed: 1000,
+										});	
+									});
+								</script>								    
+							<?php endif; ?>
+						</div> <!-- row -->
+					</section> <!-- page-gallery -->
 					
 				
 	        <?php endif;
