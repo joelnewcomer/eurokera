@@ -4,7 +4,7 @@ Donate link: https://david.dw-perspective.org.uk/donate
 Tags: comments, spam, optimize, database, revisions, users, posts, trash, schedule, automatic, clean, phpmyadmin, meta, postmeta, responsive, mobile
 Requires at least: 3.8
 Tested up to: 5.1
-Stable tag: 2.3.0
+Stable tag: 2.3.1
 License: GPLv2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,6 +143,12 @@ Please check your database for corrupted tables. That can happen, usually your w
 4. Settings
 
 == Changelog ==
+
+= 2.3.1 - 16/Apr/2019 =
+
+* FIX: Fix a code path that could cause a fatal error on PHP 5.2
+* TWEAK: Optimizing a table should then refresh the information in the UI shown for it
+* TWEAK: Use an image compression logfile path inside the uploads hierarchy, with unpredictable salted element
 
 = 2.3.0 - 12/Apr/2019 =
 
@@ -495,4 +501,4 @@ Please check your database for corrupted tables. That can happen, usually your w
 * Fix Interface
 
 == Upgrade Notice ==
-* 2.3.0 : New feature: image compression, plus other tweaks and fixes. A recommended update for all.
+* 2.3.1 : New feature in 2.3: image compression, plus other tweaks and fixes. 2.3.1 fixes a PHP 5.2 issue. A recommended update for all.

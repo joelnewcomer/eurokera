@@ -12,6 +12,7 @@ header.no-image {
 }
 
 .page-slider {
+	padding: 0 !important;
 	.slide-inner {
 		height: 683px;
 		width: 100%;
@@ -20,17 +21,20 @@ header.no-image {
 	.page-slider-overlay {
 		position: absolute;
 		top: 0;
-		left: 0;
 		width: 100%;
+		&.half {
+			width: 50%;
+		}
+		&.overlay-right {
+			right: 0;
+		}
 		height: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		padding-top: 135px;
-		h1 {
+		p, a, h1, h2, h3, h4, h5 {
 			color: #fff;
-			max-width: 65%;
-			margin: 0;
 		}
 	}
 	.bx-controls {

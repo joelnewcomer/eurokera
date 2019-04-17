@@ -4193,48 +4193,47 @@ section.ready {
 header.no-image {
   padding-top: 60px; }
 
-.page-slider .slide-inner {
-  height: 683px;
-  width: 100%;
-  -webkit-background-size: cover !important;
-          background-size: cover !important; }
-
-.page-slider .page-slider-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-top: 135px; }
-  .page-slider .page-slider-overlay h1 {
-    color: #fff;
-    max-width: 65%;
-    margin: 0; }
-
-.page-slider .bx-controls .bx-pager {
-  bottom: 20px; }
-
-.page-slider .bx-wrapper .bx-pager.bx-default-pager a {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  background: #fff !important;
-  opacity: .5; }
-
-.page-slider .bx-wrapper .bx-pager.bx-default-pager a:hover, .page-slider .bx-wrapper .bx-pager.bx-default-pager a.active {
-  opacity: 1; }
+.page-slider {
+  padding: 0 !important; }
+  .page-slider .slide-inner {
+    height: 683px;
+    width: 100%;
+    -webkit-background-size: cover !important;
+            background-size: cover !important; }
+  .page-slider .page-slider-overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-top: 135px; }
+    .page-slider .page-slider-overlay.half {
+      width: 50%; }
+    .page-slider .page-slider-overlay.overlay-right {
+      right: 0; }
+    .page-slider .page-slider-overlay p, .page-slider .page-slider-overlay a, .page-slider .page-slider-overlay h1, .page-slider .page-slider-overlay h2, .page-slider .page-slider-overlay h3, .page-slider .page-slider-overlay h4, .page-slider .page-slider-overlay h5 {
+      color: #fff; }
+  .page-slider .bx-controls .bx-pager {
+    bottom: 20px; }
+  .page-slider .bx-wrapper .bx-pager.bx-default-pager a {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: #fff !important;
+    opacity: .5; }
+  .page-slider .bx-wrapper .bx-pager.bx-default-pager a:hover, .page-slider .bx-wrapper .bx-pager.bx-default-pager a.active {
+    opacity: 1; }
 
 section.timeline {
   padding: 90px 0 100px;
