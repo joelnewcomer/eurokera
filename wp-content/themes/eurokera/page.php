@@ -11,7 +11,12 @@
 */
 get_header(); ?>
 
-<?php get_template_part( 'template-parts/featured-image-parallax' ); ?>
+<!-- Don't show featured image if first content block is a slider -->
+<?php
+$rows = get_field('content');
+if ($rows[0]['acf_fc_layout'] != 'slider') : ?>
+	<?php get_template_part( 'template-parts/featured-image-parallax' ); ?>
+<?php endif; ?>
 
 <div id="page" role="main">
 	<?php do_action( 'foundationpress_before_content' ); ?>

@@ -15,6 +15,7 @@
                 "class": "",
                 "id": ""
             },
+            "wpml_cf_preferences": 0,
             "layouts": {
                 "54eb81f34a019": {
                     "key": "54eb81f34a019",
@@ -1748,6 +1749,196 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5cb6385a48478": {
+                    "key": "layout_5cb6385a48478",
+                    "name": "slider",
+                    "label": "Slider",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5cb6386a48479",
+                            "label": "Slides",
+                            "name": "slides",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 0,
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "row",
+                            "button_label": "Add Slide",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5cb639764847a",
+                                    "label": "Photo",
+                                    "name": "photo",
+                                    "type": "image",
+                                    "instructions": "Image will be sized and cropped to 1366 x 683 pixels.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 3,
+                                    "return_format": "id",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": 1366,
+                                    "min_height": 683,
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_5cb639ab4847b",
+                                    "label": "Overlay Content",
+                                    "name": "overlay_content",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 0,
+                                    "delay": 0,
+                                    "wpml_cf_preferences": 0
+                                },
+                                {
+                                    "key": "field_5cb639d64847c",
+                                    "label": "Content Size",
+                                    "name": "content_size",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "full": "Full-Width",
+                                        "half": "50%"
+                                    },
+                                    "default_value": [],
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "return_format": "value",
+                                    "wpml_cf_preferences": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_5cb63a0e4847d",
+                                    "label": "Align",
+                                    "name": "align",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5cb639d64847c",
+                                                "operator": "==",
+                                                "value": "half"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 1,
+                                    "ui": 1,
+                                    "ui_on_text": "Right",
+                                    "ui_off_text": "Left",
+                                    "wpml_cf_preferences": 3
+                                },
+                                {
+                                    "key": "field_5cb63a4c4847e",
+                                    "label": "Overlay Background Color",
+                                    "name": "overlay_bg",
+                                    "type": "select",
+                                    "instructions": "(Optional)",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "none": "None",
+                                        "blue": "Blue",
+                                        "orange": "Orange",
+                                        "black": "Black"
+                                    },
+                                    "default_value": [
+                                        "none"
+                                    ],
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "return_format": "value",
+                                    "wpml_cf_preferences": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_5cb63ad64847f",
+                                    "label": "Overlay Background Opactiy",
+                                    "name": "bg_opacity",
+                                    "type": "range",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5cb63a4c4847e",
+                                                "operator": "!=",
+                                                "value": "none"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 50,
+                                    "min": "",
+                                    "max": "",
+                                    "step": "",
+                                    "prepend": "",
+                                    "append": "%",
+                                    "wpml_cf_preferences": 3
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Content",
@@ -1781,5 +1972,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1555421151
+    "modified": 1555446970
 }

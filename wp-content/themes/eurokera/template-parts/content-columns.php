@@ -365,6 +365,42 @@ function drum_animate($column, $row, $script = false) {
 					</div> <!-- row -->
 				</section> <!-- sr -->
 				<?php $tabs_counter++; ?>
+				
+				<?php elseif( get_row_layout() == 'slider' ): ?>
+				
+					<section class="page-slider">
+						<div class="slider-container">
+						    <ul class="bxslider-<?php echo $row_counter; ?>">
+								<?php if( have_rows('slides') ):
+									while ( have_rows('slides') ) : the_row(); ?>
+						                <?php
+							            $photo = get_sub_field('photo');
+							            $photo_url = wp_get_attachment_image_src($photo, 'width=1366&height=683&crop=1');
+						                ?>
+						                	<li>
+						                		<div class="slide-inner" style="background:url(<?php echo $photo_url[0]; ?>) center center no-repeat;"></div>
+						                		<div class="page-slider-overlay text-center">
+												<h1><?php echo get_field('slider_header'); ?></h1>
+						    					</div>
+										</li>					
+									<?php endwhile;
+								endif; ?>
+						    </ul>
+
+						</div> <!-- slider-container -->
+					</section> <!-- slider -->
+					<script>
+						jQuery(window).load(function(){
+							var slider = jQuery('.bxslider-<?php echo $row_counter; ?>').bxSlider({
+							    auto: false,
+							    pager: (jQuery(".bxslider-<?php echo $row_counter; ?> > li").length > 1) ? true: false,
+							    controls: true,
+							    mode: 'fade',
+							    speed: 1000,
+							});	
+						});
+					</script>
+				
 	        <?php endif;
 	    endwhile;
 	endif;
