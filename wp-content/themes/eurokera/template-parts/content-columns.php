@@ -434,10 +434,17 @@ function drum_animate($column, $row, $script = false) {
 				
 					<section class="icon-blocks">
 						<div class="row">
-							<?php if(get_field('block')): ?>
+							<div class="large-12 columns">
+								<h2><?php echo get_sub_field('title'); ?></h2>
+							</div>
+						</div>
+						<div class="row">
+							<?php if(get_sub_field('blocks')): ?>
 								<?php while(has_sub_field('blocks')): ?>
-									<div class="<?php echo $columns; ?> columns text-center">
-										<?php echo file_get_contents(get_sub_field('icon')); ?>
+									<div class="<?php echo $columns; ?> columns text-center icon-block">
+										<div class="icon-container">
+											<?php echo file_get_contents(get_sub_field('icon')); ?>
+										</div>
 										<h3><?php echo get_sub_field('title'); ?></h3>
 										<p><?php echo get_sub_field('paragraph'); ?></p>
 									</div>

@@ -68,3 +68,34 @@ header.no-image {
 		opacity: 1;
 	}
 }
+
+section.icon-blocks {
+	h2, h3 {
+		color: #63666A;
+	}
+	h2 {
+		margin-bottom: 40px;
+	}
+	.icon-block {
+		.icon-container {
+			height: 110px;
+			margin-bottom: 16px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			svg {
+				max-height: 100%;
+				width: auto;
+			}
+		}
+		h3 {
+			font-weight: bold;
+			font-size: 24px;
+			margin-bottom: 20px;
+		}
+		p {
+			font-size: 18px;
+			text-align: left;
+		}
+	}
+}
