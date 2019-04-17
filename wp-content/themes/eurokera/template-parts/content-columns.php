@@ -396,9 +396,11 @@ function drum_animate($column, $row, $script = false) {
 							            }
 						                ?>
 						                	<li>
-						                		<div class="slide-inner" style="background:url(<?php echo $photo_url[0]; ?>) center center no-repeat;"></div>
+						                		<div class="slide-inner" style="background:url(<?php echo $photo_url[0]; ?>) <?php echo get_sub_field('photo_align'); ?> center no-repeat;"></div>
 						                		<div class="page-slider-overlay text-center flex <?php echo get_sub_field('content_size'); ?> <?php echo $align; ?>" <?php echo $bg; ?>>
-												<?php echo get_sub_field('overlay_content'); ?>
+												<div class="page-slider-content">
+													<?php echo get_sub_field('overlay_content'); ?>
+												</div>
 						    					</div>
 										</li>					
 									<?php endwhile;
@@ -418,6 +420,31 @@ function drum_animate($column, $row, $script = false) {
 							});	
 						});
 					</script>
+
+				<?php elseif( get_row_layout() == 'icon_blocks' ): ?>
+				
+					<?php
+					$num_columns = get_sub_field('columns');
+					if ($num_columns == 3) {
+						$columns = 'large-4 medium-4';
+					} else {
+						$columns = 'large-3 medium-3';
+					}
+					?>
+				
+					<section class="icon-blocks">
+						<div class="row">
+							<?php if(get_field('block')): ?>
+								<?php while(has_sub_field('blocks')): ?>
+									<div class="<?php echo $columns; ?> columns text-center">
+										<?php echo file_get_contents(get_sub_field('icon')); ?>
+										<h3><?php echo get_sub_field('title'); ?></h3>
+										<p><?php echo get_sub_field('paragraph'); ?></p>
+									</div>
+								<?php endwhile; ?>
+							<?php endif; ?>
+						</div>
+					</section> <!-- icon-blocks -->
 				
 	        <?php endif;
 	    endwhile;

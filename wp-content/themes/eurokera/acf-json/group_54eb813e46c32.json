@@ -1802,6 +1802,35 @@
                                     "mime_types": ""
                                 },
                                 {
+                                    "key": "field_5cb727a5a60b5",
+                                    "label": "Photo Align",
+                                    "name": "photo_align",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 3,
+                                    "choices": {
+                                        "center": "Center",
+                                        "right": "Right",
+                                        "left": "Left"
+                                    },
+                                    "default_value": [
+                                        "center"
+                                    ],
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "return_format": "value",
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
                                     "key": "field_5cb639ab4847b",
                                     "label": "Overlay Content",
                                     "name": "overlay_content",
@@ -1814,12 +1843,12 @@
                                         "class": "",
                                         "id": ""
                                     },
+                                    "wpml_cf_preferences": 2,
                                     "default_value": "",
                                     "tabs": "all",
                                     "toolbar": "full",
                                     "media_upload": 0,
-                                    "delay": 0,
-                                    "wpml_cf_preferences": 0
+                                    "delay": 0
                                 },
                                 {
                                     "key": "field_5cb639d64847c",
@@ -1834,6 +1863,7 @@
                                         "class": "",
                                         "id": ""
                                     },
+                                    "wpml_cf_preferences": 3,
                                     "choices": {
                                         "full": "Full-Width",
                                         "half": "50%"
@@ -1843,7 +1873,6 @@
                                     "multiple": 0,
                                     "ui": 0,
                                     "return_format": "value",
-                                    "wpml_cf_preferences": 0,
                                     "ajax": 0,
                                     "placeholder": ""
                                 },
@@ -1939,6 +1968,151 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5cb729af09dcb": {
+                    "key": "layout_5cb729af09dcb",
+                    "name": "icon_blocks",
+                    "label": "Icon Blocks",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5cb729b709dcc",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "wpml_cf_preferences": 2,
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5cb72a55a86bf",
+                            "label": "Blocks",
+                            "name": "blocks",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "row",
+                            "button_label": "Add Block",
+                            "wpml_cf_preferences": 0,
+                            "sub_fields": [
+                                {
+                                    "key": "field_5cb72a71a86c0",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "wpml_cf_preferences": 2,
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5cb72a93a86c1",
+                                    "label": "Icon",
+                                    "name": "icon",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "url",
+                                    "preview_size": "thumbnail",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "svg",
+                                    "wpml_cf_preferences": 3
+                                },
+                                {
+                                    "key": "field_5cb72abea86c2",
+                                    "label": "Paragraph",
+                                    "name": "paragraph",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": 4,
+                                    "new_lines": "",
+                                    "wpml_cf_preferences": 2
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_5cb72ae8a86c3",
+                            "label": "Columns",
+                            "name": "columns",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "3": "3",
+                                "4": "4"
+                            },
+                            "default_value": [
+                                4
+                            ],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "wpml_cf_preferences": 0,
+                            "ajax": 0,
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Content",
@@ -1972,5 +2146,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1555505394
+    "modified": 1555507986
 }

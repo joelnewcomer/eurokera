@@ -18,12 +18,17 @@ header.no-image {
 		width: 100%;
 		background-size: cover !important;
 	}
+	.bx-wrapper {
+		margin: 0 auto;
+	}
 	.page-slider-overlay {
 		position: absolute;
 		top: 0;
 		width: 100%;
 		&.half {
-			width: 50%;
+			@media only screen and (min-width: 40.063em) {
+				width: 50%;
+			}
 		}
 		&.overlay-right {
 			right: 0;
@@ -32,9 +37,16 @@ header.no-image {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding-top: 135px;
-		p, a, h1, h2, h3, h4, h5 {
+		h1, h2, h3, h4, h5, h6 {
+			display: block;
+		}
+		p, a, h1, h2, h3, h4, h5, h6 {
 			color: #fff;
+		}
+		.page-slider-content {
+			display: block;
+			width: 100%;
+			padding: 0 5%;
 		}
 	}
 	.bx-controls {
