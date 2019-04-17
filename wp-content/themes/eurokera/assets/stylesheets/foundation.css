@@ -2026,7 +2026,7 @@ blockquote p {
 .parallax-window > .row {
   padding: 40px 0 20px 0; }
 
-.entry-content section {
+.entry-content section:not(.no-padding) {
   padding: 40px 0 30px 0; }
 
 .entry-content section, .parallax-container, section.container {
@@ -2065,9 +2065,6 @@ section.default-background {
 
 .featured-image img {
   width: 100%; }
-
-.slider-container {
-  overflow: hidden; }
 
 .error404 article {
   padding: 40px 0; }
@@ -4342,6 +4339,31 @@ section.page-gallery .bx-wrapper .bx-next:after {
 
 section.page-gallery p.gallery-caption {
   margin-top: 30px; }
+
+section.page-bg-section .columns {
+  -webkit-background-size: cover !important;
+          background-size: cover !important;
+  background-position: center center;
+  position: relative; }
+
+section.page-bg-section .columns:not(.bottom) {
+  padding: 60px 5%; }
+
+section.page-bg-section .columns.text-white h1, section.page-bg-section .columns.text-white h2, section.page-bg-section .columns.text-white h3, section.page-bg-section .columns.text-white h4, section.page-bg-section .columns.text-white h5, section.page-bg-section .columns.text-white p {
+  color: #fff; }
+
+section.page-bg-section .columns.text-black h1, section.page-bg-section .columns.text-black h2, section.page-bg-section .columns.text-black h3, section.page-bg-section .columns.text-black h4, section.page-bg-section .columns.text-black h5, section.page-bg-section .columns.text-black p {
+  color: #000; }
+
+section.page-bg-section .columns.bottom p {
+  font-size: 15px;
+  position: absolute;
+  bottom: 10px;
+  left: 16px;
+  margin: 0; }
+
+.slider-container > .bxslider {
+  display: none; }
 
 section.timeline {
   padding: 90px 0 100px;

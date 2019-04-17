@@ -520,6 +520,7 @@ function drum_animate($column, $row, $script = false) {
 							<?php 
 							$images = get_sub_field('images');								
 							if( $images ): ?>
+								<div class="slider-container">
 								<ul class="bxslider gallery-<?php echo $row_counter; ?>">
 							    		<?php foreach( $images as $image ): ?>
 							        		<li>
@@ -528,6 +529,7 @@ function drum_animate($column, $row, $script = false) {
 							            </li>
 							        <?php endforeach; ?>
 							    </ul>
+								</div>
 								<script>
 									jQuery(window).load(function(){
 										var slider = jQuery('.gallery-<?php echo $row_counter; ?>').bxSlider({
@@ -542,9 +544,39 @@ function drum_animate($column, $row, $script = false) {
 							<?php endif; ?>
 						</div> <!-- row -->
 					</section> <!-- page-gallery -->
+										
 					
+				<?php elseif( get_row_layout() == 'image_bg_section' ): ?>
+				
+				
+					<section class="page-bg-section no-padding">
+						<div class="flex">
+							<?php
+							$section_one = get_sub_field('section_one');
+							// print_r($section_one);
+							$section_two = get_sub_field('section_two');
+							$width = $section_one['width'];
+							if ($width == 'wide') {
+								$columns_1 = 'large-8 medium-8 columns';
+								$columns_2 = 'large-4 medium-4 columns';
+							} else {
+								$columns_1 = 'large-4 medium-4 columns';
+								$columns_2 = 'large-8 medium-8 columns';
+							}
+							$img_src = wp_get_attachment_image_src($section_one['bg_image']['ID'], 'full');
+							?>
+							<div class="<?php echo $columns_1; ?> <?php echo $section_one['vert_align']; ?> text-<?php echo $section_one['text_color']; ?>" style="background-image: url(<?php echo $img_src[0] ?>);">
+								<?php echo $section_one['content']; ?>
+							</div>
+							<?php $img_src = wp_get_attachment_image_src($section_two['bg_image']['ID'], 'full'); ?>
+							<div class="<?php echo $columns_2; ?> <?php echo $section_two['vert_align']; ?> text-<?php echo $section_two['text_color']; ?>" style="background-image: url(<?php echo $img_src[0] ?>);">
+								<?php echo $section_two['content']; ?>
+							</div>
+						</div> <!-- flex -->
+					</section> <!-- page-bg-section -->				
 				
 	        <?php endif;
+		    $row_counter++;
 	    endwhile;
 	endif;
 ?>

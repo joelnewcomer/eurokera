@@ -110,7 +110,7 @@ blockquote p {
 	}
 }
 
-.entry-content section {
+.entry-content section:not(.no-padding) {
 	padding: 40px 0 30px 0;
 }
 
@@ -163,10 +163,6 @@ section.default-background {
 
 .featured-image img {
 	width: 100%;
-}
-
-.slider-container {
-	overflow: hidden;
 }
 
 .error404 article {

@@ -166,3 +166,37 @@ section.page-gallery {
 		margin-top: 30px;
 	}
 }
+
+section.page-bg-section {
+	.columns {
+		background-size: cover !important;
+		background-position: center center;
+		position: relative;
+	}
+	.columns:not(.bottom) {
+		padding: 60px 5%;
+	}
+	.columns.text-white {
+		h1, h2, h3, h4, h5, p {
+			color: #fff;
+		}
+	}
+	.columns.text-black {
+		h1, h2, h3, h4, h5, p {
+			color: #000;
+		}
+	}
+	.columns.bottom {
+		p {
+			font-size: 15px;
+			position: absolute;
+			bottom: 10px;
+			left: 16px;
+			margin: 0;
+		}
+	}
+}
+
+.slider-container > .bxslider {
+	display: none;
+}
