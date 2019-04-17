@@ -452,6 +452,51 @@ function drum_animate($column, $row, $script = false) {
 							<?php endif; ?>
 						</div>
 					</section> <!-- icon-blocks -->
+
+
+				<?php elseif( get_row_layout() == 'block_sections' ): ?>
+				
+				
+					<section class="block-sections">
+						<div class="row">
+							<div class="large-12 columns">
+								<?php echo get_sub_field('intro'); ?>
+							</div>
+						</div>
+						<div class="row">
+							<?php if(get_sub_field('block_sections')): ?>
+								<?php while(has_sub_field('block_sections')): ?>
+									<div class="large-12 columns">
+										<h3><?php echo get_sub_field('title'); ?></h3>
+									</div>
+									<?php if(get_field('blocks')): ?>
+										<?php while(has_sub_field('blocks')): ?>
+											<div class="large-4 medium-4 columns page-block text-center">
+												<?php echo wp_get_attachment_image(get_sub_field('image'), 'full'); ?>
+												<h4><?php echo get_sub_field('title'); ?></h4>
+												<?php echo get_sub_field('description'); ?>
+												<?php
+												$button_text = get_sub_field('button_text');	
+												$download = get_sub_field('download');	
+												?>
+												<?php if ($button_text != '' && $download != '') : ?>
+													<div class="button"><a href="<?php echo $download; ?>"><?php echo $button_text; ?></a></div>
+												<?php endif; ?>
+											</div>
+										<?php endwhile; ?>
+									<?php endif; ?>
+								<?php endwhile; ?>
+							<?php endif; ?>
+						</div>
+						
+						<div class="row">
+							<div class="large-12 columns text-center">
+								<div class="button"><a href="<?php echo get_field('bottom_button_link'); ?>"><?php echo get_field('bottom_button_text'); ?></a></div>
+							</div>	
+						</div>
+						
+					</section> <!-- icon-blocks -->					
+					
 				
 	        <?php endif;
 	    endwhile;
