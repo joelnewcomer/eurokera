@@ -574,6 +574,14 @@ function drum_animate($column, $row, $script = false) {
 							</div>
 						</div> <!-- flex -->
 					</section> <!-- page-bg-section -->				
+
+				<?php elseif( get_row_layout() == 'blog_section' ): ?>
+				
+					<?php get_template_part('template-parts/latest', 'blogs'); ?>
+				
+				<?php elseif( get_row_layout() == 'work_together' ): ?>
+				
+					<?php echo get_template_part('template-parts/content','ready'); ?>
 				
 	        <?php endif;
 		    $row_counter++;

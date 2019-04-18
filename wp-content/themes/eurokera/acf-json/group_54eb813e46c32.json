@@ -2700,6 +2700,62 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5cb869d299651": {
+                    "key": "layout_5cb869d299651",
+                    "name": "blog_section",
+                    "label": "Blog Section",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5cb869db99652",
+                            "label": "Blog Section",
+                            "name": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "<h3>There are no settings for this section<\/h3>",
+                            "new_lines": "wpautop",
+                            "esc_html": 0,
+                            "wpml_cf_preferences": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5cb86a1299653": {
+                    "key": "layout_5cb86a1299653",
+                    "name": "work_together",
+                    "label": "Let's Work Together",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5cb86a1299654",
+                            "label": "Let's Work Together",
+                            "name": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "<h3>There are no settings for this section<\/h3>",
+                            "new_lines": "wpautop",
+                            "esc_html": 0,
+                            "wpml_cf_preferences": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Content",
@@ -2733,5 +2789,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1555533203
+    "modified": 1555589680
 }
