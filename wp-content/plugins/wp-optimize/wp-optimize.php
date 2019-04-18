@@ -3,7 +3,7 @@
 Plugin Name: WP-Optimize
 Plugin URI: https://getwpo.com
 Description: WP-Optimize is WordPress's #1 most installed optimization plugin. With it, you can clean up your database easily and safely, without manual queries.
-Version: 2.3.1
+Version: 2.3.2
 Author: David Anderson, Ruhani Rabin, Team Updraft
 Author URI: https://updraftplus.com
 Text Domain: wp-optimize
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) die('No direct access allowed');
 
 // Check to make sure if WP_Optimize is already call and returns.
 if (!class_exists('WP_Optimize')) :
-define('WPO_VERSION', '2.3.1');
+define('WPO_VERSION', '2.3.2');
 define('WPO_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('WPO_PLUGIN_MAIN_PATH', plugin_dir_path(__FILE__));
 define('WPO_PREMIUM_NOTIFICATION', false);
@@ -494,13 +494,13 @@ class WP_Optimize {
 	public function get_tabs($page) {
 		// define tabs for pages.
 		$pages_tabs = array(
-			'wpo_database' => array('optimize' => __('Optimizations', 'wp-optimize'), 'tables' => __('Tables', 'wp-optimize')),
+			'WP-Optimize' => array('optimize' => __('Optimizations', 'wp-optimize'), 'tables' => __('Tables', 'wp-optimize')),
 			'wpo_images'  => array('smush' => __('Compress images', 'wp-optimize')),
 			'wpo_cache' => array(
 				'gzip' => __('Gzip compression', 'wp-optimize'), // Adds a GZIP tab
 				'settings' => __('Static file caching', 'wp-optimize')  // Adds a settings tab
 			),
-			'WP-Optimize' => array(
+			'wpo_settings' => array(
 				'settings' => array(
 					'title' => __('Settings', 'wp-optimize'),
 				),
@@ -632,7 +632,7 @@ class WP_Optimize {
 		/**
 		 * SETTINGS
 		 */
-		add_action('wp_optimize_admin_page_WP-Optimize_settings', array($this, 'output_dashboard_settings_tab'), 20);
+		add_action('wp_optimize_admin_page_wpo_settings_settings', array($this, 'output_dashboard_settings_tab'), 20);
 
 		/**
 		 * Premium / other plugins
@@ -642,9 +642,9 @@ class WP_Optimize {
 		/**
 		 * DATABSE
 		 */
-		add_action('wp_optimize_admin_page_wpo_database_optimize', array($this, 'output_database_optimize_tab'), 20);
+		add_action('wp_optimize_admin_page_WP-Optimize_optimize', array($this, 'output_database_optimize_tab'), 20);
 
-		add_action('wp_optimize_admin_page_wpo_database_tables', array($this, 'output_database_tables_tab'), 20);
+		add_action('wp_optimize_admin_page_WP-Optimize_tables', array($this, 'output_database_tables_tab'), 20);
 
 		/**
 		 * CACHE
@@ -1034,7 +1034,7 @@ class WP_Optimize {
 			array(
 				'page_title' => __('Database', 'wp-optimize'),
 				'menu_title' => __('Database', 'wp-optimize'),
-				'menu_slug' => 'wpo_database',
+				'menu_slug' => 'WP-Optimize',
 				'function' => array($this, 'display_admin'),
 				'icon' => 'cloud',
 				'create_submenu' => true,
@@ -1057,7 +1057,7 @@ class WP_Optimize {
 			array(
 				'page_title' => __('Settings', 'wp-optimize'),
 				'menu_title' => __('Settings', 'wp-optimize'),
-				'menu_slug' => 'WP-Optimize',
+				'menu_slug' => 'wpo_settings',
 				'function' => array($this, 'display_admin'),
 				'icon' => 'admin-settings',
 				'create_submenu' => true,

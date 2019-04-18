@@ -1030,13 +1030,18 @@ var WP_Optimize = function (send_command) {
 
 	// Handle single optimization click.
 	$('#wpoptimize_table_list').on('click', '.run-single-table-optimization', function() {
-		var take_backup_checkbox = $('#enable-auto-backup-1');
+		var take_backup_checkbox = $('#enable-auto-backup-1'),
+			button = $(this);
 
 		// check if backup checkbox is checked for db tables
 		if (take_backup_checkbox.is(':checked')) {
-			take_a_backup_with_updraftplus(run_single_table_optimization($(this)));
+			take_a_backup_with_updraftplus(
+				function() {
+					run_single_table_optimization(button);
+				}
+			);
 		} else {
-			run_single_table_optimization($(this));
+			run_single_table_optimization(button);
 		}
 	});
 

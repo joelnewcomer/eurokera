@@ -458,7 +458,7 @@ class Updraft_Smush_Manager extends Updraft_Task_Manager_1_0 {
 			return;
 		}
 
-		add_meta_box('smush-metabox', __('Compress Image'), array($this, 'render_smush_metabox'), 'attachment', 'side');
+		add_meta_box('smush-metabox', __('Compress Image', 'wp-optimize'), array($this, 'render_smush_metabox'), 'attachment', 'side');
 	}
 
 	/**
@@ -526,7 +526,7 @@ class Updraft_Smush_Manager extends Updraft_Task_Manager_1_0 {
 				foreach ($images->posts as $image) {
 					$uncompressed_images[$site->blog_id][] = array(
 						'id' => $image->ID,
-						'thumb_url' => utf8_encode(wp_get_attachment_thumb_url($image->ID)),
+						'thumb_url' => wp_get_attachment_thumb_url($image->ID),
 						'filesize'  => filesize(get_attached_file($image->ID))
 					);
 				}
@@ -538,7 +538,7 @@ class Updraft_Smush_Manager extends Updraft_Task_Manager_1_0 {
 			foreach ($images->posts as $image) {
 				$uncompressed_images[1][] = array(
 					'id' => $image->ID,
-					'thumb_url' => utf8_encode(wp_get_attachment_thumb_url($image->ID)),
+					'thumb_url' => wp_get_attachment_thumb_url($image->ID),
 					'filesize'  => filesize(get_attached_file($image->ID))
 				);
 			}

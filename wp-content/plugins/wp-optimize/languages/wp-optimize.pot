@@ -153,6 +153,10 @@ msgstr ""
 msgid "View Image"
 msgstr ""
 
+#: src/includes/class-updraft-smush-manager.php:461
+msgid "Compress Image"
+msgstr ""
+
 #: src/includes/class-updraft-smush-task.php:189
 msgid "The file was compressed from %s to %s saving %s percent using WP-Optimize"
 msgstr ""
@@ -786,7 +790,7 @@ msgid "Restore original"
 msgstr ""
 
 #: src/templates/admin-metabox-smush.php:14, src/templates/images/smush.php:42
-msgid "Prioritise maximum compression"
+msgid "Prioritize maximum compression"
 msgstr ""
 
 #: src/templates/admin-metabox-smush.php:15
@@ -794,7 +798,7 @@ msgid "Potentially uses lossy compression to ensure maximum savings per image, t
 msgstr ""
 
 #: src/templates/admin-metabox-smush.php:18, src/templates/images/smush.php:46
-msgid "Prioritise retention of detail"
+msgid "Prioritize retention of detail"
 msgstr ""
 
 #: src/templates/admin-metabox-smush.php:19, src/templates/images/smush.php:47
