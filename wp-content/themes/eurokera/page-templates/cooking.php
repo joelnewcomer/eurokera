@@ -34,7 +34,7 @@ get_header(); ?>
 
 
 <?php $content = get_field('homepage_content'); ?>
-<?php if ($content != '') : ?>
+<?php if ($content == 'DISABLED') : ?>
 <section class="homepage-content">
 	<div class="row">
 		<div class="large-12 columns">
