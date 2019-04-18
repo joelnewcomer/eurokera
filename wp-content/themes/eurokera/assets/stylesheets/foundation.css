@@ -4349,6 +4349,10 @@ section.page-bg-section .columns {
 section.page-bg-section .columns:not(.bottom) {
   padding: 60px 5%; }
 
+@media only screen and (max-width: 40em) {
+  section.page-bg-section .columns.bottom {
+    min-height: 600px; } }
+
 section.page-bg-section .columns.text-white h1, section.page-bg-section .columns.text-white h2, section.page-bg-section .columns.text-white h3, section.page-bg-section .columns.text-white h4, section.page-bg-section .columns.text-white h5, section.page-bg-section .columns.text-white p {
   color: #fff; }
 
