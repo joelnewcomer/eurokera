@@ -2359,7 +2359,7 @@ body > section.container > header,
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); }
   .header-wrapper.stuck {
     position: fixed;
-    top: 29px !important;
+    top: 0 !important;
     left: 0; }
 
 .header-wrapper {

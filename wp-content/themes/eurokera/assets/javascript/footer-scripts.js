@@ -252,7 +252,7 @@ var $window = jQuery(window);
 function checkScroll() {
 	var nav = jQuery('.top-header').offset();
 	// alert('checking ... scrolltop: ' + $window.scrollTop() + '  navtop: ' + nav.top);
-    if ($window.scrollTop() >= nav.top) {
+    if ($window.scrollTop() > nav.top) {
 		jQuery(".header-wrapper").addClass("stuck");
     } else {
       	jQuery(".header-wrapper").removeClass("stuck");
