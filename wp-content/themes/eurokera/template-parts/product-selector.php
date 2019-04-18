@@ -146,7 +146,7 @@
 					<?php endwhile; ?>
 					
 
-						<?php $pro_cooking_page = get_page_by_path('professional-cooking');
+						<?php $pro_cooking_page = get_page_by_path('commercial/cooking');
 						$icl_pro_cooking_page_id = icl_object_id($enamels_page->ID, 'page', true);
 						$pro_cooking_url = get_permalink($icl_pro_cooking_page_id); ?>	
 						
