@@ -4371,6 +4371,8 @@ section.page-bg-section .columns.text-white h1, section.page-bg-section .columns
 
 section.page-bg-section .columns.text-white a {
   font-weight: bold; }
+  section.page-bg-section .columns.text-white a:hover {
+    color: #ff8200; }
 
 section.page-bg-section .columns.text-black h1, section.page-bg-section .columns.text-black h2, section.page-bg-section .columns.text-black h3, section.page-bg-section .columns.text-black h4, section.page-bg-section .columns.text-black h5, section.page-bg-section .columns.text-black p, section.page-bg-section .columns.text-black li {
   color: #000; }

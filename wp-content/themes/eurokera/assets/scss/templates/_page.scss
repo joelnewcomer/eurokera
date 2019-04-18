@@ -212,6 +212,9 @@ section.page-bg-section {
 		}
 		a {
 			font-weight: bold;
+			&:hover {
+				color: $orange;
+			}
 		}		
 	}
 	.columns.text-black {
