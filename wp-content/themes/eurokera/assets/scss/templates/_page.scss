@@ -207,12 +207,15 @@ section.page-bg-section {
 		}
 	}
 	.columns.text-white {
-		h1, h2, h3, h4, h5, p {
+		h1, h2, h3, h4, h5, p, li, a {
 			color: #fff;
 		}
+		a {
+			font-weight: bold;
+		}		
 	}
 	.columns.text-black {
-		h1, h2, h3, h4, h5, p {
+		h1, h2, h3, h4, h5, p, li {
 			color: #000;
 		}
 	}
@@ -224,6 +227,52 @@ section.page-bg-section {
 			left: 16px;
 			margin: 0;
 		}
+	}
+	.large-4.columns {
+		@media only screen and (max-width: 860px) {
+			h2 {
+				font-size: 32px;
+			}
+		}
+		@media only screen and (max-width: 40.063em) {
+			h1, h2, h3, h4, h5, p, li {
+				text-align: center !important;	
+			}
+			br {
+				display: none;
+			}
+		}
+	}
+	ol {
+		text-align: center;
+	}
+	ol li {
+		text-align: left;
+		counter-increment: list;
+		list-style-type: none;
+		position: relative;
+		font-size: 18px;
+		line-height: 1.4;
+		display: inline-block;
+		width: calc(32% - 80px);
+		margin: 0 30px 30px 50px;
+		vertical-align: top;
+		@media only screen and (max-width: 1200px) {
+			width: calc(49% - 80px);	
+		}
+		@media only screen and (max-width: 800px) {
+			width: 100%;
+			margin: 0 0 30px 0;
+		}
+
+	}
+	ol li:before {
+		color: $orange;
+		content: counter(list) ".";
+		left: -32px;
+		position: absolute;
+		text-align: right;
+		width: 26px;
 	}
 }
 

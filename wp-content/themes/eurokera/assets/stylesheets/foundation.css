@@ -4366,10 +4366,13 @@ section.page-bg-section .columns:not(.bottom) {
   section.page-bg-section .columns.bottom {
     min-height: 600px; } }
 
-section.page-bg-section .columns.text-white h1, section.page-bg-section .columns.text-white h2, section.page-bg-section .columns.text-white h3, section.page-bg-section .columns.text-white h4, section.page-bg-section .columns.text-white h5, section.page-bg-section .columns.text-white p {
+section.page-bg-section .columns.text-white h1, section.page-bg-section .columns.text-white h2, section.page-bg-section .columns.text-white h3, section.page-bg-section .columns.text-white h4, section.page-bg-section .columns.text-white h5, section.page-bg-section .columns.text-white p, section.page-bg-section .columns.text-white li, section.page-bg-section .columns.text-white a {
   color: #fff; }
 
-section.page-bg-section .columns.text-black h1, section.page-bg-section .columns.text-black h2, section.page-bg-section .columns.text-black h3, section.page-bg-section .columns.text-black h4, section.page-bg-section .columns.text-black h5, section.page-bg-section .columns.text-black p {
+section.page-bg-section .columns.text-white a {
+  font-weight: bold; }
+
+section.page-bg-section .columns.text-black h1, section.page-bg-section .columns.text-black h2, section.page-bg-section .columns.text-black h3, section.page-bg-section .columns.text-black h4, section.page-bg-section .columns.text-black h5, section.page-bg-section .columns.text-black p, section.page-bg-section .columns.text-black li {
   color: #000; }
 
 section.page-bg-section .columns.bottom p {
@@ -4378,6 +4381,48 @@ section.page-bg-section .columns.bottom p {
   bottom: 10px;
   left: 16px;
   margin: 0; }
+
+@media only screen and (max-width: 860px) {
+  section.page-bg-section .large-4.columns h2 {
+    font-size: 32px; } }
+
+@media only screen and (max-width: 40.063em) {
+  section.page-bg-section .large-4.columns h1, section.page-bg-section .large-4.columns h2, section.page-bg-section .large-4.columns h3, section.page-bg-section .large-4.columns h4, section.page-bg-section .large-4.columns h5, section.page-bg-section .large-4.columns p, section.page-bg-section .large-4.columns li {
+    text-align: center !important; }
+  section.page-bg-section .large-4.columns br {
+    display: none; } }
+
+section.page-bg-section ol {
+  text-align: center; }
+
+section.page-bg-section ol li {
+  text-align: left;
+  counter-increment: list;
+  list-style-type: none;
+  position: relative;
+  font-size: 18px;
+  line-height: 1.4;
+  display: inline-block;
+  width: -webkit-calc(32% - 80px);
+  width: calc(32% - 80px);
+  margin: 0 30px 30px 50px;
+  vertical-align: top; }
+  @media only screen and (max-width: 1200px) {
+    section.page-bg-section ol li {
+      width: -webkit-calc(49% - 80px);
+      width: calc(49% - 80px); } }
+  @media only screen and (max-width: 800px) {
+    section.page-bg-section ol li {
+      width: 100%;
+      margin: 0 0 30px 0; } }
+
+section.page-bg-section ol li:before {
+  color: #ff8200;
+  content: counter(list) ".";
+  left: -32px;
+  position: absolute;
+  text-align: right;
+  width: 26px; }
 
 .slider-container > .bxslider {
   display: none; }
