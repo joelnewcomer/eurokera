@@ -146,9 +146,12 @@
 					<?php endwhile; ?>
 					
 
-						<?php $pro_cooking_page = get_page_by_path('commercial/cooking');
+						<?php
+						$pro_cooking_page = get_page_by_path('cooking/commercial');
 						$icl_pro_cooking_page_id = icl_object_id($pro_cooking_page->ID, 'page', true);
-						$pro_cooking_url = get_permalink($icl_pro_cooking_page_id); ?>	
+						$pro_cooking_url = get_permalink($icl_pro_cooking_page_id);
+						?>	
+						
 						
 						<a class="large-4 medium-4 small-6 columns text-center product-selector-product always-show" href="<?php echo $pro_cooking_url; ?>">
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/pro-cooking-product.jpg" alt="<?php _e('Enamels'); ?>"> 
