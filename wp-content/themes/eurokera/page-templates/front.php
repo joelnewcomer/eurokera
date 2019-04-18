@@ -120,8 +120,8 @@ get_header(); ?>
 <script>
 if (typeof bxSlider === "function") { 	
     var slider = jQuery('.bxslider').bxSlider({
-        auto: false,
-	    	pager: true,
+        auto: true,
+	    	pager: (jQuery(".bxslider > li").length > 1) ? true: false,
         controls: true,
         mode: 'fade',
         speed: 1000,
@@ -129,7 +129,7 @@ if (typeof bxSlider === "function") {
 } else {
 	jQuery(window).load(function(){
     	var slider = jQuery('.bxslider').bxSlider({
-    	    auto: false,
+    	    auto: true,
     	    pager: (jQuery(".bxslider > li").length > 1) ? true: false,
     	    controls: true,
     	    mode: 'fade',

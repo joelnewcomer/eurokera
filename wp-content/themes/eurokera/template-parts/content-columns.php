@@ -520,26 +520,39 @@ function drum_animate($column, $row, $script = false) {
 							<?php 
 							$images = get_sub_field('images');								
 							if( $images ): ?>
-								<div class="slider-container">
+								<div class=" slider-container slider-container-<?php echo $row_counter; ?>">
 								<ul class="bxslider gallery-<?php echo $row_counter; ?>">
 							    		<?php foreach( $images as $image ): ?>
 							        		<li>
 							            		<?php echo wp_get_attachment_image( $image['ID'], 'width=1080&height=640&crop=1' ); ?>
-							            		<p class="gallery-caption"><?php echo wp_get_attachment_caption($image['ID']); ?></p>
+							            		<p class="gallery-slide-caption"><?php echo wp_get_attachment_caption($image['ID']); ?></p>
 							            </li>
 							        <?php endforeach; ?>
 							    </ul>
+							    <p class="gallery-caption"></p>
 								</div>
 								<script>
 									jQuery(window).load(function(){
+										function loadCaption(currentSlide) {
+											var caption = currentSlide.find('p.gallery-slide-caption').html();
+											jQuery('.slider-container-<?php echo $row_counter; ?> p.gallery-caption').html(caption);
+										}										
 										var slider = jQuery('.gallery-<?php echo $row_counter; ?>').bxSlider({
 										    auto: false,
-										    pager: false,
+										    pager: (jQuery(".bxslider > li").length > 1) ? true: false,
 										    controls: true,
 										    mode: 'fade',
 										    speed: 1000,
-										});	
+										    onSliderLoad: function(currentIndex) {     
+												var currentSlide = jQuery('.slider-container-<?php echo $row_counter; ?>').find('.bx-viewport').find('ul').children().eq(currentIndex);
+												loadCaption(currentSlide);
+    											},
+										    onSlideBefore: function($slideElement) {
+												loadCaption($slideElement);
+    											},
+										});
 									});
+
 								</script>								    
 							<?php endif; ?>
 						</div> <!-- row -->

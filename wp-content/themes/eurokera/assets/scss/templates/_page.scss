@@ -137,8 +137,12 @@ section.block-sections {
 }
 
 section.page-gallery {
+	padding: 40px 0;
 	h2 {
 		margin-bottom: 40px;
+	}
+	.slider-container {
+		position: relative;
 	}
 	.bx-wrapper .bx-prev {
 		left: -75px;
@@ -163,7 +167,28 @@ section.page-gallery {
 	    background: url(../images/slider-arrow-right-gray.svg) center center no-repeat;	
 	}
 	p.gallery-caption {
-		margin-top: 30px;
+		position: absolute;
+		width: 100%;
+		top: 100%;
+		margin-top: 20px;
+	}
+	.bx-controls {
+		.bx-pager {
+			bottom: 20px;
+		}
+	}
+	.bx-wrapper .bx-pager.bx-default-pager a {
+		width: 20px;
+		height: 20px;
+		border-radius: 10px;
+		background: #fff !important;
+		opacity: .5;
+	}
+	.bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active {
+		opacity: 1;
+	}
+	p.gallery-slide-caption {
+		display: none;
 	}
 }
 
