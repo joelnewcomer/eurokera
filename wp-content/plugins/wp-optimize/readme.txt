@@ -4,7 +4,7 @@ Donate link: https://david.dw-perspective.org.uk/donate
 Tags: comments, spam, optimize, database, revisions, users, posts, trash, schedule, automatic, clean, phpmyadmin, meta, postmeta, responsive, mobile
 Requires at least: 3.8
 Tested up to: 5.1
-Stable tag: 2.3.2
+Stable tag: 2.3.3
 License: GPLv2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,6 +143,10 @@ Please check your database for corrupted tables. That can happen, usually your w
 4. Settings
 
 == Changelog ==
+
+= 2.3.3 - 17/Apr/2019 =
+
+* FIX: Revert faulty change to the default settings page in 2.3.2, which prevented optimization buttons working
 
 = 2.3.2 - 17/Apr/2019 =
 
@@ -507,4 +511,4 @@ Please check your database for corrupted tables. That can happen, usually your w
 * Fix Interface
 
 == Upgrade Notice ==
-* 2.3.2 : New feature in 2.3: image compression, plus other tweaks and fixes. 2.3.2 fixes a couple of bugs. A recommended update for all.
+* 2.3.3 : New feature in 2.3: image compression, plus other tweaks and fixes. 2.3.3 fixes a regression in 2.3.2. A recommended update for all.
