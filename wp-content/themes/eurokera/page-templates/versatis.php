@@ -52,14 +52,22 @@ get_header(); ?>
 	</section> <!-- intro -->
 	
 	<section class="photos-two-up">
-		<div class="large-6 medium-6 columns">
+		<div class="large-6 medium-6 columns no-padding">
 			<?php echo wp_get_attachment_image( get_field('photos_twoup_left_photo'), 'width=960&height=460&crop=1' ); ?>
 		</div>
-		<div class="large-6 medium-6 columns">
+		<div class="large-6 medium-6 columns no-padding">
 			<?php echo wp_get_attachment_image( get_field('photos_twoup_right_photo'), 'width=960&height=460&crop=1' ); ?>
 		</div>		
 	</section> <!-- photos-two-up -->
 		
+	<section class="versatis-animation">
+		<div class="row">
+			<div class="large-12 columns">
+				<h2><?php echo get_field('animation_title'); ?></h2>
+				<?php echo get_field('animation_intro'); ?>
+			</div>
+		</div>
+	</section>
 
 
 
