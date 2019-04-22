@@ -13,7 +13,7 @@ get_header(); ?>
 	
 	<?php get_template_part('template-parts/page', 'slider'); ?>
 	
-	<section class="versatis-video">
+	<section class="versatis-video text-center">
 		<?php $video_poster = get_field('video_poster'); ?>
 <?php if (ICL_LANGUAGE_CODE == 'zh-hans') : ?>	
 	<?php
@@ -25,7 +25,7 @@ get_header(); ?>
 	$play_button = ob_get_contents();
 	ob_end_clean();
 	$video_inner .= $play_button;
-	$video_inner .= '<br />' . get_field('video_title') . '</div>';
+	$video_inner .= '<br /><p>' . get_field('video_title') . '</p></div>';
 	?>
 	<script>
 		jQuery('a.home-video').html('<?php echo $video_inner; ?>');
@@ -34,14 +34,16 @@ get_header(); ?>
 	<a class="versatis-video" href="<?php echo get_field('video_url'); ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
 		<?php echo wp_get_attachment_image($video_poster, 'full'); ?>
 		<div class="video-overlay">
-			<?php get_template_part('assets/images/play', 'button.svg'); ?><br />
-			<?php echo get_field('video_title'); ?>
+			<div class="video-button-title">
+				<?php get_template_part('assets/images/play', 'button-simple.svg'); ?><br />
+				<p><?php echo get_field('video_title'); ?></p>
+			</div>
 		</div>
 	</a>
 <?php endif; ?>
 	</section>
 	
-	<section class="intro">
+	<section class="versatis-intro">
 		<div class="row">
 			<div class="large-12 columns">
 				<?php echo get_field('intro'); ?>
