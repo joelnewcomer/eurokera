@@ -6045,6 +6045,11 @@ section.versatis-intro {
   section.versatis-intro h2 {
     color: #ff8200; }
 
+section.versatis-animation {
+  padding: 40px 0; }
+  section.versatis-animation h2 {
+    color: #ff8200; }
+
 /*!
  * animsition v4.0.2
  * A simple and easy jQuery plugin for CSS animated page transitions.
