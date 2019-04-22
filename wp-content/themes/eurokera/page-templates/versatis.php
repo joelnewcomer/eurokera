@@ -50,6 +50,15 @@ get_header(); ?>
 			</div>		
 		</div>
 	</section> <!-- intro -->
+	
+	<section class="photos-two-up">
+		<div class="large-6 medium-6 columns">
+			<?php echo wp_get_attachment_image( get_field('photos_twoup_left_photo'), 'width=960&height=460&crop=1' ); ?>
+		</div>
+		<div class="large-6 medium-6 columns">
+			<?php echo wp_get_attachment_image( get_field('photos_twoup_right_photo'), 'width=960&height=460&crop=1' ); ?>
+		</div>		
+	</section> <!-- photos-two-up -->
 		
 
 

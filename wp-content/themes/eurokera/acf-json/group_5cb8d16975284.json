@@ -312,6 +312,74 @@
             "wpml_cf_preferences": 2
         },
         {
+            "key": "field_5cbe1f3319a97",
+            "label": "Photos Two-Up",
+            "name": "photos_twoup",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "wpml_cf_preferences": 0,
+            "sub_fields": [
+                {
+                    "key": "field_5cbe1f8919a98",
+                    "label": "Left Photo",
+                    "name": "left_photo",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "wpml_cf_preferences": 3
+                },
+                {
+                    "key": "field_5cbe1fa919a99",
+                    "label": "Right Photo",
+                    "name": "right_photo",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "wpml_cf_preferences": 3
+                }
+            ]
+        },
+        {
             "key": "field_5cb8e36e65311",
             "label": "Blocks",
             "name": "blocks",
@@ -424,5 +492,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1555620746
+    "modified": 1555963876
 }
