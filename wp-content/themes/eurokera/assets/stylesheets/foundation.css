@@ -2463,6 +2463,8 @@ body.admin-bar:not(.home) .header-wrapper {
         font-size: 14px; } }
     .top-header a:hover {
       color: #ff8200; }
+  .top-header li.active a {
+    color: #ff8200; }
   .top-header ul {
     display: inline-block;
     margin: 0; }
