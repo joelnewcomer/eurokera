@@ -1,3 +1,7 @@
+.page-template-versatis section#content > section h2 {
+	color: $orange;
+}
+
 section.versatis-video {
 	padding: 60px 0 0 0;
 	a.versatis-video {
@@ -29,16 +33,12 @@ section.versatis-video {
 	}
 }
 
-section.versatis-intro {
+section.versatis-intro, section.versatis-animation {
 	padding: 40px 0;
-	h2 {
-		color: $orange;
-	}
 }
 
-section.versatis-animation {
-	padding: 40px 0;
-	h2 {
-		color: $orange;
-	}	
+section.full-width-photo {
+	img {
+		width: 100%;
+	}
 }

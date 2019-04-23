@@ -6003,6 +6003,9 @@ section.enamels {
         section.enamels .enamel-block p, section.enamels .enamel-block a {
           float: none; } }
 
+.page-template-versatis section#content > section h2 {
+  color: #ff8200; }
+
 section.versatis-video {
   padding: 60px 0 0 0; }
   section.versatis-video a.versatis-video {
@@ -6040,15 +6043,11 @@ section.versatis-video {
       display: block;
       width: 100%; }
 
-section.versatis-intro {
+section.versatis-intro, section.versatis-animation {
   padding: 40px 0; }
-  section.versatis-intro h2 {
-    color: #ff8200; }
 
-section.versatis-animation {
-  padding: 40px 0; }
-  section.versatis-animation h2 {
-    color: #ff8200; }
+section.full-width-photo img {
+  width: 100%; }
 
 /*!
  * animsition v4.0.2

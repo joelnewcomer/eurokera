@@ -68,13 +68,17 @@ get_header(); ?>
 			</div>
 		</div>
 	</section>
+	
+	<section class="full-width-photo">
+		<?php echo wp_get_attachment_image( get_field('fullwidth_photo'), 'width=1910&height=510&crop=1' ); ?>
+	</section>
 
 
 				
 					<section class="icon-blocks">
 						<div class="row">
 							<div class="large-12 columns">
-								<h2><?php echo get_sub_field('title'); ?></h2>
+								<h2><?php echo get_field('key_features_title'); ?></h2>
 							</div>
 						</div>
 						<div class="row">
