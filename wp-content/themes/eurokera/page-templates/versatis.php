@@ -67,40 +67,50 @@ get_header(); ?>
 				<?php echo get_field('animation_intro'); ?>
 			</div>
 		</div>
-	</section>
+	</section> <!-- versatis-animation -->
 	
 	<section class="full-width-photo">
 		<?php echo wp_get_attachment_image( get_field('fullwidth_photo'), 'width=1910&height=510&crop=1' ); ?>
-	</section>
+	</section> <!-- full-width-photo -->
 
 
-				
-					<section class="icon-blocks">
-						<div class="row">
-							<div class="large-12 columns">
-								<h2><?php echo get_field('key_features_title'); ?></h2>
-							</div>
+	<section class="icon-blocks key-features">
+		<div class="row">
+			<div class="large-12 columns">
+				<h2><?php echo get_field('key_features_title'); ?></h2>
+			</div>
+		</div>
+		<div class="row">
+			<?php if(get_field('blocks')): ?>
+				<?php while(has_sub_field('blocks')): ?>
+					<div class="large-4 medium-4 columns text-center icon-block">
+						<div class="icon-container">
+							<?php echo file_get_contents(get_sub_field('icon')); ?>
 						</div>
-						<div class="row">
-							<?php if(get_field('blocks')): ?>
-								<?php while(has_sub_field('blocks')): ?>
-									<div class="large-4 medium-4 columns text-center icon-block">
-										<div class="icon-container">
-											<?php echo file_get_contents(get_sub_field('icon')); ?>
-										</div>
-										<h3><?php echo get_sub_field('title'); ?></h3>
-										<p><?php echo get_sub_field('paragraph'); ?></p>
-									</div>
-								<?php endwhile; ?>
-							<?php endif; ?>
-						</div>
-					</section> <!-- icon-blocks -->
+						<h3><?php echo get_sub_field('title'); ?></h3>
+						<p><?php echo get_sub_field('paragraph'); ?></p>
+					</div>
+				<?php endwhile; ?>
+			<?php endif; ?>
+		</div>
+	</section> <!-- key-features -->
 
-
-
+			
+	<section class="dedicated-team flex">
+		<div class="large-8 medium-8 columns dedicated-team-content">
+			<?php echo get_field('dedicated_team_content'); ?>
+		</div>
+		<?php $team_photo = wp_get_attachment_image_src( get_field('dedicated_team_photo'), 'full'); ?>
+		<div class="large-4 medium-4 columns dedicated-team-photo" style="background: url(<?php echo $team_photo[0]; ?>);">
+			
+		</div>
+	</section> <!-- dedicated-team -->
+	
+	
 	<?php get_template_part('template-parts/latest', 'blogs'); ?>
 	
 	<?php echo get_template_part('template-parts/content','ready'); ?>
+	
 
 <?php do_action( 'foundationpress_after_content' ); ?>
 
