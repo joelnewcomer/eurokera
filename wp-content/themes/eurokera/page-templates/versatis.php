@@ -83,7 +83,7 @@ get_header(); ?>
 		<div class="row">
 			<?php if(get_field('blocks')): ?>
 				<?php while(has_sub_field('blocks')): ?>
-					<div class="large-4 medium-4 columns text-center icon-block">
+					<div class="large-4 medium-4 small-6 columns text-center icon-block">
 						<div class="icon-container">
 							<?php echo file_get_contents(get_sub_field('icon')); ?>
 						</div>

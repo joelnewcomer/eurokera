@@ -6065,6 +6065,9 @@ section.dedicated-team {
   background: #ececea; }
   section.dedicated-team .dedicated-team-content {
     padding: 80px 5%; }
+    @media only screen and (max-width: 40.063em) {
+      section.dedicated-team .dedicated-team-content {
+        padding: 40px 5%; } }
   section.dedicated-team h2 {
     margin-bottom: 24px; }
   section.dedicated-team p, section.dedicated-team h3 {
@@ -6072,7 +6075,8 @@ section.dedicated-team {
   section.dedicated-team .dedicated-team-photo {
     -webkit-background-size: cover !important;
             background-size: cover !important;
-    background-position: right center; }
+    background-position: right center;
+    min-height: 300px; }
   section.dedicated-team .button a {
     text-transform: uppercase; }
 
@@ -6087,6 +6091,9 @@ section.luxury {
   background: #63666A; }
   section.luxury .luxury-content {
     padding: 80px 5%; }
+    @media only screen and (max-width: 40.063em) {
+      section.luxury .luxury-content {
+        padding: 40px 5%; } }
   section.luxury h2, section.luxury h3, section.luxury h4, section.luxury h5, section.luxury h6, section.luxury p {
     color: #fff !important; }
   section.luxury h2 {
@@ -6094,7 +6101,8 @@ section.luxury {
   section.luxury .luxury-photo {
     -webkit-background-size: cover !important;
             background-size: cover !important;
-    background-position: center center; }
+    background-position: center center;
+    min-height: 300px; }
 
 /*!
  * animsition v4.0.2

@@ -54,6 +54,9 @@ section.dedicated-team {
 	background: #ececea;
 	.dedicated-team-content {
 		padding: 80px 5%;
+		@media only screen and (max-width: 40.063em) {
+			padding: 40px 5%;	
+		}
 	}
 	h2 {
 		margin-bottom: 24px;
@@ -64,6 +67,7 @@ section.dedicated-team {
 	.dedicated-team-photo {
 		background-size: cover !important;
 		background-position: right center;
+		min-height: 300px;
 	}
 	.button a {
 		text-transform: uppercase;
@@ -76,6 +80,9 @@ section.luxury {
 	background: #63666A;
 	.luxury-content {
 		padding: 80px 5%;
+		@media only screen and (max-width: 40.063em) {
+			padding: 40px 5%;	
+		}		
 	}
 	h2, h3, h4, h5, h6, p {
 		color: #fff !important;
@@ -86,5 +93,6 @@ section.luxury {
 	.luxury-photo {
 		background-size: cover !important;
 		background-position: center center;
+		min-height: 300px;
 	}	
 }
