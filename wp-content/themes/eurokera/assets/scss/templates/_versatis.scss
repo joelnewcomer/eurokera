@@ -37,8 +37,54 @@ section.versatis-intro, section.versatis-animation, section.key-features {
 	padding: 40px 0;
 }
 
+section.versatis-animation {
+	background: rgb(255,255,255);
+	background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(224,228,230,1) 100%);
+}
+
 section.full-width-photo {
 	img {
 		width: 100%;
 	}
+}
+
+section.dedicated-team {
+    display: flex !important;
+    flex-flow: wrap;	
+	background: #ececea;
+	.dedicated-team-content {
+		padding: 80px 5%;
+	}
+	h2 {
+		margin-bottom: 24px;
+	}
+	p, h3 {
+		margin-bottom: 30px;
+	}
+	.dedicated-team-photo {
+		background-size: cover !important;
+		background-position: right center;
+	}
+	.button a {
+		text-transform: uppercase;
+	}
+}
+
+section.luxury {
+    display: flex !important;
+    flex-flow: wrap;	
+	background: #63666A;
+	.luxury-content {
+		padding: 80px 5%;
+	}
+	h2, h3, h4, h5, h6, p {
+		color: #fff !important;
+	}
+	h2 {
+		margin-bottom: 20px;
+	}
+	.luxury-photo {
+		background-size: cover !important;
+		background-position: center center;
+	}	
 }

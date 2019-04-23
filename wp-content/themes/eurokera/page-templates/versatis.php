@@ -96,16 +96,73 @@ get_header(); ?>
 	</section> <!-- key-features -->
 
 			
-	<section class="dedicated-team flex">
+	<section class="dedicated-team">
 		<div class="large-8 medium-8 columns dedicated-team-content">
 			<?php echo get_field('dedicated_team_content'); ?>
 		</div>
 		<?php $team_photo = wp_get_attachment_image_src( get_field('dedicated_team_photo'), 'full'); ?>
-		<div class="large-4 medium-4 columns dedicated-team-photo" style="background: url(<?php echo $team_photo[0]; ?>);">
+		<div class="large-4 medium-4 columns dedicated-team-photo" style="background-image: url(<?php echo $team_photo[0]; ?>);">
 			
 		</div>
 	</section> <!-- dedicated-team -->
 	
+	<section class="page-gallery versatis-gallery">
+		<div class="row">
+			<div class="large-12 columns">
+				<h2><?php echo get_field('gallery_title'); ?></h2>
+			</div>
+		</div>
+		<div class="row">
+			<?php 
+			$images = get_field('images');								
+			if( $images ): ?>
+				<div class=" slider-container slider-container-<?php echo $row_counter; ?>">
+				<ul class="bxslider gallery-<?php echo $row_counter; ?>">
+			    		<?php foreach( $images as $image ): ?>
+			        		<li>
+			            		<?php echo wp_get_attachment_image( $image['ID'], 'width=1080&height=640&crop=1' ); ?>
+			            		<p class="gallery-slide-caption"><?php echo wp_get_attachment_caption($image['ID']); ?></p>
+			            </li>
+			        <?php endforeach; ?>
+			    </ul>
+			    <p class="gallery-caption"></p>
+				</div>
+				<script>
+					jQuery(window).load(function(){
+						function loadCaption(currentSlide) {
+							var caption = currentSlide.find('p.gallery-slide-caption').html();
+							jQuery('.slider-container-<?php echo $row_counter; ?> p.gallery-caption').html(caption);
+						}										
+						var slider = jQuery('.gallery-<?php echo $row_counter; ?>').bxSlider({
+						    auto: false,
+						    pager: (jQuery(".bxslider > li").length > 1) ? true: false,
+						    controls: true,
+						    mode: 'fade',
+						    speed: 1000,
+						    onSliderLoad: function(currentIndex) {     
+								var currentSlide = jQuery('.slider-container-<?php echo $row_counter; ?>').find('.bx-viewport').find('ul').children().eq(currentIndex);
+								loadCaption(currentSlide);
+    							},
+						    onSlideBefore: function($slideElement) {
+								loadCaption($slideElement);
+    							},
+						});
+					});
+
+				</script>								    
+			<?php endif; ?>
+		</div> <!-- row -->
+	</section> <!-- versatis-gallerypage-gallery -->
+	
+	<section class="luxury">
+		<div class="large-8 medium-8 columns luxury-content">
+			<?php echo get_field('luxury_content'); ?>
+		</div>
+		<?php $luxury_photo = wp_get_attachment_image_src( get_field('luxury_photo'), 'full'); ?>
+		<div class="large-4 medium-4 columns luxury-photo" style="background-image: url(<?php echo $luxury_photo[0]; ?>);">
+			
+		</div>		
+	</section> <!-- luxury -->
 	
 	<?php get_template_part('template-parts/latest', 'blogs'); ?>
 	

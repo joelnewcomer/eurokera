@@ -6046,8 +6046,55 @@ section.versatis-video {
 section.versatis-intro, section.versatis-animation, section.key-features {
   padding: 40px 0; }
 
+section.versatis-animation {
+  background: white;
+  background: -webkit-linear-gradient(45deg, white 0%, #e0e4e6 100%);
+  background: linear-gradient(45deg, white 0%, #e0e4e6 100%); }
+
 section.full-width-photo img {
   width: 100%; }
+
+section.dedicated-team {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-flex-flow: wrap;
+      -ms-flex-flow: wrap;
+          flex-flow: wrap;
+  background: #ececea; }
+  section.dedicated-team .dedicated-team-content {
+    padding: 80px 5%; }
+  section.dedicated-team h2 {
+    margin-bottom: 24px; }
+  section.dedicated-team p, section.dedicated-team h3 {
+    margin-bottom: 30px; }
+  section.dedicated-team .dedicated-team-photo {
+    -webkit-background-size: cover !important;
+            background-size: cover !important;
+    background-position: right center; }
+  section.dedicated-team .button a {
+    text-transform: uppercase; }
+
+section.luxury {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-flex-flow: wrap;
+      -ms-flex-flow: wrap;
+          flex-flow: wrap;
+  background: #63666A; }
+  section.luxury .luxury-content {
+    padding: 80px 5%; }
+  section.luxury h2, section.luxury h3, section.luxury h4, section.luxury h5, section.luxury h6, section.luxury p {
+    color: #fff !important; }
+  section.luxury h2 {
+    margin-bottom: 20px; }
+  section.luxury .luxury-photo {
+    -webkit-background-size: cover !important;
+            background-size: cover !important;
+    background-position: center center; }
 
 /*!
  * animsition v4.0.2
