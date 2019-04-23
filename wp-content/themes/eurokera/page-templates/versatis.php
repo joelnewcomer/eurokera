@@ -70,15 +70,6 @@ get_header(); ?>
 	</section>
 
 
-
-					<?php
-					$num_columns = get_sub_field('columns');
-					if ($num_columns == 3) {
-						$columns = 'large-4 medium-4';
-					} else {
-						$columns = 'large-3 medium-3';
-					}
-					?>
 				
 					<section class="icon-blocks">
 						<div class="row">
@@ -87,9 +78,9 @@ get_header(); ?>
 							</div>
 						</div>
 						<div class="row">
-							<?php if(get_sub_field('blocks')): ?>
+							<?php if(get_field('blocks')): ?>
 								<?php while(has_sub_field('blocks')): ?>
-									<div class="<?php echo $columns; ?> columns text-center icon-block">
+									<div class="large-4 medium-4 columns text-center icon-block">
 										<div class="icon-container">
 											<?php echo file_get_contents(get_sub_field('icon')); ?>
 										</div>
