@@ -6135,13 +6135,9 @@ section.luxury {
     bottom: 0;
     width: 100%;
     text-align: center; }
-    #versatis-animation .versatis-text-container div {
-      display: inline-block;
+    #versatis-animation .versatis-text-container .time-text {
       opacity: 0;
       position: absolute;
-      -webkit-transition: opacity .35s;
-      transition: opacity .35s; }
-    #versatis-animation .versatis-text-container .time-text {
       display: block;
       margin: 0 auto;
       max-width: 60%; }
@@ -6159,6 +6155,9 @@ section.luxury {
     position: absolute;
     -webkit-transition: opacity .35s;
     transition: opacity .35s; }
+    #versatis-animation .versatis-top .animate {
+      -webkit-animation: Pulsate 2s linear infinite;
+              animation: Pulsate 2s linear infinite; }
   #versatis-animation[data-time="7am"] .time-text.time7am, #versatis-animation[data-time="7am"] .versatis-top.time7am {
     position: relative;
     opacity: 1; }
@@ -6177,6 +6176,22 @@ section.luxury {
   #versatis-animation[data-time="830pm"] .time-text.time830pm, #versatis-animation[data-time="830pm"] .versatis-top.time830pm {
     position: relative;
     opacity: 1; }
+
+@-webkit-keyframes Pulsate {
+  from {
+    opacity: 1; }
+  50% {
+    opacity: .5; }
+  to {
+    opacity: 1; } }
+
+@keyframes Pulsate {
+  from {
+    opacity: 1; }
+  50% {
+    opacity: .5; }
+  to {
+    opacity: 1; } }
 
 /*!
  * animsition v4.0.2
