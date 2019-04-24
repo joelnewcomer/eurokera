@@ -91,6 +91,9 @@ get_header(); ?>
 						</div> <!-- versatis-text-container -->
 					</div> <!-- main-animation-container -->
 					<div class="versatis-tops">
+						<div class="text-right">
+							<p>Versâtis™</p>
+						</div>
 						<div class="versatis-top time7am">
 							<?php get_template_part('assets/images/7am.svg'); ?>
 						</div>
@@ -206,11 +209,11 @@ function closestPoint(pathNode, pathLength, point) {
         beforeDistance,
         afterDistance;
     if ((beforeLength = bestLength - precision) >= 0 && (beforeDistance = distance2(before = pathNode.getPointAtLength(beforeLength))) < bestDistance) {
-      best = before, bestLength = beforeLength, bestDistance = beforeDistance;
+    	best = before, bestLength = beforeLength, bestDistance = beforeDistance;
     } else if ((afterLength = bestLength + precision) <= pathLength && (afterDistance = distance2(after = pathNode.getPointAtLength(afterLength))) < bestDistance) {
-      best = after, bestLength = afterLength, bestDistance = afterDistance;
+    	best = after, bestLength = afterLength, bestDistance = afterDistance;
     } else {
-      precision /= 2;
+    	precision /= 2;
     }
   }
 

@@ -4276,11 +4276,15 @@ section.icon-blocks .icon-block {
     font-size: 18px;
     text-align: left; }
 
-section.icon-blocks .medium-4.icon-block:nth-child(3n+1) {
-  clear: left; }
+@media only screen and (min-width: 40.063em) {
+  section.icon-blocks .medium-4.icon-block:nth-child(3n+1) {
+    clear: left; }
+  section.icon-blocks .medium-3.icon-block:nth-child(4n+1) {
+    clear: left; } }
 
-section.icon-blocks .medium-3.icon-block:nth-child(4n+1) {
-  clear: left; }
+@media only screen and (max-width: 40em) {
+  section.icon-blocks .small-6.icon-block:nth-child(2n+1) {
+    clear: left; } }
 
 section.block-sections .block-section-intro {
   margin-bottom: 10px; }
@@ -6128,6 +6132,9 @@ section.luxury {
     width: 90%;
     z-index: 1;
     left: 2.5%; }
+    @media only screen and (max-width: 40em) {
+      #versatis-animation svg#versatis-dotted-line {
+        display: none; } }
   #versatis-animation .main-animation-container {
     position: relative; }
   #versatis-animation .versatis-text-container {
@@ -6135,12 +6142,17 @@ section.luxury {
     bottom: 0;
     width: 100%;
     text-align: center; }
+    @media only screen and (max-width: 40em) {
+      #versatis-animation .versatis-text-container {
+        position: relative; } }
     #versatis-animation .versatis-text-container .time-text {
       opacity: 0;
       position: absolute;
       display: block;
-      margin: 0 auto;
-      max-width: 60%; }
+      margin: 0 auto; }
+      @media only screen and (min-width: 40.063em) {
+        #versatis-animation .versatis-text-container .time-text {
+          max-width: 60%; } }
       #versatis-animation .versatis-text-container .time-text p {
         font-weight: bold;
         color: #ff8200;
@@ -6150,6 +6162,11 @@ section.luxury {
     margin-top: 40px; }
     #versatis-animation .versatis-tops svg {
       max-width: 100%; }
+      @media only screen and (max-width: 40.063em) {
+        #versatis-animation .versatis-tops svg {
+          height: 170px; } }
+    #versatis-animation .versatis-tops p {
+      margin: 0; }
   #versatis-animation .versatis-top {
     opacity: 0;
     position: absolute;

@@ -99,11 +99,18 @@ section.icon-blocks {
 			text-align: left;
 		}
 	}
-	.medium-4.icon-block:nth-child(3n+1) {
-		clear: left;
+	@media only screen and (min-width: 40.063em) {
+		.medium-4.icon-block:nth-child(3n+1) {
+			clear: left;
+		}
+		.medium-3.icon-block:nth-child(4n+1) {
+			clear: left;
+		}
 	}
-	.medium-3.icon-block:nth-child(4n+1) {
-		clear: left;
+	@media only screen and (max-width: 40em) {
+		.small-6.icon-block:nth-child(2n+1) {
+			clear: left;
+		}
 	}
 }
 

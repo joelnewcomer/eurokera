@@ -124,12 +124,18 @@ section.luxury {
 		width: 90%;
 		z-index: 1;
 		left: 2.5%;
+		@media only screen and (max-width: 40em) {
+			display: none;	
+		}
 	}
 	.main-animation-container {
 		position: relative;
 	}
 	.versatis-text-container {
 		position: absolute;
+		@media only screen and (max-width: 40em) {
+			position: relative;	
+		}
 		bottom: 0;
 		width: 100%;
 		text-align: center;
@@ -138,7 +144,9 @@ section.luxury {
 			position: absolute;
 			display: block;
 			margin: 0 auto;
-			max-width: 60%;
+			@media only screen and (min-width: 40.063em) {
+				max-width: 60%;
+			}
 			p {
 				font-weight: bold;
 				color: $orange;
@@ -151,6 +159,12 @@ section.luxury {
 		margin-top: 40px;
 		svg {
 			max-width: 100%;
+			@media only screen and (max-width: 40.063em) {
+				height: 170px;	
+			}
+		}
+		p {
+			margin: 0;
 		}
 	}
 	.versatis-top {
