@@ -66,7 +66,11 @@ get_header(); ?>
 				<h2><?php echo get_field('animation_title'); ?></h2>
 				<?php echo get_field('animation_intro'); ?>
 				<div id="versatis-animation" class="animation-container" data-time="7am">
-					<?php get_template_part('assets/images/drag', 'line.svg'); ?><br />
+					<?php get_template_part('assets/images/drag', 'line.svg'); ?>
+					<?php get_template_part('assets/images/dotted', 'line.svg'); ?>
+					<div class="text-container">
+						
+					</div>
 				</div>
 				<script>
 // Closest Point on Path

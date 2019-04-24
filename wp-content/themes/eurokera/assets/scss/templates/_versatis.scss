@@ -98,8 +98,12 @@ section.luxury {
 }
 
 #versatis-animation {
-	svg {
+	position: relative;
+	margin: 60px 0;
+	#versatis-svg {
 		overflow: visible;
+		position: relative;
+		z-index: 2;
 	}
 	#path {
 		fill: none;
@@ -113,5 +117,12 @@ section.luxury {
 	text {
 		font-size: 20px;
 		font-weight: bold;
+	}
+	svg#versatis-dotted-line {
+		position: absolute;
+		bottom: 0;
+		width: 90%;
+		z-index: 1;
+		left: 2.5%;
 	}
 }

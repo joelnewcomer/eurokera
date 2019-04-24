@@ -6106,20 +6106,28 @@ section.luxury {
     background-position: center center;
     min-height: 700px; }
 
-#versatis-animation svg {
-  overflow: visible; }
-
-#versatis-animation #path {
-  fill: none; }
-
-#versatis-animation #drag {
-  position: relative; }
-  #versatis-animation #drag circle {
+#versatis-animation {
+  position: relative;
+  margin: 60px 0; }
+  #versatis-animation #versatis-svg {
+    overflow: visible;
+    position: relative;
+    z-index: 2; }
+  #versatis-animation #path {
     fill: none; }
-
-#versatis-animation text {
-  font-size: 20px;
-  font-weight: bold; }
+  #versatis-animation #drag {
+    position: relative; }
+    #versatis-animation #drag circle {
+      fill: none; }
+  #versatis-animation text {
+    font-size: 20px;
+    font-weight: bold; }
+  #versatis-animation svg#versatis-dotted-line {
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    z-index: 1;
+    left: 2.5%; }
 
 /*!
  * animsition v4.0.2
