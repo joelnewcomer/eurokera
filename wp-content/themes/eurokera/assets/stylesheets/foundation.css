@@ -2223,6 +2223,9 @@ p.small {
 .blue {
   color: #2c9199; }
 
+.gray {
+  color: #63666A !important; }
+
 @media only screen and (min-width: 40.063em) {
   .top-bar-right {
     margin-top: 33px; } }
@@ -6251,6 +6254,32 @@ section.luxury {
     bottom: 50px;
     font-weight: bold;
     color: #e89e27; }
+
+.library-title {
+  padding: 30px 0; }
+
+section.library-items {
+  background: #efeff0;
+  padding: 80px 0; }
+  @media only screen and (max-width: 40.063em) {
+    section.library-items {
+      padding: 40px 0; } }
+  @media only screen and (min-width: 64.063em) {
+    section.library-items .columns {
+      -webkit-column-count: 3;
+              column-count: 3; } }
+  @media only screen and (max-width: 64em) and (min-width: 40.063em) {
+    section.library-items .columns {
+      -webkit-column-count: 2;
+              column-count: 2; } }
+  section.library-items .columns a {
+    display: block;
+    float: left;
+    width: 100%;
+    color: #63666A;
+    margin-bottom: 16px; }
+    section.library-items .columns a:hover {
+      color: #ff8200; }
 
 /*!
  * animsition v4.0.2
