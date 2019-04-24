@@ -5,7 +5,7 @@
     </pattern>
   </defs>
       <filter id="sun" x="0%" y="0%" width="100%" height="100%">
-        <feImage xlink:href="http://localhost:8888/eurokerav2/wp-content/themes/eurokera/assets/images/sun.png"/>
+        <feImage xlink:href="<?php echo get_site_url(); ?>/wp-content/themes/eurokera/assets/images/sun.png"/>
     </filter>
     <path id="path" class="path" d="M47.81,366.43S268.58.26,727.16,0s671.42,364.77,671.42,364.77" />
     
