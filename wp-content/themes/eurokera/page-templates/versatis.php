@@ -64,7 +64,12 @@ get_header(); ?>
 		<div class="row">
 			<div class="large-12 columns">
 				<h2><?php echo get_field('animation_title'); ?></h2>
-				<?php echo get_field('animation_intro'); ?>
+				<div class="hide-for-small">
+					<?php echo get_field('animation_intro'); ?>
+				</div>
+				<div class="show-for-small">
+					<?php echo get_field('animation_intro_mobile'); ?>
+				</div>
 				<div id="versatis-animation" class="animation-container" data-time="7am">
 					<div class="main-animation-container">
 						<div class="hide-for-small">
