@@ -67,8 +67,15 @@ get_header(); ?>
 				<?php echo get_field('animation_intro'); ?>
 				<div id="versatis-animation" class="animation-container" data-time="7am">
 					<div class="main-animation-container">
-						<?php get_template_part('assets/images/drag', 'line.svg'); ?>
-						<?php get_template_part('assets/images/dotted', 'line.svg'); ?>
+						<div class="hide-for-small">
+							<?php get_template_part('assets/images/drag', 'line.svg'); ?>
+							<?php get_template_part('assets/images/dotted', 'line.svg'); ?>
+						</div>
+						<div class="show-for-small text-center anim-mobile-nav">
+							<?php get_template_part('assets/images/gold-arrow', 'left.svg'); ?>
+							<?php get_template_part('assets/images/sun.svg'); ?>
+							<?php get_template_part('assets/images/gold-arrow', 'right.svg'); ?>
+						</div>
 						<div class="versatis-text-container">
 							<div class="time-text time7am">
 								<?php echo get_field('animation_content700am'); ?>

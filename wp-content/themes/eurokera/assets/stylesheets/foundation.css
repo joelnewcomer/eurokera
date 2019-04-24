@@ -6232,6 +6232,9 @@ section.luxury {
   to {
     opacity: 1; } }
 
+.anim-mobile-nav .mobile-sun {
+  margin: 0 20px; }
+
 /*!
  * animsition v4.0.2
  * A simple and easy jQuery plugin for CSS animated page transitions.
