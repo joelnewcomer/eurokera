@@ -204,7 +204,7 @@
         </g>
       </g>
     </g>
-    <g id="animate" transform="translate(852.107 1204.807)">
+    <g class="animate" transform="translate(852.107 1204.807)">
       <path id="Path_20701" data-name="Path 20701" d="M746.517,1155.727a26.7,26.7,0,1,1-26.7,26.7,26.7,26.7,0,0,1,26.7-26.7" transform="translate(-719.814 -1155.727)" fill="#ff6a00" opacity="0.3"/>
       <circle id="Ellipse_1052" data-name="Ellipse 1052" cx="11.086" cy="11.086" r="11.086" transform="translate(15.618 15.618)" fill="#ff6a00"/>
       <circle id="Ellipse_1053" data-name="Ellipse 1053" cx="20.347" cy="20.347" r="20.347" transform="translate(6.356 6.357)" fill="#ff6a00" opacity="0.5"/>

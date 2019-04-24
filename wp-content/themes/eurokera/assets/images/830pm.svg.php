@@ -83,7 +83,7 @@
     <rect id="Rectangle_1250" data-name="Rectangle 1250" width="303.863" height="96.172" transform="translate(673.82 1700.146)" fill="#fff"/>
     <path id="Path_24208" data-name="Path 24208" d="M587.641,1715.284l6.789-6.789v13.578Z" transform="translate(92.997 32.666)" fill="#51504e"/>
     <path id="Path_24209" data-name="Path 24209" d="M816.549,1715.284l-6.789,6.789v-13.578Z" transform="translate(155.179 32.666)" fill="#51504e"/>
-    <g id="animate" transform="translate(315.831 1632.021)">
+    <g class="animate" transform="translate(315.831 1632.021)">
       <circle id="Ellipse_1072" data-name="Ellipse 1072" cx="15.8" cy="15.8" r="15.8" fill="#b3c91d" opacity="0.3"/>
       <circle id="Ellipse_1073" data-name="Ellipse 1073" cx="6.559" cy="6.559" r="6.559" transform="translate(9.241 9.241)" fill="#b3c91d"/>
       <circle id="Ellipse_1074" data-name="Ellipse 1074" cx="12.039" cy="12.039" r="12.039" transform="translate(3.761 3.761)" fill="#b3c91d" opacity="0.5"/>
@@ -102,7 +102,7 @@
       <circle id="Ellipse_1075" data-name="Ellipse 1075" cx="1.809" cy="1.809" r="1.809" transform="translate(29.955 21.643)" fill="none" stroke="#51504e" stroke-miterlimit="10" stroke-width="1"/>
     </g>
     <g id="Group_2618" data-name="Group 2618" transform="translate(573.702 1735.146)">
-      <g id="animate-2" data-name="animate" transform="translate(8.244 55.594)">
+      <g class="animate" data-name="animate" transform="translate(8.244 55.594)">
         <circle id="Ellipse_1076" data-name="Ellipse 1076" cx="15.8" cy="15.8" r="15.8" fill="#b3c91d" opacity="0.3"/>
         <circle id="Ellipse_1077" data-name="Ellipse 1077" cx="6.559" cy="6.559" r="6.559" transform="translate(9.241 9.241)" fill="#b3c91d"/>
         <circle id="Ellipse_1078" data-name="Ellipse 1078" cx="12.039" cy="12.039" r="12.039" transform="translate(3.761 3.761)" fill="#b3c91d" opacity="0.5"/>

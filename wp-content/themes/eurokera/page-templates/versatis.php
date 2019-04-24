@@ -169,7 +169,7 @@ function pointModifier(point) {
 	  jQuery('#versatis-animation').attr('data-time', "7pm" );  
   } else {
 	  jQuery("#svg-time").text('8:30pm');
-	  jQuery('#versatis-animation').data( "time", "830pm" );  
+	  jQuery('#versatis-animation').attr('data-time', "830pm" );  
   } 
    // jQuery("#svg-time").text(point.x);
    

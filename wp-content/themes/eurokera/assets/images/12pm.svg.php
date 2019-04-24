@@ -59,7 +59,7 @@
       <path id="Path_20074" data-name="Path 20074" d="M1024.747,834.907l1.7-.669,1.7-.671a4.367,4.367,0,0,0,2.214-6.206c-1.923-3.4-3.828-6.989-5.689-10.772a212.027,212.027,0,0,1-12.472-31.512l-4.407,1.733-4.406,1.732a212.1,212.1,0,0,1,12.331,31.568q1.822,6.057,3.172,11.763A4.368,4.368,0,0,0,1024.747,834.907Zm-4.224-10.115a2.059,2.059,0,0,1,1.162-2.671h0a2.06,2.06,0,0,1,2.671,1.163l2.043,5.2a2.059,2.059,0,0,1-1.163,2.67h0a2.059,2.059,0,0,1-2.671-1.163Z" transform="translate(-939.19 -692.747)" fill="none" stroke="#51504e" stroke-miterlimit="10" stroke-width="0.702"/>
     </g>
     <g id="Group_2382" data-name="Group 2382" transform="translate(607.381 738.471)">
-      <g id="animate" transform="translate(100.489 10.917)">
+      <g class="animate" transform="translate(100.489 10.917)">
         <circle id="Ellipse_1045" data-name="Ellipse 1045" cx="24.237" cy="24.237" r="24.237" fill="#b3c91d" opacity="0.3"/>
         <circle id="Ellipse_1046" data-name="Ellipse 1046" cx="10.062" cy="10.062" r="10.062" transform="translate(14.175 14.175)" fill="#b3c91d"/>
         <circle id="Ellipse_1047" data-name="Ellipse 1047" cx="18.468" cy="18.468" r="18.468" transform="translate(5.769 5.769)" fill="#b3c91d" opacity="0.5"/>
@@ -98,7 +98,7 @@
         <path id="Path_20101" data-name="Path 20101" d="M544.242,776.018a22.159,22.159,0,0,0,9.592,14.12,1.024,1.024,0,0,0,1.126-1.71,20.287,20.287,0,0,1-5.82-28.055,1.023,1.023,0,1,0-1.711-1.121,22.148,22.148,0,0,0-3.187,16.766Zm0,0" transform="translate(-526.748 -749.446)" fill="#2ca1dd"/>
       </g>
     </g>
-    <g id="animate-2" data-name="animate" transform="translate(1147.552 721.765)">
+    <g class="animate" data-name="animate" transform="translate(1147.552 721.765)">
       <circle id="Ellipse_1048" data-name="Ellipse 1048" cx="52.673" cy="52.673" r="52.673" fill="#b93430" opacity="0.2"/>
       <circle id="Ellipse_1049" data-name="Ellipse 1049" cx="40.135" cy="40.135" r="40.135" transform="translate(12.538 12.538)" fill="#b93430" opacity="0.3"/>
       <circle id="Ellipse_1050" data-name="Ellipse 1050" cx="16.488" cy="16.488" r="16.488" transform="translate(36.185 36.185)" fill="#b93430"/>
