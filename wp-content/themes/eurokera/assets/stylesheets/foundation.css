@@ -6232,14 +6232,25 @@ section.luxury {
   to {
     opacity: 1; } }
 
-.anim-mobile-nav .mobile-sun {
-  margin: 0 20px; }
-
-.anim-mobile-nav svg {
-  pointer-events: none; }
-
-.anim-mobile-nav > div {
-  cursor: pointer; }
+.anim-mobile-nav {
+  position: relative;
+  padding: 24px 0; }
+  .anim-mobile-nav .mobile-sun {
+    margin: 0 20px; }
+  .anim-mobile-nav svg {
+    pointer-events: none; }
+  .anim-mobile-nav > div {
+    cursor: pointer; }
+  .anim-mobile-nav .anim-nav-left, .anim-mobile-nav .anim-nav-right {
+    display: inline-block; }
+  .anim-mobile-nav .svg-time {
+    display: block;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    font-weight: bold;
+    color: #e89e27; }
 
 /*!
  * animsition v4.0.2
