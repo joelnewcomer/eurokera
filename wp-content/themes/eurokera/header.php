@@ -114,6 +114,12 @@
 				<?php 
 				if (is_page_template('page-templates/versatis.php')) {
 					versatis_menu();
+				} elseif (get_field('menu') == 'fireplaces') {
+					fireplaces_menu();
+				} elseif (get_field('menu') == 'specialties') {
+					specialties_menu();
+				} elseif (get_field('menu') == 'none') {
+					// do nothing	
 				} else {
 					foundationpress_main_menu();
 				}

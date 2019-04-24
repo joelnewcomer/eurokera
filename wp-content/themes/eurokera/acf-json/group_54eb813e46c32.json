@@ -3,6 +3,36 @@
     "title": "Layout",
     "fields": [
         {
+            "key": "field_5cc0c78ed6081",
+            "label": "Menu",
+            "name": "menu",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "main": "Main Menu",
+                "fireplaces": "Fireplaces Menu",
+                "specialties": "Specialties Menu",
+                "none": "None"
+            },
+            "default_value": [
+                "main"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "wpml_cf_preferences": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_54eb81451c471",
             "label": "Content",
             "name": "content",
@@ -2789,5 +2819,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1555965366
+    "modified": 1556138062
 }
