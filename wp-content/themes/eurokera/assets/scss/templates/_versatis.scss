@@ -125,4 +125,77 @@ section.luxury {
 		z-index: 1;
 		left: 2.5%;
 	}
+	.main-animation-container {
+		position: relative;
+	}
+	.versatis-text-container {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+		div {
+			display: inline-block;
+			opacity: 0;
+			position: absolute;
+			transition: opacity .35s;
+		}
+		.time-text {
+			display: block;
+			margin: 0 auto;
+			max-width: 60%;
+			p {
+				font-weight: bold;
+				color: $orange;
+				font-size: 24px;
+				text-align: center;
+			}
+		}
+	}
+	.versatis-tops {
+		margin-top: 40px;
+		svg {
+			max-width: 100%;
+		}
+	}
+	.versatis-top {
+		opacity: 0;
+		position: absolute;
+		transition: opacity .35s;
+	}
+	&[data-time="7am"] {
+		.time-text.time7am, .versatis-top.time7am {
+			position: relative;
+			opacity: 1;
+		}	
+	}
+	&[data-time="10am"] {
+		.time-text.time10am, .versatis-top.time10am {
+			position: relative;
+			opacity: 1;
+		}	
+	}	
+	&[data-time="12pm"] {
+		.time-text.time12pm, .versatis-top.time12pm {
+			position: relative;
+			opacity: 1;
+		}		
+	}	
+	&[data-time="3pm"] {
+		.time-text.time3pm, .versatis-top.time3pm {
+			position: relative;
+			opacity: 1;
+		}	
+	}	
+	&[data-time="7pm"] {
+		.time-text.time7pm, .versatis-top.time7pm {
+			position: relative;
+			opacity: 1;
+		}		
+	}	
+	&[data-time="830pm"] {
+		.time-text.time830pm, .versatis-top.time830pm {
+			position: relative;
+			opacity: 1;
+		}		
+	}				
 }

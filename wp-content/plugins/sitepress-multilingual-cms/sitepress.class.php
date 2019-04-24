@@ -1432,7 +1432,7 @@ class SitePress extends WPML_WPDB_User implements
 
 		$post_types = array_keys( $this->get_translatable_documents() );
 		if ( in_array( $post->post_type, $post_types, true ) ) {
-			add_meta_box( 'icl_div', __( 'Language', 'sitepress' ), array( $this, 'meta_box' ), $post->post_type, 'side', 'high' );
+			add_meta_box( 'icl_div', __( 'Language', 'sitepress' ), array( $this, 'meta_box' ), $post->post_type, 'side', apply_filters( 'wpml_post_edit_meta_box_priority', 'high' ) );
 		}
 
 		// Fix the "Add new" button adding the language argument, so to create new content in the same language

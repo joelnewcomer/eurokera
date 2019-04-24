@@ -66,11 +66,50 @@ get_header(); ?>
 				<h2><?php echo get_field('animation_title'); ?></h2>
 				<?php echo get_field('animation_intro'); ?>
 				<div id="versatis-animation" class="animation-container" data-time="7am">
-					<?php get_template_part('assets/images/drag', 'line.svg'); ?>
-					<?php get_template_part('assets/images/dotted', 'line.svg'); ?>
-					<div class="text-container">
-						
-					</div>
+					<div class="main-animation-container">
+						<?php get_template_part('assets/images/drag', 'line.svg'); ?>
+						<?php get_template_part('assets/images/dotted', 'line.svg'); ?>
+						<div class="versatis-text-container">
+							<div class="time-text time7am">
+								<?php echo get_field('animation_content700am'); ?>
+							</div>
+							<div class="time-text time10am">
+								<?php echo get_field('animation_content1000am'); ?>
+							</div>
+							<div class="time-text time12pm">
+								<?php echo get_field('animation_content1200pm'); ?>
+							</div>
+							<div class="time-text time3pm">
+								<?php echo get_field('animation_content300pm'); ?>
+							</div>
+							<div class="time-text time7pm">
+								<?php echo get_field('animation_content700pm'); ?>
+							</div>
+							<div class="time-text time830pm">
+								<?php echo get_field('animation_content830pm'); ?>
+							</div>																		
+						</div> <!-- versatis-text-container -->
+					</div> <!-- main-animation-container -->
+					<div class="versatis-tops">
+						<div class="versatis-top time7am">
+							<?php get_template_part('assets/images/7am.svg'); ?>
+						</div>
+						<div class="versatis-top time10am">
+							<?php get_template_part('assets/images/10am.svg'); ?>
+						</div>
+						<div class="versatis-top time12pm">
+							<?php get_template_part('assets/images/12pm.svg'); ?>
+						</div>
+						<div class="versatis-top time3pm">
+							<?php get_template_part('assets/images/3pm.svg'); ?>
+						</div>
+						<div class="versatis-top time7pm">
+							<?php get_template_part('assets/images/7pm.svg'); ?>
+						</div>
+						<div class="versatis-top time830pm">
+							<?php get_template_part('assets/images/830pm.svg'); ?>
+						</div>																		
+					</div> <!-- versatis-tops -->					
 				</div>
 				<script>
 // Closest Point on Path
@@ -110,32 +149,31 @@ function pointModifier(point) {
   
   var p = closestPoint(path, pathLength, point);
   
+  
+  
   // Set time
   if (point.x <= 150) {
 	  jQuery("#svg-time").text('7:00am');
-	  jQuery('#versatis-animation').data( "time", "7am" );
-  }
-  if (point.x > 150 && point.x < 250) {
+	  jQuery('#versatis-animation').attr('data-time', '7am');
+  } else if (point.x > 150 && point.x < 351) {
 	  jQuery("#svg-time").text('10:00am');
-	  jQuery('#versatis-animation').data( "time", "10am" );
-  }
-  if (point.x > 350 && point.x < 700) {
+	  jQuery('#versatis-animation').attr('data-time', "10am" ); 
+  } else if (point.x > 350 && point.x < 751) {
 	  jQuery("#svg-time").text('12:00pm');
-	  jQuery('#versatis-animation').data( "time", "12pm" );
-  }
-  if (point.x > 750 && point.x < 1050) {
+	  jQuery('#versatis-animation').attr('data-time', "12pm" );	  
+  } else if (point.x > 750 && point.x < 1101) {
 	  jQuery("#svg-time").text('3:00pm');
-	  jQuery('#versatis-animation').data( "time", "3pm" );
-  }
-  if (point.x > 1100 && point.x < 1250) {
+	  jQuery('#versatis-animation').attr('data-time', "3pm" );  
+  } else if (point.x > 1100 && point.x < 1301) {
 	  jQuery("#svg-time").text('7:00pm');
-	  jQuery('#versatis-animation').data( "time", "7pm" );
-  }
-   if (point.x > 1300) {
+	  jQuery('#versatis-animation').attr('data-time', "7pm" );  
+  } else {
 	  jQuery("#svg-time").text('8:30pm');
-	  jQuery('#versatis-animation').data( "time", "830pm" );
+	  jQuery('#versatis-animation').data( "time", "830pm" );  
   } 
    // jQuery("#svg-time").text(point.x);
+   
+   
     
   TweenLite.set(drag, {
     rotation: p.rotation
