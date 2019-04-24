@@ -374,6 +374,7 @@ function drum_animate($column, $row, $script = false) {
 				<?php elseif( get_row_layout() == 'icon_blocks' ): ?>
 				
 					<?php
+					$section_id = get_sub_field('section_id');	
 					$num_columns = get_sub_field('columns');
 					if ($num_columns == 3) {
 						$columns = 'large-4 medium-4';
@@ -382,7 +383,7 @@ function drum_animate($column, $row, $script = false) {
 					}
 					?>
 				
-					<section class="icon-blocks">
+					<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="icon-blocks">
 						<div class="row">
 							<div class="large-12 columns">
 								<h2><?php echo get_sub_field('title'); ?></h2>
@@ -406,8 +407,9 @@ function drum_animate($column, $row, $script = false) {
 
 				<?php elseif( get_row_layout() == 'block_sections' ): ?>
 				
+					<?php $section_id = get_sub_field('section_id'); ?>
 				
-					<section class="block-sections">
+					<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="block-sections">
 						<div class="row">
 							<div class="large-12 columns block-section-intro">
 								<?php echo get_sub_field('intro'); ?>
@@ -459,8 +461,9 @@ function drum_animate($column, $row, $script = false) {
 
 				<?php elseif( get_row_layout() == 'gallery' ): ?>
 				
+					<?php $section_id = get_sub_field('section_id'); ?>
 				
-					<section class="page-gallery">
+					<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="page-gallery">
 						<div class="row">
 							<div class="large-12 columns">
 								<h2><?php echo get_sub_field('title'); ?></h2>
@@ -511,8 +514,9 @@ function drum_animate($column, $row, $script = false) {
 					
 				<?php elseif( get_row_layout() == 'image_bg_section' ): ?>
 				
+					<?php $section_id = get_sub_field('section_id'); ?>
 				
-					<section class="page-bg-section no-padding">
+					<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="page-bg-section no-padding">
 						<div class="flex">
 							<?php
 							$section_one = get_sub_field('section_one');
