@@ -1,4 +1,4 @@
-<section class="home-blog">
+<section id="news" class="home-blog">
 	<div class="row">
 		<div class="large-12 columns">
 			<h2><?php echo get_field('blog_title', get_option( 'page_on_front' )); ?></h2>

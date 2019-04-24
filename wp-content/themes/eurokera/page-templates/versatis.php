@@ -13,7 +13,7 @@ get_header(); ?>
 	
 	<?php get_template_part('template-parts/page', 'slider'); ?>
 	
-	<section class="versatis-video text-center">
+	<section id="intro" class="versatis-video text-center">
 		<?php $video_poster = get_field('video_poster'); ?>
 <?php if (ICL_LANGUAGE_CODE == 'zh-hans') : ?>	
 	<?php
@@ -60,7 +60,7 @@ get_header(); ?>
 		</div>		
 	</section> <!-- photos-two-up -->
 		
-	<section class="versatis-animation">
+	<section id="concept" class="versatis-animation">
 		<div class="row">
 			<div class="large-12 columns">
 				<h2><?php echo get_field('animation_title'); ?></h2>
@@ -318,7 +318,7 @@ function getRotation(p1, p2) {
 	</section> <!-- full-width-photo -->
 
 
-	<section class="icon-blocks key-features">
+	<section id="features" class="icon-blocks key-features">
 		<div class="row">
 			<div class="large-12 columns">
 				<h2><?php echo get_field('key_features_title'); ?></h2>
@@ -350,7 +350,7 @@ function getRotation(p1, p2) {
 		</div>
 	</section> <!-- dedicated-team -->
 	
-	<section class="page-gallery versatis-gallery">
+	<section id="gallery" class="page-gallery versatis-gallery">
 		<div class="row">
 			<div class="large-12 columns">
 				<h2><?php echo get_field('gallery_title'); ?></h2>
@@ -398,7 +398,7 @@ function getRotation(p1, p2) {
 		</div> <!-- row -->
 	</section> <!-- versatis-gallerypage-gallery -->
 	
-	<section class="luxury">
+	<section id="inspiration" class="luxury">
 		<div class="large-8 medium-8 columns luxury-content">
 			<?php echo get_field('luxury_content'); ?>
 		</div>
@@ -415,11 +415,9 @@ function getRotation(p1, p2) {
 
 <?php do_action( 'foundationpress_after_content' ); ?>
 
-<?php get_footer(); ?>
-
 <script type="text/javascript">
     jQuery(document).ready(function() {
-        jQuery('.entry-content section a[href^="#"]').click(function() {
+        jQuery('.entry-content section a[href^="#"], .top-bar-right a[href^="#"]').click(function() {
             var target = jQuery(this.hash);
             if (target.length == 0) target = jQuery('a[name="' + this.hash.substr(1) + '"]');
             if (target.length == 0) target = jQuery('html');
@@ -428,3 +426,5 @@ function getRotation(p1, p2) {
         });
     });
 </script>
+
+<?php get_footer(); ?>

@@ -111,7 +111,13 @@
 				<?php get_template_part('template-parts/header-icon'); ?>
 			</div> <!-- top-bar-left -->
 			<div class="top-bar-right">
-				<?php foundationpress_main_menu(); ?>
+				<?php 
+				if (is_page_template('page-templates/versatis.php')) {
+					versatis_menu();
+				} else {
+					foundationpress_main_menu();
+				}
+				?>
 			</div> <!-- top-bar-right -->
 
 

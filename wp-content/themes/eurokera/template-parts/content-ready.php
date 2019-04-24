@@ -1,4 +1,4 @@
-<section class="ready">
+<section id="contact" class="ready">
 	<div class="row">
 		<div class="large-12 columns text-center">
 			<!-- <h2><?php _e('Ready To Build An Innovative Cooktop?','foundationpress'); ?></h2>

@@ -43,7 +43,7 @@ if ($rows[0]['acf_fc_layout'] != 'slider') : ?>
 
 <script type="text/javascript">
     jQuery(document).ready(function() {
-        jQuery('.entry-content section a[href^="#"]').click(function() {
+        jQuery('.entry-content section a[href^="#"], .top-bar-right a[href^="#"]').click(function() {
             var target = jQuery(this.hash);
             if (target.length == 0) target = jQuery('a[name="' + this.hash.substr(1) + '"]');
             if (target.length == 0) target = jQuery('html');
