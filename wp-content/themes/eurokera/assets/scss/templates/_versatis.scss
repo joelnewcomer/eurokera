@@ -96,3 +96,22 @@ section.luxury {
 		min-height: 700px;
 	}	
 }
+
+#versatis-animation {
+	svg {
+		overflow: visible;
+	}
+	#path {
+		fill: none;
+	}
+	#drag {
+		position: relative;
+		circle {
+			fill: none;
+		}
+	}
+	text {
+		font-size: 20px;
+		font-weight: bold;
+	}
+}

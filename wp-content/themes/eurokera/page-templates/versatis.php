@@ -65,17 +65,19 @@ get_header(); ?>
 			<div class="large-12 columns">
 				<h2><?php echo get_field('animation_title'); ?></h2>
 				<?php echo get_field('animation_intro'); ?>
-				<div id="versatis-animation" class="animation-container">
+				<div id="versatis-animation" class="animation-container" data-time="7am">
 					<?php get_template_part('assets/images/drag', 'line.svg'); ?><br />
 				</div>
 				<script>
 // Closest Point on Path
 // https://bl.ocks.org/mbostock/8027637
 
+jQuery( document ).ready(function() {
+	
 var DEG = 180 / Math.PI;
 
-var drag = document.querySelector("#draggable");
-var path = document.querySelector("#dotted-line");
+var drag = document.querySelector("#drag");
+var path = document.querySelector("#path");
 
 var pathLength = path.getTotalLength() || 0;
 var startPoint = path.getPointAtLength(0);
@@ -96,13 +98,40 @@ var draggable = new Draggable(drag, {
   }
 });
 
-TweenLite.set(".container", {
+TweenLite.set(".animation-container", {
   autoAlpha: 1
 });
 
 function pointModifier(point) {
   
   var p = closestPoint(path, pathLength, point);
+  
+  // Set time
+  if (point.x <= 150) {
+	  jQuery("#svg-time").text('7:00am');
+	  jQuery('#versatis-animation').data( "time", "7am" );
+  }
+  if (point.x > 150 && point.x < 250) {
+	  jQuery("#svg-time").text('10:00am');
+	  jQuery('#versatis-animation').data( "time", "10am" );
+  }
+  if (point.x > 350 && point.x < 700) {
+	  jQuery("#svg-time").text('12:00pm');
+	  jQuery('#versatis-animation').data( "time", "12pm" );
+  }
+  if (point.x > 750 && point.x < 1050) {
+	  jQuery("#svg-time").text('3:00pm');
+	  jQuery('#versatis-animation').data( "time", "3pm" );
+  }
+  if (point.x > 1100 && point.x < 1250) {
+	  jQuery("#svg-time").text('7:00pm');
+	  jQuery('#versatis-animation').data( "time", "7pm" );
+  }
+   if (point.x > 1300) {
+	  jQuery("#svg-time").text('8:30pm');
+	  jQuery('#versatis-animation').data( "time", "830pm" );
+  } 
+   // jQuery("#svg-time").text(point.x);
     
   TweenLite.set(drag, {
     rotation: p.rotation
@@ -163,7 +192,9 @@ function getRotation(p1, p2) {
   var dx = p2.x - p1.x;
   var dy = p2.y - p1.y;
   return Math.atan2(dy, dx);
-}					
+}
+
+});
 				</script>
 			</div>
 		</div>

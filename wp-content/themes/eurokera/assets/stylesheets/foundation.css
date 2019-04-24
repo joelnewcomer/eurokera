@@ -6106,6 +6106,21 @@ section.luxury {
     background-position: center center;
     min-height: 700px; }
 
+#versatis-animation svg {
+  overflow: visible; }
+
+#versatis-animation #path {
+  fill: none; }
+
+#versatis-animation #drag {
+  position: relative; }
+  #versatis-animation #drag circle {
+    fill: none; }
+
+#versatis-animation text {
+  font-size: 20px;
+  font-weight: bold; }
+
 /*!
  * animsition v4.0.2
  * A simple and easy jQuery plugin for CSS animated page transitions.
