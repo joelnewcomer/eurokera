@@ -245,4 +245,10 @@ section.luxury {
 	.mobile-sun {
 		margin: 0 20px;	
 	}
+	svg {
+		pointer-events: none;
+	}
+	& > div {
+		cursor: pointer;
+	}
 }

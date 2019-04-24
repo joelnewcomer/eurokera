@@ -6235,6 +6235,12 @@ section.luxury {
 .anim-mobile-nav .mobile-sun {
   margin: 0 20px; }
 
+.anim-mobile-nav svg {
+  pointer-events: none; }
+
+.anim-mobile-nav > div {
+  cursor: pointer; }
+
 /*!
  * animsition v4.0.2
  * A simple and easy jQuery plugin for CSS animated page transitions.

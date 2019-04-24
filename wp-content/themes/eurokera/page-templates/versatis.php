@@ -72,9 +72,62 @@ get_header(); ?>
 							<?php get_template_part('assets/images/dotted', 'line.svg'); ?>
 						</div>
 						<div class="show-for-small text-center anim-mobile-nav">
-							<?php get_template_part('assets/images/gold-arrow', 'left.svg'); ?>
+							<div class="anim-nav-left">
+								<?php get_template_part('assets/images/gold-arrow', 'left.svg'); ?>
+							</div>
 							<?php get_template_part('assets/images/sun.svg'); ?>
-							<?php get_template_part('assets/images/gold-arrow', 'right.svg'); ?>
+							<div class="anim-nav-right">
+								<?php get_template_part('assets/images/gold-arrow', 'right.svg'); ?>
+							</div>
+							<div class="svg-time">
+								7:00am
+							</div>
+							<script>
+								var times = ["7:00am", "10:00am", "12:00pm", '3:00pm', '7:00pm', '8:30pm'];
+								var arrayLength = times.length;
+								jQuery(".anim-nav-left").on( "click", function() {
+								  	currentTime = jQuery('.svg-time').html();
+									for (var i = 0; i < arrayLength; i++) {
+								    	if (times[i] == currentTime) {
+									    	var prevTimeIndex = i - 1;
+									    	if (prevTimeIndex >= 0) {
+										    	jQuery('.svg-time').html(times[prevTimeIndex]);
+										    	updateTime(times[prevTimeIndex]);
+										    }
+										    break;
+								    	}	
+								    }
+								});								
+								jQuery(".anim-nav-right").on( "click", function() {
+								  	currentTime = jQuery('.svg-time').html();
+									for (var i = 0; i < arrayLength; i++) {
+								    	if (times[i] == currentTime) {
+									    	var nextTimeIndex = i + 1;
+									    	if (nextTimeIndex <= 5) {
+										    	jQuery('.svg-time').html(times[nextTimeIndex]);
+										    	updateTime(times[nextTimeIndex]);
+										    }
+										    break;
+								    	}	
+								    }
+								});
+								
+								function updateTime(time) {
+									if (time == '7:00am') {
+									  	jQuery('#versatis-animation').attr('data-time', '7am');
+									} else if (time == '10:00am') {
+										jQuery('#versatis-animation').attr('data-time', '10am');
+									} else if (time == '12:00pm') {
+										jQuery('#versatis-animation').attr('data-time', '12pm');
+									} else if (time == '3:00pm') {
+										jQuery('#versatis-animation').attr('data-time', '3pm');
+									} else if (time == '7:00pm') {
+										jQuery('#versatis-animation').attr('data-time', '7pm');
+									} else {
+										jQuery('#versatis-animation').attr('data-time', '830pm');
+									}																											
+								}
+							</script>
 						</div>
 						<div class="versatis-text-container">
 							<div class="time-text time7am">
@@ -163,25 +216,25 @@ function pointModifier(point) {
   
   // Set time
   if (point.x <= 150) {
-	  jQuery("#svg-time").text('7:00am');
+	  jQuery(".svg-time").text('7:00am');
 	  jQuery('#versatis-animation').attr('data-time', '7am');
   } else if (point.x > 150 && point.x < 351) {
-	  jQuery("#svg-time").text('10:00am');
+	  jQuery(".svg-time").text('10:00am');
 	  jQuery('#versatis-animation').attr('data-time', "10am" ); 
   } else if (point.x > 350 && point.x < 751) {
-	  jQuery("#svg-time").text('12:00pm');
+	  jQuery(".svg-time").text('12:00pm');
 	  jQuery('#versatis-animation').attr('data-time', "12pm" );	  
   } else if (point.x > 750 && point.x < 1101) {
-	  jQuery("#svg-time").text('3:00pm');
+	  jQuery(".svg-time").text('3:00pm');
 	  jQuery('#versatis-animation').attr('data-time', "3pm" );  
   } else if (point.x > 1100 && point.x < 1301) {
-	  jQuery("#svg-time").text('7:00pm');
+	  jQuery(".svg-time").text('7:00pm');
 	  jQuery('#versatis-animation').attr('data-time', "7pm" );  
   } else {
-	  jQuery("#svg-time").text('8:30pm');
+	  jQuery(".svg-time").text('8:30pm');
 	  jQuery('#versatis-animation').attr('data-time', "830pm" );  
   } 
-   // jQuery("#svg-time").text(point.x);
+   // jQuery(".svg-time").text(point.x);
    
    
     
@@ -247,6 +300,9 @@ function getRotation(p1, p2) {
 }
 
 });
+
+  
+
 				</script>
 			</div>
 		</div>

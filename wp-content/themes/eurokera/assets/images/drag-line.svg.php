@@ -11,6 +11,6 @@
     
     <g id="drag">
       <circle pointer-events="visible" class="oval" cx="150" cy="150" r="150" filter="url(#sun)" />
-      <text id="svg-time" x="8.5%" y="40%" fill="#e9a10b">7:00am</text>
+      <text class="svg-time" x="8.5%" y="40%" fill="#e9a10b">7:00am</text>
     </g>
   </svg>
