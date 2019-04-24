@@ -100,10 +100,16 @@ section.luxury {
 #versatis-animation {
 	position: relative;
 	margin: 60px 0;
+	@media only screen and (max-width: 40.063em) {
+		margin: 20px 0;	
+	}
 	#versatis-svg {
 		overflow: visible;
 		position: relative;
 		z-index: 2;
+		@media only screen and (max-width: 40.063em) {
+			display: none;	
+		}
 	}
 	#path {
 		fill: none;
@@ -147,16 +153,26 @@ section.luxury {
 			@media only screen and (min-width: 40.063em) {
 				max-width: 60%;
 			}
+			@media only screen and (max-width: 40.063em) {
+				display: none;			
+			}
 			p {
 				font-weight: bold;
 				color: $orange;
 				font-size: 24px;
 				text-align: center;
+				@media only screen and (max-width: 40.063em) {
+					margin: 0 0 4px 0;
+					font-size: 18px;	
+				}
 			}
 		}
 	}
 	.versatis-tops {
 		margin-top: 40px;
+		@media only screen and (max-width: 40.063em) {
+			margin-top: 16px;	
+		}
 		svg {
 			max-width: 100%;
 			@media only screen and (max-width: 40.063em) {
@@ -179,36 +195,42 @@ section.luxury {
 		.time-text.time7am, .versatis-top.time7am {
 			position: relative;
 			opacity: 1;
+			display: block;
 		}	
 	}
 	&[data-time="10am"] {
 		.time-text.time10am, .versatis-top.time10am {
 			position: relative;
 			opacity: 1;
+			display: block;
 		}	
 	}	
 	&[data-time="12pm"] {
 		.time-text.time12pm, .versatis-top.time12pm {
 			position: relative;
 			opacity: 1;
+			display: block;			
 		}		
 	}	
 	&[data-time="3pm"] {
 		.time-text.time3pm, .versatis-top.time3pm {
 			position: relative;
 			opacity: 1;
+			display: block;			
 		}	
 	}	
 	&[data-time="7pm"] {
 		.time-text.time7pm, .versatis-top.time7pm {
 			position: relative;
 			opacity: 1;
+			display: block;			
 		}		
 	}	
 	&[data-time="830pm"] {
 		.time-text.time830pm, .versatis-top.time830pm {
 			position: relative;
 			opacity: 1;
+			display: block;			
 		}		
 	}				
 }
