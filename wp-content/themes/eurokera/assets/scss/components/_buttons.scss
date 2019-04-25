@@ -2,6 +2,10 @@
 	position: relative;
 }
 
+.faux-button {
+	cursor: pointer;
+}
+
 .button a, input.button, .faux-button {
 	display: inline-block;
 	position: relative;
@@ -166,7 +170,7 @@ input.button:hover {
 	}
 }
 
-.button.small a {
+.button.small a, .faux-button.small {
 	padding: 8px 20px;
 	font-size: 16px;
 	text-transform: none; 

@@ -369,3 +369,21 @@ p.small {
 .gray {
 	color: $gray !important;
 }
+
+@media only screen and (max-width: 40.063em) {
+	span.mobile-read-more {
+		display: none;
+	}
+}
+
+.mrm-button {
+	margin-left: 8px;
+}
+
+.mrm-expand.active + .mobile-read-more {
+	display: inline;
+}
+
+.mrm-expand.active .mrm-button {
+	display: none;
+}

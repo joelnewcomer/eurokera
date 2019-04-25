@@ -284,3 +284,9 @@ function custom_excerpt_length( $length ) {
 	return 20;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+// Add mobile-read-more shortcode
+function mobile_read_more( $atts, $content = null ) {
+	return '<span class="show-for-small mrm-expand"><span class="small faux-button mrm-button">Read More</span></span><span class="mobile-read-more">' . $content . '</span>';
+}
+add_shortcode ('mobile-read-more', 'mobile_read_more');

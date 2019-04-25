@@ -265,3 +265,8 @@ jQuery( window ).load(function() {
 		checkScroll();
     });
 });			
+
+// Mobile Read More buttons
+jQuery(document).on( "click", ".mrm-button", function() {
+	jQuery(this).parent().addClass('active');
+});

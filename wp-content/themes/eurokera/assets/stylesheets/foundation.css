@@ -2226,6 +2226,19 @@ p.small {
 .gray {
   color: #63666A !important; }
 
+@media only screen and (max-width: 40.063em) {
+  span.mobile-read-more {
+    display: none; } }
+
+.mrm-button {
+  margin-left: 8px; }
+
+.mrm-expand.active + .mobile-read-more {
+  display: inline; }
+
+.mrm-expand.active .mrm-button {
+  display: none; }
+
 @media only screen and (min-width: 40.063em) {
   .top-bar-right {
     margin-top: 33px; } }
@@ -2706,6 +2719,9 @@ body#tinymce {
 .button {
   position: relative; }
 
+.faux-button {
+  cursor: pointer; }
+
 .button a, input.button, .faux-button {
   display: inline-block;
   position: relative;
@@ -2841,7 +2857,7 @@ input.button:hover {
     -webkit-transform: scale3d(0.8, 0.8, 1);
     transform: scale3d(0.8, 0.8, 1); }
 
-.button.small a {
+.button.small a, .faux-button.small {
   padding: 8px 20px;
   font-size: 16px;
   text-transform: none; }
