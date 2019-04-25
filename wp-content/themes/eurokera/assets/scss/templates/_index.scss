@@ -69,32 +69,36 @@ body.blog .featured-image, body.category .featured-image, body.single .featured-
 }
 
 body.blog #page, body.category #page {
-	padding-top: 70px;
+	padding-top: 60px;
 	padding-bottom: 45px;
 	@media only screen and (max-width: 40.063em) {
-		padding-top: 30px;
+		padding-top: 20px;
 		padding-bottom: 15px;
 	}
 }
 
 .blog-cats {
-	margin-bottom: 40px;
+	margin-bottom: 24px;
 	@media only screen and (max-width: 40.063em) {
 		margin-bottom: 10px;	
 	}
-	a {
+	span.filters-label {
+		text-transform: uppercase;
+	}
+	a, span.filters-label {
 		display: inline-block;
-		padding: 4px 30px;
-		font-size: 28px;
+		padding: 4px 12px;
+		font-size: 18px;
 		@media only screen and (max-width: 40.063em) {
-			font-size: 22px;
-			padding: 4px 20px;	
+			font-size: 16px;
+			padding: 4px 8px;	
 		}
 		color: #5e6367;
 		&.active {
 			color: $primary-color;
 			cursor: default;
 			pointer-events: none;
+			font-weight: bold;
 		}
 	}
 }
