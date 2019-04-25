@@ -48,10 +48,10 @@ if ($rows[0]['acf_fc_layout'] != 'slider') : ?>
             if (target.length == 0) target = jQuery('a[name="' + this.hash.substr(1) + '"]');
             if (target.length == 0) target = jQuery('html');
             jQuery('html, body').animate({ scrollTop: target.offset().top - 70}, 500);
+			if(jQuery(window).width()<641) {
+				jQuery('ul.slimmenu').fadeOut();
+			}
             return false;
         });
-        if(jQuery(window).width()<641) {
-        	jQuery('ul.slimmenu').fadeOut();
-        }
     });
 </script>

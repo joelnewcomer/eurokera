@@ -422,7 +422,10 @@ function getRotation(p1, p2) {
             if (target.length == 0) target = jQuery('a[name="' + this.hash.substr(1) + '"]');
             if (target.length == 0) target = jQuery('html');
             jQuery('html, body').animate({ scrollTop: target.offset().top - 70}, 500);
-            return false;
+			if(jQuery(window).width()<641) {
+				jQuery('ul.slimmenu').fadeOut();
+			} 
+			return false;
         });
     });
 </script>
