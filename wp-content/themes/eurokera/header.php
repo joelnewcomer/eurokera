@@ -109,6 +109,11 @@
 		<nav id="site-navigation" class="main-navigation top-bar row" role="navigation">
 			<div class="top-bar-left">
 				<?php get_template_part('template-parts/header-icon'); ?>
+				<?php
+				if (get_field('menu') == 'none' || is_page_template('page-templates/about.php')) {
+					echo '<p class="tagline">' . get_field('slider_header', get_option( 'page_on_front' )) . '</p>';	
+				}	
+				?>
 			</div> <!-- top-bar-left -->
 			<div class="top-bar-right">
 				<?php 
@@ -118,7 +123,7 @@
 					fireplaces_menu();
 				} elseif (get_field('menu') == 'specialties') {
 					specialties_menu();
-				} elseif (get_field('menu') == 'none') {
+				} elseif (get_field('menu') == 'none' || is_page_template('page-templates/about.php')) {
 					// do nothing	
 				} else {
 					foundationpress_main_menu();

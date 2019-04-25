@@ -2258,6 +2258,7 @@ p.small {
 
 .top-bar-left a.logo {
   display: block;
+  float: left;
   margin: 27px 0 18px 15px; }
   @media only screen and (max-width: 1020px) {
     .top-bar-left a.logo {
@@ -2434,11 +2435,12 @@ body.admin-bar:not(.home) .header-wrapper {
 
 @media only screen and (max-width: 1020px) {
   .header-wrapper + section.container {
-    margin-top: 101px; } }
+    /* margin-top: 101px; */
+    margin-top: 84px; } }
 
 @media only screen and (max-width: 720px) {
   .header-wrapper + section.container {
-    margin-top: 73px; } }
+    margin-top: 66px; } }
 
 @media only screen and (max-width: 40.063em) {
   .header-wrapper + section.container {
@@ -2514,6 +2516,26 @@ li.wpml-ls-menu-item.menu-item-has-children {
   li.wpml-ls-menu-item.menu-item-has-children > a {
     padding-left: 34px;
     background: url(../images/down-arrow.svg) 10px center no-repeat; }
+
+p.tagline {
+  display: block;
+  float: left;
+  font-size: 34px;
+  margin: 34px 0 0 30px; }
+  @media only screen and (max-width: 900px) {
+    p.tagline {
+      font-size: 28px; } }
+  @media only screen and (max-width: 800px) {
+    p.tagline {
+      margin: 26px 0 0 30px; } }
+  @media only screen and (max-width: 725px) {
+    p.tagline {
+      font-size: 22px;
+      margin: 20px 0 0 30px; } }
+  @media only screen and (max-width: 640px) {
+    p.tagline {
+      font-size: 15px;
+      margin: 19px 0 0 0; } }
 
 #footer-container {
   display: block;
