@@ -158,6 +158,7 @@ function wp_strip_header_tags( $excerpt='' ) {
 		$excerpt = apply_filters('the_content', $excerpt);
 		$excerpt = str_replace(']]>', ']]&gt;', $excerpt);
 	}
+	$excerpt = str_replace("&nbsp;", "", $excerpt);
 	$regex = '#(<h([1-6])[^>]*>)\s?(.*)?\s?(<\/h\2>)#';
 	$excerpt = preg_replace($regex,'', $excerpt);
 	$excerpt_length = apply_filters('excerpt_length', 55);
