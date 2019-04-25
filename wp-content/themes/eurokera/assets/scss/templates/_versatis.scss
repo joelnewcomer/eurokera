@@ -184,6 +184,8 @@ section.luxury {
 		}
 	}
 	.versatis-top {
+		background: url(../images/versatis-top.jpg) center center no-repeat;
+		background-size: cover !important;
 		opacity: 0;
 		position: absolute;
 		transition: opacity .35s;

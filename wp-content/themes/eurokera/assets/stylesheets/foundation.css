@@ -6252,6 +6252,9 @@ section.luxury {
     #versatis-animation .versatis-tops p {
       margin: 0; }
   #versatis-animation .versatis-top {
+    background: url(../images/versatis-top.jpg) center center no-repeat;
+    -webkit-background-size: cover !important;
+            background-size: cover !important;
     opacity: 0;
     position: absolute;
     -webkit-transition: opacity .35s;
