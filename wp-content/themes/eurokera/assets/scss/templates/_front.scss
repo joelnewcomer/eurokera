@@ -79,10 +79,10 @@ section.most-popular {
 	.most-popular-block {
 		background: #ececeb;
 		position: relative;
-		width: calc(25% - 16px);
+		width: calc(25% - 17px);
 		margin-bottom: 16px;
 		@media only screen and (max-width: 40.063em) {
-			width: calc(50% - 16px);	
+			width: calc(50% - 17px);	
 		}
 		p {
 			color: #63666A;
@@ -107,7 +107,13 @@ section.most-popular {
 
 .flex {
 	display: flex;
-	flex-flow: row;
+	flex-flow: wrap;
+}
+
+@media only screen and (min-width: 40.063em) {
+	.flex-medium-up {
+		display: flex;
+	}
 }
 
 .flex-no-wrap {

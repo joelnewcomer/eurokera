@@ -67,7 +67,7 @@ get_header(); ?>
 		</div>
 		<?php if(get_field('all_solutions')): ?>
 			<?php while(has_sub_field('all_solutions')): ?>
-				<div class="row solution-row flex">
+				<div class="row solution-row flex-medium-up">
 					<?php $src = wp_get_attachment_image_src( get_sub_field('image'), 'width=640&height=350&crop=1'); ?>
 					<a href="<?php echo get_sub_field('link'); ?>" class="large-6 large-push-6 medium-push-6 medium-6 columns solution-photo" style="background:url(<?php echo $src[0]; ?>) center center no-repeat;">
 					</a>

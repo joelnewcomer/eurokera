@@ -3515,13 +3515,13 @@ section.most-popular {
   section.most-popular .most-popular-block {
     background: #ececeb;
     position: relative;
-    width: -webkit-calc(25% - 16px);
-    width: calc(25% - 16px);
+    width: -webkit-calc(25% - 17px);
+    width: calc(25% - 17px);
     margin-bottom: 16px; }
     @media only screen and (max-width: 40.063em) {
       section.most-popular .most-popular-block {
-        width: -webkit-calc(50% - 16px);
-        width: calc(50% - 16px); } }
+        width: -webkit-calc(50% - 17px);
+        width: calc(50% - 17px); } }
     section.most-popular .most-popular-block p {
       color: #63666A;
       font-size: 18px; }
@@ -3542,11 +3542,16 @@ section.most-popular {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-flow: row;
-      -ms-flex-flow: row;
-          flex-flow: row; }
+  -webkit-flex-flow: wrap;
+      -ms-flex-flow: wrap;
+          flex-flow: wrap; }
+
+@media only screen and (min-width: 40.063em) {
+  .flex-medium-up {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; } }
 
 .flex-no-wrap {
   display: -webkit-box;
