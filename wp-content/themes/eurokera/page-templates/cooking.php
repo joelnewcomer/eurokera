@@ -164,7 +164,7 @@ get_header(); ?>
 			<h2 class="orange"><?php echo get_field('blog_title', get_option( 'page_on_front' )); ?></h2>
 		</div>
 	</div>
-	<div class="blog-row row flex">
+	<div class="blog-row row flex-no-wrap">
 		<?php
 		$the_query = new WP_Query(
 			array( 'post_type' => 'post', 'posts_per_page' => '3')
