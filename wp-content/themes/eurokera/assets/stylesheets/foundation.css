@@ -3417,6 +3417,9 @@ body.blog #page, body.category #page {
   text-align: center;
   margin-top: 24px; }
 
+.slider-container {
+  position: relative; }
+
 .home-slider .slide-inner {
   height: 683px;
   width: 100%;
@@ -3440,8 +3443,7 @@ body.blog #page, body.category #page {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
-          justify-content: center;
-  padding-top: 135px; }
+          justify-content: center; }
   .home-slider .home-slider-overlay h1 {
     color: #fff;
     max-width: 65%;
