@@ -110,7 +110,7 @@
 			<div class="top-bar-left">
 				<?php get_template_part('template-parts/header-icon'); ?>
 				<?php
-				if (get_field('menu') == 'none' || is_page_template('page-templates/about.php')) {
+				if (get_field('menu') == 'none' || is_page_template('page-templates/about.php') && !is_page_template('page-templates/front.php')) {
 					echo '<p class="tagline">' . get_field('slider_header', get_option( 'page_on_front' )) . '</p>';	
 				}	
 				?>
@@ -123,7 +123,7 @@
 					fireplaces_menu();
 				} elseif (get_field('menu') == 'specialties') {
 					specialties_menu();
-				} elseif (get_field('menu') == 'none' || is_page_template('page-templates/about.php')) {
+				} elseif (get_field('menu') == 'none' || is_page_template('page-templates/about.php') || is_page_template('page-templates/front.php')) {
 					// do nothing	
 				} else {
 					foundationpress_main_menu();
