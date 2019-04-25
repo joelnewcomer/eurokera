@@ -3527,6 +3527,12 @@ section.most-popular {
       -ms-flex-flow: wrap;
           flex-flow: wrap; }
 
+.flex-no-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
 section.all-solutions {
   padding: 40px 0; }
   section.all-solutions .solutions-intro {
