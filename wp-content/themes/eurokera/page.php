@@ -50,5 +50,8 @@ if ($rows[0]['acf_fc_layout'] != 'slider') : ?>
             jQuery('html, body').animate({ scrollTop: target.offset().top - 70}, 500);
             return false;
         });
+        if(jQuery(window).width()<641) {
+        	jQuery('ul.slimmenu').fadeOut();
+        }
     });
 </script>
