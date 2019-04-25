@@ -110,7 +110,7 @@
 			<div class="top-bar-left">
 				<?php get_template_part('template-parts/header-icon'); ?>
 				<?php
-				if (get_field('menu') == 'none' || is_page_template('page-templates/about.php') || is_page_template('page-templates/page-contact.php') || is_page_template('page-templates/library.php') || is_home() || is_archive() || is_singular('post') && !is_page_template('page-templates/front.php')) {
+				if (get_field('menu') == 'none' || is_page_template('page-templates/about.php') || is_page_template('page-templates/page-contact.php') || is_page_template('page-templates/library.php') || is_home() || is_archive() || is_singular('post') || is_page_template('page-templates/front.php')) {
 					echo '<p class="tagline">' . get_field('slider_header', get_option( 'page_on_front' )) . '</p>';	
 				}	
 				?>

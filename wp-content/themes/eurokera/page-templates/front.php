@@ -21,9 +21,9 @@ get_header(); ?>
 					<?php endwhile;
 				endif; ?>
 		    </ul>
-		    <div class="home-slider-overlay text-center">
+		    <!-- <div class="home-slider-overlay text-center">
 			    <h1><?php echo get_field('slider_header'); ?></h1>
-		    </div>
+		    </div> -->
 		</div> <!-- slider-container -->
 	</section> <!-- home-slider -->
 	
