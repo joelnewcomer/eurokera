@@ -127,7 +127,7 @@
       <path id="Path_24181" data-name="Path 24181" d="M546.2,1410.332a3.671,3.671,0,0,0,1.271,5.031h0a3.67,3.67,0,0,0,5.072-1.094l18.509-29.815a3.673,3.673,0,0,0-1.271-5.033h0a3.669,3.669,0,0,0-5.072,1.095Z" transform="translate(-512.768 -1312.479)" fill="none" stroke="#51504e" stroke-miterlimit="10" stroke-width="1.001"/>
     </g>
     <path id="Path_24182" data-name="Path 24182" d="M947.3,1511.7l-27.485-47.189-30.977-53.185a3.976,3.976,0,0,0-7.277.988,32.765,32.765,0,0,0,3.366,24.85l17.983,30.874a5.461,5.461,0,0,0,7.467,1.97l27.486,47.189a5.46,5.46,0,1,0,9.437-5.5Z" transform="translate(171.878 32.33)" fill="none" stroke="#51504e" stroke-miterlimit="10" stroke-width="1"/>
-    <g id="animate" transform="translate(306.643 1394.377)">
+    <g class="animate" transform="translate(306.643 1394.377)">
       <circle id="Ellipse_1060" data-name="Ellipse 1060" cx="66.765" cy="66.765" r="66.765" fill="#b93430" opacity="0.2"/>
       <circle id="Ellipse_1061" data-name="Ellipse 1061" cx="50.873" cy="50.873" r="50.873" transform="translate(15.892 15.892)" fill="#b93430" opacity="0.3"/>
       <circle id="Ellipse_1062" data-name="Ellipse 1062" cx="20.899" cy="20.899" r="20.899" transform="translate(45.865 45.865)" fill="#b93430"/>

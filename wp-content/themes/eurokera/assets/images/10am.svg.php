@@ -577,7 +577,7 @@
       <rect id="Rectangle_895" data-name="Rectangle 895" width="1.934" height="0.682" transform="translate(54.698 102.765) rotate(20.636)" fill="#51504e"/>
     </g>
     <path id="Path_11180" data-name="Path 11180" d="M890.455,556.149l-7.669,7.669V548.48Z" transform="translate(178.427 48.982)" fill="#51504e"/>
-    <g id="animate" transform="translate(1107.553 528.093)">
+    <g class="animate" transform="translate(1107.553 528.093)">
       <path id="Path_11181" data-name="Path 11181" d="M945.557,494.488a26.7,26.7,0,1,1-26.7,26.7,26.7,26.7,0,0,1,26.7-26.7" transform="translate(-918.854 -494.488)" fill="#ff6a00" opacity="0.3"/>
       <circle id="Ellipse_617" data-name="Ellipse 617" cx="11.086" cy="11.086" r="11.086" transform="translate(15.617 15.617)" fill="#ff6a00"/>
       <circle id="Ellipse_618" data-name="Ellipse 618" cx="20.347" cy="20.347" r="20.347" transform="translate(6.356 6.356)" fill="#ff6a00" opacity="0.5"/>
