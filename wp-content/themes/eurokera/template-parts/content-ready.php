@@ -18,15 +18,14 @@
 			*/
 			$field_values = "";
 			$solution = get_sub_field('auto_populate');
-			echo $solution;
 			if ($solution != '') {
-				$field_values = " field_values='solution=" . _e($solution,'foundationpress') . "'";
+				$field_values = " field_values='solution=" . _($solution,'foundationpress') . "'";
 			} else {
 				if (is_page_template('page-templates/versatis.php')) {
-					$field_values = " field_values='solution=" . _e('Versâtis','foundationpress') . "'";
+					$field_values = " field_values='solution=" . _('Versâtis','foundationpress') . "'";
 				}
 				if (is_page_template('page-templates/cooking.php')) {
-					$field_values = " field_values='solution=" . _e('Professional Cooking','foundationpress') . "'";
+					$field_values = " field_values='solution=" . _('Professional Cooking','foundationpress') . "'";
 				}
 			}
 			?>
