@@ -377,7 +377,12 @@ section.about-video {
 		}
 	}
 	.about-video-content {
-		padding-top: 16px;
+		h2 {
+			font-size: 38px;
+		}
+		@media only screen and (max-width: 40.063em) {
+			padding-top: 16px;
+		}
 	}
 }
 
