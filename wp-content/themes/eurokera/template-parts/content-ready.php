@@ -18,7 +18,6 @@
 			*/
 			$field_values = "";
 			$solution = get_sub_field('auto_populate');
-			echo $solution;
 			if ($solution != '') {
 				$field_values = " field_values='solution=" . $solution . "'";
 			} else {
@@ -29,7 +28,6 @@
 					$field_values = " field_values='solution=" . _('Professional Cooking','foundationpress') . "'";
 				}
 			}
-			echo $field_values;
 			?>
 			<?php echo do_shortcode('[gravityform id="1" title="false" description="false"' . $field_values . ']'); ?>
 		</div>
