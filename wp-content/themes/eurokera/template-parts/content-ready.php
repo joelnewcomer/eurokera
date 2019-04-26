@@ -18,6 +18,7 @@
 			*/
 			$field_values = "";
 			$solution = get_sub_field('auto_populate');
+			echo $solution;
 			if ($solution != '') {
 				$field_values = " field_values='solution=" . _e($solution,'foundationpress') . "'";
 			} else {
