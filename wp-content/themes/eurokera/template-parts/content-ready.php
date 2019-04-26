@@ -28,6 +28,12 @@
 				if (is_page_template('page-templates/cooking.php')) {
 					$field_values = " field_values='solution=" . __('Professional Cooking','foundationpress') . "'";
 				}
+				if (is_page_template('page-templates/cooktop-makers.php')) {
+					$field_values = " field_values='solution=" . __('Professional Cooking','foundationpress') . "'";
+				}
+				if (is_page_template('page-templates/cooktop-users.php')) {
+					$field_values = " field_values='solution=" . __('Home Cooking','foundationpress') . "'";
+				}				
 			}
 			?>
 			<?php echo do_shortcode('[gravityform id="1" title="false" description="false"' . $field_values . ']'); ?>
