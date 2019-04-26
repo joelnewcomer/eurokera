@@ -6266,7 +6266,8 @@ section.luxury {
             margin: 0 0 4px 0;
             font-size: 18px; } }
   #versatis-animation .versatis-tops {
-    margin-top: 40px; }
+    margin-top: 40px;
+    border: solid 1px #ff8200; }
     @media only screen and (max-width: 40.063em) {
       #versatis-animation .versatis-tops {
         margin-top: 16px; } }
@@ -6276,7 +6277,8 @@ section.luxury {
         #versatis-animation .versatis-tops svg {
           height: 170px; } }
     #versatis-animation .versatis-tops p {
-      margin: 0; }
+      margin: 0;
+      color: #ff8200; }
   #versatis-animation .versatis-top {
     background: url(../images/versatis-top.jpg) center center no-repeat;
     -webkit-background-size: cover !important;
