@@ -291,7 +291,7 @@ get_header(); ?>
 				</p>
 			</div>
 		</div>
-		<div class="button gray"><a href="<?php echo get_field('wm_page'); ?>"><?php _e('Worldwide Manufacturing','foundationpress'); ?></a></div>
+		<!-- <div class="button gray"><a href="<?php echo get_field('wm_page'); ?>"><?php _e('Worldwide Manufacturing','foundationpress'); ?></a></div> -->
 	</div> <!-- reach-overlay -->
 </section>
 
