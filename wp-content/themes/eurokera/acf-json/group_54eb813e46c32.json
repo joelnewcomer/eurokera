@@ -2858,6 +2858,7 @@
                                 "class": "",
                                 "id": ""
                             },
+                            "wpml_cf_preferences": 0,
                             "choices": {
                                 "Home Cooking": "Home Cooking",
                                 "Fireplaces": "Fireplaces",
@@ -2866,11 +2867,10 @@
                                 "Professional Cooking": "Professional Cooking"
                             },
                             "default_value": [],
-                            "allow_null": 0,
+                            "allow_null": 1,
                             "multiple": 0,
                             "ui": 0,
                             "return_format": "value",
-                            "wpml_cf_preferences": 0,
                             "ajax": 0,
                             "placeholder": ""
                         }
@@ -2910,5 +2910,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1556284096
+    "modified": 1556284597
 }
