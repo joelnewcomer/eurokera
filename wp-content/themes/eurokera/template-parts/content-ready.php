@@ -17,14 +17,14 @@
 			Professional Cooking
 			*/
 			$field_values = "";
-			$solution = _(get_sub_field('auto_populate', 'foundationpress');
+			$solution = _(get_sub_field('auto_populate', 'foundationpress'));
 			echo $solution;
 			if ($solution != '') {
 				$field_values = " field_values='solution=" . $solution . "'";
 			} else {
-				$solution = _('Versâtis','foundationpress');
-				echo $solution
 				if (is_page_template('page-templates/versatis.php')) {
+					$solution = _('Versâtis','foundationpress');
+					echo $solution;
 					$field_values = " field_values='solution=" . _('Versâtis','foundationpress') . "'";
 				}
 				if (is_page_template('page-templates/cooking.php')) {
