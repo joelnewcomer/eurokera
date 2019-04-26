@@ -193,9 +193,7 @@ section.luxury {
 		.animate {
 			animation: Pulsate 2s linear infinite;
 		}
-		svg {
-			border: solid 1px $orange;
-		}
+		border: solid 1px $orange;
 	}
 	&[data-time="7am"] {
 		.time-text.time7am, .versatis-top.time7am {
