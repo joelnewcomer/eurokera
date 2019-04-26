@@ -4864,6 +4864,8 @@ section.about-video {
     section.about-video a.about-video svg {
       width: 60px;
       height: 60px; }
+  section.about-video .about-video-content {
+    padding-top: 16px; }
 
 .flex-center {
   display: -webkit-box;

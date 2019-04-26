@@ -205,7 +205,7 @@ get_header(); ?>
 	</a>
 <?php endif; ?>			
 		</div>
-		<div class="large-8 medium-8 columns">
+		<div class="large-8 medium-8 columns about-video-content">
 			<?php echo get_field('video_video_content'); ?>
 		</div>
 </section>
