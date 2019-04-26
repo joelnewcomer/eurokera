@@ -147,7 +147,7 @@
 					
 
 						<?php
-						$pro_cooking_page = get_page_by_path('cooking/commercial');
+						$pro_cooking_page = get_page_by_path('cooking/professional');
 						$icl_pro_cooking_page_id = icl_object_id($pro_cooking_page->ID, 'page', true);
 						$pro_cooking_url = get_permalink($icl_pro_cooking_page_id);
 						?>	
