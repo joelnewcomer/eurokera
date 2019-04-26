@@ -136,6 +136,21 @@ foreach ($langCodes as $langCode) {
 
 <?php do_action( 'foundationpress_before_closing_body' ); ?>
 
+<script>
+// If Contact section exists on page, hijack Contact link and make it scroll
+if(jQuery('#contact').length) {
+	jQuery(document).on( "click", 'a[href="<?php echo get_site_url(); ?>/contact/"]', function(e) {
+		e.preventDefault();
+        var target = jQuery('#contact');
+        jQuery('html, body').animate({ scrollTop: target.offset().top - 70}, 500);
+		if(jQuery(window).width()<641) {
+		 jQuery('ul.slimmenu').fadeOut();
+		}
+        return false;		
+	});	
+}
+</script>
+
 <script type="text/javascript">
 _linkedin_partner_id = "576260";
 window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];

@@ -201,6 +201,8 @@ get_header(); ?>
 	</div> <!-- row --> 
 </section> <!-- home-blog -->
 
+<?php echo get_template_part('template-parts/content','ready'); ?>
+
 <script>
 	jQuery( window ).load(function() {
 		jQuery('.match-quote').matchHeight();

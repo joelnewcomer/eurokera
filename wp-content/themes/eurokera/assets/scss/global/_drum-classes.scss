@@ -387,3 +387,8 @@ p.small {
 .mrm-expand.active .mrm-button {
 	display: none;
 }
+
+.mrm-expand .faux-link {
+	color: $orange;
+	cursor: pointer;
+}

@@ -7,7 +7,13 @@
 			?>
 			<div class="button reverse"><a href="<?php echo get_permalink($icl_contact_page_id); ?>" id="work-together-btn"><?php _e('Let\'s Work Together','foundationpress'); ?></a></div> -->
 			<h2><?php _e('Let\'s Work Together','foundationpress'); ?></h2>
-			<?php echo do_shortcode('[gravityform id="1" title="false" description="false"]'); ?>
+			<?php
+			$field_values = "";
+			if (is_page_template('page-templates/versatis.php')) {
+				$field_values = " field_values='solution=Versâtis'";
+			}
+			?>
+			<?php echo do_shortcode('[gravityform id="1" title="false" description="false"' . $field_values . ']'); ?>
 		</div>
 	</div>
 </section>
