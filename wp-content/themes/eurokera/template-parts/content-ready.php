@@ -18,8 +18,9 @@
 			*/
 			$field_values = "";
 			$solution = get_sub_field('auto_populate');
+			echo $solution;
 			if ($solution != '') {
-				$field_values = " field_values='solution=" . _($solution,'foundationpress') . "'";
+				$field_values = " field_values='solution=" . $solution . "'";
 			} else {
 				if (is_page_template('page-templates/versatis.php')) {
 					$field_values = " field_values='solution=" . _('Versâtis','foundationpress') . "'";
