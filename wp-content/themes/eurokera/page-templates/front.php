@@ -41,7 +41,7 @@ get_header(); ?>
 				<h2 class="orange"><?php echo get_field('most_popular_title'); ?></h2>
 			</div>
 		</div>
-		<div class="row flex">
+		<div class="row flex most-popular-blocks">
 			<?php if(get_field('most_popular')): ?>
 				<?php while(has_sub_field('most_popular')): ?>
 					<a href="<?php echo get_sub_field('link'); ?>" class="large-3 medium-3 small-6 columns most-popular-block">

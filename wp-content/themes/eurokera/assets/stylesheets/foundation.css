@@ -3499,11 +3499,11 @@ section.most-popular {
   padding: 40px 0; }
   section.most-popular h2 {
     margin-bottom: 40px; }
-  section.most-popular .columns {
+  section.most-popular .most-popular-blocks .columns {
     padding: 0 0 58px 0;
     margin: 0 8px; }
     @media only screen and (max-width: 40.063em) {
-      section.most-popular .columns {
+      section.most-popular .most-popular-blocks .columns {
         padding: 0 0 18px 0; } }
   section.most-popular h3 {
     background: #63666A;
