@@ -26,7 +26,7 @@
 					$field_values = " field_values='solution=" . __('Versâtis','foundationpress') . "'";
 				}
 				if (is_page_template('page-templates/cooking.php')) {
-					$field_values = " field_values='solution=" . __('Professional Cooking','foundationpress') . "'";
+					$field_values = " field_values='solution=" . __('Home Cooking','foundationpress') . "'";
 				}
 				if (is_page_template('page-templates/cooktop-makers.php')) {
 					$field_values = " field_values='solution=" . __('Professional Cooking','foundationpress') . "'";
