@@ -16,6 +16,7 @@ $tabs_counter = 1;
 global $row_counter;
 $row_counter = 1;
 $background = "";
+$section_id = '';
 
 function drum_animate($column, $row, $script = false) {
 	$animate = get_sub_field('column_' . $column . '_animation_animate');
@@ -70,7 +71,7 @@ function drum_animate($column, $row, $script = false) {
 	        	?>
 				<!-- One Column Parallax -->
 	        	<?php if (get_sub_field('parallax') ) : ?>
-	        		<?php echo $before_parallax_prepend; ?><div <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="parallax-window" data-paroller-factor="0.5" style="background: url('<?php echo wp_get_attachment_image_url(get_sub_field("parallax_image"), $size = "full"); ?>');"><?php echo $before_parallax_append; ?>
+	        		<?php echo $before_parallax_prepend; ?><div <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="parallax-window" data-paroller-factor="0.5" style="background: url('<?php echo wp_get_attachment_image_url(get_sub_field("parallax_image"), $size = "full"); ?>');"><?php echo $before_parallax_append; ?>
 						<div class="row">
 							<div class="large-12 columns entry-content">
 								<?php echo get_sub_field('one_column'); ?>
@@ -80,7 +81,7 @@ function drum_animate($column, $row, $script = false) {
 
 				<!-- One Column Not Parallax -->
 	        	<?php else : ?>
-	        		<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+	        		<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 		        		<div class="row">
 		        			<div class="large-12 columns entry-content <?php echo drum_animate('1', $row_counter); ?>">
 		        				<?php echo get_sub_field('one_column'); ?>
@@ -104,7 +105,7 @@ function drum_animate($column, $row, $script = false) {
 
 	        	<!-- Two Columns Parallax -->
 	        	<?php if (get_sub_field('parallax') ) : ?>
-	        		</div></div><div <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="parallax-window" data-parallax="scroll" data-image-src="<?php echo wp_get_attachment_image_url(get_sub_field('parallax_image'), $size = 'full'); ?>"><div class="row"><div class="large-12 columns">
+	        		</div></div><div <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="parallax-window" data-parallax="scroll" data-image-src="<?php echo wp_get_attachment_image_url(get_sub_field('parallax_image'), $size = 'full'); ?>"><div class="row"><div class="large-12 columns">
 						<section>
 							<div class="row">
 								<?php if ($section_header != null) : ?>
@@ -124,7 +125,7 @@ function drum_animate($column, $row, $script = false) {
 
 				<!-- Two Columns Not Parallax -->
 	        	<?php else : ?>
-	        		<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+	        		<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 		        		<div class="row">
 							<?php if ($section_header != null) : ?>
 								<div class="large-12 columns text-center">
@@ -155,7 +156,7 @@ function drum_animate($column, $row, $script = false) {
 					$section_id = '';
 	        	}
 	        	?>
-				<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+				<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 					<div class="row">
 						<?php if ($section_header != null) : ?>
 							<div class="large-12 columns text-center">
@@ -187,7 +188,7 @@ function drum_animate($column, $row, $script = false) {
 					$section_id = '';
 	        	}
 	        	?>
-	        	<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+	        	<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 		        	<div class="row">
 						<?php if ($section_header != null) : ?>
 							<div class="large-12 columns text-center">
@@ -223,7 +224,7 @@ function drum_animate($column, $row, $script = false) {
 					$section_id = '';
 	        	}
 	        	?>
-	        	<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+	        	<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 		        	<div class="row">
 						<?php if ($section_header != null) : ?>
 							<div class="large-12 columns text-center">
@@ -251,7 +252,7 @@ function drum_animate($column, $row, $script = false) {
 					$section_id = '';
 	        	}
 	        	?>
-				<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+				<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 					<div class="row">
 						<?php if ($section_header != null) : ?>
 							<div class="large-12 columns text-center">
@@ -280,7 +281,7 @@ function drum_animate($column, $row, $script = false) {
 					$section_id = '';
 	        	}
 	        	?>
-				<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+				<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 					<div class="row">
 						<?php if ($section_header != null) : ?>
 							<div class="large-12 columns text-center">
@@ -329,7 +330,7 @@ function drum_animate($column, $row, $script = false) {
 	        	}
 	        	$type = get_sub_field('type');
 	        	?>
-				<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+				<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 					<div class="row">
 						<?php if ($section_header != null) : ?>
 							<div class="large-12 columns text-center">
@@ -383,7 +384,7 @@ function drum_animate($column, $row, $script = false) {
 					}
 					?>
 				
-					<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="icon-blocks">
+					<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="icon-blocks">
 						<div class="row">
 							<div class="large-12 columns">
 								<h2><?php echo get_sub_field('title'); ?></h2>
@@ -409,7 +410,7 @@ function drum_animate($column, $row, $script = false) {
 				
 					<?php $section_id = get_sub_field('section_id'); ?>
 				
-					<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="block-sections">
+					<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="block-sections">
 						<div class="row">
 							<div class="large-12 columns block-section-intro">
 								<?php echo get_sub_field('intro'); ?>
@@ -463,7 +464,7 @@ function drum_animate($column, $row, $script = false) {
 				
 					<?php $section_id = get_sub_field('section_id'); ?>
 				
-					<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="page-gallery">
+					<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="page-gallery">
 						<div class="row">
 							<div class="large-12 columns">
 								<h2><?php echo get_sub_field('title'); ?></h2>
@@ -516,7 +517,7 @@ function drum_animate($column, $row, $script = false) {
 				
 					<?php $section_id = get_sub_field('section_id'); ?>
 				
-					<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="page-bg-section no-padding">
+					<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="page-bg-section no-padding">
 						<div class="flex">
 							<?php
 							$section_one = get_sub_field('section_one');
