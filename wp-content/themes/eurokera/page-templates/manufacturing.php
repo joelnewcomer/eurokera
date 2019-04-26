@@ -83,6 +83,8 @@ get_header(); ?>
 	</div>
 </section>
 
+<?php echo get_template_part('template-parts/content','ready'); ?>
+
 <?php do_action( 'foundationpress_after_content' ); ?>
 
 <?php get_footer(); ?>

@@ -144,7 +144,7 @@ if(jQuery('#contact').length) {
         var target = jQuery('#contact');
         jQuery('html, body').animate({ scrollTop: target.offset().top - 70}, 500);
 		if(jQuery(window).width()<641) {
-		 jQuery('ul.slimmenu').fadeOut();
+			jQuery('ul.slimmenu').fadeOut();
 		}
         return false;		
 	});	
