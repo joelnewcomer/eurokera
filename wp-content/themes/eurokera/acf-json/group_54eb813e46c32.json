@@ -2846,10 +2846,10 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5cb86a1299654",
-                            "label": "Let's Work Together",
-                            "name": "",
-                            "type": "message",
+                            "key": "field_5cc3020b84599",
+                            "label": "Auto-populate \"Type of Solution\" field",
+                            "name": "auto_populate",
+                            "type": "select",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -2858,10 +2858,21 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "message": "<h3>There are no settings for this section<\/h3>",
-                            "new_lines": "wpautop",
-                            "esc_html": 0,
-                            "wpml_cf_preferences": 0
+                            "choices": {
+                                "Home Cooking": "Home Cooking",
+                                "Fireplaces": "Fireplaces",
+                                "Versâtis": "Versâtis",
+                                "Specialties": "Specialties",
+                                "Professional Cooking": "Professional Cooking"
+                            },
+                            "default_value": [],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "wpml_cf_preferences": 0,
+                            "ajax": 0,
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -2899,5 +2910,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1556211480
+    "modified": 1556284096
 }
