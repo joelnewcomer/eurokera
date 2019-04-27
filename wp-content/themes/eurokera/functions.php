@@ -61,7 +61,7 @@ add_filter('acf/settings/load_json', 'my_acf_json_load_point');
 
 // Specify Local JSON folder. This was added on 7/19/17 because of a bug preventing the JSON from saving.
 function my_acf_json_load_point( $paths ) {
-    unset($paths[0]);    
+    unset($paths[0]);
     $paths[] = get_stylesheet_directory() . '/acf-json';
     return $paths;
 }
@@ -109,8 +109,8 @@ function quality_videos( $atts, $content = null ) {
 		$counter = 1;
 		echo '<div class="product-videos">';
 		foreach($rows as $row) { ?>
-		
-			<?php if (ICL_LANGUAGE_CODE == 'zh-hans') : ?>	
+
+			<?php if (ICL_LANGUAGE_CODE == 'zh-hans') : ?>
 				<?php
 				$video_markup = '<a id="quality-video-' . $counter . '" class="quality-video vp-a vp-mp4-type" href="' . $row['video_url'] . '" data-autoplay="1" data-dwrap="1"></a>';
 				echo apply_filters('the_content', $video_markup);
@@ -126,8 +126,8 @@ function quality_videos( $atts, $content = null ) {
 					jQuery('a#quality-video-<?php echo $counter; ?>').html('<?php echo $video_inner; ?>');
 				</script>
 			<?php else: ?>
-		
-		
+
+
 			<a class="quality-video" href="<?php echo $row['video_url']; ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
 				<div class="product-addl-video">
 					<?php echo  wp_get_attachment_image( $row['video_poster'], 'width=310&height=228&crop=1' ); ?>
@@ -139,7 +139,7 @@ function quality_videos( $atts, $content = null ) {
 				  </div>
 				</div>
 			</a>
-			
+
 			<?php endif; ?>
 			<?php
 			$counter++;
@@ -158,7 +158,7 @@ function load_template_part($template_name, $part_name=null) {
     return $var;
 }
 
-// Get brightness of photo    
+// Get brightness of photo
 function getBrightness($imgURL) {
 	$gdHandle = imagecreatefromjpeg($imgURL);
     $width = imagesx($gdHandle);
@@ -181,7 +181,7 @@ function getBrightness($imgURL) {
     function get_video_thumbnail_uri( $video_uri ) {
         $thumbnail_uri = '';
         // determine the type of video and the video id
-        $video = parse_video_uri( $video_uri );     
+        $video = parse_video_uri( $video_uri );
         // get youtube thumbnail
         if ( $video['type'] == 'youtube' )
             $thumbnail_uri = 'http://img.youtube.com/vi/' . $video['id'] . '/hqdefault.jpg';
@@ -193,13 +193,13 @@ function getBrightness($imgURL) {
             $thumbnail_uri = get_wistia_thumbnail_uri( $video_uri );
         // get default/placeholder thumbnail
         if( empty( $thumbnail_uri ) || is_wp_error( $thumbnail_uri ) )
-            $thumbnail_uri = ''; 
+            $thumbnail_uri = '';
         //return thumbnail uri
         return $thumbnail_uri;
     }
     /* Parse the video uri/url to determine the video type/source and the video id */
     function parse_video_uri( $url ) {
-        // Parse the url 
+        // Parse the url
         $parse = parse_url( $url );
         // Set blank variables
         $video_type = '';
@@ -207,15 +207,15 @@ function getBrightness($imgURL) {
         // Url is http://youtu.be/xxxx
         if ( $parse['host'] == 'youtu.be' ) {
             $video_type = 'youtube';
-            $video_id = ltrim( $parse['path'],'/' );    
+            $video_id = ltrim( $parse['path'],'/' );
         }
-        // Url is http://www.youtube.com/watch?v=xxxx 
+        // Url is http://www.youtube.com/watch?v=xxxx
         // or http://www.youtube.com/watch?feature=player_embedded&v=xxx
         // or http://www.youtube.com/embed/xxxx
         if ( ( $parse['host'] == 'youtube.com' ) || ( $parse['host'] == 'www.youtube.com' ) ) {
             $video_type = 'youtube';
             parse_str( $parse['query'] );
-            $video_id = $v; 
+            $video_id = $v;
             if ( !empty( $feature ) )
                 $video_id = end( explode( 'v=', $parse['query'] ) );
             if ( strpos( $parse['path'], 'embed' ) == 1 )
@@ -224,7 +224,7 @@ function getBrightness($imgURL) {
         // Url is http://www.vimeo.com
         if ( ( $parse['host'] == 'vimeo.com' ) || ( $parse['host'] == 'www.vimeo.com' ) ) {
             $video_type = 'vimeo';
-            $video_id = ltrim( $parse['path'],'/' );    
+            $video_id = ltrim( $parse['path'],'/' );
         }
         $host_names = explode(".", $parse['host'] );
         $rebuild = ( ! empty( $host_names[1] ) ? $host_names[1] : '') . '.' . ( ! empty($host_names[2] ) ? $host_names[2] : '');
