@@ -4864,6 +4864,11 @@ section.about-video {
     section.about-video a.about-video svg {
       width: 60px;
       height: 60px; }
+  section.about-video .about-video-content h2 {
+    font-size: 38px; }
+  @media only screen and (max-width: 40.063em) {
+    section.about-video .about-video-content {
+      padding-top: 16px; } }
 
 .flex-center {
   display: -webkit-box;
@@ -6274,8 +6279,7 @@ section.luxury {
             margin: 0 0 4px 0;
             font-size: 18px; } }
   #versatis-animation .versatis-tops {
-    margin-top: 40px;
-    border: solid 1px #ff8200; }
+    margin-top: 40px; }
     @media only screen and (max-width: 40.063em) {
       #versatis-animation .versatis-tops {
         margin-top: 16px; } }
@@ -6294,7 +6298,8 @@ section.luxury {
     opacity: 0;
     position: absolute;
     -webkit-transition: opacity .35s;
-    transition: opacity .35s; }
+    transition: opacity .35s;
+    border: solid 1px #ff8200; }
     #versatis-animation .versatis-top .animate {
       -webkit-animation: Pulsate 2s linear infinite;
               animation: Pulsate 2s linear infinite; }

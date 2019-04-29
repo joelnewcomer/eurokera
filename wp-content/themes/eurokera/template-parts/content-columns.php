@@ -16,6 +16,7 @@ $tabs_counter = 1;
 global $row_counter;
 $row_counter = 1;
 $background = "";
+$section_id = '';
 
 function drum_animate($column, $row, $script = false) {
 	$animate = get_sub_field('column_' . $column . '_animation_animate');
@@ -70,7 +71,7 @@ function drum_animate($column, $row, $script = false) {
 	        	?>
 				<!-- One Column Parallax -->
 	        	<?php if (get_sub_field('parallax') ) : ?>
-	        		<?php echo $before_parallax_prepend; ?><div <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="parallax-window" data-paroller-factor="0.5" style="background: url('<?php echo wp_get_attachment_image_url(get_sub_field("parallax_image"), $size = "full"); ?>');"><?php echo $before_parallax_append; ?>
+	        		<?php echo $before_parallax_prepend; ?><div <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="parallax-window" data-paroller-factor="0.5" style="background: url('<?php echo wp_get_attachment_image_url(get_sub_field("parallax_image"), $size = "full"); ?>');"><?php echo $before_parallax_append; ?>
 						<div class="row">
 							<div class="large-12 columns entry-content">
 								<?php echo get_sub_field('one_column'); ?>
@@ -80,7 +81,7 @@ function drum_animate($column, $row, $script = false) {
 
 				<!-- One Column Not Parallax -->
 	        	<?php else : ?>
-	        		<section class="<?php echo $background; ?>">
+	        		<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 		        		<div class="row">
 		        			<div class="large-12 columns entry-content <?php echo drum_animate('1', $row_counter); ?>">
 		        				<?php echo get_sub_field('one_column'); ?>
@@ -104,7 +105,7 @@ function drum_animate($column, $row, $script = false) {
 
 	        	<!-- Two Columns Parallax -->
 	        	<?php if (get_sub_field('parallax') ) : ?>
-	        		</div></div><div <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="parallax-window" data-parallax="scroll" data-image-src="<?php echo wp_get_attachment_image_url(get_sub_field('parallax_image'), $size = 'full'); ?>"><div class="row"><div class="large-12 columns">
+	        		</div></div><div <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="parallax-window" data-parallax="scroll" data-image-src="<?php echo wp_get_attachment_image_url(get_sub_field('parallax_image'), $size = 'full'); ?>"><div class="row"><div class="large-12 columns">
 						<section>
 							<div class="row">
 								<?php if ($section_header != null) : ?>
@@ -124,7 +125,7 @@ function drum_animate($column, $row, $script = false) {
 
 				<!-- Two Columns Not Parallax -->
 	        	<?php else : ?>
-	        		<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+	        		<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 		        		<div class="row">
 							<?php if ($section_header != null) : ?>
 								<div class="large-12 columns text-center">
@@ -155,7 +156,7 @@ function drum_animate($column, $row, $script = false) {
 					$section_id = '';
 	        	}
 	        	?>
-				<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+				<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 					<div class="row">
 						<?php if ($section_header != null) : ?>
 							<div class="large-12 columns text-center">
@@ -187,7 +188,7 @@ function drum_animate($column, $row, $script = false) {
 					$section_id = '';
 	        	}
 	        	?>
-	        	<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+	        	<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 		        	<div class="row">
 						<?php if ($section_header != null) : ?>
 							<div class="large-12 columns text-center">
@@ -223,7 +224,7 @@ function drum_animate($column, $row, $script = false) {
 					$section_id = '';
 	        	}
 	        	?>
-	        	<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+	        	<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 		        	<div class="row">
 						<?php if ($section_header != null) : ?>
 							<div class="large-12 columns text-center">
@@ -251,7 +252,7 @@ function drum_animate($column, $row, $script = false) {
 					$section_id = '';
 	        	}
 	        	?>
-				<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+				<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 					<div class="row">
 						<?php if ($section_header != null) : ?>
 							<div class="large-12 columns text-center">
@@ -280,7 +281,7 @@ function drum_animate($column, $row, $script = false) {
 					$section_id = '';
 	        	}
 	        	?>
-				<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+				<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 					<div class="row">
 						<?php if ($section_header != null) : ?>
 							<div class="large-12 columns text-center">
@@ -329,7 +330,7 @@ function drum_animate($column, $row, $script = false) {
 	        	}
 	        	$type = get_sub_field('type');
 	        	?>
-				<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+				<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
 					<div class="row">
 						<?php if ($section_header != null) : ?>
 							<div class="large-12 columns text-center">
@@ -382,8 +383,8 @@ function drum_animate($column, $row, $script = false) {
 						$columns = 'large-3 medium-3';
 					}
 					?>
-
-					<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="icon-blocks">
+				
+					<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="icon-blocks">
 						<div class="row">
 							<div class="large-12 columns">
 								<h2><?php echo get_sub_field('title'); ?></h2>
@@ -408,8 +409,8 @@ function drum_animate($column, $row, $script = false) {
 				<?php elseif( get_row_layout() == 'block_sections' ): ?>
 
 					<?php $section_id = get_sub_field('section_id'); ?>
-
-					<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="block-sections">
+				
+					<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="block-sections">
 						<div class="row">
 							<div class="large-12 columns block-section-intro">
 								<?php echo get_sub_field('intro'); ?>
@@ -462,8 +463,8 @@ function drum_animate($column, $row, $script = false) {
 				<?php elseif( get_row_layout() == 'gallery' ): ?>
 
 					<?php $section_id = get_sub_field('section_id'); ?>
-
-					<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="page-gallery">
+				
+					<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="page-gallery">
 						<div class="row">
 							<div class="large-12 columns">
 								<h2><?php echo get_sub_field('title'); ?></h2>
@@ -515,8 +516,8 @@ function drum_animate($column, $row, $script = false) {
 				<?php elseif( get_row_layout() == 'image_bg_section' ): ?>
 
 					<?php $section_id = get_sub_field('section_id'); ?>
-
-					<section <?php if ($section_id != null) { echo 'id="' . $section_id . '" ' ; } ?>class="page-bg-section no-padding">
+				
+					<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="page-bg-section no-padding">
 						<div class="flex">
 							<?php
 							$section_one = get_sub_field('section_one');
@@ -550,6 +551,67 @@ function drum_animate($column, $row, $script = false) {
 
 					<?php echo get_template_part('template-parts/content','ready'); ?>
 
+				<?php elseif( get_row_layout() == 'quality_videos' ): ?>
+				
+								<section <?php if ($section_id != 'undefined') { echo 'id="' . $section_id . '" ' ; } ?>class="<?php echo $background; ?>">
+					<div class="row">
+						<div class="large-12 columns">
+
+				<?php
+	$rows = get_field('quality_videos','option');
+	if($rows) {
+		shuffle( $rows );
+		$counter = 1;
+		echo '<div class="product-videos">';
+		foreach($rows as $row) { ?>
+		
+			<?php if (ICL_LANGUAGE_CODE == 'zh-hans') : ?>	
+				<?php
+				$video_markup = '<a id="quality-video-' . $counter . '" class="quality-video vp-a vp-mp4-type" href="' . $row['video_url'] . '" data-autoplay="1" data-dwrap="1"></a>';
+				echo apply_filters('the_content', $video_markup);
+				$video_inner = '<div class="product-addl-video">' . wp_get_attachment_image( $row['video_poster'], 'width=310&height=228&crop=1' );
+				ob_start();
+				get_template_part('assets/images/play', 'button.svg');
+				$play_button = ob_get_contents();
+				ob_end_clean();
+				$video_inner .= $play_button;
+				$video_inner .= '</div><div class="video-title" style="display:table;height:100%;"><div style="display:table-cell;vertical-align:middle;"><div><h2>' . $row['video_title'] . '</h2></div></div></div>';
+				?>
+				<script>
+					jQuery('a#quality-video-<?php echo $counter; ?>').html('<?php echo $video_inner; ?>');
+				</script>
+			<?php else: ?>
+		
+		
+			<a class="quality-video" href="<?php echo $row['video_url']; ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
+				<div class="product-addl-video">
+					<?php echo  wp_get_attachment_image( $row['video_poster'], 'width=310&height=228&crop=1' ); ?>
+					<?php get_template_part('assets/images/play', 'button.svg'); ?>
+				</div>
+				<div class="video-title" style="display:table;height:100%;">
+				  <div style="display:table-cell;vertical-align:middle;">
+				    <div><h2><?php echo $row['video_title']; ?></h2></div>
+				  </div>
+				</div>
+			</a>
+			
+			<?php endif; ?>
+			<?php
+			$counter++;
+		}
+		echo '</div>';
+	} ?>
+						</div>
+
+
+		        		</div> <!-- row -->
+					</section>
+
+
+
+				
+				
+>>>>>>> 23e7d140df470b0c82deeac609ac58799583e1b9
 	        <?php endif;
 		    $row_counter++;
 	    endwhile;

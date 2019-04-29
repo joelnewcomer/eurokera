@@ -39,8 +39,6 @@ if ($rows[0]['acf_fc_layout'] != 'slider') : ?>
 	<?php do_action( 'foundationpress_after_content' ); ?>
 </div> <!-- #page -->
 
-<?php get_footer(); ?>
-
 <script type="text/javascript">
     jQuery(document).ready(function() {
         jQuery('.entry-content section a[href^="#"], .top-bar-right a[href^="#"]').click(function() {
@@ -55,3 +53,5 @@ if ($rows[0]['acf_fc_layout'] != 'slider') : ?>
         });
     });
 </script>
+
+<?php get_footer(); ?>

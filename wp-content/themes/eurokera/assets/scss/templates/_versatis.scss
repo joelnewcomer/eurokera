@@ -170,7 +170,6 @@ section.luxury {
 	}
 	.versatis-tops {
 		margin-top: 40px;
-		border: solid 1px $orange;
 		@media only screen and (max-width: 40.063em) {
 			margin-top: 16px;	
 		}
@@ -194,6 +193,7 @@ section.luxury {
 		.animate {
 			animation: Pulsate 2s linear infinite;
 		}
+		border: solid 1px $orange;
 	}
 	&[data-time="7am"] {
 		.time-text.time7am, .versatis-top.time7am {
