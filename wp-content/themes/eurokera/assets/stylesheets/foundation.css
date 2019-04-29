@@ -2553,6 +2553,10 @@ p.tagline {
     p.tagline {
       font-size: 15px;
       margin: 19px 0 0 0; } }
+  @media only screen and (max-width: 401px) {
+    p.tagline {
+      font-size: 12px;
+      margin: 19px 0 0 0; } }
 
 #footer-container {
   display: block;
@@ -3489,7 +3493,9 @@ body.blog #page, body.category #page {
   padding: 20px 0 40px 0; }
   @media only screen and (max-width: 40.063em) {
     .home-intro {
-      padding: 0 0 20px 0; } }
+      padding: 0; } }
+  .home-intro h2 {
+    margin-bottom: 20px !important; }
 
 body.home #content section h2:not(.blog-title) {
   font-size: 40px;
@@ -3500,7 +3506,7 @@ body.home #content section h2:not(.blog-title) {
       font-size: 32px; } }
 
 section.most-popular {
-  padding: 40px 0; }
+  padding: 25px 0 40px 0; }
   section.most-popular h2 {
     margin-bottom: 40px; }
   section.most-popular .most-popular-blocks .columns {
@@ -3532,6 +3538,9 @@ section.most-popular {
     section.most-popular .most-popular-block p {
       color: #63666A;
       font-size: 18px; }
+      @media only screen and (max-width: 40.063em) {
+        section.most-popular .most-popular-block p {
+          font-size: 14px; } }
     section.most-popular .most-popular-block .most-popular-content {
       padding: 20px; }
     section.most-popular .most-popular-block .faux-button {
@@ -3543,6 +3552,9 @@ section.most-popular {
       position: absolute;
       bottom: 20px;
       left: 0; }
+      @media (max-width: 700px) {
+        section.most-popular .most-popular-block .bottom-button {
+          bottom: 0; } }
 
 .flex {
   display: -webkit-box;

@@ -381,4 +381,9 @@ p.tagline {
 		font-size: 15px;
 		margin: 19px 0 0 0;
 	}
+	@media only screen and (max-width: 401px) {
+		font-size: 12px;
+		margin: 19px 0 0 0;
+	}
+	
 }
