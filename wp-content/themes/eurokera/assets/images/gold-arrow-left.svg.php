@@ -1,1 +1,0 @@
-<svg class="gold-arrow-left" xmlns="http://www.w3.org/2000/svg" width="20.445" height="29.332" viewBox="0 0 20.445 29.332"><path d="M19.456,14.335,0,28.67V0L19.456,14.335Z" transform="translate(19.444 29.331) rotate(-178)" fill="#e9a10b" fill-rule="evenodd"/></svg>

@@ -20,6 +20,7 @@ imagecache*
 uploads*
 *_backup
 gt-cache
+
 ics-importer-cache
 wp-config.php
 
@@ -45,7 +46,7 @@ wp-content/upgrade/*
 wp-content/uploads
 wp-content/blogs.dir/*/*
 wp-content/themes/.DS_Store
-
+wp-content/themes/gulpfile.js
 wp-content/themes/drum-roll-1/gulpfile.js
 pclzip-*
 
