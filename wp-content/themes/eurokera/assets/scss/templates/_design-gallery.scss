@@ -1,0 +1,147 @@
+.page-template-design-gallery .featured-image {
+	max-height: 475px;
+}
+
+section.design-gallery {
+	padding: 25px 0 80px 0;
+	background: #e6e6e7;
+	.btn-filter-wrap {
+		margin-bottom: 30px;
+		.btn-filter {
+			font-size: 24px;
+			padding: 4px 15px;
+			color: #625f5b;
+			white-space: nowrap;
+			&.btn-active {
+				color: $primary-color;
+			}
+		}
+	}
+	.gallery {
+		padding: 2px 4px;
+		.img-social {
+			top: 2px;
+			right: 4px;
+		}
+		width: 49.7%;
+		position: relative;
+		@media (max-width: 1072px) {
+			width: 49.7%;
+		}
+		@media (max-width: 786px) {
+			width: 49.4%;
+		}
+		@media (max-width: 599px) {
+			width: 100%;
+		}
+		display: inline-block;
+		float: none;
+		.hero {
+			height: 300px;
+			background-size: cover;
+			background-position: center center;
+			background-repeat: no-repeat;
+		}
+
+		&.first-item {
+			width: 100%!important;
+			.hero {
+				height: 500px;
+			}
+		}
+
+		&.fourth-item {
+			width: 65%;
+			@media (max-width: 941px) {
+				width: 64.9%;
+			}
+			@media (max-width: 785px) {
+				width: 64.5%;
+			}
+			@media (max-width: 599px) {
+				width: 100%;
+			}
+		}
+
+		&.fifth-item {
+			width: 34.5%;
+			@media (max-width: 599px) {
+				width: 100%;
+			}
+		}
+		&.enamel {
+			padding: 10px;
+			.img-social {
+				top: 10px;
+				right: 10px;
+			}
+		}
+	}
+}
+
+.design-gallery .enamels {
+	display: block;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 20px 0;
+	h2 {
+		font-size: 24px;
+		width: 100%;
+		max-width: none !important;
+		text-align: center;
+	}
+	.hero {
+		background-size: auto 100% !important;
+		background-position: right center !important;
+	}
+	.enamel {
+		display: inline-block;
+		vertical-align: top;
+		width: 20%;
+		@media only screen and (max-width: 880px) {
+			width: 25%;
+		}
+		@media only screen and (max-width: 750px) {
+			width: 33%;
+		}
+		padding: 23px;
+		@media only screen and (max-width: 40.063em) {
+			padding: 12px;	
+		}
+		font-size: 16px;
+		color: #626260;
+		line-height: 1.2;
+		.enamel-sample {
+			display: block;
+			float: left;
+			width: 100%;
+			padding: 0 25px;
+			@media only screen and (max-width: 40.063em) {
+				padding: 12px;	
+			}
+			margin-bottom: 14px;
+		}
+		.enamel-inner {
+			display: block;
+			float: left;
+			width: 100%;
+			padding-left: 17px;
+		}
+	}
+}
+
+.black.enamels .enamel-inner {
+	background-image: url(../images/reflective-overlay.png);
+	background-position: left bottom;
+	background-repeat: no-repeat;
+}
+
+.white.enamels {
+	margin-top: 40px;
+}
+
+.featherlight .featherlight-content .caption {
+	width: 100%;
+	text-align: center !important;
+	font-weight: normal !important;
+}

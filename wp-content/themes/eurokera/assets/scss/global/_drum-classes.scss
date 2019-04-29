@@ -1,0 +1,394 @@
+/****************************************/
+/*             Drum Classes             */
+/****************************************/
+
+body, .animsition {
+	display: block;
+	float: left;
+	width: 100%;
+	min-height: 100vh;
+}
+
+/* Korean font */
+html[lang="ko-KR"] * {
+	font-family: "source-han-sans-korean" !important;
+	font-weight: 200;
+	word-break: keep-all;
+}
+
+html[lang="zh-hans"] *, html[lang="vi-VN"] * {
+	font-family: "source-han-sans-simplified-c" !important;
+}
+
+body {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+.sr-only, .floatlabel-wrapper + label, .ginput_container select + label, .gfield > label, .gfield_address legend, .gfield_name legend {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+
+.no-padding {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+
+.no-border {
+	border: none !important;
+}
+
+a.read-more, .no-wrap, .no-break {
+	white-space: nowrap;
+}
+
+.logged-in .hide-logged-in {
+	display: none;
+}
+
+.clear {
+	clear: left;
+}
+
+.transition, a, input.button {
+	transition: all .5s;
+	-moz-transition: all .5s;
+	-webkit-transition: all .5s;
+	-o-transition: all .5s;
+}
+
+/* This is required to pass Theme Check */
+.sticky, .wp-caption-text, .bypostauthor {}
+
+@media only screen and (max-width: 40.063em) {
+	.hide-for-small, .hide-inline-small  {
+		display: none !important;
+	}
+	.small-text-center {
+		text-align: center;
+	}
+}
+
+@media only screen and (min-width: 40.063em) {
+	.show-for-small {
+		display: none !important;
+	}
+}
+
+// Safari bug fix
+body.safari a.logo {
+	transition: none;
+	-webkit-transition: none;
+	-ms-transition: none;
+}
+
+blockquote {
+	margin: $blockquote-margin;
+	font-style: italic;
+}
+blockquote p {
+	border-bottom: 0;
+	font-size: 31px;
+}
+
+.parallax-window {
+    h1, h2, h3, h4, p {
+	    color: #fff;
+	    text-shadow: 2px 2px 6px rgba(0,0,0,.2);
+	    -webkit-text-shadow: 2px 2px 6px rgba(0,0,0,.2);
+	    -moz-text-shadow: 2px 2px 6px rgba(0,0,0,.2);
+    }
+    & > .row {
+	 	padding: 40px 0 20px 0;
+	}
+}
+
+.entry-content section:not(.no-padding) {
+	padding: 40px 0 30px 0;
+}
+
+.entry-content section, .parallax-container, section.container {
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+section.container {
+	overflow: hidden;
+}
+
+section.default-background {
+	background:$default-section;
+}
+
+.entry-content section.primary-background {
+	background:$primary-section;
+}
+
+.entry-content section.secondary-background, .entry-content section:nth-child(even) {
+	background: $secondary-section;
+}
+
+.entry-content section.teal-bg {
+	background: #0a948f;
+}
+
+.entry-content section.orange-bg {
+	background: #f89828;
+	blockquote {
+		border-left: 7px solid #fff;
+		color: #fff;
+	}
+	ul > li:before {
+		background: #fff;
+	}
+}
+
+.entry-content section.dark-gray-bg {
+	background: #30302f;
+}
+
+.entry-content section.dark-gray-bg, .entry-content section.orange-bg, .entry-content section.teal-bg {
+	p, li {
+		color: #fff;
+	}	
+}
+
+.featured-image img {
+	width: 100%;
+}
+
+.error404 article {
+	padding: 40px 0;
+}
+
+section.container > section {
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+#page, #single-post {
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+#single-post {
+	background: #fff;	
+}
+
+.entry-content > section {
+	background: #fff;
+}
+
+.password-protected-page #page > article {
+	padding: 40px 0;
+}
+
+.widget #searchsubmit {
+	padding: 16px 20px 15px 20px;
+}
+
+.white-bg {
+	background: #fff;
+}
+
+.featured-image, .parallax-window {
+	background-size: cover !important;
+	background-position: center center;
+	background-attachment: fixed;
+	h1 {
+		color: #fff;
+		font-size: 52px;
+		padding: 0 20px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 40px;	
+		}
+	}
+	h2 {
+		max-width: 650px;
+		color: #fff;
+		font-size: 36px;
+		padding: 0 20px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 24px;	
+		}
+		display: inline-block;
+	}
+}
+
+// Animsition logo and loading spinner
+.loading-inner {
+	background: #ccc;
+	width: 100%;
+	height: 100vh;
+	img, svg {
+		position: absolute;
+		bottom: 50%;
+		left: 50%;
+		margin-left: -86px;
+	}
+	.load-awesome {
+		position: absolute;
+		top: 55%;
+		left: 50%;
+		margin-top: -16px;
+		margin-left: -16px;
+	}
+}
+
+p {
+	color: #595959;
+	font-size: 20px;
+}
+
+.entry-content {
+	h1,h2,h3,h4 {
+		color: $primary-color;
+	}
+	li {
+		h1,h2,h3,h4,h5,h6 {
+			display: inline;
+		}		
+	}
+}
+
+.loading-inner svg {
+	width: 154px;
+	height: 61px;
+}
+
+.green {
+	color: $secondary-color;
+}
+
+iframe {
+	max-width: 100%;
+}
+
+section#video-center p {
+	text-align: center;
+}
+
+.blog-columns:nth-child(3n+1) {
+	clear: left;
+}
+
+.featherlight .featherlight-content {
+	background: transparent !important;
+}
+
+.img-social {
+	opacity: 0;
+	display: block;
+	padding: 4px 8px;
+	position: absolute;
+	z-index: 999999;
+	top: 0;
+	right: 0;
+	background: rgba(0,0,0,.5);
+	font-size: 14px;
+	color: #fff;
+	svg {
+		margin: 0 4px;
+		vertical-align: middle;
+		width: 20px;
+		height: 20px;
+		fill: #fff;
+		pointer-events: none;
+	}
+}
+
+.feature-inner:hover .img-social, .featherlight-content:hover .img-social, .gallery-link:hover .img-social {
+	opacity: 1;
+}
+
+div.cookie-policy {
+	background: $primary-color;
+	padding: 20px 0 0 0;
+	display: block;
+	float: left;
+	position: fixed;
+	z-index: -999999999999;
+	bottom: -600px;
+	opacity: 0;
+	left: 0;
+	width: 100%;
+	&.active {
+		opacity: 1;
+		bottom: 0;
+		z-index: 99999999;
+	}
+	a {
+		color: #fff;
+	}
+	p {
+		color: #fff;
+		font-size: 16px;
+	}
+	.cookie-policy-link {
+		display: inline-block;
+		@media only screen and (min-width: 40.063em) {
+			margin-top: 16px;
+		}
+	}
+	.button a {
+		margin: 14px 0;
+	}
+}
+
+p.small {
+	font-size: 14px;
+}
+
+// Hide language switcher
+.menu-item.wpml-ls-item {
+	// display: none !important;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.orange {
+	color: $orange;
+}
+
+.blue {
+	color: $blue;
+}
+
+.gray {
+	color: $gray !important;
+}
+
+@media only screen and (max-width: 40.063em) {
+	span.mobile-read-more {
+		display: none;
+	}
+}
+
+.mrm-button {
+	margin-left: 8px;
+}
+
+.mrm-expand.active + .mobile-read-more {
+	display: inline;
+}
+
+.mrm-expand.active .mrm-button {
+	display: none;
+}
+
+.mrm-expand .faux-link {
+	color: $orange;
+	cursor: pointer;
+}

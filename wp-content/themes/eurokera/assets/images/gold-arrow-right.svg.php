@@ -1,0 +1,1 @@
+<svg class="gold-arrow-right" xmlns="http://www.w3.org/2000/svg" width="19.953" height="29.006" viewBox="0 0 19.953 29.006"><path d="M19.456,14.335,0,28.67V0L19.456,14.335Z" transform="translate(0 0.339) rotate(-1)" fill="#e9a10b" fill-rule="evenodd"/></svg>

@@ -1,0 +1,1 @@
+<svg class="euro-k" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.73 93.73"><defs><style>.eurok-1{fill:#fff;}</style></defs><title>k</title><path class="eurok-1" d="M25.73,0V68.34H10.61V0H0V93.73H80.73V0ZM67.88,91.93,29.14,46.53,65.69,18.25l3.88,4.67L44.35,42.8,78.82,84.07Z"/></svg>

@@ -1,0 +1,29 @@
+.library-title {
+	padding: 30px 0;
+}
+
+section.library-items {
+	background: #efeff0;
+	padding: 80px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 40px 0;	
+	}
+	.columns {
+		@media only screen and (min-width: 64.063em) {
+			column-count: 3;
+		}
+		@media only screen and (max-width: 64em) and (min-width: 40.063em) {
+			column-count: 2;	
+		}
+		a {
+			display: block;
+			float: left;
+			width: 100%;
+			color: #63666A;
+			margin-bottom: 16px;
+			&:hover {
+				color: $orange;
+			}
+		}
+	}
+}

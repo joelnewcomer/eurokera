@@ -1,0 +1,26 @@
+#single-post > row {
+	max-width: 1120px;	
+}
+
+#single-post article.main-content {
+	margin-top: 80px;
+	background: #efefef;
+	padding: 85px;
+	margin-bottom: 20px;
+	@media only screen and (max-width: 40.063em) {
+		padding: 30px;
+		margin-top: 0;
+	}
+}
+
+.more-articles {
+	display: block;
+	float: left;
+	width: 100%;
+	margin-bottom: 50px;
+	a {
+		font-size: 22px;
+		color: #626260;
+		font-weight: bold;
+	}
+}

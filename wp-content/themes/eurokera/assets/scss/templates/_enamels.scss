@@ -1,0 +1,218 @@
+.enamels-page-intro {
+	padding: 100px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 24px 0;	
+	}
+	p {
+		font-size: 24px;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 18px;
+		}
+		display: inline-block;
+		max-width: 960px;
+	}
+}
+
+
+
+.enamels-slider {
+	background: #efeff0;
+	.bx-wrapper {
+		margin: 0;
+	}
+	.slider-container {
+		display: block;
+		margin: 0 auto;
+		max-width: 1440px;
+		overflow: visible;		
+	}
+	ul.bxslider {
+		height: 100%;
+		li {
+			min-height: 100%;
+		}
+	}
+	.bx-wrapper .bx-pager.bx-default-pager a {
+		width: 100px;
+		&.active {
+			background: #ff8200;
+		}
+	}
+	li.content {
+		.content-photo {
+			background: #2C9099;
+			position: relative;
+			padding-left: calc(33% + 40px);
+			padding-top: 40px;
+			padding-bottom: 40px;
+			padding-right: 40px;
+			@media only screen and (max-width: 40.063em) {
+				padding-left: 24px;
+				padding-right: 24px;
+				padding-top: 145px;
+				padding-bottom: 20px;
+				p {
+					font-size: 16px;
+				}
+			}
+			.photo-container {
+				position: absolute;
+				width: 33%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				background-size: cover !important;
+				@media only screen and (max-width: 40.063em) {
+					width: 100%;
+					height: 125px;
+				}
+			}
+		}		
+		h2 {
+			font-size: 48px;
+			@media only screen and (max-width: 40.063em) {
+				font-size: 28px;
+				text-align: center;	
+			}
+		}
+		.button {
+			a {
+				margin-top: 10px;
+			}
+			@media only screen and (max-width: 40.063em) {
+				text-align: center;
+			}
+		}
+	}
+	li.photo {
+		.slide-inner {
+			padding: 160px 0 100px 0;
+		}
+		h2 {
+			font-size: 70px;
+			margin-bottom: 30px;
+			@media only screen and (max-width: 40.063em) {
+				font-size: 28px;	
+			}
+		}
+	}
+	li.video {
+		svg {
+			width: 62px;
+			height: 62px;
+		}
+		.slide-inner {
+			background: #5E6367;
+			padding: 60px 0;
+		}
+		a.video {
+			display: block;
+			width: 100%;
+			max-width: 768px;
+			padding: 160px 0 60px 0;
+			@media only screen and (max-width: 40.063em) {
+				max-width: 90%;
+				padding: 120px 0 20px 0;
+			}			
+			background-size: cover !important;
+			margin: 0 auto;
+		}
+	}
+	.slide-inner {
+		h2, p {
+			color: #fff;
+		}
+		h2 {
+			font-weight: bold;
+		}
+	}
+}
+
+section.enamels {
+	padding: 80px 0 30px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 80px 0 30px 0;	
+	}
+	background: #efeff0;
+	#search-enamels {
+		height: 44px;
+		border: none;
+		display: inline-block;
+		max-width: 255px;
+		@media only screen and (max-width: 40.063em) {
+			max-width: 100%;	
+		}
+	}
+	select, span {
+		display: inline-block;
+	}
+	span {
+		margin: 0 20px;
+		@media only screen and (max-width: 40.063em) {
+			margin: 10px 20px;	
+		}
+	}
+	.filter-bar {
+		display: block;
+		float: left;
+		width: 100%;
+		margin-top: 40px;
+		margin-bottom: 40px;
+		select, span {
+			font-size: 18px;
+		}
+		.glass-color {
+			width: 240px;
+		}
+		.enamel-type {
+			width: 156px;
+		}
+		.color-type {
+			width: 142px;
+		}
+		select {
+			border: none;
+			padding-right: 0;
+			@media only screen and (max-width: 40.063em) {
+				width: 100% !important;
+				margin-bottom: 8px;
+			}
+		}		
+	}
+	a.reset {
+		font-weight: bold;
+		color: #5E6367;
+		margin: 0 8px;
+	}
+	.enamel-block {
+		display: block;
+		float: left;
+		width: 100%;
+		margin-bottom: 40px;
+		@media only screen and (max-width: 40.063em) {
+			margin-bottom: 20px;	
+		}
+		img {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+		p, a {
+			font-size: 16px;
+			color: #5E6367;
+		}
+		p {
+			float: left;
+			margin: 0;
+		}
+		a {
+			float: right;
+			font-weight: bold;
+		}
+		@media only screen and (max-width: 40.063em) {
+			text-align: center;
+			p, a {
+				float: none;
+			}	
+		}
+	}
+}

@@ -1,0 +1,30 @@
+.entry-content > ul, section.section ul {
+	> li {
+		list-style: none;
+		position: relative;
+		padding-left: 17px;
+		margin-bottom: 7px;
+		font-size: 20px;
+		text-align: left;
+		&:before {
+		    content: "";
+		    width: 7px;
+		    height: 7px;
+		    position: absolute;
+		    left: 0;
+		    top: 10px;
+		    background-color: $primary-color;
+		    border-radius: 4px;
+		}
+	}
+}
+
+.entry-content > ol, section.section ol {
+	margin-left: 1.25rem;
+	> li {
+		list-style-position: inside;
+		position: relative;
+		margin-bottom: 7px;
+		font-size: 22px;
+	}
+}
