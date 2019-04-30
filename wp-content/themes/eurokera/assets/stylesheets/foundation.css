@@ -2231,7 +2231,8 @@ p.small {
     display: none; } }
 
 .mrm-button {
-  margin-left: 8px; }
+  margin-left: 8px;
+  font-size: 20px; }
 
 .mrm-expand.active + .mobile-read-more {
   display: inline; }
