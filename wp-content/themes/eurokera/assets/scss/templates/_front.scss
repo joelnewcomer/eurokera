@@ -125,14 +125,14 @@ section.most-popular {
 	}
 }
 
-.flex-no-wrap {
-	display: flex;
-	@media only screen and (max-width: 401px) {
-		flex-flow: wrap;
-		display: block!important;
+// .flex-no-wrap {
+// 	display: flex;
+// 	@media only screen and (max-width: 401px) {
+// 		flex-flow: wrap;
+// 		display: block!important;
 
-	}
-}
+// 	}
+// }
 
 section.all-solutions {
 	padding: 40px 0;
