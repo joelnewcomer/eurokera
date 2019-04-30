@@ -125,8 +125,14 @@ header#masthead {
 .icon-wrapper {
 	display: inline-block;
 	vertical-align: top;
+	
 }
 
+body.ie .icon-wrapper {
+	@media (min-width: 40em) {
+		display: none;
+	}
+}
 // Mobile Stuff
 @media only screen and (max-width: 40em) {
 	.top-bar-left {

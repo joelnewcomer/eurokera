@@ -2352,6 +2352,10 @@ header#masthead {
   display: inline-block;
   vertical-align: top; }
 
+@media (min-width: 40em) {
+  body.ie .icon-wrapper {
+    display: none; } }
+
 @media only screen and (max-width: 40em) {
   .top-bar-left a.logo {
     z-index: 9999;
