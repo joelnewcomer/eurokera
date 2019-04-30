@@ -124,6 +124,9 @@ body.blog #page, body.category #page {
 			transition: all .5s;
 			-webkit-transition: all .5s; /* Safari and Chrome */
 			-ms-transition: all .5s; /* Opera */
+			@media only screen and (max-width: 401em) {
+				width: 60%;
+			}
 		}
 		&:hover img {
 			-webkit-transform: scale(1.1);
