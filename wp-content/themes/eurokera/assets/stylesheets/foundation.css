@@ -4437,6 +4437,8 @@ section.page-gallery {
     margin-bottom: 40px; }
   section.page-gallery .slider-container {
     position: relative; }
+  section.page-gallery .bx-wrapper {
+    margin-bottom: 0 !important; }
   section.page-gallery .bx-wrapper .bx-prev {
     left: -75px; }
     @media only screen and (max-width: 1180px) {

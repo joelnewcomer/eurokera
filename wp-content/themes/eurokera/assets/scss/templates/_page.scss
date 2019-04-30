@@ -191,6 +191,9 @@ section.page-gallery {
 	.slider-container {
 		position: relative;
 	}
+	.bx-wrapper {
+		margin-bottom: 0!important;
+	}
 	.bx-wrapper .bx-prev {
 		left: -75px;
 		@media only screen and (max-width: 1180px) {
