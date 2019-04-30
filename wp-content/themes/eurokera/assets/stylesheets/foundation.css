@@ -3584,7 +3584,7 @@ section.most-popular {
       -webkit-flex-flow: wrap;
           -ms-flex-flow: wrap;
               flex-flow: wrap;
-      display: block; } }
+      display: block !important; } }
 
 section.all-solutions {
   padding: 40px 0; }
