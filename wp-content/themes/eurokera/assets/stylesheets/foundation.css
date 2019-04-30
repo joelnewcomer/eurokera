@@ -3583,7 +3583,8 @@ section.most-popular {
     .flex-no-wrap {
       -webkit-flex-flow: wrap;
           -ms-flex-flow: wrap;
-              flex-flow: wrap; } }
+              flex-flow: wrap;
+      display: block; } }
 
 section.all-solutions {
   padding: 40px 0; }
