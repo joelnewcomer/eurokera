@@ -60,7 +60,7 @@ get_header(); ?>
 	</div>
 	<div class="large-6 medium-6 columns ceo-photo text-right match-quote" style="background-image: url(<?php echo $ceo_photo; ?>);">
 		<div class="short-quote">
-			<p class="ceo-name show-for-small"><?php echo get_field('ceo_name'); ?>, <?php _e('CEO'); ?></p>
+			<p class="ceo-name show-for-small"><?php echo get_field('ceo_name'); ?>, <?php echo get_field('executive_title'); ?></p>
 		</div>
 	</div>
 </section>
