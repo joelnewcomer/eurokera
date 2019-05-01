@@ -2360,6 +2360,9 @@ header#masthead {
     .icon-wrapper {
       display: none; } }
 
+ul#menu-top-menu li.icon-wrapper, ul#menu-top-right-menu li.icon-wrapper {
+  display: none !important; }
+
 @media only screen and (max-width: 40em) {
   .top-bar-left a.logo {
     z-index: 9999;
@@ -2542,9 +2545,6 @@ li.wpml-ls-menu-item.menu-item-has-children {
   li.wpml-ls-menu-item.menu-item-has-children > a {
     padding-left: 34px;
     background: url(../images/down-arrow.svg) 10px center no-repeat; }
-
-ul#menu-top-menu li.icon-wrapper, ul#menu-top-right-menuli.icon-wrapper {
-  display: none !important; }
 
 p.tagline {
   display: block;
