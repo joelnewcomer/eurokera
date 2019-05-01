@@ -4442,6 +4442,9 @@ section.block-sections .page-block {
 
 section.block-sections .flex {
   width: 100%; }
+  section.block-sections .flex img {
+    width: 100%;
+    max-width: 100%; }
 
 section.page-gallery {
   padding: 40px 0; }
