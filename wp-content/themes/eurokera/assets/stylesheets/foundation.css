@@ -2543,6 +2543,9 @@ li.wpml-ls-menu-item.menu-item-has-children {
     padding-left: 34px;
     background: url(../images/down-arrow.svg) 10px center no-repeat; }
 
+ul#menu-top-menu li:last-child {
+  display: none; }
+
 p.tagline {
   display: block;
   float: left;
