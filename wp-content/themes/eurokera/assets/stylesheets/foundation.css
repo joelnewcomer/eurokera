@@ -2228,7 +2228,8 @@ p.small {
 
 @media only screen and (max-width: 40.063em) {
   span.mobile-read-more {
-    display: none; } }
+    display: none;
+    font-size: 20px; } }
 
 .mrm-button {
   margin-left: 8px;
@@ -6227,7 +6228,8 @@ section.luxury {
   -webkit-flex-flow: wrap;
       -ms-flex-flow: wrap;
           flex-flow: wrap;
-  background: #63666A; }
+  background: #63666A;
+  color: #fff; }
   section.luxury .luxury-content {
     padding: 80px 5%; }
     @media only screen and (max-width: 40.063em) {

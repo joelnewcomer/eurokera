@@ -77,7 +77,8 @@ section.dedicated-team {
 section.luxury {
     display: flex !important;
     flex-flow: wrap;	
-	background: #63666A;
+		background: #63666A;
+		color: #fff;
 	.luxury-content {
 		padding: 80px 5%;
 		@media only screen and (max-width: 40.063em) {
