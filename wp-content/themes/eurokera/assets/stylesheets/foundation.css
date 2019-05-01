@@ -2355,10 +2355,8 @@ header#masthead {
   display: inline-block;
   vertical-align: top;
   width: 25px;
-  height: 25px; }
-  @media (min-width: 40em) {
-    .icon-wrapper {
-      display: none; } }
+  height: 25px;
+  display: none; }
 
 ul#menu-top-menu li.icon-wrapper, ul#menu-top-right-menu li.icon-wrapper {
   display: none !important; }
