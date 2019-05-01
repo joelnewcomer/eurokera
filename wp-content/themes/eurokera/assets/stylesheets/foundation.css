@@ -2226,10 +2226,12 @@ p.small {
 .gray {
   color: #63666A !important; }
 
+span.mobile-read-more {
+  font-size: 20px; }
+
 @media only screen and (max-width: 40.063em) {
   span.mobile-read-more {
-    display: none;
-    font-size: 20px; } }
+    display: none; } }
 
 .mrm-button {
   margin-left: 8px;
