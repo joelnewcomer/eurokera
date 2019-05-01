@@ -2543,7 +2543,7 @@ li.wpml-ls-menu-item.menu-item-has-children {
     padding-left: 34px;
     background: url(../images/down-arrow.svg) 10px center no-repeat; }
 
-ul#menu-top-menu li.icon-wrapper {
+ul#menu-top-menu li.icon-wrapper, ul#menu-top-right-menuli.icon-wrapper {
   display: none !important; }
 
 p.tagline {
