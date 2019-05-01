@@ -2358,7 +2358,10 @@ header#masthead {
   height: 25px; }
   @media (min-width: 40em) {
     .icon-wrapper {
-      display: none; } }
+      display: none !important; } }
+
+.top-bar-right .icon-wrapper {
+  display: inline-block !important; }
 
 @media only screen and (max-width: 40em) {
   .top-bar-left a.logo {

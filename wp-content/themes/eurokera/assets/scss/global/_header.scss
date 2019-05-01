@@ -128,11 +128,13 @@ header#masthead {
 	width: 25px;
 	height: 25px;
 	@media (min-width: 40em) {
-		display: none
+		display: none!important
 	}
 	
 }
-
+.top-bar-right .icon-wrapper {
+	display: inline-block!important;
+}
 
 // Mobile Stuff
 @media only screen and (max-width: 40em) {
