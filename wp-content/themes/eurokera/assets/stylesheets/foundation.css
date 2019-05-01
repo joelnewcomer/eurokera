@@ -4565,6 +4565,9 @@ section.page-bg-section ol li:before {
 .slider-container > .bxslider {
   display: none; }
 
+#melting {
+  color: white; }
+
 section.timeline {
   padding: 90px 0 100px;
   background: url(../images/history-bg.jpg) center center no-repeat;
