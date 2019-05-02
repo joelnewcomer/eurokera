@@ -4168,6 +4168,8 @@ section.ready {
     @media only screen and (max-width: 40.063em) {
       section.ready h2 {
         font-size: 30px; } }
+  section.ready .gform_wrapper {
+    display: block !important; }
 
 .all-products {
   display: block;
