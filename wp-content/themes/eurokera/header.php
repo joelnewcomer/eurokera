@@ -8,6 +8,12 @@
  * @since FoundationPress 1.0.0
  */
 ?>
+<?php
+$host = $_SERVER['HTTP_HOST'];
+$subdomain = str_replace('.eurokera.com', '', $host);
+if($subdomain == 'pyro')
+    header("Location: https://eurokera/fireplaces");
+?>
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?> >
 	<head>
