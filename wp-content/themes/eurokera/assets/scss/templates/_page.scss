@@ -22,6 +22,9 @@ header.no-image {
 	.bx-wrapper {
 		margin: 0 auto;
 	}
+	.slider-container > .bxslider .page-slider-overlay {
+		display: none;
+	}
 	.page-slider-overlay {
 		position: absolute;
 		top: 0;

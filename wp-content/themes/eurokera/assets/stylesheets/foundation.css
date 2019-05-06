@@ -4304,6 +4304,8 @@ header.no-image {
             background-size: cover !important; }
   .page-slider .bx-wrapper {
     margin: 0 auto; }
+  .page-slider .slider-container > .bxslider .page-slider-overlay {
+    display: none; }
   .page-slider .page-slider-overlay {
     position: absolute;
     top: 0;
