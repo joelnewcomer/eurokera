@@ -258,12 +258,18 @@ function checkScroll() {
       	jQuery(".header-wrapper").removeClass("stuck");
     }	
 }
+checkScroll();
 
+$window.scroll(function () {
+	checkScroll();
+});
+    
 jQuery( window ).load(function() {
 	checkScroll();
-    $window.scroll(function () {
-		checkScroll();
-    });
+});
+
+jQuery( document ).ready(function() {
+	checkScroll();
 });			
 
 // Mobile Read More buttons
