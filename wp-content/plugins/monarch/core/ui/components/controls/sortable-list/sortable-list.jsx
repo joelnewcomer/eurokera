@@ -21,7 +21,7 @@ import ReactTooltip from 'react-tooltip';
 import { ETCoreButtonGroup, ETCoreButton, ETCoreInput } from '..';
 import ETCoreIcon from '../../icon/icon';
 import ETCoreSortableListItem from './sortable-list-item';
-import withDragDropContext from '../../hoc/drag-drop-context';
+import ETDragDropContextWrapper from '../../hoc/drag-drop-context';
 import Constants from '../../../constants/controls';
 
 import './sortable-list.scss';
@@ -229,7 +229,9 @@ class ETCoreSortableList extends PureComponent {
       defaults(this.link_settings_backup, {link_url: '', link_text: ''});
     }
 
-    $('body').toggleClass('et-core-control-sortable-list-editing-link', false !== index);
+    const $body = window.top ? window.top.jQuery('body') : $('body');
+
+    $body.toggleClass('et-core-control-sortable-list-editing-link', false !== index);
 
     this.setState({ editing_link: index });
 
@@ -448,6 +450,7 @@ class ETCoreSortableList extends PureComponent {
     const editing_link = false !== this.state.editing_link;
 
     return (
+      <ETDragDropContextWrapper>
       <div className="et-core-control-sortable-list" ref={list => this.itemsList = list}>
         {this._renderItems()}
         {editing_link && this._renderLinkSettings()}
@@ -460,8 +463,9 @@ class ETCoreSortableList extends PureComponent {
         />
         {this.props.useAddNewButton && this._renderAddNewItemButton()}
       </div>
+      </ETDragDropContextWrapper>
     );
   }
 }
 
-export default withDragDropContext(ETCoreSortableList);
+export default ETCoreSortableList;
