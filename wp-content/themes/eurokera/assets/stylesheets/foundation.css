@@ -3466,6 +3466,7 @@ body.blog #page, body.category #page {
   position: relative; }
 
 .home-slider .slide-inner {
+  float: left;
   height: 683px;
   width: 100%;
   -webkit-background-size: cover !important;
