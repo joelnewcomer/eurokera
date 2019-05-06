@@ -137,6 +137,10 @@ if (typeof bxSlider === "function") {
     	});		
 	});
 }
+
+jQuery("ul.bxslider li:first-child img").on('load', function() { 
+	jQuery('.bxslider').show();
+});
 </script>	
 
 <?php do_action( 'foundationpress_after_content' ); ?>
