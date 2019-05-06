@@ -333,7 +333,7 @@ section.page-bg-section {
 	}
 }
 
-.slider-container > .bxslider {
+.slider-container > .bxslider li:nth-child(n+2) {
 	display: none;
 }
 

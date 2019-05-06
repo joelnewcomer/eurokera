@@ -4564,7 +4564,7 @@ section.page-bg-section ol li:before {
   text-align: right;
   width: 26px; }
 
-.slider-container > .bxslider {
+.slider-container > .bxslider li:nth-child(n+2) {
   display: none; }
 
 #melting {
