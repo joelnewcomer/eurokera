@@ -2367,6 +2367,9 @@ header#masthead {
 
 .top-bar-right .icon-wrapper {
   display: inline-block !important; }
+  @media only screen and (max-width: 40em) {
+    .top-bar-right .icon-wrapper {
+      display: none; } }
 
 @media only screen and (max-width: 40em) {
   .top-bar-left a.logo {
