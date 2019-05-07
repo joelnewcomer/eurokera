@@ -379,8 +379,13 @@ span.mobile-read-more {
 }
 
 .mrm-button {
+	display: inline;
 	margin-left: 8px;
 	font-size: 20px;
+}
+
+.mrm-expand {
+	display: inline;
 }
 
 .mrm-expand.active + .mobile-read-more {
@@ -392,6 +397,7 @@ span.mobile-read-more {
 }
 
 .mrm-expand .faux-link {
+	display: inline;
 	color: $orange;
 	cursor: pointer;
 }

@@ -2234,8 +2234,12 @@ span.mobile-read-more {
     display: none; } }
 
 .mrm-button {
+  display: inline;
   margin-left: 8px;
   font-size: 20px; }
+
+.mrm-expand {
+  display: inline; }
 
 .mrm-expand.active + .mobile-read-more {
   display: inline; }
@@ -2244,6 +2248,7 @@ span.mobile-read-more {
   display: none; }
 
 .mrm-expand .faux-link {
+  display: inline;
   color: #ff8200;
   cursor: pointer; }
 
