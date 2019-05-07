@@ -103,6 +103,15 @@
 				<?php top_menu_right(); ?>
 			</div>
 		</div>
+		<script>
+			jQuery('li.mobile-more').on( "click", function(e) {
+				e.preventDefault();
+				jQuery('li.hide-for-small').removeClass('hide-for-small');
+				jQuery('li.wpml-ls-menu-item.menu-item-has-children').css('display', 'inline-block');
+				jQuery('li.mobile-more').remove();
+				jQuery('.top-header').addClass('mobile-active');
+			});
+		</script>	
 	</div>
 	<div class="header-wrapper match-header">
 	<header id="masthead" class="site-header match-header" role="banner">

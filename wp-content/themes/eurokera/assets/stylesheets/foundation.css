@@ -2422,6 +2422,10 @@ body.admin-bar:not(.home) .header-wrapper {
     .header-wrapper {
       top: 58px; } }
 
+@media only screen and (max-width: 40em) {
+  .top-header.mobile-active + .header-wrapper {
+    top: 120px; } }
+
 .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
   top: 61px; }
   @media only screen and (max-width: 782px) {
@@ -2430,6 +2434,10 @@ body.admin-bar:not(.home) .header-wrapper {
   @media only screen and (max-width: 640px) {
     .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
       top: 106px; } }
+
+@media only screen and (max-width: 40em) {
+  .admin-bar .top-header.mobile-active + .header-wrapper, body.admin-bar:not(.home) .top-header.mobile-active + .header-wrapper {
+    top: 166px; } }
 
 @media only screen and (max-width: 40em) {
   body:not(.home) section.container, .home-banner {
@@ -2561,6 +2569,9 @@ li.wpml-ls-menu-item.menu-item-has-children {
   li.wpml-ls-menu-item.menu-item-has-children > a {
     padding-left: 34px;
     background: url(../images/down-arrow.svg) 10px center no-repeat; }
+  @media only screen and (max-width: 40em) {
+    li.wpml-ls-menu-item.menu-item-has-children {
+      display: none; } }
 
 body.ie ul#menu-top-menu li.icon-wrapper, body.ie ul#menu-top-right-menu li.icon-wrapper {
   display: none !important; }
