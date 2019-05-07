@@ -2361,7 +2361,7 @@ header#masthead {
   vertical-align: top;
   width: 25px;
   height: 25px; }
-  @media (min-width: 40em) {
+  @media (max-width: 40em) {
     .icon-wrapper {
       display: none !important; } }
 
@@ -2429,17 +2429,11 @@ body.admin-bar:not(.home) .header-wrapper {
       top: 76px; } }
   @media only screen and (max-width: 640px) {
     .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
-      top: 104px; } }
+      top: 106px; } }
 
 @media only screen and (max-width: 40em) {
   body:not(.home) section.container, .home-banner {
     margin-top: 0; } }
-
-@media only screen and (max-width: 519px) {
-  .header-wrapper {
-    top: 87px; }
-  .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
-    top: 133px; } }
 
 @media only screen and (min-width: 40.063em) {
   .header-wrapper.stuck + section.container {
@@ -2473,7 +2467,7 @@ body.admin-bar:not(.home) .header-wrapper {
 @media only screen and (max-width: 1020px) {
   .header-wrapper + section.container {
     /* margin-top: 101px; */
-    margin-top: 84px; } }
+    margin-top: 75px; } }
 
 @media only screen and (max-width: 720px) {
   .header-wrapper + section.container {
@@ -2497,7 +2491,7 @@ body.admin-bar:not(.home) .header-wrapper {
         padding: 2px 8px; } }
     @media only screen and (max-width: 895px) and (min-width: 40.063em) {
       .top-header a {
-        padding: 4px 5px;
+        padding: 4px 4px;
         font-size: 16px; } }
     @media only screen and (max-width: 750px) and (min-width: 40.063em) {
       .top-header a {
@@ -2505,6 +2499,10 @@ body.admin-bar:not(.home) .header-wrapper {
         font-size: 14px; } }
     .top-header a:hover {
       color: #ff8200; }
+  @media only screen and (max-width: 40em) {
+    .top-header > .row > .columns {
+      padding-left: 0 !important;
+      padding-right: 0 !important; } }
   .top-header li.active a {
     color: #ff8200; }
   .top-header ul {
@@ -2516,12 +2514,22 @@ body.admin-bar:not(.home) .header-wrapper {
   .top-header li {
     list-style: none;
     display: inline-block; }
+    @media only screen and (max-width: 40em) {
+      .top-header li {
+        display: block;
+        float: left;
+        width: 33.333%;
+        border-right: solid 1px #3e3e3e;
+        border-bottom: solid 1px #3e3e3e; } }
+    .top-header li:nth-child(3n+3) {
+      border-right: none; }
   @media only screen and (min-width: 40.063em) {
     .top-header .top-menu-right {
       float: right;
       text-align: right; } }
-  .top-header ul.top-menu > li:first-child a {
-    padding-left: 0; }
+  @media only screen and (min-width: 40.063em) {
+    .top-header ul.top-menu > li:first-child a {
+      padding-left: 0; } }
   .top-header ul.sub-menu {
     position: absolute;
     opacity: 0;

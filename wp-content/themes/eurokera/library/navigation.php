@@ -39,7 +39,6 @@ if ( ! function_exists( 'top_menu' ) ) {
 		wp_nav_menu( array(
 			'container'      => false,
 			'menu_class'     => 'top-menu small-text-center',
-			'items_wrap'     => my_nav_wrap(),
 			'theme_location' => 'top-menu',
 			'depth'          => 1,
 			'fallback_cb'    => false,
@@ -52,7 +51,6 @@ if ( ! function_exists( 'top_menu_right' ) ) {
 		wp_nav_menu( array(
 			'container'      => false,
 			'menu_class'     => 'top-menu-right small-text-center',
-			'items_wrap'     => my_nav_wrap(),
 			'theme_location' => 'top-menu-right',
 			'depth'          => 2,
 			'fallback_cb'    => false,
