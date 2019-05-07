@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_597794e768024",
-            "label": "Executive Photo",
+            "label": "CEO Photo",
             "name": "ceo_photo",
             "type": "image",
             "instructions": "",
@@ -15,7 +15,6 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
             "return_format": "url",
             "preview_size": "thumbnail",
             "library": "all",
@@ -29,7 +28,7 @@
         },
         {
             "key": "field_5977950d68026",
-            "label": "Quote",
+            "label": "Long Quote",
             "name": "long_quote",
             "type": "textarea",
             "instructions": "",
@@ -40,32 +39,11 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
             "rows": "",
             "new_lines": ""
-        },
-        {
-            "key": "field_5977951868027",
-            "label": "Executive Name",
-            "name": "ceo_name",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "wpml_cf_preferences": 0,
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         },
         {
             "key": "field_5cb4d5f0c663d",
@@ -81,6 +59,25 @@
                 "id": ""
             },
             "wpml_cf_preferences": 2,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5977951868027",
+            "label": "CEO Name",
+            "name": "ceo_name",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -125,6 +122,25 @@
             "first_day": 0
         },
         {
+            "key": "field_5977971153e4a",
+            "label": "About Title",
+            "name": "about_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5cb4c99216230",
             "label": "Number of Cooktops automatic increment (in millions) every 6 months",
             "name": "num_increment",
@@ -139,25 +155,6 @@
             },
             "wpml_cf_preferences": 3,
             "default_value": 5,
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5977971153e4a",
-            "label": "About Title",
-            "name": "about_title",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -280,7 +277,7 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1555355165
+    "modified": 1557231702
 }
