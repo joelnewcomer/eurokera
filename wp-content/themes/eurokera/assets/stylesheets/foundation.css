@@ -2564,13 +2564,13 @@ body.admin-bar:not(.home) .header-wrapper {
     z-index: 1;
     padding: 8px 0; }
 
-li.wpml-ls-menu-item.menu-item-has-children {
+ul.top-menu-right > li.wpml-ls-menu-item {
   position: relative; }
-  li.wpml-ls-menu-item.menu-item-has-children > a {
+  ul.top-menu-right > li.wpml-ls-menu-item > a {
     padding-left: 34px;
     background: url(../images/down-arrow.svg) 10px center no-repeat; }
   @media only screen and (max-width: 40em) {
-    li.wpml-ls-menu-item.menu-item-has-children {
+    ul.top-menu-right > li.wpml-ls-menu-item {
       display: none; } }
 
 body.ie ul#menu-top-menu li.icon-wrapper, body.ie ul#menu-top-right-menu li.icon-wrapper {

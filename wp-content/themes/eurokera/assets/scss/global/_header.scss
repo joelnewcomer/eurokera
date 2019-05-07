@@ -386,7 +386,7 @@ body.admin-bar:not(.home) .header-wrapper {
 	}
 }
 
-li.wpml-ls-menu-item.menu-item-has-children {
+ul.top-menu-right > li.wpml-ls-menu-item {
 	position: relative;
 	& > a {
 		padding-left: 34px;
