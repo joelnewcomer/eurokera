@@ -4335,6 +4335,12 @@ header.no-image {
     width: 100%;
     -webkit-background-size: cover !important;
             background-size: cover !important; }
+    @media only screen and (max-width: 64.063em) {
+      .page-slider .slide-inner {
+        height: 460px; } }
+    @media only screen and (max-width: 40.063em) {
+      .page-slider .slide-inner {
+        height: 300px; } }
   .page-slider .bx-wrapper {
     margin: 0 auto; }
   .page-slider .slider-container > .bxslider .page-slider-overlay {
