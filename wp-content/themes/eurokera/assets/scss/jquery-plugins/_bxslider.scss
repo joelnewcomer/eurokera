@@ -17,6 +17,9 @@
 .bx-wrapper {
 	position: relative;
 	margin: 0 auto 60px;
+	@media only screen and (max-width: 40.063em) {
+		margin: 0 auto 20px;
+	}
 	padding: 0;
 	*zoom: 1;
 }

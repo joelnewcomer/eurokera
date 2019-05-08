@@ -7302,6 +7302,9 @@ h2.resp-accordion {
   margin: 0 auto 60px;
   padding: 0;
   *zoom: 1; }
+  @media only screen and (max-width: 40.063em) {
+    .bx-wrapper {
+      margin: 0 auto 20px; } }
 
 .bx-wrapper img {
   width: 100%;
