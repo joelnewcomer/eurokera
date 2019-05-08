@@ -6,6 +6,12 @@
 	.slide-inner {
 		float: left;
 		height: 683px;
+		@media only screen and (max-width: 64.063em) {
+			height: 460px;	
+		}
+		@media only screen and (max-width: 40.063em) {
+			height: 300px;	
+		}
 		width: 100%;
 		background-size: cover !important;
 	}

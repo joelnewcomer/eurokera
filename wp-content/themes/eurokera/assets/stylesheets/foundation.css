@@ -3498,6 +3498,12 @@ body.blog #page, body.category #page {
   width: 100%;
   -webkit-background-size: cover !important;
           background-size: cover !important; }
+  @media only screen and (max-width: 64.063em) {
+    .home-slider .slide-inner {
+      height: 460px; } }
+  @media only screen and (max-width: 40.063em) {
+    .home-slider .slide-inner {
+      height: 300px; } }
 
 .home-slider .home-slider-overlay {
   position: absolute;
