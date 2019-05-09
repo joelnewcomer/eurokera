@@ -72,6 +72,11 @@ if ( ! class_exists( 'KcSeoInit' ) ):
 					'kcseo-tooltip-css',
 					'kcseo-admin-css',
 				) );
+
+                wp_localize_script('kcseo-admin-js', '_kcseo', array(
+                    'time_format' => get_option('time_format'),
+                    'date_format' => get_option('date_format')
+                ));
 			}
 		}
 
@@ -98,7 +103,7 @@ if ( ! class_exists( 'KcSeoInit' ) ):
 
 				$scripts[]                   = array(
 					'handle' => 'kcseo-datepicker',
-					'src'    => $KcSeoWPSchema->assetsUrl . 'vendor/bootstrap-datepicker/bootstrap-datepicker.min.js',
+					'src'    => $KcSeoWPSchema->assetsUrl . 'vendor/datepicker/jquery.datetimepicker.full.min.js',
 					'deps'   => array( 'jquery' ),
 					'footer' => false
 				);
@@ -108,7 +113,7 @@ if ( ! class_exists( 'KcSeoInit' ) ):
 					'deps'   => array( 'jquery' ),
 					'footer' => true
 				);
-				$styles['kcseo-datepicker']  = $KcSeoWPSchema->assetsUrl . 'vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css';
+				$styles['kcseo-datepicker']  = $KcSeoWPSchema->assetsUrl . 'vendor/datepicker/jquery.datetimepicker.min.css';
 				$styles['kcseo-select2-css'] = $KcSeoWPSchema->assetsUrl . 'css/select2.min.css';
 				$styles['kcseo-tooltip-css'] = $KcSeoWPSchema->assetsUrl . 'css/jquery.qtip.css';
 				$styles['kcseo-admin-css']   = $KcSeoWPSchema->assetsUrl . 'css/admin.css';

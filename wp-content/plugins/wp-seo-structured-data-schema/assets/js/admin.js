@@ -2,10 +2,9 @@
     'use strict';
 
     $(function () {
-        if ($(".kcseo-date").length) {
-            $('.kcseo-date').datepicker({
-                'format': 'yyyy-mm-dd',
-                'autoclose': true
+        if ($.fn.datetimepicker && $(".kcseo-date").length) {
+            $('.kcseo-date').datetimepicker({
+                format: _kcseo.date_format + ' ' + _kcseo.time_format
             });
         }
     });

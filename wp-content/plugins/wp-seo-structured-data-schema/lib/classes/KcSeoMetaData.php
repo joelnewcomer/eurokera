@@ -34,7 +34,10 @@ if ( ! class_exists( 'KcSeoMetaData' ) ):
 				'kcseo-select2-css',
 				'kcseo-admin-css',
 			) );
-
+            wp_localize_script('kcseo-admin-js', '_kcseo', array(
+                'time_format' => get_option('time_format'),
+                'date_format' => get_option('date_format')
+            ));
 			add_action( 'admin_head', array( $this, 'admin_head' ) );
 		}
 

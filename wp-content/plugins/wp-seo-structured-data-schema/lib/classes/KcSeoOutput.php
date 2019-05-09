@@ -5,22 +5,14 @@ if (!class_exists('KcSeoOutput')):
     class KcSeoOutput
     {
         function __construct() {
-	        add_action('wp_footer', array($this, 'footer'), 99);
-	        add_action('amp_post_template_footer', array($this, 'footer'), 999); // AMP support
-	        add_action('kcseo_footer', array($this, 'debug_mark'), 2);
-	        add_action('kcseo_footer', array($this, 'load_schema'), 3);
-        }
-
-        private function is_premium() {
-            return false;
+            add_action('wp_footer', array($this, 'footer'), 99);
+            add_action('amp_post_template_footer', array($this, 'footer'), 999); // AMP support
+            add_action('kcseo_footer', array($this, 'debug_mark'), 2);
+            add_action('kcseo_footer', array($this, 'load_schema'), 3);
         }
 
         private function head_product_name() {
-            if ($this->is_premium()) {
-                return 'WP SEO Structured Data pro plugin';
-            } else {
-                return 'WP SEO Structured Data Plugin';
-            }
+            return 'WP SEO Structured Data Plugin';
         }
 
         public function debug_mark($echo = true) {
@@ -71,15 +63,12 @@ if (!class_exists('KcSeoOutput')):
                     $metaData["@context"] = "http://schema.org/";
                     $metaData["@type"] = "WebSite";
                     $author_url = (!empty($settings['siteurl']) ? $settings['siteurl'] : get_home_url());
-                    $to_remove = array('http://', 'https://', 'www.');
-                    foreach ($to_remove as $item) {
-                        $author_url = str_replace($item, '', $author_url); // to: www.example.com
-                    }
+
                     if (!empty($settings['homeonly']) && $settings['homeonly']) {
                         $metaData["url"] = $author_url;
                         $metaData["potentialAction"] = array(
-                            "@type"       => "SearchAction",
-                            "target"      => trailingslashit(get_home_url()) . "?s={query}",
+                            "@type" => "SearchAction",
+                            "target" => trailingslashit(get_home_url()) . "?s={query}",
                             "query-input" => "required name=query"
                         );
                         $html .= $schemaModel->get_jsonEncode($metaData);
@@ -146,8 +135,8 @@ if (!class_exists('KcSeoOutput')):
                     }
                 }
                 $webMeta["geo"] = array(
-                    "@type"     => "GeoCoordinates",
-                    "latitude"  => !empty($settings['business_info']['latitude']) ? $KcSeoWPSchema->sanitizeOutPut($settings['business_info']['latitude']) : null,
+                    "@type" => "GeoCoordinates",
+                    "latitude" => !empty($settings['business_info']['latitude']) ? $KcSeoWPSchema->sanitizeOutPut($settings['business_info']['latitude']) : null,
                     "longitude" => !empty($settings['business_info']['longitude']) ? $KcSeoWPSchema->sanitizeOutPut($settings['business_info']['longitude']) : null,
                 );
             }
@@ -170,23 +159,23 @@ if (!class_exists('KcSeoOutput')):
             }
 
             $webMeta["contactPoint"] = array(
-                "@type"             => "ContactPoint",
-                "telephone"         => !empty($settings['contact']['telephone']) ? $KcSeoWPSchema->sanitizeOutPut($settings['contact']['telephone']) : (!empty($settings['site_telephone']) ? $KcSeoWPSchema->sanitizeOutPut($settings['site_telephone']) : null),
-                "contactType"       => !empty($settings['contact']['contactType']) ? $KcSeoWPSchema->sanitizeOutPut($settings['contact']['contactType']) : '',
-                "email"             => !empty($settings['contact']['email']) ? $KcSeoWPSchema->sanitizeOutPut($settings['contact']['email']) : '',
-                "contactOption"     => !empty($settings['contact']['contactOption']) ? $KcSeoWPSchema->sanitizeOutPut($settings['contact']['contactOption']) : '',
-                "areaServed"        => !empty($settings['area_served']) ? implode(',',
+                "@type" => "ContactPoint",
+                "telephone" => !empty($settings['contact']['telephone']) ? $KcSeoWPSchema->sanitizeOutPut($settings['contact']['telephone']) : (!empty($settings['site_telephone']) ? $KcSeoWPSchema->sanitizeOutPut($settings['site_telephone']) : null),
+                "contactType" => !empty($settings['contact']['contactType']) ? $KcSeoWPSchema->sanitizeOutPut($settings['contact']['contactType']) : '',
+                "email" => !empty($settings['contact']['email']) ? $KcSeoWPSchema->sanitizeOutPut($settings['contact']['email']) : '',
+                "contactOption" => !empty($settings['contact']['contactOption']) ? $KcSeoWPSchema->sanitizeOutPut($settings['contact']['contactOption']) : '',
+                "areaServed" => !empty($settings['area_served']) ? implode(',',
                     !empty($settings['area_served']) ? $settings['area_served'] : array()) : '',
                 "availableLanguage" => !empty($settings['availableLanguage']) ? @implode(',',
                     !empty($settings['availableLanguage']) ? $settings['availableLanguage'] : array()) : null
             );
             $webMeta["address"] = array(
-                "@type"           => "PostalAddress",
-                "addressCountry"  => !empty($settings['address']['country']) ? $KcSeoWPSchema->sanitizeOutPut($settings['address']['country']) : null,
+                "@type" => "PostalAddress",
+                "addressCountry" => !empty($settings['address']['country']) ? $KcSeoWPSchema->sanitizeOutPut($settings['address']['country']) : null,
                 "addressLocality" => !empty($settings['address']['locality']) ? $KcSeoWPSchema->sanitizeOutPut($settings['address']['locality']) : null,
-                "addressRegion"   => !empty($settings['address']['region']) ? $KcSeoWPSchema->sanitizeOutPut($settings['address']['region']) : null,
-                "postalCode"      => !empty($settings['address']['postalcode']) ? $KcSeoWPSchema->sanitizeOutPut($settings['address']['postalcode']) : null,
-                "streetAddress"   => !empty($settings['address']['street']) ? $KcSeoWPSchema->sanitizeOutPut($settings['address']['street']) : null
+                "addressRegion" => !empty($settings['address']['region']) ? $KcSeoWPSchema->sanitizeOutPut($settings['address']['region']) : null,
+                "postalCode" => !empty($settings['address']['postalcode']) ? $KcSeoWPSchema->sanitizeOutPut($settings['address']['postalcode']) : null,
+                "streetAddress" => !empty($settings['address']['street']) ? $KcSeoWPSchema->sanitizeOutPut($settings['address']['street']) : null
             );
 
             $main_settings = get_option($KcSeoWPSchema->options['main_settings']);
