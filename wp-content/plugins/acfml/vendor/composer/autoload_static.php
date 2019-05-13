@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit352395dca29b63081ca510dbd5090390
+class ComposerStaticInitf0d2eb4ff725ef82bb701faf799e93d2
 {
     public static $prefixesPsr0 = array (
         'x' => 
@@ -19,6 +19,7 @@ class ComposerStaticInit352395dca29b63081ca510dbd5090390
     public static $classMap = array (
         'WPML_ACF' => __DIR__ . '/../..' . '/classes/class-wpml-acf.php',
         'WPML_ACF_Attachments' => __DIR__ . '/../..' . '/classes/class-wpml-acf-attachments.php',
+        'WPML_ACF_Blocks' => __DIR__ . '/../..' . '/classes/class-wpml-acf-blocks.php',
         'WPML_ACF_Convertable' => __DIR__ . '/../..' . '/classes/wpml-acf-convertable.php',
         'WPML_ACF_Custom_Fields_Sync' => __DIR__ . '/../..' . '/classes/class-wpml-acf-custom-fields-sync.php',
         'WPML_ACF_Dependencies_Factory' => __DIR__ . '/../..' . '/classes/factories/class-wpml-acf-dependencies-factory.php',
@@ -29,6 +30,7 @@ class ComposerStaticInit352395dca29b63081ca510dbd5090390
         'WPML_ACF_Field_Annotations' => __DIR__ . '/../..' . '/classes/class-wpml-acf-field-annotations.php',
         'WPML_ACF_Field_Settings' => __DIR__ . '/../..' . '/classes/class-wpml-acf-field-settings.php',
         'WPML_ACF_Location_Rules' => __DIR__ . '/../..' . '/classes/class-wpml-acf-location-rules.php',
+        'WPML_ACF_Migrate_Option_Page_Strings' => __DIR__ . '/../..' . '/classes/class-wpml-acf-migrate-option-page-strings.php',
         'WPML_ACF_Options_Page' => __DIR__ . '/../..' . '/classes/class-wpml-acf-options-page.php',
         'WPML_ACF_Page_Link_Field' => __DIR__ . '/../..' . '/classes/class-wpml-acf-page-link-field.php',
         'WPML_ACF_Post_Id' => __DIR__ . '/../..' . '/classes/class-wpml-acf-post-id.php',
@@ -52,8 +54,8 @@ class ComposerStaticInit352395dca29b63081ca510dbd5090390
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInit352395dca29b63081ca510dbd5090390::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit352395dca29b63081ca510dbd5090390::$classMap;
+            $loader->prefixesPsr0 = ComposerStaticInitf0d2eb4ff725ef82bb701faf799e93d2::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitf0d2eb4ff725ef82bb701faf799e93d2::$classMap;
 
         }, null, ClassLoader::class);
     }

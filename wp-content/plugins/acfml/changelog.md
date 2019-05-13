@@ -1,3 +1,7 @@
+# 1.3
+* support for ACF Gutenberg Blocks (acfml-94)
+* ACF Options Pages handling reverted to old workflow (with switching language switcher on Options page) (acfml-156)
+
 # 1.2
 
 * fixed not displayed serialized galleries (acfml-134)

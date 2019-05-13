@@ -22,7 +22,10 @@ class WPML_ACF {
 	public function init_worker() {
 		if ( $this->is_acf_active() ) {
 			$WPML_ACF_Options_Page = $this->dependencies_factory->create_options_page();
-			$WPML_ACF_Options_Page->add_hooks();
+
+			global $wpdb;
+			$WPML_ACF_Migrate_Option_Page_Strings = new WPML_ACF_Migrate_Option_Page_Strings( $wpdb );
+			$WPML_ACF_Migrate_Option_Page_Strings->run_migration();
 
 			add_action( 'wpml_loaded', array( $this, 'wpml_loaded' ) );
 
@@ -47,6 +50,7 @@ class WPML_ACF {
 		$this->init_acf_location_rules();
 		$this->init_acf_attachments();
 		$this->init_acf_field_settings();
+		$this->init_acf_blocks();
 	}
 
 	private function is_acf_active() {
@@ -76,6 +80,11 @@ class WPML_ACF {
 			$WPML_ACF_Xliff = $this->dependencies_factory->create_xliff();
 			$WPML_ACF_Xliff->init_hooks();
 		}
+	}
+
+	private function init_acf_blocks() {
+		$WPML_ACF_Blocks = $this->dependencies_factory->create_blocks();
+		$WPML_ACF_Blocks->init_hooks();
 	}
 
 	private function init_acf_pro() {

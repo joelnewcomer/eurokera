@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'WPML_ACF' => $baseDir . '/classes/class-wpml-acf.php',
     'WPML_ACF_Attachments' => $baseDir . '/classes/class-wpml-acf-attachments.php',
+    'WPML_ACF_Blocks' => $baseDir . '/classes/class-wpml-acf-blocks.php',
     'WPML_ACF_Convertable' => $baseDir . '/classes/wpml-acf-convertable.php',
     'WPML_ACF_Custom_Fields_Sync' => $baseDir . '/classes/class-wpml-acf-custom-fields-sync.php',
     'WPML_ACF_Dependencies_Factory' => $baseDir . '/classes/factories/class-wpml-acf-dependencies-factory.php',
@@ -18,6 +19,7 @@ return array(
     'WPML_ACF_Field_Annotations' => $baseDir . '/classes/class-wpml-acf-field-annotations.php',
     'WPML_ACF_Field_Settings' => $baseDir . '/classes/class-wpml-acf-field-settings.php',
     'WPML_ACF_Location_Rules' => $baseDir . '/classes/class-wpml-acf-location-rules.php',
+    'WPML_ACF_Migrate_Option_Page_Strings' => $baseDir . '/classes/class-wpml-acf-migrate-option-page-strings.php',
     'WPML_ACF_Options_Page' => $baseDir . '/classes/class-wpml-acf-options-page.php',
     'WPML_ACF_Page_Link_Field' => $baseDir . '/classes/class-wpml-acf-page-link-field.php',
     'WPML_ACF_Post_Id' => $baseDir . '/classes/class-wpml-acf-post-id.php',

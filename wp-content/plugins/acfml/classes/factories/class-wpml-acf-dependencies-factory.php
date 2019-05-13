@@ -17,6 +17,7 @@ class WPML_ACF_Dependencies_Factory {
 	private $pro;
 	private $annotations;
 	private $xliff;
+	private $blocks;
 
 	public function create_options_page() {
 		if ( ! $this->options_page ) {
@@ -120,6 +121,14 @@ class WPML_ACF_Dependencies_Factory {
 		}
 
 		return $this->xliff;
+	}
+
+	public function create_blocks() {
+		if ( ! $this->blocks ) {
+			$this->blocks = new WPML_ACF_Blocks();
+		}
+
+		return $this->blocks;
 	}
 
 	private function get_sitepress() {
