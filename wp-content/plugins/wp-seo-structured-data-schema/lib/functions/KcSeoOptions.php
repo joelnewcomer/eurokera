@@ -41,14 +41,14 @@ class KcSeoOptions
                         'type'     => 'text',
                         'class'    => 'kcseo-date',
                         'required' => true,
-                        'desc'     => __('Like this: 2015-12-25', "wp-seo-structured-data-schema")
+                        'desc'     => __('Like this: 2015-12-25 4:00 PM', "wp-seo-structured-data-schema")
                     ),
                     'dateModified'        => array(
                         'title'    => __('Modified date', "wp-seo-structured-data-schema"),
                         'type'     => 'text',
                         'class'    => 'kcseo-date',
                         'required' => true,
-                        'desc'     => __('Like this: 2015-12-25', "wp-seo-structured-data-schema")
+                        'desc'     => __('Like this: 2015-12-25 4:00 PM', "wp-seo-structured-data-schema")
                     ),
                     'publisher'           => array(
                         'title'    => __('Publisher', "wp-seo-structured-data-schema"),
@@ -114,14 +114,14 @@ class KcSeoOptions
                         'title'    => __('Published date', "wp-seo-structured-data-schema"),
                         'type'     => 'text',
                         'class'    => 'kcseo-date',
-                        'desc'     => __('Like this: 2015-12-25', "wp-seo-structured-data-schema"),
+                        'desc'     => __('Like this: 2015-12-25 4:00 PM', "wp-seo-structured-data-schema"),
                         'required' => true
                     ),
                     'dateModified'     => array(
                         'title'    => __('Modified date', "wp-seo-structured-data-schema"),
                         'type'     => 'text',
                         'class'    => 'kcseo-date',
-                        'desc'     => __('Like this: 2015-12-25', "wp-seo-structured-data-schema"),
+                        'desc'     => __('Like this: 2015-12-25 4:00 PM', "wp-seo-structured-data-schema"),
                         'required' => true
                     ),
                     'publisher'        => array(
@@ -183,7 +183,7 @@ class KcSeoOptions
                         'title'    => __('Published date', "wp-seo-structured-data-schema"),
                         'type'     => 'text',
                         'class'    => 'kcseo-date',
-                        'desc'     => __('Like this: 2015-12-25', "wp-seo-structured-data-schema"),
+                        'desc'     => __('Like this: 2015-12-25 4:00 PM', "wp-seo-structured-data-schema"),
                         'required' => true
                     ),
                     'dateModified'     => array(
@@ -191,7 +191,7 @@ class KcSeoOptions
                         'type'     => 'text',
                         'class'    => 'kcseo-date',
                         'required' => true,
-                        'desc'     => __('Like this: 2015-12-25', "wp-seo-structured-data-schema")
+                        'desc'     => __('Like this: 2015-12-25 4:00 PM', "wp-seo-structured-data-schema")
                     ),
                     'publisher'        => array(
                         'title'    => __('Publisher', "wp-seo-structured-data-schema"),
@@ -247,14 +247,14 @@ class KcSeoOptions
                         'type'     => 'text',
                         'class'    => 'kcseo-date',
                         'required' => true,
-                        'desc'     => __("Event start date", "wp-seo-structured-data-schema")
+                        'desc'     => __("Event start date Like : 2017-10-16 4:00 AM", "wp-seo-structured-data-schema")
                     ),
                     'endDate'         => array(
                         'title'       => __('End date', "wp-seo-structured-data-schema"),
                         'type'        => 'text',
                         'recommended' => true,
                         'class'       => 'kcseo-date',
-                        'desc'        => __("Event end date", "wp-seo-structured-data-schema")
+                        'desc'        => __("Event end date Like : 2017-10-16 4:00 AM", "wp-seo-structured-data-schema")
                     ),
                     'description'     => array(
                         'title'       => __('Description', "wp-seo-structured-data-schema"),
@@ -418,7 +418,7 @@ class KcSeoOptions
                         'type'        => 'text',
                         'recommended' => true,
                         'class'       => 'kcseo-date',
-                        'desc'        => __("The date (in ISO 8601 date format) after which the price will no longer be available.", "wp-seo-structured-data-schema")
+                        'desc'        => __("The date (in ISO 8601 date and time format) after which the price will no longer be available.", "wp-seo-structured-data-schema")
                     ),
                     'priceCurrency'     => array(
                         'title' => __('Price currency', "wp-seo-structured-data-schema"),
@@ -518,7 +518,7 @@ class KcSeoOptions
                         'title' => __('Expires', "wp-seo-structured-data-schema"),
                         'type'  => 'text',
                         'class' => 'kcseo-date',
-                        'desc'  => __("Like this: 2015-12-25", "wp-seo-structured-data-schema")
+                        'desc'  => __("Like this: 2015-12-25 4:00 PM", "wp-seo-structured-data-schema")
                     ),
                 )
             ),
@@ -635,7 +635,7 @@ class KcSeoOptions
                         'title' => __('Date of Published', "wp-seo-structured-data-schema"),
                         'type'  => 'text',
                         'class' => 'kcseo-date',
-                        'desc'  => __("Like this: 2015-12-25", "wp-seo-structured-data-schema")
+                        'desc'  => __("Like this: 2015-12-25 4:00 PM", "wp-seo-structured-data-schema")
                     ),
                     'ratingValue'   => array(
                         'title' => __('Rating value', "wp-seo-structured-data-schema"),
@@ -1323,38 +1323,126 @@ class KcSeoOptions
 
     static function getContactTypes() {
         $contact_types = array(
-            "Customer Service",
-            "Technical Support",
-            "Billing Support",
-            "Bill Payment",
-            "Sales",
-            "Reservations",
-            "Credit Card Support",
-            "Emergency",
-            "Baggage Tracking",
-            "Roadside Assistance",
-            "Package Tracking"
+            "customer service",
+            "customer support",
+            "technical support",
+            "billing support",
+            "bill payment",
+            "sales",
+            "reservations",
+            "credit card support",
+            "emergency",
+            "baggage tracking",
+            "roadside assistance",
+            "package tracking"
         );
 
         return apply_filters('kcseo_contact_types', $contact_types);
     }
 
     static function getLanguageList() {
-        $language_list = array(
-            'facebook'    => __('Facebook'),
-            'twitter'     => __('Twitter'),
-            'google-plus' => __('Google+'),
-            'instagram'   => __('Instagram'),
-            'youtube'     => __('Youtube'),
-            'linkedin'    => __('LinkedIn'),
-            'myspace'     => __('Myspace'),
-            'pinterest'   => __('Pinterest'),
-            'soundcloud'  => __('SoundCloud'),
-            'tumblr'      => __('Tumblr'),
-            'wikidata'    => __('Wikidata'),
-        );
+	    $language_list = array(
+		    "Akan",
+		    "Amharic",
+		    "Arabic",
+		    "Assamese",
+		    "Awadhi",
+		    "Azerbaijani",
+		    "Balochi",
+		    "Belarusian",
+		    "Bengali",
+		    "Bhojpuri",
+		    "Burmese",
+		    "Cantonese",
+		    "Cebuano",
+		    "Chewa",
+		    "Chhattisgarhi",
+		    "Chittagonian",
+		    "Czech",
+		    "Deccan",
+		    "Dhundhari",
+		    "Dutch",
+		    "English",
+		    "French",
+		    "Fula",
+		    "Gan",
+		    "German",
+		    "Greek",
+		    "Gujarati",
+		    "Haitian Creole",
+		    "Hakka",
+		    "Haryanvi",
+		    "Hausa",
+		    "Hiligaynon",
+		    "Hindi / Urdu",
+		    "Hmong",
+		    "Hungarian",
+		    "Igbo",
+		    "Ilokano",
+		    "Italian",
+		    "Japanese",
+		    "Javanese",
+		    "Jin",
+		    "Kannada",
+		    "Kazakh",
+		    "Khmer",
+		    "Kinyarwanda",
+		    "Kirundi",
+		    "Konkani",
+		    "Korean",
+		    "Kurdish",
+		    "Madurese",
+		    "Magahi",
+		    "Maithili",
+		    "Malagasy",
+		    "Malay/Indonesian",
+		    "Malayalam",
+		    "Mandarin",
+		    "Marathi",
+		    "Marwari",
+		    "Min Bei",
+		    "Min Dong",
+		    "Min Nan",
+		    "Mossi",
+		    "Nepali",
+		    "Oriya",
+		    "Oromo",
+		    "Pashto",
+		    "Persian",
+		    "Polish",
+		    "Portuguese",
+		    "Punjabi",
+		    "Quechua",
+		    "Romanian",
+		    "Russian",
+		    "Saraiki",
+		    "Serbo-Croatian",
+		    "Shona",
+		    "Sindhi",
+		    "Sinhalese",
+		    "Somali",
+		    "Spanish",
+		    "Sundanese",
+		    "Swahili",
+		    "Swedish",
+		    "Sylheti",
+		    "Tagalog",
+		    "Tamil",
+		    "Telugu",
+		    "Thai",
+		    "Turkish",
+		    "Ukrainian",
+		    "Uyghur",
+		    "Uzbek",
+		    "Vietnamese",
+		    "Wu",
+		    "Xhosa",
+		    "Xiang",
+		    "Yoruba",
+		    "Zulu",
+	    );
 
-        return apply_filters('kcseo_language_list', $language_list);
+	    return apply_filters('kcseo_language_list', $language_list);
     }
 
     static function getSocialList() {

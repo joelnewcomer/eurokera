@@ -59,7 +59,6 @@ if ( ! class_exists( 'KcSeoInit' ) ):
 				wp_enqueue_media();
 				wp_enqueue_script( array(
 					'jquery',
-					'kcseo-datepicker',
 					'kcseo-select2-js',
 					'kcseo-tooltip-js',
 					'kcseo-admin-js',
@@ -67,16 +66,11 @@ if ( ! class_exists( 'KcSeoInit' ) ):
 
 				// styles
 				wp_enqueue_style( array(
-					'kcseo-datepicker',
 					'kcseo-select2-css',
 					'kcseo-tooltip-css',
 					'kcseo-admin-css',
 				) );
 
-                wp_localize_script('kcseo-admin-js', '_kcseo', array(
-                    'time_format' => get_option('time_format'),
-                    'date_format' => get_option('date_format')
-                ));
 			}
 		}
 
@@ -88,24 +82,17 @@ if ( ! class_exists( 'KcSeoInit' ) ):
 			if ( is_admin() ) {
 
 
-				$scripts[] = array(
+				$scripts[]                   = array(
 					'handle' => 'kcseo-select2-js',
 					'src'    => $KcSeoWPSchema->assetsUrl . 'js/select2.min.js',
 					'deps'   => array( 'jquery' ),
 					'footer' => true
 				);
-				$scripts[] = array(
+				$scripts[]                   = array(
 					'handle' => 'kcseo-tooltip-js',
 					'src'    => $KcSeoWPSchema->assetsUrl . 'js/jquery.qtip.js',
 					'deps'   => array( 'jquery' ),
 					'footer' => true
-				);
-
-				$scripts[]                   = array(
-					'handle' => 'kcseo-datepicker',
-					'src'    => $KcSeoWPSchema->assetsUrl . 'vendor/datepicker/jquery.datetimepicker.full.min.js',
-					'deps'   => array( 'jquery' ),
-					'footer' => false
 				);
 				$scripts[]                   = array(
 					'handle' => 'kcseo-admin-js',
@@ -113,7 +100,6 @@ if ( ! class_exists( 'KcSeoInit' ) ):
 					'deps'   => array( 'jquery' ),
 					'footer' => true
 				);
-				$styles['kcseo-datepicker']  = $KcSeoWPSchema->assetsUrl . 'vendor/datepicker/jquery.datetimepicker.min.css';
 				$styles['kcseo-select2-css'] = $KcSeoWPSchema->assetsUrl . 'css/select2.min.css';
 				$styles['kcseo-tooltip-css'] = $KcSeoWPSchema->assetsUrl . 'css/jquery.qtip.css';
 				$styles['kcseo-admin-css']   = $KcSeoWPSchema->assetsUrl . 'css/admin.css';
@@ -220,6 +206,7 @@ if ( ! class_exists( 'KcSeoInit' ) ):
 		function updateVariableAndFixIssue() {
 			global $KcSeoWPSchema;
 			$KcSeoWPSchema->fix1_2DataMigration();
+			$KcSeoWPSchema->fix2_5_7_to_2_5_8();
 			update_option( $KcSeoWPSchema->options['installed_version'], $KcSeoWPSchema->options['version'] );
 		}
 

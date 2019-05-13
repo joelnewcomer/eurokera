@@ -1,14 +1,6 @@
 (function ($) {
     'use strict';
 
-    $(function () {
-        if ($.fn.datetimepicker && $(".kcseo-date").length) {
-            $('.kcseo-date').datetimepicker({
-                format: _kcseo.date_format + ' ' + _kcseo.time_format
-            });
-        }
-    });
-
     wpSeoShowHideType();
     $("#site_type, #_schema_aggregate_rating_schema_type").change(function () {
         wpSeoShowHideType();
@@ -116,10 +108,10 @@
     });
 
     function wpSeoShowHideType() {
-        if($('#_schema_aggregate_rating_schema_type').length){
+        if ($('#_schema_aggregate_rating_schema_type').length) {
             var id = $("#_schema_aggregate_rating_schema_type option:selected").val();
         }
-        if($('#site_type').length){
+        if ($('#site_type').length) {
             var id = $("#site_type option:selected").val();
         }
 
@@ -134,9 +126,9 @@
             $(".form-table tr.business-info,.form-table tr.all-type-data, .aggregate-except-organization-holder").show();
         }
 
-        if($.inArray(id, ['FoodEstablishment', 'Bakery','BarOrPub','Brewery','CafeOrCoffeeShop','FastFoodRestaurant','IceCreamShop','Restaurant','Winery']) >= 0){
+        if ($.inArray(id, ['FoodEstablishment', 'Bakery', 'BarOrPub', 'Brewery', 'CafeOrCoffeeShop', 'FastFoodRestaurant', 'IceCreamShop', 'Restaurant', 'Winery']) >= 0) {
             $(".form-table tr.restaurant").show();
-        }else {
+        } else {
             $(".form-table tr.restaurant").hide();
         }
     }
@@ -178,7 +170,7 @@
     function AjaxCall(element, action, arg, handle) {
         var data;
         if (action) data = "action=" + action;
-        if (arg)    data = arg + "&action=" + action;
+        if (arg) data = arg + "&action=" + action;
         if (arg && !action) data = arg;
         data = data;
 

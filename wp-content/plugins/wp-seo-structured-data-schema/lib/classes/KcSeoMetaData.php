@@ -23,21 +23,16 @@ if ( ! class_exists( 'KcSeoMetaData' ) ):
 			// scripts
 			wp_enqueue_script( array(
 				'jquery',
-				'kcseo-datepicker',
 				'kcseo-select2-js',
 				'kcseo-admin-js',
 			) );
 
 			// styles
 			wp_enqueue_style( array(
-				'kcseo-datepicker',
 				'kcseo-select2-css',
 				'kcseo-admin-css',
 			) );
-            wp_localize_script('kcseo-admin-js', '_kcseo', array(
-                'time_format' => get_option('time_format'),
-                'date_format' => get_option('date_format')
-            ));
+
 			add_action( 'admin_head', array( $this, 'admin_head' ) );
 		}
 
@@ -75,7 +70,7 @@ if ( ! class_exists( 'KcSeoMetaData' ) ):
 			$schemaFields     = KcSeoOptions::getSchemaTypes();
 			$i                = 0;
 			foreach ( $schemaFields as $schemaID => $schema ) {
-				$tabId = $KcSeoWPSchema->KcSeoPrefix . $schemaID;
+				$tabId       = $KcSeoWPSchema->KcSeoPrefix . $schemaID;
 				$activeClass = ( ( ! $_kcseo_ative_tab && $i === 0 ) || $tabId === $_kcseo_ative_tab ) ? ' active' : null;
 				$i ++;
 				$htmlMenu .= '<li data-id="' . $tabId . '" class="' . $activeClass . '"><a href="#' . $tabId . '">' . $schema['title'] . '</a></li>';
