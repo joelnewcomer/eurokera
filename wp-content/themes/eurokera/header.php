@@ -83,11 +83,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 	</head>
 	<body <?php body_class(); ?>>
-
-<! - Google Tag Manager (noscript) ->
-<noscript> <iframe src = "https://www.googletagmanager.com/ns.html?id=GTM-WJ9W8VH <https://www.googletagmanager.com/ns.html?id=GTM-WJ9W8VH>"
-height = "0" width = "0" style = "display: none; visibility: hidden"> </ iframe> </ noscript>
-<! - End Google Tag Manager (noscript) ->
+		
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJ9W8VH<https://www.googletagmanager.com/ns.html?id=GTM-WJ9W8VH>"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 		<a class="skip-link sr-only" href="#content"><?php _e( 'Skip to content', 'drumroll' ); ?></a>
 	<?php do_action( 'foundationpress_after_body' ); ?>
