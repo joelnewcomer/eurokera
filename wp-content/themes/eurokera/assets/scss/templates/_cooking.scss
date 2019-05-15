@@ -150,6 +150,9 @@ section.ceo {
 	.long-quote {
 		padding: 140px 40px 120px 40px;
 		background: $dark-gray;
+		@media only screen and (max-width: 64.063em) {
+			padding: 80px 30px 60px 30px;
+		}
 		@media only screen and (max-width: 40.063em) {
 			background: #fff;
 			padding: 40px 20px;
