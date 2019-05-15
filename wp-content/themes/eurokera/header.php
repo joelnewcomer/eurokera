@@ -22,14 +22,18 @@
 
 
 		<?php wp_head(); ?>
+		
+		<?php if (ICL_LANGUAGE_CODE != 'zh-hans') : ?>
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id=<https://www.googletagmanager.com/gtm.js?id=>'+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WJ9W8VH');</script>
-<!-- End Google Tag Manager -->
+			<!-- Google Tag Manager 
+			<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id=<https://www.googletagmanager.com/gtm.js?id=>'+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-WJ9W8VH');</script>
+			<!-- End Google Tag Manager -->
+			
+		<?php endif; ?>
 
 		<!-- Load Korean font kit -->
 		<?php if(ICL_LANGUAGE_CODE=='ko') : ?>
@@ -84,10 +88,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	</head>
 	<body <?php body_class(); ?>>
 		
-<!-- Google Tag Manager (noscript) -->
+		<?php if (ICL_LANGUAGE_CODE != 'zh-hans') : ?>
+		
+<!-- Google Tag Manager (noscript) 
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJ9W8VH<https://www.googletagmanager.com/ns.html?id=GTM-WJ9W8VH>"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
+	<?php endif; ?>
 
 		<a class="skip-link sr-only" href="#content"><?php _e( 'Skip to content', 'drumroll' ); ?></a>
 	<?php do_action( 'foundationpress_after_body' ); ?>
