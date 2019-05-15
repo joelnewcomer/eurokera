@@ -6278,7 +6278,7 @@ section.dedicated-team {
     min-height: 700px; }
     @media only screen and (max-width: 40.063em) {
       section.dedicated-team .dedicated-team-photo {
-        min-height: 300px; } }
+        min-height: 460px; } }
   section.dedicated-team .button a {
     text-transform: uppercase; }
 
