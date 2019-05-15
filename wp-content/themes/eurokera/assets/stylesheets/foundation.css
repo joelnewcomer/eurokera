@@ -3799,7 +3799,7 @@ section.ceo .long-quote {
   background: #63666a; }
   @media only screen and (max-width: 64.063em) {
     section.ceo .long-quote {
-      padding: 80px 30px 60px 30px; } }
+      padding: 60px 30px 40px 30px; } }
   @media only screen and (max-width: 40.063em) {
     section.ceo .long-quote {
       background: #fff;
