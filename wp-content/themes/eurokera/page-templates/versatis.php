@@ -90,12 +90,12 @@ get_header(); ?>
 
 			
 	<section class="dedicated-team">
-		<div class="large-8 medium-8 columns dedicated-team-content">
-			<?php echo get_field('dedicated_team_content'); ?>
-		</div>
 		<?php $team_photo = wp_get_attachment_image_src( get_field('dedicated_team_photo'), 'full'); ?>
-		<div class="large-4 medium-4 columns dedicated-team-photo" style="background-image: url(<?php echo $team_photo[0]; ?>);">
+		<div class="large-4 large-push-8 medium-12 columns dedicated-team-photo" style="background-image: url(<?php echo $team_photo[0]; ?>);">
 			
+		</div>
+		<div class="large-8 large-pull-4 medium-12 columns dedicated-team-content">
+			<?php echo get_field('dedicated_team_content'); ?>
 		</div>
 	</section> <!-- dedicated-team -->
 	
