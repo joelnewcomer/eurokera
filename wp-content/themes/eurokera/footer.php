@@ -166,6 +166,7 @@ s.parentNode.insertBefore(b, s);})();
 <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=576260&fmt=gif" />
 </noscript>
 
+<?php if (ICL_LANGUAGE_CODE != 'zh-hans') : ?>
 <!-- Project Huddle http://brands.drumcreative.com/ -->
 <script>
 	(function (d, t, g) {
@@ -177,5 +178,6 @@ s.parentNode.insertBefore(b, s);})();
 		s.parentNode.insertBefore(ph, s);
 	})(document, 'script', '//brands.drumcreative.com/?p=116688&ph_apikey=1533515fcd54ac9e44f77fcb4de2fcf6');
 </script>
+<?php endif; ?>
 </body>
 </html>
