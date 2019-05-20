@@ -126,6 +126,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</div>
 		</div>
 		<script>
+			jQuery("li.wpml-ls-current-language > a").removeAttr("href");
 			jQuery('li.mobile-more').on( "click", function(e) {
 				e.preventDefault();
 				jQuery('li.hide-for-small').removeClass('hide-for-small');
