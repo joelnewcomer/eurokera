@@ -2565,16 +2565,13 @@ body.admin-bar:not(.home) .header-wrapper {
     padding: 8px 0; }
 
 ul.top-menu-right > li.wpml-ls-menu-item {
-  position: relative;
-  /* @media only screen and (max-width: 40em) {
-		display: none;
-	} */ }
+  position: relative; }
   ul.top-menu-right > li.wpml-ls-menu-item > a {
     padding-left: 34px;
     background: url(../images/down-arrow.svg) 10px center no-repeat; }
-
-.wpml-ls-current-language > a {
-  pointer-events: none; }
+  @media only screen and (max-width: 40em) {
+    ul.top-menu-right > li.wpml-ls-menu-item {
+      display: none; } }
 
 body.ie ul#menu-top-menu li.icon-wrapper, body.ie ul#menu-top-right-menu li.icon-wrapper {
   display: none !important; }

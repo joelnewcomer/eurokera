@@ -129,7 +129,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			jQuery('li.mobile-more').on( "click", function(e) {
 				e.preventDefault();
 				jQuery('li.hide-for-small').removeClass('hide-for-small');
-				/* jQuery('ul.top-menu-right > li.wpml-ls-menu-item').css('display', 'inline-block'); */
+				jQuery('ul.top-menu-right > li.wpml-ls-menu-item').css('display', 'inline-block');
 				jQuery('li.mobile-more').remove();
 				jQuery('.top-header').addClass('mobile-active');
 			});
