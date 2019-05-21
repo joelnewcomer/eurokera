@@ -168,7 +168,7 @@ s.parentNode.insertBefore(b, s);})();
 
 <?php if (ICL_LANGUAGE_CODE != 'zh-hans') : ?>
 <!-- Project Huddle http://brands.drumcreative.com/ -->
-<script>
+<!-- <script>
 	(function (d, t, g) {
 		var ph    = d.createElement(t), s = d.getElementsByTagName(t)[0];
 		ph.type   = 'text/javascript';
@@ -177,7 +177,7 @@ s.parentNode.insertBefore(b, s);})();
 		ph.src     = g + '&v=' + (new Date()).getTime();
 		s.parentNode.insertBefore(ph, s);
 	})(document, 'script', '//brands.drumcreative.com/?p=116688&ph_apikey=1533515fcd54ac9e44f77fcb4de2fcf6');
-</script>
+</script> -->
 <?php endif; ?>
 </body>
 </html>
