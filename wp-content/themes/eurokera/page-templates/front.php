@@ -69,9 +69,16 @@ get_header(); ?>
 			<?php while(has_sub_field('all_solutions')): ?>
 				<div class="row solution-row flex-medium-up">
 					<?php $src = wp_get_attachment_image_src( get_sub_field('image'), 'width=640&height=350&crop=1'); ?>
-					<a href="<?php echo get_sub_field('link'); ?>" class="large-6 large-push-6 medium-push-6 medium-6 columns solution-photo" style="background:url(<?php echo $src[0]; ?>) center center no-repeat;">
-					</a>
-					<div class="large-6 large-pull-6 medium-pull-6 medium-6 columns solution-about">
+					<?php 
+					$solution_photo_class = 'large-12';
+					$solution_about_class = 'large-12';
+					if ($src != '') {
+						$solution_about_class = 'large-6 large-pull-6 medium-pull-6 medium-6';
+						$solution_photo_class = 'large-6 large-push-6 medium-push-6 medium-6';
+						?>
+						<a href="<?php echo get_sub_field('link'); ?>" class="<?php echo $solution_photo_class; ?> columns solution-photo" style="background:url(<?php echo $src[0]; ?>) center center no-repeat;"></a>
+					<?php } ?>
+					<div class="<?php echo $solution_about_class; ?> columns solution-about">
 						<h3><a class="blue" href="<?php echo get_sub_field('link'); ?>"><?php echo get_sub_field('title'); ?></a></h3>
 						<div class="most-popular-content">
 							<?php echo get_sub_field('about'); ?>
