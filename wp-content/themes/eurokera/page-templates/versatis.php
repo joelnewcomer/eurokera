@@ -95,7 +95,7 @@ get_header(); ?>
 			
 		</div>
 		<div class="large-8 large-pull-4 medium-12 columns dedicated-team-content">
-			<?php echo get_field('dedicated_team_content'); ?>
+			<?php echo do_shortcode(get_field('dedicated_team_content')); ?>
 		</div>
 	</section> <!-- dedicated-team -->
 	
