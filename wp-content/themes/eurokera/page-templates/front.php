@@ -72,7 +72,7 @@ get_header(); ?>
 					<?php 
 					$solution_photo_class = 'large-12';
 					$solution_about_class = 'large-12';
-					if ($src != '') {
+					if ($src[0] != '') {
 						$solution_about_class = 'large-6 large-pull-6 medium-pull-6 medium-6';
 						$solution_photo_class = 'large-6 large-push-6 medium-push-6 medium-6';
 						?>
