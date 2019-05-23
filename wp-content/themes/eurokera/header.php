@@ -26,14 +26,14 @@
 		<?php if (ICL_LANGUAGE_CODE != 'zh-hans') : ?>
 
 			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-54647743-1"></script>
+			<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-54647743-1"></script>
 			<script>
 			  window.dataLayer = window.dataLayer || [];
 			  function gtag(){dataLayer.push(arguments);}
 			  gtag('js', new Date());
 			
 			  gtag('config', 'UA-54647743-1');
-			</script>
+			</script> -->
 			
 		<?php endif; ?>
 
