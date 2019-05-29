@@ -179,6 +179,13 @@ section.ceo {
 	}
 }
 
+html[lang=zh-hans] section.ceo .long-quote p {
+	font-size: 38px;
+	@media only screen and (max-width: 40.063em) {
+		font-size: 26px;	
+	}
+}
+
 section.numbers {
 	background: #fef4e9;
 	padding: 90px 0 80px;
