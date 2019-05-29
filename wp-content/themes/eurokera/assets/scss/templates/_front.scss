@@ -104,6 +104,9 @@ section.most-popular {
 		}
 		.most-popular-content {
 			padding: 20px;
+			a {
+				white-space: nowrap;
+			}
 		}
 		.faux-button {
 			margin-top: 8px;

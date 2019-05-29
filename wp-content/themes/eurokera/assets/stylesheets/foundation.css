@@ -3609,6 +3609,8 @@ section.most-popular {
           font-size: 16px; } }
     section.most-popular .most-popular-block .most-popular-content {
       padding: 20px; }
+      section.most-popular .most-popular-block .most-popular-content a {
+        white-space: nowrap; }
     section.most-popular .most-popular-block .faux-button {
       margin-top: 8px;
       padding: 8px 20px;
