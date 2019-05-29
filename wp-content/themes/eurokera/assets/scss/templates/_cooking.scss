@@ -181,10 +181,13 @@ section.ceo {
 
 html[lang=zh-hans], html[lang="vi-VN"] {
 	section.ceo .long-quote p {
-		font-size: 32px;
+		font-size: 28px;
 		@media only screen and (max-width: 40.063em) {
-			font-size: 24px;	
+			font-size: 22px;	
 		}
+	}
+	section.ceo .long-quote {
+		padding: 80px 40px 60px 40px;
 	}
 }
 

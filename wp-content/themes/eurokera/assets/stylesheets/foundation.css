@@ -3843,10 +3843,13 @@ section.ceo .long-quote {
       fill: #fff; }
 
 html[lang=zh-hans] section.ceo .long-quote p, html[lang="vi-VN"] section.ceo .long-quote p {
-  font-size: 32px; }
+  font-size: 28px; }
   @media only screen and (max-width: 40.063em) {
     html[lang=zh-hans] section.ceo .long-quote p, html[lang="vi-VN"] section.ceo .long-quote p {
-      font-size: 24px; } }
+      font-size: 22px; } }
+
+html[lang=zh-hans] section.ceo .long-quote, html[lang="vi-VN"] section.ceo .long-quote {
+  padding: 80px 40px 60px 40px; }
 
 section.numbers {
   background: #fef4e9;
