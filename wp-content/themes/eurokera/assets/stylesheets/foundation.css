@@ -3844,12 +3844,15 @@ section.ceo .long-quote {
 
 html[lang=zh-hans] section.ceo .long-quote p, html[lang="vi-VN"] section.ceo .long-quote p {
   font-size: 28px; }
-  @media only screen and (max-width: 40.063em) {
+  @media only screen and (max-width: 1180px) {
     html[lang=zh-hans] section.ceo .long-quote p, html[lang="vi-VN"] section.ceo .long-quote p {
       font-size: 22px; } }
 
 html[lang=zh-hans] section.ceo .long-quote, html[lang="vi-VN"] section.ceo .long-quote {
   padding: 80px 40px 60px 40px; }
+  @media only screen and (max-width: 1180px) {
+    html[lang=zh-hans] section.ceo .long-quote, html[lang="vi-VN"] section.ceo .long-quote {
+      padding: 40px 20px 20px 20px; } }
 
 section.numbers {
   background: #fef4e9;
