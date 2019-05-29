@@ -2583,7 +2583,7 @@ p.tagline {
   float: left;
   font-size: 34px;
   margin: 34px 0 0 30px; }
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 920px) {
     p.tagline {
       font-size: 28px; } }
   @media only screen and (max-width: 800px) {
