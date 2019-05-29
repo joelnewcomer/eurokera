@@ -6578,12 +6578,12 @@ ul.slimmenu li ul {
     width: 100%;
     top: 58px;
     position: absolute;
-    height: -webkit-calc(100vh - 66px);
-    height: calc(100vh - 66px);
+    /* height: calc(100vh - 66px); */
+    height: auto;
     overflow: scroll; }
   .admin-bar ul.slimmenu {
-    height: -webkit-calc(100vh - 112px);
-    height: calc(100vh - 112px); } }
+    /* height: calc(100vh - 112px); */
+    height: auto; } }
 
 ul.slimmenu li > ul {
   background: #ff8200;
