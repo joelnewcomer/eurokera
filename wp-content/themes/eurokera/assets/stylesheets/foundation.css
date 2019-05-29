@@ -2579,11 +2579,11 @@ ul.top-menu-right > li.wpml-ls-menu-item {
   .top-header.mobile-active ul.top-menu-right > li.wpml-ls-menu-item {
     display: inline-block; } }
 
-ul.top-menu-right > li.mobile-more > a {
+ul.top-menu > li.mobile-more > a {
   padding-left: 34px;
   background: url(../images/down-arrow.svg) 10px center no-repeat; }
 
-.top-header.mobile-active ul.top-menu-right > li.mobile-more > a {
+.top-header.mobile-active ul.top-menu > li.mobile-more > a {
   background: url(../images/up-arrow.svg) 10px center no-repeat; }
 
 body.ie ul#menu-top-menu li.icon-wrapper, body.ie ul#menu-top-right-menu li.icon-wrapper {
