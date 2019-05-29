@@ -133,7 +133,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				e.preventDefault();
 				jQuery('li.mobile-dropdown').toggleClass('hide-for-small');
 				/* jQuery('ul.top-menu-right > li.wpml-ls-menu-item').css('display', 'inline-block'); */
-				jQuery('.top-header').addClass('mobile-active');
+				jQuery('.top-header').toggleClass('mobile-active');
 			});
 		</script>	
 	</div>
