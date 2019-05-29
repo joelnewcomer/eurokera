@@ -260,7 +260,7 @@ ul.slimmenu li a, ul.slimmenu li .search-button {
 @media only screen and (max-width: 40.063em) {
 	ul.slimmenu li.active > a {
 		background: $primary-color;
-		color: #fff;
+		color: #fff !important;
 	}
 }
 

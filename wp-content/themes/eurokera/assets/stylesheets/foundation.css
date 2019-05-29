@@ -6712,7 +6712,7 @@ ul.slimmenu li a, ul.slimmenu li .search-button {
 @media only screen and (max-width: 40.063em) {
   ul.slimmenu li.active > a {
     background: #ff8200;
-    color: #fff; } }
+    color: #fff !important; } }
 
 ul.slimmenu li.blue a:before {
   border-bottom: 1px solid #2c9199; }
