@@ -2596,7 +2596,7 @@ p.tagline {
   margin: 34px 0 0 30px; }
   @media only screen and (max-width: 920px) {
     p.tagline {
-      font-size: 28px; } }
+      font-size: 26px; } }
   @media only screen and (max-width: 800px) {
     p.tagline {
       margin: 26px 0 0 30px; } }
