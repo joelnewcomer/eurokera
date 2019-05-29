@@ -54,14 +54,14 @@ get_header(); ?>
 	?>
 	<div class="large-6 medium-6 columns long-quote match-quote text-center">
 		<p><i>"<?php echo get_field('long_quote'); ?>"</i></p>
-		<div class="hide-for-small">	
+		<!-- <div class="hide-for-small"> -->	
 			<p class="ceo-name"><?php echo get_field('ceo_name'); ?><br /><span><?php echo get_field('executive_title'); ?></span></p>
-		</div>
+		<!-- </div> -->
 	</div>
 	<div class="large-6 medium-6 columns ceo-photo text-right match-quote" style="background-image: url(<?php echo $ceo_photo; ?>);">
-		<div class="short-quote">
+		<!-- <div class="short-quote">
 			<p class="ceo-name show-for-small"><?php echo get_field('ceo_name'); ?>, <?php echo get_field('executive_title'); ?></p>
-		</div>
+		</div> -->
 	</div>
 </section>
 
