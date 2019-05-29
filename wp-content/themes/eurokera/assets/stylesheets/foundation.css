@@ -3596,10 +3596,11 @@ section.most-popular {
     width: -webkit-calc(25% - 17px);
     width: calc(25% - 17px);
     margin-bottom: 16px; }
-    @media only screen and (max-width: 40.063em) {
+    @media only screen and (max-width: 770px) {
       section.most-popular .most-popular-block {
         width: -webkit-calc(50% - 17px);
-        width: calc(50% - 17px); } }
+        width: calc(50% - 17px);
+        margin-bottom: 20px !important; } }
     section.most-popular .most-popular-block p {
       color: #63666A;
       font-size: 18px; }

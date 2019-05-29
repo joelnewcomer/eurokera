@@ -91,8 +91,9 @@ section.most-popular {
 		position: relative;
 		width: calc(25% - 17px);
 		margin-bottom: 16px;
-		@media only screen and (max-width: 40.063em) {
-			width: calc(50% - 17px);	
+		@media only screen and (max-width: 770px) {
+			width: calc(50% - 17px);
+			margin-bottom: 20px !important; 
 		}
 		p {
 			color: #63666A;
