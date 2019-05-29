@@ -125,8 +125,10 @@ header#masthead {
 .icon-wrapper {
 	display: inline-block;
 	vertical-align: top;
+	/* Commented out 5/29/19 because it was chopping the search icon for mobile.
 	width: 25px;
 	height: 25px;
+	*/
 	@media (max-width: 40em) {
 		display: none!important;
 	}
