@@ -407,7 +407,8 @@ ul.top-menu-right > li.wpml-ls-menu-item {
 
 ul.top-menu > li.mobile-more > a {
 	padding-left: 34px;
-	background: url(../images/down-arrow.svg) 10px center no-repeat;	
+	background: url(../images/down-arrow.svg) 10px center no-repeat;
+	background-size: 20px 20px !important;	
 }
 
 .top-header.mobile-active ul.top-menu > li.mobile-more > a {
