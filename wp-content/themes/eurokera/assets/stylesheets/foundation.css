@@ -3061,7 +3061,7 @@ input.button:hover {
 
 .gallery-caption {
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   margin-left: 0;
   margin-top: 5px; }
 
@@ -4517,7 +4517,7 @@ section.block-sections .flex {
     max-width: 100%; }
 
 section.page-gallery {
-  padding: 40px 0; }
+  padding: 40px 0 70px 0; }
   section.page-gallery h2 {
     margin-bottom: 40px; }
   section.page-gallery .slider-container {
