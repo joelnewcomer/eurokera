@@ -2584,7 +2584,9 @@ ul.top-menu > li.mobile-more > a {
   background: url(../images/down-arrow.svg) 10px center no-repeat; }
 
 .top-header.mobile-active ul.top-menu > li.mobile-more > a {
-  background: url(../images/up-arrow.svg) 10px center no-repeat; }
+  background: url(../images/up-arrow.svg) 10px center no-repeat;
+  -webkit-background-size: 20px 20px !important;
+          background-size: 20px 20px !important; }
 
 body.ie ul#menu-top-menu li.icon-wrapper, body.ie ul#menu-top-right-menu li.icon-wrapper {
   display: none !important; }
