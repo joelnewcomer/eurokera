@@ -155,6 +155,9 @@ section.all-solutions {
 	}
 	.solution-about {
 		padding: 20px 24px 10px 24px;
+		a {
+			white-space: nowrap;
+		}
 	}
 	.solution-photo {
 		background-size: cover !important;

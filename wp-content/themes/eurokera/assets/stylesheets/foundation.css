@@ -3660,6 +3660,8 @@ section.all-solutions {
     margin-bottom: 30px; }
   section.all-solutions .solution-about {
     padding: 20px 24px 10px 24px; }
+    section.all-solutions .solution-about a {
+      white-space: nowrap; }
   section.all-solutions .solution-photo {
     -webkit-background-size: cover !important;
             background-size: cover !important;
