@@ -185,13 +185,13 @@ get_header(); ?>
 	<?php
 	$video_markup = '<a class="about-video vp-a vp-mp4-type" style="background-image: url(' . $video_poster . ');" href="' . get_field('video_url') . '" data-autoplay="1" data-dwrap="1"></a>';
 	echo apply_filters('the_content', $video_markup);
-	$video_inner = '<div class="row"><div class="large-12 columns text-center">';
+	$video_inner = '<div class="video-overlay text-center">';
 	ob_start();
 	get_template_part('assets/images/play', 'button.svg');
 	$play_button = ob_get_contents();
 	ob_end_clean();
 	$video_inner .= $play_button;
-	$video_inner .= '<br />' . get_field('video_title') . '</div></div>';
+	$video_inner .= '<br />' . get_field('video_title') . '</div>';
 	?>
 	<script>
 		jQuery('a.about-video').html('<?php echo $video_inner; ?>');
