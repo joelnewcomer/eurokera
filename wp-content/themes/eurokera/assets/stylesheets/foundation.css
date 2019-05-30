@@ -5069,7 +5069,11 @@ section.about-ceo .ceo-photo {
 section.process {
   padding: 60px 0 0 0; }
   section.process .process-steps {
-    padding: 8px; }
+    padding: 8px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
   section.process .process-step {
     margin: 8px;
     padding: 40px 60px; }
