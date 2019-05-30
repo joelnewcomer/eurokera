@@ -124,7 +124,7 @@ get_header(); ?>
 					jQuery(window).load(function(){
 						function loadCaption(currentSlide) {
 							var caption = currentSlide.find('p.gallery-slide-caption').html();
-							jQuery('.slider-container-<?php echo $row_counter; ?> p.gallery-caption').html(caption);
+							/* jQuery('.slider-container-<?php echo $row_counter; ?> p.gallery-caption').html(caption); */
 						}										
 						var slider = jQuery('.gallery-<?php echo $row_counter; ?>').bxSlider({
 						    auto: false,
