@@ -199,9 +199,11 @@ body.admin-bar:not(.home) .header-wrapper {
 .header-wrapper {
 	position: fixed;
 	left: 0;
-	top: 29px;
+	/* top: 29px; */
+	top: 0;
 	@media only screen and (max-width: 640px) {
-		top: 58px;
+		/* top: 58px; */
+		top: 0;
 	}
 }
 
@@ -212,12 +214,15 @@ body.admin-bar:not(.home) .header-wrapper {
 }
 
 .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper  {
-	top: 61px;
+	/* top: 61px; */
+	top: 32px;
 	@media only screen and (max-width: 782px) {
-		top: 76px;	
+		/* top: 76px; */
+		top: 46px;	
 	}
 	@media only screen and (max-width: 640px) {
-		top: 106px;
+		/* top: 106px; */
+		top: 46px;
 	}
 }
 
@@ -270,26 +275,38 @@ body.admin-bar:not(.home) .header-wrapper {
 
 @media only screen and (min-width: 40.063em) {
 	.header-wrapper + section.container {
-		margin-top: 106px;
+		/* margin-top: 106px; */
+		margin-top: 135px;
 	}
 }
 
 @media only screen and (max-width: 1020px) {
 	.header-wrapper + section.container {
-		/* margin-top: 101px; */
-		margin-top: 75px;
+		/* margin-top: 75px; */
+		margin-top: 130px;
+		
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.header-wrapper + section.container {
+		/* margin-top: 75px; */
+		margin-top: 115px;
+		
 	}
 }
 
 @media only screen and (max-width: 720px) {
 	.header-wrapper + section.container {
-		margin-top: 66px;
+		/* margin-top: 66px; */
+		margin-top: 97px;
 	}
 }
 
 @media only screen and (max-width: 40.063em) {
 	.header-wrapper + section.container {
-		margin-top: 60px !important;
+		/* margin-top: 60px !important; */
+		margin-top: 118px !important;
 	}
 }
 

@@ -120,6 +120,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	});
 	</script>
 	
+	<div class="header-wrapper match-header">
+		
 	<div class="top-header">
 		<div class="row">
 			<div class="large-12 columns small-text-center">	
@@ -137,7 +139,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			});
 		</script>	
 	</div>
-	<div class="header-wrapper match-header">
+	
 	<header id="masthead" class="site-header match-header" role="banner">
 		<nav id="site-navigation" class="main-navigation top-bar row" role="navigation">
 			<div class="top-bar-left">

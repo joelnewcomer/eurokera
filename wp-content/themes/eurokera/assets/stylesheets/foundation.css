@@ -2419,23 +2419,28 @@ body.admin-bar:not(.home) .header-wrapper {
 .header-wrapper {
   position: fixed;
   left: 0;
-  top: 29px; }
+  /* top: 29px; */
+  top: 0; }
   @media only screen and (max-width: 640px) {
     .header-wrapper {
-      top: 58px; } }
+      /* top: 58px; */
+      top: 0; } }
 
 @media only screen and (max-width: 40em) {
   .top-header.mobile-active + .header-wrapper {
     top: 120px; } }
 
 .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
-  top: 61px; }
+  /* top: 61px; */
+  top: 32px; }
   @media only screen and (max-width: 782px) {
     .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
-      top: 76px; } }
+      /* top: 76px; */
+      top: 46px; } }
   @media only screen and (max-width: 640px) {
     .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
-      top: 106px; } }
+      /* top: 106px; */
+      top: 46px; } }
 
 @media only screen and (max-width: 40em) {
   .admin-bar .top-header.mobile-active + .header-wrapper, body.admin-bar:not(.home) .top-header.mobile-active + .header-wrapper {
@@ -2472,20 +2477,28 @@ body.admin-bar:not(.home) .header-wrapper {
 
 @media only screen and (min-width: 40.063em) {
   .header-wrapper + section.container {
-    margin-top: 106px; } }
+    /* margin-top: 106px; */
+    margin-top: 135px; } }
 
 @media only screen and (max-width: 1020px) {
   .header-wrapper + section.container {
-    /* margin-top: 101px; */
-    margin-top: 75px; } }
+    /* margin-top: 75px; */
+    margin-top: 130px; } }
+
+@media only screen and (max-width: 800px) {
+  .header-wrapper + section.container {
+    /* margin-top: 75px; */
+    margin-top: 115px; } }
 
 @media only screen and (max-width: 720px) {
   .header-wrapper + section.container {
-    margin-top: 66px; } }
+    /* margin-top: 66px; */
+    margin-top: 97px; } }
 
 @media only screen and (max-width: 40.063em) {
   .header-wrapper + section.container {
-    margin-top: 60px !important; } }
+    /* margin-top: 60px !important; */
+    margin-top: 118px !important; } }
 
 .top-header {
   background: #000;
@@ -4531,7 +4544,7 @@ section.block-sections .flex {
     max-height: 100%; }
 
 section.page-gallery {
-  padding: 40px 0 70px 0; }
+  padding: 40px 0 70px 0 !important; }
   section.page-gallery h2 {
     margin-bottom: 40px; }
   section.page-gallery .slider-container {
