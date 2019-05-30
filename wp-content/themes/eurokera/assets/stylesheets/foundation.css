@@ -3587,7 +3587,7 @@ body.home #content section h2:not(.blog-title) {
 
 section.most-popular {
   padding: 20px 0 40px 0; }
-  section.most-popular ∏ h2 {
+  section.most-popular h2 {
     margin-bottom: 40px; }
   section.most-popular .most-popular-blocks .columns {
     padding: 0 0 58px 0;
@@ -3613,9 +3613,11 @@ section.most-popular {
     margin-bottom: 16px; }
     @media only screen and (max-width: 770px) {
       section.most-popular .most-popular-block {
-        width: -webkit-calc(50% - 17px);
-        width: calc(50% - 17px);
+        /* width: calc(50% - 17px); */
+        width: 100%;
         margin-bottom: 20px !important; } }
+    section.most-popular .most-popular-block img {
+      width: 100%; }
     section.most-popular .most-popular-block p {
       color: #63666A;
       font-size: 18px; }

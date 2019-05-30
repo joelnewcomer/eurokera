@@ -64,7 +64,7 @@ body.home #content section h2:not(.blog-title) {
 }
 
 section.most-popular {
-	padding: 20px 0 40px 0;∏
+	padding: 20px 0 40px 0;
 	h2 {
 		margin-bottom: 40px;
 	}
@@ -92,9 +92,14 @@ section.most-popular {
 		width: calc(25% - 17px);
 		margin-bottom: 16px;
 		@media only screen and (max-width: 770px) {
-			width: calc(50% - 17px);
+			/* width: calc(50% - 17px); */
+			width: 100%;
 			margin-bottom: 20px !important; 
 		}
+		img {
+			width: 100%;
+		}
+		
 		p {
 			color: #63666A;
 			font-size: 18px;
