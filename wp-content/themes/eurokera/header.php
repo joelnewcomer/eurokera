@@ -120,7 +120,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	});
 	</script>
 	
-	<div class="header-wrapper match-header">
+	<div class="header-wrapper match-header stuck">
 		
 	<div class="top-header">
 		<div class="row">

@@ -247,7 +247,7 @@ jQuery( document ).ready(function() {
 });
 
 // Sticky header
-var $window = jQuery(window);
+/* var $window = jQuery(window);
 
 function checkScroll() {
 	var nav = jQuery('.top-header').offset();
@@ -270,7 +270,8 @@ jQuery( window ).load(function() {
 
 jQuery( document ).ready(function() {
 	checkScroll();
-});			
+});
+*/			
 
 // Mobile Read More buttons
 jQuery(document).on( "click", ".mrm-button", function() {
