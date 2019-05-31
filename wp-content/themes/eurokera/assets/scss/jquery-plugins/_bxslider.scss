@@ -115,6 +115,7 @@ ul.bxslider {
 .bx-wrapper .bx-prev:after {
     content: "";
     background: url(../images/slider-arrow-left-gray.svg) center center no-repeat;
+    background-size: 35px 70px !important;
 }
 
 .bx-wrapper .bx-next {
@@ -126,7 +127,8 @@ ul.bxslider {
 
 .bx-wrapper .bx-next:after {
     content: "";
-    background: url(../images/slider-arrow-right-gray.svg) center center no-repeat;	
+    background: url(../images/slider-arrow-right-gray.svg) center center no-repeat;
+    background-size: 35px 70px !important;
 }
 
 .bx-wrapper .bx-prev:hover {
