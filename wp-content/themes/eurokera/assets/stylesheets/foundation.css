@@ -2439,6 +2439,7 @@ body.admin-bar:not(.home) .header-wrapper {
   .top-header.mobile-active + .header-wrapper {
     top: 120px; } }
 
+/* ADMIN BAR CSS */
 .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
   /* top: 61px; */
   top: 32px; }
@@ -2471,7 +2472,7 @@ body.admin-bar:not(.home) .header-wrapper {
   .header-wrapper.stuck + section.container {
     margin-top: 74px; } }
 
-@media only screen and (max-width: 40.063em) {
+@media only screen and (max-width: 40em) {
   .header-wrapper.stuck + section.container {
     margin-top: 66px; } }
 
@@ -2504,7 +2505,7 @@ body.admin-bar:not(.home) .header-wrapper {
     /* margin-top: 66px; */
     margin-top: 97px; } }
 
-@media only screen and (max-width: 40.063em) {
+@media only screen and (max-width: 40em) {
   .header-wrapper + section.container {
     /* margin-top: 60px !important; */
     margin-top: 118px !important; } }

@@ -214,6 +214,7 @@ body.admin-bar:not(.home) .header-wrapper {
 	}
 }
 
+/* ADMIN BAR CSS */
 .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper  {
 	/* top: 61px; */
 	top: 32px;
@@ -257,7 +258,7 @@ body.admin-bar:not(.home) .header-wrapper {
 	}
 }
 
-@media only screen and (max-width: 40.063em) {
+@media only screen and (max-width: 40em) {
 	.header-wrapper.stuck + section.container {
 		margin-top: 66px;
 	}
@@ -304,7 +305,7 @@ body.admin-bar:not(.home) .header-wrapper {
 	}
 }
 
-@media only screen and (max-width: 40.063em) {
+@media only screen and (max-width: 40em) {
 	.header-wrapper + section.container {
 		/* margin-top: 60px !important; */
 		margin-top: 118px !important;
