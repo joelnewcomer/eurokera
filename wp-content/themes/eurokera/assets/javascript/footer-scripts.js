@@ -194,7 +194,7 @@ jQuery( document ).ready(function() {
 		}
 	});
 	if (!jQuery( "body" ).hasClass( "no-sr" ) && !jQuery("body").hasClass("ie9")) {
-		window.sr = ScrollReveal().reveal('.sr', { viewFactor: 0.05 });
+		// window.sr = ScrollReveal().reveal('.sr', { viewFactor: 0.05 });
 	}
 	jQuery('ul.slimmenu').slimmenu( {
 	    resizeWidth: '640',
