@@ -2416,7 +2416,6 @@ body > section.container > header,
 
 .header-wrapper {
   position: fixed;
-  /* top: 30px; */
   left: 0; }
 
 body.admin-bar:not(.home) .header-wrapper {
@@ -2428,11 +2427,9 @@ body.admin-bar:not(.home) .header-wrapper {
 .header-wrapper {
   position: fixed;
   left: 0;
-  /* top: 29px; */
   top: 0; }
   @media only screen and (max-width: 640px) {
     .header-wrapper {
-      /* top: 58px; */
       top: 0; } }
 
 @media only screen and (max-width: 40em) {
@@ -2441,15 +2438,12 @@ body.admin-bar:not(.home) .header-wrapper {
 
 /* ADMIN BAR CSS */
 .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
-  /* top: 61px; */
   top: 32px; }
   @media only screen and (max-width: 782px) {
     .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
-      /* top: 76px; */
       top: 46px; } }
   @media only screen and (max-width: 640px) {
     .admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper {
-      /* top: 106px; */
       top: 46px; } }
 
 @media only screen and (max-width: 40em) {
@@ -2459,22 +2453,6 @@ body.admin-bar:not(.home) .header-wrapper {
 @media only screen and (max-width: 40em) {
   body:not(.home) section.container, .home-banner {
     margin-top: 0; } }
-
-@media only screen and (min-width: 40.063em) {
-  .header-wrapper.stuck + section.container {
-    margin-top: 107px; } }
-
-@media only screen and (max-width: 1020px) {
-  .header-wrapper.stuck + section.container {
-    /* margin-top: 102px; */ } }
-
-@media only screen and (max-width: 720px) {
-  .header-wrapper.stuck + section.container {
-    /* margin-top: 74px; */ } }
-
-@media only screen and (max-width: 40em) {
-  .header-wrapper.stuck + section.container {
-    /* margin-top: 66px; */ } }
 
 .admin-bar .header-wrapper.stuck {
   top: 32px !important; }
@@ -2487,27 +2465,22 @@ body.admin-bar:not(.home) .header-wrapper {
 
 @media only screen and (min-width: 40.063em) {
   .header-wrapper + section.container {
-    /* margin-top: 106px; */
     margin-top: 135px; } }
 
 @media only screen and (max-width: 1020px) {
   .header-wrapper + section.container {
-    /* margin-top: 75px; */
     margin-top: 130px; } }
 
 @media only screen and (max-width: 800px) {
   .header-wrapper + section.container {
-    /* margin-top: 75px; */
     margin-top: 115px; } }
 
 @media only screen and (max-width: 720px) {
   .header-wrapper + section.container {
-    /* margin-top: 66px; */
     margin-top: 97px; } }
 
 @media only screen and (max-width: 40em) {
   .header-wrapper + section.container {
-    /* margin-top: 60px !important; */
     margin-top: 118px !important; } }
 
 .top-header {
