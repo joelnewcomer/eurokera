@@ -237,13 +237,13 @@ jQuery( document ).ready(function() {
 		});
 	}
 	
-	if (jQuery(document).scrollTop() > 600) {
+	/*if (jQuery(document).scrollTop() > 600) {
 		setTimeout(function(){
 			jQuery(window).paroller();
 		}, 1500);
 	} else {
 		jQuery(window).paroller();
-	}	
+	} */	
 });
 
 // Sticky header
