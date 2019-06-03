@@ -2466,15 +2466,15 @@ body.admin-bar:not(.home) .header-wrapper {
 
 @media only screen and (max-width: 1020px) {
   .header-wrapper.stuck + section.container {
-    margin-top: 102px; } }
+    /* margin-top: 102px; */ } }
 
 @media only screen and (max-width: 720px) {
   .header-wrapper.stuck + section.container {
-    margin-top: 74px; } }
+    /* margin-top: 74px; */ } }
 
 @media only screen and (max-width: 40em) {
   .header-wrapper.stuck + section.container {
-    margin-top: 66px; } }
+    /* margin-top: 66px; */ } }
 
 .admin-bar .header-wrapper.stuck {
   top: 32px !important; }
