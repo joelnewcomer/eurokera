@@ -244,34 +244,7 @@ jQuery( document ).ready(function() {
 	} else {
 		jQuery(window).paroller();
 	}	
-});
-
-// Sticky header
-/* var $window = jQuery(window);
-
-function checkScroll() {
-	var nav = jQuery('.top-header').offset();
-	// alert('checking ... scrolltop: ' + $window.scrollTop() + '  navtop: ' + nav.top);
-    if ($window.scrollTop() > nav.top) {
-		jQuery(".header-wrapper").addClass("stuck");
-    } else {
-      	jQuery(".header-wrapper").removeClass("stuck");
-    }	
-}
-checkScroll();
-
-$window.scroll(function () {
-	checkScroll();
-});
-    
-jQuery( window ).load(function() {
-	checkScroll();
-});
-
-jQuery( document ).ready(function() {
-	checkScroll();
-});
-*/			
+});		
 
 // Mobile Read More buttons
 jQuery(document).on( "click", ".mrm-button", function() {

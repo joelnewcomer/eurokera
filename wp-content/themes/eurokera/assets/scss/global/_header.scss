@@ -177,11 +177,10 @@ body > section.container > header,
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);
 	-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);
 	box-shadow: 0 0 5px rgba(0,0,0,.15);
-	&.stuck {
+
 		position: fixed;
 		top: 0 !important;
 		left: 0;
-	}
 }
 
 .header-wrapper {
@@ -234,7 +233,7 @@ body.admin-bar:not(.home) .header-wrapper {
 	}
 }
 
-.admin-bar .header-wrapper.stuck {
+.admin-bar .header-wrapper {
 	top: 32px !important;
 	@media only screen and (max-width: 782px) {
 		top: 46px !important;

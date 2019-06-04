@@ -2408,11 +2408,10 @@ body > section.container > header,
   background: #fff;
   width: 100%;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); }
-  .header-wrapper.stuck {
-    position: fixed;
-    top: 0 !important;
-    left: 0; }
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0 !important;
+  left: 0; }
 
 .header-wrapper {
   position: fixed;
@@ -2454,10 +2453,10 @@ body.admin-bar:not(.home) .header-wrapper {
   body:not(.home) section.container, .home-banner {
     margin-top: 0; } }
 
-.admin-bar .header-wrapper.stuck {
+.admin-bar .header-wrapper {
   top: 32px !important; }
   @media only screen and (max-width: 782px) {
-    .admin-bar .header-wrapper.stuck {
+    .admin-bar .header-wrapper {
       top: 46px !important; } }
 
 #site-navigation {
