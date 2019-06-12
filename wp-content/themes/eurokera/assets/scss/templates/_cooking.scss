@@ -34,6 +34,17 @@ section.home-banner + section.ceo {
 	}
 }
 
+
+@media only screen and (max-width: 40.063em) {
+	.home-banner, .home-banner .center-banner {
+		min-height: 0;
+	}
+	.home-banner {
+		padding-top: 35px;
+		padding-bottom: 35px;
+	}
+}
+
 .firefox .home-banner .center-banner {
 	display: flex !important;
 	align-items: center;
@@ -52,6 +63,12 @@ section.home-banner + section.ceo {
 		-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
 		transform: rotate(180deg);
 	}
+}
+
+@media only screen and (max-width: 40.063em) {
+	.down-arrow {
+		display: none;
+	}	
 }
 
 .site-links {
