@@ -51,7 +51,7 @@
 						$cookie_page = get_page_by_path('cookie-policy');
 						$icl_cookie_page_id = icl_object_id($cookie_page->ID, 'page', true);
 						?>
-						<p><?php _e( 'Copyright ', 'textdomain' ); ?> &copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?>.  <span class="no-break"><?php _e( 'All rights reserved.', 'textdomain' ); ?></span> <span class="show-for-small"><br /></span><a href="<?php echo get_permalink($icl_term_page_id); ?>"><?php _e('Terms of Use'); ?></a>. <a href="<?php echo get_permalink($icl_privacy_page_id); ?>"><?php _e('Privacy Policy'); ?></a>. <a href="<?php echo get_permalink($icl_cookie_page_id); ?>"><?php _e('Cookie Policy'); ?></a>.</p>
+						<p><?php _e( 'Copyright ', 'textdomain' ); ?> &copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?>.  <span class="no-break"><?php _e( 'All rights reserved.', 'textdomain' ); ?></span> <span class="show-for-small"><br /></span><a href="<?php echo get_permalink($icl_term_page_id); ?>"><?php _e('Terms of Use'); ?></a>. <a href="<?php echo get_permalink($icl_privacy_page_id); ?>"><?php _e('Privacy Policy'); ?></a>. <a href="<?php echo get_permalink($icl_cookie_page_id); ?>"><?php _e('Cookie Policy'); ?></a>. <a href="<?php echo get_permalink($icl_sitemap_page_id); ?>"><?php _e('Sitemap'); ?>.</p>
 					</div>
 					<!-- <div class="large-6 medium-6 columns drum hide-on-print text-right small-text-center">
 						<a href="http://www.drumcreative.com" target="_blank"><?php _e( 'Web Design by: Drum Creative', 'textdomain' ); ?></a>
