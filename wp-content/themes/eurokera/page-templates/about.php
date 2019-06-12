@@ -172,7 +172,9 @@ get_header(); ?>
 </section>
 
 <section class="about-video">
+	<?php $new_video = false; ?>
 	<div class="row">
+		<?php if ($new_video) : ?>
 		<div class="large-4 medium-4 columns">
 	<?php
 	$video_poster = get_field('video_poster');
@@ -206,6 +208,9 @@ get_header(); ?>
 <?php endif; ?>			
 		</div>
 		<div class="large-8 medium-8 columns about-video-content">
+			<?php else : ?>
+				<div class="large-12 columns about-video-content">
+			<?php endif; ?>
 			<?php echo get_field('video_video_content'); ?>
 		</div>
 </section>
