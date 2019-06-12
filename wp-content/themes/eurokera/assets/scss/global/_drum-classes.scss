@@ -401,3 +401,9 @@ span.mobile-read-more {
 	color: $orange;
 	cursor: pointer;
 }
+
+.featherlight .featherlight-content .caption {
+	text-overflow: unset !important;
+    white-space: normal !important;
+    overflow: visible !important;
+}

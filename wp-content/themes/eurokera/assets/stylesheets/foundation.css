@@ -2252,6 +2252,11 @@ span.mobile-read-more {
   color: #ff8200;
   cursor: pointer; }
 
+.featherlight .featherlight-content .caption {
+  text-overflow: unset !important;
+  white-space: normal !important;
+  overflow: visible !important; }
+
 @media only screen and (min-width: 40.063em) {
   .top-bar-right {
     margin-top: 33px; } }
