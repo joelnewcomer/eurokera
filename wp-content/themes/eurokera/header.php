@@ -151,13 +151,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				?>
 			</div> <!-- top-bar-left -->
 			<div class="top-bar-right">
-				<?php 
+				<?php
+				$on_page_nav = false;
 				if (is_page_template('page-templates/versatis.php')) {
 					versatis_menu();
+					$on_page_nav = true;
 				} elseif (get_field('menu') == 'fireplaces') {
 					fireplaces_menu();
+					$on_page_nav = true;
 				} elseif (get_field('menu') == 'specialties') {
 					specialties_menu();
+					$on_page_nav = true;
 				} elseif (get_field('menu') == 'none' || is_page_template('page-templates/about.php') || is_page_template('page-templates/front.php') || is_page_template('page-templates/page-contact.php') || is_page_template('page-templates/library.php') || is_home() || is_archive() || is_singular('post')) {
 					// do nothing	
 				} else {
@@ -166,6 +170,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				?>
 			</div> <!-- top-bar-right -->
 
+<?php if ($on_page_nav) : ?>
+
+<!-- Add active class to nav on scroll -->
+<script>
+jQuery( document ).ready(function() {
+	// Cache selectors
+	var topMenu = jQuery("ul.slimmenu"),
+    topMenuHeight = topMenu.outerHeight()+15,
+    // All list items
+    menuItems = topMenu.find('a[href^="#"]'),
+    // Anchors corresponding to menu items
+    scrollItems = menuItems.map(function(){
+	    alert(jQuery(this).attr("href"));
+      var item = jQuery(jQuery(this).attr("href"));
+      if (item.length) { return item; }
+    });
+    
+	// Bind to scroll
+	jQuery(window).scroll(function(){
+		// Get container scroll position
+		var fromTop = jQuery(this).scrollTop()+topMenuHeight;
+
+		// Get id of current scroll item
+		var cur = scrollItems.map(function(){
+		if (jQuery(this).offset().top < fromTop)
+    		return this;
+   		});
+   		// Get the id of the current element
+   		cur = cur[cur.length-1];
+   		var id = cur && cur.length ? cur[0].id : "";
+   		// Set/remove active class
+   		menuItems
+   		.parent().removeClass("active")
+   		.end().filter("[href='#"+id+"']").parent().addClass("active");
+	});
+});
+</script>
+
+<?php endif; ?>
 
 	<?php if (is_singular('products')) : ?>
 		<div class="all-products transition">
