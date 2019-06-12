@@ -132,6 +132,10 @@ if (typeof bxSlider === "function") {
         controls: true,
         mode: 'fade',
         speed: 1000,
+		onSlideAfter: function() {
+		    slider.stopAuto();
+		    slider.startAuto();
+		}        
     });	
 } else {
 	jQuery(window).load(function(){
@@ -141,6 +145,10 @@ if (typeof bxSlider === "function") {
     	    controls: true,
     	    mode: 'fade',
     	    speed: 1000,
+			onSlideAfter: function() {
+			    slider.stopAuto();
+			    slider.startAuto();
+			}      	    
     	});		
 	});
 }
