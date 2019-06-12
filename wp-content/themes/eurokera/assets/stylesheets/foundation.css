@@ -2616,6 +2616,10 @@ p.tagline {
     p.tagline {
       font-size: 12px;
       margin: 20px 0 0 0; } }
+  @media only screen and (max-width: 320px) {
+    p.tagline {
+      font-size: 10px;
+      margin: 21px 0 0 0; } }
 
 #footer-container {
   display: block;
@@ -4680,6 +4684,9 @@ section.timeline {
     max-width: 100%; }
   section.timeline .saint-gobain, section.timeline .corning {
     max-width: 40%; }
+    @media only screen and (max-width: 40.063em) {
+      section.timeline .saint-gobain, section.timeline .corning {
+        max-width: 35%; } }
   section.timeline .num-one svg {
     width: 161px;
     height: 63px; }
@@ -4698,8 +4705,15 @@ section.timeline {
     vertical-align: middle; }
     @media only screen and (max-width: 40.063em) {
       section.timeline .plus, section.timeline .equals {
-        font-size: 30px;
-        margin: 0 20px; } }
+        /* font-size: 30px;
+			margin: 0 20px; */ } }
+  @media only screen and (max-width: 40.063em) {
+    section.timeline .plus {
+      margin: 0 20px; } }
+  @media only screen and (max-width: 40.063em) {
+    section.timeline .equals {
+      width: 100%;
+      margin: 0; } }
   section.timeline .eurokera-logo-1 {
     fill: #251a06; }
 

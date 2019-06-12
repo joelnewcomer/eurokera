@@ -54,6 +54,7 @@ get_header(); ?>
 				</a>
 			</div>
 			<div class="equals">=</div>
+			<br />
 			<div class="num-one history-logo">
 				<?php get_template_part('assets/images/eurokera', 'logo.svg'); ?><br />
 			</div>
