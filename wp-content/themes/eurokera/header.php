@@ -182,7 +182,6 @@ jQuery( document ).ready(function() {
     menuItems = topMenu.find('a[href^="#"]'),
     // Anchors corresponding to menu items
     scrollItems = menuItems.map(function(){
-	    alert(jQuery(this).attr("href"));
       var item = jQuery(jQuery(this).attr("href"));
       if (item.length) { return item; }
     });
