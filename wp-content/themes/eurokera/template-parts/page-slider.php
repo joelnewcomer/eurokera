@@ -48,6 +48,10 @@
 							    controls: true,
 							    mode: 'fade',
 							    speed: 1000,
+								onSlideAfter: function() {
+									slider.stopAuto();
+									slider.startAuto();
+								}   
 							});	
 						});
 					</script>

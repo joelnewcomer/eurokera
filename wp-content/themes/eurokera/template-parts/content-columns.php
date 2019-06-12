@@ -504,6 +504,10 @@ function drum_animate($column, $row, $script = false) {
 										    onSlideBefore: function($slideElement) {
 												loadCaption($slideElement);
     											},
+    										onSlideAfter: function() {
+												slider.stopAuto();
+												slider.startAuto();
+											}  
 										});
 									});
 
