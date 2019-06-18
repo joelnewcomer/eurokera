@@ -3727,8 +3727,8 @@ section.home-blog {
   .home-banner, .home-banner .center-banner {
     min-height: 0; }
   .home-banner {
-    padding-top: 70px;
-    padding-bottom: 35px; } }
+    padding-top: 100px;
+    padding-bottom: 65px; } }
 
 .firefox .home-banner .center-banner {
   display: -webkit-box !important;
