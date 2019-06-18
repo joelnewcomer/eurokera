@@ -3699,9 +3699,13 @@ section.home-blog {
     color: #fff;
     font-weight: 300;
     margin-bottom: 35px; }
+    @media only screen and (max-width: 40em) {
+      .home-banner h1 {
+        font-size: 28px; } }
 
-section.home-banner + section.ceo {
-  margin-top: 8px; }
+@media only screen and (min-width: 40.063em) {
+  section.home-banner + section.ceo {
+    margin-top: 8px; } }
 
 .home-banner, .center-banner {
   min-height: -webkit-calc(100vh - 106px);
@@ -3723,7 +3727,7 @@ section.home-banner + section.ceo {
   .home-banner, .home-banner .center-banner {
     min-height: 0; }
   .home-banner {
-    padding-top: 35px;
+    padding-top: 70px;
     padding-bottom: 35px; } }
 
 .firefox .home-banner .center-banner {
@@ -3751,15 +3755,15 @@ section.home-banner + section.ceo {
     /* Chrome, Safari, Opera */
     transform: rotate(180deg); }
 
-@media only screen and (max-width: 40.063em) {
-  .down-arrow {
-    display: none; } }
-
 .site-links .button {
   display: inline-block;
   margin: 0 8px; }
   .site-links .button a {
     min-width: 304px; }
+
+@media only screen and (max-width: 40.063em) {
+  .site-links, .down-arrow {
+    display: none; } }
 
 .bounce {
   -webkit-animation-name: bounce;
