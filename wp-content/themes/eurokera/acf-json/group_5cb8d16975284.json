@@ -731,7 +731,7 @@
         },
         {
             "key": "field_5cbe251d301ff",
-            "label": "Dedicated Team Photo",
+            "label": "Dedicated Team Photo (OLD)",
             "name": "dedicated_team_photo",
             "type": "image",
             "instructions": "",
@@ -742,8 +742,8 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "id",
-            "preview_size": "thumbnail",
+            "return_format": "array",
+            "preview_size": "medium",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -752,7 +752,35 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "",
-            "wpml_cf_preferences": 3
+            "wpml_cf_preferences": 0
+        },
+        {
+            "key": "field_5d124437dbd91",
+            "label": "Dedicated Team Slideshow",
+            "name": "dedicated_team_slideshow",
+            "type": "gallery",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "wpml_cf_preferences": 0
         },
         {
             "key": "field_5cbe2643df2d1",
@@ -798,7 +826,9 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "",
+            "return_format": "array",
+            "preview_size": "medium"
         },
         {
             "key": "field_5cbe265fdf2d2",
@@ -871,5 +901,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1556131681
+    "modified": 1561478284
 }
