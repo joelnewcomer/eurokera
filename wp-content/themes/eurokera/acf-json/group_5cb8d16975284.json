@@ -758,7 +758,7 @@
             "key": "field_5d124437dbd91",
             "label": "Dedicated Team Slideshow",
             "name": "dedicated_team_slideshow",
-            "type": "gallery",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -767,20 +767,39 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "id",
-            "preview_size": "medium",
-            "insert": "append",
-            "library": "all",
-            "min": "",
-            "max": "",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "wpml_cf_preferences": 0
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add Photo",
+            "wpml_cf_preferences": 1,
+            "sub_fields": [
+                {
+                    "key": "field_5d1245349e8f7",
+                    "label": "Photo",
+                    "name": "photo",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "wpml_cf_preferences": 0
+                }
+            ]
         },
         {
             "key": "field_5cbe2643df2d1",
@@ -901,5 +920,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1561478284
+    "modified": 1561486339
 }

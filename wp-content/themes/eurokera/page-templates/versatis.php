@@ -91,8 +91,25 @@ get_header(); ?>
 			
 	<section class="dedicated-team">
 		<?php $team_photo = wp_get_attachment_image_src( get_field('dedicated_team_photo'), 'full'); ?>
-		<div class="large-4 large-push-8 medium-12 columns dedicated-team-photo" style="background-image: url(<?php echo $team_photo[0]; ?>);">
-			
+		<div class="large-4 large-push-8 medium-12 columns dedicated-team-photo no-padding" style="background-image: url(<?php echo $team_photo[0]; ?>);">
+					<div class="slider-container">
+		    <ul class="bxslider">
+				<?php if( have_rows('dedicated_team_slideshow') ):
+					while ( have_rows('dedicated_team_slideshow') ) : the_row(); ?>
+		                <?php
+			            $photo = get_sub_field('photo');
+			            $photo_url = wp_get_attachment_image_src($photo, 'full');
+		                ?>
+		                	<li>
+		                		<div class="slide-inner" style="background:url(<?php echo $photo_url[0]; ?>) center center no-repeat;"></div>
+						</li>					
+					<?php endwhile;
+				endif; ?>
+		    </ul>
+		    <!-- <div class="home-slider-overlay text-center">
+			    <h1><?php echo get_field('slider_header'); ?></h1>
+		    </div> -->
+		</div> <!-- slider-container -->
 		</div>
 		<div class="large-8 large-pull-4 medium-12 columns dedicated-team-content">
 			<?php echo do_shortcode(get_field('dedicated_team_content')); ?>
@@ -178,5 +195,32 @@ get_header(); ?>
         });
     });
 </script>
+
+<script>
+if (typeof bxSlider === "function") { 	
+    var slider = jQuery('.bxslider').bxSlider({
+        auto: true,
+	    	pager: (jQuery(".bxslider > li").length > 1) ? true: false,
+        controls: true,
+        mode: 'fade',
+        speed: 1000,     
+    });	
+} else {
+	jQuery(window).load(function(){
+    	var slider = jQuery('.bxslider').bxSlider({
+    	    auto: true,
+    	    /* pager: (jQuery(".bxslider > li").length > 1) ? true: false, */
+    	    pager: false,
+    	    controls: true,
+    	    mode: 'fade',
+    	    speed: 1000,      	    
+    	});		
+	});
+}
+
+jQuery("ul.bxslider li:first-child img").on('load', function() { 
+	jQuery('.bxslider').show();
+});
+</script>	
 
 <?php get_footer(); ?>
