@@ -137,14 +137,26 @@ class SitePress_Table_Basket extends SitePress_Table {
 		return $columns;
 	}
 
+	/**
+	 * @param object $item
+	 * @param string $column_name
+	 *
+	 * @return mixed|string
+	 */
 	function column_default( $item, $column_name ) {
+		/**
+		 * WP base class is expecting an object, but we are using an array in our implementation.
+		 * Casting $item into an array prevents IDE warnings.
+		 */
+		$item = (array) $item;
+
 		switch ( $column_name ) {
 			case 'title':
 			case 'notes':
 				return $item[ $column_name ];
 				break;
 			case 'type':
-				return $this->get_post_type_label( $item[ $column_name ] );
+				return $this->get_post_type_label( $item[ $column_name ], $item );
 				break;
 			case 'status':
 				return $this->get_post_status_label( $item[ $column_name ] );
@@ -228,6 +240,7 @@ class SitePress_Table_Basket extends SitePress_Table {
 		$this->items[ $item_type . '|' . $post_id ]['target_languages'] = $data['to_langs_string'];
 		$this->items[ $item_type . '|' . $post_id ]['item_type']        = $item_type;
 		$this->items[ $item_type . '|' . $post_id ]['words']            = $this->get_words_count( $post_id, $item_type, count( $data['to_langs'] ) );
+		$this->items[ $item_type . '|' . $post_id ]['auto_added']       = isset( $data['auto_added'] ) && $data['auto_added'];
 	}
 
 	/**
@@ -297,7 +310,13 @@ class SitePress_Table_Basket extends SitePress_Table {
 		return $post_status_label;
 	}
 
-	private function get_post_type_label( $post_type ) {
+	/**
+	 * @param string $post_type
+	 * @param array  $item
+	 *
+	 * @return string
+	 */
+	private function get_post_type_label( $post_type, array $item ) {
 		static $post_type_object;
 
 		if ( ! isset( $post_type_object[ $post_type ] ) ) {
@@ -310,6 +329,21 @@ class SitePress_Table_Basket extends SitePress_Table {
 			if ( isset( $post_type_object_item->labels->singular_name ) && $post_type_object_item->labels->singular_name ) {
 				$post_type_label = $post_type_object_item->labels->singular_name;
 			}
+		}
+
+		if ( isset( $item['auto_added'] ) && $item['auto_added'] ) {
+			if ( 'wp_block' === $post_type ) {
+				$post_type_label = __( 'Reusable Block', 'wpml-translation-management' );
+			}
+
+			$tooltip = '<a class="js-otgs-popover-tooltip otgs-ico-help"
+							data-tippy-zindex="999999" tabindex="0"
+							title="' . esc_attr( "WPML added this item because it's linked to another in the basket. If you wish, you can manually remove it.", 'wpml-translation-management' ) . '"
+							</a>';
+
+			$post_type_label .= '<br><small>'
+								. sprintf( esc_html__( 'automatically added %s', 'wpml-translation-management' ), $tooltip ) .
+								'</small>';
 		}
 
 		return $post_type_label;

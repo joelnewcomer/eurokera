@@ -17,7 +17,7 @@ class WPML_ST_Options_All_Strings_English implements IWPML_Action {
 	}
 
 	public function add_hooks() {
-		$hook = 'default_option_' . WPML_ST_Gettext_Hooks_Factory::ALL_STRINGS_ARE_IN_ENGLISH_OPTION;
+		$hook = 'default_option_' . WPML_ST_Gettext_Filters_Activation::ALL_STRINGS_ARE_IN_ENGLISH_OPTION;
 		add_filter( $hook, array( $this, 'check_for_non_english_strings' ), 10, 0 );
 	}
 
@@ -38,8 +38,8 @@ class WPML_ST_Options_All_Strings_English implements IWPML_Action {
 	}
 
 	private function update_option_with_default_value( $value ) {
-		$hook = 'default_option_' . WPML_ST_Gettext_Hooks_Factory::ALL_STRINGS_ARE_IN_ENGLISH_OPTION;
+		$hook = 'default_option_' . WPML_ST_Gettext_Filters_Activation::ALL_STRINGS_ARE_IN_ENGLISH_OPTION;
 		remove_filter( $hook, array( $this, 'check_for_non_english_strings' ), 10, 0 );
-		update_option( WPML_ST_Gettext_Hooks_Factory::ALL_STRINGS_ARE_IN_ENGLISH_OPTION, $value );
+		update_option( WPML_ST_Gettext_Filters_Activation::ALL_STRINGS_ARE_IN_ENGLISH_OPTION, $value );
 	}
 }

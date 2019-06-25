@@ -472,7 +472,7 @@ class WPML_TM_Menus_Management extends WPML_TM_Menus {
 					</td>
 					<td>
 						<label>
-							<input type="radio" id="duplicate-all" value="2" name="radio-action-all" <?php echo $duplicate_checked; ?> /> 
+							<input type="radio" id="duplicate-all" value="2" name="radio-action-all" <?php echo $duplicate_checked; ?> />
 																												<?php
 																												echo esc_html__(
 																													'Duplicate content',
@@ -862,7 +862,7 @@ class WPML_TM_Menus_Management extends WPML_TM_Menus {
 
 		$current_user_id = get_current_user_id();
 
-		$translator_records = new WPML_Translator_Records( $wpdb, new WPML_WP_User_Query_Factory() );
+		$translator_records = new WPML_Translator_Records( $wpdb, new WPML_WP_User_Query_Factory(), wp_roles() );
 		$translators        = $translator_records->get_users_with_languages(
 			$source_language,
 			array_keys( $target_languages ),

@@ -64,7 +64,6 @@ class WPML_TM_Jobs_String_Query implements WPML_TM_Jobs_Query {
 			'NULL as translate_job_id',
 			'core_status.tp_revision AS revision',
 			'core_status.ts_status AS ts_status',
-			'NULL AS needs_update',
 			'NULL AS editor',
 		);
 

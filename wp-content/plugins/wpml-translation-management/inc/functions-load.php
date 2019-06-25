@@ -207,7 +207,7 @@ function wpml_tm_load_blog_translators() {
 
 	if ( ! $instance ) {
 		$tm_records         = new WPML_TM_Records( $wpdb, $wpml_post_translations, $wpml_term_translations );
-		$translator_records = new WPML_Translator_Records( $wpdb, new WPML_WP_User_Query_Factory() );
+		$translator_records = new WPML_Translator_Records( $wpdb, new WPML_WP_User_Query_Factory(), wp_roles() );
 
 		$instance = new WPML_TM_Blog_Translators( $sitepress, $tm_records, $translator_records );
 	}

@@ -1191,6 +1191,19 @@ class WPML_WP_API extends WPML_PHP_Functions {
 	 * @return WP_Filesystem_Direct
 	 */
 	public function get_wp_filesystem_direct() {
+		global $wp_filesystem;
+
+		require_once( ABSPATH . 'wp-admin/includes/file.php' );
+
+		/**
+		 * We need to make sure that `WP_Filesystem` has been called
+		 * at least once so that some constants are defined with
+		 * default values.
+		 */
+		if ( ! $wp_filesystem ) {
+			WP_Filesystem();
+		}
+
 		require_once( ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php' );
 		require_once( ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php' );
 

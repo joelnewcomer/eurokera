@@ -56,8 +56,9 @@ class WPML_Translation_Management {
 		global $wpdb;
 
 		$template_service_loader        = new WPML_Twig_Template_Loader( array( WPML_TM_PATH . '/templates/tm-menus/' ) );
-		$manager_records                = new WPML_Translation_Manager_Records( $wpdb, new WPML_WP_User_Query_Factory() );
-		$translator_records             = new WPML_Translator_Records( $wpdb, new WPML_WP_User_Query_Factory() );
+		$wp_roles                       = wp_roles();
+		$manager_records                = new WPML_Translation_Manager_Records( $wpdb, new WPML_WP_User_Query_Factory(), $wp_roles );
+		$translator_records             = new WPML_Translator_Records( $wpdb, new WPML_WP_User_Query_Factory(), $wp_roles );
 		$this->wpml_tm_menus_management = new WPML_TM_Menus_Management( $template_service_loader->get_template(), $manager_records, $translator_records );
 
 	  $mcs_factory = new WPML_TM_Scripts_Factory();

@@ -54,7 +54,7 @@ class WPML_ST_Fastest_Settings_Notice {
 				'value' => 3,
 				'type' => 'core',
 			),
-			WPML_ST_Gettext_Hooks_Factory::ALL_STRINGS_ARE_IN_ENGLISH_OPTION => array(
+			WPML_ST_Gettext_Filters_Activation::ALL_STRINGS_ARE_IN_ENGLISH_OPTION => array(
 				'title' => WPML_ST_Theme_Plugin_Localization_Options_UI::get_all_strings_option_text(),
 				'description' => __( "Almost all themes and plugins have texts in English. Reducing the check for the string's language simplifies and shortens the string translation process.", 'wpml-string-translation' ),
 				'value' => 1,

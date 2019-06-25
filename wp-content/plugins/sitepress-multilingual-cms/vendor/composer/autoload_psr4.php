@@ -6,5 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'WPML\\Collect\\' => array($vendorDir . '/tightenco/collect/src/Illuminate'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
+    'Auryn\\' => array($vendorDir . '/rdlowrey/auryn/lib'),
 );

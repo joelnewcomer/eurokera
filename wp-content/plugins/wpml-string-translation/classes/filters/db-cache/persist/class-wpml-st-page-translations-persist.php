@@ -4,23 +4,49 @@ class WPML_ST_Page_Translations_Persist implements IWPML_ST_Page_Translations_Pe
 	const SHARED_CACHE_THRESHOLD = 500;
 	const INSERT_CHUNK_SIZE = 2000;
 
-	/** @var WPDB $wpdb */
+	/**
+	 * WP DB instance.
+	 *
+	 * @var wpdb
+	 */
 	private $wpdb;
 
 	/**
-	 * @param WPDB $wpdb
+	 * WPML_ST_Gettext_Filters_Activation instance.
+	 *
+	 * @var WPML_ST_Gettext_Filters_Activation
 	 */
-	public function __construct( $wpdb ) {
-		$this->wpdb = $wpdb;
+	private $gettext_filters_activation;
+
+	/**
+	 * WPML_ST_Page_Translations_Persist constructor.
+	 *
+	 * @param wpdb                               $wpdb WP DB instance.
+	 * @param WPML_ST_Gettext_Filters_Activation $gettext_filters_activation WPML_ST_Gettext_Filters_Activation instance.
+	 */
+	public function __construct(
+		wpdb $wpdb,
+		WPML_ST_Gettext_Filters_Activation $gettext_filters_activation
+	) {
+		$this->wpdb                       = $wpdb;
+		$this->gettext_filters_activation = $gettext_filters_activation;
 	}
 
 	/**
-	 * @param $language
-	 * @param $page_url
+	 * Get translations per page.
+	 *
+	 * @param string $language Language.
+	 * @param string $page_url Page url.
 	 *
 	 * @return WPML_ST_Page_Translations
 	 */
 	public function get_translations_for_page( $language, $page_url ) {
+		if ( ! $this->gettext_filters_activation->should_be_turned_on( $language ) ) {
+			return new WPML_ST_Page_Translations( array() );
+		}
+
+		$args = [ $language, $page_url ];
+
 		$res_query = "
 					SELECT DISTINCT 
 						s.id,
@@ -40,10 +66,14 @@ class WPML_ST_Page_Translations_Persist implements IWPML_ST_Page_Translations_Pe
 						ON s.id=st.string_id
 							AND st.language=su.language
 							AND s.language!=su.language
-					WHERE (su.language=%s and su.url=%s) or (su.language=%s and su.url IS NULL)
+					WHERE (su.language=%s and su.url=%s)
 					";
 
-		$res_prepare = $this->wpdb->prepare( $res_query, array( $language, $page_url, $language ) );
+		if ( is_admin() ) {
+			$res_query .= " or (su.language=%s and su.url IS NULL)";
+			$args[] = $language;
+		}
+		$res_prepare = $this->wpdb->prepare( $res_query, $args );
 		$rowset      = $this->wpdb->get_results( $res_prepare, ARRAY_A );
 
 		$rowset = is_array( $rowset ) ? $rowset : array();
@@ -211,7 +241,7 @@ class WPML_ST_Page_Translations_Persist implements IWPML_ST_Page_Translations_Pe
 	private function should_use_shared_cache( $language, $translations ) {
 		$shared_cache = false;
 
-		if ( self::SHARED_CACHE_THRESHOLD < count( $translations ) ) {
+		if ( is_admin() && self::SHARED_CACHE_THRESHOLD < count( $translations ) ) {
 			$shared_cache = ! $this->has_any_strings_in_shared_cached( $language );
 		}
 

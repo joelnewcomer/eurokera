@@ -35,7 +35,7 @@ function wpml_plugins_integration_setup() {
 	}
 	if ( class_exists( 'bbPress' ) ) {
 		$wpml_bbpress_api     = new WPML_BBPress_API();
-		$wpml_bbpress_filters = new WPML_BBPress_Filters( $wpml_bbpress_api, $sitepress, $wpml_url_converter );
+		$wpml_bbpress_filters = new WPML_BBPress_Filters( $wpml_bbpress_api );
 		$wpml_bbpress_filters->add_hooks();
 	}
 

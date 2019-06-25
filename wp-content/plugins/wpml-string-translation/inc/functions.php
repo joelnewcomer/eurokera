@@ -1,5 +1,12 @@
 <?php
-/** @todo: Move the functions code to classes and keep the functions as wrappers only */
+/**
+ * String translation common functions.
+ *
+ * @package WPML\ST
+ * @todo    : Move the functions code to classes and keep the functions as wrappers only
+ */
+
+use WPML\ST\Gettext;
 
 add_action( 'plugins_loaded', 'icl_st_init' );
 
@@ -233,6 +240,16 @@ function wpml_register_single_string_action( $context, $name, $value, $allow_emp
  */
 add_action('wpml_register_single_string', 'wpml_register_single_string_action', 10, 5);
 
+/**
+ * @param string|array $context
+ * @param string       $name
+ * @param bool         $value
+ * @param bool         $allow_empty_value
+ * @param null|bool    $has_translation
+ * @param null|string  $target_lang
+ *
+ * @return bool|string
+ */
 function icl_translate( $context, $name, $value = false, $allow_empty_value = false, &$has_translation = null, $target_lang = null ) {
 	static $lock = false;
 	if ( $lock ) {
@@ -249,12 +266,15 @@ function icl_translate( $context, $name, $value = false, $allow_empty_value = fa
 			/** @var WPML_ST_Gettext_Hooks $st_gettext_hooks */
 			global $st_gettext_hooks;
 
-			$filter = $st_gettext_hooks->get_filter( $target_lang, $name );
-				
-			if ( $filter ) {
-				$new_value = $filter->translate_by_name_and_context( $value, $name, $context, $has_translation );
-				if ( $has_translation ) {
-					$value = $new_value;
+			if ( $st_gettext_hooks ) {
+
+				$filter = $st_gettext_hooks->get_filter( $target_lang, $name );
+
+				if ( $filter ) {
+					$new_value = $filter->translate_by_name_and_context( $value, $name, $context, $has_translation );
+					if ( $has_translation ) {
+						$value = $new_value;
+					}
 				}
 			}
 		}
@@ -615,10 +635,10 @@ function icl_sw_filters_widget_text($val){
  * @param bool|string $name
  *
  * @return string
+ * @throws Auryn\InjectionException Auryn Exception.
  */
 function icl_sw_filters_gettext( $translation, $text, $domain, $name = false ) {
-	/** @var WPML_ST_Gettext_Hooks $st_gettext_hooks */
-	global $sitepress, $sitepress_settings, $st_gettext_hooks, $icl_language_switched;
+	global $sitepress, $sitepress_settings, $icl_language_switched;
 
 	static $cache = array();
 
@@ -659,7 +679,7 @@ function icl_sw_filters_gettext( $translation, $text, $domain, $name = false ) {
 	$has_translation = null;
 	$ret_translation = null;
 
-	if ( $st_gettext_hooks->should_gettext_filters_be_turned_on() ) {
+	if ( WPML\ST\Gettext\should_filters_be_turned_on( $lang ) ) {
 		$ret_translation = icl_translate( $domain, $name, $text, false, $has_translation );
 	}
 
@@ -708,7 +728,7 @@ function icl_st_track_string( $text, $domain, $kind = ICL_STRING_TRANSLATION_STR
     static $string_scanner = null;
     if ( ! $string_scanner ) {
         try {
-            $wp_filesystem = wp_filesystem_init();
+            $wp_filesystem = wpml_get_filesystem_direct();
             $string_scanner = new WPML_String_Scanner( $wp_filesystem, new WPML_ST_File_Hashing() );
         } catch( Exception $e ) {
             trigger_error($e->getMessage(), E_USER_WARNING);
@@ -992,29 +1012,6 @@ function icl_st_admin_notices_string_updated() {
 			<p><?php _e( 'Strings translations updated', 'wpml-string-translation' ); ?></p>
 	</div>
 	<?php
-}
-
-function wp_filesystem_init() {
-    add_filter( 'filesystem_method', 'set_direct_fs_method', PHP_INT_MAX );
-    return get_wp_filesystem();
-}
-
-function get_wp_filesystem() {
-    global $wp_filesystem;
-
-    if ( ! function_exists( 'WP_Filesystem' ) ) {
-        require_once( ABSPATH . 'wp-admin/includes/file.php' );
-    }
-
-    if ( ! WP_Filesystem() ) {
-        throw new RuntimeException( __( 'Unable to get filesystem access', 'wpml-string-translation' ) );
-    }
-
-    return $wp_filesystem;
-}
-
-function set_direct_fs_method() {
-    return 'direct';
 }
 
 /**

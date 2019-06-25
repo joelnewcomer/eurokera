@@ -563,16 +563,6 @@ class TranslationManagement {
 				$new_id = $this->set_duplicate( $_POST[ 'wpml_original_post_id' ], $_POST[ 'post_lang' ] );
 				wp_send_json_success( array( 'id' => $new_id ) );
 				break;
-			case 'make_duplicates':
-				$mdata[ 'iclpost' ] = array( $data[ 'post_id' ] );
-				$langs              = explode( ',', $data[ 'langs' ] );
-				foreach ( $langs as $lang ) {
-					$mdata[ 'duplicate_to' ][ $lang ] = 1;
-				}
-				$this->make_duplicates( $mdata );
-				do_action( 'wpml_new_duplicated_terms', (array) $mdata[ 'iclpost' ], false );
-				wp_send_json_success();
-				break;
 		}
 	}
 
@@ -1149,17 +1139,42 @@ class TranslationManagement {
 	/* ******************************************************************************************** */
 
 	/**
-	 * @param WPML_TM_Translation_Batch $batch
-	 * @param string                    $type
+	 * @param \WPML_TM_Translation_Batch $batch
+	 * @param string                     $type
 	 *
 	 * @return array
 	 */
-	function send_jobs( WPML_TM_Translation_Batch $batch, $type = 'post' ) {
+	function send_jobs( $batch, $type = 'post' ) {
+
+		/**
+		 * `\TranslationManagement::send_jobs` is in Core, and requires an instance of \WPML_TM_Translation_Batch
+		 * which is defined in TM.
+		 *
+		 * We should move this code to TM instead.
+		 *
+		 * Until then, to prevent tests from failing:
+		 *
+		 * - We remove the type-hint from the method's signature
+		 * - We compensate by using the following check
+		 */
+		if ( ! is_a( $batch, '\WPML_TM_Translation_Batch' ) ) {
+			throw new InvalidArgumentException( '$batch must be an instance of \WPML_TM_Translation_Batch' );
+		}
+
 		global $wpdb, $sitepress;
 
 		$job_ids    = array();
 		$added_jobs = array();
 		$batch_id   = TranslationProxy_Batch::update_translation_batch( $batch->get_basket_name() );
+
+		/**
+		 * Allows to filter the translation batch
+		 *
+		 * @since 4.3.0
+		 *
+		 * @param \WPML_TM_Translation_Batch $batch
+		 */
+		$batch = apply_filters( 'wpml_send_jobs_batch', $batch );
 
 		foreach ( $batch->get_elements_by_type($type) as $element ) {
 			$post = $this->get_post( $element->get_element_id(), $type );
@@ -1283,7 +1298,7 @@ class TranslationManagement {
 			}
 		}
 
-		do_action('wpml_added_translation_jobs', $added_jobs);
+		do_action( 'wpml_added_translation_jobs', $added_jobs );
 
 		icl_cache_clear();
 		do_action('wpml_tm_empty_mail_queue');
@@ -1441,6 +1456,7 @@ class TranslationManagement {
 				$language_names[ ] = ucfirst( $sitepress->get_display_language_name( $language_code, $sitepress->get_admin_language() ) );
 			}
 			$final_posts[ $post_data->ID ][ 'to_langs_string' ] = implode( ", ", $language_names );
+			$final_posts[ $post_data->ID ][ 'auto_added' ] = isset( $posts[ $post_data->ID ]['auto_added'] ) && $posts[ $post_data->ID ]['auto_added'];
 		}
 
 		return $final_posts;

@@ -37,7 +37,8 @@ class WPML_TM_Jobs_List_Script_Data {
 			$translators = new WPML_TM_Jobs_List_Translators(
 				new WPML_Translator_Records(
 					$wpdb,
-					new WPML_WP_User_Query_Factory()
+					new WPML_WP_User_Query_Factory(),
+					wp_roles()
 				)
 			);
 		}

@@ -389,8 +389,17 @@ class WPML_Meta_Boxes_Post_Edit_HTML {
 			?>
 			<tr>
 				<td colspan="3" align="right">
-					<input id="icl_make_duplicates" type="button" class="button-secondary" value="<?php echo esc_attr__( 'Duplicate', 'sitepress' ) ?>" disabled="disabled" style="display:none;"/>
-					<?php wp_nonce_field( 'make_duplicates_nonce', '_icl_nonce_mdup' ); ?>
+					<input
+							id="icl_make_duplicates"
+							type="button"
+							class="button-secondary"
+							value="<?php echo esc_attr__( 'Duplicate', 'sitepress' ) ?>"
+							disabled="disabled"
+							style="display:none;"
+							data-action="<?php echo WPML_Meta_Boxes_Post_Edit_Ajax::ACTION_DUPLICATE; ?>"
+        					data-nonce="<?php echo wp_create_nonce( WPML_Meta_Boxes_Post_Edit_Ajax::ACTION_DUPLICATE ); ?>"
+        					data-post-id="<?php echo isset( $this->post->ID ) ? $this->post->ID : 0; ?>"
+					/>
 				</td>
 			</tr>
 		</table>

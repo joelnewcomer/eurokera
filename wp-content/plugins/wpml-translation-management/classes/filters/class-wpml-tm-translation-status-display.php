@@ -136,7 +136,7 @@ class WPML_TM_Translation_Status_Display {
 		$source_lang = $this->post_translations->get_element_lang_code( $original_post_id );
 
 		$this->maybe_load_stats( $trid );
-		if ( $this->is_remote( $trid, $lang ) ) {
+		if ( $this->is_remote( $trid, $lang ) && $this->is_in_progress( $trid, $lang ) ) {
 			$language = $this->sitepress->get_language_details( $lang );
 			$text     = sprintf(
 				__(

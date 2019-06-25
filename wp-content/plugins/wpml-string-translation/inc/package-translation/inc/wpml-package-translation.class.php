@@ -33,7 +33,7 @@ class WPML_Package_Translation extends WPML_Package_Helper {
 	}
 
 	private function add_admin_hooks() {
-		if ( is_admin() || $this->is_doing_xmlrpc() || $this->is_doing_rest_request() ) {
+		if ( is_admin() || $this->is_doing_xmlrpc() || wpml_is_rest_request() ) {
 			add_action( 'wp_ajax_wpml_delete_packages', array( $this, 'delete_packages_ajax' ) );
 			add_action( 'wp_ajax_wpml_change_package_lang', array( $this, 'change_package_lang_ajax' ) );
 
@@ -97,17 +97,6 @@ class WPML_Package_Translation extends WPML_Package_Helper {
 
 	private function is_doing_xmlrpc() {
 		return ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST );
-	}
-
-	/**
-	 * @return bool
-	 */
-	private function is_doing_rest_request() {
-        /*
-         * We can't rely on REST_REQUEST constant because it is defined much later than this action
-         */
-
-		return false !== strpos( $_SERVER['REQUEST_URI'], 'wp-json' );
 	}
 
 	private function add_global_hooks() {

@@ -1,14 +1,27 @@
 <?php
+/**
+ * WPML_String_Translation class file.
+ *
+ * @package WPML\ST
+ */
 
+/**
+ * Class WPML_String_Translation
+ */
 class WPML_String_Translation
 {
 	const CACHE_GROUP = 'wpml-string-translation';
 
 	private $load_priority = 400;
+
 	private $messages = array();
+
 	private $string_filters = array();
+
 	private $active_languages;
+
 	private $current_string_language_cache = array();
+
 	/** @var  WPML_ST_String_Factory $string_factory */
 	private $string_factory;
 
@@ -35,7 +48,7 @@ class WPML_String_Translation
 	 * @param WPML_ST_String_Factory $string_factory
 	 */
 	public function __construct( &$sitepress, &$string_factory ) {
-		$this->sitepress = &$sitepress;
+		$this->sitepress      = &$sitepress;
 		$this->string_factory = &$string_factory;
 	}
 
@@ -114,7 +127,7 @@ class WPML_String_Translation
 		add_filter( 'WPML_ST_strings_language', array( $this, 'get_strings_language' ) );
 		add_filter( 'wpml_st_strings_language', array( $this, 'get_strings_language' ) );
 
-		add_action('wpml_st_delete_all_string_data', array( $this, 'delete_all_string_data'), 10, 1 );
+		add_action( 'wpml_st_delete_all_string_data', array( $this, 'delete_all_string_data' ), 10, 1 );
 
 		add_filter( 'wpml_st_string_status', array( $this, 'get_string_status_filter' ), 10, 2 );
 		add_filter( 'wpml_string_id', array( $this, 'get_string_id_filter' ), 10, 2 );
@@ -131,13 +144,6 @@ class WPML_String_Translation
 			wp_enqueue_style( 'thickbox' );
 			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script( 'thickbox' );
-
-			/**
-			 * When plugin is activated / deactivated we have to clear ST db cache to
-			 * allow add new strings to shared cache ( used by all pages independently of url ) or to remove anymore used
-			 */
-			add_action( 'activated_plugin', array( $this, 'clear_st_db_cache' ) );
-			add_action( 'deactivated_plugin', array( $this, 'clear_st_db_cache' ) );
 
 			$reset = new WPML_ST_Reset( $wpdb );
 			add_action( 'wpml_reset_plugins_after', array( $reset, 'reset' ) );
@@ -364,7 +370,7 @@ class WPML_String_Translation
 		require_once WPML_ST_PATH . '/inc/gettext/wpml-theme-string-scanner.class.php';
 
 		$file_hashing = new WPML_ST_File_Hashing();
-		$scan_for_strings = new WPML_Theme_String_Scanner( wp_filesystem_init(), $file_hashing );
+		$scan_for_strings = new WPML_Theme_String_Scanner( wpml_get_filesystem_direct(), $file_hashing );
 		$scan_for_strings->scan();
 	}
 
@@ -372,7 +378,7 @@ class WPML_String_Translation
 	{
 		require_once WPML_ST_PATH . '/inc/gettext/wpml-plugin-string-scanner.class.php';
 		$file_hashing = new WPML_ST_File_Hashing();
-		$scan_for_strings = new WPML_Plugin_String_Scanner( wp_filesystem_init(), $file_hashing );
+		$scan_for_strings = new WPML_Plugin_String_Scanner( wpml_get_filesystem_direct(), $file_hashing );
 		$scan_for_strings->scan();
 	}
 
@@ -660,7 +666,7 @@ class WPML_String_Translation
 	 *
 	 * @return null|string
 	 */
-	public function get_string_status_filter( $empty = null, $string_id ) {
+	public function get_string_status_filter( $empty = null, $string_id = 0 ) {
 		return $this->get_string_status( $string_id );
 	}
 
@@ -673,7 +679,7 @@ class WPML_String_Translation
 	 *                           }
 	 * @return int|null If there is more than one string_id, it will return the value set in $default.
 	 */
-	public function get_string_id_filter( $default = null, $string_data ) {
+	public function get_string_id_filter( $default = null, $string_data = array() ) {
 		$result = $default;
 
 		$string_id = $this->get_string_id( $string_data );
@@ -730,7 +736,7 @@ class WPML_String_Translation
 	 *
 	 * @return null|string
 	 */
-	public function get_string_language_filter( $empty = null, $domain, $name ) {
+	public function get_string_language_filter( $empty = null, $domain = '', $name = '' ) {
 		global $wpdb;
 
 		$key         = md5( $domain . '_' . $name );
@@ -927,14 +933,4 @@ class WPML_String_Translation
 		return isset( $_POST['wpnonce'] ) && wp_verify_nonce( $_POST['wpnonce'], $ajax_action );
 	}
 
-	/**
-	 * Clear ST db cache and data related to it
-	 */
-	public function clear_st_db_cache() {
-		global $wpdb;
-
-		$factory = new WPML_ST_DB_Cache_Factory( $wpdb );
-		$persist = $factory->create_persist();
-		$persist->clear_cache();
-	}
 }

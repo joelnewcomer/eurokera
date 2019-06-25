@@ -127,6 +127,7 @@ class WPML_Translation_Editor_UI {
 			'translation_is_complete'                      => ICL_TM_COMPLETE === (int) $this->job->status,
 			'show_media_button'                            => false,
 			'is_duplicate'                                 => $this->is_duplicate,
+			'display_hide_completed_switcher'              => true,
 		);
 
 		if ( ! empty( $_GET['return_url'] ) ) {
@@ -366,6 +367,7 @@ class WPML_Translation_Editor_UI {
 			$model['requires_translation_complete_for_each_field'] = $job->requires_translation_complete_for_each_field();
 			$model['hide_empty_fields']                            = $job->is_hide_empty_fields();
 			$model['show_media_button']                            = $job->show_media_button();
+			$model['display_hide_completed_switcher']              = $job->display_hide_completed_switcher();
 
 			$model['fields'] = $this->add_rtl_attributes( $job->get_all_fields() );
 			$this->fields    = $model['fields'];

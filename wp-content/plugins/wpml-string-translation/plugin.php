@@ -2,10 +2,10 @@
 /*
 Plugin Name: WPML String Translation
 Plugin URI: https://wpml.org/
-Description: Adds theme and plugins localization capabilities to WPML | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/string-translation-2-10-4/">WPML String Translation 2.10.4 release notes</a>
+Description: Adds theme and plugins localization capabilities to WPML | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/string-translation-2-7-0/">WPML String Translation 2.7.0 release notes</a>
 Author: OnTheGoSystems
 Author URI: http://www.onthegosystems.com/
-Version: 2.10.4
+Version: 2.10.5.1
 Plugin Slug: wpml-string-translation
 */
 
@@ -13,7 +13,7 @@ if ( defined( 'WPML_ST_VERSION' ) || get_option( '_wpml_inactive' ) ) {
 	return;
 }
 
-define( 'WPML_ST_VERSION', '2.10.4' );
+define( 'WPML_ST_VERSION', '2.10.5.1' );
 
 // Do not uncomment the following line!
 // If you need to use this constant, use it in the wp-config.php file
@@ -35,18 +35,24 @@ function wpml_st_verify_wpml() {
 	$verifier->verify_wpml( $wpml_version );
 }
 
+/**
+ * WPML ST Core loaded hook.
+ *
+ * @throws \Auryn\InjectionException Auryn Exception.
+ */
 function wpml_st_core_loaded() {
 	global $WPML_String_Translation, $st_gettext_hooks, $sitepress, $wpdb, $wpml_admin_notices;
+
 	new WPML_ST_TM_Jobs( $wpdb );
 
-	$setup_complete = apply_filters( 'wpml_get_setting', false, 'setup_complete' );
+	$setup_complete          = apply_filters( 'wpml_get_setting', false, 'setup_complete' );
 	$theme_localization_type = new WPML_Theme_Localization_Type( $sitepress );
-	$is_admin = $sitepress->get_wp_api()->is_admin();
+	$is_admin                = $sitepress->get_wp_api()->is_admin();
 
 	if ( isset( $wpml_admin_notices ) && $theme_localization_type->is_st_type() && $is_admin && $setup_complete ) {
 		global $wpml_st_admin_notices;
 		$themes_and_plugins_settings = new WPML_ST_Themes_And_Plugins_Settings();
-		$fastest_settings = new WPML_ST_Fastest_Settings_Notice( $sitepress, $wpml_admin_notices ? $wpml_admin_notices : wpml_get_admin_notices() );
+		$fastest_settings            = new WPML_ST_Fastest_Settings_Notice( $sitepress, $wpml_admin_notices ? $wpml_admin_notices : wpml_get_admin_notices() );
 		$fastest_settings->remove();
 		$wpml_st_admin_notices = new WPML_ST_Themes_And_Plugins_Updates( $wpml_admin_notices, $themes_and_plugins_settings, $fastest_settings );
 		$wpml_st_admin_notices->init_hooks();
@@ -55,7 +61,7 @@ function wpml_st_core_loaded() {
 	$pb_plugin = new WPML_ST_PB_Plugin();
 	if ( $pb_plugin->is_active() ) {
 		$pb_plugin->ask_to_deactivate();
-	} else {
+	} elseif ( $sitepress->is_setup_complete() ) {
 		$app = new WPML_Page_Builders_App( new WPML_Page_Builders_Defined() );
 		$app->add_hooks();
 
@@ -86,10 +92,21 @@ function wpml_st_core_loaded() {
 	$action_filter_loader = new WPML_Action_Filter_Loader();
 	$action_filter_loader->load( $actions );
 
-	$st_gettext_hooks_factory = new WPML_ST_Gettext_Hooks_Factory( $sitepress, $WPML_String_Translation, $theme_localization_type->is_st_type() );
-	$st_gettext_hooks = $st_gettext_hooks_factory->create();
+	WPML\Container\share( [ 'WPML_ST_Gettext_Filters_Activation' ] );
 
-	$st_gettext_hooks->init_hooks();
+	$st_upgrade = new WPML_ST_Upgrade( $sitepress );
+	if ( $st_upgrade->has_command_been_executed( 'WPML_ST_Upgrade_Db_Cache_Command' ) ) {
+
+		$gettext_filters_activation = WPML\Container\make( 'WPML_ST_Gettext_Filters_Activation' );
+		$st_gettext_hooks_factory   = new WPML_ST_Gettext_Hooks_Factory(
+			$WPML_String_Translation,
+			$gettext_filters_activation,
+			$theme_localization_type->is_st_type()
+		);
+		$st_gettext_hooks           = $st_gettext_hooks_factory->create();
+
+		$st_gettext_hooks->init_hooks();
+	}
 }
 
 function load_wpml_st_basics() {
@@ -115,7 +132,7 @@ function load_wpml_st_basics() {
 	$troubleshooting = new WPML_ST_DB_Troubleshooting();
 	$troubleshooting->add_hooks();
 
-	$st_theme_localization_type = new WPML_ST_Theme_Localization_Type( $wpdb );
+	$st_theme_localization_type = new WPML_ST_Theme_Localization_Type();
 	$st_theme_localization_type->add_hooks();
 
 	if ( $sitepress->is_setup_complete() ) {

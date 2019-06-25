@@ -185,6 +185,51 @@ class WPML_TM_ATE_Jobs_Actions implements IWPML_Action {
 	}
 
 	/**
+	 * After implementation of wpmltm-3211 and wpmltm-3391, we should not find missing ATE IDs anymore.
+	 * Some code below seems dead but we'll keep it for now in case we are missing a specific context.
+	 *
+	 * @link https://onthegosystems.myjetbrains.com/youtrack/issue/wpmltm-3211
+	 * @link https://onthegosystems.myjetbrains.com/youtrack/issue/wpmltm-3391
+	 */
+	private function get_ate_jobs_data( array $translation_jobs ) {
+		$ate_jobs_data      = array();
+		$skip_getting_data  = false;
+		$ate_jobs_to_create = array();
+
+		foreach ( $translation_jobs as $translation_job ) {
+			if ( $this->is_ate_translation_job( $translation_job ) ) {
+				$ate_job_id = $this->get_ate_job_id( $translation_job->job_id );
+				// Start of possibly dead code.
+				if ( ! $ate_job_id ) {
+					$ate_jobs_to_create[] = $translation_job->job_id;
+					$skip_getting_data    = true;
+				}
+				// End of possibly dead code.
+
+				if ( ! $skip_getting_data ) {
+					$ate_jobs_data[ $translation_job->job_id ] = array(
+						'ate_job_id' => $ate_job_id,
+						'progress'   => $this->get_ate_job_progress( $translation_job->job_id ),
+					);
+				}
+			}
+		}
+
+		// Start of possibly dead code.
+		if (
+			! $this->is_second_attempt_to_get_jobs_data &&
+			$ate_jobs_to_create &&
+			$this->added_translation_jobs( array( 'local' => $ate_jobs_to_create ) )
+		) {
+			$ate_jobs_data                            = $this->get_ate_jobs_data( $translation_jobs );
+			$this->is_second_attempt_to_get_jobs_data = true;
+		}
+		// End of possibly dead code.
+
+		return $ate_jobs_data;
+	}
+
+	/**
 	 * @param string $default_url
 	 * @param int $job_id
 	 * @param null|string $return_url
@@ -222,40 +267,6 @@ class WPML_TM_ATE_Jobs_Actions implements IWPML_Action {
 	 */
 	public function get_ate_jobs_data_filter( $ignore, array $translation_jobs ) {
 		return $this->get_ate_jobs_data( $translation_jobs );
-	}
-
-	private function get_ate_jobs_data( array $translation_jobs ) {
-		$ate_jobs_data      = array();
-		$skip_getting_data  = false;
-		$ate_jobs_to_create = array();
-
-		foreach ( $translation_jobs as $translation_job ) {
-			if ( $this->is_ate_translation_job( $translation_job ) ) {
-				$ate_job_id = $this->get_ate_job_id( $translation_job->job_id );
-				if ( ! $ate_job_id ) {
-					$ate_jobs_to_create[] = $translation_job->job_id;
-					$skip_getting_data    = true;
-				}
-
-				if ( ! $skip_getting_data ) {
-					$ate_jobs_data[ $translation_job->job_id ] = array(
-						'ate_job_id' => $ate_job_id,
-						'progress'   => $this->get_ate_job_progress( $translation_job->job_id ),
-					);
-				}
-			}
-		}
-
-		if (
-			! $this->is_second_attempt_to_get_jobs_data &&
-			$ate_jobs_to_create &&
-			$this->added_translation_jobs( array( 'local' => $ate_jobs_to_create ) )
-		) {
-			$ate_jobs_data                            = $this->get_ate_jobs_data( $translation_jobs );
-			$this->is_second_attempt_to_get_jobs_data = true;
-		}
-
-		return $ate_jobs_data;
 	}
 
 	private function get_ate_job_id( $job_id ) {

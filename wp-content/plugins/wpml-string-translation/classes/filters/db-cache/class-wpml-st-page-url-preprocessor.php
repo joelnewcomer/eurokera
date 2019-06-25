@@ -56,7 +56,7 @@ class WPML_ST_Page_URL_Preprocessor {
 	 * @return string
 	 */
 	public function process_url( $url ) {
-		if ( empty( $url ) || is_admin() ) {
+		if ( empty( $url ) ) {
 			return $url;
 		}
 
@@ -65,10 +65,12 @@ class WPML_ST_Page_URL_Preprocessor {
 		}
 
 		$url = $this->process_query( $url );
-		$path = parse_url( $url, PHP_URL_PATH );
 
-		$new_path = $this->wp->parse_request( $path );
-		$url = str_replace( $path, $new_path, $url );
+		if ( ! is_admin() ) {
+			$path = parse_url( $url, PHP_URL_PATH );
+			$new_path = $this->wp->parse_request( $path );
+			$url      = str_replace( $path, $new_path, $url );
+		}
 
 		return $url;
 	}
@@ -82,11 +84,7 @@ class WPML_ST_Page_URL_Preprocessor {
 		$query = parse_url( $url, PHP_URL_QUERY );
 		parse_str( $query, $output );
 
-		$white_list = $this->white_list;
-		if ( is_admin() ) {
-			$white_list = array_merge( $white_list, $this->admin_white_list );
-		}
-		$white_list = apply_filters( 'wpml-st-url-preprocessor-whitelist', $white_list );
+		$white_list = $this->get_white_list();
 		$output = array_intersect_key( $output, array_flip( $white_list ) );
 
 		foreach ( array_intersect_key( $output, array_flip( $this->ignore_value ) ) as $key => $value ) {
@@ -102,5 +100,18 @@ class WPML_ST_Page_URL_Preprocessor {
 		}
 
 		return $url;
+	}
+
+	/**
+	 * @return array
+	 */
+	private function get_white_list() {
+		$white_list = $this->white_list;
+		if ( is_admin() ) {
+			$white_list = array_merge( $white_list, $this->admin_white_list );
+		}
+		$white_list = apply_filters( 'wpml-st-url-preprocessor-whitelist', $white_list );
+
+		return $white_list;
 	}
 }

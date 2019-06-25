@@ -1,6 +1,9 @@
 <?php
 
 class WPML_TM_Jobs_Post_Query implements WPML_TM_Jobs_Query {
+
+	const STATUS_COLUMN = 'IF (translation_status.needs_update = 1, ' . ICL_TM_NEEDS_UPDATE . ', translation_status.status )';
+
 	/** @var wpdb */
 	protected $wpdb;
 
@@ -30,7 +33,7 @@ class WPML_TM_Jobs_Post_Query implements WPML_TM_Jobs_Query {
 			'translation_status.tp_id AS tp_id',
 			'batches.id AS local_batch_id',
 			'batches.tp_id AS tp_batch_id',
-			'translation_status.status AS status',
+			self::STATUS_COLUMN . ' AS status',
 			'original_translations.element_id AS original_element_id',
 			'translations.source_language_code AS source_language',
 			'translations.language_code AS target_language',
@@ -45,7 +48,6 @@ class WPML_TM_Jobs_Post_Query implements WPML_TM_Jobs_Query {
 			'translate_job.job_id AS translate_job_id',
 			'translation_status.tp_revision AS revision',
 			'translation_status.ts_status AS ts_status',
-			'translation_status.needs_update AS needs_update',
 			'translate_job.editor AS editor',
 		);
 
@@ -129,7 +131,7 @@ class WPML_TM_Jobs_Post_Query implements WPML_TM_Jobs_Query {
 	}
 
 	protected function define_filters( WPML_TM_Jobs_Query_Builder $query_builder, WPML_TM_Jobs_Search_Params $params ) {
-		$query_builder->set_status_filter( 'translation_status.status', $params );
+		$query_builder->set_status_filter( self::STATUS_COLUMN, $params );
 		$query_builder->set_scope_filter(
 			"translation_status.translation_service = 'local'",
 			"translation_status.translation_service != 'local'",

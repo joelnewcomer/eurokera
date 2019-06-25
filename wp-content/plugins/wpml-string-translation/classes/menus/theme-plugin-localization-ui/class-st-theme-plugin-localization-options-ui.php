@@ -28,7 +28,7 @@ class WPML_ST_Theme_Plugin_Localization_Options_UI {
 	 * @return array
 	 */
 	public function add_st_options( $model ) {
-		$is_all_strings_option_active = 'en' === $this->default_lang && get_option( WPML_ST_Gettext_Hooks_Factory::ALL_STRINGS_ARE_IN_ENGLISH_OPTION );
+		$is_all_strings_option_active = get_option( WPML_ST_Gettext_Filters_Activation::ALL_STRINGS_ARE_IN_ENGLISH_OPTION );
 
 		$model['bottom_tittle']  = __( 'Other options:', 'wpml-string-translation' );
 		$model['bottom_options'] = array(
@@ -40,11 +40,10 @@ class WPML_ST_Theme_Plugin_Localization_Options_UI {
 				'checked' => checked( true, ! empty( $this->st_settings['use_header_text_domains_when_missing'] ), false ),
 			),
 			array(
-				'name'    => WPML_ST_Gettext_Hooks_Factory::ALL_STRINGS_ARE_IN_ENGLISH_OPTION,
+				'name'    => WPML_ST_Gettext_Filters_Activation::ALL_STRINGS_ARE_IN_ENGLISH_OPTION,
 				'value'   => 1,
 				'label'   => self::get_all_strings_option_text(),
 				'checked' => checked( true, $is_all_strings_option_active, false ),
-				'disabled' => 'en' !== $this->default_lang,
 			),
 		);
 

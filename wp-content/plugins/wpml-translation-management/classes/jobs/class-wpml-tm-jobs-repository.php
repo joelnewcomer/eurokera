@@ -79,7 +79,7 @@ class WPML_TM_Jobs_Repository {
 				$raw_data->type,
 				$raw_data->tp_id,
 				new WPML_TM_Jobs_Batch( $raw_data->local_batch_id, $raw_data->tp_batch_id ),
-				$raw_data->needs_update ? ICL_TM_NEEDS_UPDATE : (int) $raw_data->status,
+				(int) $raw_data->status,
 				array( $this->elements_repository, 'get_job_elements' )
 			);
 			$job->set_translate_job_id( $raw_data->translate_job_id );

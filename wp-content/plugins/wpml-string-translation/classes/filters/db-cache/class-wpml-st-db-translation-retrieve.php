@@ -1,11 +1,23 @@
 <?php
 
+use WPML\Utilities\NullLock;
+use WPML\Utilities\ILock;
+
 class WPML_ST_DB_Translation_Retrieve {
 
 	/**
-	 * @var WPDB $wpdb
+	 * WP DB instance.
+	 *
+	 * @var wpdb
 	 */
 	public $wpdb;
+
+	/**
+	 * WPML_ST_Gettext_Filters_Activation instance.
+	 *
+	 * @var WPML_ST_Gettext_Filters_Activation
+	 */
+	private $gettext_filters_activation;
 
 	/**
 	 * @var array
@@ -27,13 +39,26 @@ class WPML_ST_DB_Translation_Retrieve {
 	 */
 	private $chunk_retrieve;
 
+	/** @var ILock */
+	private $lock;
+
 	/**
-	 * @param WPDB $wpdb
+	 * WPML_ST_DB_Translation_Retrieve constructor.
+	 *
+	 * @param wpdb $wpdb WP DB instance.
+	 * @param WPML_ST_Gettext_Filters_Activation $gettext_filters_activation WPML_ST_Gettext_Filters_Activation instance.
+	 * @paran ILock $lock Lock to stop concurrent requests to load string contexts (optional)
 	 */
-	public function __construct( WPDB $wpdb ) {
-		$this->wpdb = $wpdb;
-		$this->domain_fallback = new WPML_ST_Domain_Fallback();
-		$this->chunk_retrieve = new WPML_DB_Chunk( $wpdb );
+	public function __construct(
+		wpdb $wpdb,
+		WPML_ST_Gettext_Filters_Activation $gettext_filters_activation,
+		ILock $lock = null
+	) {
+		$this->wpdb                       = $wpdb;
+		$this->gettext_filters_activation = $gettext_filters_activation;
+		$this->domain_fallback            = new WPML_ST_Domain_Fallback();
+		$this->chunk_retrieve             = new WPML_DB_Chunk( $wpdb );
+		$this->lock                       = $lock ?: new NullLock();
 	}
 
 	/**
@@ -64,38 +89,23 @@ class WPML_ST_DB_Translation_Retrieve {
 	}
 
 	public function clear_cache() {
-		$this->loaded = array();
+		$this->loaded          = array();
 		$this->loaded_contexts = array();
 	}
 
 	/**
-	 * @param string $language
-	 * @param string $context
+	 * Load translations.
+	 *
+	 * @param string $language Language.
+	 * @param string $context Context.
 	 */
 	protected function load( $language, $context ) {
-		$args = array( $language, $language, $context );
-
-		$query = "
-			SELECT
-				s.id,
-				st.status,
-				s.domain_name_context_md5 AS ctx ,
-				st.value AS translated,
-				st.mo_string AS mo_string,
-				s.value AS original,
-				s.gettext_context
-			FROM {$this->wpdb->prefix}icl_strings s
-			LEFT JOIN {$this->wpdb->prefix}icl_string_translations st
-				ON s.id=st.string_id
-					AND st.language=%s
-					AND s.language!=%s
-			WHERE s.context = %s
-			";
-
-		$rowset = $this->chunk_retrieve->retrieve( $query, $args, $this->get_number_of_strings_in_context( $context ) );
-
-		foreach ( $rowset as $row_data ) {
-			$this->parse_result( $row_data, $context );
+		if (
+			$this->gettext_filters_activation->should_be_turned_on( $language, $context ) &&
+			$this->lock->create()
+		) {
+			$this->load_from_db( $language, $context );
+			$this->lock->release();
 		}
 
 		$this->loaded_contexts[] = $context;
@@ -121,7 +131,7 @@ class WPML_ST_DB_Translation_Retrieve {
 	 * @return string
 	 */
 	private function create_key( $name, $context, $gettext_content ) {
-		return md5( $context . $name. $gettext_content );
+		return md5( $context . $name . $gettext_content );
 	}
 
 	/**
@@ -156,9 +166,40 @@ class WPML_ST_DB_Translation_Retrieve {
 			$name,
 			$context,
 			$row_data[1],
-			count($row_data) > 2, // has an original value
+			count( $row_data ) > 2, // has an original value
 			$gettext_context
 		);
+	}
+
+	/**
+	 * @param string $language
+	 * @param string $context
+	 */
+	private function load_from_db( $language, $context ) {
+		$args = array( $language, $language, $context );
+
+		$query = "
+			SELECT
+				s.id,
+				st.status,
+				s.domain_name_context_md5 AS ctx ,
+				st.value AS translated,
+				st.mo_string AS mo_string,
+				s.value AS original,
+				s.gettext_context
+			FROM {$this->wpdb->prefix}icl_strings s
+			LEFT JOIN {$this->wpdb->prefix}icl_string_translations st
+				ON s.id=st.string_id
+					AND st.language=%s
+					AND s.language!=%s
+			WHERE s.context = %s
+			";
+
+		$rowset = $this->chunk_retrieve->retrieve( $query, $args, $this->get_number_of_strings_in_context( $context ) );
+
+		foreach ( $rowset as $row_data ) {
+			$this->parse_result( $row_data, $context );
+		}
 	}
 
 	/**
