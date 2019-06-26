@@ -124,7 +124,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		
 	<div class="top-header">
 		<div class="row">
-			<div class="large-12 columns small-text-center">	
+			<div class="large-12 columns small-text-center">
+				<div class="show-for-small top-menu-trigger">
+					<?php get_template_part('assets/images/top', 'menu-hamburger.svg'); ?>
+				</div>	
 				<?php top_menu(); ?>
 				<?php top_menu_right(); ?>
 			</div>
