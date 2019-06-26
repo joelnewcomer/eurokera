@@ -3,26 +3,6 @@
     "title": "Homepage",
     "fields": [
         {
-            "key": "field_5cab99cf8e846",
-            "label": "Slider Header",
-            "name": "slider_header",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "wpml_cf_preferences": 2,
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_5cab9a0142d34",
             "label": "Slides",
             "name": "slides",
@@ -42,6 +22,26 @@
             "button_label": "Add Slide",
             "wpml_cf_preferences": 3,
             "sub_fields": [
+                {
+                    "key": "field_5d136f0ebb9f8",
+                    "label": "Header",
+                    "name": "header",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wpml_cf_preferences": 2,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
                 {
                     "key": "field_5cab9a1742d35",
                     "label": "Photo",
@@ -66,6 +66,22 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
+                },
+                {
+                    "key": "field_5d136f1ebb9f9",
+                    "label": "Button",
+                    "name": "button",
+                    "type": "link",
+                    "instructions": "(Optional)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "wpml_cf_preferences": 0
                 }
             ]
         },
@@ -416,86 +432,6 @@
             ]
         },
         {
-            "key": "field_5cb8dd8b61f6d",
-            "label": "Video (copy)",
-            "name": "video_copy",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "wpml_cf_preferences": 0,
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5cb8dd8b61f6e",
-                    "label": "Title",
-                    "name": "title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "wpml_cf_preferences": 2,
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5cb8dd8b61f6f",
-                    "label": "Poster",
-                    "name": "poster",
-                    "type": "image",
-                    "instructions": "Will be sized to 1600 x 533 pixels.",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "wpml_cf_preferences": 3,
-                    "return_format": "id",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 1600,
-                    "min_height": 533,
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                },
-                {
-                    "key": "field_5cb8dd8b61f70",
-                    "label": "URL",
-                    "name": "url",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "wpml_cf_preferences": 3,
-                    "default_value": "",
-                    "placeholder": ""
-                }
-            ]
-        },
-        {
             "key": "field_5cb0d1a498bb0",
             "label": "Blog",
             "name": "blog",
@@ -597,5 +533,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1555619221
+    "modified": 1561555408
 }

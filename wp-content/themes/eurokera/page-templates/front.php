@@ -6,7 +6,7 @@ get_header(); ?>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 
-	<section class="home-slider">
+	<section class="home-slider main-home-slider">
 		<div class="slider-container">
 		    <ul class="bxslider">
 				<?php if( have_rows('slides') ):
@@ -14,9 +14,20 @@ get_header(); ?>
 		                <?php
 			            $photo = get_sub_field('photo');
 			            $photo_url = wp_get_attachment_image_src($photo, 'width=1366&height=683&crop=1');
+		                $button = get_sub_field('button');
+		                // print_r($button_array);
 		                ?>
-		                	<li>
-		                		<div class="slide-inner" style="background:url(<?php echo $photo_url[0]; ?>) center center no-repeat;"></div>
+		                <li>
+		                	<div class="slide-inner" style="background:url(<?php echo $photo_url[0]; ?>) center center no-repeat;">
+			                	<div class="home-center-banner" style="display:table;width: 100%; height:100%; text-align: center;">
+									<div style="display:table-cell;vertical-align:middle;text-align:center;width: 100%;">
+										<h1><?php echo get_sub_field('header'); ?></h1>
+										<?php if ($button != '') : ?>
+											<div class="button"><a href="<?php echo $button['url']; ?>"><?php echo $button['title']; ?></a></div>
+										<?php endif; ?>
+									</div>
+   								</div>
+		                	</div>
 						</li>					
 					<?php endwhile;
 				endif; ?>

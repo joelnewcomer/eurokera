@@ -3683,6 +3683,9 @@ section.home-blog {
     background: #fff;
     height: 100%; }
 
+.main-home-slider .home-center-banner {
+  background: rgba(0, 0, 0, 0.2); }
+
 .home-banner {
   display: block;
   position: relative;
@@ -3695,13 +3698,14 @@ section.home-blog {
     width: 155px;
     height: 62px;
     margin-bottom: 15px; }
-  .home-banner h1 {
-    color: #fff;
-    font-weight: 300;
-    margin-bottom: 35px; }
-    @media only screen and (max-width: 40em) {
-      .home-banner h1 {
-        font-size: 28px; } }
+
+.home-banner h1, .main-home-slider h1 {
+  color: #fff;
+  font-weight: 300;
+  margin-bottom: 35px; }
+  @media only screen and (max-width: 40em) {
+    .home-banner h1, .main-home-slider h1 {
+      font-size: 28px; } }
 
 @media only screen and (min-width: 40.063em) {
   section.home-banner + section.ceo {
