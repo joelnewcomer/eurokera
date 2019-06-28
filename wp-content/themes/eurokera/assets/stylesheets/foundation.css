@@ -2573,6 +2573,7 @@ p.tagline {
   .mobile-menu-container {
     position: fixed;
     top: 0;
+    padding-top: 64px;
     width: 100%;
     height: 100vh;
     overflow: scroll;
@@ -2581,10 +2582,7 @@ p.tagline {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
+    /* align-items: center; */
     -webkit-box-pack: center;
     -webkit-justify-content: center;
         -ms-flex-pack: center;
@@ -2596,6 +2594,8 @@ p.tagline {
     z-index: 9999999;
     -webkit-transition: all .35s;
     transition: all .35s; }
+  .admin-bar .mobile-menu-container {
+    padding-top: 110px; }
   .top-menu-trigger {
     text-align: left; }
     .top-menu-trigger svg {
