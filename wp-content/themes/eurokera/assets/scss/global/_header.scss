@@ -34,7 +34,7 @@
 .top-bar-left a.logo {
 	display: block;
 	float: left;
-	margin: 27px 0 18px 15px;
+	margin: 22px 0 23px 15px;
 	@media only screen and (max-width: 1020px) {
 		margin-top: 22px;
 	}
@@ -70,58 +70,12 @@ header#masthead {
     position: relative;
     width: 100%;
     top: 0;
-    //background: none;
     transition: background 500ms ease;
     -webkit-transition: background 500ms ease;
         display: block;
     width: 100%;
     float: left;
-
-    /* @include breakpoint(medium) {
-
-	    &.headroom--pinned:not(.headroom--top) {
-			position: fixed;
-			height: auto !important;
-			top: -70px;
-			background: #fff;
-			transform: translateY(70px);
-			transition: transform 500ms ease,background 900ms ease;
-			-webkit-transition: transform 500ms ease,background 900ms ease;
-			z-index: 99999;
-			//border-bottom: solid 1px $medium-gray;
-			box-shadow: 0px 0px 10px 2px rgba(0,0,0,.15);
-
-			.top-bar-left a {
-				padding: 8px 0;
-				width:87px;
-				margin: 0 15px;
-				img {
-					min-height: 0;
-				}
-			}
-
-			.top-bar-right {
-				margin-top: 0;
-			}
-
-			&+ section.container  {
-				margin-top: 0px
-			}
-	    }
-    } */
 }
-
-/*
-.admin-bar header#masthead.headroom--pinned:not(.headroom--top) {
-	top: -38px;
-}
-
-@media only screen and (max-width: 782px) {
-	.admin-bar header#masthead.headroom--pinned:not(.headroom--top) {
-		top: -24px;
-	}
-}
-*/
 
 .icon-wrapper {
 	display: inline-block;
@@ -177,31 +131,26 @@ body > section.container > header,
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);
 	-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);
 	box-shadow: 0 0 5px rgba(0,0,0,.15);
-
-		position: fixed;
-		top: 0 !important;
-		left: 0;
 }
 
-.header-wrapper {
-	position: fixed;
-	left: 0;
-}
-
-body.admin-bar:not(.home) .header-wrapper {
+body.admin-bar:not(.home) .header-wrapper.fixed {
 	top: 62px;
 	@media only screen and (max-width: 782px) {
 		top: 76px;
 	}
 }
 
-.header-wrapper {
+.header-wrapper.fixed {
 	position: fixed;
 	left: 0;
-	top: 0;
+	top: 0 !important;
 	@media only screen and (max-width: 640px) {
 		top: 0;
 	}
+}
+
+.header-wrapper.no-secondary-nav.fixed #site-navigation, .header-wrapper.fixed:not(.no-secondary-nav) .top-header {
+	display: none;
 }
 
 .top-header.mobile-active + .header-wrapper {
@@ -211,16 +160,6 @@ body.admin-bar:not(.home) .header-wrapper {
 }
 
 /* ADMIN BAR CSS */
-.admin-bar .header-wrapper, body.admin-bar:not(.home) .header-wrapper  {
-	top: 32px;
-	@media only screen and (max-width: 782px) {
-		top: 46px;	
-	}
-	@media only screen and (max-width: 640px) {
-		top: 46px;
-	}
-}
-
 .admin-bar .top-header.mobile-active + .header-wrapper, body.admin-bar:not(.home) .top-header.mobile-active + .header-wrapper {
 	@media only screen and (max-width: 40em) {
 		top: 166px;
@@ -233,7 +172,7 @@ body.admin-bar:not(.home) .header-wrapper {
 	}
 }
 
-.admin-bar .header-wrapper {
+.admin-bar .header-wrapper.fixed {
 	top: 32px !important;
 	@media only screen and (max-width: 782px) {
 		top: 46px !important;
@@ -245,33 +184,33 @@ body.admin-bar:not(.home) .header-wrapper {
 }
 
 @media only screen and (min-width: 40.063em) {
-	.header-wrapper + section.container {
+	.header-wrapper.fixed + section.container {
 		margin-top: 135px;
 	}
 }
 
 @media only screen and (max-width: 1020px) {
-	.header-wrapper + section.container {
+	.header-wrapper.fixed + section.container {
 		margin-top: 130px;
 		
 	}
 }
 
 @media only screen and (max-width: 800px) {
-	.header-wrapper + section.container {
+	.header-wrapper.fixed + section.container {
 		margin-top: 115px;
 		
 	}
 }
 
 @media only screen and (max-width: 720px) {
-	.header-wrapper + section.container {
+	.header-wrapper.fixed + section.container {
 		margin-top: 97px;
 	}
 }
 
 @media only screen and (max-width: 40em) {
-	.header-wrapper + section.container {
+	.header-wrapper.fixed + section.container {
 		margin-top: 118px !important;
 	}
 }
@@ -279,7 +218,7 @@ body.admin-bar:not(.home) .header-wrapper {
 .top-header {
 	background: #000;
 	position: relative;
-	z-index: 9999;
+	z-index: 99999999;
 	a {
 		display: inline-block;
 		color: #fff;
@@ -295,6 +234,9 @@ body.admin-bar:not(.home) .header-wrapper {
 		@media only screen and (max-width: 750px) and (min-width: 40.063em) {
 			padding: 6px 4px;
 			font-size: 14px;		
+		}
+		@media only screen and (max-width: 40em) {
+			font-size: 24px;	
 		}
 		&:hover {
 			color: $orange;
@@ -322,9 +264,7 @@ body.admin-bar:not(.home) .header-wrapper {
 		@media only screen and (max-width: 40em) {
 			display: block;
 			float: left;
-			width: 33.333%;
-			border-right: solid 1px #3e3e3e;
-			border-bottom: solid 1px #3e3e3e;
+			width: 100%;
 		}
 		&:nth-child(3n+3) {
 			border-right: none;
@@ -377,9 +317,6 @@ ul.top-menu-right > li.wpml-ls-menu-item {
 		padding-left: 34px;
 		background: url(../images/down-arrow.svg) 10px center no-repeat;
 	}
-	@media only screen and (max-width: 40em) {
-		display: none;
-	}
 }
 
 @media only screen and (max-width: 40em) {
@@ -428,5 +365,51 @@ p.tagline {
 	@media only screen and (max-width: 320px) {
 		font-size: 10px;
 		margin: 21px 0 0 0;
+	}
+}
+
+@media only screen and (max-width: 40em) {
+	.mobile-menu-container {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		height: 100vh;
+		overflow: scroll;
+		background: rgba(0,0,0,.85);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-flow: wrap;
+		left: -100vw;
+		z-index: 9999999;
+		transition: all .35s;
+	}
+	.top-menu-trigger {
+		text-align: left;
+		svg {
+			margin: 20px;
+			float: left;
+			cursor: pointer;
+		}
+	}
+	body.mobile-menu-active .mobile-menu-container {
+		left: 0;
+	}
+	body.mobile-menu-active {
+		overflow: hidden;
+	}
+	.close-top-menu {
+    	position: absolute;
+    	cursor: pointer;
+    	z-index: 3;
+    	font-size: 86px;
+    	top: 20px;
+    	right: 20px;
+    	width: 42px;
+    	color: #fff;
+    	line-height: 33px;
+	}
+	body.admin-bar .close-top-menu {
+		top: 66px;
 	}
 }

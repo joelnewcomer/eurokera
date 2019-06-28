@@ -120,25 +120,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	});
 	</script>
 	
-	<div class="header-wrapper match-header stuck">
+	<?php
+	$has_secondary_nav = true;
+	if (get_field('menu') == 'none' || is_page_template('page-templates/about.php') || is_page_template('page-templates/front.php') || is_page_template('page-templates/page-contact.php') || is_page_template('page-templates/library.php') || is_home() || is_archive() || is_singular('post')) {
+		$has_secondary_nav = false;
+	}
+	?>
+	
+	<div class="header-wrapper match-header <?php if (!$has_secondary_nav) { echo 'no-secondary-nav'; } ?>">
 		
 	<div class="top-header">
 		<div class="row">
 			<div class="large-12 columns small-text-center">
 				<div class="show-for-small top-menu-trigger">
 					<?php get_template_part('assets/images/top', 'menu-hamburger.svg'); ?>
-				</div>	
-				<?php top_menu(); ?>
-				<?php top_menu_right(); ?>
+				</div>
+				<div class="mobile-menu-container">
+					<div class="mobile-menu-inner">
+						<div class="show-for-small close-top-menu">
+							×
+						</div>
+						<?php top_menu(); ?>
+						<?php top_menu_right(); ?>
+					</div>
+				</div> <!-- mobile-menu-container -->
 			</div>
 		</div>
 		<script>
 			jQuery("li.wpml-ls-current-language > a").removeAttr("href");
-			jQuery('li.mobile-more').on( "click", function(e) {
-				e.preventDefault();
-				jQuery('li.mobile-dropdown').toggleClass('hide-for-small');
-				/* jQuery('ul.top-menu-right > li.wpml-ls-menu-item').css('display', 'inline-block'); */
-				jQuery('.top-header').toggleClass('mobile-active');
+			
+			jQuery(".top-menu-trigger").on( "click", function() {
+				jQuery('body').addClass('mobile-menu-active');
+			});
+			jQuery(".close-top-menu").on( "click", function() {
+				jQuery('body').removeClass('mobile-menu-active');
 			});
 		</script>	
 	</div>
@@ -165,8 +180,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				} elseif (get_field('menu') == 'specialties') {
 					specialties_menu();
 					$on_page_nav = true;
-				} elseif (get_field('menu') == 'none' || is_page_template('page-templates/about.php') || is_page_template('page-templates/front.php') || is_page_template('page-templates/page-contact.php') || is_page_template('page-templates/library.php') || is_home() || is_archive() || is_singular('post')) {
-					// do nothing	
+				} elseif (!$has_secondary_nav) {
+					// do nothing
 				} else {
 					foundationpress_main_menu();
 				}

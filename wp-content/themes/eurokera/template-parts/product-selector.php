@@ -79,7 +79,7 @@
 				});
 			</script>
 				
-				<?php $contact_page = get_page_by_path('contact');
+				<?php $contact_page = get_page_by_path('contact-us');
 				$icl_contact_page_id = icl_object_id($contact_page->ID, 'page', true);
 				$contact_url = get_permalink($icl_contact_page_id); ?>	
 				

@@ -241,6 +241,24 @@ jQuery( document ).ready(function() {
 		}, 1500);
 	} else {
 		jQuery(window).paroller();
+	}
+
+
+	jQuery(function(){
+		createSticky(jQuery(".header-wrapper"));
+	});
+	
+	function createSticky(sticky) {
+		if (typeof sticky !== "undefined") {
+			var	pos = sticky.offset().top,
+					win = jQuery(window);
+			win.on("scroll", function() {
+	    		win.scrollTop() >= pos ? sticky.addClass("fixed") : sticky.removeClass("fixed");
+	    		if (win.scrollTop() < 1) {
+		    		sticky.removeClass("fixed");
+	    		}
+			});			
+		}
 	}	
 });		
 
