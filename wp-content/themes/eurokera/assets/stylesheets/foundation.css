@@ -2496,11 +2496,17 @@ body.admin-bar:not(.home) .header-wrapper.fixed {
     -webkit-transition: all .35s;
     transition: all .35s;
     background: #000; }
+    @media only screen and (max-width: 40em) {
+      .top-header ul.sub-menu {
+        width: 100%; } }
     .top-header ul.sub-menu li {
       float: left;
       clear: left;
       width: 100%;
       text-align: left; }
+      @media only screen and (max-width: 40em) {
+        .top-header ul.sub-menu li {
+          text-align: center; } }
       .top-header ul.sub-menu li a {
         width: 100%;
         white-space: nowrap; }
