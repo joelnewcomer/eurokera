@@ -395,7 +395,7 @@ p.tagline {
 	body.mobile-menu-active .mobile-menu-container {
 		left: 0;
 	}
-	body.mobile-menu-active {
+	body.mobile-menu-active .animsition-shell {
 		overflow: hidden;
 	}
 	.close-top-menu {
