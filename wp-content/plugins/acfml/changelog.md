@@ -1,3 +1,8 @@
+# 1.4.0
+* plugin covered with unit tests (acfml-150)
+* fixed php warnings when attachments and gallery fields are in use (acfml-151)
+* restored compatibility with WordPress multisite installations (acfml-148)
+
 # 1.3
 * support for ACF Gutenberg Blocks (acfml-94)
 * ACF Options Pages handling reverted to old workflow (with switching language switcher on Options page) (acfml-156)

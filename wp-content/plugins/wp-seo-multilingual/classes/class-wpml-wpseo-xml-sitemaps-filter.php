@@ -47,7 +47,11 @@ class WPML_WPSEO_XML_Sitemaps_Filter implements IWPML_Action {
 			add_filter( 'wpseo_typecount_join', array( $wpml_query_filter, 'filter_single_type_join' ), 10, 2 );
 			add_filter( 'wpseo_typecount_where', array( $wpml_query_filter, 'filter_single_type_where' ), 10, 2 );
 		} else {
-			add_action( 'init', array( $this, 'init_hooks_when_custom_post_types_are_available' ), 20 );
+			// Add translated archives.
+			add_filter( self::FILTER_PREFIX . 'post' . self::FILTER_SUFFIX, array( $this, 'add_languages_to_sitemap' ) );
+			add_filter( self::FILTER_PREFIX . 'page' . self::FILTER_SUFFIX, array( $this, 'add_languages_to_sitemap' ) );
+			add_filter( 'wpseo_sitemap_post_type_archive_link', array( $this, 'init_hooks_when_custom_post_types_are_available' ), PHP_INT_MAX, 2 );
+
 			// Remove posts under hidden language.
 			add_filter( 'wpseo_xml_sitemap_post_url', array( $this, 'exclude_hidden_language_posts' ), 10, 2 );
 		}
@@ -63,13 +67,18 @@ class WPML_WPSEO_XML_Sitemaps_Filter implements IWPML_Action {
 	}
 
 	/**
-	 * Delay these hooks until after 'init' so that custom post types are available.
+	 * Delay adding this hook until the custom post type is available.
+	 *
+	 * @param string $link      The link to the archive.
+	 * @param string $post_type The post type slug.
+	 * @return string
 	 */
-	public function init_hooks_when_custom_post_types_are_available() {
-		$types = wp_list_pluck( $this->sitepress->get_translatable_documents(), 'name' );
-		foreach ( $types as $type ) {
-			add_filter( self::FILTER_PREFIX . $type . self::FILTER_SUFFIX, array( $this, 'add_languages_to_sitemap' ) );
+	public function init_hooks_when_custom_post_types_are_available( $link, $post_type ) {
+		if ( ! empty( $link ) && is_string( $post_type ) ) {
+			add_filter( self::FILTER_PREFIX . $post_type . self::FILTER_SUFFIX, array( $this, 'add_languages_to_sitemap' ) );
 		}
+
+		return $link;
 	}
 
 	/**
@@ -281,6 +290,7 @@ class WPML_WPSEO_XML_Sitemaps_Filter implements IWPML_Action {
 	public function maybe_return_original_url_in_get_home_url_filter( $home_url, $original_url ) {
 		$places = array(
 			array( 'WPSEO_Post_Type_Sitemap_Provider', 'get_home_url' ),
+			array( 'WPSEO_Post_Type_Sitemap_Provider', 'get_classifier' ),
 			array( 'WPSEO_Sitemaps_Router', 'get_base_url' ),
 			array( 'WPSEO_Sitemaps_Renderer', '__construct' ),
 		);

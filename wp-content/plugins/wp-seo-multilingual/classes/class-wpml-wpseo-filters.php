@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class WPML_ST_WPSEO_Filters
+ * Class WPML_WPSEO_Filters
  *
  * Compatibility class for WordPress SEO plugin
  */

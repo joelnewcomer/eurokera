@@ -15,5 +15,6 @@ return array(
     'WPML_WPSEO_Main_Factory' => $baseDir . '/classes/class-wpml-wpseo-main-factory.php',
     'WPML_WPSEO_Metabox_Hooks' => $baseDir . '/classes/class-wpml-wpseo-metabox-hooks.php',
     'WPML_WPSEO_Redirection' => $baseDir . '/classes/class-wpml-wpseo-redirection.php',
+    'WPML_WPSEO_Should_Create_Redirect' => $baseDir . '/classes/class-wpml-wpseo-should-create-redirect.php',
     'WPML_WPSEO_XML_Sitemaps_Filter' => $baseDir . '/classes/class-wpml-wpseo-xml-sitemaps-filter.php',
 );

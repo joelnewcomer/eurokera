@@ -3,8 +3,21 @@
 class WPML_WPSEO_Categories implements IWPML_Action {
 
 	public function add_hooks() {
-		add_filter( 'category_rewrite_rules', array( $this, 'append_categories_hook' ), 1, 1 );
-		add_filter( 'category_rewrite_rules', array( $this, 'turn_off_get_terms_filter' ), PHP_INT_MAX, 1 );
+		if ( $this->is_stripping_category_base() ) {
+			add_filter( 'category_rewrite_rules', array( $this, 'append_categories_hook' ), 1, 1 );
+			add_filter( 'category_rewrite_rules', array( $this, 'turn_off_get_terms_filter' ), PHP_INT_MAX, 1 );
+		}
+	}
+
+	/**
+	 * Are we stripping the category base?
+	 *
+	 * @return bool
+	 */
+	private function is_stripping_category_base() {
+		$option = get_option( 'wpseo_titles' );
+
+		return array_key_exists( 'stripcategorybase', $option ) && $option['stripcategorybase'];
 	}
 
 	public function append_categories_hook( $rules ) {

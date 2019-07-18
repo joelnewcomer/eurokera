@@ -58,8 +58,15 @@ class WPML_ACF {
 
 		$active_plugins = get_option( 'active_plugins' );
 
-		if ( is_array( $active_plugins ) ) {
-			foreach ( $active_plugins as $plugin ) {
+		$active_network_plugins = array();
+		if ( function_exists( 'wp_get_active_network_plugins' ) ) {
+			$active_network_plugins = wp_get_active_network_plugins();
+		}
+
+		$all_plugins = array_merge( $active_plugins, $active_network_plugins );
+
+		if ( is_array( $all_plugins ) ) {
+			foreach ( $all_plugins as $plugin ) {
 				if ( stristr( $plugin, '/acf.php' ) ) {
 					$active = true;
 					break;

@@ -5,7 +5,7 @@ Description: This 'glue' plugin makes it easier to translate with WPML content p
 Author: OnTheGoSystems
 Plugin URI: https://wpml.org/
 Author URI: http://www.onthegosystems.com/
-Version: 1.3
+Version: 1.4.0
  */
 
 $autoloader_dir = __DIR__ . '/vendor';
