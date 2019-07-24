@@ -259,6 +259,25 @@ ul.slimmenu li a, ul.slimmenu li .search-button {
 	}
 }
 
+// Increase menu font size for Chinese and Korean
+html[lang="zh-hans"], html[lang="vi-VN"] {
+	ul.slimmenu li a, ul.slimmenu li .search-button {
+    	font-size: 18px;
+    	@media only screen and (max-width: 897px) and (min-width: 40.063em) {
+		 	font-size: 17px;
+		}
+    	 @media only screen and (max-width: 757px) and (min-width: 40.063em) {
+		 	font-size: 16px;
+		}
+    	 @media only screen and (max-width: 675px) and (min-width: 40.063em) {
+		 	font-size: 15px;
+		}
+    	@media only screen and (max-width: 40.063em) {
+			font-size: 18px;
+		}
+	}	
+}
+
 @media only screen and (max-width: 40.063em) {
 	ul.slimmenu li.active > a {
 		background: $primary-color;
