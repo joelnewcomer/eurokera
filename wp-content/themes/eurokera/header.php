@@ -172,20 +172,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<?php
 				$on_page_nav = false;
 				if (is_page_template('page-templates/versatis.php')) {
+					echo '<div class="show-for-small menu-label">Versâtis™ Options</div>';
 					versatis_menu();
 					$on_page_nav = true;
 				} elseif (get_field('menu') == 'fireplaces') {
+					echo '<div class="show-for-small menu-label">Fireplace Options</div>';
 					fireplaces_menu();
 					$on_page_nav = true;
 				} elseif (get_field('menu') == 'specialties') {
+					echo '<div class="show-for-small menu-label">Specialties Menu</div>';
 					specialties_menu();
 					$on_page_nav = true;
 				} elseif (!$has_secondary_nav) {
 					// do nothing
 				} else {
+					echo '<div class="show-for-small menu-label">Cooking Options</div>';
 					foundationpress_main_menu();
 				}
 				?>
+				<script>
+				jQuery(".menu-label").on( "click", function() {
+					jQuery(this).siblings('.menu-collapser').find('.collapse-button').trigger( "click" );
+				});
+				</script>
 			</div> <!-- top-bar-right -->
 
 <?php if ($on_page_nav) : ?>

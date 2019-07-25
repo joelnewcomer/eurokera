@@ -2620,6 +2620,15 @@ p.tagline {
   body.admin-bar .close-top-menu {
     top: 66px; } }
 
+@media only screen and (max-width: 40em) {
+  .menu-label {
+    position: absolute;
+    right: 58px;
+    top: 22px;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer; } }
+
 #footer-container {
   display: block;
   float: left;
