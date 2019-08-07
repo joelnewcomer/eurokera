@@ -3,7 +3,7 @@
 Plugin Name: Advanced Custom Fields PRO
 Plugin URI: https://www.advancedcustomfields.com
 Description: Customize WordPress with powerful, professional and intuitive fields.
-Version: 5.8.3
+Version: 5.8.2
 Author: Elliot Condon
 Author URI: https://www.advancedcustomfields.com
 Text Domain: acf
@@ -17,7 +17,7 @@ if( ! class_exists('ACF') ) :
 class ACF {
 	
 	/** @var string The plugin version number */
-	var $version = '5.8.3';
+	var $version = '5.8.2';
 	
 	/** @var array The plugin settings array */
 	var $settings = array();
@@ -118,21 +118,21 @@ class ACF {
 		$this->define( 'ACF_VERSION', 	$version );
 		$this->define( 'ACF_PATH', 		$path );
 		
-		// Include utility functions.
-		include_once( ACF_PATH . 'includes/acf-utility-functions.php');
 		
-		// Include previous API functions.
-		acf_include('includes/api/api-helpers.php');
+		// api
+		include_once( ACF_PATH . 'includes/api/api-helpers.php');
 		acf_include('includes/api/api-template.php');
 		acf_include('includes/api/api-term.php');
 		
-		// Include classes.
+		// Include models.
 		acf_include('includes/class-acf-data.php');
 		
-		// Include functions.
-		acf_include('includes/acf-helper-functions.php');
+		// Include core functions.
 		acf_include('includes/acf-data-functions.php');
+		acf_include('includes/acf-helper-functions.php');
 		acf_include('includes/acf-hook-functions.php');
+		
+		// Include functions.
 		acf_include('includes/acf-field-functions.php');
 		acf_include('includes/acf-field-group-functions.php');
 		acf_include('includes/acf-form-functions.php');
@@ -202,9 +202,7 @@ class ACF {
 		acf_include('pro/acf-pro.php');
 		
 		// Include tests.
-		if( defined('ACF_DEV') && ACF_DEV ) {
-			acf_include('tests/tests.php');
-		}
+		//acf_include('tests/tests.php');
 		
 		// actions
 		add_action('init',	array($this, 'init'), 5);

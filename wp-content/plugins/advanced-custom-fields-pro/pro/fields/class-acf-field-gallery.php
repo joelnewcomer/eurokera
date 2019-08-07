@@ -90,35 +90,39 @@ class acf_field_gallery extends acf_field {
 	*/
 	
 	function ajax_get_attachment() {
+	
+		// options
+   		$options = acf_parse_args( $_POST, array(
+			'post_id'		=> 0,
+			'attachment'	=> 0,
+			'id'			=> 0,
+			'field_key'		=> '',
+			'nonce'			=> '',
+		));
+   		
 		
-		// Validate requrest.
+		// validate
 		if( !acf_verify_ajax() ) {
 			die();
 		}
 		
-		// Get args.
-   		$args = acf_request_args(array(
-			'id'		=> 0,
-			'field_key'	=> '',
-		));
 		
-		// Cast args.
-   		$args['id'] = (int) $args['id'];
+		// bail early if no id
+		if( !$options['id'] ) die();
 		
-		// Bail early if no id.
-		if( !$args['id'] ) {
-			die();
-		}
 		
-		// Load field.
-		$field = acf_get_field( $args['field_key'] );
-		if( !$field ) {
-			die();
-		}
+		// load field
+		$field = acf_get_field( $options['field_key'] );
 		
-		// Render.
-		$this->render_attachment( $args['id'], $field );
+		
+		// bali early if no field
+		if( !$field ) die();
+		
+		
+		// render
+		$this->render_attachment( $options['id'], $field );
 		die;
+		
 	}
 	
 	
@@ -281,68 +285,86 @@ class acf_field_gallery extends acf_field {
 		
 	}
 	
-	/**
-	 * render_attachment
-	 *
-	 * Renders the sidebar HTML shown when selecting an attachmemnt.
-	 *
-	 * @date	13/12/2013
-	 * @since	5.0.0
-	 *
-	 * @param	int $id The attachment ID.
-	 * @param	array $field The field array.
-	 * @return	void
-	 */	
+	
+	/*
+	*  render_attachment
+	*
+	*  description
+	*
+	*  @type	function
+	*  @date	13/12/2013
+	*  @since	5.0.0
+	*
+	*  @param	$post_id (int)
+	*  @return	$post_id (int)
+	*/
+	
 	function render_attachment( $id = 0, $field ) {
 		
-		// Load attachmenet data.
+		// vars
 		$attachment = wp_prepare_attachment_for_js( $id );
 		$compat = get_compat_media_markup( $id );
+		$compat = $compat['item'];
+		$prefix = 'attachments[' . $id . ']';
+		$thumb = '';
+		$dimentions = '';
 		
-		// Get attachment thumbnail (video).
+		
+		// thumb
 		if( isset($attachment['thumb']['src']) ) {
+			
+			// video
 			$thumb = $attachment['thumb']['src'];
-		
-		// Look for thumbnail size (image).
+			
 		} elseif( isset($attachment['sizes']['thumbnail']['url']) ) {
+			
+			// image
 			$thumb = $attachment['sizes']['thumbnail']['url'];
-		
-		// Use url for svg.
+			
 		} elseif( $attachment['type'] === 'image' ) {
+			
+			// svg
 			$thumb = $attachment['url'];
-		
-		// Default to icon.
+			
 		} else {
-			$thumb = wp_mime_type_icon( $id );	
+			
+			// fallback (perhaps attachment does not exist)
+			$thumb = wp_mime_type_icon();
+				
 		}
 		
-		// Get attachment dimentions / time / size.
+		
+		// dimentions
 		if( $attachment['type'] === 'audio' ) {
-			$dimentions = __('Length', 'acf') . ': ' . $attachment['fileLength'];	
+			
+			$dimentions = __('Length', 'acf') . ': ' . $attachment['fileLength'];
+			
 		} elseif( !empty($attachment['width']) ) {
+			
 			$dimentions = $attachment['width'] . ' x ' . $attachment['height'];
+			
 		}
+		
 		if( !empty($attachment['filesizeHumanReadable']) ) {
+			
 			$dimentions .=  ' (' . $attachment['filesizeHumanReadable'] . ')';
+			
 		}
 		
 		?>
 		<div class="acf-gallery-side-info">
-			<img src="<?php echo esc_attr($thumb); ?>" alt="<?php echo esc_attr($attachment['alt']); ?>" />
-			<p class="filename"><strong><?php echo esc_html($attachment['filename']); ?></strong></p>
-			<p class="uploaded"><?php echo esc_html($attachment['dateFormatted']); ?></p>
-			<p class="dimensions"><?php echo esc_html($dimentions); ?></p>
+			<img src="<?php echo $thumb; ?>" alt="<?php echo $attachment['alt']; ?>" />
+			<p class="filename"><strong><?php echo $attachment['filename']; ?></strong></p>
+			<p class="uploaded"><?php echo $attachment['dateFormatted']; ?></p>
+			<p class="dimensions"><?php echo $dimentions; ?></p>
 			<p class="actions">
-				<a href="#" class="acf-gallery-edit" data-id="<?php echo esc_attr($id); ?>"><?php _e('Edit', 'acf'); ?></a>
-				<a href="#" class="acf-gallery-remove" data-id="<?php echo esc_attr($id); ?>"><?php _e('Remove', 'acf'); ?></a>
+				<a href="#" class="acf-gallery-edit" data-id="<?php echo $id; ?>"><?php _e('Edit', 'acf'); ?></a>
+				<a href="#" class="acf-gallery-remove" data-id="<?php echo $id; ?>"><?php _e('Remove', 'acf'); ?></a>
 			</p>
 		</div>
 		<table class="form-table">
 			<tbody>
 				<?php 
-				
-				// Render fields.
-				$prefix = 'attachments[' . $id . ']';
 				
 				acf_render_field_wrap(array(
 					//'key'		=> "{$field['key']}-title",
@@ -385,8 +407,8 @@ class acf_field_gallery extends acf_field {
 		</table>
 		<?php
 		
-		// Display compat fields.
-		echo $compat['item'];
+		echo $compat;
+		
 	}
 	
 	/*
