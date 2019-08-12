@@ -232,7 +232,7 @@ get_header(); ?>
 	</div>
 </section>
 
-<section class="process">
+<section id="manufacturing-process" class="process">
 	<div class="row">
 		<div class="large-12 columns text-center">
 			<h2 class="orange"><?php echo get_field('manu_process_title'); ?></h2>
