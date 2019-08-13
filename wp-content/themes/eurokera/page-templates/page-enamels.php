@@ -37,7 +37,7 @@ get_header(); ?>
 										<h2><?php echo $title; ?></h2>
 										<?php echo get_sub_field('content'); ?>
 										<?php if ($button_title != '') : ?>
-											<div class="button white"><a href="<?php echo $button_url; ?>" <?php if ($button_target != '') : ?>target="_blank"<?php endif; ?>><?php echo $button_title; ?></a>
+											<div class="button white"><a href="<?php echo $button_url; ?>"<?php echo $button_title; ?></a>
 										<?php endif; ?>
 									</div> <!-- content-photo -->
 								</div> <!-- slide-inner -->
