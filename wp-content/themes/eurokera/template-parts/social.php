@@ -20,7 +20,7 @@
   			function() {
   				jQuery(this).addClass('hover');
   			}, function() {
-  		  		closePopup = setTimeout(function(){
+  		  		setTimeout(function(){
   		  			jQuery(this).removeClass('hover');
   		  		}, 5000);	
   			}
