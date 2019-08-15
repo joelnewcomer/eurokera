@@ -21,7 +21,7 @@
   				jQuery(this).addClass('hover');
   			}, function() {
   		  		setTimeout(function(){
-  		  			jQuery(this).removeClass('hover');
+  		  			jQuery("a.wechat").removeClass('hover');
   		  		}, 5000);	
   			}
   		);	
