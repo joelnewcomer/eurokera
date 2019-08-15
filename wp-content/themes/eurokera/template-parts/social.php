@@ -15,4 +15,15 @@
 			?>
 		<?php endwhile; ?>
 	<?php endif; ?>
+	<script>
+		jQuery( "a.wechat" ).hover(
+  			function() {
+  				jQuery(this).addClass('hover');
+  			}, function() {
+  		  		closePopup = setTimeout(function(){
+  		  			jQuery(this).removeClass('hover');
+  		  		}, 5000);	
+  			}
+  		);	
+	</script>	
 </div> <!-- social -->
