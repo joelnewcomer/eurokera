@@ -4530,7 +4530,7 @@ section.icon-blocks .icon-block {
   section.icon-blocks .small-6.icon-block:nth-child(2n+1) {
     clear: left; } }
 
-section#why .icon-blocks {
+section#why.icon-blocks .icon-block {
   display: inline-block;
   float: none;
   vertical-align: top; }
