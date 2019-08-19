@@ -164,6 +164,12 @@ section.icon-blocks {
 	}
 }
 
+section#why .icon-blocks {
+	display: inline-block;
+    float: none;
+    vertical-align: top;
+}
+
 section.block-sections {
 	.block-section-intro {
 		margin-bottom: 10px;

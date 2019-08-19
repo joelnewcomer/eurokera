@@ -4530,6 +4530,11 @@ section.icon-blocks .icon-block {
   section.icon-blocks .small-6.icon-block:nth-child(2n+1) {
     clear: left; } }
 
+section#why .icon-blocks {
+  display: inline-block;
+  float: none;
+  vertical-align: top; }
+
 section.block-sections .block-section-intro {
   margin-bottom: 10px; }
 
