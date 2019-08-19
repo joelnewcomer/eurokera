@@ -164,10 +164,15 @@ section.icon-blocks {
 	}
 }
 
-section#why.icon-blocks .icon-block {
-	display: inline-block;
-    float: none;
-    vertical-align: top;
+section#why.icon-blocks 
+	.row:nth-child(2) {
+		text-align: center;
+	}
+	.icon-block {
+		display: inline-block;
+		float: none;
+		vertical-align: top;
+	}
 }
 
 section.block-sections {
