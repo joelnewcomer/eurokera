@@ -3680,9 +3680,6 @@ section.all-solutions {
     -webkit-background-size: cover !important;
             background-size: cover !important;
     min-height: 250px; }
-  section.all-solutions .solution-row:last-child .solution-photo {
-    -webkit-background-size: 100% auto !important;
-            background-size: 100% auto !important; }
 
 section.home-blog {
   background: #fff3e6;
