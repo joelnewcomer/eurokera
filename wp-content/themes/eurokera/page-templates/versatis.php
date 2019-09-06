@@ -29,7 +29,7 @@ get_header(); ?>
 	$video_inner .= '<br /><p>' . get_field('video_title') . '</p></div></div>';
 	?>
 	<script>
-		jQuery('a.home-video').html('<?php echo $video_inner; ?>');
+		jQuery('a.versatis-video').html('<?php echo $video_inner; ?>');
 	</script>
 <?php else: ?>
 	<a class="versatis-video" href="<?php echo get_field('video_url'); ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
