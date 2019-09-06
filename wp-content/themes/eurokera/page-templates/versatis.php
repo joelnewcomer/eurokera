@@ -20,7 +20,7 @@ get_header(); ?>
 	$video_markup = '<a class="versatis-video vp-a vp-mp4-type" href="' . get_field('video_url') . '" data-autoplay="1" data-dwrap="1">' .  wp_get_attachment_image($video_poster, 'full') . '</a>';
 	echo apply_filters('the_content', $video_markup);
 	$video_inner = '<div class="video-overlay">';
-	$video_inner = '<div class="video-button-title">';
+	$video_inner .= '<div class="video-button-title">';
 	ob_start();
 	get_template_part('assets/images/play', 'button-simple.svg');
 	$play_button = ob_get_contents();
