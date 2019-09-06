@@ -20,12 +20,13 @@ get_header(); ?>
 	$video_markup = '<a class="versatis-video vp-a vp-mp4-type" href="' . get_field('video_url') . '" data-autoplay="1" data-dwrap="1">' .  wp_get_attachment_image($video_poster, 'full') . '</a>';
 	echo apply_filters('the_content', $video_markup);
 	$video_inner = '<div class="video-overlay">';
+	$video_inner = '<div class="video-button-title">';
 	ob_start();
 	get_template_part('assets/images/play', 'button.svg');
 	$play_button = ob_get_contents();
 	ob_end_clean();
 	$video_inner .= $play_button;
-	$video_inner .= '<br /><p>' . get_field('video_title') . '</p></div>';
+	$video_inner .= '<br /><p>' . get_field('video_title') . '</p></div></div>';
 	?>
 	<script>
 		jQuery('a.home-video').html('<?php echo $video_inner; ?>');
