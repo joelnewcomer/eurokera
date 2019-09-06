@@ -22,7 +22,7 @@ get_header(); ?>
 	$video_inner = '<div class="video-overlay">';
 	$video_inner = '<div class="video-button-title">';
 	ob_start();
-	get_template_part('assets/images/play', 'button.svg');
+	get_template_part('assets/images/play', 'button-simple.svg');
 	$play_button = ob_get_contents();
 	ob_end_clean();
 	$video_inner .= $play_button;
