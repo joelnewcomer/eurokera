@@ -110,6 +110,10 @@ class WPML_TM_REST_Jobs extends WPML_REST_Base {
 						'type'              => 'string',
 						'sanitize_callback' => array( 'WPML_REST_Arguments_Sanitation', 'string' ),
 					),
+					'needs_update' => array(
+						'type' => 'string',
+						'validate_callback' => array( 'WPML_TM_Jobs_Needs_Update_Param', 'is_valid' ),
+					),
 					'limit'           => array(
 						'type'              => 'integer',
 						'validate_callback' => array( 'WPML_REST_Arguments_Validation', 'integer' ),

@@ -2,44 +2,27 @@
 /**
  * Plugin Name: WPML Translation Management
  * Plugin URI: https://wpml.org/
- * Description: Add a complete translation process for WPML | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/translation-management-2-5-0/">WPML Translation Management 2.5.0 release notes</a>
+ * Description: Add a complete translation process for WPML | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/translation-management-2-8-8/">WPML Translation Management 2.8.8 release notes</a>
  * Author: OnTheGoSystems
  * Author URI: http://www.onthegosystems.com/
- * Version: 2.8.6.2
+ * Version: 2.8.8
  * Plugin Slug: wpml-translation-management
  *
- * @package wpml\tm
+ * @package WPML\TM
  */
 
 if ( defined( 'WPML_TM_VERSION' ) || get_option( '_wpml_inactive' ) ) {
 	return;
 }
 
-define( 'WPML_TM_VERSION', '2.8.6.2' );
+define( 'WPML_TM_VERSION', '2.8.8' );
 
 // Do not uncomment the following line!
 // If you need to use this constant, use it in the wp-config.php file
 // define( 'WPML_TM_DEV_VERSION', '2.0.3-dev' );
-
 if ( ! defined( 'WPML_TM_PATH' ) ) {
 	define( 'WPML_TM_PATH', dirname( __FILE__ ) );
 }
-
-$autoloader_dir = WPML_TM_PATH . '/vendor';
-if ( version_compare( PHP_VERSION, '5.3.0' ) >= 0 ) {
-	$autoloader = $autoloader_dir . '/autoload.php';
-} else {
-	$autoloader = $autoloader_dir . '/autoload_52.php';
-}
-require_once $autoloader;
-
-require_once WPML_TM_PATH . '/inc/constants.php';
-require_once WPML_TM_PATH . '/inc/translation-proxy/wpml-pro-translation.class.php';
-require_once WPML_TM_PATH . '/inc/functions-load.php';
-require_once WPML_TM_PATH . '/inc/js-scripts.php';
-require_once WPML_TM_PATH . '/inc/deprecated-hooks.php';
-
-new WPML_TM_Requirements();
 
 /**
  * Load plugin.
@@ -47,9 +30,24 @@ new WPML_TM_Requirements();
  * @param SitePress $sitepress WPML main plugin instance.
  */
 function wpml_tm_load( $sitepress = null ) {
+	if ( ! class_exists( 'WPML_Core_Version_Check' ) ) {
+		require_once WPML_TM_PATH . '/vendor/wpml-shared/wpml-lib-dependencies/src/dependencies/class-wpml-core-version-check.php';
+	}
+
 	if ( ! WPML_Core_Version_Check::is_ok( dirname( __FILE__ ) . '/wpml-dependencies.json' ) ) {
+		wpml_tm_disable_dependent_plugins();
 		return;
 	}
+
+	require_once WPML_TM_PATH . '/vendor/autoload.php';
+
+	require_once WPML_TM_PATH . '/inc/constants.php';
+	require_once WPML_TM_PATH . '/inc/translation-proxy/wpml-pro-translation.class.php';
+	require_once WPML_TM_PATH . '/inc/functions-load.php';
+	require_once WPML_TM_PATH . '/inc/js-scripts.php';
+	require_once WPML_TM_PATH . '/inc/deprecated-hooks.php';
+
+	new WPML_TM_Requirements();
 
 	if ( ! $sitepress ) {
 		global $sitepress;
@@ -187,6 +185,9 @@ function wpml_tm_load( $sitepress = null ) {
 
 	do_action( 'wpml_after_tm_loaded' );
 
+	// This filter is documented WPML Core in classes/support/class-wpml-support-info-ui.php.
+	add_filter( 'wpml_support_info_blocks', 'wpml_tm_support_info' );
+
 }
 
 add_action( 'wpml_loaded', 'wpml_tm_load', 10, 1 );
@@ -207,8 +208,6 @@ function wpml_tm_support_info( array $blocks ) {
 	return $ui->filter_blocks( $blocks );
 }
 
-// This filter is documented WPML Core in classes/support/class-wpml-support-info-ui.php.
-add_filter( 'wpml_support_info_blocks', 'wpml_tm_support_info' );
 
 /**
  * Migration from ICL 2.0
@@ -241,3 +240,11 @@ function wpml_tm_reset_user_options( array $options ) {
 	return $options;
 }
 add_filter( 'wpml_reset_user_options', 'wpml_tm_reset_user_options' );
+
+function wpml_tm_disable_dependent_plugins() {
+	global $woocommerce_wpml;
+	if ( isset( $woocommerce_wpml ) ) {
+		remove_action( 'wpml_loaded', array( $woocommerce_wpml, 'load' ) );
+		remove_action( 'init', array( $woocommerce_wpml, 'init' ), 2 );
+	}
+}

@@ -5,6 +5,8 @@
  * @package wpml-core
  */
 
+use function WPML\Container\make;
+
 /**
  * Returns true if the site uses ICanLocalize.
  *
@@ -807,7 +809,7 @@ function wpml_array_unique_fallback( $array, $keep_key_assoc ) {
  * @return bool
  */
 function wpml_is_rest_request() {
-	return \WPML\Container\make( \WPML_REST_Request_Analyze::class )->is_rest_request();
+	return make( WPML_REST_Request_Analyze::class )->is_rest_request();
 }
 
 function wpml_is_cli() {
@@ -849,4 +851,15 @@ function wpml_get_filesystem_direct() {
 	}
 
 	return $instance;
+}
+
+/**
+ * @param array       $postarray It will be escaped inside the function
+ * @param string|null $lang
+ * @param bool        $wp_error
+ *
+ * @return int|\WP_Error
+ */
+function wpml_update_escaped_post( array $postarray, $lang = null, $wp_error = false ) {
+	return wpml_get_create_post_helper()->insert_post( $postarray, $lang, $wp_error );
 }

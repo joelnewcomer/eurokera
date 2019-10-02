@@ -118,11 +118,10 @@ class WPML_TM_ATE_Job_Records {
 	}
 
 	/**
-	 * @param int  $wpml_job_id
-	 * @param bool $is_editing
+	 * @param int $wpml_job_id
 	 */
-	public function set_editing_job( $wpml_job_id, $is_editing ) {
-		$this->set_ate_job_field( $wpml_job_id, self::FIELD_IS_EDITING, $is_editing );
+	public function set_editing_job( $wpml_job_id ) {
+		$this->set_ate_job_field( $wpml_job_id, self::FIELD_IS_EDITING, time() );
 	}
 
 	/**
@@ -131,7 +130,14 @@ class WPML_TM_ATE_Job_Records {
 	 * @return bool
 	 */
 	public function is_editing_job( $wpml_job_id ) {
-		return (bool) $this->get_ate_job_field( $wpml_job_id, self::FIELD_IS_EDITING );
+		$is_editing = $this->get_ate_job_field( $wpml_job_id, self::FIELD_IS_EDITING );
+
+		if ( is_numeric( $is_editing ) ) {
+			$elapsed_time = time() - $is_editing;
+			$is_editing   = $elapsed_time < DAY_IN_SECONDS;
+		}
+
+		return (bool) $is_editing;
 	}
 
 	/**
@@ -144,6 +150,10 @@ class WPML_TM_ATE_Job_Records {
 		$this->read_option_value();
 
 		$job_id = (int) $wpml_job_id;
+		if ( ! $job_id ) {
+			return '';
+		}
+
 		if ( ! array_key_exists( $job_id, $this->data ) ) {
 			$data = apply_filters( 'wpml_tm_ate_job_data_fallback', array(), $job_id );
 			if ( $data ) {
@@ -175,7 +185,7 @@ class WPML_TM_ATE_Job_Records {
 			$ate_data,
 			array(
 				self::FIELD_ATE_JOB_ID => FILTER_SANITIZE_NUMBER_INT,
-				self::FIELD_IS_EDITING => FILTER_VALIDATE_BOOLEAN,
+				self::FIELD_IS_EDITING => FILTER_SANITIZE_NUMBER_INT,
 				self::FIELD_PROGRESS   => array(
 					'filter' => FILTER_DEFAULT,
 					'flags'  => FILTER_REQUIRE_ARRAY,

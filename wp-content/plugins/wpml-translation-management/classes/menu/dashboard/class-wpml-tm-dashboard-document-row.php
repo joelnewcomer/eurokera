@@ -350,7 +350,7 @@ class WPML_TM_Dashboard_Document_Row {
 				'entity_id'      => $job->get_id(),
 				'job_id'         => $job->get_translate_job_id(),
 				'type'           => $job->get_type(),
-				'status'         => $job->get_status(),
+				'status'         => $job->does_need_update() ? ICL_TM_NEEDS_UPDATE : $job->get_status(),
 				'targetLanguage' => $job->get_target_language(),
 				'isLocal'        => 'local' === $job->get_translation_service(),
 			);

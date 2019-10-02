@@ -406,6 +406,11 @@ class WPML_Translation_Editor_UI {
 		$element_field_type = apply_filters( 'wpml_editor_custom_field_name', $element_field_type );
 
 		$element_field_style = 0;
+
+		if ( false !== strpos( $element->field_data, "\n" ) ) {
+			$element_field_style = 1;
+		}
+
 		/**
 		 * @deprecated Use `wpml_editor_custom_field_style` filter instead
 		 * @since      3.2

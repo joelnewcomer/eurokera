@@ -418,7 +418,7 @@ class AbsoluteLinks{
 	function all_rewrite_rules($rewrite) {
 			global $sitepress;
 
-			if ( !class_exists( 'WPML_Slug_Translation' ) ) {
+			if ( !class_exists( 'WPML\ST\SlugTranslation\Hooks\Hooks' ) ) {
 				return $rewrite;
 			}
 
@@ -446,8 +446,8 @@ class AbsoluteLinks{
 				}
 				
 				$sitepress->switch_lang($next_language['code']);
-				
-				$translated_rules = WPML_Slug_Translation::rewrite_rules_filter($final_rules);
+
+				$translated_rules = ( new \WPML\ST\SlugTranslation\Hooks\HooksFactory() )->create()->filter( $final_rules );
 
 				if ( is_array( $translated_rules ) && is_array($final_rules) ) {
 					$new_rules = array_diff_assoc( $translated_rules, $final_rules );

@@ -400,7 +400,7 @@ class WPML_Translation_Management {
 	 *
 	 * @param string $menu_id
 	 */
-	function translators_menu( $menu_id ) {
+	public function translators_menu( $menu_id ) {
 		if ( 'WPML' !== $menu_id ) {
 			return;
 		}
@@ -413,29 +413,32 @@ class WPML_Translation_Management {
 		$has_language_pairs                = (bool) $this->tm_instance->get_current_translator()->language_pairs
 		                                     === true;
 
-	  if ( $can_manage_translation_management || $has_language_pairs ) {
-		  $menu               = array();
-		  $menu['order']      = 400;
-		  $menu['page_title'] = __( 'Translations', 'wpml-translation-management' );
-		  $menu['menu_title'] = __( 'Translations', 'wpml-translation-management' );
-		  $menu['menu_slug']  = WPML_TM_FOLDER . '/menu/translations-queue.php';
-		  $menu['function']   = array( $this, 'translation_queue_page' );
-		  $menu['icon_url']   = ICL_PLUGIN_URL . '/res/img/icon16.png';
-		  $menu['capability'] = $is_translation_manager ? WPML_Manage_Translations_Role::CAPABILITY : 'wpml_manage_translation_management';
+		$menu               = array();
+		$menu['order']      = 400;
+		$menu['page_title'] = __( 'Translations', 'wpml-translation-management' );
+		$menu['menu_title'] = __( 'Translations', 'wpml-translation-management' );
+		$menu['menu_slug']  = WPML_TM_FOLDER . '/menu/translations-queue.php';
+		$menu['function']   = array( $this, 'translation_queue_page' );
+		$menu['icon_url']   = ICL_PLUGIN_URL . '/res/img/icon16.png';
 
-		  if ( $can_manage_translation_management ) {
-			  do_action( 'wpml_admin_menu_register_item', $menu );
-		  } elseif ( $has_language_pairs ) {
-			  $menu['capability'] = WPML_Translator_Role::CAPABILITY;
-			  add_menu_page( $menu['page_title'],
-			                 $menu['menu_title'],
-			                 $menu['capability'],
-			                 $menu['menu_slug'],
-			                 $menu['function'],
-			                 $menu['icon_url'] );
-		  }
-	  }
-  }
+		if ( $can_manage_translation_management ) {
+			$menu['capability'] = $is_translation_manager ? WPML_Manage_Translations_Role::CAPABILITY : 'wpml_manage_translation_management';
+			do_action( 'wpml_admin_menu_register_item', $menu );
+		} else {
+			$menu['capability'] = $has_language_pairs ? WPML_Translator_Role::CAPABILITY : '';
+			$menu               = apply_filters( 'wpml_menu_page', $menu );
+			if ( $menu['capability'] ) {
+				add_menu_page(
+					$menu['page_title'],
+					$menu['menu_title'],
+					$menu['capability'],
+					$menu['menu_slug'],
+					$menu['function'],
+					$menu['icon_url']
+				);
+			}
+		}
+	}
 
 	/**
 	 * Renders the TM queue

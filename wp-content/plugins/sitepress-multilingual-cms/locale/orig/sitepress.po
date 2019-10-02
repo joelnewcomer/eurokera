@@ -1923,6 +1923,20 @@ msgctxt "Used before the last element of a three or more elements list"
 msgid ", and"
 msgstr ""
 
+# '<li>' .
+# __( 'This will be the last version of WPML which works with the currently installed PHP version', 'sitepress' ) .
+# '</li>' .
+
+msgid "This will be the last version of WPML which works with the currently installed PHP version"
+msgstr ""
+
+# '<li>' .
+# __( 'This version of WPML will only receive security fixes for the next 12 months', 'sitepress' ) .
+# '</li>';
+
+msgid "This version of WPML will only receive security fixes for the next 12 months"
+msgstr ""
+
 # foreach ( array( 1, 10 ) as $priority ) {
 # $label    = __( 'As early as possible', 'sitepress' );
 # if ( $priority > 1 ) {
@@ -1987,14 +2001,14 @@ msgid "Version"
 msgstr ""
 
 # 'messages'   => array(
-# __( 'PHP 5.6 and above are recommended. PHP 5.3 is the minimum requirement.', 'sitepress' ) => 'https://wpml.org/home/minimum-requirements/',
-# __( 'Find how you can update PHP.', 'sitepress' )                                           => 'http://www.wpupdatephp.com/update/',
+# sprintf( __( 'PHP %1$s and above are recommended. PHP %2$s is the minimum requirement.', 'sitepress' ), $minimum_recommended_php_version, $minimum_required_php_version ) => 'https://wpml.org/home/minimum-requirements/',
+# __( 'Find how you can update PHP.', 'sitepress' )                                                                                                                         => 'http://www.wpupdatephp.com/update/',
 
-msgid "PHP 5.6 and above are recommended. PHP 5.3 is the minimum requirement."
+msgid "PHP %1$s and above are recommended. PHP %2$s is the minimum requirement."
 msgstr ""
 
-# __( 'PHP 5.6 and above are recommended. PHP 5.3 is the minimum requirement.', 'sitepress' ) => 'https://wpml.org/home/minimum-requirements/',
-# __( 'Find how you can update PHP.', 'sitepress' )                                           => 'http://www.wpupdatephp.com/update/',
+# sprintf( __( 'PHP %1$s and above are recommended. PHP %2$s is the minimum requirement.', 'sitepress' ), $minimum_recommended_php_version, $minimum_required_php_version ) => 'https://wpml.org/home/minimum-requirements/',
+# __( 'Find how you can update PHP.', 'sitepress' )                                                                                                                         => 'http://www.wpupdatephp.com/update/',
 # ),
 
 msgid "Find how you can update PHP."
@@ -2008,10 +2022,10 @@ msgid "Memory limit"
 msgstr ""
 
 # 'messages' => array(
-# __( 'A memory limit of at least 128MB is required.', 'sitepress' ) => 'https://wpml.org/home/minimum-requirements/',
+# sprintf( __( 'A memory limit of at least %s is required.', 'sitepress' ), $minimum_required_memory ) => 'https://wpml.org/home/minimum-requirements/',
 # ),
 
-msgid "A memory limit of at least 128MB is required."
+msgid "A memory limit of at least %s is required."
 msgstr ""
 
 # 'memory_usage'       => array(
@@ -2082,6 +2096,13 @@ msgstr ""
 # ),
 
 msgid "No"
+msgstr ""
+
+# 'messages' => array(
+# __( 'A memory limit of at least 128MB is required.', 'sitepress' ) => 'https://wpml.org/home/minimum-requirements/',
+# ),
+
+msgid "A memory limit of at least 128MB is required."
 msgstr ""
 
 # 'max_memory_limit' => array(
@@ -3085,6 +3106,20 @@ msgstr ""
 msgid "n/a"
 msgstr ""
 
+# <input id="wpml_fix_tables_collation" type="button" class="button-secondary"
+# value="<?php _e( 'Fix WPML tables collation', 'sitepress' ) ?>"/><br/>
+# <?php wp_nonce_field( self::AJAX_ACTION, 'wpml-fix-tables-collation-nonce' ); ?>
+
+msgid "Fix WPML tables collation"
+msgstr ""
+
+# <?php wp_nonce_field( self::AJAX_ACTION, 'wpml-fix-tables-collation-nonce' ); ?>
+# <small style="margin-left:10px;"><?php esc_attr_e( 'Fixes the collation of WPML tables in order to match the collation of default WP tables.', 'sitepress' ) ?></small>
+# </p>
+
+msgid "Fixes the collation of WPML tables in order to match the collation of default WP tables."
+msgstr ""
+
 # if ( ! $response ) {
 # wp_send_json_error( array( 'message' => esc_html__( 'Invalid nonce.', 'sitepress' ) ) );
 # return $response;
@@ -3340,20 +3375,20 @@ msgid "Display on language:"
 msgstr ""
 
 # $this->model['strings'] = array(
-# 'back' => __( '<<< Back', 'sitepress' ),
-# 'next' => __( 'Next >>>', 'sitepress' ),
+# 'back'     => __( '<<< Back', 'sitepress' ),
+# 'next'     => __( 'Next >>>', 'sitepress' ),
 
 msgid "<<< Back"
 msgstr ""
 
-# 'back' => __( '<<< Back', 'sitepress' ),
-# 'next' => __( 'Next >>>', 'sitepress' ),
+# 'back'     => __( '<<< Back', 'sitepress' ),
+# 'next'     => __( 'Next >>>', 'sitepress' ),
 # 'finished' => __( 'Finished', 'sitepress' ),
 
 msgid "Next >>>"
 msgstr ""
 
-# 'next' => __( 'Next >>>', 'sitepress' ),
+# 'next'     => __( 'Next >>>', 'sitepress' ),
 # 'finished' => __( 'Finished', 'sitepress' ),
 # );
 
@@ -4355,6 +4390,13 @@ msgstr ""
 # }
 
 msgid "Error adding flag."
+msgstr ""
+
+# if ( ! $this->is_language_code_valid( $data[ $name ] ) ) {
+# $this->set_errors( __( 'Invalid character in language code.', 'sitepress' ) );
+# $this->set_validation_failed( $id );
+
+msgid "Invalid character in language code."
 msgstr ""
 
 # }
@@ -6668,6 +6710,13 @@ msgstr ""
 msgid "Please note that all translations you have sent to remote translation services will be lost if you reset WPML's data. They cannot be recovered later."
 msgstr ""
 
+# echo '<p class="error" style="padding:6px;">';
+# _e( "If you are using the Advanced Translation Editor, you will lose the translations that are in progress, as well as the existing translation memory and glossary. You will also lose access to purchases, invoices, and history related to your work with the Advanced Translation Editor.", 'sitepress' );
+# echo '</p>';
+
+msgid "If you are using the Advanced Translation Editor, you will lose the translations that are in progress, as well as the existing translation memory and glossary. You will also lose access to purchases, invoices, and history related to your work with the Advanced Translation Editor."
+msgstr ""
+
 # </select>
 # <input id="wpml_sync_posts_taxonomies" type="button" class="button-secondary" value="<?php esc_html_e( 'Synchronize posts taxonomies', 'sitepress' ); ?>"/> <span class="wpml-notice"></span><br/>
 # <small style="margin-left:10px;"><?php esc_html_e( 'This will assign the same taxonomy terms as the source for each post translation.', 'sitepress' ); ?></small>
@@ -6792,10 +6841,10 @@ msgid "Add translation to %s"
 msgstr ""
 
 # $message = '<p>';
-# $message .= sprintf( __( "This version of WPML allows the use of taxonomy terms with the same name across multiple languages. Your site currently has %d taxonomy terms that require an update, so they will not be displayed with language suffixes.", "sitepress" ), $suffix_count );
+# $message .= sprintf( __( "In this version of WPML, you can give your taxonomy terms the same name across multiple languages. You need to update %d taxonomy terms on your website so that they display the same name without any language suffixes.", "sitepress" ), $suffix_count );
 # $message .= '</p>';
 
-msgid "This version of WPML allows the use of taxonomy terms with the same name across multiple languages. Your site currently has %d taxonomy terms that require an update, so they will not be displayed with language suffixes."
+msgid "In this version of WPML, you can give your taxonomy terms the same name across multiple languages. You need to update %d taxonomy terms on your website so that they display the same name without any language suffixes."
 msgstr ""
 
 # $output .= '<a name="termsuffixupdate"></a>';
@@ -8230,308 +8279,308 @@ msgstr ""
 
 # 'field'       => 'text',
 # 'type'        => __( 'Button: Text', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Button: Text"
 msgstr ""
 
 # 'field'       => 'link',
 # 'type'        => __( 'Button: Link', 'sitepress' ),
-# 'editor_type' => 'LINK'
+# 'editor_type' => 'LINK',
 
 msgid "Button: Link"
 msgstr ""
 
 # 'field'       => 'heading',
 # 'type'        => __( 'Heading', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Heading"
 msgstr ""
 
 # 'field'       => 'link',
 # 'type'        => __( 'Heading: Link', 'sitepress' ),
-# 'editor_type' => 'LINK'
+# 'editor_type' => 'LINK',
 
 msgid "Heading: Link"
 msgstr ""
 
 # 'field'       => 'html',
 # 'type'        => __( 'HTML', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "HTML"
 msgstr ""
 
 # 'field'       => 'link_url',
 # 'type'        => __( 'Photo: Link', 'sitepress' ),
-# 'editor_type' => 'LINK'
+# 'editor_type' => 'LINK',
 
 msgid "Photo: Link"
 msgstr ""
 
 # 'field'       => 'text',
 # 'type'        => __( 'Text Editor', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Text Editor"
 msgstr ""
 
 # 'field'       => 'title',
 # 'type'        => __( 'Callout: Heading', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Callout: Heading"
 msgstr ""
 
 # 'field'       => 'text',
 # 'type'        => __( 'Callout: Text', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Callout: Text"
 msgstr ""
 
 # 'field'       => 'cta_text',
 # 'type'        => __( 'Callout: Call to action text', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Callout: Call to action text"
 msgstr ""
 
 # 'field'       => 'link',
 # 'type'        => __( 'Callout: Link', 'sitepress' ),
-# 'editor_type' => 'LINK'
+# 'editor_type' => 'LINK',
 
 msgid "Callout: Link"
 msgstr ""
 
 # 'field'       => 'name_placeholder',
 # 'type'        => __( 'Contact Form: Name Field Placeholder', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Contact Form: Name Field Placeholder"
 msgstr ""
 
 # 'field'       => 'subject_placeholder',
 # 'type'        => __( 'Contact Form: Subject Field Placeholder', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Contact Form: Subject Field Placeholder"
 msgstr ""
 
 # 'field'       => 'email_placeholder',
 # 'type'        => __( 'Contact Form: Email Field Placeholder', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Contact Form: Email Field Placeholder"
 msgstr ""
 
 # 'field'       => 'phone_placeholder',
 # 'type'        => __( 'Contact Form: Phone Field Placeholder', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Contact Form: Phone Field Placeholder"
 msgstr ""
 
 # 'field'       => 'message_placeholder',
 # 'type'        => __( 'Contact Form: Your Message Placeholder', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Contact Form: Your Message Placeholder"
 msgstr ""
 
 # 'field'       => 'terms_checkbox_text',
 # 'type'        => __( 'Contact Form: Checkbox Text', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Contact Form: Checkbox Text"
 msgstr ""
 
 # 'field'       => 'terms_text',
 # 'type'        => __( 'Contact Form: Terms and Conditions', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Contact Form: Terms and Conditions"
 msgstr ""
 
 # 'field'       => 'success_message',
 # 'type'        => __( 'Contact Form: Success Message', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Contact Form: Success Message"
 msgstr ""
 
 # 'field'       => 'btn_text',
 # 'type'        => __( 'Contact Form: Button Text', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Contact Form: Button Text"
 msgstr ""
 
 # 'field'       => 'success_url',
 # 'type'        => __( 'Contact Form: Redirect Link', 'sitepress' ),
-# 'editor_type' => 'LINK'
+# 'editor_type' => 'LINK',
 
 msgid "Contact Form: Redirect Link"
 msgstr ""
 
 # 'field'       => 'title',
 # 'type'        => __( 'Call to Action: Heading', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Call to Action: Heading"
 msgstr ""
 
 # 'field'       => 'text',
 # 'type'        => __( 'Call to Action: Text', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Call to Action: Text"
 msgstr ""
 
 # 'field'       => 'btn_text',
 # 'type'        => __( 'Call to Action: Button text', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Call to Action: Button text"
 msgstr ""
 
 # 'field'       => 'btn_link',
 # 'type'        => __( 'Call to Action: Button link', 'sitepress' ),
-# 'editor_type' => 'LINK'
+# 'editor_type' => 'LINK',
 
 msgid "Call to Action: Button link"
 msgstr ""
 
 # 'field'       => 'terms_checkbox_text',
 # 'type'        => __( 'Subscribe form: Checkbox Text', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Subscribe form: Checkbox Text"
 msgstr ""
 
 # 'field'       => 'terms_text',
 # 'type'        => __( 'Subscribe form: Terms and Conditions', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Subscribe form: Terms and Conditions"
 msgstr ""
 
 # 'field'       => 'custom_subject',
 # 'type'        => __( 'Subscribe form: Notification Subject', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Subscribe form: Notification Subject"
 msgstr ""
 
 # 'field'       => 'success_message',
 # 'type'        => __( 'Subscribe form: Success Message', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Subscribe form: Success Message"
 msgstr ""
 
 # 'field'       => 'btn_text',
 # 'type'        => __( 'Subscribe form: Button Text', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Subscribe form: Button Text"
 msgstr ""
 
 # 'field'       => 'success_url',
 # 'type'        => __( 'Subscribe form: Redirect Link', 'sitepress' ),
-# 'editor_type' => 'LINK'
+# 'editor_type' => 'LINK',
 
 msgid "Subscribe form: Redirect Link"
 msgstr ""
 
 # 'field'       => 'text',
 # 'type'        => __( 'Icon: Text', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Icon: Text"
 msgstr ""
 
 # 'field'       => 'link',
 # 'type'        => __( 'Icon: Link', 'sitepress' ),
-# 'editor_type' => 'LINK'
+# 'editor_type' => 'LINK',
 
 msgid "Icon: Link"
 msgstr ""
 
 # 'field'       => 'address',
 # 'type'        => __( 'Map: Address', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Map: Address"
 msgstr ""
 
 # 'field'       => 'heading',
 # 'type'        => __( 'Testimonial: Heading', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Testimonial: Heading"
 msgstr ""
 
 # 'field'       => 'before_number_text',
 # 'type'        => __( 'Number Counter: Text before number', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Number Counter: Text before number"
 msgstr ""
 
 # 'field'       => 'after_number_text',
 # 'type'        => __( 'Number Counter: Text after number', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Number Counter: Text after number"
 msgstr ""
 
 # 'field'       => 'number_prefix',
 # 'type'        => __( 'Number Counter: Number Prefix', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Number Counter: Number Prefix"
 msgstr ""
 
 # 'field'       => 'number_suffix',
 # 'type'        => __( 'Number Counter: Number Suffix', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Number Counter: Number Suffix"
 msgstr ""
 
 # 'field'       => 'no_results_message',
 # 'type'        => __( 'Posts: No Results Message', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Posts: No Results Message"
 msgstr ""
 
 # 'field'       => 'more_btn_text',
 # 'type'        => __( 'Posts: Button Text', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Posts: Button Text"
 msgstr ""
 
 # 'field'       => 'terms_list_label',
 # 'type'        => __( 'Posts: Terms Label', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Posts: Terms Label"
 msgstr ""
 
 # 'field'       => 'more_link_text',
 # 'type'        => __( 'Posts: More Link Text', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Posts: More Link Text"
 msgstr ""
 
 # 'field'       => 'more_link_text',
 # 'type'        => __( 'Posts Slider: More Link Text', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Posts Slider: More Link Text"
 msgstr ""
@@ -8650,133 +8699,133 @@ msgstr ""
 
 # 'field'       => 'alert_content',
 # 'type'        => __( 'Alert Content', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Alert Content"
 msgstr ""
 
 # 'field'       => 'text_content',
 # 'type'        => __( 'Text content', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Text content"
 msgstr ""
 
 # 'field'       => 'quote_content',
 # 'type'        => __( 'Quote content', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Quote content"
 msgstr ""
 
 # 'field'       => 'quote_cite_content',
 # 'type'        => __( 'Quote: cite content', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Quote: cite content"
 msgstr ""
 
 # 'field'       => 'counter_number_prefix_content',
 # 'type'        => __( 'Counter: number prefix', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Counter: number prefix"
 msgstr ""
 
 # 'field'       => 'counter_number_suffix_content',
 # 'type'        => __( 'Counter: number suffix', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Counter: number suffix"
 msgstr ""
 
 # 'field'       => 'content',
 # 'type'        => __( 'Content Area: content', 'sitepress' ),
-# 'editor_type' => 'AREA'
+# 'editor_type' => 'AREA',
 
 msgid "Content Area: content"
 msgstr ""
 
 # 'field'       => 'breadcrumbs_home_label_text',
 # 'type'        => __( 'Breadcrumbs: home label text', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Breadcrumbs: home label text"
 msgstr ""
 
 # 'field'       => 'audio_embed_code',
 # 'type'        => __( 'Audio: embed code', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Audio: embed code"
 msgstr ""
 
 # 'field'       => 'text_content',
 # 'type'        => __( 'Headline text content', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Headline text content"
 msgstr ""
 
 # 'field'       => 'off_canvas_content',
 # 'type'        => __( 'Canvas content', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Canvas content"
 msgstr ""
 
 # 'field'       => 'modal_content',
 # 'type'        => __( 'Modal content', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Modal content"
 msgstr ""
 
 # 'field'       => 'dropdown_content',
 # 'type'        => __( 'Dropdown content', 'sitepress' ),
-# 'editor_type' => 'VISUAL'
+# 'editor_type' => 'VISUAL',
 
 msgid "Dropdown content"
 msgstr ""
 
 # 'field'       => 'anchor_text_primary_content',
 # 'type'        => __( 'Anchor text: primary content', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Anchor text: primary content"
 msgstr ""
 
 # 'field'       => 'anchor_text_secondary_content',
 # 'type'        => __( 'Anchor text: secondary content', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Anchor text: secondary content"
 msgstr ""
 
 # 'field'       => 'video_embed_code',
 # 'type'        => __( 'Video: embed code', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Video: embed code"
 msgstr ""
 
 # 'field'       => 'search_placeholder',
 # 'type'        => __( 'Search Inline: placeholder', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Search Inline: placeholder"
 msgstr ""
 
 # 'field'       => 'search_placeholder',
 # 'type'        => __( 'Search Modal: placeholder', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Search Modal: placeholder"
 msgstr ""
 
 # 'field'       => 'search_placeholder',
 # 'type'        => __( 'Search Dropdown: placeholder', 'sitepress' ),
-# 'editor_type' => 'LINE'
+# 'editor_type' => 'LINE',
 
 msgid "Search Dropdown: placeholder"
 msgstr ""
@@ -9451,6 +9500,20 @@ msgstr ""
 # 
 
 msgid "Toggle: Content"
+msgstr ""
+
+# 
+# $text = '<p>' . _n(
+# 'We automatically created a translation job for the reusable block:',
+
+msgid "We automatically created a translation job for the reusable block:"
+msgstr ""
+
+# 
+# $text = '<p>' . _n(
+# 'We automatically created a translation job for the reusable block:',
+
+msgid "We automatically created translation jobs for the reusable blocks:"
 msgstr ""
 
 # $this->admin_notice = '<div class="error wpml-admin-notice">';

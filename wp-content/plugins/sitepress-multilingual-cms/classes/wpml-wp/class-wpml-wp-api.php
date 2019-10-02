@@ -1,17 +1,23 @@
 <?php
 
-class WPML_WP_API extends WPML_PHP_Functions {
-	public function get_file_mime_type( $filename ) {
+use WPML\Core\Twig_LoaderInterface;
+use WPML\Core\Twig_Environment;
+use WPML\Core\Twig_Loader_Filesystem;
+use WPML\Core\Twig_Loader_String;
 
-		$mime_type = 'application/octet-stream';
-		if ( file_exists( $filename ) ) {
-			if ( function_exists( 'finfo_open' ) ) {
-				$finfo     = finfo_open( FILEINFO_MIME_TYPE ); // return mime type ala mimetype extension
-				$mime_type = finfo_file( $finfo, $filename );
-				finfo_close( $finfo );
-			} else {
-				$mime_type = mime_content_type( $filename );
-			}
+class WPML_WP_API extends WPML_PHP_Functions {
+	/**
+	 * @param string $file
+	 * @param string $filename
+	 *
+	 * @return false | string
+	 */
+	public function get_file_mime_type( $file, $filename ) {
+
+		$mime_type = false;
+		if ( file_exists( $file ) ) {
+			$file_info = wp_check_filetype_and_ext( $file, $filename );
+			$mime_type = $file_info['type'];
 		}
 
 		return $mime_type;

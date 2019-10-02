@@ -24,6 +24,9 @@ class WPML_TM_Jobs_String_Query implements WPML_TM_Jobs_Query {
 	 */
 	protected $query_builder;
 
+	/** @var string */
+	protected $batch_name_column = 'batches.batch_name';
+
 	/**
 	 * WPML_TM_Jobs_String_Query constructor.
 	 *
@@ -49,6 +52,7 @@ class WPML_TM_Jobs_String_Query implements WPML_TM_Jobs_Query {
 			'string_status.rid as tp_id',
 			'batches.id as local_batch_id',
 			'batches.tp_id as tp_batch_id',
+			$this->batch_name_column,
 			'string_translations.status as status',
 			'strings.id as original_element_id',
 			'strings.language as source_language',
@@ -64,6 +68,7 @@ class WPML_TM_Jobs_String_Query implements WPML_TM_Jobs_Query {
 			'NULL as translate_job_id',
 			'core_status.tp_revision AS revision',
 			'core_status.ts_status AS ts_status',
+			'NULL AS needs_update',
 			'NULL AS editor',
 		);
 
@@ -175,7 +180,8 @@ class WPML_TM_Jobs_String_Query implements WPML_TM_Jobs_Query {
 			'string_status.rid IS NOT NULL',
 			$params
 		);
-		$query_builder->set_title_filter( 'strings.value', $params );
+		$query_builder->set_multi_value_text_filter( 'strings.value', $params->get_title() );
+		$query_builder->set_multi_value_text_filter( $this->batch_name_column, $params->get_batch_name() );
 		$query_builder->set_source_language( 'strings.language', $params );
 		$query_builder->set_target_language( 'string_translations.language', $params );
 

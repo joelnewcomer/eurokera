@@ -122,22 +122,18 @@ class WPML_TM_Jobs_Query_Builder {
 	}
 
 	/**
-	 * @param                            $column
-	 * @param WPML_TM_Jobs_Search_Params $params
+	 * @param string     $column
+	 * @param array|null $values
 	 *
-	 * @return self
+	 * @return $this
 	 */
-	public function set_title_filter( $column, WPML_TM_Jobs_Search_Params $params ) {
-		if ( $params->get_title() ) {
-			$title_where = array();
-			foreach ( $params->get_title() as $title ) {
-				$title_where[] = $this->wpdb->prepare(
-					"{$column} LIKE %s",
-					'%' . $title . '%'
-				);
-			}
+	public function set_multi_value_text_filter( $column, $values ) {
+		if ( $values ) {
+			$where = \wpml_collect( $values )->map( function ( $value ) use ( $column ) {
+				return $this->wpdb->prepare( "{$column} LIKE %s", '%' . $value . '%' );
+			} )->toArray();
 
-			$this->where[] = '( ' . implode( ' OR ', $title_where ) . ' )';
+			$this->where[] = '( ' . implode( ' OR ', $where ) . ' )';
 		}
 
 		return $this;
@@ -250,7 +246,8 @@ class WPML_TM_Jobs_Query_Builder {
 			$sql_parts[] = $this->wpdb->prepare( $column . ' >= %s', $date_range->get_begin()->format( 'Y-m-d' ) );
 		}
 		if ( $date_range->get_end() ) {
-			$sql_parts[] = $this->wpdb->prepare( $column . ' <= %s', $date_range->get_end()->format( 'Y-m-d 23:59:59' ) );
+			$sql_parts[] = $this->wpdb->prepare( $column . ' <= %s',
+				$date_range->get_end()->format( 'Y-m-d 23:59:59' ) );
 		}
 
 		if ( $sql_parts ) {

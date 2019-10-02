@@ -12,6 +12,10 @@ class WPML_REST_Request_Analyze_Factory {
 		 */
 		global $wpml_url_converter, $wpml_language_resolution;
 
-		return new WPML_REST_Request_Analyze( $wpml_url_converter, $wpml_language_resolution->get_active_language_codes() );
+		return new WPML_REST_Request_Analyze(
+			$wpml_url_converter,
+			$wpml_language_resolution->get_active_language_codes(),
+			new WP_Rewrite()
+		);
 	}
 }

@@ -285,14 +285,9 @@ function wpml_get_post_status_helper() {
 }
 
 function wpml_get_create_post_helper() {
-	global $wpml_create_post_helper, $sitepress;
+	global $sitepress;
 
-	if ( ! isset( $wpml_create_post_helper ) ) {
-		require WPML_PLUGIN_PATH . '/inc/post-translation/wpml-create-post-helper.class.php';
-		$wpml_create_post_helper = new WPML_Create_Post_Helper( $sitepress );
-	}
-
-	return $wpml_create_post_helper;
+	return new WPML_Create_Post_Helper( $sitepress );
 }
 
 /**

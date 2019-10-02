@@ -73,12 +73,14 @@ class WPML_TM_Jobs_Repository {
 	 */
 	private function build_job_entity( stdClass $raw_data ) {
 		$types = array( WPML_TM_Job_Entity::POST_TYPE, WPML_TM_Job_Entity::PACKAGE_TYPE );
+		$batch = new WPML_TM_Jobs_Batch( $raw_data->local_batch_id, $raw_data->batch_name, $raw_data->tp_batch_id );
+
 		if ( in_array( $raw_data->type, $types, true ) ) {
 			$job = new WPML_TM_Post_Job_Entity(
 				$raw_data->id,
 				$raw_data->type,
 				$raw_data->tp_id,
-				new WPML_TM_Jobs_Batch( $raw_data->local_batch_id, $raw_data->tp_batch_id ),
+				$batch,
 				(int) $raw_data->status,
 				array( $this->elements_repository, 'get_job_elements' )
 			);
@@ -90,7 +92,7 @@ class WPML_TM_Jobs_Repository {
 				$raw_data->id,
 				$raw_data->type,
 				$raw_data->tp_id,
-				new WPML_TM_Jobs_Batch( $raw_data->local_batch_id, $raw_data->tp_batch_id ),
+				$batch,
 				(int) $raw_data->status
 			);
 		}
@@ -104,6 +106,7 @@ class WPML_TM_Jobs_Repository {
 		$job->set_translator_id( $raw_data->translator_id );
 		$job->set_revision( $raw_data->revision );
 		$job->set_ts_status( $raw_data->ts_status );
+		$job->set_needs_update( $raw_data->needs_update );
 
 		return $job;
 	}

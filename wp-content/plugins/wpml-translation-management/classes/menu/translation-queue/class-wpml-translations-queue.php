@@ -682,7 +682,7 @@ class WPML_Translations_Queue {
 		$editor_url = apply_filters( 'wpml_tm_ate_jobs_editor_url', null, $job_id, $this->get_return_url() );
 
 		if ( $editor_url ) {
-			wpml_tm_get_ate_job_records()->set_editing_job( $job_id, true );
+			wpml_tm_get_ate_job_records()->set_editing_job( $job_id );
 			wpml_tm_load_old_jobs_editor()->set( $job_id, WPML_TM_Editors::ATE );
 
 			wp_safe_redirect( $editor_url );

@@ -142,6 +142,11 @@ class WPML_Element_Translation_Package extends WPML_Translation_Job_Helper {
 		$wpdb->show_errors( $show );
 	}
 
+	/**
+	 * @param array $job_translate
+	 *
+	 * @return mixed|void
+	 */
 	private function filter_non_translatable_fields( $job_translate ) {
 
 		if ( $job_translate['field_translate'] ) {
@@ -149,10 +154,9 @@ class WPML_Element_Translation_Package extends WPML_Translation_Job_Helper {
 			if ( 'base64' === $job_translate['field_format'] ) {
 				$data = base64_decode( $data );
 			}
-			if (
-				WPML_String_Functions::is_not_translatable( $data ) ||
-				! apply_filters( 'wpml_translation_job_post_meta_value_translated', 1, $job_translate['field_type'] )
-			) {
+			$is_translatable = ! WPML_String_Functions::is_not_translatable( $data ) && apply_filters( 'wpml_translation_job_post_meta_value_translated', 1, $job_translate['field_type'] );
+			$is_translatable = (bool) apply_filters( 'wpml_tm_job_field_is_translatable', $is_translatable, $job_translate );
+			if ( ! $is_translatable ) {
 				$job_translate['field_translate']       = 0;
 				$job_translate['field_data_translated'] = $job_translate['field_data'];
 				$job_translate['field_finished']        = 1;
@@ -164,8 +168,8 @@ class WPML_Element_Translation_Package extends WPML_Translation_Job_Helper {
 
 	/**
 	 * @param object $job
-	 * @param int $post_id
-	 * @param array $fields
+	 * @param int    $post_id
+	 * @param array  $fields
 	 */
 	function save_job_custom_fields( $job, $post_id, $fields ) {
 		$field_names = array();
@@ -238,24 +242,49 @@ class WPML_Element_Translation_Package extends WPML_Translation_Job_Helper {
 		return $array;
 	}
 
+	/**
+	 * @param array $fields_in_job
+	 * @param int   $post_id
+	 */
 	private function save_custom_field_values( $fields_in_job, $post_id ) {
 		$encodings = $this->get_tm_setting( array( 'custom_fields_encoding' ) );
 		foreach ( $fields_in_job as $name => $contents ) {
 			$this->wp_api->delete_post_meta( $post_id, $name );
 
-			foreach ( $contents as $index => $value ) {
-				if ( isset( $encodings[ $name ] ) ) {
-					$contents[ $index ] = WPML_Encoding::encode( $value, $encodings[ $name ] );
-				}
-				$contents[ $index ] = apply_filters( 'wpml_encode_custom_field', $contents[ $index ], $name );
-			}
-
-			$single   = count( $contents ) === 1;
 			$contents = (array) $contents;
-			foreach ( $contents as $val ) {
-				$this->wp_api->add_post_meta( $post_id, $name, $val, $single );
+			$single   = count( $contents ) === 1;
+			$encoding = isset( $encodings[ $name ] ) ? $encodings[ $name ] : '';
+
+			foreach ( $contents as $index => $value ) {
+
+				if ( $encoding ) {
+					$value = WPML_Encoding::encode( $value, $encoding );
+				}
+
+				$value = apply_filters( 'wpml_encode_custom_field', $value, $name );
+				$value = $this->prevent_strip_slash_on_json( $value, $encoding );
+
+				$this->wp_api->add_post_meta( $post_id, $name, $value, $single );
 			}
 		}
+	}
+
+	/**
+	 * The core function `add_post_meta` always performs
+	 * a `stripslashes_deep` on the value. We need to escape
+	 * once more before to call the function.
+	 *
+	 * @param string $value
+	 * @param string $encoding
+	 *
+	 * @return string
+	 */
+	private function prevent_strip_slash_on_json( $value, $encoding ) {
+		if ( in_array( 'json', explode( ',', $encoding ) ) ) {
+			$value = wp_slash( $value );
+		}
+
+		return $value;
 	}
 
 	/**

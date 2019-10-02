@@ -2,10 +2,10 @@
 /**
  * Plugin Name: WPML Media
  * Plugin URI: https://wpml.org/
- * Description: Add multilingual support for Media files | <a href="https://wpml.org/?page_id=113610">Documentation</a> | <a href="https://wpml.org/version/media-translation-2-5-2/">WPML Media Translation 2.5.2 release notes</a>
+ * Description: Add multilingual support for Media files | <a href="https://wpml.org/?page_id=113610">Documentation</a> | <a href="https://wpml.org/version/media-translation-2-5-3/">WPML Media Translation 2.5.3 release notes</a>
  * Author: OnTheGoSystems
  * Author URI: http://www.onthegosystems.com/
- * Version: 2.5.2
+ * Version: 2.5.3
  * Plugin Slug: wpml-media-translation
  */
 
@@ -13,7 +13,7 @@ if ( defined( 'WPML_MEDIA_VERSION' ) ) {
 	return;
 }
 
-define( 'WPML_MEDIA_VERSION', '2.5.2' );
+define( 'WPML_MEDIA_VERSION', '2.5.3' );
 define( 'WPML_MEDIA_PATH', dirname( __FILE__ ) );
 
 $autoloader_dir = WPML_MEDIA_PATH . '/vendor';
@@ -56,11 +56,7 @@ if ( $media_dependencies->check() ) {
 			'WPML_Media_Set_Posts_Media_Flag_Factory',
 			'WPML_Media_Set_Initial_Language_Factory',
 			'WPML_Media_Selector_Factory',
-			'WPML_Media_Add_To_Basket_Factory',
-			'WPML_Media_Add_To_Translation_Package_Factory',
-			'WPML_Media_Translation_Status_Factory',
 			'WPML_Media_Post_Media_Usage_Factory',
-			'WPML_Media_Submitted_Basket_Notice_Factory',
 			'WPML_Media_Privacy_Content_Factory',
 		);
 
@@ -82,9 +78,7 @@ if ( $media_dependencies->check() ) {
 				'WPML_Media_Custom_Field_Batch_Url_Translation_Factory',
 				'WPML_Media_Editor_Notices_Factory',
 				'WPML_Media_Welcome_Notice_Factory',
-				'WPML_Media_Translation_Editor_Layout_Factory',
 				'WPML_Media_Help_Tab_Factory',
-				'WPML_Media_Populate_Media_Strings_Translations_Factory'
 			);
 
 			$action_filter_loader = new WPML_Action_Filter_Loader();
@@ -99,6 +93,23 @@ if ( $media_dependencies->check() ) {
 			'WPML_Media_String_Images_Translation_Factory',
 			'WPML_Media_String_Batch_Url_Translation_Factory'
 		);
+
+		$action_filter_loader = new WPML_Action_Filter_Loader();
+		$action_filter_loader->load( $loaders );
+
+	}
+
+	add_action( 'wpml_after_tm_loaded', 'wpml_media_load_components_tm' );
+	function wpml_media_load_components_tm() {
+
+		$loaders = [
+			WPML_Media_Add_To_Basket_Factory::class,
+			WPML_Media_Submitted_Basket_Notice_Factory::class,
+			WPML_Media_Add_To_Translation_Package_Factory::class,
+			WPML_Media_Translation_Status_Factory::class,
+			WPML_Media_Translation_Editor_Layout_Factory::class,
+			WPML_Media_Populate_Media_Strings_Translations_Factory::class,
+		];
 
 		$action_filter_loader = new WPML_Action_Filter_Loader();
 		$action_filter_loader->load( $loaders );

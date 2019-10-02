@@ -1,9 +1,6 @@
 <?php
 
 class WPML_TM_Jobs_Post_Query implements WPML_TM_Jobs_Query {
-
-	const STATUS_COLUMN = 'IF (translation_status.needs_update = 1, ' . ICL_TM_NEEDS_UPDATE . ', translation_status.status )';
-
 	/** @var wpdb */
 	protected $wpdb;
 
@@ -15,6 +12,9 @@ class WPML_TM_Jobs_Post_Query implements WPML_TM_Jobs_Query {
 
 	/** @var string */
 	protected $title_column = 'posts.post_title';
+
+	/** @var string */
+	protected $batch_name_column = 'batches.batch_name';
 
 	/**
 	 * @param wpdb                       $wpdb
@@ -33,7 +33,8 @@ class WPML_TM_Jobs_Post_Query implements WPML_TM_Jobs_Query {
 			'translation_status.tp_id AS tp_id',
 			'batches.id AS local_batch_id',
 			'batches.tp_id AS tp_batch_id',
-			self::STATUS_COLUMN . ' AS status',
+			$this->batch_name_column,
+			'translation_status.status AS status',
 			'original_translations.element_id AS original_element_id',
 			'translations.source_language_code AS source_language',
 			'translations.language_code AS target_language',
@@ -48,6 +49,7 @@ class WPML_TM_Jobs_Post_Query implements WPML_TM_Jobs_Query {
 			'translate_job.job_id AS translate_job_id',
 			'translation_status.tp_revision AS revision',
 			'translation_status.ts_status AS ts_status',
+			'translation_status.needs_update AS needs_update',
 			'translate_job.editor AS editor',
 		);
 
@@ -131,13 +133,15 @@ class WPML_TM_Jobs_Post_Query implements WPML_TM_Jobs_Query {
 	}
 
 	protected function define_filters( WPML_TM_Jobs_Query_Builder $query_builder, WPML_TM_Jobs_Search_Params $params ) {
-		$query_builder->set_status_filter( self::STATUS_COLUMN, $params );
+		$this->set_status_filter( $query_builder, $params );
+
 		$query_builder->set_scope_filter(
 			"translation_status.translation_service = 'local'",
 			"translation_status.translation_service != 'local'",
 			$params
 		);
-		$query_builder->set_title_filter( $this->title_column, $params );
+		$query_builder->set_multi_value_text_filter( $this->title_column, $params->get_title() );
+		$query_builder->set_multi_value_text_filter( $this->batch_name_column, $params->get_batch_name() );
 		$query_builder->set_source_language( 'translations.source_language_code', $params );
 		$query_builder->set_target_language( 'translations.language_code', $params );
 
@@ -165,5 +169,33 @@ class WPML_TM_Jobs_Post_Query implements WPML_TM_Jobs_Query {
 			$params->get_original_element_id()
 		);
 		$query_builder->set_tp_id_filter( 'translation_status.tp_id', $params );
+	}
+
+	private function set_status_filter(
+		WPML_TM_Jobs_Query_Builder $query_builder,
+		WPML_TM_Jobs_Search_Params $params
+	) {
+		if ( $params->get_needs_update() ) {
+			$statuses = array_diff( $params->get_status(), [ ICL_TM_NEEDS_UPDATE ] );
+
+			if ( $params->get_needs_update()->is_needs_update_excluded() ) {
+				$query_builder->add_AND_where_condition( 'translation_status.needs_update != 1' );
+				if ( $statuses ) {
+					$query_builder->set_status_filter( 'translation_status.status', $params );
+				}
+			} else {
+				if ( $statuses ) {
+					$statuses = wpml_prepare_in( $params->get_status(), '%d' );
+					$statuses = sprintf( 'translation_status.status IN (%s)', $statuses );
+
+					$query_builder->add_AND_where_condition( "( translation_status.needs_update = 1 OR {$statuses} )" );
+				} else {
+					$query_builder->add_AND_where_condition( 'translation_status.needs_update = 1' );
+				}
+			}
+
+		} else {
+			$query_builder->set_status_filter( 'translation_status.status', $params );
+		}
 	}
 }

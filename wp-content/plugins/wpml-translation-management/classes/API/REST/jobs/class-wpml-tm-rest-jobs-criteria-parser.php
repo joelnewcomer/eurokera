@@ -62,12 +62,16 @@ class WPML_TM_Rest_Jobs_Criteria_Parser {
 			}
 		}
 
-		$multi_values = array( 'title', 'target_language', 'status' );
+		$multi_values = array( 'title', 'target_language', 'status', 'batch_name' );
 		foreach ( $multi_values as $key ) {
 			$value = (string) $request->get_param( $key );
-			if ( $value ) {
+			if ( strlen( $value ) ) {
 				$params->{'set_' . $key}( explode( ',', $value ) );
 			}
+		}
+
+		if ( $request->get_param( 'needs_update' ) ) {
+			$params->set_needs_update( new WPML_TM_Jobs_Needs_Update_Param( $request->get_param( 'needs_update' ) ) );
 		}
 
 		$date_range_values = array( 'sent', 'deadline' );
@@ -105,11 +109,8 @@ class WPML_TM_Rest_Jobs_Criteria_Parser {
 	 * @return WPML_TM_Jobs_Sorting_Param[]
 	 */
 	private function build_sorting_params( array $request_param ) {
-		$sorting = array();
-		foreach ( $request_param as $column => $direction ) {
-			$sorting[] = new WPML_TM_Jobs_Sorting_Param( $column, $direction );
-		}
-
-		return $sorting;
+		return \wpml_collect( $request_param )->map( function ( $direction, $column ) {
+			return new WPML_TM_Jobs_Sorting_Param( $column, $direction );
+		} )->toArray();
 	}
 }

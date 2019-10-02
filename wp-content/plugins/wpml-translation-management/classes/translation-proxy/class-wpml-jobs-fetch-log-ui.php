@@ -1,4 +1,5 @@
 <?php
+use WPML\Core\Twig_SimpleFunction;
 
 class WPML_Jobs_Fetch_Log_UI extends WPML_Templates_Factory {
 	private $action_url;

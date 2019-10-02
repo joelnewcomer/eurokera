@@ -27,7 +27,6 @@ class OTGS_Installer_Debug_Info {
 		foreach ( $repositories as $repo_id => $repository ) {
 			$repositories_data[ $repo_id ] = array(
 				'api-url' => $repository['api-url'],
-				'products' => $repository['products'],
 				'subscription' => isset( $repository_settings[ $repo_id ]['subscription'] ) ? $repository_settings[ $repo_id ]['subscription'] : '',
 			);
 		}

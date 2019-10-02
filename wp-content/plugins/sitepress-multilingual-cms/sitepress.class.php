@@ -453,9 +453,9 @@ class SitePress extends WPML_WPDB_User implements
 			add_action( 'admin_notices', array( $this, 'upgrade_notice' ) );
 		}
 
-		require WPML_PLUGIN_PATH . '/inc/template-constants.php';
+		require_once WPML_PLUGIN_PATH . '/inc/template-constants.php';
 		if ( defined( 'WPML_LOAD_API_SUPPORT' ) ) {
-			require WPML_PLUGIN_PATH . '/inc/wpml-api.php';
+			require_once WPML_PLUGIN_PATH . '/inc/wpml-api.php';
 		}
 
 		add_action( 'wp_footer', array( $this, 'display_wpml_footer' ), 20 );
@@ -642,7 +642,7 @@ class SitePress extends WPML_WPDB_User implements
 	}
 
 	function ajax_setup() {
-		require WPML_PLUGIN_PATH . '/ajax.php';
+		require_once WPML_PLUGIN_PATH . '/ajax.php';
 	}
 
 	function check_if_admin_action_from_referer() {
@@ -2158,7 +2158,7 @@ class SitePress extends WPML_WPDB_User implements
 	}
 
 	function language_filter() {
-		require WPML_PLUGIN_PATH . '/menu/post-menus/wpml-post-language-filter.class.php';
+		require_once WPML_PLUGIN_PATH . '/menu/post-menus/wpml-post-language-filter.class.php';
 		$post_lang_filter = new WPML_Post_Language_Filter( $this->wpdb, $this );
 		$post_lang_filter->register_scripts();
 

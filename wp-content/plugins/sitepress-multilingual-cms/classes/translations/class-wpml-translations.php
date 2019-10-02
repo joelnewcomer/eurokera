@@ -277,8 +277,23 @@ class WPML_Translations extends WPML_SP_User {
 	 *
 	 * @return bool
 	 */
-	private function must_ignore_translation( $translation ) {
-		return $this->wpml_element_type_is_taxonomy( $translation->element_type ) && $this->skip_empty && $translation->instances === 0 && ( ! $this->skip_recursions && ! _icl_tax_has_objects_recursive( $translation->element_id ) );
+	private function must_ignore_translation( stdClass $translation ) {
+		return $this->skip_empty
+		       && (
+		       	    ! $translation->element_id
+		            || $this->must_ignore_translation_for_taxonomy( $translation )
+		       );
+	}
+
+	/**
+	 * @param stdClass $translation
+	 *
+	 * @return bool
+	 */
+	private function must_ignore_translation_for_taxonomy( stdClass $translation ) {
+		return $this->wpml_element_type_is_taxonomy( $translation->element_type )
+		       && $translation->instances === 0
+		       && ( ! $this->skip_recursions && ! _icl_tax_has_objects_recursive( $translation->element_id ) );
 	}
 
 	/**

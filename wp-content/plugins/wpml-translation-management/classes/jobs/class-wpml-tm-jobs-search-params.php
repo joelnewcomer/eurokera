@@ -15,6 +15,9 @@ class WPML_TM_Jobs_Search_Params {
 	/** @var array */
 	private $status = array();
 
+	/** @var WPML_TM_Jobs_Needs_Update_Param|null */
+	private $needs_update;
+
 	/** @var string */
 	private $remote_or_local = self::SCOPE_ALL;
 
@@ -32,6 +35,9 @@ class WPML_TM_Jobs_Search_Params {
 
 	/** @var string[] */
 	private $title;
+
+	/** @var string[] */
+	private $batch_name;
 
 	/** @var string */
 	private $source_language;
@@ -74,6 +80,7 @@ class WPML_TM_Jobs_Search_Params {
 			'job_types',
 			'local_job_id',
 			'title',
+			'batch_name',
 			'source_language',
 			'target_language',
 			'sorting',
@@ -256,6 +263,21 @@ class WPML_TM_Jobs_Search_Params {
 	}
 
 	/**
+	 * @return string[]
+	 */
+	public function get_batch_name() {
+		return $this->batch_name;
+	}
+
+	/**
+	 * @param string[] $batch_name
+	 */
+	public function set_batch_name( $batch_name ) {
+		$this->batch_name = $batch_name;
+	}
+
+
+	/**
 	 * @return string
 	 */
 	public function get_source_language() {
@@ -404,6 +426,25 @@ class WPML_TM_Jobs_Search_Params {
 
 		return $this;
 	}
+
+	/**
+	 * @return WPML_TM_Jobs_Needs_Update_Param|null
+	 */
+	public function get_needs_update() {
+		return $this->needs_update;
+	}
+
+	/**
+	 * @param WPML_TM_Jobs_Needs_Update_Param|null $needs_update
+	 *
+	 * @return $this
+	 */
+	public function set_needs_update( WPML_TM_Jobs_Needs_Update_Param $needs_update = null ) {
+		$this->needs_update = $needs_update;
+
+		return $this;
+	}
+
 
 	private function get_accepted_values() {
 		return $this->accepted_values;

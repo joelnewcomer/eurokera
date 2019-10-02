@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitd2a72bcd1478a9bd55bf6bcf41466d2b
+class ComposerStaticInit3256bd2d84865fb2bd88fef0197135c7
 {
     public static $files = array (
         'b45b351e6b6f7487d819961fef2fda77' => __DIR__ . '/..' . '/jakeasmith/http_build_url/src/http_build_url.php',
@@ -22,16 +22,6 @@ class ComposerStaticInitd2a72bcd1478a9bd55bf6bcf41466d2b
         'WPML\\Collect\\' => 
         array (
             0 => __DIR__ . '/..' . '/tightenco/collect/src/Illuminate',
-        ),
-    );
-
-    public static $prefixesPsr0 = array (
-        'x' => 
-        array (
-            'xrstf\\Composer52' => 
-            array (
-                0 => __DIR__ . '/..' . '/xrstf/composer-php52/lib',
-            ),
         ),
     );
 
@@ -129,6 +119,7 @@ class ComposerStaticInitd2a72bcd1478a9bd55bf6bcf41466d2b
         'WPML_TM_ATE_API' => __DIR__ . '/../..' . '/classes/ATE/API/class-wpml-tm-ate-api.php',
         'WPML_TM_ATE_API_Error' => __DIR__ . '/../..' . '/classes/ATE/Hooks/class-wpml-tm-ate-api-error.php',
         'WPML_TM_ATE_Authentication' => __DIR__ . '/../..' . '/classes/ATE/API/class-wpml-tm-ate-authentication.php',
+        'WPML_TM_ATE_Job' => __DIR__ . '/../..' . '/classes/ATE/class-wpml-tm-ate-job.php',
         'WPML_TM_ATE_Job_Data_Fallback' => __DIR__ . '/../..' . '/classes/ATE/Hooks/class-wpml-tm-ate-job-data-fallback-action.php',
         'WPML_TM_ATE_Job_Data_Fallback_Factory' => __DIR__ . '/../..' . '/classes/ATE/Hooks/class-wpml-tm-ate-job-data-fallback-action-factory.php',
         'WPML_TM_ATE_Job_Records' => __DIR__ . '/../..' . '/classes/ATE/class-wpml-tm-ate-job-records.php',
@@ -244,6 +235,7 @@ class ComposerStaticInitd2a72bcd1478a9bd55bf6bcf41466d2b
         'WPML_TM_Jobs_List_Translated_By_Filters' => __DIR__ . '/../..' . '/classes/menu/jobs-list/class-wpml-tm-jobs-list-translated_by_filters.php',
         'WPML_TM_Jobs_List_Translators' => __DIR__ . '/../..' . '/classes/menu/jobs-list/class-wpml-tm-jobs-list-translators.php',
         'WPML_TM_Jobs_Migration_State' => __DIR__ . '/../..' . '/classes/notices/translation-jobs-migration/class-wpml-tm-jobs-migration-state.php',
+        'WPML_TM_Jobs_Needs_Update_Param' => __DIR__ . '/../..' . '/classes/jobs/class-wpml-tm-jobs-needs-update-param.php',
         'WPML_TM_Jobs_Order_Query_Helper' => __DIR__ . '/../..' . '/classes/jobs/query/class-wpml-tm-jobs-order-query-helper.php',
         'WPML_TM_Jobs_Package_Query' => __DIR__ . '/../..' . '/classes/jobs/query/class-wpml-tm-jobs-package-query.php',
         'WPML_TM_Jobs_Post_Query' => __DIR__ . '/../..' . '/classes/jobs/query/class-wpml-tm-jobs-post-query.php',
@@ -625,10 +617,9 @@ class ComposerStaticInitd2a72bcd1478a9bd55bf6bcf41466d2b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitd2a72bcd1478a9bd55bf6bcf41466d2b::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitd2a72bcd1478a9bd55bf6bcf41466d2b::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitd2a72bcd1478a9bd55bf6bcf41466d2b::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitd2a72bcd1478a9bd55bf6bcf41466d2b::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3256bd2d84865fb2bd88fef0197135c7::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3256bd2d84865fb2bd88fef0197135c7::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit3256bd2d84865fb2bd88fef0197135c7::$classMap;
 
         }, null, ClassLoader::class);
     }

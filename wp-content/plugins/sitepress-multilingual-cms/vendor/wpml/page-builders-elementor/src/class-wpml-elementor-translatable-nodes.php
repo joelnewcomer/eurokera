@@ -54,7 +54,11 @@ class WPML_Elementor_Translatable_Nodes implements IWPML_Page_Builders_Translata
 				if ( isset( $node_data['integration-class'] ) ) {
 					foreach ( $this->get_integration_classes( $node_data ) as $class ) {
 						try {
-							$node    = new $class();
+							if ( $class instanceof \WPML_Elementor_Module_With_Items ) {
+								$node = $class;
+							} else {
+								$node = new $class();
+							}
 							$strings = $node->get( $node_id, $element, $strings );
 						} catch ( Exception $e ) {
 						}
@@ -96,7 +100,11 @@ class WPML_Elementor_Translatable_Nodes implements IWPML_Page_Builders_Translata
 				if ( isset( $node_data['integration-class'] ) ) {
 					foreach ( $this->get_integration_classes( $node_data ) as $class ) {
 						try {
-							$node = new $class();
+							if ( $class instanceof \WPML_Elementor_Module_With_Items ) {
+								$node = $class;
+							} else {
+								$node = new $class();
+							}
 							$item = $node->update( $node_id, $element, $string );
 							if ( $item ) {
 								$element[ self::SETTINGS_FIELD ][ $node->get_items_field() ][ $item['index'] ] = $item;
@@ -210,6 +218,11 @@ class WPML_Elementor_Translatable_Nodes implements IWPML_Page_Builders_Translata
 						'type'        => __( 'Heading', 'sitepress' ),
 						'editor_type' => 'LINE'
 					),
+					'link' => array(
+						'field'       => 'url',
+						'type'        => __( 'Heading: Link URL', 'sitepress' ),
+						'editor_type' => 'LINK'
+					),
 				),
 			),
 			'text-editor' => array(
@@ -243,6 +256,21 @@ class WPML_Elementor_Translatable_Nodes implements IWPML_Page_Builders_Translata
 					array(
 						'field'       => 'vimeo_link',
 						'type'        => __( 'Video: Vimeo link', 'sitepress' ),
+						'editor_type' => 'LINE'
+					),
+					array(
+						'field'       => 'youtube_url',
+						'type'        => __( 'Video: Youtube URL', 'sitepress' ),
+						'editor_type' => 'LINE'
+					),
+					array(
+						'field'       => 'vimeo_url',
+						'type'        => __( 'Video: Vimeo URL', 'sitepress' ),
+						'editor_type' => 'LINE'
+					),
+					array(
+						'field'       => 'dailymotion_url',
+						'type'        => __( 'Video: DailyMotion URL', 'sitepress' ),
 						'editor_type' => 'LINE'
 					),
 				),
@@ -455,6 +483,11 @@ class WPML_Elementor_Translatable_Nodes implements IWPML_Page_Builders_Translata
 						'type'        => __( 'Image Box: Description text', 'sitepress' ),
 						'editor_type' => 'LINE'
 					),
+					'link' => array(
+						'field'       => 'url',
+						'type'        => __( 'Image Box: Link', 'sitepress' ),
+						'editor_type' => 'LINK'
+					),
 				),
 			),
 			'animated-headline'   => array(
@@ -479,6 +512,11 @@ class WPML_Elementor_Translatable_Nodes implements IWPML_Page_Builders_Translata
 						'field'       => 'after_text',
 						'type'        => __( 'Animated Headline: After text', 'sitepress' ),
 						'editor_type' => 'LINE'
+					),
+					'link' => array(
+						'field'       => 'url',
+						'type'        => __( 'Animated Headline: Link URL', 'sitepress' ),
+						'editor_type' => 'LINK'
 					),
 				),
 			),
@@ -653,7 +691,7 @@ class WPML_Elementor_Translatable_Nodes implements IWPML_Page_Builders_Translata
 					),
 					array(
 						'field'       => 'email_subject_2',
-						'type'        => __( 'Form: Email subject', 'sitepress' ),
+						'type'        => __( 'Form: Email subject 2', 'sitepress' ),
 						'editor_type' => 'LINE'
 					),
 					array(
@@ -679,6 +717,16 @@ class WPML_Elementor_Translatable_Nodes implements IWPML_Page_Builders_Translata
 					array(
 						'field'       => 'invalid_message',
 						'type'        => __( 'Form: Invalid message', 'sitepress' ),
+						'editor_type' => 'LINE'
+					),
+					array(
+						'field'       => 'required_field_message',
+						'type'        => __( 'Form: Required message', 'sitepress' ),
+						'editor_type' => 'LINE'
+					),
+					array(
+						'field'       => 'redirect_to',
+						'type'        => __( 'Form: Redirect to URL', 'sitepress' ),
 						'editor_type' => 'LINE'
 					),
 				),
@@ -716,6 +764,71 @@ class WPML_Elementor_Translatable_Nodes implements IWPML_Page_Builders_Translata
 						'field'       => 'anchor',
 						'type'        => __( 'Menu Anchor', 'sitepress' ),
 						'editor_type' => 'LINE'
+					),
+				),
+			),
+			'archive-posts' => array(
+			    'conditions' => array( self::TYPE => 'archive-posts' ),
+			    'fields'     => array(
+			        array(
+			            'field'       => 'archive_cards_meta_separator',
+			            'type'        => __( 'Cards: Separator Between', 'sitepress' ),
+			            'editor_type' => 'LINE'
+			        ),
+			        array(
+			            'field'       => 'archive_cards_read_more_text',
+			            'type'        => __( 'Cards: Read More Text', 'sitepress' ),
+			            'editor_type' => 'LINE'
+			        ),
+			        array(
+			            'field'       => 'nothing_found_message',
+			            'type'        => __( 'Nothing Found Message', 'sitepress' ),
+			            'editor_type' => 'AREA'
+			        ),
+			        array(
+			            'field'       => 'pagination_prev_label',
+			            'type'        => __( 'Previous Label', 'sitepress' ),
+			            'editor_type' => 'LINE'
+			        ),
+			        array(
+			            'field'       => 'pagination_next_label',
+			            'type'        => __( 'Next Label', 'sitepress' ),
+			            'editor_type' => 'LINE'
+			        ),
+			        array(
+			            'field'       => 'archive_classic_meta_separator',
+			            'type'        => __( 'Classic: Separator Between', 'sitepress' ),
+			            'editor_type' => 'LINE'
+			        ),
+			        array(
+			            'field'       => 'archive_classic_read_more_text',
+			            'type'        => __( 'Classic: Read More Text', 'sitepress' ),
+			            'editor_type' => 'LINE'
+			        ),
+			    ),
+			),
+			'search-form' => array(
+			    'conditions' => array( self::TYPE => 'search-form' ),
+			    'fields'     => array(
+			        array(
+			            'field'       => 'placeholder',
+			            'type'        => __( 'Placeholder', 'sitepress' ),
+			            'editor_type' => 'LINE'
+			        ),
+			    ),
+			),
+			'post-navigation' => array(
+				'conditions' => array( self::TYPE => 'post-navigation' ),
+				'fields'     => array(
+					array(
+						'field'       => 'prev_label',
+						'type'        => __( 'Previous Label', 'sitepress' ),
+						'editor_type' => 'LINE',
+					),
+					array(
+						'field'       => 'next_label',
+						'type'        => __( 'Next Label', 'sitepress' ),
+						'editor_type' => 'LINE',
 					),
 				),
 			),

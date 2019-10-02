@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit4e7a4c2acca8dd745f77d0397b816bd5
+class ComposerStaticInit3dbe46cb8a5af12648a68f5f9cfd19db
 {
     public static $files = array (
         '2403a7200c2043ad6a729eb7257a75ff' => __DIR__ . '/../..' . '/functions/gettext.php',
@@ -17,6 +17,8 @@ class ComposerStaticInit4e7a4c2acca8dd745f77d0397b816bd5
         'IWPML_ST_Translations_File' => __DIR__ . '/../..' . '/classes/translations-file-scan/translations-file/iwpml-st-translations-file.php',
         'IWPML_St_Upgrade_Command' => __DIR__ . '/../..' . '/classes/upgrade/interface-iwpml_st_upgrade_command.php',
         'WPML\\ST\\Package\\Domains' => __DIR__ . '/../..' . '/classes/package/class-domains.php',
+        'WPML\\ST\\SlugTranslation\\Hooks\\Hooks' => __DIR__ . '/../..' . '/classes/slug-translation/RewriteRules/Hooks.php',
+        'WPML\\ST\\SlugTranslation\\Hooks\\HooksFactory' => __DIR__ . '/../..' . '/classes/slug-translation/RewriteRules/HooksFactory.php',
         'WPML_Admin_Notifier' => __DIR__ . '/../..' . '/classes/class-wpml-admin-notifier.php',
         'WPML_Admin_Text_Configuration' => __DIR__ . '/../..' . '/inc/admin-texts/wpml-admin-text-configuration.php',
         'WPML_Admin_Text_Functionality' => __DIR__ . '/../..' . '/inc/admin-texts/wpml-admin-text-functionality.class.php',
@@ -251,7 +253,7 @@ class ComposerStaticInit4e7a4c2acca8dd745f77d0397b816bd5
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit4e7a4c2acca8dd745f77d0397b816bd5::$classMap;
+            $loader->classMap = ComposerStaticInit3dbe46cb8a5af12648a68f5f9cfd19db::$classMap;
 
         }, null, ClassLoader::class);
     }

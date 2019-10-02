@@ -12,6 +12,8 @@ return array(
     'IWPML_ST_Translations_File' => $baseDir . '/classes/translations-file-scan/translations-file/iwpml-st-translations-file.php',
     'IWPML_St_Upgrade_Command' => $baseDir . '/classes/upgrade/interface-iwpml_st_upgrade_command.php',
     'WPML\\ST\\Package\\Domains' => $baseDir . '/classes/package/class-domains.php',
+    'WPML\\ST\\SlugTranslation\\Hooks\\Hooks' => $baseDir . '/classes/slug-translation/RewriteRules/Hooks.php',
+    'WPML\\ST\\SlugTranslation\\Hooks\\HooksFactory' => $baseDir . '/classes/slug-translation/RewriteRules/HooksFactory.php',
     'WPML_Admin_Notifier' => $baseDir . '/classes/class-wpml-admin-notifier.php',
     'WPML_Admin_Text_Configuration' => $baseDir . '/inc/admin-texts/wpml-admin-text-configuration.php',
     'WPML_Admin_Text_Functionality' => $baseDir . '/inc/admin-texts/wpml-admin-text-functionality.class.php',

@@ -38,6 +38,9 @@ class WPML_TM_ATE_API {
 		$url  = $this->endpoints->get_ate_jobs();
 
 		$signed_url = $this->auth->get_signed_url( $verb, $url, $params );
+		if ( is_wp_error( $signed_url ) ) {
+			return $signed_url;
+		}
 
 		$result = $this->wp_http->request( $signed_url,
 			array(
@@ -61,6 +64,10 @@ class WPML_TM_ATE_API {
 		$url  = $this->endpoints->get_ate_confirm_job( $ate_job_id );
 
 		$signed_url = $this->auth->get_signed_url( $verb, $url );
+		if ( is_wp_error( $signed_url ) ) {
+			return $signed_url;
+		}
+
 		$result     = $this->wp_http->request( $signed_url,
 		                                       array(
 			                                       'timeout' => 60,
@@ -102,10 +109,17 @@ class WPML_TM_ATE_API {
 	 * @throws \InvalidArgumentException
 	 */
 	public function get_job( $ate_job_id ) {
+		if ( ! $ate_job_id ) {
+			return null;
+		}
+
 		$verb = 'GET';
 		$url  = $this->endpoints->get_ate_jobs( $ate_job_id );
 
 		$signed_url = $this->auth->get_signed_url( $verb, $url, null );
+		if ( is_wp_error( $signed_url ) ) {
+			return $signed_url;
+		}
 
 		$result = $this->wp_http->request( $signed_url,
 		                                   array(
@@ -134,6 +148,9 @@ class WPML_TM_ATE_API {
 		$url  = $this->endpoints->get_ate_jobs( $job_ids, $statuses );
 
 		$signed_url = $this->auth->get_signed_url( $verb, $url, null );
+		if ( is_wp_error( $signed_url ) ) {
+			return $signed_url;
+		}
 
 		$result = $this->wp_http->request( $signed_url,
 		                                   array(
@@ -155,6 +172,9 @@ class WPML_TM_ATE_API {
 
 		$url = $this->endpoints->get_ate_jobs_by_wpml_job_ids( $wpml_job_ids );
 		$url = $this->auth->get_signed_url( $verb, $url, null );
+		if ( is_wp_error( $url ) ) {
+			return $url;
+		}
 
 		$result = $this->wp_http->request(
 			$url,
@@ -244,16 +264,14 @@ class WPML_TM_ATE_API {
 	}
 
 	public function get_website_id( $site_url ) {
-		$sites = $this->get_response(
-			$this->wp_http->request(
-				$this->auth->get_signed_url(
-					'GET',
-					$this->endpoints->get_websites()
-				)
-			)
-		);
+		$signed_url = $this->auth->get_signed_url( 'GET', $this->endpoints->get_websites() );
+		if ( is_wp_error( $signed_url ) ) {
+			return null;
+		}
 
-		foreach( $sites as $site ) {
+		$sites = $this->get_response( $this->wp_http->request( $signed_url ) );
+
+		foreach ( $sites as $site ) {
 			if ( $site->url === $site_url ) {
 				return $site->uuid;
 			}

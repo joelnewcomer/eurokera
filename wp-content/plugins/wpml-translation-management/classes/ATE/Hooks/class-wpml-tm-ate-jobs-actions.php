@@ -372,7 +372,7 @@ class WPML_TM_ATE_Jobs_Actions implements IWPML_Action {
 							}
 							
 							if ( $is_translations_applied ) {
-								$ate_job_data[ WPML_TM_ATE_Job_Records::FIELD_IS_EDITING ] = false;
+								$ate_job_data[ WPML_TM_ATE_Job_Records::FIELD_IS_EDITING ] = 0;
 								$this->ate_jobs->store( $wpml_job_id, $ate_job_data );
 
 								if ( $this->must_acknowledge_ATE( $ate_job_data ) ) {

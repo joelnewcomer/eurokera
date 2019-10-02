@@ -42,9 +42,16 @@ class WPML_End_User_JS_Loader implements IWPML_Action {
 		wp_enqueue_script( self::RESOURCE_NAMESPACE );
 	}
 
+	/**
+	 * This comment is required as the original commit of this change has no information whatsoever about the reason for this change
+	 * This link and it's behaviour started with wpmldoc-598, which lead to wpmlcore-5319.
+	 * Later, we had to write a change in wpmlcore-5863.
+	 *
+	 * @return array
+	 */
 	private function get_how_to_link() {
 		$is_site_allowed_to_send_data = (int) $this->send_local_data_setting->is_repo_allowed( 'wpml' );
-		$endpoint = 'https://wpml.org/faq/how-to-get-compatibility-and-translation-information-for-the-theme-and-plugins-that-power-a-site/?utm_source=wpmlplugin&utm_campaign=compatibility-reporting&utm_medium=how-to-translate-button&utm_term=get-compatibility-and-translation-information"';
+		$endpoint                     = 'https://wpml.org/faq/how-to-get-compatibility-and-translation-information-for-the-theme-and-plugins-that-power-a-site/?utm_source=wpmlplugin&utm_campaign=compatibility-reporting&utm_medium=how-to-translate-button&utm_term=get-compatibility-and-translation-information';
 
 		if ( $is_site_allowed_to_send_data ) {
 			$endpoint = WPML_COMPATIBILITY_ENDPOINT;

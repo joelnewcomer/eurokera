@@ -64,17 +64,22 @@ class WPML_TM_Jobs_List_Script_Data {
 				'id'   => $translation_service->id,
 				'name' => $translation_service->name,
 			);
+		} else {
+			$translation_service = array(
+				'id'   => 0,
+				'name' => '?',
+			);
 		}
 
 
 		return array(
 			'strings'             => array(
-				'bulkActions'            => __( 'Bulk actions', 'wpml-translation-management' ),
-				'cancelJobs'             => __( 'Cancel jobs', 'wpml-translation-management' ),
-				'getTranslations'        => __( 'Get translations', 'wpml-translation-management' ),
-				'apply'                  => __( 'Apply', 'wpml-translation-management' ),
-				'firstPage'              => __( 'First page', 'wpml-translation-management' ),
-				'previousPage'           => __( 'Previous page', 'wpml-translation-management' ),
+				'bulkActions'     => __( 'Bulk actions', 'wpml-translation-management' ),
+				'cancelJobs'      => __( 'Cancel jobs', 'wpml-translation-management' ),
+				'getTranslations' => __( 'Get translations', 'wpml-translation-management' ),
+				'apply'           => __( 'Apply', 'wpml-translation-management' ),
+				'firstPage'       => __( 'First page', 'wpml-translation-management' ),
+				'previousPage'    => __( 'Previous page', 'wpml-translation-management' ),
 				'nextPage'               => __( 'Next page', 'wpml-translation-management' ),
 				'lastPage'               => __( 'Last page', 'wpml-translation-management' ),
 				'listNavigation'         => __( 'Navigation', 'wpml-translation-management' ),
@@ -86,11 +91,12 @@ class WPML_TM_Jobs_List_Script_Data {
 				'actions'                => __( 'Actions', 'wpml-translation-management' ),
 				'externalActionsTooltip' => __(
 					'Actions that will happen on the translation service',
-					'wpml-translaton-management'
+					'wpml-translation-management'
 				),
 				'selectAll'              => __( 'Select all', 'wpml-translation-management' ),
-				'filters'                => array(
+				'filters' => array(
 					'title'        => __( 'Title', 'wpml-translation-management' ),
+					'batch_name'   => __( 'Batch name', 'wpml-translation-management' ),
 					'anyLanguage'  => __( 'Any language', 'wpml-translation-management' ),
 					'languageFrom' => __( 'from', 'wpml-translation-management' ),
 					'languageTo'   => __( 'to', 'wpml-translation-management' ),
@@ -124,11 +130,14 @@ class WPML_TM_Jobs_List_Script_Data {
 					'assignTranslator'     => __( 'Translator assigned', 'wpml-translation-management' ),
 					'downloadingXliff'     => __( 'XLIFF file downloaded', 'wpml-translation-management' ),
 				),
-				'jobActions'             => array(
-					'checkStatus'         => __( 'Check status', 'wpml-translation-management' ),
-					'disabledCheckStatus' => __(
-						'Translation is ready, no need to check its status',
-						'wpml-translation-management'
+				'jobActions'      => array(
+					'checkStatus' => array(
+						'active' => __( 'Check status', 'wpml-translation-management' ),
+						'completed' => __( 'Translation is ready, no need to check its status', 'wpml-translation-management' ),
+						'cancelled' => __( 'Translation is cancelled, no need to check its status', 'wpml-translation-management' ),
+						'readyToDownload' => __( 'Translation is ready to download, no need to check its status', 'wpml-translation-management' ),
+						'alreadySynced' => __( 'Translation has already been synchronized, no need to check its status', 'wpml-translation-management' ),
+						'local' => __('This is a local job, no need to check its status', 'wpml-translation-management'),
 					),
 
 					'downloadXLIFF' => array(
@@ -147,7 +156,8 @@ class WPML_TM_Jobs_List_Script_Data {
 
 					'cancel' => array(
 						'activeIconText'  => __( 'Cancel job', 'wpml-translation-management' ),
-						'notLocalJob'     => __( 'You can cancel only a local job', 'wpml-translation-management' ),
+						// translators: "%s" is replaced with the name of the translation service associated with the job.
+						'notLocalJob'     => sprintf( __( 'Contact %s for cancellation', 'wpml-translation-management' ), $translation_service['name'] ),
 						'alreadyFinished' => __( 'The job is already finished', 'wpml-translation-management' ),
 						'alreadyCanceled' => __( 'The job is already canceled', 'wpml-translation-management' ),
 					),
@@ -172,7 +182,7 @@ class WPML_TM_Jobs_List_Script_Data {
 						),
 					),
 				),
-				'tpJobId' => __( 'TP ID: %d', 'wpml-translation-management' ),
+				'tpJobId'         => 'TP ID: %d',
 			),
 			'settings'            => array(
 				'columns'  => WPML_TM_Rest_Jobs_Columns::get_columns(),

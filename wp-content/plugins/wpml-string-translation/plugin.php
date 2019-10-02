@@ -1,32 +1,28 @@
 <?php
-/*
-Plugin Name: WPML String Translation
-Plugin URI: https://wpml.org/
-Description: Adds theme and plugins localization capabilities to WPML | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/string-translation-2-7-0/">WPML String Translation 2.7.0 release notes</a>
-Author: OnTheGoSystems
-Author URI: http://www.onthegosystems.com/
-Version: 2.10.5.1
-Plugin Slug: wpml-string-translation
-*/
+/**
+ * Plugin Name: WPML String Translation
+ * Plugin URI: https://wpml.org/
+ * Description: Adds theme and plugins localization capabilities to WPML | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/string-translation-2-10-7/">WPML String Translation 2.10.7 release notes</a>
+ * Author: OnTheGoSystems
+ * Author URI: http://www.onthegosystems.com/
+ * Version: 2.10.7
+ * Plugin Slug: wpml-string-translation
+ *
+ * @package WPML\ST
+ */
 
 if ( defined( 'WPML_ST_VERSION' ) || get_option( '_wpml_inactive' ) ) {
 	return;
 }
 
-define( 'WPML_ST_VERSION', '2.10.5.1' );
+define( 'WPML_ST_VERSION', '2.10.7' );
 
 // Do not uncomment the following line!
 // If you need to use this constant, use it in the wp-config.php file
 //define( 'WPML_PT_VERSION_DEV', '2.2.3-dev' );
 define( 'WPML_ST_PATH', dirname( __FILE__ ) );
 
-$autoloader_dir = WPML_ST_PATH . '/vendor';
-if ( version_compare( PHP_VERSION, '5.3.0' ) >= 0 ) {
-	$autoloader = $autoloader_dir . '/autoload.php';
-} else {
-	$autoloader = $autoloader_dir . '/autoload_52.php';
-}
-require_once $autoloader;
+require_once WPML_ST_PATH . '/vendor/autoload.php';
 
 add_action( 'admin_init', 'wpml_st_verify_wpml' );
 function wpml_st_verify_wpml() {
