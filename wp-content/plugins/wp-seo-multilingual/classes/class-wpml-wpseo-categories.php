@@ -2,6 +2,9 @@
 
 class WPML_WPSEO_Categories implements IWPML_Action {
 
+	/**
+	 * Add hooks.
+	 */
 	public function add_hooks() {
 		if ( $this->is_stripping_category_base() ) {
 			add_filter( 'category_rewrite_rules', array( $this, 'append_categories_hook' ), 1, 1 );
@@ -20,18 +23,37 @@ class WPML_WPSEO_Categories implements IWPML_Action {
 		return array_key_exists( 'stripcategorybase', $option ) && $option['stripcategorybase'];
 	}
 
+	/**
+	 * Turn on filter.
+	 *
+	 * @param array $rules
+	 * @return array
+	 */
 	public function append_categories_hook( $rules ) {
 		add_filter( 'get_terms', array( $this, 'append_categories_translations' ), 10, 2 );
 
 		return $rules;
 	}
 
+	/**
+	 * Turn off filter.
+	 *
+	 * @param array $rules
+	 * @return array
+	 */
 	public function turn_off_get_terms_filter( $rules ) {
 		remove_filter( 'get_terms', array( $this, 'append_categories_translations' ) );
 
 		return $rules;
 	}
 
+	/**
+	 * We need categories in all languages for 'stripcategorybase' to work.
+	 *
+	 * @param array $categories
+	 * @param array $taxonomy
+	 * @return array
+	 */
 	public function append_categories_translations( $categories, $taxonomy ) {
 		if ( ! in_array( 'category', $taxonomy, true ) || ! $this->is_array_of_wp_term( $categories ) ) {
 			return $categories;

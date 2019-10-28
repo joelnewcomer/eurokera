@@ -192,7 +192,7 @@ class AbsoluteLinks{
 					$post_name = $category_name = $tax_name = false;
 	
 					if ( isset( $permalink_query_vars[ 'pagename' ] ) ) {
-						$get_page_by_path = new WPML_Get_Page_By_Path( $wpdb, $sitepress, new WPML_Debug_BackTrace( phpversion(), 7 ) );
+						$get_page_by_path = new WPML_Get_Page_By_Path( $wpdb, $sitepress, new WPML_Debug_BackTrace( null, 7 ) );
 						$page_by_path = $get_page_by_path->get( $permalink_query_vars[ 'pagename' ], $test_language );
 
 						$post_name = $permalink_query_vars[ 'pagename' ];
@@ -232,7 +232,7 @@ class AbsoluteLinks{
 	
 					if ( $post_name && isset( $post_type ) ) {
 
-						$get_page_by_path = new WPML_Get_Page_By_Path( $wpdb, $sitepress, new WPML_Debug_BackTrace( phpversion(), 7 ) );
+						$get_page_by_path = new WPML_Get_Page_By_Path( $wpdb, $sitepress, new WPML_Debug_BackTrace( null, 7 ) );
 						$p = $get_page_by_path->get( $post_name, $test_language, OBJECT, $post_type );
 
 						if ( empty( $p ) ) { // fail safe

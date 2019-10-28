@@ -1,16 +1,18 @@
 <?php
 
+use WPML\TM\ATE\JobRecords;
+
 class WPML_TM_ATE_Job_Repository {
 	/** @var WPML_TM_Jobs_Repository */
 	private $job_repository;
 
-	/** @var WPML_TM_ATE_Job_Records */
+	/** @var JobRecords */
 	private $ate_job_records;
 
 	/**
 	 * @param WPML_TM_Jobs_Repository $job_repository
 	 */
-	public function __construct( WPML_TM_Jobs_Repository $job_repository, WPML_TM_ATE_Job_Records $ate_job_records ) {
+	public function __construct( WPML_TM_Jobs_Repository $job_repository, JobRecords $ate_job_records ) {
 		$this->job_repository  = $job_repository;
 		$this->ate_job_records = $ate_job_records;
 	}
@@ -24,7 +26,22 @@ class WPML_TM_ATE_Job_Repository {
 		$search_params->set_status( self::get_statuses_to_sync() );
 		$search_params->set_job_types( array( WPML_TM_Job_Entity::POST_TYPE, WPML_TM_Job_Entity::PACKAGE_TYPE ) );
 
-		return $this->job_repository->get( $search_params )->filter( array( $this, 'should_ate_job_be_synced' ) );
+		$jobs = $this->job_repository->get( $search_params );
+		$this->warmJobRecords( $jobs );
+
+		return $jobs->filter( array( $this, 'should_ate_job_be_synced' ) );
+	}
+
+	/**
+	 * @param WPML_TM_Jobs_Collection $jobs
+	 *
+	 * @return WPML_TM_Jobs_Collection
+	 */
+	private function warmJobRecords( WPML_TM_Jobs_Collection $jobs ) {
+		$jobIds = $jobs->map_to_property( 'translate_job_id' );
+		$this->ate_job_records->warmCache( $jobIds );
+
+		return $jobs;
 	}
 
 	/**

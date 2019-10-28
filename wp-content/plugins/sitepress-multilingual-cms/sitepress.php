@@ -2,10 +2,10 @@
 /**
  * Plugin Name: WPML Multilingual CMS
  * Plugin URI: https://wpml.org/
- * Description: WPML Multilingual CMS | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/wpml-4-2-9/">WPML 4.2.9 release notes</a>
+ * Description: WPML Multilingual CMS | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/wpml-4-3-1/">WPML 4.3.1 release notes</a>
  * Author: OnTheGoSystems
  * Author URI: http://www.onthegosystems.com/
- * Version: 4.2.9
+ * Version: 4.3.1
  * Plugin Slug: sitepress-multilingual-cms
  *
  * @package WPML\Core
@@ -22,7 +22,12 @@ if ( defined( 'ICL_SITEPRESS_VERSION' ) || ( (bool) get_option( '_wpml_inactive'
 	return;
 }
 
-define( 'ICL_SITEPRESS_VERSION', '4.2.9' );
+require_once 'classes/requirements/WordPress.php';
+if ( ! \WPML\Requirements\WordPress::checkMinimumRequiredVersion() ) {
+	return;
+}
+
+define( 'ICL_SITEPRESS_VERSION', '4.3.1' );
 
 // Do not uncomment the following line!
 // If you need to use this constant, use it in the wp-config.php file
@@ -208,6 +213,7 @@ if ( $sitepress->is_setup_complete() ) {
 		'WPML_WP_In_Subdir_URL_Filters_Factory',
 		'WPML_Table_Collate_Fix',
 		'\WPML\WP\OptionManager',
+		'\WPML\Notices\DismissNotices',
 	];
 	$action_filter_loader->load( $actions );
 
@@ -393,16 +399,4 @@ add_action( 'admin_init', 'wpml_init_language_cookie_settings' );
 $wpml_whip_requirements = new WPML_Whip_Requirements();
 $wpml_whip_requirements->add_hooks();
 
-add_action( 'activated_plugin', 'wpml_core_loads_first' );
-function wpml_core_loads_first() {
-	$path    = str_replace( WP_PLUGIN_DIR . '/', '', __FILE__ );
-	$plugins = get_option( 'active_plugins' );
-	if ( $plugins ) {
-		$key = array_search( $path, $plugins, true );
-		if ( $key ) {
-			array_splice( $plugins, $key, 1 );
-			array_unshift( $plugins, $path );
-			update_option( 'active_plugins', $plugins );
-		}
-	}
-}
+add_action( 'activated_plugin', [ 'WPML\Plugins', 'loadCoreFirst' ] );

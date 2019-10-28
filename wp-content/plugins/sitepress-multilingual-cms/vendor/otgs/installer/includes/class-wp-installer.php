@@ -544,7 +544,7 @@ class WP_Installer {
 		}
 		$_settings = base64_encode( $_settings );
 
-		update_option( 'wp_installer_settings', $_settings );
+		update_option( 'wp_installer_settings', $_settings, 'no' );
 
 		if ( is_multisite() && is_main_site() && isset( $this->settings['repositories'] ) ) {
 			$network_settings = array();

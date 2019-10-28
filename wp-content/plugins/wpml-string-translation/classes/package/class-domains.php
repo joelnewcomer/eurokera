@@ -2,6 +2,8 @@
 
 namespace WPML\ST\Package;
 
+use WPML\Collect\Support\Collection;
+
 class Domains {
 
 	/** @var \wpdb $wpdb */
@@ -20,18 +22,20 @@ class Domains {
 	 * @return bool
 	 */
 	public function isPackage( $domain ) {
-		return $domain && in_array( $domain, $this->getDomains(), true );
+		return $domain && $this->getDomains()->contains( $domain );
 	}
 
 	/**
 	 * @see \WPML_Package::get_string_context_from_package for how the package domain is built
 	 *
-	 * @return array
+	 * @return Collection
 	 */
-	private function getDomains() {
+	public function getDomains() {
 		if ( ! $this->domains ) {
-			$this->domains = $this->wpdb->get_col(
-				"SELECT CONCAT(kind_slug, '-', name) FROM {$this->wpdb->prefix}icl_string_packages"
+			$this->domains = wpml_collect(
+				$this->wpdb->get_col(
+					"SELECT CONCAT(kind_slug, '-', name) FROM {$this->wpdb->prefix}icl_string_packages"
+				)
 			);
 		}
 

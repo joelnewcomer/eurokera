@@ -13,179 +13,188 @@ msgstr ""
 "Language:en\n"
 "MIME-Version: 1.0\n"
 
-# ?>
-# <div class="message error wpml-media-inactive"><p><?php printf( __( 'WPML Media is enabled but not effective. It requires <a href="%s">WPML</a> in order to work.', 'wpml-media' ),
-# 'https://wpml.org/' ); ?></p></div>
+# return sprintf(
+# __( 'Translating media urls in custom field translations: %s', 'wpml-media' ),
+# $number_of_custom_fields_left > 0 ?
 
-msgid "WPML Media is enabled but not effective. It requires <a href=\"%s\">WPML</a> in order to work."
+msgid "Translating media urls in custom field translations: %s"
 msgstr ""
 
-# $this->admin_notice = '<div class="error wpml-admin-notice">';
-# $this->admin_notice .= '<h3>' . __( 'WPML Update is Incomplete', 'sitepress' ) . '</h3>';
-# $this->admin_notice .= '<p>' . implode( '</p><p>', $notice_paragraphs ) . '</p>';
+# $number_of_custom_fields_left > 0 ?
+# sprintf( __( '%d left', 'wpml-media' ), $number_of_custom_fields_left ) :
+# __( 'done!', 'wpml-media' )
 
-msgid "WPML Update is Incomplete"
+msgid "%d left"
 msgstr ""
 
-# if ( count( $this->valid_plugins ) === 1 ) {
-# $paragraph = __( 'You are running updated %s, but the following component is not updated:', 'sitepress' );
-# $paragraph = sprintf( $paragraph, '<strong>' . $this->valid_plugins[0] . '</strong>' );
+# sprintf( __( '%d left', 'wpml-media' ), $number_of_custom_fields_left ) :
+# __( 'done!', 'wpml-media' )
+# );
 
-msgid "You are running updated %s, but the following component is not updated:"
+msgid "done!"
 msgstr ""
 
-# } else {
-# $paragraph           = __( 'You are running updated %s and %s, but the following components are not updated:', 'sitepress' );
-# $first_valid_plugins = implode( ', ', array_slice( $this->valid_plugins, 0, - 1 ) );
+# 'key'   => 'wpml_media_batch_urls_update_error_custom_fields',
+# 'value' => esc_js( __( 'Translating media urls in custom fields translations failed: Please try again (%s)', 'wpml-media' ) )
+# );
 
-msgid "You are running updated %s and %s, but the following components are not updated:"
+msgid "Translating media urls in custom fields translations failed: Please try again (%s)"
 msgstr ""
 
-# } else {
-# $paragraph = __( 'The following components are not updated:', 'sitepress' );
-# }
+# return sprintf(
+# __( 'Translating media urls in post translations: %s', 'wpml-media' ),
+# $number_of_posts_left > 0 ?
 
-msgid "The following components are not updated:"
+msgid "Translating media urls in post translations: %s"
 msgstr ""
 
-# private function get_invalid_plugins_report_footer() {
-# $wpml_org_url = '<a href="https://wpml.org/account/" title="WPML.org account">' . __( 'WPML.org account', 'sitepress' ) . '</a>';
+# 'key'   => 'wpml_media_batch_urls_update_errors_posts',
+# 'value' => esc_js( __( 'Translating media urls in posts translations failed: Please try again (%s)', 'wpml-media' ) )
+# );
+
+msgid "Translating media urls in posts translations failed: Please try again (%s)"
+msgstr ""
+
+# return sprintf(
+# __( 'Translating media urls in string translations: %s', 'wpml-media' ),
+# $number_of_strings_left > 0 ?
+
+msgid "Translating media urls in string translations: %s"
+msgstr ""
+
+# 'key'   => 'wpml_media_batch_urls_update_error_strings',
+# 'value' => esc_js( __( 'Translating media urls in string translations failed: Please try again (%s)', 'wpml-media' ) )
+# );
+
+msgid "Translating media urls in string translations failed: Please try again (%s)"
+msgstr ""
+
+# 'has_posts' => sprintf(
+# __(
+# 'Choose which media to translate with this %s',
+
+msgid "Choose which media to translate with this %s"
+msgstr ""
+
+# ),
+# 'loading'   => __( 'Loading...', 'wpml-media' )
+# ),
+
+msgid "Loading..."
+msgstr ""
+
+# $wpml_media_basket_notice_data = array(
+# 'button_label' => __( 'Continue', 'wpml_media' ),
+# );
+
+msgid "Continue"
+msgstr ""
+
+# /* translators: WPML plugin name */
+# $wpml_plugin_name = __( 'WPML', 'wpml-media' );
+# /* translators: WPML Media Translation saddon/section name */
+
+msgid "WPML"
+msgstr ""
+
+# /* translators: WPML Media Translation saddon/section name */
+# $media_translation_name = __( 'Media Translation', 'wpml-media' );
 # 
-
-msgid "WPML.org account"
-msgstr ""
-
-# 
-# $notice_paragraph = __( 'Your site will not work as it should in this configuration', 'sitepress' );
-# $notice_paragraph .= ' ';
-
-msgid "Your site will not work as it should in this configuration"
-msgstr ""
-
-# $notice_paragraph .= ' ';
-# $notice_paragraph .= __( 'Please update all components which you are using.', 'sitepress' );
-# $notice_paragraph .= ' ';
-
-msgid "Please update all components which you are using."
-msgstr ""
-
-# $notice_paragraph .= ' ';
-# $notice_paragraph .= sprintf( __( 'For WPML components you can receive updates from your %s or automatically, after you register WPML.', 'sitepress' ), $wpml_org_url );
-# 
-
-msgid "For WPML components you can receive updates from your %s or automatically, after you register WPML."
-msgstr ""
-
-# $link   = '<a href="' . $url . '" target="_blank" class="wpml-external-link">' .
-# esc_html__( 'Media Translation documentation', 'wpml-media' ) . '</a>';
-# $button = '<a href="' . $url . '" target="_blank" class="button button-primary button-wpml button-lg">' .
-
-msgid "Media Translation documentation"
-msgstr ""
-
-# $button = '<a href="' . $url . '" target="_blank" class="button button-primary button-wpml button-lg">' .
-# esc_html__( 'Learn more', 'wpml-media' ) . '</a>';
-# 
-
-msgid "Learn more"
-msgstr ""
-
-# if ( $this->is_new_install() ) {
-# $title = esc_html__( 'Learn how to translate media', 'wpml-media' );
-# $body1 = esc_html__( 'WPML allows you to use different media (images, etc.) for translated content. The Media Translation process is integrated with WPML’s content translation, but requires additional steps.', 'wpml-media' );
-
-msgid "Learn how to translate media"
-msgstr ""
-
-# $title = esc_html__( 'Learn how to translate media', 'wpml-media' );
-# $body1 = esc_html__( 'WPML allows you to use different media (images, etc.) for translated content. The Media Translation process is integrated with WPML’s content translation, but requires additional steps.', 'wpml-media' );
-# $body2 = sprintf( esc_html__( 'Before you start, we highly recommend that you review the %s. Then, you’ll be able to close this message.', 'wpml-media' ), $link );
-
-msgid "WPML allows you to use different media (images, etc.) for translated content. The Media Translation process is integrated with WPML’s content translation, but requires additional steps."
-msgstr ""
-
-# $body1 = esc_html__( 'WPML allows you to use different media (images, etc.) for translated content. The Media Translation process is integrated with WPML’s content translation, but requires additional steps.', 'wpml-media' );
-# $body2 = sprintf( esc_html__( 'Before you start, we highly recommend that you review the %s. Then, you’ll be able to close this message.', 'wpml-media' ), $link );
-# } else {
-
-msgid "Before you start, we highly recommend that you review the %s. Then, you’ll be able to close this message."
-msgstr ""
-
-# } else {
-# $title = esc_html__( 'Media Translation is completely different now', 'wpml-media' );
-# $body1 = esc_html__( 'This release of Media Translation includes a complete new workflow, with complete new features and possibilities.', 'wpml-media' );
-
-msgid "Media Translation is completely different now"
-msgstr ""
-
-# $title = esc_html__( 'Media Translation is completely different now', 'wpml-media' );
-# $body1 = esc_html__( 'This release of Media Translation includes a complete new workflow, with complete new features and possibilities.', 'wpml-media' );
-# $body2 = sprintf( esc_html__( 'Even if you’re already familiar with WPML, you should read the new %s. Then, you’ll be able to close this message.', 'wpml-media' ), $link );
-
-msgid "This release of Media Translation includes a complete new workflow, with complete new features and possibilities."
-msgstr ""
-
-# $body1 = esc_html__( 'This release of Media Translation includes a complete new workflow, with complete new features and possibilities.', 'wpml-media' );
-# $body2 = sprintf( esc_html__( 'Even if you’re already familiar with WPML, you should read the new %s. Then, you’ll be able to close this message.', 'wpml-media' ), $link );
-# }
-
-msgid "Even if you’re already familiar with WPML, you should read the new %s. Then, you’ll be able to close this message."
-msgstr ""
-
-# }
-# $minimize_label = esc_html__( 'Minimize', 'wpml-media' );
-# $maximize_label = esc_html__( 'Maximize', 'wpml-media' );
-
-msgid "Minimize"
-msgstr ""
-
-# $minimize_label = esc_html__( 'Minimize', 'wpml-media' );
-# $maximize_label = esc_html__( 'Maximize', 'wpml-media' );
-# $is_minimized   = $this->is_minimized();
-
-msgid "Maximize"
-msgstr ""
-
-# <a class="js-dismiss notice-dismiss<?php if ( ! $this->can_dismiss() ): ?> hidden<?php endif ?>">
-# <span class="screen-reader-text"><?php esc_html_e( 'Dismiss', 'wpml-media' ) ?></span></a>
-# <div class="wpml-media-welcome-notice-bg"><i class="otgs-ico-wpml"></i></div>
-
-msgid "Dismiss"
-msgstr ""
-
-# 'args' => array(
-# 'label'   => __( 'Number of items per page:', 'wpml-media' ),
-# 'default' => get_option( $option_name, 20 ),
-
-msgid "Number of items per page:"
-msgstr ""
-
-# $wpml_media_popup_strings = array(
-# 'title'         => esc_js( __( 'Media Translation', 'wpml-media' ) ),
-# 'cancel'        => esc_js( __( 'Cancel', 'wpml-media' ) ),
 
 msgid "Media Translation"
 msgstr ""
 
-# 'title'         => esc_js( __( 'Media Translation', 'wpml-media' ) ),
-# 'cancel'        => esc_js( __( 'Cancel', 'wpml-media' ) ),
-# 'save'          => esc_js( __( 'Save media translation', 'wpml-media' ) ),
+# /* translators: media file string used in "if you want to use a different media file for each language..." */
+# $media_file_string = __( 'media file', 'wpml-media' );
+# $redirect_url = '#';
 
-msgid "Cancel"
+msgid "media file"
 msgstr ""
 
-# 'cancel'        => esc_js( __( 'Cancel', 'wpml-media' ) ),
-# 'save'          => esc_js( __( 'Save media translation', 'wpml-media' ) ),
-# 'status_labels' => WPML_Media_Translations_UI::get_translation_status_labels()
+# 'strings' => array(
+# 'dialog_title'            => __( 'Media sent to translation', 'wpml-media' ),
+# 'content_with_media_sent' => __( 'You have sent content which contains media attachments for translation.', 'wpml-media' ),
 
-msgid "Save media translation"
+msgid "Media sent to translation"
 msgstr ""
 
-# $batch_translation_vars = array(
-# 'complete'      => esc_js( __( 'Scan complete!', 'wpml-media' ) ),
-# 'is_st_enabled' => (bool) $this->sitepress->get_wp_api()->constant( 'WPML_ST_VERSION' ),
+# 'dialog_title'            => __( 'Media sent to translation', 'wpml-media' ),
+# 'content_with_media_sent' => __( 'You have sent content which contains media attachments for translation.', 'wpml-media' ),
+# 'media_texts_translated'  => sprintf( __( 'Translators will translate all your %smedia texts%s.', 'wpml-media' ), '<strong>', '</strong>' ),
 
-msgid "Scan complete!"
+msgid "You have sent content which contains media attachments for translation."
+msgstr ""
+
+# 'content_with_media_sent' => __( 'You have sent content which contains media attachments for translation.', 'wpml-media' ),
+# 'media_texts_translated'  => sprintf( __( 'Translators will translate all your %smedia texts%s.', 'wpml-media' ), '<strong>', '</strong>' ),
+# 'use_different_media'     => sprintf( __( 'If you want to use a different %s for each language, you can set them in: %s.', 'wpml-media' ),
+
+msgid "Translators will translate all your %smedia texts%s."
+msgstr ""
+
+# 'media_texts_translated'  => sprintf( __( 'Translators will translate all your %smedia texts%s.', 'wpml-media' ), '<strong>', '</strong>' ),
+# 'use_different_media'     => sprintf( __( 'If you want to use a different %s for each language, you can set them in: %s.', 'wpml-media' ),
+# '<strong>' . $media_file_string . '</strong>', $media_translation_link ),
+
+msgid "If you want to use a different %s for each language, you can set them in: %s."
+msgstr ""
+
+# '<strong>' . $media_file_string . '</strong>', $media_translation_link ),
+# 'learn_more'              => __( 'Learn more about Media Translation', 'wpml-media' ),
+# 'wpml'                    => _x( 'WPML', 'plugin name', 'wpml-media' ),
+
+msgid "Learn more about Media Translation"
+msgstr ""
+
+# 'learn_more'              => __( 'Learn more about Media Translation', 'wpml-media' ),
+# 'wpml'                    => _x( 'WPML', 'plugin name', 'wpml-media' ),
+# 'media_translation'       => _x( 'Media Translation', 'wpml addon name', 'wpml-media' )
+
+msgctxt "plugin name"
+msgid "WPML"
+msgstr ""
+
+# 'wpml'                    => _x( 'WPML', 'plugin name', 'wpml-media' ),
+# 'media_translation'       => _x( 'Media Translation', 'wpml addon name', 'wpml-media' )
+# ),
+
+msgctxt "wpml addon name"
+msgid "Media Translation"
+msgstr ""
+
+# } else {
+# wp_send_json_error( __( 'Failed to load the image editor', 'wpml-media' ) );
+# }
+
+msgid "Failed to load the image editor"
+msgstr ""
+
+# } else {
+# wp_send_json_error( array( 'error' => __( 'Invalid nonce', 'wpml-media' ) ) );
+# }
+
+msgid "Invalid nonce"
+msgstr ""
+
+# }
+# wp_send_json_success( array( 'status' => __( 'Running setup...', 'wpml-media' ) ) );
+# 
+
+msgid "Running setup..."
+msgstr ""
+
+# $continue = false;
+# $status   = __( 'Setup complete!', 'wpml-media' );
+# $offset   = isset( $_POST['offset'] ) ? (int) $_POST['offset'] : 0;
+
+msgid "Setup complete!"
+msgstr ""
+
+# $progress = round( 100*min( $offset, $total_posts_found )/$total_posts_found );
+# $status   = sprintf( __( 'Setup in progress: %d%% complete...', 'wpml-media' ), $progress );
+# }
+
+msgid "Setup in progress: %d%% complete..."
 msgstr ""
 
 # if ( $this->is_media_related_screen( $current_screen ) ) {
@@ -237,6 +246,27 @@ msgstr ""
 msgid "Learn more about WPML Media Translation"
 msgstr ""
 
+# 'title'         => esc_js( __( 'Media Translation', 'wpml-media' ) ),
+# 'cancel'        => esc_js( __( 'Cancel', 'wpml-media' ) ),
+# 'save'          => esc_js( __( 'Save media translation', 'wpml-media' ) ),
+
+msgid "Cancel"
+msgstr ""
+
+# 'cancel'        => esc_js( __( 'Cancel', 'wpml-media' ) ),
+# 'save'          => esc_js( __( 'Save media translation', 'wpml-media' ) ),
+# 'status_labels' => WPML_Media_Translations_UI::get_translation_status_labels()
+
+msgid "Save media translation"
+msgstr ""
+
+# $batch_translation_vars = array(
+# 'complete'      => esc_js( __( 'Scan complete!', 'wpml-media' ) ),
+# 'is_st_enabled' => (bool) $this->sitepress->get_wp_api()->constant( 'WPML_ST_VERSION' ),
+
+msgid "Scan complete!"
+msgstr ""
+
 # /* translators: name ot WPML-Media plugin */
 # $wpml_media = '<strong>' . __( 'WPML Media Translation', 'wpml-media' ) . '</strong>';
 # 
@@ -278,6 +308,13 @@ msgstr ""
 
 msgctxt "Used to build a link in the \"Click here to finish the setup\""
 msgid "here"
+msgstr ""
+
+# 'args' => array(
+# 'label'   => __( 'Number of items per page:', 'wpml-media' ),
+# 'default' => get_option( $option_name, 20 ),
+
+msgid "Number of items per page:"
 msgstr ""
 
 # 'heading'                  => __( 'Media Translation', 'wpml-media' ),
@@ -631,6 +668,97 @@ msgctxt "Button label (verb)"
 msgid "Scan & Replace"
 msgstr ""
 
+# $link   = '<a href="' . $url . '" target="_blank" class="wpml-external-link">' .
+# esc_html__( 'Media Translation documentation', 'wpml-media' ) . '</a>';
+# $button = '<a href="' . $url . '" target="_blank" class="button button-primary button-wpml button-lg">' .
+
+msgid "Media Translation documentation"
+msgstr ""
+
+# $button = '<a href="' . $url . '" target="_blank" class="button button-primary button-wpml button-lg">' .
+# esc_html__( 'Learn more', 'wpml-media' ) . '</a>';
+# 
+
+msgid "Learn more"
+msgstr ""
+
+# if ( $this->is_new_install() ) {
+# $title = esc_html__( 'Learn how to translate media', 'wpml-media' );
+# $body1 = esc_html__( 'WPML allows you to use different media (images, etc.) for translated content. The Media Translation process is integrated with WPML’s content translation, but requires additional steps.', 'wpml-media' );
+
+msgid "Learn how to translate media"
+msgstr ""
+
+# $title = esc_html__( 'Learn how to translate media', 'wpml-media' );
+# $body1 = esc_html__( 'WPML allows you to use different media (images, etc.) for translated content. The Media Translation process is integrated with WPML’s content translation, but requires additional steps.', 'wpml-media' );
+# $body2 = sprintf( esc_html__( 'Before you start, we highly recommend that you review the %s. Then, you’ll be able to close this message.', 'wpml-media' ), $link );
+
+msgid "WPML allows you to use different media (images, etc.) for translated content. The Media Translation process is integrated with WPML’s content translation, but requires additional steps."
+msgstr ""
+
+# $body1 = esc_html__( 'WPML allows you to use different media (images, etc.) for translated content. The Media Translation process is integrated with WPML’s content translation, but requires additional steps.', 'wpml-media' );
+# $body2 = sprintf( esc_html__( 'Before you start, we highly recommend that you review the %s. Then, you’ll be able to close this message.', 'wpml-media' ), $link );
+# } else {
+
+msgid "Before you start, we highly recommend that you review the %s. Then, you’ll be able to close this message."
+msgstr ""
+
+# } else {
+# $title = esc_html__( 'Media Translation is completely different now', 'wpml-media' );
+# $body1 = esc_html__( 'This release of Media Translation includes a complete new workflow, with complete new features and possibilities.', 'wpml-media' );
+
+msgid "Media Translation is completely different now"
+msgstr ""
+
+# $title = esc_html__( 'Media Translation is completely different now', 'wpml-media' );
+# $body1 = esc_html__( 'This release of Media Translation includes a complete new workflow, with complete new features and possibilities.', 'wpml-media' );
+# $body2 = sprintf( esc_html__( 'Even if you’re already familiar with WPML, you should read the new %s. Then, you’ll be able to close this message.', 'wpml-media' ), $link );
+
+msgid "This release of Media Translation includes a complete new workflow, with complete new features and possibilities."
+msgstr ""
+
+# $body1 = esc_html__( 'This release of Media Translation includes a complete new workflow, with complete new features and possibilities.', 'wpml-media' );
+# $body2 = sprintf( esc_html__( 'Even if you’re already familiar with WPML, you should read the new %s. Then, you’ll be able to close this message.', 'wpml-media' ), $link );
+# }
+
+msgid "Even if you’re already familiar with WPML, you should read the new %s. Then, you’ll be able to close this message."
+msgstr ""
+
+# }
+# $minimize_label = esc_html__( 'Minimize', 'wpml-media' );
+# $maximize_label = esc_html__( 'Maximize', 'wpml-media' );
+
+msgid "Minimize"
+msgstr ""
+
+# $minimize_label = esc_html__( 'Minimize', 'wpml-media' );
+# $maximize_label = esc_html__( 'Maximize', 'wpml-media' );
+# $is_minimized   = $this->is_minimized();
+
+msgid "Maximize"
+msgstr ""
+
+# <a class="js-dismiss notice-dismiss<?php if ( ! $this->can_dismiss() ): ?> hidden<?php endif ?>">
+# <span class="screen-reader-text"><?php esc_html_e( 'Dismiss', 'wpml-media' ) ?></span></a>
+# <div class="wpml-media-welcome-notice-bg"><i class="otgs-ico-wpml"></i></div>
+
+msgid "Dismiss"
+msgstr ""
+
+# protected function get_privacy_policy() {
+# return __( 'WPML Media Translation will send the email address and name of each manager and assigned translator as well as the content itself to Advanced Translation Editor and to the translation services which are used.', 'wpml-media' );
+# }
+
+msgid "WPML Media Translation will send the email address and name of each manager and assigned translator as well as the content itself to Advanced Translation Editor and to the translation services which are used."
+msgstr ""
+
+# 
+# $message = __( 'Setting language to media: done!', 'wpml-media' );
+# 
+
+msgid "Setting language to media: done!"
+msgstr ""
+
 # 'field_type'    => 'tm-section',
 # 'title'         => __( 'Media', 'wpml-media' ),
 # 'fields'        => array(),
@@ -650,197 +778,6 @@ msgstr ""
 # break;
 
 msgid "Alt Text"
-msgstr ""
-
-# 
-# $message = __( 'Setting language to media: done!', 'wpml-media' );
-# 
-
-msgid "Setting language to media: done!"
-msgstr ""
-
-# } else {
-# wp_send_json_error( __( 'Failed to load the image editor', 'wpml-media' ) );
-# }
-
-msgid "Failed to load the image editor"
-msgstr ""
-
-# }
-# wp_send_json_success( array( 'status' => __( 'Running setup...', 'wpml-media' ) ) );
-# 
-
-msgid "Running setup..."
-msgstr ""
-
-# $continue = false;
-# $status   = __( 'Setup complete!', 'wpml-media' );
-# $offset   = isset( $_POST['offset'] ) ? (int) $_POST['offset'] : 0;
-
-msgid "Setup complete!"
-msgstr ""
-
-# $progress = round( 100*min( $offset, $total_posts_found )/$total_posts_found );
-# $status   = sprintf( __( 'Setup in progress: %d%% complete...', 'wpml-media' ), $progress );
-# }
-
-msgid "Setup in progress: %d%% complete..."
-msgstr ""
-
-# } else {
-# wp_send_json_error( array( 'error' => __( 'Invalid nonce', 'wpml-media' ) ) );
-# }
-
-msgid "Invalid nonce"
-msgstr ""
-
-# protected function get_privacy_policy() {
-# return __( 'WPML Media Translation will send the email address and name of each manager and assigned translator as well as the content itself to Advanced Translation Editor and to the translation services which are used.', 'wpml-media' );
-# }
-
-msgid "WPML Media Translation will send the email address and name of each manager and assigned translator as well as the content itself to Advanced Translation Editor and to the translation services which are used."
-msgstr ""
-
-# return sprintf(
-# __( 'Translating media urls in string translations: %s', 'wpml-media' ),
-# $number_of_strings_left > 0 ?
-
-msgid "Translating media urls in string translations: %s"
-msgstr ""
-
-# $number_of_strings_left > 0 ?
-# sprintf( __( '%d left', 'wpml-media' ), $number_of_strings_left ) :
-# __( 'done!', 'wpml-media' )
-
-msgid "%d left"
-msgstr ""
-
-# sprintf( __( '%d left', 'wpml-media' ), $number_of_strings_left ) :
-# __( 'done!', 'wpml-media' )
-# );
-
-msgid "done!"
-msgstr ""
-
-# 'key'   => 'wpml_media_batch_urls_update_error_strings',
-# 'value' => esc_js( __( 'Translating media urls in string translations failed: Please try again (%s)', 'wpml-media' ) )
-# );
-
-msgid "Translating media urls in string translations failed: Please try again (%s)"
-msgstr ""
-
-# return sprintf(
-# __( 'Translating media urls in post translations: %s', 'wpml-media' ),
-# $number_of_posts_left > 0 ?
-
-msgid "Translating media urls in post translations: %s"
-msgstr ""
-
-# 'key'   => 'wpml_media_batch_urls_update_errors_posts',
-# 'value' => esc_js( __( 'Translating media urls in posts translations failed: Please try again (%s)', 'wpml-media' ) )
-# );
-
-msgid "Translating media urls in posts translations failed: Please try again (%s)"
-msgstr ""
-
-# return sprintf(
-# __( 'Translating media urls in custom field translations: %s', 'wpml-media' ),
-# $number_of_custom_fields_left > 0 ?
-
-msgid "Translating media urls in custom field translations: %s"
-msgstr ""
-
-# 'key'   => 'wpml_media_batch_urls_update_error_custom_fields',
-# 'value' => esc_js( __( 'Translating media urls in custom fields translations failed: Please try again (%s)', 'wpml-media' ) )
-# );
-
-msgid "Translating media urls in custom fields translations failed: Please try again (%s)"
-msgstr ""
-
-# 'has_posts' => sprintf(
-# __(
-# 'Choose which media to translate with this %s',
-
-msgid "Choose which media to translate with this %s"
-msgstr ""
-
-# ),
-# 'loading'   => __( 'Loading...', 'wpml-media' )
-# ),
-
-msgid "Loading..."
-msgstr ""
-
-# $wpml_media_basket_notice_data = array(
-# 'button_label' => __( 'Continue', 'wpml_media' ),
-# );
-
-msgid "Continue"
-msgstr ""
-
-# /* translators: WPML plugin name */
-# $wpml_plugin_name = __( 'WPML', 'wpml-media' );
-# /* translators: WPML Media Translation saddon/section name */
-
-msgid "WPML"
-msgstr ""
-
-# /* translators: media file string used in "if you want to use a different media file for each language..." */
-# $media_file_string = __( 'media file', 'wpml-media' );
-# $redirect_url = '#';
-
-msgid "media file"
-msgstr ""
-
-# 'strings' => array(
-# 'dialog_title'            => __( 'Media sent to translation', 'wpml-media' ),
-# 'content_with_media_sent' => __( 'You have sent content which contains media attachments for translation.', 'wpml-media' ),
-
-msgid "Media sent to translation"
-msgstr ""
-
-# 'dialog_title'            => __( 'Media sent to translation', 'wpml-media' ),
-# 'content_with_media_sent' => __( 'You have sent content which contains media attachments for translation.', 'wpml-media' ),
-# 'media_texts_translated'  => sprintf( __( 'Translators will translate all your %smedia texts%s.', 'wpml-media' ), '<strong>', '</strong>' ),
-
-msgid "You have sent content which contains media attachments for translation."
-msgstr ""
-
-# 'content_with_media_sent' => __( 'You have sent content which contains media attachments for translation.', 'wpml-media' ),
-# 'media_texts_translated'  => sprintf( __( 'Translators will translate all your %smedia texts%s.', 'wpml-media' ), '<strong>', '</strong>' ),
-# 'use_different_media'     => sprintf( __( 'If you want to use a different %s for each language, you can set them in: %s.', 'wpml-media' ),
-
-msgid "Translators will translate all your %smedia texts%s."
-msgstr ""
-
-# 'media_texts_translated'  => sprintf( __( 'Translators will translate all your %smedia texts%s.', 'wpml-media' ), '<strong>', '</strong>' ),
-# 'use_different_media'     => sprintf( __( 'If you want to use a different %s for each language, you can set them in: %s.', 'wpml-media' ),
-# '<strong>' . $media_file_string . '</strong>', $media_translation_link ),
-
-msgid "If you want to use a different %s for each language, you can set them in: %s."
-msgstr ""
-
-# '<strong>' . $media_file_string . '</strong>', $media_translation_link ),
-# 'learn_more'              => __( 'Learn more about Media Translation', 'wpml-media' ),
-# 'wpml'                    => _x( 'WPML', 'plugin name', 'wpml-media' ),
-
-msgid "Learn more about Media Translation"
-msgstr ""
-
-# 'learn_more'              => __( 'Learn more about Media Translation', 'wpml-media' ),
-# 'wpml'                    => _x( 'WPML', 'plugin name', 'wpml-media' ),
-# 'media_translation'       => _x( 'Media Translation', 'wpml addon name', 'wpml-media' )
-
-msgctxt "plugin name"
-msgid "WPML"
-msgstr ""
-
-# 'wpml'                    => _x( 'WPML', 'plugin name', 'wpml-media' ),
-# 'media_translation'       => _x( 'Media Translation', 'wpml addon name', 'wpml-media' )
-# ),
-
-msgctxt "wpml addon name"
-msgid "Media Translation"
 msgstr ""
 
 # <p>
@@ -891,4 +828,67 @@ msgstr ""
 # 
 
 msgid "Started..."
+msgstr ""
+
+# ?>
+# <div class="message error wpml-media-inactive"><p><?php printf( __( 'WPML Media is enabled but not effective. It requires <a href="%s">WPML</a> in order to work.', 'wpml-media' ),
+# 'https://wpml.org/' ); ?></p></div>
+
+msgid "WPML Media is enabled but not effective. It requires <a href=\"%s\">WPML</a> in order to work."
+msgstr ""
+
+# $this->admin_notice = '<div class="error wpml-admin-notice">';
+# $this->admin_notice .= '<h3>' . __( 'WPML Update is Incomplete', 'sitepress' ) . '</h3>';
+# $this->admin_notice .= '<p>' . implode( '</p><p>', $notice_paragraphs ) . '</p>';
+
+msgid "WPML Update is Incomplete"
+msgstr ""
+
+# if ( count( $this->valid_plugins ) === 1 ) {
+# $paragraph = __( 'You are running updated %s, but the following component is not updated:', 'sitepress' );
+# $paragraph = sprintf( $paragraph, '<strong>' . $this->valid_plugins[0] . '</strong>' );
+
+msgid "You are running updated %s, but the following component is not updated:"
+msgstr ""
+
+# } else {
+# $paragraph           = __( 'You are running updated %s and %s, but the following components are not updated:', 'sitepress' );
+# $first_valid_plugins = implode( ', ', array_slice( $this->valid_plugins, 0, - 1 ) );
+
+msgid "You are running updated %s and %s, but the following components are not updated:"
+msgstr ""
+
+# } else {
+# $paragraph = __( 'The following components are not updated:', 'sitepress' );
+# }
+
+msgid "The following components are not updated:"
+msgstr ""
+
+# private function get_invalid_plugins_report_footer() {
+# $wpml_org_url = '<a href="https://wpml.org/account/" title="WPML.org account">' . __( 'WPML.org account', 'sitepress' ) . '</a>';
+# 
+
+msgid "WPML.org account"
+msgstr ""
+
+# 
+# $notice_paragraph = __( 'Your site will not work as it should in this configuration', 'sitepress' );
+# $notice_paragraph .= ' ';
+
+msgid "Your site will not work as it should in this configuration"
+msgstr ""
+
+# $notice_paragraph .= ' ';
+# $notice_paragraph .= __( 'Please update all components which you are using.', 'sitepress' );
+# $notice_paragraph .= ' ';
+
+msgid "Please update all components which you are using."
+msgstr ""
+
+# $notice_paragraph .= ' ';
+# $notice_paragraph .= sprintf( __( 'For WPML components you can receive updates from your %s or automatically, after you register WPML.', 'sitepress' ), $wpml_org_url );
+# 
+
+msgid "For WPML components you can receive updates from your %s or automatically, after you register WPML."
 msgstr ""

@@ -1,19 +1,21 @@
 <?php
 
+use WPML\TM\ATE\JobRecords;
+
 /**
  * @author OnTheGo Systems
  */
 class WPML_TM_ATE_Jobs {
 
-	/** @var WPML_TM_ATE_Job_Records $records */
+	/** @var JobRecords $records */
 	private $records;
 
 	/**
 	 * WPML_TM_ATE_Jobs constructor.
 	 *
-	 * @param WPML_TM_ATE_Job_Records $records
+	 * @param JobRecords $records
 	 */
-	public function __construct( WPML_TM_ATE_Job_Records $records ) {
+	public function __construct( JobRecords $records ) {
 		$this->records = $records;
 	}
 
@@ -26,17 +28,6 @@ class WPML_TM_ATE_Jobs {
 		$wpml_job_id = (int) $wpml_job_id;
 
 		return $this->records->get_ate_job_id( $wpml_job_id );
-	}
-
-	/**
-	 * @param int $wpml_job_id
-	 *
-	 * @return int
-	 */
-	public function get_ate_job_progress( $wpml_job_id ) {
-		$wpml_job_id = (int) $wpml_job_id;
-
-		return $this->records->get_ate_job_progress( $wpml_job_id );
 	}
 
 	/**
@@ -135,5 +126,12 @@ class WPML_TM_ATE_Jobs {
 	 */
 	public function is_editing_job( $wpml_job_id ) {
 		return $this->records->is_editing_job( $wpml_job_id );
+	}
+
+	/**
+	 * @param array $wpml_job_ids
+	 */
+	public function warm_cache( array $wpml_job_ids ) {
+		$this->records->warmCache( $wpml_job_ids );
 	}
 }

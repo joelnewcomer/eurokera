@@ -482,13 +482,9 @@ class WPML_Translations_Queue {
 				  <?php
 				  if ( $job->original_doc_id ) {
 					  $ate_job_id       = null;
-					  $ate_job_progress = array();
 					  if ( array_key_exists( $job->job_id, $ate_jobs ) ) {
 						  if ( array_key_exists( 'ate_job_id', $ate_jobs[ $job->job_id ] ) ) {
 							  $ate_job_id = $ate_jobs[ $job->job_id ]['ate_job_id'];
-						  }
-						  if ( array_key_exists( 'progress', $ate_jobs[ $job->job_id ] ) ) {
-							  $ate_job_progress = $ate_jobs[ $job->job_id ]['progress'];
 						  }
 					  }
 					  ?>
@@ -497,7 +493,6 @@ class WPML_Translations_Queue {
 										   data-job-id="<?php echo $job->job_id ?>"
 										   data-ate-job-id="<?php echo esc_attr( $ate_job_id ); ?>"
 										   data-ate-job-url="<?php echo $job->edit_url ?>"
-										   data-job-progress="<?php echo esc_attr( wp_json_encode( $ate_job_progress ) ); ?>"
 										   data-ate-auto-open="<?php echo $job->job_id === $open_job ?>"
 										>
 						<?php echo $job->button_text; ?>

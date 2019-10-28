@@ -51,6 +51,9 @@ class WPML_TM_Job_Entity {
 	/** @var bool */
 	private $needs_update;
 
+	/** @var bool  */
+	private $has_completed_translation = false;
+
 	/**
 	 * @param int                $id
 	 * @param string             $type
@@ -291,5 +294,19 @@ class WPML_TM_Job_Entity {
 	 */
 	public function set_needs_update( $needs_update ) {
 		$this->needs_update = (bool) $needs_update;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function has_completed_translation() {
+		return $this->has_completed_translation;
+	}
+
+	/**
+	 * @param bool $has_completed_translation
+	 */
+	public function set_has_completed_translation( $has_completed_translation ) {
+		$this->has_completed_translation = (bool) $has_completed_translation;
 	}
 }

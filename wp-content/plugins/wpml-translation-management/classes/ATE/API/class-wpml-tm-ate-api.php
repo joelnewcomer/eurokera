@@ -106,7 +106,7 @@ class WPML_TM_ATE_API {
 	 * @param int $ate_job_id
 	 *
 	 * @return array|WP_Error
-	 * @throws \InvalidArgumentException
+	 * @throws \InvalidArgumentException InvalidArgumentException.
 	 */
 	public function get_job( $ate_job_id ) {
 		if ( ! $ate_job_id ) {
@@ -121,12 +121,14 @@ class WPML_TM_ATE_API {
 			return $signed_url;
 		}
 
-		$result = $this->wp_http->request( $signed_url,
-		                                   array(
-			                                   'timeout' => 60,
-			                                   'method'  => $verb,
-			                                   'headers' => $this->json_headers(),
-		                                   ) );
+		$result = $this->wp_http->request(
+			$signed_url,
+			array(
+				'timeout' => 60,
+				'method'  => $verb,
+				'headers' => $this->json_headers(),
+			)
+		);
 
 		return $this->get_response( $result );
 	}
@@ -185,6 +187,30 @@ class WPML_TM_ATE_API {
 			) );
 
 		return $this->get_response( $result );
+	}
+
+	/**
+	 * @param array $pairs
+	 * @see https://bitbucket.org/emartini_crossover/ate/wiki/API/V1/migration/migrate
+	 * @return bool
+	 */
+	public function migrate_source_id( array $pairs ) {
+		$verb = 'POST';
+
+		$url = $this->auth->get_signed_url( $verb, $this->endpoints->get_source_id_migration(), $pairs );
+		if ( is_wp_error( $url ) ) {
+			return $url;
+		}
+
+		$result = $this->wp_http->request( $url,
+			array(
+				'timeout' => 60,
+				'method'  => $verb,
+				'headers' => $this->json_headers(),
+				'body'    => wp_json_encode( $pairs, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ),
+			) );
+
+		return $this->get_response_errors( $result ) === null;
 	}
 
 	private function get_response( $result ) {

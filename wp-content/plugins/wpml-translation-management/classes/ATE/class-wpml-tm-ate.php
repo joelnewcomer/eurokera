@@ -61,12 +61,12 @@ class WPML_TM_ATE {
 	}
 
 	/**
-	 * @param $trid
-	 * @param $language
+	 * @param int    $trid
+	 * @param string $language
 	 *
 	 * @return array|WP_Error
 	 */
-	public function get_job_data_for_post( $trid, $language ){
+	public function get_job_data_for_post( $trid, $language ) {
 
 		$tm_ate_api  = $this->get_tm_ate_api();
 		$tm_ate_jobs = $this->get_tm_ate_jobs();
@@ -90,8 +90,8 @@ class WPML_TM_ATE {
 	 */
 	private function get_tm_ate_api(){
 		if ( null === $this->tm_ate_api ) {
-			$jobs_action_factory = new WPML_TM_ATE_Jobs_Actions_Factory();
-			$this->tm_ate_api = $jobs_action_factory->create_ate_api();
+			$ams_ate_factories = wpml_tm_ams_ate_factories();
+			$this->tm_ate_api = $ams_ate_factories->get_ate_api();
 		}
 
 		return $this->tm_ate_api;

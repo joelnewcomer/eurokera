@@ -101,6 +101,6 @@ class WPML_Backend_Request extends WPML_Request {
 	protected function get_cookie_name() {
 
 		return wpml_is_ajax() && $this->check_if_admin_action_from_referer() === false
-			? '_icl_current_language' : '_icl_current_admin_language_' . md5( $this->get_cookie_domain() );
+			? WPML_Frontend_Request::COOKIE_NAME : 'wp_wpml_current_admin_language_' . md5( $this->get_cookie_domain() );
 	}
 }

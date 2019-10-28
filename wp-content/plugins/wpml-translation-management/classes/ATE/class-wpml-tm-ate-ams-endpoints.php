@@ -34,6 +34,7 @@ class WPML_TM_ATE_AMS_Endpoints {
 	const ENDPOINTS_SITE                = '/api/wpml/websites/create_unique';
 	const ENDPOINTS_STATUS              = '/api/wpml/access_keys/{SHARED_KEY}/status';
 	const ENDPOINTS_TRANSLATORS         = '/api/wpml/websites/translators';
+	const ENDPOINT_SOURCE_ID_MIGRATION  = '/api/wpml/migration';
 	const SERVICE_AMS                   = 'ams';
 	const SERVICE_ATE                   = 'ate';
 
@@ -90,7 +91,7 @@ class WPML_TM_ATE_AMS_Endpoints {
 	 * @return string
 	 * @throws \InvalidArgumentException
 	 */
-	private function get_base_url( $service ) {
+	public function get_base_url( $service ) {
 		switch ( $service ) {
 			case self::SERVICE_AMS:
 				return $this->get_AMS_base_url();
@@ -263,5 +264,12 @@ class WPML_TM_ATE_AMS_Endpoints {
 	 */
 	public function get_websites() {
 		return $this->get_endpoint_url( self::SERVICE_AMS, self::ENDPOINTS_WEBSITES );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function get_source_id_migration() {
+		return $this->get_endpoint_url( self::SERVICE_ATE, self::ENDPOINT_SOURCE_ID_MIGRATION );
 	}
 }

@@ -290,7 +290,7 @@ class WPML_TM_AMS_API {
 	/**
 	 * @return array
 	 */
-	private function get_registration_data() {
+	public function get_registration_data() {
 		return get_option( WPML_TM_ATE_Authentication::AMS_DATA_KEY, array() );
 	}
 

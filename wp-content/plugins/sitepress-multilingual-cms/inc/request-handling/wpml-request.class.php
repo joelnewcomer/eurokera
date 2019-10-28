@@ -74,7 +74,7 @@ abstract class WPML_Request {
 	}
 
 	/**
-	 * @return string language code stored in the user's _icl_current_language cookie
+	 * @return string language code stored in the user's wp_wpml_current_language cookie
 	 */
 	public function get_cookie_lang() {
 		global $wpml_language_resolution;
@@ -101,7 +101,7 @@ abstract class WPML_Request {
 	}
 
 	/**
-	 * Sets the language code of the current screen in the User's _icl_current_language cookie
+	 * Sets the language code of the current screen in the User's wp_wpml_current_language cookie
 	 *
 	 * When user is not logged we must set cookie with JS to avoid issues with cached pages
 	 *

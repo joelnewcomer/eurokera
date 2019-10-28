@@ -81,9 +81,6 @@ class WPML_Translations extends WPML_SP_User {
 					continue;
 				}
 
-				$cached_object_key = $translation->element_id . '#' . $wpml_element_type . '#0#' . $translation->language_code;
-				wp_cache_set( $cached_object_key, $cached_object_key, 'icl_object_id' );
-
 				$translations[ $translation->language_code ] = $translation;
 			}
 		}

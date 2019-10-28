@@ -12,8 +12,12 @@ class WPML_WPSEO_Redirection {
 		if ( is_array( $redirections ) ) {
 
 			// Use same logic as WPSEO_Redirect_Util::strip_base_url_path_from_url.
-			$url           = trim( $_SERVER['REQUEST_URI'], '/' );
+			$url = trim( $_SERVER['REQUEST_URI'], '/' );
+
+			add_filter( 'wpml_skip_convert_url_string', '__return_true' );
 			$base_url_path = ltrim( wp_parse_url( home_url(), PHP_URL_PATH ), '/' );
+			remove_filter( 'wpml_skip_convert_url_string', '__return_true' );
+
 			if ( stripos( trailingslashit( $url ), trailingslashit( $base_url_path ) ) === 0 ) {
 				$url = substr( $url, strlen( $base_url_path ) );
 			}

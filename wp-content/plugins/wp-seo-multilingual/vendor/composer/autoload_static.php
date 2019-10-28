@@ -4,18 +4,8 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit1f99f819cfac506988f12a34b5fbed65
+class ComposerStaticInit14c2250adf3146b702015406adb998cb
 {
-    public static $prefixesPsr0 = array (
-        'x' => 
-        array (
-            'xrstf\\Composer52' => 
-            array (
-                0 => __DIR__ . '/..' . '/xrstf/composer-php52/lib',
-            ),
-        ),
-    );
-
     public static $classMap = array (
         'OTGS_Assets_Handles' => __DIR__ . '/..' . '/otgs/ui/src/php/OTGS_Assets_Handles.php',
         'OTGS_Assets_Store' => __DIR__ . '/..' . '/otgs/ui/src/php/OTGS_Assets_Store.php',
@@ -33,8 +23,7 @@ class ComposerStaticInit1f99f819cfac506988f12a34b5fbed65
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInit1f99f819cfac506988f12a34b5fbed65::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit1f99f819cfac506988f12a34b5fbed65::$classMap;
+            $loader->classMap = ComposerStaticInit14c2250adf3146b702015406adb998cb::$classMap;
 
         }, null, ClassLoader::class);
     }

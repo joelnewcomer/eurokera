@@ -2,6 +2,8 @@
 
 class WPML_Slug_Translation implements IWPML_Action {
 
+	const STRING_DOMAIN = 'WordPress';
+
 	/** @var array $post_link_cache */
 	private $post_link_cache = array();
 
@@ -304,7 +306,7 @@ class WPML_Slug_Translation implements IWPML_Action {
 	 * @deprecated since 2.8.0, use the class `WPML_Post_Slug_Translation_Records` instead.
 	 */
 	public static function register_string_for_slug( $post_type, $slug ) {
-		return icl_register_string( 'WordPress', 'URL slug: ' . $post_type, $slug );
+		return icl_register_string( self::STRING_DOMAIN, 'URL slug: ' . $post_type, $slug );
 	}
 
 	public function maybe_migrate_string_name() {

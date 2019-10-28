@@ -2,33 +2,29 @@
 /**
  * Plugin Name: WPML Media
  * Plugin URI: https://wpml.org/
- * Description: Add multilingual support for Media files | <a href="https://wpml.org/?page_id=113610">Documentation</a> | <a href="https://wpml.org/version/media-translation-2-5-3/">WPML Media Translation 2.5.3 release notes</a>
+ * Description: Add multilingual support for Media files | <a href="https://wpml.org/?page_id=113610">Documentation</a> | <a href="https://wpml.org/version/media-translation-2-5-4/">WPML Media Translation 2.5.4 release notes</a>
  * Author: OnTheGoSystems
  * Author URI: http://www.onthegosystems.com/
- * Version: 2.5.3
+ * Version: 2.5.4
  * Plugin Slug: wpml-media-translation
+ *
+ * @package wpml/media
  */
 
 if ( defined( 'WPML_MEDIA_VERSION' ) ) {
 	return;
 }
 
-define( 'WPML_MEDIA_VERSION', '2.5.3' );
+define( 'WPML_MEDIA_VERSION', '2.5.4' );
 define( 'WPML_MEDIA_PATH', dirname( __FILE__ ) );
 
-$autoloader_dir = WPML_MEDIA_PATH . '/vendor';
-if ( version_compare( PHP_VERSION, '5.3.0' ) >= 0 ) {
-	$autoloader = $autoloader_dir . '/autoload.php';
-} else {
-	$autoloader = $autoloader_dir . '/autoload_52.php';
-}
-require_once $autoloader;
+require_once WPML_MEDIA_PATH . '/vendor/autoload.php';
 
 require WPML_MEDIA_PATH . '/inc/constants.inc';
 require WPML_MEDIA_PATH . '/inc/wpml-media-dependencies.class.php';
 require WPML_MEDIA_PATH . '/inc/wpml-media-upgrade.class.php';
 if ( is_admin() ) {
-	require_once( ABSPATH . 'wp-admin/includes/image.php' );
+	require_once ABSPATH . 'wp-admin/includes/image.php';
 }
 
 function wpml_media_remove_flag_notice() {
@@ -91,7 +87,7 @@ if ( $media_dependencies->check() ) {
 
 		$loaders = array(
 			'WPML_Media_String_Images_Translation_Factory',
-			'WPML_Media_String_Batch_Url_Translation_Factory'
+			'WPML_Media_String_Batch_Url_Translation_Factory',
 		);
 
 		$action_filter_loader = new WPML_Action_Filter_Loader();

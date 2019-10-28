@@ -7,6 +7,7 @@ class WPML_Meta_Boxes_Post_Edit_HTML {
 
 	const FLAG_HAS_MEDIA_OPTIONS = 'wpml_has_media_options';
 	const TAXONOMIES_PRIORITY    = 'translation_priority';
+	const WRAPPER_ID = 'icl_div';
 
 	/** @var SitePress $sitepress */
 	private $sitepress;
@@ -269,7 +270,7 @@ class WPML_Meta_Boxes_Post_Edit_HTML {
 	}
 
 	private function minor_edit() {
-		$stacktrace = new WPML_Debug_BackTrace( phpversion() );
+		$stacktrace = new WPML\Utils\DebugBackTrace();
 		if ( $stacktrace->is_function_in_call_stack( 'the_block_editor_meta_boxes' ) ) {
 			do_action( 'wpml_minor_edit_for_gutenberg' );
 		}

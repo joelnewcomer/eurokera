@@ -17,18 +17,23 @@ class WPML_Package_Translation extends WPML_Package_Helper {
 			global $sitepress;
 		}
 
-	  if ( $this->passed_dependencies() && $sitepress->get_setting( 'setup_complete', false ) ) {
-		  $this->add_admin_hooks();
-		  $this->add_global_hooks();
+		$is_setup_complete = (bool) $sitepress->get_setting( 'setup_complete', false );
 
-		  if ( is_admin() ) {
-			  $this->run_db_update();
+		if ( $is_setup_complete ) {
+			$this->run_db_update();
+		}
 
-			  if ( $this->is_refresh_required() ) {
-				  add_action( 'init', array( $this, 'refresh_packages' ), 999, 0 );
-				  $this->set_refresh_not_required();
-			  }
-		  }
+		if ( $this->passed_dependencies() && $is_setup_complete ) {
+			$this->add_admin_hooks();
+			$this->add_global_hooks();
+
+			if ( is_admin() ) {
+
+				if ( $this->is_refresh_required() ) {
+					add_action( 'init', array( $this, 'refresh_packages' ), 999, 0 );
+					$this->set_refresh_not_required();
+				}
+			}
 		}
 	}
 

@@ -4,38 +4,38 @@ defined( 'ABSPATH' ) or die(':)');
 
 
 function vp_gs_checkbox_validation($option){
-	if( $option == 1 ){
-		return $option;
-	}else{
-		return '';
-	}
+    if( $option == 1 ){
+        return $option;
+    }else{
+        return '';
+    }
 }
 
 function vp_al_display_validation($option){
-	$array = array('homepage', 'frontpage', 'entire', 'custom');
+    $array = array('homepage', 'frontpage', 'entire', 'custom');
 
-	if( in_array($option, $array) ){
-		return $option;
-	}else{
-		return '';
-	}
+    if( in_array($option, $array) ){
+        return $option;
+    }else{
+        return '';
+    }
 }
 
 function vp_gs_hex_code_validation($option){
-	if( preg_match('/^#[a-f0-9]{6}$/i', $option) ){
-		$sanitize_text_field = sanitize_text_field($option);
-		return $sanitize_text_field;
-	}else{
-		return '';
-	}
+    if( preg_match('/^#[a-f0-9]{6}$/i', $option) ){
+        $sanitize_text_field = sanitize_text_field($option);
+        return $sanitize_text_field;
+    }else{
+        return '';
+    }
 }
 
 function vp_al_number_validation($option){
-	if( is_numeric($option) or empty($option) ){
-		return $option;
-	}else{
-		return '';
-	}
+    if( is_numeric($option) or empty($option) ){
+        return $option;
+    }else{
+        return '';
+    }
 }
 
 
@@ -86,7 +86,7 @@ function video_popup_add_general_settings(){
 
     add_settings_field(
         "vp_al_op_display",
-        __('Display', 'video-popup'),
+        __('Display Options', 'video-popup'),
         "vp_al_op_display_cb",
         "vp_al_options",
         "vp_al_section"
@@ -193,31 +193,31 @@ add_action('admin_init', 'video_popup_add_general_settings', 1);
 
 
 function video_popup_general_settings_callback(){
-	do_action('video_popup_gs_cb_action');
+    do_action('video_popup_gs_cb_action');
 }
 
 
 function video_popup_general_settings_free(){
-	?>
-		<div class="wrap">
-			<div class="vp-clear-fix">
+    ?>
+        <div class="wrap">
+            <div class="vp-clear-fix">
 
 
-				<div class="vp-left-col">
-					<?php if( !get_option('vp_green_bg_menu') ) : ?>
-						<?php update_option('vp_green_bg_menu', 'true'); ?>
-						<style type="text/css">
-							body a.toplevel_page_video_popup_general_settings{
-    							background: #0073aa !important;
-							}
-						</style>
-					<?php endif; ?>
+                <div class="vp-left-col">
+                    <?php if( !get_option('vp_green_bg_menu') ) : ?>
+                        <?php update_option('vp_green_bg_menu', 'true'); ?>
+                        <style type="text/css">
+                            body a.toplevel_page_video_popup_general_settings{
+                                background: #0073aa !important;
+                            }
+                        </style>
+                    <?php endif; ?>
 
-					<h1 style="margin-bottom: 20px !important;"><span><?php _e('Video PopUp General Settings', 'video-popup'); ?></span></h1>
+                    <h1 style="margin-bottom: 20px !important;"><span><?php _e('Video PopUp General Settings', 'video-popup'); ?></span></h1>
 
-					<h2><?php _e("General settings will applied to all the video popup's.", 'video-popup'); ?></h2>
+                    <h2><?php _e("General settings will applied to all the video popup's.", 'video-popup'); ?></h2>
 
-					<?php
+                    <?php
                         if( isset($_GET['settings-updated']) and $_GET['settings-updated'] == 'true' ){
                             ?>
                                 <div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible"> 
@@ -228,119 +228,119 @@ function video_popup_general_settings_free(){
                         }
                     ?>
 
-					<form method="post" action="options.php">
-                		<?php
-                			settings_fields("vp_gs_section");
-                    		do_settings_sections("vp_gs_options");
-                    		submit_button();
-                		?>
-            		</form>
+                    <form method="post" action="options.php">
+                        <?php
+                            settings_fields("vp_gs_section");
+                            do_settings_sections("vp_gs_options");
+                            submit_button();
+                        ?>
+                    </form>
 
-            		<div class="postbox vp-no-premium-ext">
-					<h2 style="border-bottom: 1px solid #eee !important;padding: 12px !important;margin: 0 !important;"><span><?php _e('Get The Premium Extension!', 'video-popup'); ?></span></h2>
-					<div class="inside" style="padding: 12px !important;margin: 0 !important;">
+                    <div class="postbox vp-no-premium-ext">
+                    <h2 style="border-bottom: 1px solid #eee !important;padding: 12px !important;margin: 0 !important;"><span><?php _e('Get The Premium Extension!', 'video-popup'); ?></span></h2>
+                    <div class="inside" style="padding: 12px !important;margin: 0 !important;">
 
-						<div class="main">
+                        <div class="main">
 
-							<p style="margin: 0 !important;"><?php _e("Get it at a low price! Unlock all the features. Easy to use, download it, install it, activate it, and enjoy! Get it now!", 'video-popup'); ?></p>
+                            <p style="margin: 0 !important;"><?php _e("Get it at a low price! Unlock all the features. Easy to use, download it, install it, activate it, and enjoy! Get it now!", 'video-popup'); ?></p>
 
-							<p style="margin-bottom: 0 !important;"><a href="https://wp-plugins.in/Get-VP-Premium-Extension" class="vp-settings-btn vp-get-premium-su" target="_blank"><?php _e('Get The Premium Extension', 'video-popup'); ?></a></p>
+                            <p style="margin-bottom: 0 !important;"><a href="https://wp-plugins.in/Get-VP-Premium-Extension" class="vp-settings-btn vp-get-premium-su" target="_blank"><?php _e('Get The Premium Extension', 'video-popup'); ?></a></p>
 
-						</div>
+                        </div>
 
-					</div>
-				</div>
-
-
-				<div class="postbox">
-					<h2 style="border-bottom: 1px solid #eee !important;padding: 12px !important;margin: 0 !important;"><span><?php _e('Explanation of Use', 'video-popup'); ?></span></h2>
-					<div class="inside" style="padding: 12px !important;margin: 0 !important;">
-
-						<div class="main">
-
-							<p style="margin: 0 !important;"><?php _e('Need help? Support? Questions? Read the Explanation of Use.', 'video-popup'); ?></p>
-
-							<p style="margin-bottom: 0 !important;"><a href="https://wp-plugins.in/VideoPopUp-Usage" class="vp-settings-btn vp-read-expofuse-su" target="_blank"><?php _e('Explanation of Use', 'video-popup'); ?></a></p>
-
-						</div>
-
-					</div>
-				</div>
-            	</div>
-
-            	<div class="vp-right-col">
-
-            		<div class="postbox">
-					<h2 style="border-bottom: 1px solid #eee !important;padding: 12px !important;margin: 0 !important;"><span><?php _e('Recommended Products', 'video-popup'); ?></span></h2>
-					<div class="inside" style="padding: 12px !important;margin: 0 !important;">
-
-						<div class="main vp-rec-products-settings">
-
-							<a href="http://www.elegantthemes.com/affiliates/idevaffiliate.php?id=24967&tid1=vp_plugin_st&url=35248" target="_blank"><img src="<?php echo plugins_url( '/aff/et.png', __FILE__ ); ?>"></a>
-							<a href="http://www.elegantthemes.com/affiliates/idevaffiliate.php?id=24967&url=21533&tid1=vp_plugin_st_divi" target="_blank"><img src="<?php echo plugins_url( '/aff/divi.jpg', __FILE__ ); ?>"></a>
-
-							<a href="https://www.bluehost.com/track/wptime/vp-plugin-st" target="_blank"><img src="<?php echo plugins_url( '/aff/bh.png', __FILE__ ); ?>"></a>
-							<a href="https://www.siteground.com/go/vp_plugin_stsu" target="_blank"><img src="<?php echo plugins_url( '/aff/sg.png', __FILE__ ); ?>"></a>
-
-						</div>
-
-					</div>
-				</div>
+                    </div>
+                </div>
 
 
-				<div class="postbox">
-					<h2 style="border-bottom: 1px solid #eee !important;padding: 12px !important;margin: 0 !important;"><span><?php _e('Why do you see "Ads" in this plugin?', 'video-popup'); ?></span></h2>
-					<div class="inside" style="padding: 12px !important;margin: 0 !important;">
+                <div class="postbox">
+                    <h2 style="border-bottom: 1px solid #eee !important;padding: 12px !important;margin: 0 !important;"><span><?php _e('Explanation of Use', 'video-popup'); ?></span></h2>
+                    <div class="inside" style="padding: 12px !important;margin: 0 !important;">
 
-						<div class="main">
+                        <div class="main">
 
-							<p style="margin: 0 !important;"><?php _e('We offer you professional WordPress plugins for free, so you will see "Ads" and "Recommended Products". No "Ads" and no "Recommended Products" in the Premium Extension! Get it now.', 'video-popup'); ?></p>
+                            <p style="margin: 0 !important;"><?php _e('Need help? Support? Questions? Read the Explanation of Use.', 'video-popup'); ?></p>
 
-						</div>
+                            <p style="margin-bottom: 0 !important;"><a href="https://wp-plugins.in/VideoPopUp-Usage" class="vp-settings-btn vp-read-expofuse-su" target="_blank"><?php _e('Explanation of Use', 'video-popup'); ?></a></p>
 
-					</div>
-				</div>
+                        </div>
 
-            	</div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="vp-right-col">
+
+                    <div class="postbox">
+                    <h2 style="border-bottom: 1px solid #eee !important;padding: 12px !important;margin: 0 !important;"><span><?php _e('Recommended Products', 'video-popup'); ?></span></h2>
+                    <div class="inside" style="padding: 12px !important;margin: 0 !important;">
+
+                        <div class="main vp-rec-products-settings">
+
+                            <a href="http://www.elegantthemes.com/affiliates/idevaffiliate.php?id=24967&tid1=vp_plugin_st&url=35248" target="_blank"><img src="<?php echo plugins_url( '/aff/et.png', __FILE__ ); ?>"></a>
+                            <a href="http://www.elegantthemes.com/affiliates/idevaffiliate.php?id=24967&url=21533&tid1=vp_plugin_st_divi" target="_blank"><img src="<?php echo plugins_url( '/aff/divi.jpg', __FILE__ ); ?>"></a>
+
+                            <a href="https://www.bluehost.com/track/wptime/vp-plugin-st" target="_blank"><img src="<?php echo plugins_url( '/aff/bh.png', __FILE__ ); ?>"></a>
+                            <a href="https://www.siteground.com/go/vp_plugin_stsu" target="_blank"><img src="<?php echo plugins_url( '/aff/sg.png', __FILE__ ); ?>"></a>
+
+                        </div>
+
+                    </div>
+                </div>
 
 
-        	</div>
-		</div>
-	<?php
+                <div class="postbox">
+                    <h2 style="border-bottom: 1px solid #eee !important;padding: 12px !important;margin: 0 !important;"><span><?php _e('Why do you see "Ads" in this plugin?', 'video-popup'); ?></span></h2>
+                    <div class="inside" style="padding: 12px !important;margin: 0 !important;">
+
+                        <div class="main">
+
+                            <p style="margin: 0 !important;"><?php _e('We offer you professional WordPress plugins for free, so you will see "Ads" and "Recommended Products". No "Ads" and no "Recommended Products" in the Premium Extension! Get it now.', 'video-popup'); ?></p>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    <?php
 }
 add_action('video_popup_gs_cb_action', 'video_popup_general_settings_free');
 
 
 function vp_gs_op_editor_style_cb(){
-	$dis_ed_style = get_option('vp_gs_op_editor_style');
-	?>
-		<label for="vp_gs_op_editor_style" style="display:block;"><input type="checkbox" id="vp_gs_op_editor_style" name="vp_gs_op_editor_style" value="1" <?php checked($dis_ed_style, 1, true); ?>><?php _e('Disable the background color of the Video PopUp links in the editor.', 'video-popup'); ?></label>
-	<?php
+    $dis_ed_style = get_option('vp_gs_op_editor_style');
+    ?>
+        <label for="vp_gs_op_editor_style" style="display:block;"><input type="checkbox" id="vp_gs_op_editor_style" name="vp_gs_op_editor_style" value="1" <?php checked($dis_ed_style, 1, true); ?>><?php _e('Disable the background color of the Video PopUp links in the editor.', 'video-popup'); ?></label>
+    <?php
 }
 
 
 function vp_al_op_video_url_cb(){
-	$video_url = get_option('vp_al_op_video_url');
-	?>
-		<label for="vp_al_op_video_url" style="display:block;"><input style="width:100%;" class="regular-text" type="text" id="vp_al_op_video_url" name="vp_al_op_video_url" value="<?php echo esc_url($video_url); ?>"><p class="description"><?php _e('Enter a video URL to display it as "Video Popup" when page loading. Enter YouTube, Vimeo, or MP4 video link only. SoundCloud is not supported.', 'video-popup'); ?><br><span style="font-weight: bold;"><?php _e('To disable "On Page Loading" feature, leave this field blank.', 'video-popup'); ?></span></p></label>
-	<?php
+    $video_url = get_option('vp_al_op_video_url');
+    ?>
+        <label for="vp_al_op_video_url" style="display:block;"><input style="width:100%;" class="regular-text" type="text" id="vp_al_op_video_url" name="vp_al_op_video_url" value="<?php echo esc_url($video_url); ?>"><p class="description"><?php _e('Enter a video URL to display it as "Video Popup" when page loading. Enter YouTube, Vimeo, or MP4 video link only. SoundCloud is not supported.', 'video-popup'); ?><br><span style="font-weight: bold;"><?php _e('To disable "On Page Loading" feature, leave this field blank.', 'video-popup'); ?></span></p></label>
+    <?php
 }
 
 
 function vp_al_op_autoplay_cb(){
-	$autoplay = get_option('vp_al_op_autoplay');
-	?>
-		<label for="vp_al_op_autoplay" style="display:block;"><input type="checkbox" id="vp_al_op_autoplay" name="vp_al_op_autoplay" value="1" <?php checked($autoplay, 1, true); ?>><?php _e('Autoplay for YouTube, Vimeo, and MP4 video (externally and locally).', 'video-popup'); ?></label>
-	<?php
+    $autoplay = get_option('vp_al_op_autoplay');
+    ?>
+        <label for="vp_al_op_autoplay" style="display:block;"><input type="checkbox" id="vp_al_op_autoplay" name="vp_al_op_autoplay" value="1" <?php checked($autoplay, 1, true); ?>><?php _e('Autoplay for YouTube, Vimeo, and MP4 video (externally and locally).', 'video-popup'); ?></label>
+    <?php
 }
 
 
 function vp_al_op_display_cb(){
-	$display = get_option('vp_al_op_display');
-	$custom = get_option('vp_al_op_display_custom');
-	?>
-		<fieldset>
-            <legend class="screen-reader-text"><span><?php _e('Display', 'video-popup'); ?></span></legend>
+    $display = get_option('vp_al_op_display');
+    $custom = get_option('vp_al_op_display_custom');
+    ?>
+        <fieldset>
+            <legend class="screen-reader-text"><span><?php _e('Display', 'video-popup'); ?> <?php _e('Options', 'video-popup'); ?></span></legend>
 
             <p><?php _e('Display the Video PopUp in:', 'video-popup'); ?></p>
 
@@ -360,23 +360,25 @@ function vp_al_op_display_cb(){
                 <input id="vp-display-custom" type="radio" name="vp_al_op_display" value="custom" <?php checked( $display, 'custom' ); ?>><?php _e('Custom Post/Page ID:', 'video-popup'); ?> <input class="small-text" type="text" name="vp_al_op_display_custom" style="width:100px;" value="<?php echo esc_attr($custom); ?>">
             </label>
      </fieldset>
-	<?php
+
+     <p class="description"><?php _e('If you change the display options, please clear all the cache files each time you change the display options, just if you are use a caching plugin on your site, such as "WP Super Cache Plugin". If you are not use a caching plugin at the current time, so ignore this note.', 'video-popup'); ?></p>
+    <?php
 }
 
 
 function vp_al_op_cookie_cb(){
-	$cookie_time = get_option('vp_al_op_cookie');
-	?>
-		<label for="vp_al_op_cookie" style="display:block;"><input style="width:100px;" class="small-text" type="text" id="vp_al_op_cookie" name="vp_al_op_cookie" value="<?php echo esc_attr($cookie_time); ?>"><p class="description"><?php _e('Enter the display time, for example enter number 24, which means that the Pop-up Video will be displayed once per visitor, and the Pop-up Video will be displayed again to the same visitor after the 24 hours. Default is "1" (1 = 1 hour). If you want to show the Pop-up Video to all visitors with each visit, leave this option blank.', 'video-popup'); ?> <a href="<?php echo esc_url( admin_url('/?vp_delete_cookie=1') ); ?>" title="<?php esc_attr_e('If you want to test your Video Popup, and you can not wait for hours, click on “Delete cookie” link to delete the Video Popup cookie in your browser.','video-popup'); ?>"><?php _e('(Delete cookie?)','video-popup'); ?></a></p></label>
-	<?php
+    $cookie_time = get_option('vp_al_op_cookie');
+    ?>
+        <label for="vp_al_op_cookie" style="display:block;"><input style="width:100px;" class="small-text" type="text" id="vp_al_op_cookie" name="vp_al_op_cookie" value="<?php echo esc_attr($cookie_time); ?>"><p class="description"><?php _e('Enter the display time, for example enter number 24, which means that the Pop-up Video will be displayed once per visitor, and the Pop-up Video will be displayed again to the same visitor after the 24 hours. Default is "1" (1 = 1 hour). If you want to show the Pop-up Video to all visitors with each visit, leave this option blank.', 'video-popup'); ?> <a href="<?php echo esc_url( admin_url('/?vp_delete_cookie=1') ); ?>" title="<?php esc_attr_e('If you want to test your Video Popup, and you can not wait for hours, click on “Delete cookie” link to delete the Video Popup cookie in your browser.','video-popup'); ?>"><?php _e('(Delete cookie?)','video-popup'); ?></a></p></label>
+    <?php
 }
 
 
 function vp_al_op_logged_in_cb(){
-	$logged_in = get_option('vp_al_op_logged_in');
-	?>
-		<label for="vp_al_op_logged_in" style="display:block;"><input type="checkbox" id="vp_al_op_logged_in" name="vp_al_op_logged_in" value="1" <?php checked($logged_in, 1, true); ?>><?php _e('If the current visitor is a logged in user, will be exclude it (whether he is an author, subscriber, editor, moderator, or administrator, etc..), the Pop-up Video will not be shown to him.', 'video-popup'); ?></label>
-	<?php
+    $logged_in = get_option('vp_al_op_logged_in');
+    ?>
+        <label for="vp_al_op_logged_in" style="display:block;"><input type="checkbox" id="vp_al_op_logged_in" name="vp_al_op_logged_in" value="1" <?php checked($logged_in, 1, true); ?>><?php _e('If the current visitor is a logged in user, will be exclude it (whether he is an author, subscriber, editor, moderator, or administrator, etc..), the Pop-up Video will not be shown to him.', 'video-popup'); ?></label>
+    <?php
 }
 
 
@@ -488,39 +490,39 @@ function vp_gs_op_remove_boder_callback(){
 
 
 function vp_gs_op_width_size_callback(){
-	do_action('vp_gs_op_width_size_cb_action');
+    do_action('vp_gs_op_width_size_cb_action');
 }
 
 
 function vp_gs_op_width_size_cb_free(){
-	?>
-		<label title="<?php echo esc_attr__('Width Size (Premium)', 'video-popup'); ?>" style="display:block !important;"><input type="text" value="" disabled="true"><p style="color:#999 !important;" class="description"><?php _e('Enter width size for the video, for example "1200". Numbers only. This option for the Premium Extension.', 'video-popup'); ?></p></label>
-	<?php
+    ?>
+        <label title="<?php echo esc_attr__('Width Size (Premium)', 'video-popup'); ?>" style="display:block !important;"><input type="text" value="" disabled="true"><p style="color:#999 !important;" class="description"><?php _e('Enter width size for the video, for example "1200". Numbers only. This option for the Premium Extension.', 'video-popup'); ?></p></label>
+    <?php
 }
 add_action('vp_gs_op_width_size_cb_action', 'vp_gs_op_width_size_cb_free');
 
 
 function vp_gs_op_height_size_callback(){
-	do_action('vp_gs_op_height_size_cb_action');
+    do_action('vp_gs_op_height_size_cb_action');
 }
 
 
 function vp_gs_op_height_size_cb_free(){
-	?>
-		<label title="<?php echo esc_attr__('Height Size (Premium)', 'video-popup'); ?>" style="display:block !important;"><input type="text" value="" disabled="true"><p style="color:#999 !important;" class="description"><?php _e('Enter height size for the video, for example "600". Numbers only. This option for the Premium Extension.', 'video-popup'); ?></p></label>
-	<?php
+    ?>
+        <label title="<?php echo esc_attr__('Height Size (Premium)', 'video-popup'); ?>" style="display:block !important;"><input type="text" value="" disabled="true"><p style="color:#999 !important;" class="description"><?php _e('Enter height size for the video, for example "600". Numbers only. This option for the Premium Extension.', 'video-popup'); ?></p></label>
+    <?php
 }
 add_action('vp_gs_op_height_size_cb_action', 'vp_gs_op_height_size_cb_free');
 
 
 function vp_gs_op_overlay_color_callback(){
-	do_action('vp_gs_op_overlay_color_cb_action');
+    do_action('vp_gs_op_overlay_color_cb_action');
 }
 
 
 function vp_gs_op_overlay_color_cb_free(){
-	?>
-		<label title="<?php echo esc_attr__('Color of Overlay (Premium)', 'video-popup'); ?>" style="display:block !important;"><input type="text" value="" disabled="true"><p style="color:#999 !important;" class="description"><?php _e('Enter the color of overlay, enter HEX code only, for example "#ffffff". Enter full HEX code such as "#ffffff", not shortened such as "#fff". Default is black "#000000". This option for the Premium Extension.', 'video-popup'); ?></p></label>
-	<?php
+    ?>
+        <label title="<?php echo esc_attr__('Color of Overlay (Premium)', 'video-popup'); ?>" style="display:block !important;"><input type="text" value="" disabled="true"><p style="color:#999 !important;" class="description"><?php _e('Enter the color of overlay, enter HEX code only, for example "#ffffff". Enter full HEX code such as "#ffffff", not shortened such as "#fff". Default is black "#000000". This option for the Premium Extension.', 'video-popup'); ?></p></label>
+    <?php
 }
 add_action('vp_gs_op_overlay_color_cb_action', 'vp_gs_op_overlay_color_cb_free');

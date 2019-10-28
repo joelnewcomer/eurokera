@@ -5,11 +5,13 @@ class WPML_TM_Jobs_Search_Params {
 	const SCOPE_REMOTE = 'remote';
 	const SCOPE_LOCAL  = 'local';
 	const SCOPE_ALL    = 'all';
+	const SCOPE_ATE    = 'ate';
 
-	private $accepted_values = array(
+	private static $scopes = array(
 		self::SCOPE_LOCAL,
 		self::SCOPE_REMOTE,
 		self::SCOPE_ALL,
+		self::SCOPE_ATE,
 	);
 
 	/** @var array */
@@ -19,13 +21,13 @@ class WPML_TM_Jobs_Search_Params {
 	private $needs_update;
 
 	/** @var string */
-	private $remote_or_local = self::SCOPE_ALL;
+	private $scope = self::SCOPE_ALL;
 
 	/** @var array */
 	private $job_types = array();
 
-	/** @var int */
-	private $local_job_id;
+	/** @var int[] */
+	private $local_job_ids;
 
 	/** @var int */
 	private $limit;
@@ -120,7 +122,7 @@ class WPML_TM_Jobs_Search_Params {
 	 * @return string
 	 */
 	public function get_scope() {
-		return $this->remote_or_local;
+		return $this->scope;
 	}
 
 	/**
@@ -137,11 +139,12 @@ class WPML_TM_Jobs_Search_Params {
 	 */
 	public function set_scope( $scope ) {
 		if ( ! $this->is_valid_scope( $scope ) ) {
-			throw new InvalidArgumentException( 'Invalid scope. Accepted values: ' . implode( ', ',
-					$this->get_accepted_values() ) );
+			throw new InvalidArgumentException(
+				'Invalid scope. Accepted values: ' . implode( ', ', self::$scopes )
+			);
 		}
 
-		$this->remote_or_local = $scope;
+		$this->scope = $scope;
 
 		return $this;
 	}
@@ -191,10 +194,17 @@ class WPML_TM_Jobs_Search_Params {
 	}
 
 	/**
-	 * @return int
+	 * @return int|null
 	 */
-	public function get_local_job_id() {
-		return $this->local_job_id;
+	public function get_first_local_job_id() {
+		return ! empty( $this->local_job_ids ) ? current( $this->local_job_ids ) : null;
+	}
+
+	/**
+	 * @return int[]
+	 */
+	public function get_local_job_ids() {
+		return $this->local_job_ids;
 	}
 
 	/**
@@ -203,7 +213,18 @@ class WPML_TM_Jobs_Search_Params {
 	 * @return self
 	 */
 	public function set_local_job_id( $local_job_id ) {
-		$this->local_job_id = (int) $local_job_id;
+		$this->local_job_ids[] = (int) $local_job_id;
+
+		return $this;
+	}
+
+	/**
+	 * @param int[] $local_job_ids
+	 *
+	 * @return self
+	 */
+	public function set_local_job_ids( array $local_job_ids ) {
+		$this->local_job_ids = array_map( 'intval', $local_job_ids );
 
 		return $this;
 	}
@@ -445,20 +466,15 @@ class WPML_TM_Jobs_Search_Params {
 		return $this;
 	}
 
-
-	private function get_accepted_values() {
-		return $this->accepted_values;
-	}
-
 	/**
 	 * @param mixed $value
 	 *
 	 * @return bool
 	 */
-	private function is_valid_scope( $value ) {
+	public static function is_valid_scope( $value ) {
 		return in_array(
 			$value,
-			$this->accepted_values,
+			self::$scopes,
 			true
 		);
 	}

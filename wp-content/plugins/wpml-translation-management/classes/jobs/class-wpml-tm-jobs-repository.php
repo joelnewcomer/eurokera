@@ -107,6 +107,7 @@ class WPML_TM_Jobs_Repository {
 		$job->set_revision( $raw_data->revision );
 		$job->set_ts_status( $raw_data->ts_status );
 		$job->set_needs_update( $raw_data->needs_update );
+		$job->set_has_completed_translation( $raw_data->has_completed_translation );
 
 		return $job;
 	}

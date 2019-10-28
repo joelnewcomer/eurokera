@@ -39,7 +39,7 @@ class OTGS_Installer_Repositories {
 					'subscription'  => $subscription,
 					'packages'      => $packages,
 					'product_name'  => $repository['data']['product-name'],
-					'api_url'       => $setting_repositories[ $id ]['api-url']
+					'api_url'       => $setting_repositories[ $id ]['api-url'],
 				)
 			);
 		}

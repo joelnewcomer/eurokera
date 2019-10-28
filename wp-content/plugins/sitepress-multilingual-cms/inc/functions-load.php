@@ -260,7 +260,6 @@ function wpml_get_setup_instance() {
 	global $wpml_installation, $wpdb, $sitepress;
 
 	if ( ! isset( $wpml_installation ) ) {
-		require WPML_PLUGIN_PATH . '/inc/setup/wpml-installation.class.php';
 		$wpml_installation = new WPML_Installation( $wpdb, $sitepress );
 	}
 

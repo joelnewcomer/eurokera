@@ -20,6 +20,7 @@ class Config {
 			'\WPML_WP_User_Query_Factory',
 			'\WPML_WP_User_Factory',
 			'\WPML_Notices',
+			\WPML_Locale::class,
 		];
 	}
 
@@ -41,6 +42,8 @@ class Config {
 		return [
 			'\WPML_Notices'                   => 'wpml_get_admin_notices',
 			\WPML_REST_Request_Analyze::class => [ \WPML_REST_Request_Analyze_Factory::class, 'create' ],
+			\WP_Filesystem_Direct::class      => 'wpml_get_filesystem_direct',
+			\WPML_Locale::class               => [ \WPML_Locale::class, 'get_instance_from_sitepress' ],
 		];
 	}
 }

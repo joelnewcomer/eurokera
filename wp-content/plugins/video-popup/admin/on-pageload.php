@@ -28,6 +28,8 @@ function video_popup_on_pageload_f(){
 
 					<h2><?php _e("Display Pop-up Video on page loading.", 'video-popup'); ?></h2>
 
+					<p><?php _e('Please read <a href="https://wp-plugins.in/note_about_on_page_load" target="_blank">this note</a> about the <strong>"On Page Load"</strong> feature.', 'video-popup'); ?></p>
+
 					<?php
                         if( isset($_GET['settings-updated']) and $_GET['settings-updated'] == 'true' ){
                         	$style = "none";
@@ -280,24 +282,56 @@ add_action('template_redirect', 'video_popup_on_pageload');
 
 
 function video_popup_on_pageload_html(){
-	if( is_single() or is_page() ){
-		global $post;
-		$get_id = $post->ID;
-		$ajax_link = home_url("/?p=$get_id&vp_on_pageload=t");
-	}else{
-		$ajax_link = "?vp_on_pageload=t";
-	}
-	?>
-		<script type="text/javascript">
-			jQuery(document).ready(function(){
-        		jQuery('.vp-on-pageload-wrap').load("<?php echo $ajax_link; ?>");
-			});
-		</script>
 
-		<div class="YouTubePopUp-Wrap videoPopup-on-pageload" style="display: none;">
-			<div class="Video-PopUp-Content vp-on-pageload-wrap"></div>
-		</div>
-	<?php
+	if( get_option('vp_al_op_video_url') ){
+
+		if( is_single() or is_page() ){
+			global $post;
+			$get_id = $post->ID;
+			$ajax_link = home_url("/?p=$get_id&vp_on_pageload=t");
+		}else{
+			$ajax_link = "?vp_on_pageload=t";
+		}
+
+		if( get_option('vp_al_op_display_custom') ){
+			$id = get_option('vp_al_op_display_custom');
+
+			if( is_single($id) ){
+				$single = is_single($id);
+			}else{
+				$single = false;
+			}
+
+			if( is_page($id) ){
+				$page = is_page($id);
+			}else{
+				$page = false;
+			}
+		}
+
+		if(
+			get_option( 'vp_al_op_display' ) == 'entire'
+			or get_option( 'vp_al_op_display' ) == 'homepage' and is_home()
+			or get_option( 'vp_al_op_display' ) == 'frontpage' and is_front_page()
+			or get_option( 'vp_al_op_display' ) == 'custom' and ( $single === true or $page === true )
+			){
+
+				?>
+				<script type="text/javascript">
+					jQuery(document).ready(function(){
+        				jQuery('.vp-on-pageload-wrap').load("<?php echo $ajax_link; ?>");
+					});
+				</script>
+
+				<div class="YouTubePopUp-Wrap videoPopup-on-pageload" style="display: none;">
+					<div class="Video-PopUp-Content vp-on-pageload-wrap"></div>
+				</div>
+			<?php
+
+		}
+
+	}
+
 }
 add_action('wp_footer', 'video_popup_on_pageload_html');
 

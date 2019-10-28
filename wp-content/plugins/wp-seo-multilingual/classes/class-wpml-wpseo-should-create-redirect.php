@@ -10,6 +10,9 @@ class WPML_WPSEO_Should_Create_Redirect implements IWPML_Action {
 	/** @var string */
 	private $unfiltered_url;
 
+	/**
+	 * Add hooks.
+	 */
 	public function add_hooks() {
 		add_filter( 'wpseo_premium_post_redirect_slug_change', array( $this, 'dont_convert_url' ), 10, 4 );
 	}
@@ -33,12 +36,24 @@ class WPML_WPSEO_Should_Create_Redirect implements IWPML_Action {
 		return $result;
 	}
 
+	/**
+	 * Keep the unfiltered URL to use later.
+	 *
+	 * @param string $url
+	 * @return string
+	 */
 	public function save_unfiltered_url( $url ) {
 		$this->unfiltered_url = $url;
 
 		return $url;
 	}
 
+	/**
+	 * Restore the unfiltered URL.
+	 *
+	 * @param string $url
+	 * @return string
+	 */
 	public function restore_unfiltered_url( $url ) {
 		$url = $this->unfiltered_url;
 

@@ -46,7 +46,7 @@ class WPML_ST_Upgrade {
 	 * @param SitePress                            $sitepress SitePress instance.
 	 * @param WPML_ST_Upgrade_Command_Factory|null $command_factory Upgrade Command Factory instance.
 	 */
-	public function __construct( $sitepress, WPML_ST_Upgrade_Command_Factory $command_factory = null ) {
+	public function __construct( SitePress $sitepress, WPML_ST_Upgrade_Command_Factory $command_factory = null ) {
 		$this->sitepress       = $sitepress;
 		$this->string_settings = $this->sitepress->get_setting( 'st', array() );
 		$this->command_factory = $command_factory;

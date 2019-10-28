@@ -2,10 +2,10 @@
 /**
  * Plugin Name: WPML Translation Management
  * Plugin URI: https://wpml.org/
- * Description: Add a complete translation process for WPML | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/translation-management-2-8-8/">WPML Translation Management 2.8.8 release notes</a>
+ * Description: Add a complete translation process for WPML | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/translation-management-2-9-0/">WPML Translation Management 2.9.0 release notes</a>
  * Author: OnTheGoSystems
  * Author URI: http://www.onthegosystems.com/
- * Version: 2.8.8
+ * Version: 2.9.0
  * Plugin Slug: wpml-translation-management
  *
  * @package WPML\TM
@@ -15,7 +15,7 @@ if ( defined( 'WPML_TM_VERSION' ) || get_option( '_wpml_inactive' ) ) {
 	return;
 }
 
-define( 'WPML_TM_VERSION', '2.8.8' );
+define( 'WPML_TM_VERSION', '2.9.0' );
 
 // Do not uncomment the following line!
 // If you need to use this constant, use it in the wp-config.php file
@@ -60,7 +60,6 @@ function wpml_tm_load( $sitepress = null ) {
 	\WPML\Container\share( \WPML\TM\Container\Config::getSharedClasses() );
 	\WPML\Container\delegate( \WPML\TM\Container\Config::getDelegated() );
 
-	require_once WPML_TM_PATH . '/menu/basket-tab/sitepress-table-basket.class.php';
 	require_once WPML_TM_PATH . '/menu/dashboard/wpml-tm-dashboard.class.php';
 	require_once WPML_TM_PATH . '/menu/wpml-tm-menus.class.php';
 
@@ -146,6 +145,7 @@ function wpml_tm_load( $sitepress = null ) {
 		'WPML_TM_Post_Edit_TM_Editor_Select_Factory',
 		'WPML_TM_Translation_Jobs_Fix_Summary_Factory',
 		'WPML_TM_Troubleshooting_Fix_Translation_Jobs_TP_ID_Factory',
+		\WPML\TM\Troubleshooting\SynchronizeSourceIdOfATEJobs\TriggerSynchronization::class,
 		'WPML_TM_Reset_Options_Filter_Factory',
 	);
 	$action_filter_loader->load( $actions );

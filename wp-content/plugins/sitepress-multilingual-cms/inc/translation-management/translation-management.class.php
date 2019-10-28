@@ -1195,7 +1195,7 @@ class TranslationManagement {
 		/**
 		 * Allows to filter the translation batch
 		 *
-		 * @since 4.2.8
+		 * @since 4.3.0
 		 *
 		 * @param \WPML_TM_Translation_Batch $batch
 		 */
@@ -1545,12 +1545,11 @@ class TranslationManagement {
 	}
 
 	/**
-	 * @param int    $trid
-	 * @param string $language_code
+	 * @param int $trid
 	 *
 	 * @return array
 	 */
-	private function get_translation_job_info( $trid, $language_code ) {
+	private function get_translation_job_info( $trid ) {
 		global $wpdb;
 
 		$found    = false;
@@ -1590,7 +1589,7 @@ class TranslationManagement {
 	 * @return int|null
 	 */
 	public function get_translation_job_id( $trid, $language_code ) {
-		$job_info = $this->get_translation_job_info( $trid, $language_code );
+		$job_info = $this->get_translation_job_info( $trid );
 
 		return isset( $job_info[ $language_code ] ) ? $job_info[ $language_code ]['job_id'] : null;
 	}
@@ -1602,7 +1601,7 @@ class TranslationManagement {
 	 * @return string|null
 	 */
 	public function get_translation_job_editor( $trid, $language_code ) {
-		$job_info = $this->get_translation_job_info( $trid, $language_code );
+		$job_info = $this->get_translation_job_info( $trid );
 
 		return isset( $job_info[ $language_code ] ) ? $job_info[ $language_code ]['editor'] : null;
 	}

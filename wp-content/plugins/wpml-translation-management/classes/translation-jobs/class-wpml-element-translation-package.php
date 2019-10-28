@@ -207,7 +207,8 @@ class WPML_Element_Translation_Package extends WPML_Translation_Job_Helper {
 						$field_translation = str_replace( '&#0A;', "\n", $field_translation );
 						// always decode html entities  eg decode &amp; to &.
 						$field_translation = html_entity_decode( $field_translation );
-						$meta_keys         = explode( '-', preg_replace( '#' . $field_name . '-?#', '', $field_id_string ) );
+						$field_id_string   = $this->remove_field_name_from_start( $field_name, $field_id_string );
+						$meta_keys         = explode( '-', $field_id_string );
 						$meta_keys         = array_map( array( 'WPML_TM_Field_Type_Encoding', 'decode_hyphen' ), $meta_keys );
 						$field_names       = $this->insert_under_keys(
 							array_merge( array( $field_name ), $meta_keys ), $field_names, $field_translation
@@ -218,6 +219,17 @@ class WPML_Element_Translation_Package extends WPML_Translation_Job_Helper {
 		}
 
 		$this->save_custom_field_values( $field_names, $post_id );
+	}
+
+	/**
+	 * Remove the field from the start of the string.
+	 *
+	 * @param string $field_name The field to remove.
+	 * @param string $field_id_string The full field identifier.
+	 * @return string
+	 */
+	private function remove_field_name_from_start( $field_name, $field_id_string ) {
+		return preg_replace( '#' . $field_name . '-?#', '', $field_id_string, 1 );
 	}
 
 	/**

@@ -23,7 +23,7 @@ class WPML_Create_Post_Helper {
 	 */
 	public function insert_post( array $postarr, $lang = null, $wp_error = false ) {
 		$current_language = null;
-		$postarr          = wp_slash( $postarr );
+		$postarr          = $this->slash_and_preserve_tag_ids( $postarr );
 
 		if ( $lang ) {
 			$current_language = $this->sitepress->get_current_language();
@@ -50,4 +50,25 @@ class WPML_Create_Post_Helper {
 		return false; // We need to return false to indicate that the post is not empty
 	}
 
+	/**
+	 * We need to make sure that tag IDs are not casted into strings.
+	 * This is a side effect of https://core.trac.wordpress.org/ticket/45121
+	 * (wp_update_post() can modify post tag) for which we have
+	 * a temporary fix in `\WPML_Page_Builders_Media_Shortcodes_Update::translate`.
+	 *
+	 * @param array $postarr
+	 *
+	 * @return array
+	 */
+	private function slash_and_preserve_tag_ids( array $postarr ) {
+		if ( array_key_exists( 'tags_input', $postarr ) ) {
+			$tagIds  = array_filter( $postarr['tags_input'], 'is_int' );
+			$postarr = wp_slash( $postarr );
+			$postarr['tags_input'] = $tagIds + $postarr['tags_input'];
+		} else {
+			$postarr = wp_slash( $postarr );
+		}
+
+		return $postarr;
+	}
 }

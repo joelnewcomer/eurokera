@@ -234,11 +234,11 @@ class WPML_TM_Post_Edit_Notices {
 
 		$in_progress = false;
 
-		$wpml_element_translations = wpml_tm_load_element_translations();
-
 		$translations = $this->sitepress->get_element_translations( $post_element->get_trid(), $post_element->get_wpml_element_type() );
 
 		if( $translations ){
+
+			$wpml_element_translations = wpml_tm_load_element_translations();
 
 			foreach( $translations as $translation ){
 

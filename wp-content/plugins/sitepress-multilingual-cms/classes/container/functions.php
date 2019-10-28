@@ -14,7 +14,7 @@ if( ! function_exists( 'make' ) ) {
 	 */
 
 	function make( $class_name, array $args = array() ) {
-		if ( class_exists( $class_name ) ) {
+		if ( class_exists( $class_name ) || interface_exists( $class_name ) ) {
 			return Container::make( $class_name, $args );
 		}
 

@@ -25,6 +25,9 @@ class WPML_WPSEO_Filters implements IWPML_Action {
 		$this->canonicals = $canonicals;
 	}
 
+	/**
+	 * Add hooks.
+	 */
 	public function add_hooks() {
 		add_filter( 'wpml_translatable_user_meta_fields', array( $this, 'translatable_user_meta_fields_filter' ) );
 		add_action( 'wpml_before_make_duplicate', array( $this, 'before_make_duplicate_action' ) );

@@ -177,8 +177,8 @@ class WPML_Translation_Editor_UI {
 
 		if ( $has_gutenberg_block ) {
 			echo '<div class="notice notice-info">
-					<p>' . esc_html__( 'This content came from the Gutenberg editor and you need to translate it carefully so that formatting in not broken.', 'wpml-translation-management' ) . '</p>
-					<p><a href="https://wpml.org/documentation/getting-started-guide/translating-content-created-using-gutenberg-editor/?utm_source=wpmlplugin&utm_campaign=gutenberg&utm_medium=translation-editor&utm_term=translating-content-created-using-gutenberg-editor" class="wpml-external-link" target="_blank" rel="noopener">' . esc_html__( 'Learn how to translate content that comes from Gutenberg', 'wpml-translation-management' ) . '</a></p>
+					<p>' . esc_html__( 'This content came from the Block editor and you need to translate it carefully so that formatting in not broken.', 'wpml-translation-management' ) . '</p>
+					<p><a href="https://wpml.org/documentation/getting-started-guide/translating-content-created-using-gutenberg-editor/?utm_source=wpmlplugin&utm_campaign=gutenberg&utm_medium=translation-editor&utm_term=translating-content-created-using-gutenberg-editor" class="wpml-external-link" target="_blank" rel="noopener">' . esc_html__( 'Learn how to translate content that comes from Block editor', 'wpml-translation-management' ) . '</a></p>
 				</div>';
 		}
 	}

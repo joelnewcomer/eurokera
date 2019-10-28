@@ -24,9 +24,8 @@ class WPML_TM_Rest_Jobs_Criteria_Parser {
 	 * @return WPML_TM_Jobs_Search_Params
 	 */
 	private function set_scope( WPML_TM_Jobs_Search_Params $params, WP_REST_Request $request ) {
-		$valid_scope = array( WPML_TM_Jobs_Search_Params::SCOPE_LOCAL, WPML_TM_Jobs_Search_Params::SCOPE_REMOTE );
-		$scope       = $request->get_param( 'scope' );
-		if ( in_array( $scope, $valid_scope, true ) ) {
+		$scope = $request->get_param( 'scope' );
+		if ( WPML_TM_Jobs_Search_Params::is_valid_scope( $scope ) ) {
 			$params->set_scope( $scope );
 		}
 
@@ -54,16 +53,14 @@ class WPML_TM_Rest_Jobs_Criteria_Parser {
 	}
 
 	private function set_filters( WPML_TM_Jobs_Search_Params $params, WP_REST_Request $request ) {
-		$single_values = array( 'source_language', 'translated_by' );
-		foreach ( $single_values as $key ) {
+		foreach ( ['source_language', 'translated_by'] as $key ) {
 			$value = (string) $request->get_param( $key );
 			if ( $value ) {
 				$params->{'set_' . $key}( $value );
 			}
 		}
 
-		$multi_values = array( 'title', 'target_language', 'status', 'batch_name' );
-		foreach ( $multi_values as $key ) {
+		foreach ( [ 'local_job_ids', 'title', 'target_language', 'status', 'batch_name' ] as $key ) {
 			$value = (string) $request->get_param( $key );
 			if ( strlen( $value ) ) {
 				$params->{'set_' . $key}( explode( ',', $value ) );

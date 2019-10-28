@@ -37,6 +37,9 @@ class WPML_WPSEO_XML_Sitemaps_Filter implements IWPML_Action {
 		$this->back_trace         = $back_trace;
 	}
 
+	/**
+	 * Add hooks.
+	 */
 	public function add_hooks() {
 		global $wpml_query_filter;
 
@@ -99,14 +102,17 @@ class WPML_WPSEO_XML_Sitemaps_Filter implements IWPML_Action {
 		$default_lang = $this->sitepress->get_default_language();
 		$active_langs = $this->sitepress->get_active_languages();
 		unset( $active_langs[ $default_lang ] );
+		$lastmod = null;
 
 		foreach ( $active_langs as $lang_code => $lang_data ) {
 			switch ( $type ) {
 				case 'page':
-					$url = $this->get_translated_home_url( $lang_code );
+					$url     = $this->get_translated_home_url( $lang_code );
+					$lastmod = $this->get_page_lastmod( get_option( 'page_on_front' ), $lang_code );
 					break;
 				case 'post':
-					$url = $this->get_translated_page_for_posts( $lang_code );
+					$url     = $this->get_translated_page_for_posts( $lang_code );
+					$lastmod = $this->get_page_lastmod( get_option( 'page_for_posts' ), $lang_code );
 					break;
 				default:
 					$this->sitepress->switch_lang( $lang_code );
@@ -114,7 +120,7 @@ class WPML_WPSEO_XML_Sitemaps_Filter implements IWPML_Action {
 					$this->sitepress->switch_lang();
 			}
 
-			$output .= $this->sitemap_url_filter( $url );
+			$output .= $this->sitemap_url_filter( $url, $lastmod );
 		}
 
 		return $output;
@@ -137,6 +143,10 @@ class WPML_WPSEO_XML_Sitemaps_Filter implements IWPML_Action {
 		return $home_url;
 	}
 
+	/**
+	 * List sitemaps in other domains.
+	 * Only used when language URL format is 'one domain per language'.
+	 */
 	public function list_domains() {
 		$ls_languages = $this->sitepress->get_ls_languages();
 		if ( $ls_languages && $this->is_per_domain() ) {
@@ -186,10 +196,19 @@ class WPML_WPSEO_XML_Sitemaps_Filter implements IWPML_Action {
 		return WPML_LANGUAGE_NEGOTIATION_TYPE_DIRECTORY === (int) $this->sitepress->get_setting( 'language_negotiation_type' );
 	}
 
+	/**
+	 * Disable transient cache.
+	 */
 	public function transient_cache_filter() {
 		return false;
 	}
 
+	/**
+	 * Deactivate auto-adjust-ids while building the sitemap.
+	 *
+	 * @param string $type
+	 * @return string
+	 */
 	public function wpseo_build_sitemap_post_type_filter( $type ) {
 		global $sitepress_settings;
 		// Before building the sitemap and as we are on front-end make sure links aren't translated.
@@ -241,21 +260,25 @@ class WPML_WPSEO_XML_Sitemaps_Filter implements IWPML_Action {
 	/**
 	 * Convert URL to sitemap entry format.
 	 *
-	 * @param string $url URl to prepare for sitemap.
+	 * @param string $url     URl to prepare for sitemap.
+	 * @param string $lastmod The last modification date in ISO8601 format.
 	 *
 	 * @return string
 	 */
-	public function sitemap_url_filter( $url ) {
+	public function sitemap_url_filter( $url, $lastmod = null ) {
 		if ( ! $url ) {
 			return '';
 		}
 
-		$url = htmlspecialchars( $url );
+		$url = htmlspecialchars( $url, ENT_COMPAT, get_bloginfo( 'charset' ) );
 
 		$output  = "\t<url>\n";
 		$output .= "\t\t<loc>" . $url . "</loc>\n";
 		$output .= '';
 		$output .= "\t\t<changefreq>daily</changefreq>\n";
+		if ( ! empty( $lastmod ) ) {
+			$output .= "\t\t<lastmod>" . $lastmod . "</lastmod>\n";
+		}
 		$output .= "\t\t<priority>1.0</priority>\n";
 		$output .= "\t</url>\n";
 
@@ -293,6 +316,7 @@ class WPML_WPSEO_XML_Sitemaps_Filter implements IWPML_Action {
 			array( 'WPSEO_Post_Type_Sitemap_Provider', 'get_classifier' ),
 			array( 'WPSEO_Sitemaps_Router', 'get_base_url' ),
 			array( 'WPSEO_Sitemaps_Renderer', '__construct' ),
+			array( 'WPSEO_Redirect_Accessible_Validation', 'parse_target' ),
 		);
 
 		foreach ( $places as $place ) {
@@ -319,9 +343,7 @@ class WPML_WPSEO_XML_Sitemaps_Filter implements IWPML_Action {
 	 * Figure out which sitemap we are working with by looking at the current filter.
 	 */
 	private function get_sitemap_type() {
-		global $wp_current_filter;
-
-		return substr( substr( end( $wp_current_filter ), strlen( self::FILTER_PREFIX ) ), 0, -strlen( self::FILTER_SUFFIX ) );
+		return substr( substr( current_filter(), strlen( self::FILTER_PREFIX ) ), 0, -strlen( self::FILTER_SUFFIX ) );
 	}
 
 	/**
@@ -331,6 +353,23 @@ class WPML_WPSEO_XML_Sitemaps_Filter implements IWPML_Action {
 	 */
 	private function get_translated_home_url( $lang_code ) {
 		return $this->wpml_url_converter->convert_url( home_url(), $lang_code );
+	}
+
+	/**
+	 * Get the last modification of a page in a certain language.
+	 * Returns null if it doesn't exist.
+	 *
+	 * @param int    $page_id
+	 * @param string $lang_code
+	 * @return string
+	 */
+	private function get_page_lastmod( $page_id, $lang_code ) {
+		if ( 'page' === get_option( 'show_on_front' ) ) {
+			$page_id = $this->sitepress->get_object_id( $page_id, 'page', true, $lang_code );
+			return get_the_modified_time( 'c', $page_id );
+		}
+
+		return null;
 	}
 
 	/**

@@ -21,7 +21,7 @@ class WPML_Requirements {
 			'name'    => 'WPML Translation Management',
 		),
 		'woocommerce-multilingual'    => array(
-			'version' => '4.6.6',
+			'version' => '4.7.0',
 			'name'    => 'WooCommerce Multilingual',
 			'url'     => 'https://wpml.org/download/woocommerce-multilingual/',
 		),

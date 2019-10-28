@@ -270,6 +270,7 @@ class WPML_Post_Duplication extends WPML_WPDB_And_SP_User {
 																								 $master_post_id ) );
 		$this->wpdb->query( "DELETE " . $this->wpdb->prepare( $from_where_string, $duplicate_post_id ) );
 
+		$values = [];
 		foreach ( $post_meta_master as $post_meta ) {
 			$is_serialized = is_serialized( $post_meta->meta_value );
 			$meta_data     = array(
@@ -297,13 +298,21 @@ class WPML_Post_Duplication extends WPML_WPDB_And_SP_User {
 			if ( ! is_serialized( $post_meta->meta_value ) ) {
 				$post_meta->meta_value = maybe_serialize( $post_meta->meta_value );
 			}
-			$this->wpdb->insert( $this->wpdb->postmeta,
-						   array(
-							   'post_id'    => $duplicate_post_id,
-							   'meta_key'   => $post_meta->meta_key,
-							   'meta_value' => $post_meta->meta_value
-						   ),
-						   array( '%d', '%s', '%s' ) );
+
+			$values[] = $this->wpdb->prepare(
+				'( %d, %s, %s )',
+				$duplicate_post_id,
+				$post_meta->meta_key,
+				$post_meta->meta_value
+			);
+		}
+
+		if ( ! empty( $values ) ) {
+			$values = implode( ', ', $values );
+			$this->wpdb->query(
+			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+				"INSERT INTO `{$this->wpdb->postmeta}` (`post_id`, `meta_key`, `meta_value`) VALUES {$values}"
+				);
 		}
 
 		return true;
