@@ -18,7 +18,7 @@ class WPML_WPSEO_Categories implements IWPML_Action {
 	 * @return bool
 	 */
 	private function is_stripping_category_base() {
-		$option = get_option( 'wpseo_titles' );
+		$option = (array) get_option( 'wpseo_titles' );
 
 		return array_key_exists( 'stripcategorybase', $option ) && $option['stripcategorybase'];
 	}

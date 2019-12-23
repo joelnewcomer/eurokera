@@ -27,14 +27,7 @@ class ProcessFactory {
 	 * @throws \Auryn\InjectionException
 	 */
 	public function create() {
-		$singleSiteProcess = make(
-			SingleSiteProcess::class,
-			[
-				':pager'             => new Pager( self::FILES_PAGER, self::FILES_PAGE_SIZE ),
-				':manager'           => ManagerFactory::create(),
-				':migrateAdminTexts' => \WPML_Admin_Texts::get_migrator(),
-			]
-		);
+		$singleSiteProcess = self::createSingle();
 
 		if ( $this->multiSiteCondition->shouldRunWithAllSites() ) {
 			return make( MultiSiteProcess::class,
@@ -45,4 +38,33 @@ class ProcessFactory {
 		}
 	}
 
+	/**
+	 * @param bool $isBackgroundProcess
+	 *
+	 * @return SingleSiteProcess
+	 * @throws \Auryn\InjectionException
+	 */
+	public static function createSingle( $isBackgroundProcess = false ) {
+		return make(
+			SingleSiteProcess::class,
+			[
+				':pager'             => new Pager( self::FILES_PAGER, self::FILES_PAGE_SIZE ),
+				':manager'           => ManagerFactory::create(),
+				':migrateAdminTexts' => \WPML_Admin_Texts::get_migrator(),
+				':status'            => self::createStatus( $isBackgroundProcess ),
+			]
+		);
+	}
+
+	/**
+	 * @param bool $isBackgroundProcess
+	 *
+	 * @return mixed|\Mockery\MockInterface|Status
+	 * @throws \Auryn\InjectionException
+	 */
+	public static function createStatus( $isBackgroundProcess = false ) {
+		return make( Status::class, [
+			':optionPrefix' => $isBackgroundProcess ? Status::class . '_background' : null
+		] );
+	}
 }

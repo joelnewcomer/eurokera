@@ -812,6 +812,13 @@ function wpml_is_rest_request() {
 	return make( WPML_REST_Request_Analyze::class )->is_rest_request();
 }
 
+/**
+ * @return bool
+ */
+function wpml_is_rest_enabled() {
+	return make( \WPML\Core\REST\Status::class )->isEnabled();
+}
+
 function wpml_is_cli() {
 	return defined( 'WP_CLI' ) && WP_CLI;
 }

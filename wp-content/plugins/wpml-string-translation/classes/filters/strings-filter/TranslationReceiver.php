@@ -31,7 +31,7 @@ class TranslationReceiver {
 		}
 
 		if ( ! $record['translation'] ) {
-			return new TranslationEntity( $string->getValue(), false, true );
+			return new TranslationEntity( $record['value'], false, true );
 		}
 
 		return new TranslationEntity( $record['translation'], true, true );

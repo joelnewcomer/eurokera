@@ -6,7 +6,8 @@ class Config {
 
 	static public function getDelegated() {
 		return [
-			'\WPML_Translation_Job_Factory' => 'wpml_tm_load_job_factory',
+			'\WPML_Translation_Job_Factory'    => 'wpml_tm_load_job_factory',
+			\WPML_TM_ATE_Job_Repository::class => 'wpml_tm_get_ate_jobs_repository',
 		];
 	}
 
@@ -27,6 +28,7 @@ class Config {
 			'\WPML_TM_REST_AMS_Clients',
 			'\WPML_TM_AMS_Check_Website_ID',
 			'\WPML_Translation_Job_Factory',
+			\WPML\TM\ATE\Log\Storage::class,
 		];
 	}
 }

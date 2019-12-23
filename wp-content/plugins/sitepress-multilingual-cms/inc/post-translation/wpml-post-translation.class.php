@@ -399,4 +399,17 @@ abstract class WPML_Post_Translation extends WPML_Element_Translation {
 			wp_defer_term_counting( true );
 		}
 	}
+
+	/**
+	 * @return self|WPML_Frontend_Post_Actions|WPML_Admin_Post_Actions
+	 */
+	public static function getGlobalInstance() {
+		global $wpml_post_translations, $sitepress;
+
+		if ( ! isset( $wpml_post_translations ) ) {
+			wpml_load_post_translation( is_admin(), $sitepress->get_settings() );
+		}
+
+		return $wpml_post_translations;
+	}
 }

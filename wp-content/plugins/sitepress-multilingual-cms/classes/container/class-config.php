@@ -44,6 +44,8 @@ class Config {
 			\WPML_REST_Request_Analyze::class => [ \WPML_REST_Request_Analyze_Factory::class, 'create' ],
 			\WP_Filesystem_Direct::class      => 'wpml_get_filesystem_direct',
 			\WPML_Locale::class               => [ \WPML_Locale::class, 'get_instance_from_sitepress' ],
+			\WPML_Post_Translation::class     => [ \WPML_Post_Translation::class, 'getGlobalInstance' ],
+			\WPML_Term_Translation::class     => [ \WPML_Term_Translation::class, 'getGlobalInstance' ],
 		];
 	}
 }

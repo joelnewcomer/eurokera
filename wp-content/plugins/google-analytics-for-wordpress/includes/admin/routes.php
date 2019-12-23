@@ -289,9 +289,37 @@ class MonsterInsights_Rest_Routes {
 			'icon'      => plugin_dir_url( MONSTERINSIGHTS_PLUGIN_FILE ) . 'assets/images/plugin-smtp.png',
 			'title'     => 'WP Mail SMTP',
 			'excerpt'   => __( 'SMTP (Simple Mail Transfer Protocol) is an industry standard for sending emails. SMTP helps increase email deliverability by using proper authentication', 'google-analytics-for-wordpress' ),
-			'installed' => array_key_exists( 'optinmonster/optin-monster-wp-api.php', $installed_plugins ),
+			'installed' => array_key_exists( 'wp-mail-smtp/wp_mail_smtp.php', $installed_plugins ),
 			'basename'  => 'wp-mail-smtp/wp_mail_smtp.php',
 			'slug'      => 'wp-mail-smtp',
+		);
+		// SeedProd.
+		$parsed_addons['coming-soon'] = array(
+			'active'    => function_exists( 'seed_csp4_activation' ),
+			'icon'      => plugin_dir_url( MONSTERINSIGHTS_PLUGIN_FILE ) . 'assets/images/seedprod.png',
+			'title'     => 'SeedProd',
+			'excerpt'   => __( 'Better Coming Soon & Maintenance Mode Pages', 'google-analytics-for-wordpress' ),
+			'installed' => array_key_exists( 'coming-soon/coming-soon.php', $installed_plugins ),
+			'basename'  => 'coming-soon/coming-soon.php',
+			'slug'      => 'coming-soon',
+		);
+		$parsed_addons['rafflepress'] = array(
+			'active'    => function_exists( 'rafflepress_lite_activation' ),
+			'icon'      => plugin_dir_url( MONSTERINSIGHTS_PLUGIN_FILE ) . 'assets/images/rafflepress.png',
+			'title'     => 'RafflePress',
+			'excerpt'   => __( 'Get More Traffic with Viral Giveaways', 'google-analytics-for-wordpress' ),
+			'installed' => array_key_exists( 'rafflepress/rafflepress.php', $installed_plugins ),
+			'basename'  => 'rafflepress/rafflepress.php',
+			'slug'      => 'rafflepress',
+		);
+		$parsed_addons['trustpulse-api'] = array(
+			'active'    => class_exists( 'TPAPI' ),
+			'icon'      => plugin_dir_url( MONSTERINSIGHTS_PLUGIN_FILE ) . 'assets/images/trustpulse.png',
+			'title'     => 'TrustPulse',
+			'excerpt'   => __( 'Social Proof Notifications that Boost Sales', 'google-analytics-for-wordpress' ),
+			'installed' => array_key_exists( 'trustpulse-api/trustpulse.php', $installed_plugins ),
+			'basename'  => 'trustpulse-api/trustpulse.php',
+			'slug'      => 'trustpulse-api',
 		);
 		// Gravity Forms.
 		$parsed_addons['gravity_forms'] = array(
@@ -372,12 +400,12 @@ class MonsterInsights_Rest_Routes {
 			return;
 		}
 
-		$manual_ua_code     = isset( $_POST['manual_ua_code'] ) ? sanitize_text_field( wp_unslash( $_POST['manual_ua_code'] ) ) : '';
-		$manual_ua_code     = monsterinsights_is_valid_ua( $manual_ua_code ); // Also sanitizes the string.
-		$manual_ua_code_old = MonsterInsights()->auth->get_manual_ua();
+		$manual_ua_code = isset( $_POST['manual_ua_code'] ) ? sanitize_text_field( wp_unslash( $_POST['manual_ua_code'] ) ) : '';
+		$manual_ua_code = monsterinsights_is_valid_ua( $manual_ua_code ); // Also sanitizes the string.
 		if ( ! empty( $_REQUEST['isnetwork'] ) && sanitize_text_field( wp_unslash( $_REQUEST['isnetwork'] ) ) ) {
 			define( 'WP_NETWORK_ADMIN', true );
 		}
+		$manual_ua_code_old = is_network_admin() ? MonsterInsights()->auth->get_network_manual_ua() : MonsterInsights()->auth->get_manual_ua();
 
 		if ( $manual_ua_code && $manual_ua_code_old && $manual_ua_code_old === $manual_ua_code ) {
 			// Same code we had before
@@ -533,12 +561,14 @@ class MonsterInsights_Rest_Routes {
 		$report = MonsterInsights()->reporting->get_report( $report_name );
 
 		$isnetwork = ! empty( $_REQUEST['isnetwork'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['isnetwork'] ) ) : '';
-		$start     = ! empty( $_POST['start'] ) ? sanitize_text_field( wp_unslash( $_POST['start'] ) ) : '';
-		$end       = ! empty( $_POST['end'] ) ? sanitize_text_field( wp_unslash( $_POST['end'] ) ) : '';
+		$start     = ! empty( $_POST['start'] ) ? sanitize_text_field( wp_unslash( $_POST['start'] ) ) : date( 'Y-m-d', strtotime( '-30 days' ) );
+		$end       = ! empty( $_POST['end'] ) ? sanitize_text_field( wp_unslash( $_POST['end'] ) ) : date( 'Y-m-d', strtotime( '-1 day' ) );
+
 		$args      = array(
 			'start' => $start,
 			'end'   => $end,
 		);
+
 		if ( $isnetwork ) {
 			$args['network'] = true;
 		}

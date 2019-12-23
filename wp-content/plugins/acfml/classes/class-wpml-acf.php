@@ -43,6 +43,7 @@ class WPML_ACF {
 	}
 
 	public function wpml_loaded() {
+		$this->init_field_groups();
 		$this->init_acf_xliff();
 		$this->init_acf_pro();
 		$this->init_acf_field_annotations();
@@ -117,7 +118,13 @@ class WPML_ACF {
 	}
 
 	private function init_acf_field_settings() {
-		$this->dependencies_factory->create_field_settings();
+		$wpml_acf_field_settings = $this->dependencies_factory->create_field_settings();
+		$wpml_acf_field_settings->add_hooks();
+	}
+
+	private function init_field_groups() {
+		$WPML_ACF_Field_Groups = $this->dependencies_factory->create_field_groups();
+		$WPML_ACF_Field_Groups->register_hooks();
 	}
 
 	/**

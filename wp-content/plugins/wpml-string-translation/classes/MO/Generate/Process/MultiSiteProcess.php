@@ -87,6 +87,14 @@ class MultiSiteProcess implements Process {
 		return $this->multiSiteExecutor->getSiteIds()->count();
 	}
 
+	/**
+	 * @return bool
+	 */
+	public function isCompleted() {
+		return $this->getPagesCount() === 0;
+	}
+
+
 	private function runIfSetupComplete( $callback ) {
 		return function () use ( $callback ) {
 			if ( $this->subSiteValidator->isValid() ) {

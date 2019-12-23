@@ -69,6 +69,10 @@ class WPML_TM_Upgrade_Loader implements IWPML_Action {
 				WPML\TM\Upgrade\Commands\SynchronizeSourceIdOfATEJobs\Command::class,
 				[], [ 'admin' ], null,
 				[ new WPML\TM\Upgrade\Commands\SynchronizeSourceIdOfATEJobs\CommandFactory(), 'create' ]
+				),
+			$this->factory->create_command_definition(
+				WPML\TM\Upgrade\Commands\CreateAteDownloadQueueTable::class,
+				[ $this->upgrade_schema ], [ 'admin' ]
 			),
 		);
 

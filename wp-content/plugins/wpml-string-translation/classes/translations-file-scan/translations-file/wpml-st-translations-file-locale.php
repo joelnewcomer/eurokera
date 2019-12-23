@@ -2,8 +2,8 @@
 
 class WPML_ST_Translations_File_Locale {
 
-	const PATTERN_SEARCH_LANG_MO   = '#[-]?([a-z]+_?[A-Z]*)\.mo$#i';
-	const PATTERN_SEARCH_LANG_JSON = '#DOMAIN_PLACEHOLDER([a-z]+[_A-Z]*)-[-_a-z0-9]+\.json$#i';
+	const PATTERN_SEARCH_LANG_MO   = '#[-]?([a-z0-9]+_?[A-Z]*)\.mo$#i';
+	const PATTERN_SEARCH_LANG_JSON = '#DOMAIN_PLACEHOLDER([a-z0-9]+[_A-Z]*)-[-_a-z0-9]+\.json$#i';
 
 	/** @var string $filepath */
 	private $filepath;
@@ -62,7 +62,7 @@ class WPML_ST_Translations_File_Locale {
 			return $matches[1];
 		}
 
-		throw new RuntimeException( 'Language of ' . $this->filepath. ' cannot be recognized' );
+		return '';
 	}
 
 	/** @return string|null */

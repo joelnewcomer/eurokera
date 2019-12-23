@@ -47,11 +47,11 @@ class WPML_URL_Converter_Subdir_Strategy extends WPML_URL_Converter_Abstract_Str
 			return $lang;
 		}
 		
-		return $this->is_use_directory_for_default_lang_enabled() ? null : $this->default_language;
+		return $this->use_directory_for_default_lang ? null : $this->default_language;
 	}
 
 	public function validate_language( $language, $url ) {
-		if ( ! ( null === $language && $this->is_use_directory_for_default_lang_enabled() && ! $this->get_url_helper()->is_url_admin( $url ) ) ) {
+		if ( ! ( null === $language && $this->use_directory_for_default_lang && ! $this->get_url_helper()->is_url_admin( $url ) ) ) {
 			$language = parent::validate_language( $language, $url );
 		}
 
@@ -173,17 +173,6 @@ class WPML_URL_Converter_Subdir_Strategy extends WPML_URL_Converter_Abstract_Str
 	}
 
 	/**
-	 * @return bool
-	 */
-	public function is_use_directory_for_default_lang_enabled() {
-		if ( $this->is_rest_request === null ) {
-			$this->is_rest_request = wpml_is_rest_request();
-		}
-
-		return $this->use_directory_for_default_lang && ! $this->is_rest_request;
-	}
-
-	/**
 	 * @param $url
 	 *
 	 * @return string
@@ -226,7 +215,7 @@ class WPML_URL_Converter_Subdir_Strategy extends WPML_URL_Converter_Abstract_Str
 	 * @return string|null
 	 */
 	private function get_language_of_current_dir( $language_code, $value_if_default_language = null ) {
-		if ( ! $this->is_use_directory_for_default_lang_enabled() && $language_code === $this->default_language ) {
+		if ( ! $this->use_directory_for_default_lang && $language_code === $this->default_language ) {
 			return $value_if_default_language;
 		}
 

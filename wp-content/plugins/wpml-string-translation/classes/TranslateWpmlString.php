@@ -72,31 +72,64 @@ class TranslateWpmlString {
 
 		if ( wpml_st_is_requested_blog() ) {
 
-			list ( $domain, $gettextContext ) = wpml_st_extract_context_parameters( $wpmlContext );
-
 			if ( $this->isAutoRegisterDisabled && self::canTranslateWithMO( $value, $name ) ) {
-				$customContext = self::getCustomContext( $name, $gettextContext );
-				$new_value = $this->withMOLocale( $targetLang, function( $locale ) use ( $value, $customContext, $domain ) {
-					$this->loadTextDomain( $domain, $locale );
-					return _x( $value, $customContext, $domain );
-				});
-				$hasTranslation = $new_value !== $value;
-				$value          = $new_value;
-
+				$value = $this->translateByMOFile( $wpmlContext, $name, $value, $hasTranslation, $targetLang );
 			} else {
-				$filter = $this->filterProvider->getFilter( $targetLang, $name );
-
-				if ( $filter ) {
-					$new_value = $filter->translate_by_name_and_context( $value, $name, $wpmlContext, $hasTranslation );
-
-					if ( $hasTranslation ) {
-						$value = $new_value;
-					}
-				}
+				$value = $this->translateByDBQuery( $wpmlContext, $name, $value, $hasTranslation, $targetLang );
 			}
 		}
 
 		$this->lock = false;
+
+		return $value;
+	}
+
+	/**
+	 * @param string|array $wpmlContext
+	 * @param string       $name
+	 * @param bool         $value
+	 * @param null|bool    $hasTranslation
+	 * @param null|string  $targetLang
+	 *
+	 * @return string
+	 */
+	private function translateByMOFile( $wpmlContext, $name, $value, &$hasTranslation, $targetLang ) {
+		list ( $domain, $gettextContext ) = wpml_st_extract_context_parameters( $wpmlContext );
+
+		$translateByName = function ( $locale ) use ( $name, $domain, $gettextContext ) {
+			$this->loadTextDomain( $domain, $locale );
+
+			if ( $gettextContext ) {
+				return _x( $name, $gettextContext, $domain );
+			} else {
+				return __( $name, $domain );
+			}
+		} ;
+
+		$new_value      = $this->withMOLocale( $targetLang, $translateByName );
+		$hasTranslation = $new_value !== $name;
+		if ( $hasTranslation ) {
+			$value = $new_value;
+		}
+
+		return $value;
+	}
+
+	/**
+	 * @param string|array $wpmlContext
+	 * @param string       $name
+	 * @param bool         $value
+	 * @param null|bool    $hasTranslation
+	 * @param null|string  $targetLang
+	 *
+	 * @return string
+	 */
+	private function translateByDBQuery( $wpmlContext, $name, $value, &$hasTranslation, $targetLang ) {
+		$filter = $this->filterProvider->getFilter( $targetLang, $name );
+
+		if ( $filter ) {
+			$value = $filter->translate_by_name_and_context( $value, $name, $wpmlContext, $hasTranslation );
+		}
 
 		return $value;
 	}
@@ -139,16 +172,6 @@ class TranslateWpmlString {
 		}
 
 		return $result;
-	}
-
-	/**
-	 * @param string $name
-	 * @param string $gettextContext
-	 *
-	 * @return string
-	 */
-	public static function getCustomContext( $name, $gettextContext ) {
-		return 'wpml#' . $name . '#' . $gettextContext;
 	}
 
 	/**

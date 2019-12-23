@@ -192,11 +192,12 @@ class WPML_TM_AMS_ATE_Console_Section implements IWPML_TM_Admin_Section {
 			'status'       => esc_js( $registration_data['status'] ),
 			'tm_email'     => esc_js( wp_get_current_user()->user_email ),
 			'website_uuid' => esc_js( $this->auth->get_site_id() ),
+			'site_key'     => esc_js( WP_Installer()->get_site_key( 'wpml' ) ),
 			'tab'          => self::TAB_SELECTOR,
 			'container'    => self::CONTAINER_SELECTOR,
 			'post_types'   => $this->get_post_types_data(),
 			'ui_language'  => esc_js( $this->get_user_admin_language() ),
-			'restNonce' => wp_create_nonce( 'wp_rest' ),
+			'restNonce'    => wp_create_nonce( 'wp_rest' ),
 		];
 
 		wp_add_inline_script( self::ATE_APP_ID, 'LoadEateWidget(' . wp_json_encode( $app_constructor, JSON_PRETTY_PRINT ) . ');', 'after' );

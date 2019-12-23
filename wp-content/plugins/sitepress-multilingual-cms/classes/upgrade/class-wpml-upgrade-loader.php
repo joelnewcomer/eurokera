@@ -9,6 +9,7 @@ use WPML\Upgrade\Commands\AddContextIndexToStrings;
 use WPML\Upgrade\Commands\AddStatusIndexToStringTranslations;
 use WPML\Upgrade\Commands\AddStringPackageIdIndexToStrings;
 use WPML\Upgrade\Command\DisableOptionsAutoloading;
+use WPML\Upgrade\Commands\RemoveRestDisabledNotice;
 
 /**
  * Class WPML_Upgrade_Loader
@@ -112,6 +113,7 @@ class WPML_Upgrade_Loader implements IWPML_Action {
 			$this->factory->create_command_definition( AddStatusIndexToStringTranslations::class, array( $this->upgrade_schema ), array( 'admin', 'ajax', 'front-end' ) ),
 			$this->factory->create_command_definition( AddStringPackageIdIndexToStrings::class, array( $this->upgrade_schema ), array( 'admin', 'ajax', 'front-end' ) ),
 			$this->factory->create_command_definition( DisableOptionsAutoloading::class, [], [ 'admin' ] ),
+			$this->factory->create_command_definition( RemoveRestDisabledNotice::class, [], [ 'admin' ] ),
 		];
 
 		$upgrade = new WPML_Upgrade( $commands, $this->sitepress, $this->factory );

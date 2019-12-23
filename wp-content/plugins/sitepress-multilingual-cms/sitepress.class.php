@@ -1295,15 +1295,13 @@ class SitePress extends WPML_WPDB_User implements
 	}
 
 	function backend_js( $setup_complete = true ) {
-		if ( defined( 'ICL_DONT_LOAD_LANGUAGES_JS' ) && ICL_DONT_LOAD_LANGUAGES_JS ) {
-			return;
-		}
 		wp_register_script( 'sitepress', ICL_PLUGIN_URL . '/res/js/sitepress.js', false );
 		wp_enqueue_script( 'sitepress' );
 
 		$vars = [
-			'restUrl'   => untrailingslashit( rest_url() ),
-			'restNonce' => wp_create_nonce( 'wp_rest' ),
+			'restUrl'        => untrailingslashit( rest_url() ),
+			'restNonce'      => wp_create_nonce( 'wp_rest' ),
+			'loadLanguageJs' => ! ( defined( 'ICL_DONT_LOAD_LANGUAGES_JS' ) && ICL_DONT_LOAD_LANGUAGES_JS ),
 		];
 		if ( $setup_complete ) {
 			$vars = array_merge( $vars, [
@@ -3631,7 +3629,7 @@ class SitePress extends WPML_WPDB_User implements
 	}
 
 	function update_language_cookie( $language_code ) {
-$_COOKIE[ WPML_Frontend_Request::COOKIE_NAME ] = $language_code;
+		$_COOKIE[ WPML_Frontend_Request::COOKIE_NAME ] = $language_code;
 	}
 
 	function get_language_cookie() {

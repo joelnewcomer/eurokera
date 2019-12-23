@@ -57,7 +57,8 @@ class WPML_TM_Jobs_Post_Query implements WPML_TM_Jobs_Query {
 			'translation_status.ts_status AS ts_status',
 			'translation_status.needs_update AS needs_update',
 			'translate_job.editor AS editor',
-			"IF(translation_status.status = 0, ({$hasCompletedTranslationSubquery}) > 0, 1)  AS has_completed_translation"
+			"IF(translation_status.status = 0, ({$hasCompletedTranslationSubquery}) > 0, 1)  AS has_completed_translation",
+			'translate_job.editor_job_id AS editor_job_id',
 		);
 
 		return $this->build_query( $params, $columns );

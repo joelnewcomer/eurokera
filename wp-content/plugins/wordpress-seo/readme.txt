@@ -4,10 +4,10 @@ Donate link: https://yoa.st/1up
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability
-Requires at least: 4.9
-Tested up to: 5.2.4
-Stable tag: 12.3
-Requires PHP: 5.2.4
+Requires at least: 5.2
+Tested up to: 5.3
+Stable tag: 12.7.1
+Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
 
@@ -209,42 +209,63 @@ Your question has most likely been answered on our knowledge base: [kb.yoast.com
 
 == Changelog ==
 
-= 12.3.0 =
-Release Date: October 15th, 2019
-
-While some of our checks are independent of languages, Yoast SEO has special skills to adapt the various content analyses to different languages from around the world. In Yoast SEO 12.3, we’re taking the first steps to add another language to the list: Hungarian. In addition, this release features a number of enhancement and fixes. Read [our 12.3 release post](https://yoa.st/release-12-3) to find out more!
-
-Enhancements:
-
-* Adds the transition word assessment for Hungarian. Props to [@9abor](https://github.com/9abor).
-* Includes the admin bar CSS in AMP dev mode. Props to [@westonruter](https://github.com/westonruter).
-* Shows a floating `Save changes` button on Yoast SEO admin pages when the normal button is not visible in the browser window.
-* Improves user input validation feedback and suggestions for error correction.
-* Introduces a new filter `wpseo_sitemap_http_headers` which allows filtering the HTTP headers we send for XML sitemaps.
-
-Other:
-
-* Removes the notification that would be thrown if add-ons with a lower version number than the plugin were installed. The `yoast_plugin_compatibility_notification` method has been deprecated.
-
-= 12.2.0 =
-Release Date: October 1st, 2019
-
-Yoast SEO 12.2 is a release full of the regular bug fixes and enhancements, but also a new addition to meta robots. Last week, Google announced a new way to give publishers more control over what the search engine can show in the results. This change, however, seems not driven by customer demand, but rather by law. Find out what this is all about and why we chose to automatically opt sites in for this in [our 12.2 release post](https://yoa.st/release-12-2)!
-
-Enhancements:
-
-* Adds default robots meta settings to opt in to all snippet display features, to prevent affected websites in Europe from having snippet display issues.
-* Adds an alert to the configuration wizard and the knowledge graph settings that is shown when organization information is missing.
+= 12.7.1 =
+Release Date: December 12th, 2019
 
 Bugfixes:
 
-* Fixes a bug where the banners in the sidebar were no longer responsive.
+* Fixes a bug where the metabox would be broken when a relative URL was configured as `WP_CONTENT_URL`. Props to [FPCSJames](https://github.com/FPCSJames).
+
+= 12.7.0 =
+Release Date: December 10th, 2019
+
+Yoast SEO 12.7 is out today — signalling the last release of 2019. This release is all about cleaning up and fixing bugs. Since we have a two-week release schedule, we can quickly respond to any bug we might find. Find out more about this release in [our 12.7 release post](https://yoa.st/release-12-7)!
+
+Bugfixes:
+
+* Fixes a bug where sub-sitemaps were rendered for non-public custom post types. Props to [@stodorovic](https://github.com/stodorovic).
+* Fixes a bug where nested gallery images were not included in the image count in the sitemap. Props to [@stodorovic](https://github.com/stodorovic).
+* Fixes a bug where the notification center 'dismiss' and 'restore' buttons had no focus style.
 
 Other:
 
-* Changes all mentions of the Yoast SEO for WordPress training, which is now free.
-* Combines the 'Newsletter' and 'You might like' steps in the configuration wizard to a step called 'Continue learning'.
-* Removes the colon from the form labels at the settings pages.
+* Improves security by adding output escaping.
+
+= 12.6.2 =
+Release Date: November 28th, 2019
+
+Other:
+
+* Removes the Black Friday banner.
+
+= 12.6.1 =
+Release Date: November 27th, 2019
+
+Bugfixes:
+
+* Fixes a bug where a fatal error would be thrown when Yoast SEO was used in combination with another plugin or theme containing a class named `Date_Helper`.
+* Fixes a bug where a fatal error would be thrown when an empty string would be passed to the `WPSEO_Date_Helper->format` method. Props to [@mpolek](https://github.com/mpolek).
+
+= 12.6.0 =
+Release Date: November 26th, 2019
+
+In Yoast SEO 12.6, we’re activating our new beacon for help documentation. This tool helps answer the questions you might have about using Yoast SEO. It’s easy to use and very friendly. Just hit that big purple question mark and search! Other improvements in Yoast SEO 12.6 includes a number of fixes and enhancements. Find out more in [our 12.6 release post](https://yoa.st/release-12-6)!
+
+Enhancements:
+
+* Adds a description property to the schema's `WebSite` node.
+* Removes the `Site-wide default: None` and the `None` options from the `Meta robots advanced` field in the metabox.
+* Introduced a HelpScout beacon as a replacement for the Help Center.
+
+Bugfixes:
+
+* Fixes a PHP Warning when using an empty string in the OpenGraph frontend output. Props to [@ChrisThompsonTLDR](https://github.com/ChrisThompsonTLDR).
+* Fixes a bug where the time in the `article:published_time`, `article:modified_time`, and `og:updated_time` meta tag output and in the `datePublished` and `dateModified` schema output was incorrect in WordPress 5.2.
+
+Other:
+
+* Sets the minimum required WordPress version to 5.2, and the minimum PHP version to 5.6.20.
+* Adds a notification to encourage Internet Explorer 11 users to use another browser as we are no longer supporting that browser.
 
 = Earlier versions =
 For the changelog of earlier versions, please refer to [the changelog on yoast.com](https://yoa.st/yoast-seo-changelog).

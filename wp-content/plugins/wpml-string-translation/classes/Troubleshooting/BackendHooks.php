@@ -2,13 +2,21 @@
 
 namespace WPML\ST\Troubleshooting;
 
+use function WPML\Container\make;
 use WPML\ST\MO\Generate\DomainsAndLanguagesRepository;
-use WPML\ST\MO\Scan\UI\Factory;
+use WPML\ST\MO\Generate\Process\ProcessFactory;
 
 class BackendHooks implements \IWPML_Backend_Action, \IWPML_DIC_Action {
 
 	const SCRIPT_HANDLE = 'wpml-st-troubleshooting';
 	const NONCE_KEY     = 'wpml-st-troubleshooting';
+
+	/** @var DomainsAndLanguagesRepository $domainsAndLanguagesRepo */
+	private $domainsAndLanguagesRepo;
+
+	public function __construct( DomainsAndLanguagesRepository $domainsAndLanguagesRepo ) {
+		$this->domainsAndLanguagesRepo = $domainsAndLanguagesRepo;
+	}
 
 	public function add_hooks() {
 		add_action( 'after_setup_complete_troubleshooting_functions', [ $this, 'displayButtons' ] );
@@ -18,7 +26,7 @@ class BackendHooks implements \IWPML_Backend_Action, \IWPML_DIC_Action {
 	public function displayButtons() {
 		?><div><?php
 
-		if ( Factory::getDomainsToPreGenerateCount() ) {
+		if ( ! $this->domainsAndLanguagesRepo->get()->isEmpty() ) {
 			$this->displayButton(
 				AjaxFactory::ACTION_SHOW_GENERATE_DIALOG,
 				esc_attr__( 'Show custom MO Files Pre-generation dialog box', 'wpml-string-translation' ),

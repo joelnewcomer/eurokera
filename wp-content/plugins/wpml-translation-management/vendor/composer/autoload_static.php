@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita045992fd762e55b7477e3ead2a81c6e
+class ComposerStaticInitb2a29cf95e014557b26cbea49d7f9b31
 {
     public static $files = array (
         'b45b351e6b6f7487d819961fef2fda77' => __DIR__ . '/..' . '/jakeasmith/http_build_url/src/http_build_url.php',
@@ -39,13 +39,35 @@ class ComposerStaticInita045992fd762e55b7477e3ead2a81c6e
         'TranslationProxy_Service' => __DIR__ . '/../..' . '/inc/translation-proxy/translationproxy-service.class.php',
         'TranslationProxy_Translator' => __DIR__ . '/../..' . '/inc/translation-proxy/translationproxy-translator.class.php',
         'WPMLTranslationProxyApiException' => __DIR__ . '/../..' . '/classes/translation-proxy/api/class-wpml-translation-proxy-api-exception.php',
+        'WPML\\TM\\ATE\\Download\\Consumer' => __DIR__ . '/../..' . '/classes/ATE/Download/Consumer.php',
+        'WPML\\TM\\ATE\\Download\\Job' => __DIR__ . '/../..' . '/classes/ATE/Download/Job.php',
+        'WPML\\TM\\ATE\\Download\\Process' => __DIR__ . '/../..' . '/classes/ATE/Download/Process.php',
+        'WPML\\TM\\ATE\\Download\\Queue' => __DIR__ . '/../..' . '/classes/ATE/Download/Queue.php',
+        'WPML\\TM\\ATE\\Download\\Result' => __DIR__ . '/../..' . '/classes/ATE/Download/Result.php',
         'WPML\\TM\\ATE\\JobRecord' => __DIR__ . '/../..' . '/classes/ATE/JobRecord.php',
         'WPML\\TM\\ATE\\JobRecords' => __DIR__ . '/../..' . '/classes/ATE/JobRecords.php',
+        'WPML\\TM\\ATE\\Log\\Entry' => __DIR__ . '/../..' . '/classes/ATE/Log/Entry.php',
+        'WPML\\TM\\ATE\\Log\\ErrorEvents' => __DIR__ . '/../..' . '/classes/ATE/Log/ErrorEvents.php',
+        'WPML\\TM\\ATE\\Log\\Hooks' => __DIR__ . '/../..' . '/classes/ATE/Log/Hooks.php',
+        'WPML\\TM\\ATE\\Log\\Storage' => __DIR__ . '/../..' . '/classes/ATE/Log/Storage.php',
+        'WPML\\TM\\ATE\\Log\\View' => __DIR__ . '/../..' . '/classes/ATE/Log/View.php',
+        'WPML\\TM\\ATE\\Log\\ViewFactory' => __DIR__ . '/../..' . '/classes/ATE/Log/ViewFactory.php',
+        'WPML\\TM\\ATE\\REST\\Download' => __DIR__ . '/../..' . '/classes/ATE/REST/Download.php',
+        'WPML\\TM\\ATE\\REST\\Sync' => __DIR__ . '/../..' . '/classes/ATE/REST/Sync.php',
+        'WPML\\TM\\ATE\\Sync\\Arguments' => __DIR__ . '/../..' . '/classes/ATE/Sync/Arguments.php',
+        'WPML\\TM\\ATE\\Sync\\Factory' => __DIR__ . '/../..' . '/classes/ATE/Sync/Factory.php',
+        'WPML\\TM\\ATE\\Sync\\Process' => __DIR__ . '/../..' . '/classes/ATE/Sync/Process.php',
+        'WPML\\TM\\ATE\\Sync\\Result' => __DIR__ . '/../..' . '/classes/ATE/Sync/Result.php',
+        'WPML\\TM\\ATE\\Sync\\Trigger' => __DIR__ . '/../..' . '/classes/ATE/Sync/Trigger.php',
         'WPML\\TM\\Container\\Config' => __DIR__ . '/../..' . '/classes/container/class-config.php',
         'WPML\\TM\\Editor\\ClassicEditorActions' => __DIR__ . '/../..' . '/classes/editor/ClassicEditorActions.php',
+        'WPML\\TM\\Jobs\\Utils\\ElementLink' => __DIR__ . '/../..' . '/classes/jobs/utils/ElementLink.php',
+        'WPML\\TM\\Jobs\\Utils\\ElementLinkFactory' => __DIR__ . '/../..' . '/classes/jobs/utils/ElementLinkFactory.php',
         'WPML\\TM\\Menu\\Dashboard\\PostJobsRepository' => __DIR__ . '/../..' . '/classes/menu/dashboard/PostJobsRepository.php',
         'WPML\\TM\\Menu\\TranslationBasket\\Strings' => __DIR__ . '/../..' . '/classes/menu/translation-basket/Strings.php',
         'WPML\\TM\\Menu\\TranslationBasket\\Utility' => __DIR__ . '/../..' . '/classes/menu/translation-basket/Utility.php',
+        'WPML\\TM\\REST\\Base' => __DIR__ . '/../..' . '/classes/API/REST/Base.php',
+        'WPML\\TM\\REST\\FactoryLoader' => __DIR__ . '/../..' . '/classes/API/REST/FactoryLoader.php',
         'WPML\\TM\\TranslationProxy\\Services\\Authorization' => __DIR__ . '/../..' . '/classes/translation-proxy/services/Authorization.php',
         'WPML\\TM\\TranslationProxy\\Services\\AuthorizationFactory' => __DIR__ . '/../..' . '/classes/translation-proxy/services/AuthorizationFactory.php',
         'WPML\\TM\\TranslationProxy\\Services\\Project\\Manager' => __DIR__ . '/../..' . '/classes/translation-proxy/services/Project/Manager.php',
@@ -54,6 +76,7 @@ class ComposerStaticInita045992fd762e55b7477e3ead2a81c6e
         'WPML\\TM\\TranslationProxy\\Services\\Project\\Storage' => __DIR__ . '/../..' . '/classes/translation-proxy/services/Project/Storage.php',
         'WPML\\TM\\TranslationProxy\\Services\\Storage' => __DIR__ . '/../..' . '/classes/translation-proxy/services/Storage.php',
         'WPML\\TM\\Troubleshooting\\SynchronizeSourceIdOfATEJobs\\TriggerSynchronization' => __DIR__ . '/../..' . '/classes/troubleshooting/SynchronizeSourceIdOfATEJobs/TriggerSynchronization.php',
+        'WPML\\TM\\Upgrade\\Commands\\CreateAteDownloadQueueTable' => __DIR__ . '/../..' . '/classes/upgrade/commands/CreateAteDownloadQueueTable.php',
         'WPML\\TM\\Upgrade\\Commands\\MigrateAteRepository' => __DIR__ . '/../..' . '/classes/upgrade/commands/MigrateAteRepository.php',
         'WPML\\TM\\Upgrade\\Commands\\SynchronizeSourceIdOfATEJobs\\Command' => __DIR__ . '/../..' . '/classes/upgrade/commands/SynchronizeSourceIdOfATEJobs/Command.php',
         'WPML\\TM\\Upgrade\\Commands\\SynchronizeSourceIdOfATEJobs\\CommandFactory' => __DIR__ . '/../..' . '/classes/upgrade/commands/SynchronizeSourceIdOfATEJobs/CommandFactory.php',
@@ -606,8 +629,8 @@ class ComposerStaticInita045992fd762e55b7477e3ead2a81c6e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInita045992fd762e55b7477e3ead2a81c6e::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInita045992fd762e55b7477e3ead2a81c6e::$classMap;
+            $loader->prefixesPsr0 = ComposerStaticInitb2a29cf95e014557b26cbea49d7f9b31::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitb2a29cf95e014557b26cbea49d7f9b31::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -40,10 +40,6 @@ class MigrateAteRepository implements \IWPML_Upgrade_Command {
 			$result = $this->schema->add_column( self::TABLE_NAME, self::COLUMN_EDITOR_JOB_ID, 'bigint(20) unsigned NULL' );
 		}
 
-		if ( ! $this->schema->does_column_exist( self::TABLE_NAME, self::COLUMN_EDIT_TIMESTAMP ) ) {
-			$result = $result && $this->schema->add_column( self::TABLE_NAME, self::COLUMN_EDIT_TIMESTAMP, 'int(11) unsigned NULL' );
-		}
-
 		return $result;
 	}
 
@@ -53,9 +49,7 @@ class MigrateAteRepository implements \IWPML_Upgrade_Command {
 		if ( is_array( $records ) && $records ) {
 			$wpdb           = $this->schema->get_wpdb();
 			$recordPairs    = wpml_collect( array_keys( $records ) )->zip( $records );
-			$ateJobIdCases  = $recordPairs->reduce( $this->getCasesReducer( 'ate_job_id' ), '' ) . "ELSE 0\n";
-			$isEditingCases = $recordPairs->reduce( $this->getCasesReducer( 'is_editing' ), '' ) . "ELSE 0\n";
-
+			$ateJobIdCases  = $recordPairs->reduce( $this->getCasesReducer(), '' ) . "ELSE 0\n";
 
 			$sql = "
 				UPDATE {$wpdb->prefix}" . self::TABLE_NAME . "
@@ -63,11 +57,6 @@ class MigrateAteRepository implements \IWPML_Upgrade_Command {
 					" . self::COLUMN_EDITOR_JOB_ID . " = (
 						CASE job_id
 							" . $ateJobIdCases . "
-					    END
-					),
-					" . self::COLUMN_EDIT_TIMESTAMP . " = (
-						CASE job_id
-							" . $isEditingCases . "
 					    END
 					)
 				WHERE " . self::COLUMN_EDITOR_JOB_ID . " IS NULL
@@ -85,12 +74,12 @@ class MigrateAteRepository implements \IWPML_Upgrade_Command {
 	 *
 	 * @return \Closure
 	 */
-	private function getCasesReducer( $field ) {
+	private function getCasesReducer() {
 		$wpdb  = $this->schema->get_wpdb();
 
-		return function( $cases, $data ) use ( $field, $wpdb ) {
-			$cases .= isset( $data[1][ $field ] )
-				? $wpdb->prepare( "WHEN %d THEN %d\n", $data[0], $data[1][ $field ] ) : '';
+		return function( $cases, $data ) use ( $wpdb ) {
+			$cases .= isset( $data[1]['ate_job_id'] )
+				? $wpdb->prepare( "WHEN %d THEN %d\n", $data[0], $data[1]['ate_job_id'] ) : '';
 
 			return $cases;
 		};

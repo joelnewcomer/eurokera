@@ -1,5 +1,7 @@
 <?php
 
+use function WPML\Container\make;
+
 /**
  * Factory class for \WPML_TM_ATE_Jobs_Actions.
  *
@@ -40,10 +42,7 @@ class WPML_TM_ATE_Jobs_Actions_Factory implements IWPML_Backend_Action_Loader {
 				$sitepress,
 				$current_screen,
 				$translator_activation_records,
-				new WPML_TM_ATE_Jobs_Sync_Script_Loader(
-					wpml_tm_get_ate_jobs_repository(),
-					new WPML_TM_Scripts_Factory()
-				)
+				make( \WPML_TM_ATE_Jobs_Sync_Script_Loader::class )
 			);
 		}
 

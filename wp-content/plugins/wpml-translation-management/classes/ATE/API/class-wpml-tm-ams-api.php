@@ -1,5 +1,8 @@
 <?php
 
+use WPML\TM\ATE\Log\Entry;
+use WPML\TM\ATE\Log\ErrorEvents;
+
 /**
  * @author OnTheGo Systems
  */
@@ -259,6 +262,17 @@ class WPML_TM_AMS_API {
 				$error_status = isset( $error['status'] ) ? 'ams_error: ' . $error['status'] : '';
 				$response_errors->add( $error_status, $error_message, $error );
 			}
+		}
+
+		if ( $response_errors ) {
+			$entry              = new Entry();
+			$entry->event       = ErrorEvents::SERVER_AMS;
+			$entry->description = $response_errors->get_error_message();
+			$entry->extraData   = [
+				'errorData' => $response_errors->get_error_data(),
+			];
+
+			wpml_tm_ate_ams_log( $entry );
 		}
 
 		return $response_errors;

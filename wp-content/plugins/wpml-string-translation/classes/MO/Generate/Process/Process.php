@@ -16,4 +16,9 @@ interface Process {
 	 * @return int
 	 */
 	public function getPagesCount();
+
+	/**
+	 * @return bool
+	 */
+	public function isCompleted();
 }

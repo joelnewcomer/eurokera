@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit6edaff3897a3ce7e237620fb9a65982e
+class ComposerStaticInit39428f037d42ac7fb9d1c4790f7e0095
 {
     public static $classMap = array (
         'WPML_Cache_Directory' => __DIR__ . '/..' . '/wpml-shared/wpml-lib-cache/src/cache/class-wpml-cache-directory.php',
@@ -88,7 +88,7 @@ class ComposerStaticInit6edaff3897a3ce7e237620fb9a65982e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit6edaff3897a3ce7e237620fb9a65982e::$classMap;
+            $loader->classMap = ComposerStaticInit39428f037d42ac7fb9d1c4790f7e0095::$classMap;
 
         }, null, ClassLoader::class);
     }

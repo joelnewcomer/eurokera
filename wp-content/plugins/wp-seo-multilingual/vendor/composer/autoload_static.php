@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit14c2250adf3146b702015406adb998cb
+class ComposerStaticInitda752ddc361073cc8473b5be3839c60f
 {
     public static $classMap = array (
         'OTGS_Assets_Handles' => __DIR__ . '/..' . '/otgs/ui/src/php/OTGS_Assets_Handles.php',
@@ -23,7 +23,7 @@ class ComposerStaticInit14c2250adf3146b702015406adb998cb
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit14c2250adf3146b702015406adb998cb::$classMap;
+            $loader->classMap = ComposerStaticInitda752ddc361073cc8473b5be3839c60f::$classMap;
 
         }, null, ClassLoader::class);
     }

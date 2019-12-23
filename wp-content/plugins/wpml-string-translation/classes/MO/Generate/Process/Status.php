@@ -6,11 +6,16 @@ class Status {
 	/** @var \SitePress */
 	private $sitepress;
 
+	/** @var string */
+	private $optionPrefix;
+
 	/**
-	 * @param \SitePress $sitepress
+	 * @param \SitePress  $sitepress
+	 * @param string|null $optionPrefix
 	 */
-	public function __construct( \SitePress $sitepress ) {
-		$this->sitepress = $sitepress;
+	public function __construct( \SitePress $sitepress, $optionPrefix = null ) {
+		$this->sitepress    = $sitepress;
+		$this->optionPrefix = $optionPrefix ?: self::class;
 	}
 
 	/**
@@ -54,6 +59,6 @@ class Status {
 	}
 
 	private function getOptionName( $allSites ) {
-		return $allSites ? self::class . '_has_run_all_sites' : self::class . '_has_run';
+		return $allSites ? $this->optionPrefix . '_has_run_all_sites' : $this->optionPrefix . '_has_run';
 	}
 }

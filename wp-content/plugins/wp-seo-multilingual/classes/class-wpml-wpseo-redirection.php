@@ -18,6 +18,9 @@ class WPML_WPSEO_Redirection {
 			$base_url_path = ltrim( wp_parse_url( home_url(), PHP_URL_PATH ), '/' );
 			remove_filter( 'wpml_skip_convert_url_string', '__return_true' );
 
+			// The unfiltered URL got cached so we need to flush the group.
+			self::clear_converter_cache_for_home_url();
+
 			if ( stripos( trailingslashit( $url ), trailingslashit( $base_url_path ) ) === 0 ) {
 				$url = substr( $url, strlen( $base_url_path ) );
 			}
@@ -30,6 +33,14 @@ class WPML_WPSEO_Redirection {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Clear convert_url cache group.
+	 */
+	private static function clear_converter_cache_for_home_url() {
+		$wpml_cache = new WPML_WP_Cache( 'convert_url' );
+		$wpml_cache->flush_group_cache();
 	}
 
 	/**

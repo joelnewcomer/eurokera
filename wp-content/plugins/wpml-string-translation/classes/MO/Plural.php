@@ -19,13 +19,10 @@ class Plural implements \IWPML_Backend_Action, \IWPML_Frontend_Action {
 	 * @return string
 	 */
 	public function handle_plural( $translation, $single, $plural, $number, $domain ) {
-		if ( $number === 1 ) {
-			return $translation;
-		} else {
-			$possible_translation = __( $plural, $domain );
+		$original             = $number === 1 ? $single : $plural;
+		$possible_translation = __( $original, $domain );
 
-			return $possible_translation !== $plural ? $possible_translation : $translation;
-		}
+		return $possible_translation !== $original ? $possible_translation : $translation;
 	}
 
 	/**
@@ -39,13 +36,10 @@ class Plural implements \IWPML_Backend_Action, \IWPML_Frontend_Action {
 	 * @return string
 	 */
 	public function handle_plural_with_context( $translation, $single, $plural, $number, $context, $domain ) {
-		if ( $number === 1 ) {
-			return $translation;
-		} else {
-			$possible_translation = _x( $plural, $context, $domain );
+		$original             = $number === 1 ? $single : $plural;
+		$possible_translation = _x( $original, $context, $domain );
 
-			return $possible_translation !== $plural ? $possible_translation : $translation;
-		}
+		return $possible_translation !== $original ? $possible_translation : $translation;
 	}
 
 }

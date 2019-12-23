@@ -68,23 +68,10 @@ class StringsRetrieve {
 		return [
 			'id'          => $row_data['id'],
 			'original'    => $row_data['original'],
-			'context'     => $this->get_gettext_context( $row_data ),
+			'context'     => $row_data['gettext_context'],
 			'translation' => self::parseTranslation( $row_data ),
+			'name'        => $row_data['name'],
 		];
-	}
-
-	/**
-	 * @param array $row_data
-	 * @param string $domain
-	 *
-	 * @return string
-	 */
-	private function get_gettext_context( array $row_data ) {
-		if ( TranslateWpmlString::canTranslateWithMO( $row_data['original'], $row_data['name'] ) ) {
-			return TranslateWpmlString::getCustomContext( $row_data['name'], $row_data['gettext_context'] );
-		} else {
-			return $row_data['gettext_context'];
-		}
 	}
 
 	/**
@@ -111,7 +98,9 @@ class StringsRetrieve {
 	 * @return array
 	 */
 	private function groupPluralFormsOfSameString( array $string ) {
-		$pattern = '/^(.+) \[plural ([0-9]+)\]$/';
+		$groupKey = $this->getPluralGroupKey( $string );
+		$pattern  = '/^(.+) \[plural ([0-9]+)\]$/';
+
 		if ( preg_match( $pattern, $string['original'], $matches ) ) {
 			$string['original'] = $matches[1];
 			$string['index']    = $matches[2];
@@ -120,8 +109,27 @@ class StringsRetrieve {
 		}
 
 		return [
-			$string['original'] . self::KEY_JOIN . $string['context'] => $string
+			$string['original'] . self::KEY_JOIN . $string['context'] . self::KEY_JOIN . $groupKey => $string
 		];
+	}
+
+	/**
+	 * Inside a domain, we can have several occurrences of strings
+	 * with the same original, but with different names.
+	 * In this situation, we should not try to group plurals.
+	 *
+	 * @param array $string
+	 *
+	 * @return mixed|string
+	 */
+	private function getPluralGroupKey( array $string ) {
+		$cannotBelongToPluralGroup = TranslateWpmlString::canTranslateWithMO( $string['original'], $string['name'] );
+
+		if ( $cannotBelongToPluralGroup ) {
+			return $string['name'];
+		}
+
+		return '';
 	}
 
 	/**
@@ -133,7 +141,9 @@ class StringsRetrieve {
 	private function buildStringEntity( Collection $strings, $key ) {
 		$translations = $strings->sortBy( 'index' )->pluck( 'translation' )->toArray();
 		list( $original, $context ) = explode( self::KEY_JOIN, $key );
+		$stringEntity = new StringEntity( $original, $translations, $context );
+		$stringEntity->set_name( $strings->first()['name'] );
 
-		return new StringEntity( $original, $translations, $context );
+		return $stringEntity;
 	}
 }

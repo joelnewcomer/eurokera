@@ -70,7 +70,8 @@ class WPML_TM_Jobs_String_Query implements WPML_TM_Jobs_Query {
 			'core_status.ts_status AS ts_status',
 			'NULL AS needs_update',
 			'NULL AS editor',
-			"string_translations.status = " . ICL_TM_COMPLETE . "  AS has_completed_translation"
+			"string_translations.status = " . ICL_TM_COMPLETE . "  AS has_completed_translation",
+			'NULL AS editor_job_id',
 		);
 
 		return $this->build_query( $params, $columns );

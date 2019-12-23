@@ -489,7 +489,7 @@ $po_importer = apply_filters( 'wpml_st_get_po_importer', null );
 	                                        <p class="js-track-strings-note" <?php echo $track_strings_display; ?>>
 		                                        <?php echo $message; ?>
 	                                        </p>
-											<p><a href="https://wpml.org/?p=9073" target="_blank"><?php esc_html_e( 'Performance considerations', 'wpml-string-translation' ) ?>&nbsp;&raquo;</a></p>
+											<p><a href="https://wpml.org/faq/prevent-performance-issues-with-wpml/?utm_source=wpmlplugin&utm_campaign=product&utm_medium=plugin&utm_term=performance" target="_blank"><?php esc_html_e( 'Performance considerations', 'wpml-string-translation' ) ?>&nbsp;&raquo;</a></p>
                                         </li>
                                         <li>
                                             <?php

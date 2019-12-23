@@ -5,7 +5,7 @@
  * Description: Compatibility layer for WordPress SEO and WPML | <a href="https://wpml.org/documentation/plugins-compatibility/using-wordpress-seo-with-wpml/">Documentation</a>
  * Author: OnTheGoSystems
  * Author URI: http://www.onthegosystems.com/
- * Version: 1.0.2
+ * Version: 1.0.3
  * Plugin Slug: wp-seo-multilingual
  *
  * @package wpml/wpseo
@@ -16,16 +16,18 @@ if ( defined( 'WPSEOML_VERSION' ) ) {
 	return;
 }
 
-define( 'WPSEOML_VERSION', '1.0.2' );
+define( 'WPSEOML_VERSION', '1.0.3' );
 define( 'WPML_WPSEO_VERSION', WPSEOML_VERSION ); // TODO: remove this when WPML 4.3 is released (see wpmlwpseo-28).
 define( 'WPSEOML_PLUGIN_PATH', dirname( __FILE__ ) );
 
 require_once WPSEOML_PLUGIN_PATH . '/vendor/autoload.php';
 
 // We have to do this early because wordpress-seo does it early too.
-$redirector = new WPML_WPSEO_Redirection();
-if ( $redirector->is_redirection() ) {
-	add_filter( 'wpml_skip_convert_url_string', '__return_true' );
+if ( apply_filters( 'wpml_setting', false, 'setup_complete' ) ) {
+	$redirector = new WPML_WPSEO_Redirection();
+	if ( $redirector->is_redirection() ) {
+		add_filter( 'wpml_skip_convert_url_string', '__return_true' );
+	}
 }
 
 /**

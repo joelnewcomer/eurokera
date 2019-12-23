@@ -20,16 +20,22 @@ class Pager {
 		$this->pageSize   = $pageSize;
 	}
 
-
-	public function iterate( Collection $collection, callable $callback ) {
+	/**
+	 * @param Collection $collection
+	 * @param callable   $callback
+	 * @param int        $timeout
+	 *
+	 * @return int
+	 */
+	public function iterate( Collection $collection, callable $callback, $timeout = PHP_INT_MAX ) {
 		$processedItems = $this->getProcessedCount();
 
-		$this->getItemsToProcess( $collection, $processedItems )->each( function ( $item ) use (
+		$this->getItemsToProcess( $collection, $processedItems )->eachWithTimeout( function ( $item ) use (
 			&$processedItems,
 			$callback
 		) {
 			return $callback( $item ) && ++ $processedItems;
-		} );
+		}, $timeout );
 
 		$remainingPages = $this->getRemainingPages( $collection, $processedItems );
 

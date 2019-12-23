@@ -56,9 +56,9 @@ class MO extends \MO {
 	}
 
 	private function load() {
-		$loaded = $this->loadTextDomain();
+		$this->loadTextDomain();
 
-		if ( ! $loaded ) {
+		if ( ! $this->isLoaded() ) {
 			/**
 			 * If we could not load at least one MO file,
 			 * we need to assign the domain with a `NOOP_Translations`
@@ -70,14 +70,25 @@ class MO extends \MO {
 	}
 
 	protected function loadTextDomain() {
-		return $this->loaded_mo_dictionary
+		$this->loaded_mo_dictionary
 			->getFiles( $this->domain, $this->locale )
-			->reduce(
-				function( $loaded, $mofile ) {
-					$last_loaded = load_textdomain( $this->domain, $mofile );
-					return $loaded || $last_loaded;
-				},
-				false
-			);
+			->each( function( $mofile ) {
+				load_textdomain( $this->domain, $mofile );
+			} );
+	}
+
+	/**
+	 * In some cases, themes or plugins are hooking on
+	 * `override_load_textdomain` so that the function
+	 * `load_textdomain` always returns `true` even
+	 * if the domain is not set on the global `$l10n`.
+	 *
+	 * That's why we need to check on the global `$l10n`.
+	 *
+	 * @return bool
+	 */
+	private function isLoaded() {
+		return isset( $GLOBALS['l10n'][ $this->domain ] )
+		       && ! $GLOBALS['l10n'][ $this->domain ] instanceof self;
 	}
 }

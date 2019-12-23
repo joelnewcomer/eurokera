@@ -33,3 +33,4 @@ delete_option('vp_extension_update_checker_102');
 delete_option('vp_extension_update_checker_103');
 delete_option('vp_extension_update_checker_104');
 delete_option('vp_extension_update_checker_105');
+delete_option('vp_extension_update_checker_106');

@@ -54,6 +54,8 @@ abstract class DOMHandle {
 			$innerHTML = html_entity_decode( $innerHTML );
 		}
 
+		$innerHTML = $this->removeCdataFromStyleTag( $innerHTML );
+
 		return array( $innerHTML, $type );
 	}
 
@@ -117,4 +119,29 @@ abstract class DOMHandle {
 	private function cloneNodeWithoutChildren( \DOMNode $element ) {
 		return $element->cloneNode( false );
 	}
+
+	protected function getAsHTML5( \DOMNode $element ) {
+		return strtr( $element->ownerDocument->saveXML( $element, LIBXML_NOEMPTYTAG ),
+			[
+				'></area>'   => '/>',
+				'></base>'   => '/>',
+				'></br>'     => '/>',
+				'></col>'    => '/>',
+				'></embed>'  => '/>',
+				'></hr>'     => '/>',
+				'></img>'    => '/>',
+				'></input>'  => '/>',
+				'></link>'   => '/>',
+				'></meta>'   => '/>',
+				'></param>'  => '/>',
+				'></source>' => '/>',
+				'></track>'  => '/>',
+				'></wbr>'    => '/>',
+			] );
+	}
+
+	private function removeCdataFromStyleTag( $innerHTML ) {
+		return preg_replace( '/<style(.*?)><!\\[CDATA\\[(.*?)\\]\\]><\\/style>/', '<style$1>$2</style>', $innerHTML );
+	}
+
 }

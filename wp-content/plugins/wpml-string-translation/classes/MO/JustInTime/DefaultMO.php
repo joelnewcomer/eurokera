@@ -14,6 +14,6 @@ class DefaultMO extends MO {
 	}
 
 	protected function loadTextDomain() {
-		return load_default_textdomain( $this->locale );
+		load_default_textdomain( $this->locale );
 	}
 }

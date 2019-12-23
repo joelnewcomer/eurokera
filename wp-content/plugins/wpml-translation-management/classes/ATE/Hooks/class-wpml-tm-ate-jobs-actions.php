@@ -79,7 +79,6 @@ class WPML_TM_ATE_Jobs_Actions implements IWPML_Action {
 		add_action( 'wp', array( $this, 'update_jobs_on_current_screen' ) );
 
 		add_filter( 'wpml_tm_ate_jobs_data', array( $this, 'get_ate_jobs_data_filter' ), 10, 2 );
-		add_filter( 'wpml_tm_translation_queue_jobs_require_update', array( $this, 'update_jobs' ), 10, 3 );
 		add_filter( 'wpml_tm_ate_jobs_editor_url', array( $this, 'get_editor_url' ), 10, 3 );
 	}
 
@@ -316,6 +315,8 @@ class WPML_TM_ATE_Jobs_Actions implements IWPML_Action {
 	}
 
 	/**
+	 * @todo: Remove this method in favor of the new SYNC/DOWNLOAD process.
+	 *
 	 * @param bool           $updated
 	 * @param array|stdClass $translation_jobs
 	 * @param bool           $ignore_errors
@@ -391,7 +392,6 @@ class WPML_TM_ATE_Jobs_Actions implements IWPML_Action {
 							}
 
 							if ( $is_translations_applied ) {
-								$ate_job_data[ JobRecords::FIELD_IS_EDITING ] = 0;
 								$this->ate_jobs->store( $wpml_job_id, $ate_job_data );
 
 								if ( $this->must_acknowledge_ATE( $ate_job_data ) ) {

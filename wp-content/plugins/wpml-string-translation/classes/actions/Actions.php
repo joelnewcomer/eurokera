@@ -26,6 +26,7 @@ class Actions {
 			\WPML_ST_Support_Info_Filter::class,
 			\WPML\ST\Troubleshooting\BackendHooks::class,
 			\WPML\ST\Troubleshooting\AjaxFactory::class,
+			\WPML\ST\MO\File\FailureHooksFactory::class,
 		);
 	}
 }

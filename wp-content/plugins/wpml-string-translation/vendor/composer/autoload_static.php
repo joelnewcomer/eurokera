@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit328d56a246b25361002d022a66e8162a
+class ComposerStaticInitba972e454f24083560e5a8ac9283933b
 {
     public static $classMap = array (
         'IWPML_ST_Rewrite_Rule_Filter' => __DIR__ . '/../..' . '/classes/slug-translation/iwpml-st-rewrite-rule-filter.php',
@@ -23,6 +23,8 @@ class ComposerStaticInit328d56a246b25361002d022a66e8162a
         'WPML\\ST\\Gettext\\HooksFactory' => __DIR__ . '/../..' . '/classes/gettext-hooks/HooksFactory.php',
         'WPML\\ST\\Gettext\\Settings' => __DIR__ . '/../..' . '/classes/gettext-hooks/Settings.php',
         'WPML\\ST\\MO\\File\\Builder' => __DIR__ . '/../..' . '/classes/MO/File/Builder.php',
+        'WPML\\ST\\MO\\File\\FailureHooks' => __DIR__ . '/../..' . '/classes/MO/File/FailureHooks.php',
+        'WPML\\ST\\MO\\File\\FailureHooksFactory' => __DIR__ . '/../..' . '/classes/MO/File/FailureHooksFactory.php',
         'WPML\\ST\\MO\\File\\Generator' => __DIR__ . '/../..' . '/classes/MO/File/Generator.php',
         'WPML\\ST\\MO\\File\\MOFactory' => __DIR__ . '/../..' . '/classes/MO/File/MOFactory.php',
         'WPML\\ST\\MO\\File\\Manager' => __DIR__ . '/../..' . '/classes/MO/File/Manager.php',
@@ -48,8 +50,10 @@ class ComposerStaticInit328d56a246b25361002d022a66e8162a
         'WPML\\ST\\MO\\JustInTime\\MO' => __DIR__ . '/../..' . '/classes/MO/JustInTime/MO.php',
         'WPML\\ST\\MO\\JustInTime\\MOFactory' => __DIR__ . '/../..' . '/classes/MO/JustInTime/MOFactory.php',
         'WPML\\ST\\MO\\LoadedMODictionary' => __DIR__ . '/../..' . '/classes/MO/LoadedMODictionary.php',
+        'WPML\\ST\\MO\\Notice\\RegenerationInProgressNotice' => __DIR__ . '/../..' . '/classes/MO/Notice/RegenerationInProgressNotice.php',
         'WPML\\ST\\MO\\Plural' => __DIR__ . '/../..' . '/classes/MO/Plural.php',
         'WPML\\ST\\MO\\Scan\\UI\\Factory' => __DIR__ . '/../..' . '/classes/translations-file-scan/UI/Factory.php',
+        'WPML\\ST\\MO\\Scan\\UI\\InstalledComponents' => __DIR__ . '/../..' . '/classes/translations-file-scan/UI/InstalledComponents.php',
         'WPML\\ST\\MO\\Scan\\UI\\Model' => __DIR__ . '/../..' . '/classes/translations-file-scan/UI/Model.php',
         'WPML\\ST\\MO\\Scan\\UI\\UI' => __DIR__ . '/../..' . '/classes/translations-file-scan/UI/UI.php',
         'WPML\\ST\\MO\\WPLocaleProxy' => __DIR__ . '/../..' . '/classes/MO/WPLocaleProxy.php',
@@ -85,6 +89,7 @@ class ComposerStaticInit328d56a246b25361002d022a66e8162a
         'WPML\\ST\\Troubleshooting\\BackendHooks' => __DIR__ . '/../..' . '/classes/Troubleshooting/BackendHooks.php',
         'WPML\\ST\\Troubleshooting\\Cleanup\\Database' => __DIR__ . '/../..' . '/classes/Troubleshooting/Cleanup/Database.php',
         'WPML\\ST\\Troubleshooting\\RequestHandle' => __DIR__ . '/../..' . '/classes/Troubleshooting/RequestHandle.php',
+        'WPML\\ST\\Upgrade\\Command\\RegenerateMoFilesWithStringNames' => __DIR__ . '/../..' . '/classes/upgrade/Command/RegenerateMoFilesWithStringNames.php',
         'WPML\\ST\\Utils\\LanguageResolution' => __DIR__ . '/../..' . '/classes/utilities/LanguageResolution.php',
         'WPML_Admin_Notifier' => __DIR__ . '/../..' . '/classes/class-wpml-admin-notifier.php',
         'WPML_Admin_Text_Configuration' => __DIR__ . '/../..' . '/inc/admin-texts/wpml-admin-text-configuration.php',
@@ -290,7 +295,7 @@ class ComposerStaticInit328d56a246b25361002d022a66e8162a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit328d56a246b25361002d022a66e8162a::$classMap;
+            $loader->classMap = ComposerStaticInitba972e454f24083560e5a8ac9283933b::$classMap;
 
         }, null, ClassLoader::class);
     }

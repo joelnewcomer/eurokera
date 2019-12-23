@@ -91,7 +91,7 @@ class WPML_TM_ATE_Jobs {
 	 *
 	 * @param string $xliff
 	 *
-	 * @return bool
+	 * @return bool|int
 	 * @throws \Requests_Exception|Exception
 	 */
 	public function apply( $xliff ) {
@@ -104,19 +104,20 @@ class WPML_TM_ATE_Jobs {
 		}
 
 		kses_remove_filters();
+		$wpml_job_id = $job_data['job_id'];
 
 		try {
 			$is_saved = wpml_tm_save_data( $job_data, false );
 		} catch ( Exception $e ) {
 			throw new Exception(
-				'The XLIFF file could not be applied to the content of the job ID: ' . $job_data['job_id'],
+				'The XLIFF file could not be applied to the content of the job ID: ' . $wpml_job_id,
 				$e->getCode()
 			);
 		}
 
 		kses_init();
 
-		return $is_saved;
+		return $is_saved ? $wpml_job_id : false;
 	}
 
 	/**

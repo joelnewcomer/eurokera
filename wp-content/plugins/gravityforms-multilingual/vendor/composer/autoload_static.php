@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit57fcd79e4bbccebb2170972b3129a2c0
+class ComposerStaticInit59c82f7e550943a2b70b6dfdd180df68
 {
     public static $classMap = array (
         'GFML_Conditional_Logic' => __DIR__ . '/../..' . '/classes/class-gfml-conditional-logic.php',
@@ -27,7 +27,7 @@ class ComposerStaticInit57fcd79e4bbccebb2170972b3129a2c0
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit57fcd79e4bbccebb2170972b3129a2c0::$classMap;
+            $loader->classMap = ComposerStaticInit59c82f7e550943a2b70b6dfdd180df68::$classMap;
 
         }, null, ClassLoader::class);
     }

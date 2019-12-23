@@ -241,9 +241,6 @@ class WPML_String_Translation
 
 			case 'icl_st_save_translation':
 				$icl_st_complete = isset( $data[ 'icl_st_translation_complete' ] ) && $data[ 'icl_st_translation_complete' ] ? ICL_TM_COMPLETE : ICL_TM_NOT_TRANSLATED;
-				if ( get_magic_quotes_gpc() ) {
-					$data = stripslashes_deep( $data );
-				}
 				if ( icl_st_is_translator() ) {
 					$translator_id = get_current_user_id() > 0 ? get_current_user_id() : null;
 				} else {

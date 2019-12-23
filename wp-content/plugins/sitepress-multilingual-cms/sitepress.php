@@ -2,10 +2,10 @@
 /**
  * Plugin Name: WPML Multilingual CMS
  * Plugin URI: https://wpml.org/
- * Description: WPML Multilingual CMS | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/wpml-4-3-1/">WPML 4.3.1 release notes</a>
+ * Description: WPML Multilingual CMS | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/wpml-4-3-6/">WPML 4.3.6 release notes</a>
  * Author: OnTheGoSystems
  * Author URI: http://www.onthegosystems.com/
- * Version: 4.3.1
+ * Version: 4.3.6
  * Plugin Slug: sitepress-multilingual-cms
  *
  * @package WPML\Core
@@ -27,7 +27,7 @@ if ( ! \WPML\Requirements\WordPress::checkMinimumRequiredVersion() ) {
 	return;
 }
 
-define( 'ICL_SITEPRESS_VERSION', '4.3.1' );
+define( 'ICL_SITEPRESS_VERSION', '4.3.6' );
 
 // Do not uncomment the following line!
 // If you need to use this constant, use it in the wp-config.php file
@@ -214,6 +214,7 @@ if ( $sitepress->is_setup_complete() ) {
 		'WPML_Table_Collate_Fix',
 		'\WPML\WP\OptionManager',
 		'\WPML\Notices\DismissNotices',
+		'\WPML\Ajax\Locale',
 	];
 	$action_filter_loader->load( $actions );
 
@@ -232,6 +233,7 @@ if ( $sitepress->is_setup_complete() ) {
 
 	$rest_factories = [
 		'WPML_REST_Posts_Hooks_Factory',
+		'WPML\Core\REST\RewriteRules',
 	];
 
 	$action_filter_loader->load( $rest_factories );

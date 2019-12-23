@@ -234,6 +234,10 @@ function video_popup_ajax_result_on_pageload(){
                 			jQuery(".YouTubePopUp-Wrap").fadeOut(300).delay(325).queue(function() { jQuery(this).remove(); });
             			});
 
+            			jQuery('.vp-flex, .vp-flex *').click(function(e){
+                			e.stopPropagation();
+            			});
+
 						jQuery(document).keyup(function(e) {
             				if ( e.keyCode == 27 ){
                 				jQuery('.YouTubePopUp-Close').click();

@@ -5,7 +5,7 @@ use ShortPixel\ShortpixelLogger\ShortPixelLogger as Log;
 /* ImageModel class.
 *
 *
-* - Represents a -single- image *not file*.
+* - Represents a -single- image entity *not file*.
 * - Can be either MediaLibrary, or Custom .
 * - Not a replacement of Meta, but might be.
 * - Goal: Structural ONE method calls of image related information, and combining information. Same task is now done on many places.
@@ -19,7 +19,13 @@ class ImageModel extends ShortPixelModel
     private $facade; // ShortPixelMetaFacade
 
     protected $thumbsnails = array(); // thumbnails of this
+    protected $original_file; // the original instead of the possibly _scaled one created by WP 5.3 >
 
+    private $post_id; // attachment id
+
+    private $is_scaled = false; // if this is WP 5.3 scaled
+    private $is_optimized = false; // if this is optimized
+    private $is_png2jpg = false; // todo implement.
 
     public function __construct()
     {
@@ -29,13 +35,66 @@ class ImageModel extends ShortPixelModel
     public function setByPostID($post_id)
     {
       // Set Meta
-      $fs = new FileSystemController();
+      $fs = \wpSPIO()->filesystem();
+      $this->post_id = $post_id;
       $this->facade = new \ShortPixelMetaFacade($post_id);
       $this->meta = $this->facade->getMeta();
 
-      $file = get_attached_file($post_id);
-      $this->file = $fs->getFile($file);
+      $this->setImageStatus();
+      $this->file = $fs->getAttachedFile($post_id);
 
+      // WP 5.3 and higher. Check for original file.
+      if (function_exists('wp_get_original_image_path'))
+      {
+        $this->setOriginalFile();
+      }
+    }
+
+    /** This function sets various status attributes for imageModel.
+    * Goal is to make the status of images more consistent and don't have to rely constantly on getting and ready the whole meta
+    * with it's various marks. */
+    protected function setImageStatus()
+    {
+      $status = $this->meta->getStatus();
+      if ($status == \ShortPixelMeta::FILE_STATUS_SUCCESS)
+        $this->is_optimized = true;
+
+      $png2jpg = $this->meta->getPng2Jpg();
+      if(is_array($png2jpg))
+      {
+        $this->is_png2jpg = true;
+      }
+    }
+
+    protected function setOriginalFile()
+    {
+      $fs = \wpSPIO()->filesystem();
+
+      if (is_null($this->post_id))
+        return false;
+
+      $originalFile = $fs->getOriginalPath($this->post_id);
+
+      if ($originalFile->exists() && $originalFile->getFullPath() !== $this->file->getfullPath() )
+      {
+        $this->original_file = $originalFile;
+        $this->is_scaled = true;
+      }
+
+    }
+
+    // Not sure if it will work like this.
+    public function is_scaled()
+    {
+       return $this->is_scaled;
+    }
+
+    public function has_original()
+    {
+        if (is_null($this->original_file))
+          return false;
+
+        return $this->original_file;
     }
 
     public function getMeta()
@@ -48,6 +107,19 @@ class ImageModel extends ShortPixelModel
       return $this->file;
     }
 
+    /** Get the facade object.
+    * @todo Ideally, the facade will be an internal thing, separating the custom and media library functions.
+    */
+    public function getFacade()
+    {
+       return $this->facade;
+    }
+
+  /*  public function getOriginalFile()
+    {
+       return $this->origin_file;
+    } */
+
     /* Sanity check in process. Should only be called upon special request, or with single image displays. Should check and recheck stats, thumbs, unlistedthumbs and all assumptions of data that might corrupt or change outside of this plugin */
     public function reAcquire()
     {
@@ -57,12 +129,56 @@ class ImageModel extends ShortPixelModel
         // $this->recount();
     }
 
+    /** Removed the current attachment, with hopefully removing everything we set.
+    * @return ShortPixelFacade  Legacy return, to do something with replacing
+    */
+    public function delete()
+    {
+      $itemHandler = $this->facade;
+      //$itemHandler = new ShortPixelMetaFacade($post_id);
+      $urlsPaths = $itemHandler->getURLsAndPATHs(true, false, true, array(), true, true);
+
+      // @todo move this to some better permanent structure w/ png2jpg class.
+      if ($this->is_png2jpg)
+      {
+        $png2jpg = $this->meta->getPng2Jpg();
+        if (isset($png2jpg['originalFile']))
+        {
+          $urlsPaths['PATHs'][] = $png2jpg['originalFile'];
+        }
+        if (isset($png2jpg['originalSizes']))
+        {
+              foreach($png2jpg['originalSizes'] as $size => $data)
+              {
+                if (isset($data['file']))
+                {
+                  $filedir = (string) $this->file->getFileDir();
+                  $urlsPaths['PATHs'][] = $filedir . $data['file'];
+                }
+              }
+        }
+      }
+      if(count($urlsPaths['PATHs'])) {
+          Log::addDebug('Removing Backups and Webps', $urlsPaths);
+          \wpSPIO()->getShortPixel()->maybeDumpFromProcessedOnServer($itemHandler, $urlsPaths);
+          \wpSPIO()->getShortPixel()->deleteBackupsAndWebPs($urlsPaths['PATHs']);
+      }
+
+      $itemHandler->deleteItemCache();
+      return $itemHandler; //return it because we call it also on replace and on replace we need to follow this by deleting SP metadata, on delete it
+    }
+
     // Rebuild the ThumbsOptList and others to fix old info, wrong builds.
     private function reCheckThumbnails()
     {
        // Redo only on non-processed images.
        if ($this->meta->getStatus() != \ShortPixelMeta::FILE_STATUS_SUCCESS)
        {
+         return;
+       }
+       if (! $this->file->exists())
+       {
+         Log::addInfo('Checking thumbnails for non-existing file', array($this->file));
          return;
        }
        $data = $this->facade->getRawMeta();
@@ -111,7 +227,7 @@ class ImageModel extends ShortPixelModel
       Log::addDebug('Finding Thumbs on path' . $meta->getPath());
       $thumbs = \WpShortPixelMediaLbraryAdapter::findThumbs($meta->getPath());
 
-      $fs = new FileSystemController();
+      $fs = \wpSPIO()->filesystem();
       $mainFile = $this->file;
 
       // Find Thumbs returns *full file path*

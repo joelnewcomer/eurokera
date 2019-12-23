@@ -3,7 +3,10 @@
 namespace WPML\ST\MO\File;
 
 
+use WPML\Collect\Support\Collection;
+use WPML\ST\TranslateWpmlString;
 use WPML\ST\TranslationFile\StringEntity;
+use function wpml_collect;
 
 class Generator {
 	/** @var MOFactory */
@@ -20,9 +23,10 @@ class Generator {
 	 */
 	public function getContent( array $entries ) {
 		$mo = $this->moFactory->createNewInstance();
-		\wpml_collect( $entries )->map( [ $this, 'mapEntry' ] )->each( function ( array $args ) use ( $mo ) {
-			$mo->add_entry( $args );
-		} );
+		wpml_collect( $entries )
+			->reduce( [ $this, 'createMOFormatEntities' ], wpml_collect( [] ) )
+			->filter( function( array $entry ) { return ! empty($entry['singular']); } )
+			->each( [ $mo, 'add_entry' ] );
 
 		$mem_file = fopen( 'php://memory', 'r+' );
 		$mo->export_to_file_handle( $mem_file );
@@ -36,18 +40,33 @@ class Generator {
 	}
 
 	/**
+	 * @param Collection   $carry
 	 * @param StringEntity $entry
+	 *
+	 * @return Collection
+	 */
+	public function createMOFormatEntities( $carry, StringEntity $entry ) {
+		$carry->push( $this->mapStringEntityToMOFormatUsing( $entry, 'original' ) );
+
+		if ( TranslateWpmlString::canTranslateWithMO( $entry->get_original(), $entry->get_name() ) ) {
+			$carry->push( $this->mapStringEntityToMOFormatUsing( $entry, 'name' ) );
+		}
+
+		return $carry;
+	}
+
+	/**
+	 * @param StringEntity $entry
+	 * @param string       $singularField
 	 *
 	 * @return array
 	 */
-	public function mapEntry( StringEntity $entry ) {
-		$args = [
-			'singular'     => $entry->get_original(),
+	private function mapStringEntityToMOFormatUsing( StringEntity $entry, $singularField ) {
+		return [
+			'singular'     => $entry->{'get_' . $singularField}(),
 			'translations' => $entry->get_translations(),
 			'context'      => $entry->get_context(),
 			'plural'       => $entry->get_original_plural(),
 		];
-
-		return $args;
 	}
 }

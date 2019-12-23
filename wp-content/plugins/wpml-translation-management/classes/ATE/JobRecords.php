@@ -46,7 +46,6 @@ class JobRecords {
 				'wpml_job_id'  => $job->wpmlJobId,
 				'ate_job_data' => [
 					'ate_job_id' => $job->ateJobId,
-					'is_editing' => $job->editTimestamp,
 				],
 			];
 		}
@@ -73,10 +72,6 @@ class JobRecords {
 			$job->ateJobId = $ateJobData[ self::FIELD_ATE_JOB_ID ];
 		}
 
-		if ( isset( $ateJobData[ self::FIELD_IS_EDITING ] ) ) {
-			$job->editTimestamp = $ateJobData[ self::FIELD_IS_EDITING ];
-		}
-
 		$this->persist( $job );
 	}
 
@@ -88,9 +83,9 @@ class JobRecords {
 
 		$this->wpdb->update(
 			$this->wpdb->prefix . 'icl_translate_job',
-			[ 'editor_job_id' => $job->ateJobId, 'edit_timestamp' => $job->editTimestamp ],
+			[ 'editor_job_id' => $job->ateJobId ],
 			[ 'job_id' => $job->wpmlJobId ],
-			[ '%d', '%d' ],
+			[ '%d' ],
 			[ '%d' ]
 		);
 	}
@@ -122,7 +117,7 @@ class JobRecords {
 		$whereHasJobIds = implode( ' OR ', $where );
 
 		$rows = $this->wpdb->get_results( "
-			SELECT job_id, editor_job_id, edit_timestamp
+			SELECT job_id, editor_job_id
 			FROM {$this->wpdb->prefix}icl_translate_job
 			WHERE editor = '" . WPML_TM_Editors::ATE . "' AND ({$whereHasJobIds})
 		" );
@@ -153,15 +148,6 @@ class JobRecords {
 	 */
 	public function get_ate_job_id( $wpmlJobId ) {
 		return $this->get( $wpmlJobId )->ateJobId;
-	}
-
-	/**
-	 * @param int $wpmlJobId
-	 */
-	public function set_editing_job( $wpmlJobId ) {
-		$job                = $this->get( $wpmlJobId );
-		$job->editTimestamp = time();
-		$this->persist( $job );
 	}
 
 	/**

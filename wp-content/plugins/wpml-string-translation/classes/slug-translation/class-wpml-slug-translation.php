@@ -320,8 +320,11 @@ class WPML_Slug_Translation implements IWPML_Action {
 
 			foreach ( $queryable_post_types as $type ) {
 				$post_type_obj = get_post_type_object( $type );
-				$slug          = trim( $post_type_obj->rewrite['slug'], '/' );
+				if ( null === $post_type_obj || ! isset( $post_type_obj->rewrite['slug'] ) ) {
+					continue;
+				}
 
+				$slug = trim( $post_type_obj->rewrite['slug'], '/' );
 				if ( $slug ) {
 					// First check if we should migrate from the old format URL slug: slug
 					$string_id = $wpdb->get_var( $wpdb->prepare( "SELECT id

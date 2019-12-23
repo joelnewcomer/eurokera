@@ -2,6 +2,8 @@
 
 namespace WPML\ST\MO\Scan\UI;
 
+use WPML\Collect\Support\Collection;
+use WPML\ST\MO\Generate\DomainsAndLanguagesRepository;
 use WPML\ST\MO\Generate\Process\ProcessFactory;
 use WPML_ST_Translations_File_Dictionary_Storage_Table;
 use WPML_ST_Translations_File_Dictionary;
@@ -23,13 +25,12 @@ class Factory implements \IWPML_Backend_Action_Loader {
 			global $sitepress;
 			$wp_api = $sitepress->get_wp_api();
 
-			$options            = make( OptionManager::class );
-			$pre_gen_dissmissed = $options->get( self::OPTION_GROUP, 'pregen-dismissed', false );
+			$pre_gen_dissmissed = self::isDismissed();
 			$st_page            = $wp_api->is_core_page( 'theme-localization.php' ) || $wp_api->is_string_translation_page();
 
 			if (
 				( $st_page || ( ! $st_page && ! $pre_gen_dissmissed ) )
-				&& ( $this->hasTranslationFilesTable() || is_network_admin() )
+				&& ( DomainsAndLanguagesRepository::hasTranslationFilesTable() || is_network_admin() )
 			) {
 				$files_to_import               = $st_page ? $this->getFilesToImport() : wpml_collect( [] );
 				$domains_to_pre_generate_count = self::getDomainsToPreGenerateCount();
@@ -44,7 +45,15 @@ class Factory implements \IWPML_Backend_Action_Loader {
 	}
 
 	/**
-	 * @return int
+	 * @return bool
+	 * @throws \Auryn\InjectionException
+	 */
+	public static function isDismissed() {
+		return make( OptionManager::class )->get( self::OPTION_GROUP, 'pregen-dismissed', false );
+	}
+
+	/**
+	 * @return Collection
 	 * @throws \Auryn\InjectionException
 	 */
 	private function getFilesToImport() {
@@ -56,7 +65,7 @@ class Factory implements \IWPML_Backend_Action_Loader {
 
 		$file_dictionary->clear_skipped();
 
-		return wpml_collect( $file_dictionary->get_not_imported_files() );
+		return InstalledComponents::filter( wpml_collect( $file_dictionary->get_not_imported_files() ) );
 	}
 
 	/**
@@ -83,14 +92,6 @@ class Factory implements \IWPML_Backend_Action_Loader {
 	 */
 	public static function getDomainsToPreGenerateCount() {
 		return self::isPreGenerationRequired() ? make( ProcessFactory::class )->create()->getPagesCount() : 0;
-	}
-
-	/**
-	 * @return bool
-	 * @throws \Auryn\InjectionException
-	 */
-	private function hasTranslationFilesTable() {
-		return make( \WPML_Upgrade_Schema::class )->does_table_exist( 'icl_mo_files_domains' );
 	}
 
 	/**

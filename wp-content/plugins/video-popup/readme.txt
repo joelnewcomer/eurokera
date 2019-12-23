@@ -2,8 +2,8 @@
 Contributors: Alobaidi
 Tags: video popup, youtube lightbox, popup, video lightbox, lightbox
 Requires at least: 2.6.0
-Tested up to: 5.2.3
-Stable tag: 1.1.0
+Tested up to: 5.3
+Stable tag: 1.1.1
 Requires PHP: 5.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -98,6 +98,10 @@ Unlock all the features, get it at a low price, and pay only once! [Get it now](
 * [Support and Contact](https://wp-plugins.in/VP-Support-and-Contact)
 
 == Changelog ==
+
+= 1.1.1 =
+
+1. We fixed an issue in JavaScript related to the “On Page Load” feature.
 
 = 1.1.0 =
 

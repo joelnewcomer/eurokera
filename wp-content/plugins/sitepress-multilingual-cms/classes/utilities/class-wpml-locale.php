@@ -127,7 +127,12 @@ class WPML_Locale {
 				$this->theme_locales_loaded = true;
 			}
 			add_filter( 'locale', array( $this->sitepress, 'locale_filter' ) );
-			$this->locale_cache = $locale;
+
+			if ( did_action( 'plugins_loaded' ) ) {
+				$this->locale_cache = $locale;
+			}
+
+			return $locale;
 		}
 
 		return $this->locale_cache;
@@ -211,7 +216,11 @@ class WPML_Locale {
 		$current_lang      = $this->sitepress->get_language_details( $this->sitepress->get_current_language() );
 		$needs_filter      = false;
 
-		if ( in_array( $current_lang['default_locale'], $lang_needs_filter ) ) {
+		if ( ! isset( $current_lang['default_locale'] ) ) {
+			return $needs_filter;
+		}
+
+		if ( in_array( $current_lang['default_locale'], $lang_needs_filter, true ) ) {
 			$needs_filter = true;
 		}
 

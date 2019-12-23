@@ -1,6 +1,7 @@
 <?php
 
 use WPML\TM\Editor\ClassicEditorActions;
+use function WPML\Container\make;
 
 /**
  * @return WPML_TM_Element_Translations
@@ -815,4 +816,8 @@ function wpml_tm_get_ams_ate_console_url() {
 	$admin_sections = WPML\Container\make( 'WPML_TM_Admin_Sections' );
 
 	return $admin_sections->get_item_url( WPML_TM_AMS_ATE_Console_Section::SLUG );
+}
+
+function wpml_tm_ate_ams_log( WPML\TM\ATE\Log\Entry $entry ) {
+	make( WPML\TM\ATE\Log\Storage::class )->add( $entry );
 }

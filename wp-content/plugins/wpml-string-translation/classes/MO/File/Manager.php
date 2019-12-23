@@ -2,6 +2,7 @@
 
 namespace WPML\ST\MO\File;
 
+use GlobIterator;
 use WPML\Collect\Support\Collection;
 use WPML\ST\TranslationFile\Domains;
 use WPML\ST\TranslationFile\StringsRetrieve;
@@ -38,5 +39,12 @@ class Manager extends \WPML\ST\TranslationFile\Manager {
 	 */
 	protected function getDomains() {
 		return $this->domains->getMODomains();
+	}
+
+	/**
+	 * @return bool
+	 */
+	public static function hasFiles() {
+		return (bool) ( new GlobIterator( self::getSubdir() . '/*.mo' ) )->count();
 	}
 }

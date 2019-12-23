@@ -8,7 +8,7 @@ class Lock implements ILock {
 	private $wpdb;
 
 	/** @var string  */
-	private $name;
+	protected $name;
 
 	/**
 	 * Lock constructor.
@@ -18,7 +18,7 @@ class Lock implements ILock {
 	 */
 	public function __construct( \wpdb $wpdb, $name ) {
 		$this->wpdb = $wpdb;
-		$this->name = 'wpml.' . $name;
+		$this->name = 'wpml.' . $name . '.lock';
 	}
 
 	/**
@@ -32,13 +32,12 @@ class Lock implements ILock {
 		if ( ! $release_timeout ) {
 			$release_timeout = HOUR_IN_SECONDS;
 		}
-		$lock_option = $this->name . '.lock';
 
 		// Try to lock.
-		$lock_result = $this->wpdb->query( $this->wpdb->prepare( "INSERT IGNORE INTO {$this->wpdb->options} ( `option_name`, `option_value`, `autoload` ) VALUES (%s, %s, 'no') /* LOCK */", $lock_option, time() ) );
+		$lock_result = $this->wpdb->query( $this->wpdb->prepare( "INSERT IGNORE INTO {$this->wpdb->options} ( `option_name`, `option_value`, `autoload` ) VALUES (%s, %s, 'no') /* LOCK */", $this->name, time() ) );
 
 		if ( ! $lock_result ) {
-			$lock_result = get_option( $lock_option );
+			$lock_result = get_option( $this->name );
 
 			// If a lock couldn't be created, and there isn't a lock, bail.
 			if ( ! $lock_result ) {
@@ -57,7 +56,7 @@ class Lock implements ILock {
 		}
 
 		// Update the lock, as by this point we've definitely got a lock, just need to fire the actions.
-		update_option( $lock_option, time() );
+		update_option( $this->name, time() );
 
 		return true;
 	}
@@ -68,7 +67,6 @@ class Lock implements ILock {
 	 * @return bool True if the lock was successfully released. False on failure.
 	 */
 	public function release() {
-		return delete_option( $this->name . '.lock' );
+		return delete_option( $this->name );
 	}
-
 }

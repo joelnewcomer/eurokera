@@ -74,7 +74,7 @@ class WPML_Displayed_String_Filter {
 	 *
 	 * @return string
 	 */
-	protected function truncate_long_string( $string ) {
+	public static function truncate_long_string( $string ) {
 		return strlen( $string ) > WPML_STRING_TABLE_NAME_CONTEXT_LENGTH
 			? mb_substr( $string, 0, WPML_STRING_TABLE_NAME_CONTEXT_LENGTH )
 			: $string;
