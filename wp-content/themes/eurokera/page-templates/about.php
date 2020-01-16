@@ -324,7 +324,7 @@ get_header(); ?>
 	<div class="row enviro-facts text-center">
 		<div class="recycled fact">
 			<?php $recycle_year = get_field('recycle_year'); ?>
-			<p><?php echo sprintf( __('<span class="h2"><span id="recycled-glass"></span>+</span> tons of glass recycled in %s within our manufacturing process at KeraGlass.','foundationpress'), $recycle_year); ?></p>
+			<p><?php echo sprintf( __('<span class="h2"><span id="recycled-glass"></span>+</span> tons of glass recycled yearly within our manufacturing process at KeraGlass.','foundationpress'), $recycle_year); ?></p>
 			<script>
 				jQuery(document).ready(function(){
 					// Make sure ID exists
@@ -358,13 +358,13 @@ get_header(); ?>
 			<p><?php _e('<strong><span class="caps">No</span> arsenic or antimony</strong> used to manufacture black substrates.','foundationpress'); ?></p>
 		</div>		
 		<div class="landfill fact">
-			<h2 id="landfills"></h2>
-			<p><?php _e('reduction in landfill waste between 2011 and 2014','foundationpress'); ?></p>
+			<h2 id="landfills">Focused</h2>
+			<p><?php _e('on landfill waste reduction, water conservation and all areas to reduce and reuse.','foundationpress'); ?></p>
 
 				<script>
 
 
-						jQuery(document).ready(function(){
+						/* jQuery(document).ready(function(){
 							var easingFn = function (t, b, c, d) {
 							  var ts = (t /= d) * t;
 							  var tc = ts * t;
@@ -386,7 +386,7 @@ get_header(); ?>
 								landfills.start();
 							}
 							inView('#environment').on('enter', startLandfillsAnim);
-						});
+						}); */
 				</script>
 			
 		</div>		
