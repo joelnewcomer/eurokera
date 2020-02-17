@@ -1,8 +1,24 @@
 <?php
 
 class WPML_ACF_Field_Settings {
-	public function __construct( TranslationManagement $iclTranslationManagement ) {
-		$this->iclTranslationManagement = $iclTranslationManagement;
+
+	/**
+	 * @var array Translation Managament settings indexes which should be updated.
+	 */
+	private $tm_setting_index = [ 'custom_fields_translation', 'custom_term_fields_translation' ];
+
+	/**
+	 * @var TranslationManagement TranslationManagement object.
+	 */
+	private $translation_management;
+
+	/**
+	 * WPML_ACF_Field_Settings constructor.
+	 *
+	 * @param TranslationManagement $translation_management TranslationManagement object.
+	 */
+	public function __construct( TranslationManagement $translation_management ) {
+		$this->translation_management = $translation_management;
 	}
 
 	public function add_hooks() {
@@ -57,10 +73,20 @@ class WPML_ACF_Field_Settings {
 		return $field;
 	}
 
+	/**
+	 * Synchronise translation preferences when user adds new field value on post edit screen.
+	 *
+	 * @param mixed $value   Field value being updated.
+	 * @param int   $post_id The ID of currrent post being updated.
+	 * @param array $field   The ACF field.
+	 * @param null  $_value  Deprecated.
+	 *
+	 * @return mixed
+	 */
 	public function field_value_updated( $value, $post_id, $field, $_value = null ) {
 
 		if ( $this->is_field_parsable( $field ) ) {
-			if ( !isset( $this->iclTranslationManagement->settings[ 'custom_fields_translation' ][ $field['name'] ] ) ) {
+			if ( ! isset( $this->translation_management->settings['custom_fields_translation'][ $field['name'] ] ) ) {
 				$this->save_field_settings( $field );
 			}
 		}
@@ -72,21 +98,33 @@ class WPML_ACF_Field_Settings {
 		return isset( $field['wpml_cf_preferences'], $field['name'] ) && $field['wpml_cf_preferences'] && $field['name'];
 	}
 
+	/**
+	 * Save translation preferences for custom field in Translation Management settings.
+	 *
+	 * @param array $field The ACF field being updated.
+	 */
 	private function save_field_settings( $field ) {
-		$this->iclTranslationManagement->settings[ 'custom_fields_translation' ][ $field['name'] ] = $field['wpml_cf_preferences'];
+		foreach ( $this->tm_setting_index as $setting_index ) {
+			$this->translation_management->settings[ $setting_index ][ $field['name'] ] = $field['wpml_cf_preferences'];
+		}
 		if ( (int) $field['wpml_cf_preferences'] !== WPML_IGNORE_CUSTOM_FIELD ) {
 			$this->update_corresponding_system_field_settings( $field['name'] );
 		}
-		$this->iclTranslationManagement->save_settings();
+		$this->translation_management->save_settings();
 	}
 
+	/**
+	 * Synchronises custom field translation preferences saved on post edit screen.
+	 *
+	 * @param array $cft Custom fields translation preferences.
+	 */
 	public function user_set_sync_preferences($cft) {
 
 		foreach ( $cft as $field_name => $field_preferences ) {
 			$post_id = $this->get_post_with_custom_field( $field_name );
 			$field_object = get_field_object( $field_name, $post_id );
 
-			if ( $field_object ) {
+			if ( $this->is_field_object_valid( $field_object ) ) {
 				if ( $field_object['wpml_cf_preferences'] != $field_preferences ) {
 					$field_post = get_post( $field_object['ID'] );
 					$field_post_content = maybe_unserialize( $field_post->post_content );
@@ -104,8 +142,26 @@ class WPML_ACF_Field_Settings {
 		remove_action( 'wpml_custom_fields_sync_option_updated', array( $this, 'user_set_sync_preferences' ), 10, 1);
 	}
 
+	/**
+	 * Validates ACF field object.
+	 *
+	 * @param array $field_object The ACF field object.
+	 *
+	 * @return bool
+	 */
+	private function is_field_object_valid( $field_object ) {
+		return is_array( $field_object ) && is_numeric( $field_object['ID'] ) && $field_object['ID'] > 0;
+	}
+
+	/**
+	 * Get ID of post having given ACF field.
+	 *
+	 * @param string $field_name ACF field name.
+	 *
+	 * @return object|string|void|null
+	 */
 	private function get_post_with_custom_field($field_name) {
-		$post_id = get_the_ID() || get_queried_object();
+		$post_id = get_the_ID() ?: get_queried_object();
 		if (!is_numeric($post_id)) {
 			global $wpdb;
 			$query = "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = '{$field_name}' LIMIT 1";
@@ -114,6 +170,11 @@ class WPML_ACF_Field_Settings {
 		return $post_id;
 	}
 
+	/**
+	 * Find current field subfields and udpate their translation preferences.
+	 *
+	 * @param array $field The ACF field.
+	 */
 	private function update_existing_subfields( $field ) {
 		if ( isset( $field['parent'] ) ) {
 			$parent_post_type = get_post_type( $field['parent'] );
@@ -130,7 +191,9 @@ class WPML_ACF_Field_Settings {
 							if ( substr( $custom_field->meta_key, 0, 1 ) !== "_" ) { // this is not a field with name starting with _
 								$acf_field_object = get_field_object( $custom_field->meta_key, $custom_field->post_id );
 								if ( $acf_field_object ) { // this is valid ACF field
-									$this->iclTranslationManagement->settings[ 'custom_fields_translation' ][ $custom_field->meta_key ] = $field['wpml_cf_preferences'];
+									foreach ( $this->tm_setting_index as $setting_index ) {
+										$this->translation_management->settings[ $setting_index ][ $custom_field->meta_key ] = $field['wpml_cf_preferences'];
+									}
 									if ( (int) $field['wpml_cf_preferences'] !== WPML_IGNORE_CUSTOM_FIELD ) {
 										$this->update_corresponding_system_field_settings( $custom_field->meta_key );
 									}
@@ -143,16 +206,33 @@ class WPML_ACF_Field_Settings {
 		}
 	}
 
+	/**
+	 * Find corresponding system fields and update theit translation preferences to "Copy".
+	 *
+	 * Correspoidng system fields' names starts with underscore. They always should be set to copy.
+	 *
+	 * @param string $field_name Current field name.
+	 */
 	private function update_corresponding_system_field_settings( $field_name ) {
 		$corresponding_field_name = "_" . $field_name;
-		if ( empty( $this->iclTranslationManagement->settings[ 'custom_fields_translation' ][ $corresponding_field_name ] ) ) {
-			$this->iclTranslationManagement->settings[ 'custom_fields_translation' ][ $corresponding_field_name ] = WPML_COPY_CUSTOM_FIELD;
+		foreach ( $this->tm_setting_index as $setting_index ) {
+			if ( empty( $this->translation_management->settings[ $setting_index ][ $corresponding_field_name ] ) ) {
+				$this->translation_management->settings[ $setting_index ][ $corresponding_field_name ] = WPML_COPY_CUSTOM_FIELD;
+			}
 		}
 
 	}
 
+	/**
+	 * Adds excalamtion mark with title to the field which translation preferences hasn't been set yet.
+	 *
+	 * @param string $label ACF field's label.
+	 * @param array  $field ACF field's metadata.
+	 *
+	 * @return string Field's label updated with exclamation mark.
+	 */
 	public function mark_not_migrated_field( $label, $field ) {
-		if ( !isset( $field['wpml_cf_preferences'] ) ) {
+		if ( ! isset( $field['wpml_cf_preferences'] ) && $field['ID'] > 0 ) {
 			$post_exist = $this->get_post_with_custom_field( $field['name'] );
 			if ( $post_exist ) {
 				$label .= ' <span class="dashicons dashicons-warning acfml-not-migrated"

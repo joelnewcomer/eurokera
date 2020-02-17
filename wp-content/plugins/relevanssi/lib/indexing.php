@@ -1199,7 +1199,6 @@ function relevanssi_index_custom_fields( &$insert_data, $post_id, $custom_fields
 		 * @param int    $post_id The post ID.
 		 */
 		$values = apply_filters( 'relevanssi_custom_field_value', get_post_meta( $post_id, $field, false ), $field, $post_id );
-
 		if ( empty( $values ) || ! is_array( $values ) ) {
 			continue;
 		}
@@ -1227,15 +1226,23 @@ function relevanssi_index_custom_fields( &$insert_data, $post_id, $custom_fields
 			}
 
 			if ( $debug ) {
-				relevanssi_debug_echo( "\tKey: " . $field . ' – value: ' . $value );
+				relevanssi_debug_echo( "\tKey: " . $field . ' - value: ' . $value );
+			}
+
+			$context      = 'custom_field';
+			$remove_stops = true;
+			if ( '_relevanssi_pdf_content' === $field ) {
+				$context      = 'body';
+				$remove_stops = 'body';
 			}
 
 			/** This filter is documented in lib/indexing.php */
 			$value_tokens = apply_filters(
 				'relevanssi_indexing_tokens',
-				relevanssi_tokenize( $value, true, $min_word_length ),
-				'custom_field'
+				relevanssi_tokenize( $value, $remove_stops, $min_word_length ),
+				$context
 			);
+
 			foreach ( $value_tokens as $token => $count ) {
 				$n++;
 				if ( ! isset( $insert_data[ $token ]['customfield'] ) ) {

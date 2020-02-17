@@ -18,11 +18,20 @@ class WPML_ACF_Dependencies_Factory {
 	private $annotations;
 	private $xliff;
 	private $blocks;
+	/**
+	 * @var WPML_ACF_Repeater_Shuffle
+	 */
+	private $repeater_shuffle;
 	private $field_groups;
 
+	/**
+	 * WPML_ACF_Options_Page factory.
+	 *
+	 * @return WPML_ACF_Options_Page
+	 */
 	public function create_options_page() {
 		if ( ! $this->options_page ) {
-			$this->options_page = new WPML_ACF_Options_Page();
+			$this->options_page = new WPML_ACF_Options_Page( $this->get_sitepress() );
 		}
 
 		return $this->options_page;
@@ -130,6 +139,17 @@ class WPML_ACF_Dependencies_Factory {
 		}
 
 		return $this->blocks;
+	}
+
+	/**
+	 * @return WPML_ACF_Repeater_Shuffle
+	 */
+	public function create_repeater_shuffle() {
+		if ( ! $this->repeater_shuffle ) {
+			$this->repeater_shuffle = new WPML_ACF_Repeater_Shuffle();
+		}
+
+		return $this->repeater_shuffle;
 	}
 
 	public function create_field_groups() {

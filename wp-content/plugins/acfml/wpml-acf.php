@@ -5,7 +5,7 @@
  * Author: OnTheGoSystems
  * Plugin URI: https://wpml.org/
  * Author URI: http://www.onthegosystems.com/
- * Version: 1.5.0
+ * Version: 1.6.0
  *
  * @package WPML\ACF
  */
