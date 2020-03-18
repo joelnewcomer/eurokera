@@ -291,3 +291,49 @@ function mobile_read_more( $atts, $content = null ) {
 	return $content;
 }
 add_shortcode ('mobile-read-more', 'mobile_read_more');
+
+/**
+ * Allow cache flushing to be called independently of web hook
+ *	https://github.com/a7/wpe-cache-flush/blob/master/wpe-cache-flush.php
+ * @return string|bool
+ */
+function cache_flush() {
+	// Don't cause a fatal if there is no WpeCommon class
+	if ( ! class_exists( 'WpeCommon' ) ) {
+		return false;
+	}
+
+	if ( function_exists( 'WpeCommon::purge_memcached' ) ) {
+		\WpeCommon::purge_memcached();
+	}
+
+	if ( function_exists( 'WpeCommon::clear_maxcdn_cache' ) ) {
+		\WpeCommon::clear_maxcdn_cache();
+	}
+
+	if ( function_exists( 'WpeCommon::purge_varnish_cache' ) ) {
+		\WpeCommon::purge_varnish_cache();
+	}
+
+	global $wp_object_cache;
+	// Check for valid cache. Sometimes this is broken -- we don't know why! -- and it crashes when we flush.
+	// If there's no cache, we don't need to flush anyway.
+	$error = '';
+
+	if ( $wp_object_cache && is_object( $wp_object_cache ) ) {
+		try {
+			wp_cache_flush();
+		} catch ( \Exception $ex ) {
+			$error = "Warning: error flushing WordPress object cache: " . $ex->getMessage();
+		}
+	}
+
+	return $error;
+}
+
+
+// Clear WP Engine cache when post is updated
+function force_clear_cache( $post_id ) {
+    cache_flush();
+}
+add_action( 'save_post', 'force_clear_cache' );
