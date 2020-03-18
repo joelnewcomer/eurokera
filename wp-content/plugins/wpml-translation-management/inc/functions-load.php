@@ -205,14 +205,14 @@ function wpml_tm_load_tp_networking() {
  * @return WPML_TM_Blog_Translators
  */
 function wpml_tm_load_blog_translators() {
-	global $wpdb, $sitepress, $wpml_post_translations, $wpml_term_translations;
+	global $wpdb, $sitepress, $wpml_post_translations, $wpml_term_translations, $wpml_cache_factory;
 	static $instance;
 
 	if ( ! $instance ) {
 		$tm_records         = new WPML_TM_Records( $wpdb, $wpml_post_translations, $wpml_term_translations );
 		$translator_records = new WPML_Translator_Records( $wpdb, new WPML_WP_User_Query_Factory(), wp_roles() );
 
-		$instance = new WPML_TM_Blog_Translators( $sitepress, $tm_records, $translator_records );
+		$instance = new WPML_TM_Blog_Translators( $sitepress, $tm_records, $translator_records, $wpml_cache_factory );
 	}
 
 	return $instance;

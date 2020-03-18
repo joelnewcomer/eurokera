@@ -6,6 +6,7 @@ use WPML\TM\TranslationProxy\Services\Project\SiteDetails;
 class WPML_TP_Project_API extends WPML_TP_API {
 
 	const API_VERSION = 1.1;
+	CONST PROJECTS_ENDPOINT = '/projects.json';
 
 	/**
 	 * @throws WPML_TP_API_Exception
@@ -13,7 +14,7 @@ class WPML_TP_Project_API extends WPML_TP_API {
 	public function refresh_language_pairs() {
 		$this->log( 'Refresh language pairs -> Request sent' );
 
-		$request = new WPML_TP_API_Request( '/projects' );
+		$request = new WPML_TP_API_Request( self::PROJECTS_ENDPOINT );
 		$request->set_method( 'PUT' );
 		$request->set_params( [
 			'project'                => [ 'refresh_language_pairs' => 1 ],
@@ -47,7 +48,7 @@ class WPML_TP_Project_API extends WPML_TP_API {
 			'client'        => $site_details->getClientData(),
 		];
 
-		$request = new WPML_TP_API_Request( '/projects' );
+		$request = new WPML_TP_API_Request( self::PROJECTS_ENDPOINT );
 		$request->set_method( 'POST' );
 		$request->set_params( $params );
 
@@ -61,7 +62,7 @@ class WPML_TP_Project_API extends WPML_TP_API {
 	 * @throws WPML_TP_API_Exception
 	 */
 	public function update_project_credentials( Project $project, \stdClass $credentials ) {
-		$request = new WPML_TP_API_Request( '/projects' );
+		$request = new WPML_TP_API_Request( self::PROJECTS_ENDPOINT );
 		$request->set_method( 'PUT' );
 		$request->set_params( [
 			'api_version' => self::API_VERSION,

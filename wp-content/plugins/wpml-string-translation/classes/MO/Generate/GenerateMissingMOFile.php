@@ -7,6 +7,7 @@ use WPML\ST\MO\File\makeDir;
 use WPML\ST\MO\Hooks\LoadMissingMOFiles;
 use WPML\ST\TranslationFile\StringsRetrieve;
 use WPML\WP\OptionManager;
+use function WPML\Container\make;
 
 class MissingMOFile {
 
@@ -53,7 +54,7 @@ class MissingMOFile {
 	public function run( $generateMoPath, $domain ) {
 		$processed = $this->getProcessed();
 		if ( ! $processed->contains( $generateMoPath ) && $this->maybeCreateSubdir() ) {
-			$locale  = ( new \WPML_ST_Translations_File_Locale( $generateMoPath, $domain ) )->get();
+			$locale = make( \WPML_ST_Translations_File_Locale::class )->get( $generateMoPath, $domain );
 			$strings = $this->stringsRetrieve->get(
 				$domain,
 				$this->languageRecords->get_language_code( $locale ),

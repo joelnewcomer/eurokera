@@ -693,8 +693,8 @@ class WPML_Translations_Queue {
 	public static function get_cookie_filters() {
 		$filters = array();
 
-		if ( isset( $_COOKIE['translation_ujobs_filter'] ) ) {
-			parse_str( $_COOKIE['translation_ujobs_filter'], $filters );
+		if ( isset( $_COOKIE['wp-translation_ujobs_filter'] ) ) {
+			parse_str( $_COOKIE['wp-translation_ujobs_filter'], $filters );
 
 			$filters = filter_var_array(
 				$filters,

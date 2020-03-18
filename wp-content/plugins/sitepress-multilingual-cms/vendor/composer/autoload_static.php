@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit465e35b95a547ddc09e8974522110b99
+class ComposerStaticInit6400304068293a3b12208e1f8822753a
 {
     public static $files = array (
         '5f5b8f7c1db2e892006e8805f0ed573c' => __DIR__ . '/..' . '/wpml/collect/src/Illuminate/Support/helpers.php',
@@ -121,6 +121,9 @@ class ComposerStaticInit465e35b95a547ddc09e8974522110b99
         'WPML\\AbsoluteLinks\\BlockProtector' => __DIR__ . '/../..' . '/inc/absolute-links/BlockProtector.php',
         'WPML\\Action\\Type' => __DIR__ . '/../..' . '/classes/action-filter-loader/class-wpml-action-type.php',
         'WPML\\Ajax\\Locale' => __DIR__ . '/../..' . '/classes/ajax/Locale.php',
+        'WPML\\Compatibility\\Divi\\DynamicContent' => __DIR__ . '/../..' . '/compatibility/divi/dynamic-content.php',
+        'WPML\\Compatibility\\Divi\\Search' => __DIR__ . '/../..' . '/compatibility/divi/search.php',
+        'WPML\\Compatibility\\Divi\\ThemeBuilder' => __DIR__ . '/../..' . '/compatibility/divi/theme-builder.php',
         'WPML\\Container\\Config' => __DIR__ . '/../..' . '/classes/container/class-config.php',
         'WPML\\Container\\Container' => __DIR__ . '/../..' . '/classes/container/class-wpml-container.php',
         'WPML\\Core\\REST\\RewriteRules' => __DIR__ . '/../..' . '/classes/REST/RewriteRules.php',
@@ -503,10 +506,15 @@ class ComposerStaticInit465e35b95a547ddc09e8974522110b99
         'WPML\\Core\\Twig_Util_DeprecationCollector' => __DIR__ . '/../..' . '/lib/twig/lib/Twig/Util/DeprecationCollector.php',
         'WPML\\Core\\Twig_Util_TemplateDirIterator' => __DIR__ . '/../..' . '/lib/twig/lib/Twig/Util/TemplateDirIterator.php',
         'WPML\\Notices\\DismissNotices' => __DIR__ . '/../..' . '/classes/notices/DismissNotices.php',
+        'WPML\\PB\\Cornerstone\\Utils' => __DIR__ . '/..' . '/wpml/page-builders-cornerstone/src/class-wpml-cornerstone-utils.php',
         'WPML\\PB\\Elementor\\Hooks\\DynamicElements' => __DIR__ . '/..' . '/wpml/page-builders-elementor/src/Hooks/DynamicElements.php',
         'WPML\\PB\\Elementor\\LanguageSwitcher\\LanguageSwitcher' => __DIR__ . '/..' . '/wpml/page-builders-elementor/src/LanguageSwitcher/LanguageSwitcher.php',
         'WPML\\PB\\Elementor\\LanguageSwitcher\\Widget' => __DIR__ . '/..' . '/wpml/page-builders-elementor/src/LanguageSwitcher/Widget.php',
         'WPML\\PB\\Elementor\\LanguageSwitcher\\WidgetAdaptor' => __DIR__ . '/..' . '/wpml/page-builders-elementor/src/LanguageSwitcher/WidgetAdaptor.php',
+        'WPML\\PB\\Gutenberg\\ConvertIdsInBlock\\Base' => __DIR__ . '/..' . '/wpml/page-builders-gutenberg/src/IdsInBlock/Base.php',
+        'WPML\\PB\\Gutenberg\\ConvertIdsInBlock\\BlockAttributes' => __DIR__ . '/..' . '/wpml/page-builders-gutenberg/src/IdsInBlock/BlockAttributes.php',
+        'WPML\\PB\\Gutenberg\\ConvertIdsInBlock\\Composite' => __DIR__ . '/..' . '/wpml/page-builders-gutenberg/src/IdsInBlock/Composite.php',
+        'WPML\\PB\\Gutenberg\\ConvertIdsInBlock\\TagAttributes' => __DIR__ . '/..' . '/wpml/page-builders-gutenberg/src/IdsInBlock/TagAttributes.php',
         'WPML\\PB\\Gutenberg\\Integration' => __DIR__ . '/..' . '/wpml/page-builders-gutenberg/src/interface-integration.php',
         'WPML\\PB\\Gutenberg\\Integration_Composite' => __DIR__ . '/..' . '/wpml/page-builders-gutenberg/src/class-integration-composite.php',
         'WPML\\PB\\Gutenberg\\ReusableBlocks\\AdminIntegration' => __DIR__ . '/..' . '/wpml/page-builders-gutenberg/src/reusable-blocks/class-admin-integration.php',
@@ -771,36 +779,6 @@ class ComposerStaticInit465e35b95a547ddc09e8974522110b99
         'WPML_Elementor_WooCommerce_Hooks_Factory' => __DIR__ . '/..' . '/wpml/page-builders-elementor/src/class-wpml-elementor-woocommerce-hooks-factory.php',
         'WPML_Encoding' => __DIR__ . '/../..' . '/classes/utilities/class-wpml-encoding.php',
         'WPML_Encoding_Validation' => __DIR__ . '/../..' . '/classes/utilities/class-wpml-encoding-validation.php',
-        'WPML_End_User_Account_Creation_Disabled' => __DIR__ . '/../..' . '/classes/end-user/disabling/class-wpml-end-user-account-creation-disabled.php',
-        'WPML_End_User_Account_Creation_Disabled_Option' => __DIR__ . '/../..' . '/classes/end-user/disabling/class-wpml-end-user-account-creation-disabled-option.php',
-        'WPML_End_User_Confirmation_Auth' => __DIR__ . '/../..' . '/classes/end-user/confirmation/class-auth.php',
-        'WPML_End_User_Confirmation_Auth_Data' => __DIR__ . '/../..' . '/classes/end-user/confirmation/class-auth-data.php',
-        'WPML_End_User_Confirmation_Factory' => __DIR__ . '/../..' . '/classes/end-user/confirmation/class-wpml-end-user-confirmation-factory.php',
-        'WPML_End_User_Dependency_Container' => __DIR__ . '/../..' . '/classes/end-user/class-wpml-end-user-dependency-container.php',
-        'WPML_End_User_Info' => __DIR__ . '/../..' . '/classes/end-user/info/class-wpml-end-user-info.php',
-        'WPML_End_User_Info_Aggregator_Repository' => __DIR__ . '/../..' . '/classes/end-user/info/repository/class-wpml-end-user-info-aggregator-repository.php',
-        'WPML_End_User_Info_Loader' => __DIR__ . '/../..' . '/classes/end-user/info/class-wpml-end-user-info-loader.php',
-        'WPML_End_User_Info_Model' => __DIR__ . '/../..' . '/classes/end-user/info/class-wpml-end-user-info-model.php',
-        'WPML_End_User_Info_Plugin_Data' => __DIR__ . '/../..' . '/classes/end-user/info/class-wpml-end-user-info-plugin-data.php',
-        'WPML_End_User_Info_Plugin_List' => __DIR__ . '/../..' . '/classes/end-user/info/class-wpml-end-user-info-plugin-list.php',
-        'WPML_End_User_Info_Plugins_Repository' => __DIR__ . '/../..' . '/classes/end-user/info/repository/class-wpml-end-user-info-plugins-repository.php',
-        'WPML_End_User_Info_Repository' => __DIR__ . '/../..' . '/classes/end-user/info/repository/class-wpml-end-user-info-repository.php',
-        'WPML_End_User_Info_Site' => __DIR__ . '/../..' . '/classes/end-user/info/class-wpml-end-user-info-site.php',
-        'WPML_End_User_Info_Site_Repository' => __DIR__ . '/../..' . '/classes/end-user/info/repository/class-wpml-end-user-info-site-repository.php',
-        'WPML_End_User_Info_Theme' => __DIR__ . '/../..' . '/classes/end-user/info/class-wpml-end-user-info-theme.php',
-        'WPML_End_User_Info_Theme_Repository' => __DIR__ . '/../..' . '/classes/end-user/info/repository/class-wpml-end-user-info-theme-repository.php',
-        'WPML_End_User_Info_WP_User' => __DIR__ . '/../..' . '/classes/end-user/info/class-wpml-end-user-info-wp-user.php',
-        'WPML_End_User_Info_WP_User_Repository' => __DIR__ . '/../..' . '/classes/end-user/info/repository/class-wpml-end-user-info-wp-user-repository.php',
-        'WPML_End_User_JS_Loader' => __DIR__ . '/../..' . '/classes/end-user/class-wpml-end-user-js-loader.php',
-        'WPML_End_User_Loader' => __DIR__ . '/../..' . '/classes/end-user/class-wpml-end-user-loader.php',
-        'WPML_End_User_Loader_Factory' => __DIR__ . '/../..' . '/classes/end-user/class-wpml-end-user-loader-factory.php',
-        'WPML_End_User_Notice' => __DIR__ . '/../..' . '/classes/end-user/notice/class-wpml-end-user-notice.php',
-        'WPML_End_User_Notice_Action_Execution' => __DIR__ . '/../..' . '/classes/end-user/notice/class-wpml-end-user-notice-action-execution.php',
-        'WPML_End_User_Notice_Collection' => __DIR__ . '/../..' . '/classes/end-user/notice/class-wpml-end-user-notice-collection.php',
-        'WPML_End_User_Notice_Loader' => __DIR__ . '/../..' . '/classes/end-user/notice/class-wpml-end-user-notice-loader.php',
-        'WPML_End_User_Notice_Validate' => __DIR__ . '/../..' . '/classes/end-user/notice/class-wpml-end-user-notice-validate.php',
-        'WPML_End_User_Page_Identify' => __DIR__ . '/../..' . '/classes/end-user/class-wpml-end-user-page-identify.php',
-        'WPML_End_User_Registration_Confirmation' => __DIR__ . '/../..' . '/classes/end-user/confirmation/class-wpml-end-user-registration-confirmation.php',
         'WPML_Endpoints_Support' => __DIR__ . '/../..' . '/classes/url-handling/class-wpml-endpoints-support.php',
         'WPML_Endpoints_Support_Factory' => __DIR__ . '/../..' . '/classes/url-handling/class-wpml-endpoints-support-factory.php',
         'WPML_File' => __DIR__ . '/../..' . '/classes/class-wpml-file.php',
@@ -1317,10 +1295,10 @@ class ComposerStaticInit465e35b95a547ddc09e8974522110b99
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit465e35b95a547ddc09e8974522110b99::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit465e35b95a547ddc09e8974522110b99::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit465e35b95a547ddc09e8974522110b99::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit465e35b95a547ddc09e8974522110b99::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6400304068293a3b12208e1f8822753a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6400304068293a3b12208e1f8822753a::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit6400304068293a3b12208e1f8822753a::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit6400304068293a3b12208e1f8822753a::$classMap;
 
         }, null, ClassLoader::class);
     }

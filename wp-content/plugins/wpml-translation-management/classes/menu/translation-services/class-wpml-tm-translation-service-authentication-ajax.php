@@ -132,14 +132,14 @@ class WPML_TM_Translation_Service_Authentication_Ajax {
 	/**
 	 * @return bool
 	 */
-	private function is_valid_request() {
+	public function is_valid_request() {
 		return isset( $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], self::AJAX_ACTION );
 	}
 
 	/**
 	 * @return bool
 	 */
-	private function is_valid_request_with_params() {
+	public function is_valid_request_with_params() {
 		return isset( $_POST['service_id'], $_POST['custom_fields'] ) && $this->is_valid_request();
 	}
 }

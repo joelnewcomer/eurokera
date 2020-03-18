@@ -206,8 +206,8 @@ class WPML_TM_Menus_Management extends WPML_TM_Menus {
 		$this->current_language = $sitepress->get_current_language();
 		$this->source_language  = TranslationProxy_Basket::get_source_language();
 
-		if ( isset( $_COOKIE['translation_dashboard_filter'] ) ) {
-			parse_str( $_COOKIE['translation_dashboard_filter'], $this->translation_filter );
+		if ( isset( $_COOKIE['wp-translation_dashboard_filter'] ) ) {
+			parse_str( $_COOKIE['wp-translation_dashboard_filter'], $this->translation_filter );
 
 			$this->translation_filter = filter_var_array(
 				$this->translation_filter,
@@ -224,6 +224,11 @@ class WPML_TM_Menus_Management extends WPML_TM_Menus {
 				)
 			);
 		}
+
+		$this->translation_filter['sort_by']    = isset( $_SESSION['wp-translation_dashboard_filter']['sort_by'] ) ?
+			$_SESSION['wp-translation_dashboard_filter']['sort_by'] : null;
+		$this->translation_filter['sort_order'] = isset( $_SESSION['wp-translation_dashboard_filter']['sort_order'] ) ?
+			$_SESSION['wp-translation_dashboard_filter']['sort_order'] : null;
 
 		if ( $this->source_language || ! isset( $this->translation_filter['from_lang'] ) ) {
 			if ( $this->source_language ) {
@@ -836,6 +841,7 @@ class WPML_TM_Menus_Management extends WPML_TM_Menus {
 					'_icl_nonce_send_basket_commit' => wp_create_nonce( 'send_basket_commit_nonce' ),
 					'_icl_nonce_check_basket_name'  => wp_create_nonce( 'check_basket_name_nonce' ),
 					'_icl_nonce_refresh_deadline'   => wp_create_nonce( 'wpml-tm-jobs-deadline-estimate-ajax-action' ),
+					'_icl_nonce_rollback_basket'    => wp_create_nonce( 'rollback_basket_nonce' ),
 				),
 				'translation_service_enabled'  => $translation_service_enabled,
 				'current_user_only_translator' => $isTheOnlyAvailableTranslator,

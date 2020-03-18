@@ -2,10 +2,10 @@
 /**
  * Plugin Name: WPML Multilingual CMS
  * Plugin URI: https://wpml.org/
- * Description: WPML Multilingual CMS | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/wpml-4-3-6/">WPML 4.3.6 release notes</a>
+ * Description: WPML Multilingual CMS | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/wpml-4-3-10/">WPML 4.3.10 release notes</a>
  * Author: OnTheGoSystems
  * Author URI: http://www.onthegosystems.com/
- * Version: 4.3.6
+ * Version: 4.3.10
  * Plugin Slug: sitepress-multilingual-cms
  *
  * @package WPML\Core
@@ -27,7 +27,7 @@ if ( ! \WPML\Requirements\WordPress::checkMinimumRequiredVersion() ) {
 	return;
 }
 
-define( 'ICL_SITEPRESS_VERSION', '4.3.6' );
+define( 'ICL_SITEPRESS_VERSION', '4.3.10' );
 
 // Do not uncomment the following line!
 // If you need to use this constant, use it in the wp-config.php file
@@ -181,8 +181,6 @@ if ( $sitepress->is_setup_complete() ) {
 		'WPML_Copy_Once_Custom_Field_Factory',
 		'WPML_Adjacent_Links_Hooks_Factory',
 		'WPML_Widgets_Support_Factory',
-		'WPML_End_User_Loader_Factory',
-		'WPML_End_User_Confirmation_Factory',
 		'WPML_Admin_Resources_Hooks_Factory',
 		'WPML_Themes_Plugin_Localization_UI_Hooks_Factory',
 		'WPML_Theme_Plugin_Localization_Options_Ajax_Factory',

@@ -4,20 +4,10 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb2a29cf95e014557b26cbea49d7f9b31
+class ComposerStaticInit023f39df0ff6841724e9fe5037f014dc
 {
     public static $files = array (
         'b45b351e6b6f7487d819961fef2fda77' => __DIR__ . '/..' . '/jakeasmith/http_build_url/src/http_build_url.php',
-    );
-
-    public static $prefixesPsr0 = array (
-        'x' => 
-        array (
-            'xrstf\\Composer52' => 
-            array (
-                0 => __DIR__ . '/..' . '/xrstf/composer-php52/lib',
-            ),
-        ),
     );
 
     public static $classMap = array (
@@ -59,6 +49,7 @@ class ComposerStaticInitb2a29cf95e014557b26cbea49d7f9b31
         'WPML\\TM\\ATE\\Sync\\Process' => __DIR__ . '/../..' . '/classes/ATE/Sync/Process.php',
         'WPML\\TM\\ATE\\Sync\\Result' => __DIR__ . '/../..' . '/classes/ATE/Sync/Result.php',
         'WPML\\TM\\ATE\\Sync\\Trigger' => __DIR__ . '/../..' . '/classes/ATE/Sync/Trigger.php',
+        'WPML\\TM\\AdminBar\\Hooks' => __DIR__ . '/../..' . '/classes/admin-bar/Hooks.php',
         'WPML\\TM\\Container\\Config' => __DIR__ . '/../..' . '/classes/container/class-config.php',
         'WPML\\TM\\Editor\\ClassicEditorActions' => __DIR__ . '/../..' . '/classes/editor/ClassicEditorActions.php',
         'WPML\\TM\\Jobs\\Utils\\ElementLink' => __DIR__ . '/../..' . '/classes/jobs/utils/ElementLink.php',
@@ -629,8 +620,7 @@ class ComposerStaticInitb2a29cf95e014557b26cbea49d7f9b31
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInitb2a29cf95e014557b26cbea49d7f9b31::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitb2a29cf95e014557b26cbea49d7f9b31::$classMap;
+            $loader->classMap = ComposerStaticInit023f39df0ff6841724e9fe5037f014dc::$classMap;
 
         }, null, ClassLoader::class);
     }

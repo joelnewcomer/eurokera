@@ -108,21 +108,21 @@ class WPML_TM_Dashboard {
 			return $results;
 		}
 
-		$query_args = array(
-			'post_type'                => $post_types,
-			'order_by'                 => $args['sort_by'],
-			'order'                    => $args['sort_order'],
-			'posts_per_page'           => $args['limit_no'] + 1,
-			'post_status'              => $args['status'],
-			'post_language'            => $args['from_lang'],
-			'post_language_to'         => $args['to_lang'],
-			'post_translation_status'  => $args['tstatus'],
-			'suppress_filters'         => false,
-			'update_post_meta_cache'   => false,
-			'update_post_term_cache'   => false,
-			'no_found_rows'            => true,
-			'offset'                   => $offset,
-		);
+		$query_args = [
+			'post_type'               => $post_types,
+			'orderby'                 => $args['sort_by'],
+			'order'                   => $args['sort_order'],
+			'posts_per_page'          => $args['limit_no'] + 1,
+			'post_status'             => $args['status'],
+			'post_language'           => $args['from_lang'],
+			'post_language_to'        => $args['to_lang'],
+			'post_translation_status' => $args['tstatus'],
+			'suppress_filters'        => false,
+			'update_post_meta_cache'  => false,
+			'update_post_term_cache'  => false,
+			'no_found_rows'           => true,
+			'offset'                  => $offset,
+		];
 
 		if ( 'any' !== $args['parent_type'] ) {
 			switch ( $args['parent_type'] ) {

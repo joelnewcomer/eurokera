@@ -212,6 +212,12 @@ class WPML_TM_Translation_Status_Display {
 
 			if ( $is_local_job_in_progress || $translation_exists ) {
 				$job_id = $this->job_factory->job_id_by_trid_and_lang( $trid, $lang );
+				if ( $job_id && ! is_admin() ) {
+					$job_object = $this->job_factory->get_translation_job( $job_id, false, 0, true );
+					if ( $job_object && ! $job_object->user_can_translate( wp_get_current_user() ) ) {
+						return $link;
+					}
+				}
 			}
 
 			if ( $job_id ) {
@@ -284,7 +290,7 @@ class WPML_TM_Translation_Status_Display {
 	private function get_return_url() {
 		$args = array( 'wpml_tm_saved', 'wpml_tm_cancel' );
 
-		if ( wpml_is_ajax() ) {
+		if ( wpml_is_ajax() || ! is_admin() ) {
 			if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
 				return remove_query_arg( $args, $_SERVER['HTTP_REFERER'] );
 			}

@@ -214,6 +214,10 @@ class ShortPixelPlugin
 
   public function admin_notices()
   {
+      if (! \wpSPIO()->env()->is_screen_to_use )
+      {
+          return;
+      }
       $noticeControl = Notices::getInstance();
       $noticeControl->loadIcons(array(
           'normal' => '<img class="short-pixel-notice-icon" src="' . plugins_url('res/img/slider.png', SHORTPIXEL_PLUGIN_FILE) . '">',
@@ -233,6 +237,14 @@ class ShortPixelPlugin
           foreach($notices as $notice)
           {
             echo $notice->getForDisplay();
+
+            if ($notice->getID() == adminNoticesController::MSG_QUOTA_REACHED || $notice->getID() == adminNoticesController::MSG_UPGRADE_MONTH
+            || $notice->getID() == adminNoticesController::MSG_UPGRADE_BULK)
+            {
+              wp_enqueue_script('jquery.knob.min.js');
+              wp_enqueue_script('jquery.tooltip.min.js');
+              wp_enqueue_script('shortpixel');
+            }
           }
         }
       }

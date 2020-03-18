@@ -150,10 +150,12 @@ class WPML_ACF_Repeater_Shuffle {
 			if ( false !== $found ) {
 				$key_was = array_values( $key_was );
 				$key_is  = array_values( $key_is );
-				$changed = array(
-					'was' => array_shift( $key_was ),
-					'is'  => array_shift( $key_is ),
-				);
+				if ( $key_was && $key_is ) {
+					$changed = [
+						'was' => array_shift( $key_was ),
+						'is'  => array_shift( $key_is ),
+					];
+				}
 			}
 		}
 		return $changed;

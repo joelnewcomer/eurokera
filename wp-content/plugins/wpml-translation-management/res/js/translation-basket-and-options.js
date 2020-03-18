@@ -44,7 +44,7 @@
 					return false;
 				}
 			);
-			
+
 			function Translation_Jobs() {
 				var form = jQuery('#translation-jobs-translators-form');
 				var form_send_button = form.find('.button-primary');
@@ -63,10 +63,10 @@
 
 				var init = function () {
 					form.bind('submit', submit_form);
-					
+
 					// prevent sending basket by pressing Enter
 					form.bind("keypress", function(e) {
-						if (e.keyCode == 13) {               
+						if (e.keyCode == 13) {
 							e.preventDefault();
 							return false;
 						}
@@ -245,12 +245,12 @@
 
 					return translators;
 				};
-				
+
 				var get_extra_fields = function () {
 					var items  =  jQuery('#basket_extra_fields_list').find(':input').get();
 					var string = '';
 					var items_total = jQuery(items).length;
-					
+
 					if (items_total > 0) {
 						jQuery(items).each(function (index, elm) {
 							string += elm.name +":"+ jQuery(elm).val();
@@ -259,7 +259,7 @@
 							}
 						});
 					}
-					
+
 					return encodeURIComponent(string);
 				};
 
@@ -355,7 +355,7 @@
 							},
 							error:    function (jqXHR, textStatus) {
 								show_errors(jqXHR, textStatus);
-                                batch_send_basket_to_tp_rollback();
+                                show_rollback_message();
 							}
 						}
 					);
@@ -390,9 +390,9 @@
 						batch_size = Math.ceil(20 / langs.length); // 1 to 20
 						batch_size = Math.min(5, batch_size); // 1 to 5
 					}
-					
+
 					batch_number++;
-					
+
 					var extra_fields = get_extra_fields();
 
 					var batch_length = batch_basket_items.length;
@@ -448,8 +448,12 @@
                                 }
                             },
                             error: function (jqXHR, textStatus) {
+                            	if (jqXHR.status >= 500) {
+									request_rollback_for_batch(basket_name);
+								}
+
                                 show_errors(jqXHR, textStatus);
-                                batch_send_basket_to_tp_rollback();
+                                show_rollback_message();
                             }
                         }
                     );
@@ -534,23 +538,39 @@
 
 								} else {
                                     handle_response(result);
-                                    batch_send_basket_to_tp_rollback();
+                                    show_rollback_message();
 								}
                             },
 							error:    function (jqXHR, textStatus) {
 								show_errors(jqXHR, textStatus);
-                                batch_send_basket_to_tp_rollback();
+                                show_rollback_message();
                             }
 						}
 					);
 				};
 
-                var batch_send_basket_to_tp_rollback = function () {
+                var show_rollback_message = function () {
                     update_message(tm_basket_data.strings['rollbacks'], false, 'error', false);
                     update_message(tm_basket_data.strings['rolled'], false, 'error', true);
                     progress_bar_object.complete(progressbar_finish_text, progressbar_callback);
                 };
 
+                var request_rollback_for_batch = function(basket_name) {
+                	var action = 'rollback_basket';
+
+					jQuery.ajax(
+						{
+							type: "POST",
+							url: ajaxurl,
+							dataType: 'json',
+							data: {
+								action: action,
+								_icl_nonce: get_nonce(action),
+								basket_name: basket_name
+							}
+						}
+					);
+				};
 
 				var batch_send_basket_to_tp_completed = function (response) {
 					progress_bar_object.complete(progressbar_finish_text, progressbar_callback);
@@ -576,7 +596,7 @@
 					} else {
                         form_delete_button.removeAttr('disabled');
                         form_send_button.removeAttr('disabled').show();
-                        batch_send_basket_to_tp_rollback();
+                        show_rollback_message();
 					}
 				};
 

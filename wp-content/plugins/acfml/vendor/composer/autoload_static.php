@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit8c8d3b9a17a9fd418ee15510e0073441
+class ComposerStaticInit391fc288a370a9be7e1ce561fcdf93a2
 {
     public static $classMap = array (
         'WPML_ACF' => __DIR__ . '/../..' . '/classes/class-wpml-acf.php',
@@ -43,7 +43,7 @@ class ComposerStaticInit8c8d3b9a17a9fd418ee15510e0073441
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit8c8d3b9a17a9fd418ee15510e0073441::$classMap;
+            $loader->classMap = ComposerStaticInit391fc288a370a9be7e1ce561fcdf93a2::$classMap;
 
         }, null, ClassLoader::class);
     }

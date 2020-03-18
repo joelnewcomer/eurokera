@@ -81,10 +81,6 @@ class WPML_Translations extends WPML_SP_User {
 					continue;
 				}
 
-				if ( $this->wpml_element_type_is_taxonomy( $wpml_element_type ) ) {
-					$translation->element_id = $translation->term_id;
-				}
-
 				$translations[ $translation->language_code ] = $translation;
 			}
 		}

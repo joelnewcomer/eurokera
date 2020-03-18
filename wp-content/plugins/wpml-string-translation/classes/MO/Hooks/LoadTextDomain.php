@@ -33,6 +33,7 @@ class LoadTextDomain implements \IWPML_Action {
 
 	public function add_hooks() {
 		add_filter( 'override_load_textdomain', [ $this, 'overrideLoadTextDomain' ], 10, 3 );
+		add_filter( 'override_unload_textdomain', [ $this, 'overrideUnloadTextDomain' ], 10, 2 );
 		add_action( 'wpml_language_has_switched', [ $this, 'languageHasSwitched' ] );
 	}
 
@@ -54,6 +55,10 @@ class LoadTextDomain implements \IWPML_Action {
 	 * @return bool
 	 */
 	public function overrideLoadTextDomain( $override, $domain, $mofile ) {
+		if ( ! $mofile ) {
+			return $override;
+		}
+
 		$this->loaded_mo_dictionary->addFile( $domain, $mofile );
 
 		$locale = $this->file_locale->get( $mofile, $domain );
@@ -69,6 +74,22 @@ class LoadTextDomain implements \IWPML_Action {
 		}
 
 		$this->setCustomMOLoaded( $domain );
+
+		return $override;
+	}
+
+	/**
+	 * @param bool $override
+	 * @param string $domain
+	 *
+	 * @return bool
+	 */
+	public function overrideUnloadTextDomain( $override, $domain ) {
+		$key = array_search( $domain, $this->loaded_domains );
+
+		if ( false !== $key ) {
+			unset( $this->loaded_domains[ $key ] );
+		}
 
 		return $override;
 	}

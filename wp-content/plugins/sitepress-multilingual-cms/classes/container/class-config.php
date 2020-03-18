@@ -46,6 +46,7 @@ class Config {
 			\WPML_Locale::class               => [ \WPML_Locale::class, 'get_instance_from_sitepress' ],
 			\WPML_Post_Translation::class     => [ \WPML_Post_Translation::class, 'getGlobalInstance' ],
 			\WPML_Term_Translation::class     => [ \WPML_Term_Translation::class, 'getGlobalInstance' ],
+			\WPML_URL_Converter::class        => [ \WPML_URL_Converter::class, 'getGlobalInstance' ],
 		];
 	}
 }

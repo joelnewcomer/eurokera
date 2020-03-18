@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitba972e454f24083560e5a8ac9283933b
+class ComposerStaticInit2ada449fed76c22f7f63694a02da41ad
 {
     public static $classMap = array (
         'IWPML_ST_Rewrite_Rule_Filter' => __DIR__ . '/../..' . '/classes/slug-translation/iwpml-st-rewrite-rule-filter.php',
@@ -42,10 +42,12 @@ class ComposerStaticInitba972e454f24083560e5a8ac9283933b
         'WPML\\ST\\MO\\Generate\\Process\\SubSiteValidator' => __DIR__ . '/../..' . '/classes/MO/Generate/Process/SubSiteValidator.php',
         'WPML\\ST\\MO\\Generate\\StringsRetrieveMOOriginals' => __DIR__ . '/../..' . '/classes/MO/Generate/StringsRetrieveMOOriginals.php',
         'WPML\\ST\\MO\\Hooks\\CustomTextDomains' => __DIR__ . '/../..' . '/classes/MO/Hooks/CustomTextDomains.php',
+        'WPML\\ST\\MO\\Hooks\\DetectPrematurelyTranslatedStrings' => __DIR__ . '/../..' . '/classes/MO/Hooks/DetectPrematurelyTranslatedStrings.php',
         'WPML\\ST\\MO\\Hooks\\Factory' => __DIR__ . '/../..' . '/classes/MO/Hooks/Factory.php',
         'WPML\\ST\\MO\\Hooks\\LanguageSwitch' => __DIR__ . '/../..' . '/classes/MO/Hooks/LanguageSwitch.php',
         'WPML\\ST\\MO\\Hooks\\LoadMissingMOFiles' => __DIR__ . '/../..' . '/classes/MO/Hooks/LoadMissingMOFiles.php',
         'WPML\\ST\\MO\\Hooks\\LoadTextDomain' => __DIR__ . '/../..' . '/classes/MO/Hooks/LoadTextDomain.php',
+        'WPML\\ST\\MO\\Hooks\\PreloadThemeMoFile' => __DIR__ . '/../..' . '/classes/MO/Hooks/PreloadThemeMoFile.php',
         'WPML\\ST\\MO\\JustInTime\\DefaultMO' => __DIR__ . '/../..' . '/classes/MO/JustInTime/DefaultMO.php',
         'WPML\\ST\\MO\\JustInTime\\MO' => __DIR__ . '/../..' . '/classes/MO/JustInTime/MO.php',
         'WPML\\ST\\MO\\JustInTime\\MOFactory' => __DIR__ . '/../..' . '/classes/MO/JustInTime/MOFactory.php',
@@ -105,6 +107,7 @@ class ComposerStaticInitba972e454f24083560e5a8ac9283933b
         'WPML_File_Name_Converter' => __DIR__ . '/../..' . '/classes/strings-scanning/class-wpml-file-name-converter.php',
         'WPML_Language_Of_Domain' => __DIR__ . '/../..' . '/classes/class-wpml-language-of-domain.php',
         'WPML_Localization' => __DIR__ . '/../..' . '/inc/wpml-localization.class.php',
+        'WPML_PHP_Version_Check' => __DIR__ . '/..' . '/wpml-shared/wpml-lib-dependencies/src/dependencies/class-wpml-php-version-check.php',
         'WPML_PO_Import' => __DIR__ . '/../..' . '/inc/gettext/wpml-po-import.class.php',
         'WPML_PO_Import_Strings' => __DIR__ . '/../..' . '/classes/po-import/class-wpml-po-import-strings.php',
         'WPML_PO_Import_Strings_Scripts' => __DIR__ . '/../..' . '/classes/po-import/class-wpml-po-import-strings-scripts.php',
@@ -285,7 +288,6 @@ class ComposerStaticInitba972e454f24083560e5a8ac9283933b
         'WPML_String_Translation_Table' => __DIR__ . '/../..' . '/classes/string-translation-ui/class-wpml-string-translation-table.php',
         'WPML_Strings_Translation_Priority' => __DIR__ . '/../..' . '/classes/string-translation/class-wpml-strings-translation-priority.php',
         'WPML_TM_Filters' => __DIR__ . '/../..' . '/classes/filters/class-wpml-tm-filters.php',
-        'WPML_TM_Widget_Filter' => __DIR__ . '/../..' . '/classes/filters/class-wpml-tm-widget-filter.php',
         'WPML_Tax_Slug_Translation_Records' => __DIR__ . '/../..' . '/classes/slug-translation/taxonomy/wpml-tax-slug-translation-records.php',
         'WPML_Theme_String_Scanner' => __DIR__ . '/../..' . '/inc/gettext/wpml-theme-string-scanner.class.php',
         'WPML_Translation_Priority_Select' => __DIR__ . '/../..' . '/classes/string-translation-ui/class-wpml-translation-priority-select.php',
@@ -295,7 +297,7 @@ class ComposerStaticInitba972e454f24083560e5a8ac9283933b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInitba972e454f24083560e5a8ac9283933b::$classMap;
+            $loader->classMap = ComposerStaticInit2ada449fed76c22f7f63694a02da41ad::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -106,19 +106,19 @@ class WPML_LS_Render extends WPML_SP_User {
 	 * @return array
 	 */
 	public function get_preview( $slot ) {
-		$ret  = array();
+		$ret = [];
 
 		if ( $slot->is_menu() ) {
 			$ret['html'] = $this->render_menu_preview( $slot );
-		} else if ( $slot->is_post_translations() ) {
+		} elseif ( $slot->is_post_translations() ) {
 			$ret['html'] = $this->post_translations_label( $slot );
 		} else {
 			$ret['html'] = $this->render( $slot );
 		}
 
-		$ret['css']      = $this->current_template->get_styles( true );
-		$ret['js']       = $this->current_template->get_scripts( true );
-		$ret['styles']   = $this->inline_styles->get_slots_inline_styles( array( $slot ) );
+		$ret['css']    = $this->current_template->get_styles( true );
+		$ret['js']     = $this->current_template->get_scripts( true );
+		$ret['styles'] = $this->inline_styles->get_slots_inline_styles( [ $slot ] );
 
 		return $ret;
 	}

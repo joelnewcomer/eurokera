@@ -3,7 +3,7 @@
 use WPML\ST\Gettext\AutoRegisterSettings;
 
 /** @var WPML_String_Translation $WPML_String_Translation */
-global $sitepress, $WPML_String_Translation, $wpdb, $wpml_st_string_factory, $wp_query;
+global $sitepress, $WPML_String_Translation, $wpdb, $wp_query;
 
 $string_settings = $WPML_String_Translation->get_strings_settings();
 

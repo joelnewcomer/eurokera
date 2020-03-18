@@ -28,6 +28,20 @@ abstract class WPML_Translation_Roles_Records {
 		$this->wp_roles           = $wp_roles;
 	}
 
+	public function has_users_with_capability() {
+		$sql = "
+				SELECT EXISTS( 
+				   SELECT user_id
+				   FROM {$this->wpdb->usermeta}
+				   WHERE meta_key = '{$this->wpdb->prefix}capabilities' AND meta_value LIKE %s
+				)
+			";
+
+		$sql = $this->wpdb->prepare( $sql, '%' . $this->get_capability() . '%' );
+
+		return (bool) $this->wpdb->get_var( $sql );
+	}
+
 	/**
 	 * @return array
 	 */

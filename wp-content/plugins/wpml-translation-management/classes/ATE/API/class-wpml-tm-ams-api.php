@@ -88,7 +88,8 @@ class WPML_TM_AMS_API {
 
 	/**
 	 * @return array|mixed|null|object|WP_Error
-	 * @throws \InvalidArgumentException
+	 *
+	 * @throws \InvalidArgumentException Exception.
 	 */
 	public function get_status() {
 		$result = null;
@@ -109,7 +110,7 @@ class WPML_TM_AMS_API {
 
 				if ( ! is_wp_error( $result ) ) {
 					$registration_data = $this->get_registration_data();
-					if ( (bool) $response_body['activated'] ) {
+					if ( isset( $response_body['activated'] ) && (bool) $response_body['activated'] ) {
 						$registration_data['status'] = WPML_TM_ATE_Authentication::AMS_STATUS_ACTIVE;
 						$this->set_registration_data( $registration_data );
 					}

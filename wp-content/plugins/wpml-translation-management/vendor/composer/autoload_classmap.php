@@ -44,6 +44,7 @@ return array(
     'WPML\\TM\\ATE\\Sync\\Process' => $baseDir . '/classes/ATE/Sync/Process.php',
     'WPML\\TM\\ATE\\Sync\\Result' => $baseDir . '/classes/ATE/Sync/Result.php',
     'WPML\\TM\\ATE\\Sync\\Trigger' => $baseDir . '/classes/ATE/Sync/Trigger.php',
+    'WPML\\TM\\AdminBar\\Hooks' => $baseDir . '/classes/admin-bar/Hooks.php',
     'WPML\\TM\\Container\\Config' => $baseDir . '/classes/container/class-config.php',
     'WPML\\TM\\Editor\\ClassicEditorActions' => $baseDir . '/classes/editor/ClassicEditorActions.php',
     'WPML\\TM\\Jobs\\Utils\\ElementLink' => $baseDir . '/classes/jobs/utils/ElementLink.php',

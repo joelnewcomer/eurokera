@@ -169,7 +169,7 @@ class WPML_Pro_Translation extends WPML_TM_Job_Factory_User {
 		$icl_methods['translationproxy.test_xmlrpc']        = '__return_true';
 		$icl_methods['translationproxy.updated_job_status'] = array(
 			$this,
-			'xmlrpc_updated_job_status_with_log',
+			'xmlrpc_updated_job_status',
 		);
 
 		$methods = array_merge( $methods, $icl_methods );
@@ -188,7 +188,7 @@ class WPML_Pro_Translation extends WPML_TM_Job_Factory_User {
 	 *
 	 * @return int|IXR_Error
 	 */
-	public function xmlrpc_updated_job_status_with_log( $args ) {
+	public function xmlrpc_updated_job_status( $args ) {
 		global $wpdb;
 
 		$tp_id     = isset( $args[0] ) ? $args[0] : 0;
@@ -229,19 +229,6 @@ class WPML_Pro_Translation extends WPML_TM_Job_Factory_User {
 					);
 					$apply_tp_translation->apply( $job );
 
-				}
-
-				if ( $job_updated ) {
-					$logger = new WPML_Jobs_XMLRPC_Fetch_Log( $this, new WPML_Jobs_Fetch_Log_Settings(), new WPML_Jobs_Fetch_Log_Job( $this ) );
-
-					$job_data = array(
-						'id'              => $tp_id,
-						'cms_id'          => $cms_id,
-						'job_state'       => $status,
-						'source_language' => false,
-						'target_language' => false
-					);
-					$logger->log_job_data( $job_data );
 				}
 
 				return 1;

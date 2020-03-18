@@ -111,6 +111,9 @@ add_action( 'after_setup_theme', 'wpml_themes_integration_setup' );
  * Loads compatibility classes for active themes.
  */
 function wpml_themes_integration_setup() {
+
+	$actions = [];
+
 	if ( function_exists( 'twentyseventeen_panel_count' ) && ! function_exists( 'twentyseventeen_translate_panel_id' ) ) {
 		$wpml_twentyseventeen = new WPML_Compatibility_2017();
 		$wpml_twentyseventeen->init_hooks();
@@ -125,8 +128,13 @@ function wpml_themes_integration_setup() {
 	}
 
 	if ( defined( 'ET_BUILDER_THEME' ) || defined( 'ET_BUILDER_PLUGIN_VERSION' ) ) {
-		global $sitepress;
-		$divi = new WPML_Compatibility_Divi( $sitepress );
-		$divi->add_hooks();
+		$actions[] = WPML_Compatibility_Divi::class;
+		$actions[] = WPML\Compatibility\Divi\ThemeBuilder::class;
+		$actions[] = WPML\Compatibility\Divi\DynamicContent::class;
+		$actions[] = WPML\Compatibility\Divi\Search::class;
 	}
+
+	$action_filter_loader = new WPML_Action_Filter_Loader();
+	$action_filter_loader->load( $actions );
 }
+

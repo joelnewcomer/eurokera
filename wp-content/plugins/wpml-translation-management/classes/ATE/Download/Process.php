@@ -39,8 +39,8 @@ class Process {
 				$job = $this->queue->getFirst();
 
 				if ( $job ) {
-					$processedJob = $this->consumer->process( $job );
 					$this->queue->remove( $job );
+					$processedJob = $this->consumer->process( $job );
 
 					if ( ! $processedJob ) {
 						throw new Exception( 'The translation job could not be applied.' );
@@ -49,9 +49,7 @@ class Process {
 					$result->processedJobs->push( $processedJob );
 				}
 			} catch ( Exception $e ) {
-				// @todo: Check which action to take depending on the situation.
-				$currentJob = $processedJob ?: $job;
-				$this->logException( $e, $currentJob );
+				$this->logException( $e, $processedJob ?: $job );
 			}
 
 			$processedJob = null;

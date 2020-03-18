@@ -41,6 +41,7 @@ abstract class WPML_Translation_Roles_Ajax extends WPML_TM_AJAX implements IWPML
 			$user->remove_cap( $this->get_capability() );
 			$this->on_remove_role( $user );
 			do_action( 'wpml_tm_ate_synchronize_' . $this->get_role() . 's' );
+			do_action( 'wpml_tm_remove_translation_role', $user, $this->get_capability() );
 			wp_send_json_success();
 		} else {
 			wp_send_json_error( __( 'Could not find user!', 'wpml-translation-management' ) );
@@ -74,6 +75,7 @@ abstract class WPML_Translation_Roles_Ajax extends WPML_TM_AJAX implements IWPML
 				);
 
 				do_action( 'wpml_tm_ate_synchronize_' . $this->get_role() . 's' );
+				do_action( 'wpml_tm_add_translation_role', $user, $this->get_capability() );
 
 				if ( $this->post_vars->post( 'sendEmail', FILTER_VALIDATE_BOOLEAN ) ) {
 					$this->send_instructions_to_user( $user );

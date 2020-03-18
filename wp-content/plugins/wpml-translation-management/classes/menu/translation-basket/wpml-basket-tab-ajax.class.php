@@ -26,10 +26,11 @@ class WPML_Basket_Tab_Ajax {
 		$request = filter_input( INPUT_POST, 'action' );
 		$nonce   = filter_input( INPUT_POST, '_icl_nonce' );
 		if ( $request && $nonce && wp_verify_nonce( $nonce, $request . '_nonce' ) ) {
-			add_action( 'wp_ajax_send_basket_items', array( $this, 'begin_basket_commit' ) );
-			add_action( 'wp_ajax_send_basket_item', array( $this, 'send_basket_chunk' ) );
-			add_action( 'wp_ajax_send_basket_commit', array( $this, 'send_basket_commit' ) );
-			add_action( 'wp_ajax_check_basket_name', array( $this, 'check_basket_name' ) );
+			add_action( 'wp_ajax_send_basket_items', [ $this, 'begin_basket_commit' ] );
+			add_action( 'wp_ajax_send_basket_item', [ $this, 'send_basket_chunk' ] );
+			add_action( 'wp_ajax_send_basket_commit', [ $this, 'send_basket_commit' ] );
+			add_action( 'wp_ajax_check_basket_name', [ $this, 'check_basket_name' ] );
+			add_action( 'wp_ajax_rollback_basket', [ $this, 'rollback_basket' ] );
 		}
 	}
 
@@ -168,10 +169,19 @@ class WPML_Basket_Tab_Ajax {
 	 * @uses \WPML_Translation_Basket::check_basket_name
 	 */
 	function check_basket_name() {
-		$basket_name            = filter_input( INPUT_POST, 'basket_name', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES );
 		$basket_name_max_length = TranslationProxy::get_current_service_batch_name_max_length();
 
-		wp_send_json_success( $this->basket->check_basket_name( $basket_name, $basket_name_max_length ) );
+		wp_send_json_success( $this->basket->check_basket_name( $this->get_basket_name(), $basket_name_max_length ) );
+	}
+
+	public function rollback_basket() {
+		$this->networking->rollback_basket_commit( $this->get_basket_name() );
+		wp_send_json_success();
+	}
+
+	/** @return string */
+	private function get_basket_name() {
+		return filter_input( INPUT_POST, 'basket_name', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES );
 	}
 
 	private static function sanitize_errors( $source ) {
@@ -211,10 +221,7 @@ class WPML_Basket_Tab_Ajax {
 			'errors'   => $errors
 		);
 		if ( ! empty( $errors ) ) {
-			$this->networking->rollback_basket_commit( filter_input( INPUT_POST,
-			                                                         'basket_name',
-			                                                         FILTER_SANITIZE_STRING,
-			                                                         FILTER_FLAG_NO_ENCODE_QUOTES ) );
+			$this->networking->rollback_basket_commit( $this->get_basket_name() );
 			wp_send_json_error( self::sanitize_errors( $result ) );
 		} else {
 			$this->basket->delete_all_items();
