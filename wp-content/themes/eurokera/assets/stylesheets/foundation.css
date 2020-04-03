@@ -2453,7 +2453,7 @@ body.admin-bar:not(.home) .header-wrapper.fixed {
         font-size: 14px; } }
     @media only screen and (max-width: 711px) and (min-width: 40.063em) {
       .top-header a {
-        padding: 6px 3px;
+        padding: 6px 2px;
         font-size: 13px; } }
     @media only screen and (max-width: 40em) {
       .top-header a {
