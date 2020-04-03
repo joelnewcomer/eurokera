@@ -2439,11 +2439,11 @@ body.admin-bar:not(.home) .header-wrapper.fixed {
     display: inline-block;
     color: #fff;
     font-size: 18px;
-    padding: 2px 14px; }
+    padding: 2px 12px; }
     @media only screen and (max-width: 1020px) and (min-width: 40.063em) {
       .top-header a {
         padding: 2px 8px; } }
-    @media only screen and (max-width: 830px) and (min-width: 40.063em) {
+    @media only screen and (max-width: 941px) and (min-width: 40.063em) {
       .top-header a {
         padding: 4px 6px;
         font-size: 16px; } }
@@ -7227,7 +7227,6 @@ h2.resp-accordion {
   cursor: pointer;
   cursor: hand;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
 
@@ -7246,7 +7245,6 @@ h2.resp-accordion {
 
 .owl-carousel.owl-drag .owl-item {
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
 
