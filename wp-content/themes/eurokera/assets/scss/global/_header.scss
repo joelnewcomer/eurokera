@@ -235,6 +235,10 @@ body.admin-bar:not(.home) .header-wrapper.fixed {
 			padding: 6px 4px;
 			font-size: 14px;		
 		}
+		@media only screen and (max-width: 711px) and (min-width: 40.063em) {
+			padding: 6px 3px;
+			font-size: 13px;		
+		}
 		@media only screen and (max-width: 40em) {
 			font-size: 24px;	
 		}
